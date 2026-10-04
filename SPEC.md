@@ -62,7 +62,8 @@ These rules are not optional and override any feature request.
 3. **No personal data.** Do not collect or show information about private individuals.
 4. **Respect source terms and licenses.** Check each data source's terms of use before using it (some conflict datasets restrict redistribution). Record license notes in `docs/sources.md`.
 5. **No secrets in the repo.** API keys live in a local `.env` file that is listed in `.gitignore`.
-6. **Disclaimer** — shown on every page (short version in the footer, full version on an "About" page):
+6. **Never bypass access blocks** (no user-agent spoofing, no VPN workarounds).
+7. **Disclaimer** — shown on every page (short version in the footer, full version on an "About" page):
 
 > **Short:** Independent analysis project. Not an official warning service. In a crisis, follow your national authorities.
 >
@@ -144,15 +145,17 @@ Manual indicators are honest by design: they are clearly labeled "analyst input"
 
 ## 6. Data sources (to verify in M0)
 
+M0 was run on 2026-10-04 from a host in FI. Verdicts below. Details in `docs/sources.md`.
+
 | Source | Feeds | Notes / risks |
 |---|---|---|
-| GDELT (news database, Russian-language media included) | I1, I2, backtest | Free. History from 2015 makes the 2021–22 backtest possible. |
-| Russian state media feeds (TASS, RIA, MFA) | I1, I2 live | May block or throttle foreign traffic — test early. |
-| Russian navigation warnings / live-fire closures | C1 | Source and format to be identified. |
-| GPS interference data (e.g. gpsjam.org) | H1 | Check if automated access is possible and allowed. |
-| Official intelligence reports (Supo, Estonian Foreign Intelligence Service, Lithuanian VSD, Danish DDIS, etc.) | C2, context | Manual reading, annual/periodic. |
-| Think-tank reporting (e.g. ISW) | C2, H2 | Manual, cite source and date. |
-| Official incident reports from regional governments | H2 | Manual. |
+| GDELT (news database, Russian-language media included) | I1, I2, backtest | **PARTLY.** Raw GKG files work and cover 2015 onward, including 2021-01-01 to 2022-02-24 (198.47 GiB of GKG). DOC 2.0 API returned HTTP 429 for this host and is not used. No BigQuery CLI, so no dry-run. One day (2021-06-15) stream-filtered to state outlets plus a location mention of FI/EE/LV/LT/PL kept 13 rows; 100% had a page title. That hit rate is too thin, and several headlines do not name those countries, so the location tag is noisy. Do not treat one day as proof that I1 will be dense. |
+| Russian state media feeds (TASS, RIA, MFA) | I1, I2 live | **PARTLY.** TASS English and RIA RSS work with a normal research user-agent. Current day only, no full text, no archive. TASS Russian returned 403 to that user-agent and is skipped (no spoofing). MFA RSS URLs were rejected. |
+| Russian navigation warnings / live-fire closures | C1 | **PARTLY.** `mil.ru` times out from this host. Current Russian Petersburg and Kaliningrad warnings are on the Swedish Baltic NAVTEX page as HTML and are parseable. In-force list only. No 2021 archive found. Allied notices on that page are not stored. |
+| GPS interference data (e.g. gpsjam.org) | H1 | **PARTLY.** Daily CSV is a plain GET from 2022-02-14. No data before that, so it cannot cover the backtest start. No license stated on the about page. Not used until the owner allows public use (§12). |
+| Official intelligence reports (Supo, Estonian Foreign Intelligence Service, Lithuanian VSD, Danish DDIS, etc.) | C2, context | Manual reading, annual/periodic. Not tested in M0. |
+| Think-tank reporting (e.g. ISW) | C2, H2 | Manual, cite source and date. Not tested in M0. |
+| Official incident reports from regional governments | H2 | Manual. Not tested in M0. |
 
 ---
 
@@ -178,6 +181,7 @@ The prompt for summaries lives in `prompts/summary.md` and is version-controlled
 
 - **Period:** January 2021 – 24 February 2022 (the buildup before Russia's full-scale invasion of Ukraine). The region differs from ours, but the method is the same.
 - **No hindsight:** for each simulated date, only use information that was published **before** that date. Manual inputs are reconstructed from dated sources only.
+- **Data method:** stream-filtered raw GDELT GKG (download a file, keep matching rows, delete the zip). DOC API, RSS, and gpsjam are **not** used for the backtest. RSS has no 2021 archive. gpsjam starts 2022-02-14. DOC did not return data from this host.
 - **Mostly Intent layer:** historical data for other layers is sparse. The backtest is honest about this.
 - **Report:** when would the model have reached Elevated / Serious, how many weeks before 24 Feb 2022, and how many false alarms along the way.
 - **Results are published in the app** (Depth 3 / About page), including weaknesses.
@@ -188,6 +192,7 @@ The prompt for summaries lives in `prompts/summary.md` and is version-controlled
 
 **Principle:** keep it simple, explainable and easy to move to a public website in Stage 2.
 
+- **Intent source:** GKG is the primary Intent source for both the backtest and live running. RSS (TASS English, RIA) is a supplement for the current day only, not a backtest source.
 - **Language:** Python 3.11+
 - **Storage:** SQLite (one local file)
 - **Pipeline:** Python scripts that fetch → store → score → write JSON output
@@ -252,6 +257,7 @@ The prompt for summaries lives in `prompts/summary.md` and is version-controlled
 
 ## 12. Open questions / parking lot
 
+- Ask the gpsjam owner for permission before any public use of its data.
 - Final project name.
 - Exact source for Russian navigation warnings (C1).
 - Whether automated GPS interference data is available (H1).
