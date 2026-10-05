@@ -15,22 +15,32 @@ A JSON array with one object per input id, same order:
 ```json
 {
   "id": "string",
-  "relevant_to_region": true,
+  "relevant": "yes",
+  "hostile_framing": "no",
   "F1": 0,
   "F2": 0,
   "F3": 0,
   "F4": 0,
   "F5": 0,
   "F6": 0,
+  "F7_other": 0,
   "reason": "one line"
 }
 ```
 
-Scores are integers 0, 1, or 2 only.
+`relevant` and `hostile_framing` are the strings `yes` or `no`. Frame scores are integers 0, 1, or 2 only.
 
 ## Relevance
 
-`relevant_to_region` is true only if the headline is about Finland, Estonia, Latvia, Lithuania, or Poland, including Kaliningrad when the headline is about that region. A passing mention, a tagged place that is not the subject, or a story about another country is false. If false, set every frame to 0.
+`relevant` is `yes` if the headline is about Finland, Estonia, Latvia, Lithuania, or Poland, including Kaliningrad, on any topic. Sport, weather, a court case, a school policy, a price change, and politics are all relevant when the subject is one of those places. Topic does not decide relevance.
+
+A passing mention, or a story about another country, is `relevant` `no`. If `relevant` is `no`, set `hostile_framing` to `no` and every frame to 0.
+
+## Hostile framing
+
+`hostile_framing` is `yes` only when the wording tells the reader how to feel about that country: it blames, accuses, threatens, or uses loaded words. Neutral fact reporting is `no`, even if the facts are unpleasant.
+
+If `hostile_framing` is `no`, every frame is 0. Score frames only when `hostile_framing` is `yes`.
 
 ## Frames
 
@@ -40,6 +50,7 @@ Scores are integers 0, 1, or 2 only.
 - F4 NATO or the West preparing aggression, or militarizing near Russia
 - F5 Russophobia, or a hostile or discriminating state
 - F6 threats of a Russian military response or retaliation
+- F7_other a hostile cue that is not F1–F6
 
 ## Scoring
 
@@ -47,5 +58,5 @@ Scores are integers 0, 1, or 2 only.
 - 1 = mild, a hint, or a loaded word.
 - 2 = strong or central to the headline.
 - Quoted Russian officials count.
-- When unsure, pick the lower score.
+- When a frame is unclear, pick the lower score.
 - `reason` is one short line, naming the cue, not a verdict on the facts.
