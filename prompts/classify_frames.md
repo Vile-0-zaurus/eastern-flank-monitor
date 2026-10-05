@@ -30,17 +30,18 @@ A JSON array with one object per input id, same order:
 
 `relevant` and `hostile_framing` are the strings `yes` or `no`. Frame scores are integers 0, 1, or 2 only.
 
-## Relevance
+## Rules
 
-`relevant` is `yes` if the headline is about Finland, Estonia, Latvia, Lithuania, or Poland, including Kaliningrad, on any topic. Sport, weather, a court case, a school policy, a price change, and politics are all relevant when the subject is one of those places. Topic does not decide relevance.
+1. "About the region" means about Finland, Estonia, Latvia, Lithuania, or Poland, on any topic. Sport, weather, prices, courts, and schools are relevant when the subject is one of those countries.
+2. Kaliningrad local or domestic news is not about the region. It is Russia. It is relevant only if it involves one of the five countries, NATO, borders, or the military.
+3. Ukraine-only or Russia-only news is not about the region, even if NATO is mentioned.
+4. Judge the wording, not the topic. A neutral report on a sensitive topic — language policy, monuments, minorities — is ordinary news unless the wording itself is loaded.
+5. Scare quotes around the target country's own terms, such as «советская оккупация», are mild hostile framing.
+6. A quote from the target country's officials is not Russian framing. A quote from Russian officials is.
 
-A passing mention, or a story about another country, is `relevant` `no`. If `relevant` is `no`, set `hostile_framing` to `no` and every frame to 0.
+If `relevant` is `no`, set `hostile_framing` to `no` and every frame to 0.
 
-## Hostile framing
-
-`hostile_framing` is `yes` only when the wording tells the reader how to feel about that country: it blames, accuses, threatens, or uses loaded words. Neutral fact reporting is `no`, even if the facts are unpleasant.
-
-If `hostile_framing` is `no`, every frame is 0. Score frames only when `hostile_framing` is `yes`.
+`hostile_framing` is `yes` only when the wording tells the reader how to feel: it blames, accuses, threatens, or uses a loaded word. If it is `no`, every frame is 0. Score frames only when it is `yes`.
 
 ## Frames
 
@@ -57,6 +58,5 @@ If `hostile_framing` is `no`, every frame is 0. Score frames only when `hostile_
 - 0 = absent. Neutral fact reporting is 0.
 - 1 = mild, a hint, or a loaded word.
 - 2 = strong or central to the headline.
-- Quoted Russian officials count.
 - When a frame is unclear, pick the lower score.
 - `reason` is one short line, naming the cue, not a verdict on the facts.
