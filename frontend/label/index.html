@@ -7,104 +7,283 @@
 <style>
   body { font-family: Georgia, serif; max-width: 46rem; margin: 2rem auto; padding: 0 1rem; color: #1c1c1c; background: #f7f4ee; }
   h1 { font-size: 1.3rem; }
-  details { background: #fff; border: 1px solid #ddd; padding: 0.6rem 1rem; margin-bottom: 1.2rem; }
+  details { background: #fff; border: 1px solid #ddd; padding: 0.6rem 1rem; margin-bottom: 1rem; }
+  .helper { background: #fff8e8; border: 1px solid #e6d7a8; padding: 0.7rem 0.9rem; margin-bottom: 1rem; }
   .card { background: #fff; border: 1px solid #ddd; padding: 1rem 1.2rem; }
-  .meta { color: #666; font-size: 0.9rem; }
-  .en { color: #333; margin: 0.4rem 0 1rem; }
-  button { font: inherit; margin: 0.15rem; padding: 0.35rem 0.7rem; cursor: pointer; }
+  .outlet { color: #777; font-size: 0.85rem; margin: 0; }
+  .en { font-size: 1.45rem; line-height: 1.35; margin: 0.3rem 0; }
+  .ru { color: #555; font-size: 0.95rem; margin: 0 0 1rem; }
+  button { font: inherit; margin: 0.15rem; padding: 0.4rem 0.75rem; cursor: pointer; }
   button.on { background: #1c1c1c; color: #fff; }
+  .hint { color: #555; font-size: 0.9rem; }
+  .frame { display: flex; align-items: center; gap: 0.6rem; margin: 0.45rem 0; }
+  .badge { font-size: 0.8rem; letter-spacing: 0.03em; padding: 0.1rem 0.4rem; border-radius: 3px; }
+  .mild { background: #f3e2b5; }
+  .strong { background: #e7b4a8; }
   textarea { width: 100%; min-height: 4rem; font: inherit; }
-  .row { margin: 0.7rem 0; }
   .nav { display: flex; gap: 0.5rem; margin-top: 1rem; }
+  .track { height: 8px; background: #e4e0d8; margin: 0.4rem 0 0.2rem; }
+  #fill { height: 8px; background: #1c1c1c; width: 0; }
+  .review { margin-top: 1.2rem; }
+  .review button { display: block; text-align: left; background: transparent; }
+  .err { color: #8a1f1f; }
 </style>
 </head>
 <body>
 <h1>Headline labeling</h1>
-<details>
+<p id="progress"></p>
+<div class="track" aria-hidden="true"><div id="fill"></div></div>
+<details id="guide">
   <summary>Labeling guide</summary>
-  <p><strong>Q1.</strong> Is this headline about Finland, Estonia, Latvia, Lithuania, or Poland — not just a passing mention? If no, mark Relevant = no and go to the next headline. Skip Q2.</p>
-  <p><strong>Q2.</strong> If yes, score each frame. 0 = absent. 1 = mild, a hint, or a loaded word. 2 = strong or central.</p>
+  <p><strong>About the region?</strong> Finland, Estonia, Latvia, Lithuania, or Poland — not just a passing mention. No skips the rest. Unsure is saved and reviewed later; it is not scored against the model.</p>
+  <p><strong>Uses pretext language?</strong> Loaded or emotional words, blame, accusation, or a threat. No means every frame is absent. Yes opens the frames.</p>
   <ul>
-    <li>F1 — persecution of Russians or Russian speakers, including “compatriots”</li>
-    <li>F2 — Nazism, fascism, or glorifying Nazis</li>
-    <li>F3 — illegitimate statehood or borders, or “historical Russian lands”</li>
-    <li>F4 — NATO or the West preparing aggression, or militarizing near Russia</li>
-    <li>F5 — Russophobia, or a hostile or discriminating state</li>
-    <li>F6 — threats of a Russian military response or retaliation</li>
+    <li><strong>Persecuted Russians</strong> — Russians or Russian speakers treated as victims, including “compatriots”.</li>
+    <li><strong>Nazism</strong> — Nazis, fascists, or glorifying them.</li>
+    <li><strong>Illegitimate borders</strong> — the state or its borders should not exist; “historical Russian lands”.</li>
+    <li><strong>NATO aggression</strong> — NATO or the West preparing an attack, or militarizing near Russia.</li>
+    <li><strong>Russophobia</strong> — the state is hostile or discriminating.</li>
+    <li><strong>Military threats</strong> — Russia may respond or retaliate with force.</li>
   </ul>
-  <p>Judge the wording, not whether the claim is true and not the politics. Neutral fact reporting is 0. A quote from a Russian official counts. If you are unsure, pick the lower score and write a note. Take a break every 15–20 headlines.</p>
+  <p>Judge the wording, not whether the claim is true. Neutral fact reporting is absent. A quote from a Russian official counts. Mild = a hint or a loaded word. Strong = central. Take a break every 15–20 headlines.</p>
+  <p>Keys: Y/N region, U unsure, P pretext yes, 1–6 toggle that frame, Enter next, B back. Shortcuts pause while the note box is focused, except Enter.</p>
 </details>
-<p id="progress" class="meta"></p>
 <article class="card">
-  <p id="meta" class="meta"></p>
-  <h2 id="title"></h2>
-  <p id="en" class="en"></p>
-  <div class="row" id="relevant"></div>
+  <div class="helper" id="helper">Ask yourself: Is this headline just telling me what happened, or telling me how to feel about that country?</div>
+  <p id="outlet" class="outlet"></p>
+  <h2 id="en" class="en"></h2>
+  <p id="ru" class="ru"></p>
+  <div id="step1"></div>
+  <div id="step2"></div>
   <div id="frames"></div>
-  <label>Notes <textarea id="notes"></textarea></label>
+  <p id="status" class="err"></p>
+  <label>Note, optional <textarea id="notes"></textarea></label>
   <div class="nav">
     <button type="button" id="back">Back</button>
-    <button type="button" id="next">Save and next</button>
+    <button type="button" id="next">Next</button>
   </div>
 </article>
+<section class="review">
+  <h2>Unsure, for review</h2>
+  <p class="hint">These are not part of the agreement score.</p>
+  <div id="unsure-list"></div>
+</section>
 <script>
-const frames = ["f1","f2","f3","f4","f5","f6"];
+const FRAMES = [
+  ["f1", "Persecuted Russians", "Example: Russian speakers are being driven out."],
+  ["f2", "Nazism", "Example: they glorify Nazi collaborators."],
+  ["f3", "Illegitimate borders", "Example: this is historical Russian land."],
+  ["f4", "NATO aggression", "Example: NATO is preparing an attack nearby."],
+  ["f5", "Russophobia", "Example: the state is hostile to Russians."],
+  ["f6", "Military threats", "Example: Russia will respond with force."]
+];
+const HELPER = "Ask yourself: Is this headline just telling me what happened, or telling me how to feel about that country?";
 let items = [];
 let i = 0;
+let pretext = "";
 
+function done(x) {
+  if ((x.unsure || "") === "yes") return true;
+  if (x.relevant === "no") return true;
+  if (x.relevant === "yes" && FRAMES.every(([k]) => ["0", "1", "2"].includes(String(x[k])))) return true;
+  return false;
+}
 function firstOpen() {
-  const n = items.findIndex(x => x.relevant === "");
+  const n = items.findIndex(x => !done(x));
   return n === -1 ? 0 : n;
 }
+function noteValue() {
+  return document.getElementById("notes").value;
+}
+function cycle(v) {
+  if (v === "1") return "2";
+  if (v === "2") return "0";
+  return "1";
+}
+function badge(v) {
+  if (v === "1") return "<span class=\"badge mild\">Mild</span>";
+  if (v === "2") return "<span class=\"badge strong\">Strong</span>";
+  return "";
+}
+function showFrames() {
+  return items[i].relevant === "yes" && pretext === "yes";
+}
+function inferPretext(x) {
+  if (x.relevant !== "yes") return "";
+  if (FRAMES.some(([k]) => ["1", "2"].includes(String(x[k])))) return "yes";
+  if (FRAMES.every(([k]) => String(x[k]) === "0")) return "no";
+  return "";
+}
+let shown = -1;
 function render() {
   const x = items[i];
+  if (i !== shown) {
+    document.getElementById("guide").open = i === 0;
+    shown = i;
+    pretext = inferPretext(x);
+  }
+  const nDone = items.filter(done).length;
   document.getElementById("progress").textContent = (i + 1) + " / " + items.length;
-  document.getElementById("meta").textContent = x.domain;
-  document.getElementById("title").textContent = x.title;
+  document.getElementById("fill").style.width = (items.length ? (100 * nDone / items.length) : 0) + "%";
+  document.getElementById("helper").textContent = HELPER;
+  document.getElementById("outlet").textContent = x.domain;
   document.getElementById("en").textContent = x.title_en;
+  document.getElementById("ru").textContent = x.title;
   document.getElementById("notes").value = x.notes || "";
+  document.getElementById("status").textContent = "";
   paint();
+  const list = document.getElementById("unsure-list");
+  list.innerHTML = "";
+  items.forEach((row, idx) => {
+    if ((row.unsure || "") !== "yes") return;
+    const b = document.createElement("button");
+    b.type = "button";
+    b.textContent = row.domain + " — " + row.title_en;
+    b.onclick = () => { i = idx; render(); };
+    list.appendChild(b);
+  });
+  if (!list.childElementCount) list.textContent = "None yet.";
 }
 function paint() {
   const x = items[i];
-  const rel = document.getElementById("relevant");
-  rel.innerHTML = "";
-  ["yes","no"].forEach(v => {
+  const s1 = document.getElementById("step1");
+  s1.innerHTML = "<p>About the region?</p>";
+  [["yes", "Yes"], ["no", "No"], ["unsure", "Unsure"]].forEach(([v, label]) => {
     const b = document.createElement("button");
     b.type = "button";
-    b.textContent = "Relevant: " + v;
-    if (x.relevant === v) b.className = "on";
-    b.onclick = () => { x.relevant = v; paint(); };
-    rel.appendChild(b);
+    b.textContent = label;
+    if (v === "unsure" ? x.unsure === "yes" && x.relevant !== "yes" : x.relevant === v) b.className = "on";
+    b.onclick = () => chooseRegion(v);
+    s1.appendChild(b);
   });
+  const s2 = document.getElementById("step2");
+  s2.innerHTML = "";
   const box = document.getElementById("frames");
   box.innerHTML = "";
   if (x.relevant !== "yes") return;
-  frames.forEach(f => {
+  s2.innerHTML = "<p>Uses pretext language?</p><p class=\"hint\">• Loaded or emotional words? (regime, hysteria, persecute, Nazi…) • Does it blame, accuse, or threaten?</p>";
+  [["yes", "Yes"], ["no", "No"], ["unsure", "Unsure"]].forEach(([v, label]) => {
+    const b = document.createElement("button");
+    b.type = "button";
+    b.textContent = label;
+    if (v === "unsure" ? x.unsure === "yes" : pretext === v && x.unsure !== "yes") b.className = "on";
+    b.onclick = () => choosePretext(v);
+    s2.appendChild(b);
+  });
+  if (!showFrames()) return;
+  FRAMES.forEach(([key, name, example], idx) => {
     const row = document.createElement("div");
-    row.className = "row";
-    row.append(f.toUpperCase() + " ");
-    ["0","1","2"].forEach(v => {
-      const b = document.createElement("button");
-      b.type = "button";
-      b.textContent = v;
-      if (String(x[f]) === v) b.className = "on";
-      b.onclick = () => { x[f] = v; paint(); };
-      row.appendChild(b);
-    });
+    row.className = "frame";
+    const b = document.createElement("button");
+    b.type = "button";
+    b.textContent = (idx + 1) + " " + name;
+    b.title = example;
+    b.onclick = () => toggleFrame(key);
+    row.appendChild(b);
+    row.insertAdjacentHTML("beforeend", badge(String(x[key])));
     box.appendChild(row);
   });
 }
-async function save() {
+function payload() {
   const x = items[i];
-  x.notes = document.getElementById("notes").value;
-  const body = {id: x.id, relevant: x.relevant, notes: x.notes};
-  frames.forEach(f => { body[f] = x.relevant === "yes" ? x[f] : ""; });
-  const res = await fetch("/api/save", {method: "POST", headers: {"Content-Type": "application/json"}, body: JSON.stringify(body)});
+  x.notes = noteValue();
+  const body = {id: x.id, relevant: x.relevant || "", notes: x.notes, unsure: x.unsure || ""};
+  FRAMES.forEach(([k]) => { body[k] = x[k] || ""; });
+  return body;
+}
+async function save() {
+  const res = await fetch("/api/save", {method: "POST", headers: {"Content-Type": "application/json"}, body: JSON.stringify(payload())});
   if (!res.ok) throw new Error("save failed");
 }
-document.getElementById("next").onclick = async () => { await save(); if (i < items.length - 1) i++; render(); };
-document.getElementById("back").onclick = async () => { await save(); if (i > 0) i--; render(); };
+async function advance() {
+  await save();
+  if (i < items.length - 1) i += 1;
+  render();
+}
+function chooseRegion(v) {
+  const x = items[i];
+  if (v === "no") {
+    x.relevant = "no";
+    x.unsure = "";
+    FRAMES.forEach(([k]) => { x[k] = ""; });
+    pretext = "";
+    advance();
+    return;
+  }
+  if (v === "unsure") {
+    x.relevant = "";
+    x.unsure = "yes";
+    FRAMES.forEach(([k]) => { x[k] = ""; });
+    pretext = "";
+    advance();
+    return;
+  }
+  x.relevant = "yes";
+  x.unsure = "";
+  pretext = "";
+  paint();
+}
+function choosePretext(v) {
+  const x = items[i];
+  if (v === "no") {
+    x.relevant = "yes";
+    x.unsure = "";
+    FRAMES.forEach(([k]) => { x[k] = "0"; });
+    pretext = "no";
+    advance();
+    return;
+  }
+  if (v === "unsure") {
+    x.relevant = "yes";
+    x.unsure = "yes";
+    FRAMES.forEach(([k]) => { x[k] = ""; });
+    pretext = "";
+    advance();
+    return;
+  }
+  x.relevant = "yes";
+  x.unsure = "";
+  pretext = "yes";
+  paint();
+}
+function toggleFrame(key) {
+  const x = items[i];
+  x[key] = cycle(String(x[key] || ""));
+  paint();
+}
+document.getElementById("next").onclick = async () => {
+  if (showFrames()) FRAMES.forEach(([k]) => { if (!items[i][k]) items[i][k] = "0"; });
+  await advance();
+};
+document.getElementById("back").onclick = async () => {
+  await save();
+  if (i > 0) i -= 1;
+  render();
+};
+document.addEventListener("keydown", (ev) => {
+  const typing = document.activeElement && document.activeElement.id === "notes";
+  if (ev.key === "Enter") {
+    ev.preventDefault();
+    document.getElementById("next").click();
+    return;
+  }
+  if (typing) return;
+  const k = ev.key.toLowerCase();
+  if (k === "y") chooseRegion("yes");
+  else if (k === "n") chooseRegion("no");
+  else if (k === "u") {
+    if (items[i].relevant === "yes") choosePretext("unsure");
+    else chooseRegion("unsure");
+  } else if (k === "p") {
+    if (items[i].relevant !== "yes") items[i].relevant = "yes";
+    choosePretext("yes");
+  } else if (k === "b") {
+    document.getElementById("back").click();
+  } else if ("123456".includes(ev.key)) {
+    if (!showFrames()) return;
+    toggleFrame(FRAMES[Number(ev.key) - 1][0]);
+  }
+});
 fetch("/api/items").then(r => r.json()).then(data => { items = data; i = firstOpen(); render(); });
 </script>
 </body>

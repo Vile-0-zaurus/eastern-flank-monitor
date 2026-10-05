@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import csv
 import json
+import sys
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 
@@ -12,23 +13,55 @@ PAGE = ROOT / "frontend" / "label" / "index.html"
 GOLD = ROOT / "validation" / "gold.csv"
 HOST = "127.0.0.1"
 PORT = 8765
-FIELDS = ["id", "bucket", "domain", "title", "title_en", "url", "relevant", "f1", "f2", "f3", "f4", "f5", "f6", "notes"]
+FIELDS = [
+    "id",
+    "bucket",
+    "domain",
+    "title",
+    "title_en",
+    "url",
+    "relevant",
+    "f1",
+    "f2",
+    "f3",
+    "f4",
+    "f5",
+    "f6",
+    "notes",
+    "unsure",
+]
+LABEL_KEYS = ("relevant", "f1", "f2", "f3", "f4", "f5", "f6", "notes", "unsure")
 
 
-def read_rows() -> list[dict]:
-    if not GOLD.exists():
-        raise SystemExit(f"missing {GOLD}; run pipeline/score/build_gold.py")
-    with GOLD.open(encoding="utf-8", newline="") as fh:
+def read_rows(path: Path | None = None) -> list[dict]:
+    path = GOLD if path is None else path
+    if not path.exists():
+        raise SystemExit(f"missing {path}; run pipeline/score/build_gold.py")
+    with path.open(encoding="utf-8", newline="") as fh:
         return list(csv.DictReader(fh))
 
 
-def write_rows(rows: list[dict]) -> None:
-    GOLD.parent.mkdir(parents=True, exist_ok=True)
-    with GOLD.open("w", encoding="utf-8", newline="") as fh:
+def write_rows(rows: list[dict], path: Path | None = None) -> None:
+    path = GOLD if path is None else path
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with path.open("w", encoding="utf-8", newline="") as fh:
         w = csv.DictWriter(fh, FIELDS, extrasaction="ignore")
         w.writeheader()
         for row in rows:
             w.writerow({k: row.get(k, "") for k in FIELDS})
+
+
+def apply_save(rows: list[dict], payload: dict) -> bool:
+    found = False
+    for row in rows:
+        if str(row.get("id")) != str(payload.get("id")):
+            continue
+        for key in LABEL_KEYS:
+            if key in payload:
+                row[key] = "" if payload[key] is None else str(payload[key])
+        found = True
+        break
+    return found
 
 
 class Handler(BaseHTTPRequestHandler):
@@ -60,23 +93,17 @@ class Handler(BaseHTTPRequestHandler):
         n = int(self.headers.get("Content-Length", "0"))
         payload = json.loads(self.rfile.read(n).decode("utf-8"))
         rows = read_rows()
-        found = False
-        for row in rows:
-            if str(row["id"]) != str(payload.get("id")):
-                continue
-            for key in ("relevant", "f1", "f2", "f3", "f4", "f5", "f6", "notes"):
-                if key in payload:
-                    row[key] = "" if payload[key] is None else str(payload[key])
-            found = True
-            break
-        if not found:
+        if not apply_save(rows, payload):
             self._send(404, b"unknown id", "text/plain")
             return
         write_rows(rows)
-        self._send(200, b"{\"ok\":true}", "application/json")
+        self._send(200, b'{"ok":true}', "application/json")
 
 
 def main() -> None:
+    global GOLD
+    if len(sys.argv) == 3 and sys.argv[1] == "--gold":
+        GOLD = Path(sys.argv[2])
     httpd = ThreadingHTTPServer((HOST, PORT), Handler)
     print(f"open http://{HOST}:{PORT}/")
     httpd.serve_forever()

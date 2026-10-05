@@ -13,7 +13,7 @@ ROOT = Path(__file__).resolve().parents[2]
 MATCHES = ROOT / "data" / "validation" / "region_matches.sqlite"
 OUT = ROOT / "validation" / "gold.csv"
 BACKUP_DIR = ROOT / "validation" / "backups"
-LABEL_FIELDS = ("relevant", "f1", "f2", "f3", "f4", "f5", "f6", "notes")
+LABEL_FIELDS = ("relevant", "f1", "f2", "f3", "f4", "f5", "f6", "notes", "unsure")
 
 # Hand-picked from the 2021-06-15 match set. First 25 are pretext-suggested.
 EN = {
@@ -100,7 +100,7 @@ def main() -> None:
         print(f"backed up to {saved}")
     con = sqlite3.connect(f"file:{MATCHES}?mode=ro", uri=True)
     OUT.parent.mkdir(parents=True, exist_ok=True)
-    fields = ["id", "bucket", "domain", "title", "title_en", "url", "relevant", "f1", "f2", "f3", "f4", "f5", "f6", "notes"]
+    fields = ["id", "bucket", "domain", "title", "title_en", "url", "relevant", "f1", "f2", "f3", "f4", "f5", "f6", "notes", "unsure"]
     with OUT.open("w", encoding="utf-8", newline="") as fh:
         w = csv.DictWriter(fh, fields)
         w.writeheader()
@@ -126,6 +126,7 @@ def main() -> None:
                     "f5": "",
                     "f6": "",
                     "notes": "",
+                    "unsure": "",
                 }
             )
     con.close()
