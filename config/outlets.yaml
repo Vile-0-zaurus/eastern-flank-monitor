@@ -1,0 +1,26 @@
+# Russian outlets kept in the GKG backfill.
+# Match is on the article host or SourceCommonName, not on region.
+outlets:
+  - tass.ru
+  - tass.com
+  - ria.ru
+  - rg.ru
+  - iz.ru
+  - gazeta.ru
+  - vesti.ru
+  - smotrim.ru
+  - 1tv.ru
+  - tvzvezda.ru
+  - redstar.ru
+  - rt.com
+  - sputniknews.com
+  - sputnikglobe.com
+  - ntv.ru
+  - lenta.ru
+  - kp.ru
+  - aif.ru
+  - regnum.ru
+  - rubaltic.ru
+  - ukraina.ru
+  - mid.ru
+  - kremlin.ru

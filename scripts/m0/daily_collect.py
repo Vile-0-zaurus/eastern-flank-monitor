@@ -22,7 +22,9 @@ ROOT = Path(__file__).resolve().parents[2]
 UA = "eastern-flank-monitor/0.1 (local research; 1 req/s)"
 FEEDS = {
     "tass-en.xml": "https://tass.com/rss/v2.xml",
+    "tass-ru.xml": "https://tass.ru/rss/v2.xml",
     "ria.xml": "https://ria.ru/export/rss2/archive/index.xml",
+    "mfa.xml": "https://mid.ru/ru/rss/",
 }
 NAVTEX_URL = "https://navvarn.sjofartsverket.se/Navigationsvarningar/Navtex"
 RU_MARK = re.compile(r"PETERSBURG NAV WARN|KALININGRAD NAV WARN", re.I)
