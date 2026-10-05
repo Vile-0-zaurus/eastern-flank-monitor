@@ -22,7 +22,7 @@ Live monitoring is off (`config/app.yaml`). The default showcase is the saved 20
 2. `python3 -m venv .venv && .venv/bin/pip install -r requirements.txt`
 3. Put keys in `.env` only if you will turn live monitoring on. Demo mode does not need them.
 4. Leave `live_monitoring: off` in `config/app.yaml`. The app then shows "paused since <date> — showing demo" and makes no API calls.
-5. Check the backfill without restarting it: `systemctl --user is-active gkg-backfill`
-6. Label one headline: `.venv/bin/python pipeline/score/label_server.py --gold validation/label-175.csv` then open http://127.0.0.1:8765/
+5. Check status without touching the backfill: `efm-status`
+6. The unlabeled headline was excluded. Do not open the old one-row labeling file.
 
 Free collectors may keep running while paid calls stay off.
