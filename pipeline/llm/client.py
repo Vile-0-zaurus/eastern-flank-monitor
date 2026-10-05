@@ -172,7 +172,7 @@ def complete_anthropic(prompt: str, user: str, model: str, max_tokens: int = 800
         {
             "model": model,
             "max_tokens": max_tokens,
-            "system": prompt,
+            "system": cached_rules_block(prompt),
             "messages": [{"role": "user", "content": user}],
         }
     ).encode("utf-8")
@@ -197,7 +197,51 @@ def complete_anthropic(prompt: str, user: str, model: str, max_tokens: int = 800
         except Exception:
             kind = str(exc.code)
         raise SystemExit(f"anthropic {kind}") from None
+    except urllib.error.URLError:
+        raise SystemExit("anthropic AI unavailable") from None
     parts = payload.get("content") or []
     text = "".join(part.get("text", "") for part in parts if part.get("type") == "text")
     usage = payload.get("usage") or {}
     return text, int(usage.get("input_tokens") or 0), int(usage.get("output_tokens") or 0)
+
+
+AI_UNAVAILABLE = "AI unavailable"
+
+
+def unavailable_result() -> dict:
+    """Provider failure. No relevant or hostile label is filled in."""
+    return {"status": AI_UNAVAILABLE}
+
+
+def classify_or_unavailable(call) -> dict:
+    """Run a provider call. On any provider error, return AI unavailable and no label."""
+    try:
+        text, pin, pout = call()
+    except Exception:
+        return unavailable_result()
+    if not text:
+        return unavailable_result()
+    return {"status": "ok", "text": text, "input_tokens": pin, "output_tokens": pout}
+
+
+def cached_rules_block(rules: str) -> list[dict]:
+    """Fixed rules, marked for Anthropic prompt caching. Does not call the API."""
+    return [{"type": "text", "text": rules, "cache_control": {"type": "ephemeral"}}]
+
+
+def judge_batch_body(model: str, rules: str, items: list[dict], max_tokens: int = 8000) -> dict:
+    """Batch API body for a non-urgent judge run. Does not send it."""
+    requests = []
+    for item in items:
+        requests.append(
+            {
+                "custom_id": str(item["id"]),
+                "params": {
+                    "model": model,
+                    "max_tokens": max_tokens,
+                    "system": cached_rules_block(rules),
+                    "messages": [{"role": "user", "content": item["text"]}],
+                },
+            }
+        )
+    return {"requests": requests}

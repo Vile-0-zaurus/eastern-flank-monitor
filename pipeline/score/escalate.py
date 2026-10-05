@@ -31,6 +31,11 @@ def needs_human(judge: dict, classifier: dict) -> str:
     return ""
 
 
+def without_gold_labels(items: list[dict], labeled_ids: set[str]) -> list[dict]:
+    """Skip headlines a human has already labeled. Those do not enter the admin queue."""
+    return [row for row in items if str(row.get("id")) not in labeled_ids]
+
+
 def assign_decisions(items: list[dict]) -> list[dict]:
     """Judge-unsure first, then disagreements, newest first. Cap is five human reviews."""
     unsure = [r for r in items if r["reason"] == "judge_unsure"]

@@ -10,7 +10,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / "pipeline"))
 from llm.client import complete, complete_anthropic, estimate_cost, load_config, log_usage  # noqa: E402
-from score.escalate import assign_decisions, needs_human  # noqa: E402
+from score.escalate import assign_decisions, needs_human, without_gold_labels  # noqa: E402
 
 GOLD = ROOT / "validation" / "gold-v1.1.csv"
 PROMPT = (ROOT / "prompts" / "classify_frames.md").read_text(encoding="utf-8")
@@ -98,7 +98,8 @@ def main() -> None:
             reason = needs_human(j, c)
             if reason:
                 queue.append({"id": row["id"], "reason": reason, "date": "20210615", "title_en": row["title_en"]})
-        decided = assign_decisions(queue)
+        labeled = {r["id"] for r in rows if (r.get("v3") or "").strip()}
+        decided = assign_decisions(without_gold_labels(queue, labeled))
         with DECISIONS.open("w", encoding="utf-8", newline="") as fh:
             w = csv.DictWriter(fh, ["id", "reason", "date", "title_en", "queue_rank", "decided_by"])
             w.writeheader()

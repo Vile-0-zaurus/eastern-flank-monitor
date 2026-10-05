@@ -141,6 +141,17 @@ Manual indicators are honest by design: they are clearly labeled "analyst input"
 | 3 | **Serious** | Three layers elevated, or Capability and Intent both strongly elevated. Analyst-confirmed. |
 | 4 | **Critical** | Capability and Intent both at high levels plus at least one other layer elevated. Analyst-confirmed. |
 
+### 5.5 Headline rules
+
+These rules apply to Intent classification (I1, I2) and to human labeling.
+
+1. "About the region" means about Finland, Estonia, Latvia, Lithuania, or Poland, on any topic.
+2. Kaliningrad local or domestic news is not about the region. It is Russia, unless it involves those five countries, NATO, borders, or the military.
+3. Ukraine-only or Russia-only news is not about the region, even if NATO is mentioned.
+4. Judge the wording, not the topic. A neutral report on a sensitive topic is ordinary news unless the wording itself is loaded.
+5. Scare quotes around the target country's own terms, such as «советская оккупация», are mild hostile framing.
+6. A quote from the target country's officials is not Russian framing. A quote from Russian officials is.
+
 ---
 
 ## 6. Data sources (to verify in M0)
@@ -171,7 +182,18 @@ Plain-language summaries are written by an AI model from the scored data. They m
 6. Stay under 80 words for the Depth 1 summary.
 7. Never mention locations or movements of Finnish, Baltic, Polish or NATO forces.
 
-The prompt for summaries lives in `prompts/summary.md` and is version-controlled.
+Headline classification uses these rules:
+
+1. "About the region" means about Finland, Estonia, Latvia, Lithuania, or Poland, on any topic.
+2. Kaliningrad local or domestic news is not about the region. It is Russia, unless it involves those five countries, NATO, borders, or the military.
+3. Ukraine-only or Russia-only news is not about the region, even if NATO is mentioned.
+4. Judge the wording, not the topic. A neutral report on a sensitive topic is ordinary news unless the wording itself is loaded.
+5. Scare quotes around the target country's own terms, such as «советская оккупация», are mild hostile framing.
+6. A quote from the target country's officials is not Russian framing. A quote from Russian officials is.
+
+A provider error is "AI unavailable", never a default label (§14.4).
+
+The prompt for summaries lives in `prompts/summary.md` and is version-controlled. The classifier prompt is `prompts/classify_frames.md`.
 
 ---
 
@@ -239,7 +261,7 @@ The prompt for summaries lives in `prompts/summary.md` and is version-controlled
 | **M1** | Narrative pipeline (Intent) | I1 and I2 run on GDELT data for a chosen date range and store results. |
 | **M2** | Scoring | Baselines, layer levels and convergence rule work on stored data; config-driven. |
 | **M3** | Backtest | 2021–22 backtest report produced. Level thresholds tuned. |
-| **M4** | Dashboard | Three depths working locally in the browser, with disclaimer and level definitions. |
+| **M4** | Dashboard | Three depths working locally in the browser, with disclaimer, level definitions, and demo mode (§16). |
 | **M5** | More sources + admin page | Remaining MVP indicators added (C1, H1). Local admin page (§13) replaces hand-edited files in `manual/`. |
 | **M6** | Stage 2 prep | Scheduled updates, public hosting, legal review of disclaimer. |
 
@@ -269,6 +291,8 @@ The prompt for summaries lives in `prompts/summary.md` and is version-controlled
 - How test users access the local app in Stage 1 (same machine vs. local network).
 - Scaling budget for Stage 2 (decide after the test phase).
 - M2: consider weekly aggregation for I2 — daily regional headline volume is low (~100/day).
+- Cascade: the classifier scores every headline; the judge re-checks only headlines the classifier flagged as hostile.
+- Next backfill progress log: rows kept, failures, and ETA. Not built yet. The running backfill is not to be restarted for this.
 
 ---
 
@@ -288,6 +312,7 @@ The admin page shows a short to-do list in priority order. When the list is empt
 | Force posture notes (C2) | AI-drafted summary of relevant points when a new official intelligence report or major think-tank analysis appears | Approve / edit / reject |
 | Level confirmation | Shown only when the model proposes Serious or Critical | Confirm or hold at lower level, with a one-line reason |
 | Intent layer change | Shown only when the Intent layer rises a level: the top 5 headlines driving it, with AI frame scores | Agree / disagree |
+| Escalated headlines | At most 5 per week. Judge-unsure first, then judge/classifier disagreements, newest first. Headlines that already have a human gold label are skipped | Agree / disagree, or label |
 
 ### 13.2 Monthly health panel
 - Status per data source: working / degraded / broken.
@@ -340,6 +365,7 @@ Estimates depend on real headline volumes (to be confirmed in M0/M1).
 2. Every manual input shows **"Last analyst update: N days ago"**.
 3. If a manual layer has not been updated for **more than 14 days**, it is marked **out of date** on the public view.
 4. If the overall assessment rests mostly on stale or missing data, the summary says so.
+5. If an AI provider errors, the app shows **"AI unavailable"**. It never stores a default or zero classification.
 
 ---
 
@@ -359,3 +385,35 @@ Estimates depend on real headline volumes (to be confirmed in M0/M1).
 - Is the admin's weekly session really ≤ 20 minutes?
 
 **Feedback:** a short check-in with each test user after week 1 and week 4 (3–5 questions). Findings go into `docs/test-phase.md` and decide whether to go to Stage 2.
+
+---
+
+## 16. Portfolio and low-maintenance mode
+
+**Demo mode** replays the 2021–22 backtest from saved data. It is the default showcase. It makes no API calls.
+
+`config/app.yaml` has `live_monitoring: off`. Off means no API calls. The app shows "paused since <date> — showing demo".
+
+**Auto-pause** if there has been no admin session for 30 days, or if key sources have failed for 7 or more days. Free collectors may keep running. Paid calls stop.
+
+**Money:** prepaid credits only. No paid infrastructure before Stage 2.
+
+**Restart:** `README.md` has "Restart in 10 minutes". Dependencies are pinned in `requirements.txt`.
+
+---
+
+## 17. AI judge and call-human
+
+The judge labels validation sets. The human audits about 20 headlines. The judge may stand in for gold on hostile-versus-ordinary **only if** agreement with the human is at least 85%. Until that test passes, the judge is not a gold proxy.
+
+**Escalation.** A headline goes to the admin queue only if the judge says unsure, or the judge and the classifier disagree on hostile versus ordinary. Headlines that already have a human gold label are skipped. The weekly cap is 5, judge-unsure first, then disagreements, newest first. Overflow is stored with `decided_by = judge_no_human` and is visible on Depth 3. Every decision stores `decided_by`: `judge`, `human`, or `judge_no_human`.
+
+**Monthly spot-check.** The judge re-checks 10 headlines. The human sees only the disagreements.
+
+**Model change.** When the judge model changes, re-audit with about 10 human labels before trusting it again.
+
+**Cascade.** The classifier scores every headline. The judge re-checks only headlines flagged hostile (§12).
+
+**Judge candidates.** Current candidates are Claude Opus 5.5 (`claude-opus-5-5`) and Claude Sonnet 5.5 (`claude-sonnet-5-5`). Batch 2 runs both. After the human audit, keep the cheapest judge that reaches at least 85% agreement. Batch 2 has not been run: the backfill is not finished, and this task makes no API calls.
+
+Non-urgent judge runs (validation, backtest) use the Batch API. The fixed rules block of the prompt is sent with prompt caching.
