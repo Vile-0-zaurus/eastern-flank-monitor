@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Local labeling page. Binds to 127.0.0.1 only. Does not call a model."""
+"""Local labeling page for a later gold batch. Never writes validation/gold.csv."""
 from __future__ import annotations
 
 import csv
@@ -10,39 +10,42 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
 PAGE = ROOT / "frontend" / "label" / "index.html"
-GOLD = ROOT / "validation" / "gold.csv"
+FROZEN = ROOT / "validation" / "gold.csv"
+GOLD = ROOT / "validation" / "gold-batch2.csv"
 HOST = "127.0.0.1"
 PORT = 8765
 FIELDS = [
     "id",
-    "bucket",
     "domain",
+    "date",
     "title",
     "title_en",
     "url",
-    "relevant",
+    "v3",
     "f1",
     "f2",
     "f3",
     "f4",
     "f5",
     "f6",
+    "f7",
     "notes",
-    "unsure",
 ]
-LABEL_KEYS = ("relevant", "f1", "f2", "f3", "f4", "f5", "f6", "notes", "unsure")
+LABEL_KEYS = ("v3", "f1", "f2", "f3", "f4", "f5", "f6", "f7", "notes")
 
 
 def read_rows(path: Path | None = None) -> list[dict]:
     path = GOLD if path is None else path
     if not path.exists():
-        raise SystemExit(f"missing {path}; run pipeline/score/build_gold.py")
+        return []
     with path.open(encoding="utf-8", newline="") as fh:
         return list(csv.DictReader(fh))
 
 
 def write_rows(rows: list[dict], path: Path | None = None) -> None:
     path = GOLD if path is None else path
+    if path.resolve() == FROZEN.resolve():
+        raise SystemExit("refusing to write frozen validation/gold.csv")
     path.parent.mkdir(parents=True, exist_ok=True)
     with path.open("w", encoding="utf-8", newline="") as fh:
         w = csv.DictWriter(fh, FIELDS, extrasaction="ignore")
@@ -80,8 +83,7 @@ class Handler(BaseHTTPRequestHandler):
             self._send(200, PAGE.read_bytes(), "text/html; charset=utf-8")
             return
         if self.path == "/api/items":
-            # bucket is a sampling note, not a label. The page must not render it.
-            items = [{k: r.get(k, "") for k in FIELDS if k != "bucket"} for r in read_rows()]
+            items = [{k: r.get(k, "") for k in FIELDS} for r in read_rows()]
             self._send(200, json.dumps(items, ensure_ascii=False).encode("utf-8"), "application/json")
             return
         self._send(404, b"not found", "text/plain")
@@ -89,6 +91,9 @@ class Handler(BaseHTTPRequestHandler):
     def do_POST(self) -> None:
         if self.path != "/api/save":
             self._send(404, b"not found", "text/plain")
+            return
+        if GOLD.resolve() == FROZEN.resolve():
+            self._send(403, b"frozen", "text/plain")
             return
         n = int(self.headers.get("Content-Length", "0"))
         payload = json.loads(self.rfile.read(n).decode("utf-8"))
@@ -104,8 +109,11 @@ def main() -> None:
     global GOLD
     if len(sys.argv) == 3 and sys.argv[1] == "--gold":
         GOLD = Path(sys.argv[2])
+        if GOLD.resolve() == FROZEN.resolve():
+            raise SystemExit("refusing to open frozen validation/gold.csv for labeling")
     httpd = ThreadingHTTPServer((HOST, PORT), Handler)
     print(f"open http://{HOST}:{PORT}/")
+    print(f"writes {GOLD}")
     httpd.serve_forever()
 
 

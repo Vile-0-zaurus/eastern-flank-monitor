@@ -136,28 +136,28 @@ def _api_key() -> str:
     return key
 
 
-def complete(prompt: str, user: str, cfg: dict | None = None) -> tuple[str, int, int]:
+def complete(prompt: str, user: str, cfg: dict | None = None, model: str | None = None, extra: dict | None = None, timeout: int = 180) -> tuple[str, int, int]:
     """One chat call. Caller must check estimate_cost and assert_under_cap first."""
     cfg = cfg or load_config()
     if cfg["provider"] != "xai":
         raise SystemExit(f"provider {cfg['provider']} is not implemented")
-    body = json.dumps(
-        {
-            "model": cfg["model"],
-            "temperature": 0,
-            "messages": [
-                {"role": "system", "content": prompt},
-                {"role": "user", "content": user},
-            ],
-        }
-    ).encode("utf-8")
+    body = {
+        "model": model or cfg["model"],
+        "temperature": 0,
+        "messages": [
+            {"role": "system", "content": prompt},
+            {"role": "user", "content": user},
+        ],
+    }
+    if extra:
+        body.update(extra)
     req = urllib.request.Request(
         cfg["base_url"].rstrip("/") + "/chat/completions",
-        data=body,
+        data=json.dumps(body).encode("utf-8"),
         headers={"Authorization": f"Bearer {_api_key()}", "Content-Type": "application/json"},
         method="POST",
     )
-    with urllib.request.urlopen(req, timeout=120) as resp:
+    with urllib.request.urlopen(req, timeout=timeout) as resp:
         payload = json.loads(resp.read().decode("utf-8"))
     text = payload["choices"][0]["message"]["content"]
     usage = payload.get("usage") or {}
