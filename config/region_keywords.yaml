@@ -1,0 +1,66 @@
+# Region match rules for pipeline/score/region_filter.py
+# Title patterns are stems. The script adds Unicode word boundaries.
+
+location_fips:
+  - FI
+  - EN
+  - LG
+  - LH
+  - PL
+
+location_names:
+  - Kaliningrad
+  - Калининград
+
+junk:
+  min_title_chars: 15
+
+title_stems:
+  ru:
+    - финлянд
+    - финск
+    - финн
+    - эстон
+    - латв
+    - латыш
+    - литв
+    - литов
+    - польш
+    - польск
+    - поляк
+    - прибалт
+    - балтий
+    - балтик
+    - калининград
+    - сувалк
+    - варшав
+    - вильнюс
+    - таллин
+    - хельсинк
+    - рижск
+  en:
+    - Finland
+    - Finnish
+    - Estonia
+    - Estonian
+    - Latvia
+    - Latvian
+    - Lithuania
+    - Lithuanian
+    - Poland
+    - Polish
+    - Baltic
+    - Warsaw
+    - Vilnius
+    - Tallinn
+    - Riga
+    - Helsinki
+    - Narva
+    - Kaliningrad
+    - Suwalki
+    - Suwałki
+
+# Short place names that need an explicit ending, not a bare stem.
+title_groups:
+  - риг(а|и|е|у|ой)
+  - нарв(а|ы|е|у|ой|ск)

@@ -196,7 +196,7 @@ The prompt for summaries lives in `prompts/summary.md` and is version-controlled
 - **Language:** Python 3.11+
 - **Storage:** SQLite (one local file)
 - **Pipeline:** Python scripts that fetch → store → score → write JSON output
-- **AI:** Claude API for article classification (I2) and summaries. Key in `.env`.
+- **AI:** provider set in config, chosen by validation results. Key in `.env`.
 - **Frontend:** a static site (HTML + JavaScript + a chart library such as Chart.js) that reads the JSON output. Runs locally with a simple local web server. In Stage 2 the same site can be published as-is.
 - **Translations:** all UI text in `frontend/i18n/en.json`. No hard-coded UI strings.
 - **Config:** indicator weights, baselines and thresholds in `config/model.yaml`.
@@ -258,6 +258,8 @@ The prompt for summaries lives in `prompts/summary.md` and is version-controlled
 ## 12. Open questions / parking lot
 
 - Ask the gpsjam owner for permission before any public use of its data.
+- Outlet-type weighting: state outlets vs state-aligned media. Not applied yet.
+- Check rubaltic.ru coverage before adding it to the daily collector. It did not appear in the 2021-06-15 GKG sample.
 - Final project name.
 - Exact source for Russian navigation warnings (C1).
 - Whether automated GPS interference data is available (H1).

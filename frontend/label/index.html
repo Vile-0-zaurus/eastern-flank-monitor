@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gold set labeling</title>
+<style>
+  body { font-family: Georgia, serif; max-width: 46rem; margin: 2rem auto; padding: 0 1rem; color: #1c1c1c; background: #f7f4ee; }
+  h1 { font-size: 1.3rem; }
+  details { background: #fff; border: 1px solid #ddd; padding: 0.6rem 1rem; margin-bottom: 1.2rem; }
+  .card { background: #fff; border: 1px solid #ddd; padding: 1rem 1.2rem; }
+  .meta { color: #666; font-size: 0.9rem; }
+  .en { color: #333; margin: 0.4rem 0 1rem; }
+  button { font: inherit; margin: 0.15rem; padding: 0.35rem 0.7rem; cursor: pointer; }
+  button.on { background: #1c1c1c; color: #fff; }
+  textarea { width: 100%; min-height: 4rem; font: inherit; }
+  .row { margin: 0.7rem 0; }
+  .nav { display: flex; gap: 0.5rem; margin-top: 1rem; }
+</style>
+</head>
+<body>
+<h1>Headline labeling</h1>
+<details>
+  <summary>Labeling guide</summary>
+  <p><strong>Q1.</strong> Is this headline about Finland, Estonia, Latvia, Lithuania, or Poland — not just a passing mention? If no, mark Relevant = no and go to the next headline. Skip Q2.</p>
+  <p><strong>Q2.</strong> If yes, score each frame. 0 = absent. 1 = mild, a hint, or a loaded word. 2 = strong or central.</p>
+  <ul>
+    <li>F1 — persecution of Russians or Russian speakers, including “compatriots”</li>
+    <li>F2 — Nazism, fascism, or glorifying Nazis</li>
+    <li>F3 — illegitimate statehood or borders, or “historical Russian lands”</li>
+    <li>F4 — NATO or the West preparing aggression, or militarizing near Russia</li>
+    <li>F5 — Russophobia, or a hostile or discriminating state</li>
+    <li>F6 — threats of a Russian military response or retaliation</li>
+  </ul>
+  <p>Judge the wording, not whether the claim is true and not the politics. Neutral fact reporting is 0. A quote from a Russian official counts. If you are unsure, pick the lower score and write a note. Take a break every 15–20 headlines.</p>
+</details>
+<p id="progress" class="meta"></p>
+<article class="card">
+  <p id="meta" class="meta"></p>
+  <h2 id="title"></h2>
+  <p id="en" class="en"></p>
+  <div class="row" id="relevant"></div>
+  <div id="frames"></div>
+  <label>Notes <textarea id="notes"></textarea></label>
+  <div class="nav">
+    <button type="button" id="back">Back</button>
+    <button type="button" id="next">Save and next</button>
+  </div>
+</article>
+<script>
+const frames = ["f1","f2","f3","f4","f5","f6"];
+let items = [];
+let i = 0;
+
+function firstOpen() {
+  const n = items.findIndex(x => x.relevant === "");
+  return n === -1 ? 0 : n;
+}
+function render() {
+  const x = items[i];
+  document.getElementById("progress").textContent = (i + 1) + " / " + items.length;
+  document.getElementById("meta").textContent = x.domain;
+  document.getElementById("title").textContent = x.title;
+  document.getElementById("en").textContent = x.title_en;
+  document.getElementById("notes").value = x.notes || "";
+  paint();
+}
+function paint() {
+  const x = items[i];
+  const rel = document.getElementById("relevant");
+  rel.innerHTML = "";
+  ["yes","no"].forEach(v => {
+    const b = document.createElement("button");
+    b.type = "button";
+    b.textContent = "Relevant: " + v;
+    if (x.relevant === v) b.className = "on";
+    b.onclick = () => { x.relevant = v; paint(); };
+    rel.appendChild(b);
+  });
+  const box = document.getElementById("frames");
+  box.innerHTML = "";
+  if (x.relevant !== "yes") return;
+  frames.forEach(f => {
+    const row = document.createElement("div");
+    row.className = "row";
+    row.append(f.toUpperCase() + " ");
+    ["0","1","2"].forEach(v => {
+      const b = document.createElement("button");
+      b.type = "button";
+      b.textContent = v;
+      if (String(x[f]) === v) b.className = "on";
+      b.onclick = () => { x[f] = v; paint(); };
+      row.appendChild(b);
+    });
+    box.appendChild(row);
+  });
+}
+async function save() {
+  const x = items[i];
+  x.notes = document.getElementById("notes").value;
+  const body = {id: x.id, relevant: x.relevant, notes: x.notes};
+  frames.forEach(f => { body[f] = x.relevant === "yes" ? x[f] : ""; });
+  const res = await fetch("/api/save", {method: "POST", headers: {"Content-Type": "application/json"}, body: JSON.stringify(body)});
+  if (!res.ok) throw new Error("save failed");
+}
+document.getElementById("next").onclick = async () => { await save(); if (i < items.length - 1) i++; render(); };
+document.getElementById("back").onclick = async () => { await save(); if (i > 0) i--; render(); };
+fetch("/api/items").then(r => r.json()).then(data => { items = data; i = firstOpen(); render(); });
+</script>
+</body>
+</html>

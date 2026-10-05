@@ -1,0 +1,9 @@
+provider: xai
+model: grok-build-0.1
+base_url: https://api.x.ai/v1
+batch_size: 50
+# USD per 1M tokens. Short-context rates from docs.x.ai, September 2026.
+price_per_million:
+  input: 1.00
+  output: 2.00
+hard_stop_usd: 1.00
