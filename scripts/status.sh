@@ -140,49 +140,60 @@ try:
     df = subprocess.check_output(["df", "-B1", str(root)], text=True).splitlines()[-1].split()
     free_gb = int(df[3]) / 1_000_000_000
     say(f"The disk has {free_gb:.0f} GB free.")
-    if free_gb < 10:
+    if free_gb < 15:
         actions.append(f"only {free_gb:.0f} GB of disk space is free")
 except (subprocess.CalledProcessError, IndexError, ValueError):
     say("I could not read the free disk space.")
     actions.append("the free disk space could not be read")
 
 sources = [
-    ("tass-en.xml", "TASS English"),
-    ("tass-ru.xml", "TASS Russian"),
-    ("ria.xml", "RIA Novosti"),
-    ("mfa.xml", "Russian foreign ministry"),
-    ("navtex-ru", "Baltic navigation warnings"),
+    ("tass-en.xml", "TASS English", "2026-10-04"),
+    ("tass-ru.xml", "TASS Russian", "2026-10-05"),
+    ("ria.xml", "RIA Novosti", "2026-10-04"),
+    ("mfa.xml", "Russian foreign ministry", "2026-10-05"),
+    ("navtex-ru", "Baltic navigation warnings", "2026-10-04"),
 ]
 collect = root / "data" / "collect"
-days = [(now.date() - timedelta(days=n)) for n in range(6, -1, -1)]
-missed = []
-for key, label in sources:
-    ok_today = False
-    miss = 0
-    for day in days:
-        log = collect / day.isoformat() / "collect.log"
-        text = log.read_text(encoding="utf-8", errors="replace") if log.exists() else ""
-        success = False
-        for line in text.splitlines():
-            if key in line and ("SUCCESS" in line or line.strip().startswith("OK ")):
-                success = True
-                break
-        if day == now.date():
-            ok_today = success
-        if not success:
-            miss += 1
+window = [(now.date() - timedelta(days=n)) for n in range(6, -1, -1)]
+attempts = defaultdict(list)
+for log in collect.glob("*/collect.log"):
+    for line in log.read_text(encoding="utf-8", errors="replace").splitlines():
+        for key, _label, _added in sources:
+            if key in line and ("SUCCESS" in line or "FAILURE" in line or line.strip().startswith("OK ")):
+                attempts[key].append((log.parent.name, "FAILURE" in line and "SUCCESS" not in line))
+cron_fail = set()
+cron_log = collect / "cron.log"
+if cron_log.exists():
+    for line in cron_log.read_text(encoding="utf-8", errors="replace").splitlines():
+        if "FAILURE" not in line:
+            continue
+        for key, label, _added in sources:
+            if key in line:
+                cron_fail.add(label)
+scheduled_fail = []
+for key, label, added in sources:
     verb = "were" if key == "navtex-ru" else "was"
     pronoun = "They" if key == "navtex-ru" else "It"
+    seen = attempts.get(key, [])
+    if not seen:
+        say(f"{label} has not run yet (added {added}).")
+        continue
+    first = min(day for day, _fail in seen)
+    ok_today = any(day == now.date().isoformat() and not fail for day, fail in seen)
+    miss = 0
+    for day in window:
+        if day.isoformat() < first:
+            continue
+        if not any(d == day.isoformat() and not fail for d, fail in seen):
+            miss += 1
     if ok_today:
-        say(f"{label} {verb} collected today. {pronoun} missed {miss} of the last 7 days.")
+        say(f"{label} {verb} collected today. {pronoun} missed {miss} days since {first}.")
     else:
-        say(f"{label} {verb} not collected today. {pronoun} missed {miss} of the last 7 days.")
-        missed.append(label)
-if missed:
-    if len(missed) == 1:
-        actions.append(f"{missed[0]} was not collected today")
-    else:
-        actions.append("these feeds were not collected today: " + ", ".join(missed))
+        say(f"{label} {verb} not collected today. {pronoun} missed {miss} days since {first}.")
+    if label in cron_fail:
+        scheduled_fail.append(label)
+if scheduled_fail:
+    actions.append("a scheduled collect failed for " + ", ".join(scheduled_fail))
 
 spend = defaultdict(float)
 usage = root / "data" / "llm" / "usage.log"
