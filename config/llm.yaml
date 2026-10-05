@@ -1,9 +1,18 @@
 provider: xai
-model: grok-build-0.1
 base_url: https://api.x.ai/v1
 batch_size: 50
-# USD per 1M tokens. Short-context rates from docs.x.ai, September 2026.
-price_per_million:
-  input: 1.00
-  output: 2.00
 hard_stop_usd: 1.00
+# Default is the cheapest current text model. compare_model is the general-purpose check.
+# Validation runs both on the same 50 headlines. Do not call until a cost estimate is approved.
+model: grok-build-0.1
+compare_model: grok-4.3
+# Short-context USD per 1M tokens. docs.x.ai, September 2026.
+models:
+  grok-build-0.1:
+    role: default
+    input: 1.00
+    output: 2.00
+  grok-4.3:
+    role: compare
+    input: 1.25
+    output: 2.50

@@ -9,7 +9,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
 PAGE = ROOT / "frontend" / "label" / "index.html"
-GOLD = ROOT / "data" / "validation" / "gold.csv"
+GOLD = ROOT / "validation" / "gold.csv"
 HOST = "127.0.0.1"
 PORT = 8765
 FIELDS = ["id", "bucket", "domain", "title", "title_en", "url", "relevant", "f1", "f2", "f3", "f4", "f5", "f6", "notes"]

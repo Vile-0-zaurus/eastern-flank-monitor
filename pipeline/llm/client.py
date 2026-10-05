@@ -23,31 +23,46 @@ def load_config(path: Path = CONFIG) -> dict:
     cfg = {
         "provider": "",
         "model": "",
+        "compare_model": "",
         "base_url": "",
         "batch_size": 50,
-        "price_per_million": {"input": 0.0, "output": 0.0},
         "hard_stop_usd": 1.0,
+        "models": {},
+        "price_per_million": {"input": 0.0, "output": 0.0},
     }
     section = ""
+    current = ""
     for raw in path.read_text(encoding="utf-8").splitlines():
         line = raw.split("#", 1)[0].rstrip()
         if not line.strip():
             continue
-        if line.strip() == "price_per_million:":
-            section = "price"
-            continue
+        indent = len(raw) - len(raw.lstrip(" "))
         key, _, val = line.strip().partition(":")
-        val = val.strip()
-        if section == "price" and raw.startswith(" "):
-            cfg["price_per_million"][key] = float(val)
+        key, val = key.strip(), val.strip()
+        if indent == 0 and key == "models":
+            section = "models"
+            continue
+        if section == "models" and indent == 2 and not val:
+            current = key
+            cfg["models"][current] = {"role": "", "input": 0.0, "output": 0.0}
+            continue
+        if section == "models" and indent >= 4 and current:
+            if key in ("input", "output"):
+                cfg["models"][current][key] = float(val)
+            else:
+                cfg["models"][current][key] = val
             continue
         section = ""
+        current = ""
         if key == "batch_size":
             cfg[key] = int(val)
         elif key == "hard_stop_usd":
             cfg[key] = float(val)
         else:
             cfg[key] = val
+    chosen = cfg["models"].get(cfg["model"])
+    if chosen:
+        cfg["price_per_million"] = {"input": chosen["input"], "output": chosen["output"]}
     return cfg
 
 
@@ -55,9 +70,10 @@ def title_hash(title: str) -> str:
     return hashlib.sha256(title.strip().encode("utf-8")).hexdigest()
 
 
-def estimate_cost(input_tokens: int, output_tokens: int, cfg: dict | None = None) -> float:
+def estimate_cost(input_tokens: int, output_tokens: int, cfg: dict | None = None, model: str | None = None) -> float:
     cfg = cfg or load_config()
-    prices = cfg["price_per_million"]
+    name = model or cfg["model"]
+    prices = cfg["models"].get(name) or cfg["price_per_million"]
     return (input_tokens * prices["input"] + output_tokens * prices["output"]) / 1_000_000
 
 

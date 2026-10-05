@@ -268,6 +268,7 @@ The prompt for summaries lives in `prompts/summary.md` and is version-controlled
 - Additional languages (Finnish, Estonian, Latvian, Lithuanian, Polish) if the project takes off.
 - How test users access the local app in Stage 1 (same machine vs. local network).
 - Scaling budget for Stage 2 (decide after the test phase).
+- M2: consider weekly aggregation for I2 — daily regional headline volume is low (~100/day).
 
 ---
 
@@ -286,6 +287,7 @@ The admin page shows a short to-do list in priority order. When the list is empt
 | Opportunity scores (O1, O2) | 0–4 slider pre-set to last week's value + short AI note on whether a change is suggested | Confirm or move slider |
 | Force posture notes (C2) | AI-drafted summary of relevant points when a new official intelligence report or major think-tank analysis appears | Approve / edit / reject |
 | Level confirmation | Shown only when the model proposes Serious or Critical | Confirm or hold at lower level, with a one-line reason |
+| Intent layer change | Shown only when the Intent layer rises a level: the top 5 headlines driving it, with AI frame scores | Agree / disagree |
 
 ### 13.2 Monthly health panel
 - Status per data source: working / degraded / broken.
@@ -297,6 +299,8 @@ The admin page shows a short to-do list in priority order. When the list is empt
 2. Candidate incidents come from **official feeds**, not general web search.
 3. All admin decisions are logged with date and reason (audit trail).
 4. **The admin page is local only — also in Stage 2.** The public site shows published results only. Publishing happens from the admin's machine. No admin functions are ever exposed on the public site.
+5. **The gold set (`validation/gold.csv`) is reused automatically** whenever the model, provider, or prompt changes. The admin does not relabel it.
+6. **All admin judging happens in the one local admin page.** The M1 labeling page becomes part of that page at M5.
 
 ---
 

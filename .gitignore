@@ -1,4 +1,5 @@
 data/
+validation/backups/
 .venv/
 .env
 *.zip

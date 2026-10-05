@@ -2,13 +2,18 @@
 """Write the 50-headline gold file. Labels stay empty. No model is called."""
 from __future__ import annotations
 
+import argparse
 import csv
+import shutil
 import sqlite3
+from datetime import datetime, timezone
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
 MATCHES = ROOT / "data" / "validation" / "region_matches.sqlite"
-OUT = ROOT / "data" / "validation" / "gold.csv"
+OUT = ROOT / "validation" / "gold.csv"
+BACKUP_DIR = ROOT / "validation" / "backups"
+LABEL_FIELDS = ("relevant", "f1", "f2", "f3", "f4", "f5", "f6", "notes")
 
 # Hand-picked from the 2021-06-15 match set. First 25 are pretext-suggested.
 EN = {
@@ -65,7 +70,34 @@ EN = {
 }
 
 
+def labeled_count(path: Path) -> int:
+    if not path.exists():
+        return 0
+    with path.open(encoding="utf-8", newline="") as fh:
+        rows = list(csv.DictReader(fh))
+    return sum(1 for row in rows if any((row.get(k) or "").strip() for k in LABEL_FIELDS))
+
+
+def backup_gold(path: Path) -> Path:
+    BACKUP_DIR.mkdir(parents=True, exist_ok=True)
+    stamp = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
+    dest = BACKUP_DIR / f"gold-{stamp}.csv"
+    shutil.copy2(path, dest)
+    return dest
+
+
 def main() -> None:
+    parser = argparse.ArgumentParser(description="Rebuild the unlabeled gold set.")
+    parser.add_argument("--force", action="store_true", help="Rebuild even if labels exist. Backs up first.")
+    args = parser.parse_args()
+    n = labeled_count(OUT)
+    if n and not args.force:
+        raise SystemExit(
+            f"refusing: {OUT} has {n} labeled row(s). Re-run with --force to rebuild. A timestamped backup is written first."
+        )
+    if args.force and OUT.exists():
+        saved = backup_gold(OUT)
+        print(f"backed up to {saved}")
     con = sqlite3.connect(f"file:{MATCHES}?mode=ro", uri=True)
     OUT.parent.mkdir(parents=True, exist_ok=True)
     fields = ["id", "bucket", "domain", "title", "title_en", "url", "relevant", "f1", "f2", "f3", "f4", "f5", "f6", "notes"]
