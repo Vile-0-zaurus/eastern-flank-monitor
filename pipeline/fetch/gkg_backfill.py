@@ -33,6 +33,7 @@ DB = ROOT / "data" / "backtest" / "gkg.sqlite"
 SIZE_DB = ROOT / "data" / "backtest" / "size-test.sqlite"
 FAIL_LOG = ROOT / "data" / "backtest" / "failures.log"
 WINDOW = ("20210101", "20220224")
+PRIORITY = ("20211101", "20220224")
 LISTS = {
     "english": "https://data.gdeltproject.org/gdeltv2/masterfilelist.txt",
     "translation": "https://data.gdeltproject.org/gdeltv2/masterfilelist-translation.txt",
@@ -50,6 +51,16 @@ def load_outlets(path: Path = OUTLETS_PATH) -> list[str]:
     if not outlets:
         raise SystemExit(f"no outlets in {path}")
     return outlets
+
+
+def queue_rank(item: tuple[str, str, str]) -> tuple:
+    """Translation Nov 2021–Feb 2022, then English for those dates, then the rest."""
+    stream, stamp, url = item
+    if PRIORITY[0] <= stamp <= PRIORITY[1] and stream == "translation":
+        return (0, stamp, url)
+    if PRIORITY[0] <= stamp <= PRIORITY[1] and stream == "english":
+        return (1, stamp, url)
+    return (2, 0 if stream == "english" else 1, stamp, url)
 
 
 def utcnow() -> str:
@@ -252,6 +263,10 @@ def run(day: str | None, db_path: Path) -> None:
         for item in files:
             if not skip(con, item[2]):
                 todo.append(item)
+    todo.sort(key=queue_rank)
+    n0 = sum(1 for item in todo if queue_rank(item)[0] == 0)
+    n1 = sum(1 for item in todo if queue_rank(item)[0] == 1)
+    print(f"QUEUE translation_priority={n0} english_priority={n1} rest={len(todo) - n0 - n1}", flush=True)
     print(f"TODO {len(todo)}", flush=True)
     lock = threading.Lock()
     done_n = 0
