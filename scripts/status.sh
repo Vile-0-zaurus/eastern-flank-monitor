@@ -103,9 +103,11 @@ if progress and queue and index_total:
     done_now = already + done_pass
     pct = 100 * done_now / index_total
     say(f"The backfill is {pct:.1f} percent done, {done_now:,} of {index_total:,} files.")
-    priority_total = queue.get("translation_priority", 0) + queue.get("english_priority", 0)
-    priority_done = min(done_pass, priority_total)
-    priority_chunk_done = priority_total == 0 or done_pass >= priority_total
+    translation_total = queue.get("translation_priority", 0)
+    translation_done = "translation_priority" in queue and (
+        translation_total == 0 or done_pass >= translation_total
+    )
+    priority_chunk_done = translation_done
     hour_ago = datetime.now(timezone.utc) - timedelta(hours=1)
     recent = [(t, d, n) for t, d, n in progress if t >= hour_ago]
     rate = None
@@ -124,12 +126,12 @@ if progress and queue and index_total:
             rate = gained / (span / 60)
     if rate:
         say(f"Over the last hour it finished about {rate:.1f} files per minute.")
-        priority_left = max(priority_total - priority_done, 0)
+        translation_left = 0 if translation_done else max(translation_total - done_pass, 0)
         everything_left = max(todo - done_pass, 0)
-        if priority_chunk_done:
-            say("The priority chunk, translation and English from November 2021 through February 2022, is finished.")
+        if translation_done:
+            say("The translation priority download, November 2021 through February 2022, is finished.")
         else:
-            say(f"The priority chunk, translation and English from November 2021 through February 2022, has about {priority_left:,} files left, {hours(priority_left / rate)}.")
+            say(f"The translation priority download, November 2021 through February 2022, has about {translation_left:,} files left, {hours(translation_left / rate)}.")
         say(f"Everything still queued is about {everything_left:,} files, {hours(everything_left / rate)}.")
     else:
         say("There are not enough finished files in the last hour to estimate a speed or an arrival time.")
@@ -224,9 +226,9 @@ if candidates.exists():
     say("Batch 2 is ready for your audit.")
     actions.append("batch 2 is ready for you to label")
 elif priority_chunk_done:
-    say("The priority download is finished. Batch 2 has not been built yet.")
+    say("The translation priority download is finished. Batch 2 has not been built yet.")
 else:
-    say("Batch 2 is waiting. The priority download is not finished, so there is nothing for you to audit yet.")
+    say("Batch 2 is waiting. The translation priority download is not finished, so there is nothing for you to audit yet.")
 
 if priority_chunk_done:
     if actions:
