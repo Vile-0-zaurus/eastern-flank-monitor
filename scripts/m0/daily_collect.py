@@ -85,35 +85,42 @@ def main() -> None:
     dest = ROOT / "data" / "collect" / day
     dest.mkdir(parents=True, exist_ok=True)
     log = []
+
+    def note(level: str, source: str, detail: str) -> None:
+        line = f"{datetime.now(timezone.utc).isoformat()} {level} {source} {detail}"
+        log.append(line)
+        print(line, flush=True)
+
     for name, url in FEEDS.items():
         try:
             resp = get(url)
         except Exception as exc:
-            log.append(f"SKIP {name} error {exc}")
+            note("FAILURE", name, f"error={exc}")
             continue
         why = blocked(resp)
-        if why or resp.status_code != 200 or b"<rss" not in resp.content[:500].lower() and b"<feed" not in resp.content[:500].lower():
-            log.append(f"SKIP {name} status={resp.status_code} {why or 'not a feed'}")
+        looks_like_feed = b"<rss" in resp.content[:800].lower() or b"<feed" in resp.content[:800].lower()
+        if why or resp.status_code != 200 or not looks_like_feed:
+            note("FAILURE", name, f"HTTP {resp.status_code} {why or 'not a feed'}")
             continue
         write_gz(dest / f"{name}.gz", resp.content)
-        log.append(f"OK {name} bytes={len(resp.content)}")
+        note("SUCCESS", name, f"HTTP {resp.status_code} bytes={len(resp.content)}")
     try:
         resp = get(NAVTEX_URL)
     except Exception as exc:
-        log.append(f"SKIP navtex error {exc}")
+        note("FAILURE", "navtex-ru", f"error={exc}")
         resp = None
     if resp is not None:
         why = blocked(resp)
         if why or resp.status_code != 200:
-            log.append(f"SKIP navtex status={resp.status_code} {why}")
+            note("FAILURE", "navtex-ru", f"HTTP {resp.status_code} {why}")
         else:
             text = russian_navtex(resp.text)
             n = text.count("NAV WARN")
             write_gz(dest / "navtex-ru.txt.gz", text.encode("utf-8"))
-            log.append(f"OK navtex-ru warnings~{n} bytes={len(text.encode())}")
+            note("SUCCESS", "navtex-ru", f"HTTP {resp.status_code} warnings={n} bytes={len(text.encode())}")
     summary = "\n".join(log) + "\n"
-    (dest / "collect.log").write_text(summary, encoding="utf-8")
-    print(summary, end="")
+    with (dest / "collect.log").open("a", encoding="utf-8") as fh:
+        fh.write(summary)
 
 
 if __name__ == "__main__":
