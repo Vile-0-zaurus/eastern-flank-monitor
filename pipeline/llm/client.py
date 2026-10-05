@@ -122,17 +122,17 @@ def log_usage(model: str, input_tokens: int, output_tokens: int, usd: float) -> 
         fh.write(line)
 
 
-def _api_key() -> str:
-    key = os.environ.get("XAI_API_KEY", "")
+def _api_key(name: str) -> str:
+    key = os.environ.get(name, "")
     if not key:
         env = ROOT / ".env"
         if env.exists():
             for raw in env.read_text(encoding="utf-8").splitlines():
-                if raw.startswith("XAI_API_KEY="):
+                if raw.startswith(name + "="):
                     key = raw.split("=", 1)[1].strip().strip('"').strip("'")
                     break
     if not key:
-        raise SystemExit("XAI_API_KEY is not set")
+        raise SystemExit(f"{name} is not set")
     return key
 
 
@@ -154,7 +154,7 @@ def complete(prompt: str, user: str, cfg: dict | None = None, model: str | None 
     req = urllib.request.Request(
         cfg["base_url"].rstrip("/") + "/chat/completions",
         data=json.dumps(body).encode("utf-8"),
-        headers={"Authorization": f"Bearer {_api_key()}", "Content-Type": "application/json"},
+        headers={"Authorization": f"Bearer {_api_key('XAI_API_KEY')}", "Content-Type": "application/json"},
         method="POST",
     )
     with urllib.request.urlopen(req, timeout=timeout) as resp:
@@ -162,3 +162,42 @@ def complete(prompt: str, user: str, cfg: dict | None = None, model: str | None 
     text = payload["choices"][0]["message"]["content"]
     usage = payload.get("usage") or {}
     return text, int(usage.get("prompt_tokens") or 0), int(usage.get("completion_tokens") or 0)
+
+
+def complete_anthropic(prompt: str, user: str, model: str, max_tokens: int = 8000, timeout: int = 300) -> tuple[str, int, int]:
+    """One Anthropic message call. Never prints the key. Raises SystemExit with an error type only."""
+    import urllib.error
+
+    body = json.dumps(
+        {
+            "model": model,
+            "max_tokens": max_tokens,
+            "system": prompt,
+            "messages": [{"role": "user", "content": user}],
+        }
+    ).encode("utf-8")
+    req = urllib.request.Request(
+        "https://api.anthropic.com/v1/messages",
+        data=body,
+        headers={
+            "x-api-key": _api_key("ANTHROPIC_API_KEY"),
+            "anthropic-version": "2023-06-01",
+            "content-type": "application/json",
+        },
+        method="POST",
+    )
+    try:
+        with urllib.request.urlopen(req, timeout=timeout) as resp:
+            payload = json.loads(resp.read().decode("utf-8"))
+    except urllib.error.HTTPError as exc:
+        kind = "http_error"
+        try:
+            err = json.loads(exc.read().decode("utf-8"))
+            kind = str((err.get("error") or {}).get("type") or exc.code)
+        except Exception:
+            kind = str(exc.code)
+        raise SystemExit(f"anthropic {kind}") from None
+    parts = payload.get("content") or []
+    text = "".join(part.get("text", "") for part in parts if part.get("type") == "text")
+    usage = payload.get("usage") or {}
+    return text, int(usage.get("input_tokens") or 0), int(usage.get("output_tokens") or 0)

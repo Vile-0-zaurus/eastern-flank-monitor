@@ -2,17 +2,23 @@ provider: xai
 base_url: https://api.x.ai/v1
 batch_size: 50
 hard_stop_usd: 1.00
-# Default is the cheapest current text model. compare_model is the general-purpose check.
-# Validation runs both on the same 50 headlines. Do not call until a cost estimate is approved.
-model: grok-build-0.1
-compare_model: grok-4.3
-# Short-context USD per 1M tokens. docs.x.ai, September 2026.
+model: grok-4.3
+compare_model: grok-build-0.1
+judge_model: claude-opus-5-5
+# Classifiers stay on xAI. The judge is current Opus, called only through ANTHROPIC_API_KEY.
 models:
   grok-build-0.1:
-    role: default
+    provider: xai
+    role: classifier
     input: 1.00
     output: 2.00
   grok-4.3:
-    role: compare
+    provider: xai
+    role: classifier
     input: 1.25
     output: 2.50
+  claude-opus-5-5:
+    provider: anthropic
+    role: judge
+    input: 4.00
+    output: 20.00
