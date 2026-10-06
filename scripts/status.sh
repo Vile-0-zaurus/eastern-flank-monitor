@@ -196,6 +196,22 @@ sources = [
     ("mfa.xml", "Russian foreign ministry", "2026-10-05"),
     ("navtex-ru", "Baltic navigation warnings", "2026-10-04"),
 ]
+disabled = {}
+collect_cfg = root / "config" / "collect.yaml"
+if collect_cfg.exists():
+    section = ""
+    for raw in collect_cfg.read_text(encoding="utf-8").splitlines():
+        line = raw.split("#", 1)[0].rstrip()
+        if not line.strip():
+            continue
+        if not raw.startswith(" ") and line.strip() == "disabled:":
+            section = "disabled"
+            continue
+        if section == "disabled" and ":" in line:
+            key, val = line.strip().split(":", 1)
+            disabled[key.strip()] = val.strip()
+        elif not raw.startswith(" "):
+            section = ""
 collect = root / "data" / "collect"
 window = [(now.date() - timedelta(days=n)) for n in range(6, -1, -1)]
 attempts = defaultdict(list)
@@ -208,6 +224,9 @@ scheduled_fail = []
 for key, label, added in sources:
     verb = "were" if key == "navtex-ru" else "was"
     pronoun = "They" if key == "navtex-ru" else "It"
+    if key in disabled:
+        say(f"{label} is disabled ({disabled[key]}).")
+        continue
     seen = attempts.get(key, [])
     if not seen:
         say(f"{label} has not run yet (added {added}).")
@@ -234,6 +253,8 @@ if now.hour >= 8:
     not_run = []
     ran_any = False
     for key, label, _added in sources:
+        if key in disabled:
+            continue
         seen = attempts.get(key, [])
         if any(day == today for day, _fail in seen):
             ran_any = True

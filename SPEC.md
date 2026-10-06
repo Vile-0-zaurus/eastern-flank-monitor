@@ -282,6 +282,7 @@ The prompt for summaries lives in `prompts/summary.md` and is version-controlled
 - Ask the gpsjam owner for permission before any public use of its data.
 - Outlet-type weighting: state outlets vs state-aligned media. Not applied yet.
 - Check rubaltic.ru coverage before adding it to the daily collector. It did not appear in the 2021-06-15 GKG sample.
+- Re-test MFA feed occasionally; never bypass.
 - Final project name.
 - Exact source for Russian navigation warnings (C1).
 - Whether automated GPS interference data is available (H1).

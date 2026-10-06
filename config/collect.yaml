@@ -1,0 +1,4 @@
+# Daily collector switches. Fetch code stays in scripts/m0/daily_collect.py.
+# A disabled source is not requested. Do not bypass a rejection.
+disabled:
+  mfa.xml: rejects research user-agent from current IP; MFA statements covered via TASS/RIA

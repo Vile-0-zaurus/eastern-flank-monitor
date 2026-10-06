@@ -20,6 +20,7 @@ import requests
 
 ROOT = Path(__file__).resolve().parents[2]
 UA = "eastern-flank-monitor/0.1 (local research; 1 req/s)"
+COLLECT_CONFIG = ROOT / "config" / "collect.yaml"
 FEEDS = {
     "tass-en.xml": "https://tass.com/rss/v2.xml",
     "tass-ru.xml": "https://tass.ru/rss/v2.xml",
@@ -32,6 +33,26 @@ RU_MARK = re.compile(r"PETERSBURG NAV WARN|KALININGRAD NAV WARN", re.I)
 S = requests.Session()
 S.headers["User-Agent"] = UA
 _last: dict[str, float] = {}
+
+
+def disabled_sources(path: Path = COLLECT_CONFIG) -> dict[str, str]:
+    found: dict[str, str] = {}
+    section = ""
+    if not path.exists():
+        return found
+    for raw in path.read_text(encoding="utf-8").splitlines():
+        line = raw.split("#", 1)[0].rstrip()
+        if not line.strip():
+            continue
+        if not raw.startswith(" ") and line.strip() == "disabled:":
+            section = "disabled"
+            continue
+        if section == "disabled" and ":" in line:
+            key, val = line.strip().split(":", 1)
+            found[key.strip()] = val.strip()
+        elif not raw.startswith(" "):
+            section = ""
+    return found
 
 
 def get(url: str) -> requests.Response:
@@ -93,7 +114,11 @@ def main() -> None:
         log.append(line)
         print(line, flush=True)
 
+    skipped = disabled_sources()
     for name, url in FEEDS.items():
+        if name in skipped:
+            note("SKIP", name, "disabled")
+            continue
         try:
             resp = get(url)
         except Exception as exc:

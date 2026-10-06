@@ -80,6 +80,8 @@ MFA notes:
 - RSS paths returned an HTML page titled **Request Rejected**.
 - No working feed URL was found. No account was created to look further.
 
+Update 2026-10-06, public IP country LT: the daily collector requested `https://mid.ru/ru/rss/` with the research user-agent only. The response was HTTP 200 and a rejected page, not a feed. The source is disabled in `config/collect.yaml`. Do not spoof a browser user-agent and do not use a VPN to get past that rejection. MFA statements are covered via TASS and RIA. Re-test occasionally; never bypass.
+
 TASS.ru is blocked or throttled for a non-browser agent. It is not an auth wall. The feed itself has no archive.
 
 **Verdict: PARTLY.** Three current headline feeds work. None of them can back a 2021–Feb 2022 backtest. MFA fails from this host.
