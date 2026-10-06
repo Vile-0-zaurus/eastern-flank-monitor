@@ -204,15 +204,6 @@ for log in collect.glob("*/collect.log"):
         for key, _label, _added in sources:
             if key in line and ("SUCCESS" in line or "FAILURE" in line or line.strip().startswith("OK ")):
                 attempts[key].append((log.parent.name, "FAILURE" in line and "SUCCESS" not in line))
-cron_fail = set()
-cron_log = collect / "cron.log"
-if cron_log.exists():
-    for line in cron_log.read_text(encoding="utf-8", errors="replace").splitlines():
-        if "FAILURE" not in line:
-            continue
-        for key, label, _added in sources:
-            if key in line:
-                cron_fail.add(label)
 scheduled_fail = []
 for key, label, added in sources:
     verb = "were" if key == "navtex-ru" else "was"
@@ -233,10 +224,27 @@ for key, label, added in sources:
         say(f"{label} {verb} collected today. {pronoun} missed {miss} days since {first}.")
     else:
         say(f"{label} {verb} not collected today. {pronoun} missed {miss} days since {first}.")
-    if label in cron_fail:
+    if any(day == now.date().isoformat() and fail for day, fail in seen):
         scheduled_fail.append(label)
 if scheduled_fail:
     actions.append("a scheduled collect failed for " + ", ".join(scheduled_fail))
+
+if now.hour >= 8:
+    today = now.date().isoformat()
+    not_run = []
+    ran_any = False
+    for key, label, _added in sources:
+        seen = attempts.get(key, [])
+        if any(day == today for day, _fail in seen):
+            ran_any = True
+        else:
+            not_run.append(label)
+    if not_run:
+        if ran_any:
+            reason = "the network, or that source did not answer"
+        else:
+            reason = "the machine was asleep or off, or the network was down"
+        actions.append("not collected today: " + ", ".join(not_run) + ". Likely reason: " + reason)
 
 spend = defaultdict(float)
 usage = root / "data" / "llm" / "usage.log"

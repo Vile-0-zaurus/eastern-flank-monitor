@@ -1,0 +1,10 @@
+[Unit]
+Description=Eastern flank daily source collect at 06:15
+
+[Timer]
+OnCalendar=*-*-* 06:15:00
+Persistent=true
+Unit=daily-collect.service
+
+[Install]
+WantedBy=timers.target
