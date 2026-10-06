@@ -3,6 +3,7 @@
 set -euo pipefail
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 exec python3 - "$ROOT" << 'PY'
+import sqlite3
 import subprocess
 import sys
 from collections import defaultdict
@@ -79,6 +80,40 @@ def hours(minutes):
         return f"about {h:.0f} hours"
     return f"about {h / 24:.1f} days"
 
+def translation_priority_state():
+    """Read-only. A success count in the log is not proof these files were saved."""
+    db = root / "data" / "backtest" / "gkg.sqlite"
+    expected = 96 * 116
+    if not db.exists():
+        return {"known": False, "done": 0, "left": expected, "dns_failures": 0}
+    con = sqlite3.connect(f"file:{db}?mode=ro", uri=True, timeout=5)
+    try:
+        con.execute("PRAGMA query_only=ON")
+        rows = con.execute(
+            """
+            SELECT status, COUNT(*)
+            FROM files
+            WHERE stream='translation' AND stamp>='20211101' AND stamp<='20220224'
+            GROUP BY status
+            """
+        ).fetchall()
+        dns = con.execute(
+            """
+            SELECT COUNT(*) FROM files
+            WHERE stream='translation' AND stamp>='20211101' AND stamp<='20220224'
+              AND status!='done' AND error LIKE '%NameResolutionError%'
+            """
+        ).fetchone()[0]
+    finally:
+        con.close()
+    counts = {status: n for status, n in rows}
+    done = counts.get("done", 0)
+    recorded = sum(counts.values())
+    not_saved = recorded - done
+    missing = max(expected - recorded, 0)
+    left = not_saved + missing
+    return {"known": True, "done": done, "left": left, "dns_failures": dns}
+
 active = service_active()
 priority_chunk_done = False
 if active == "active":
@@ -103,11 +138,8 @@ if progress and queue and index_total:
     done_now = already + done_pass
     pct = 100 * done_now / index_total
     say(f"The backfill is {pct:.1f} percent done, {done_now:,} of {index_total:,} files.")
-    translation_total = queue.get("translation_priority", 0)
-    translation_done = "translation_priority" in queue and (
-        translation_total == 0 or done_pass >= translation_total
-    )
-    priority_chunk_done = translation_done
+    translation = translation_priority_state()
+    priority_chunk_done = translation["known"] and translation["left"] == 0
     hour_ago = datetime.now(timezone.utc) - timedelta(hours=1)
     recent = [(t, d, n) for t, d, n in progress if t >= hour_ago]
     rate = None
@@ -126,10 +158,16 @@ if progress and queue and index_total:
             rate = gained / (span / 60)
     if rate:
         say(f"Over the last hour it finished about {rate:.1f} files per minute.")
-        translation_left = 0 if translation_done else max(translation_total - done_pass, 0)
+        translation_left = translation["left"]
         everything_left = max(todo - done_pass, 0)
-        if translation_done:
+        if priority_chunk_done:
             say("The translation priority download, November 2021 through February 2022, is finished.")
+        elif translation["dns_failures"]:
+            say(
+                f"The translation priority download is not finished. "
+                f"{translation['dns_failures']:,} files failed with a DNS error and this run will not try them again."
+            )
+            actions.append("the translation priority files failed on DNS and this run will not try them again")
         else:
             say(f"The translation priority download, November 2021 through February 2022, has about {translation_left:,} files left, {hours(translation_left / rate)}.")
         say(f"Everything still queued is about {everything_left:,} files, {hours(everything_left / rate)}.")
