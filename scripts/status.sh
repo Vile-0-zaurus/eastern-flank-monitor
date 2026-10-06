@@ -81,11 +81,12 @@ def hours(minutes):
     return f"about {h / 24:.1f} days"
 
 def translation_priority_state():
-    """Read-only. A success count in the log is not proof these files were saved."""
+    """Read-only. A chunk is finished only when its files are saved."""
     db = root / "data" / "backtest" / "gkg.sqlite"
     expected = 96 * 116
+    empty = {"known": False, "done": 0, "left": expected, "retry": 0, "failed": 0, "expected": expected}
     if not db.exists():
-        return {"known": False, "done": 0, "left": expected, "dns_failures": 0}
+        return empty
     con = sqlite3.connect(f"file:{db}?mode=ro", uri=True, timeout=5)
     try:
         con.execute("PRAGMA query_only=ON")
@@ -97,22 +98,22 @@ def translation_priority_state():
             GROUP BY status
             """
         ).fetchall()
-        dns = con.execute(
-            """
-            SELECT COUNT(*) FROM files
-            WHERE stream='translation' AND stamp>='20211101' AND stamp<='20220224'
-              AND status!='done' AND error LIKE '%NameResolutionError%'
-            """
-        ).fetchone()[0]
     finally:
         con.close()
     counts = {status: n for status, n in rows}
     done = counts.get("done", 0)
+    retry = counts.get("retry", 0)
+    failed = counts.get("failed", 0)
     recorded = sum(counts.values())
-    not_saved = recorded - done
-    missing = max(expected - recorded, 0)
-    left = not_saved + missing
-    return {"known": True, "done": done, "left": left, "dns_failures": dns}
+    left = (recorded - done) + max(expected - recorded, 0)
+    return {
+        "known": True,
+        "done": done,
+        "left": left,
+        "retry": retry,
+        "failed": failed,
+        "expected": expected,
+    }
 
 active = service_active()
 priority_chunk_done = False
@@ -162,17 +163,17 @@ if progress and queue and index_total:
         everything_left = max(todo - done_pass, 0)
         if priority_chunk_done:
             say("The translation priority download, November 2021 through February 2022, is finished.")
-        elif translation["dns_failures"]:
-            say(
-                f"The translation priority download is not finished. "
-                f"{translation['dns_failures']:,} files failed with a DNS error and this run will not try them again."
-            )
-            actions.append("the translation priority files failed on DNS and this run will not try them again")
         else:
             say(f"The translation priority download, November 2021 through February 2022, has about {translation_left:,} files left, {hours(translation_left / rate)}.")
+        say(f"{translation['retry']:,} files are waiting to retry. {translation['failed']:,} files are failed.")
+        if translation["expected"] and translation["failed"] / translation["expected"] > 0.01:
+            actions.append(f"{translation['failed']:,} files are failed, more than 1 percent of the translation priority chunk")
         say(f"Everything still queued is about {everything_left:,} files, {hours(everything_left / rate)}.")
     else:
         say("There are not enough finished files in the last hour to estimate a speed or an arrival time.")
+        say(f"{translation['retry']:,} files are waiting to retry. {translation['failed']:,} files are failed.")
+        if translation["expected"] and translation["failed"] / translation["expected"] > 0.01:
+            actions.append(f"{translation['failed']:,} files are failed, more than 1 percent of the translation priority chunk")
         actions.append("the backfill has no recent finished files, so its arrival time is unknown")
 else:
     say("I cannot see a current backfill count in the service log.")

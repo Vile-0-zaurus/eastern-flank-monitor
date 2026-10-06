@@ -16,9 +16,11 @@ from __future__ import annotations
 
 import html
 import io
+import socket
 import sqlite3
 import sys
 import threading
+import time
 import zipfile
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime, timezone
@@ -40,6 +42,60 @@ LISTS = {
 }
 MAX_TRIES = 3
 MAX_PARALLEL = 2
+PAUSE_S = 60
+HOST = "data.gdeltproject.org"
+NETWORK_MARKERS = (
+    "NameResolutionError",
+    "Name or service not known",
+    "Temporary failure in name resolution",
+    "Network is unreachable",
+    "timed out",
+    "Timeout",
+    "ConnectionError",
+    "Connection reset",
+    "Connection aborted",
+    "IncompleteRead",
+    "RemoteDisconnected",
+    "Connection refused",
+    "NewConnectionError",
+    "Max retries exceeded",
+)
+
+
+def is_network_error(exc: BaseException) -> bool:
+    text = str(exc)
+    return any(marker in text for marker in NETWORK_MARKERS)
+
+
+def network_up() -> bool:
+    try:
+        socket.getaddrinfo(HOST, 443)
+        with socket.create_connection((HOST, 443), timeout=10):
+            return True
+    except OSError:
+        return False
+
+
+def wait_for_network() -> None:
+    while not network_up():
+        print("NETWORK_DOWN waiting 60s", flush=True)
+        time.sleep(PAUSE_S)
+
+
+def clear_network_attempts(con: sqlite3.Connection) -> int:
+    """A DNS or connection error is not a final miss. Those rows are tried again."""
+    clauses = " OR ".join("error LIKE ?" for _ in NETWORK_MARKERS)
+    params = [f"%{marker}%" for marker in NETWORK_MARKERS]
+    cur = con.execute(
+        f"""
+        UPDATE files
+        SET attempts = 0, status = 'retry', error = NULL
+        WHERE status IN ('retry', 'failed') AND ({clauses})
+        """,
+        params,
+    )
+    con.commit()
+    return cur.rowcount
 
 
 def load_outlets(path: Path = OUTLETS_PATH) -> list[str]:
@@ -251,14 +307,28 @@ def mark_fail(con, stream, stamp, url, error) -> None:
         print(f"GAVE_UP {url} attempts={attempts}", flush=True)
 
 
+def index_when_up(stream: str, list_url: str, day: str | None) -> list[tuple[str, str, str]]:
+    while True:
+        wait_for_network()
+        try:
+            return index_window(stream, list_url, day)
+        except Exception as exc:
+            if not is_network_error(exc):
+                raise
+            print(f"NETWORK_RETRY index {stream} {str(exc)[:120]}", flush=True)
+            time.sleep(PAUSE_S)
+
+
 def run(day: str | None, db_path: Path) -> None:
     outlets = load_outlets()
     outlet_set = set(outlets)
     con = connect(db_path)
+    reset_n = clear_network_attempts(con)
+    print(f"NETWORK_RETRY_RESET {reset_n}", flush=True)
     todo = []
     for stream, list_url in LISTS.items():
         print(f"INDEX {stream}", flush=True)
-        files = index_window(stream, list_url, day)
+        files = index_when_up(stream, list_url, day)
         print(f"INDEX {stream} files={len(files)}", flush=True)
         for item in files:
             if not skip(con, item[2]):
@@ -273,15 +343,27 @@ def run(day: str | None, db_path: Path) -> None:
 
     def work(item):
         _stream, _stamp, url = item
-        try:
-            content = download(url)
+        strikes = 0
+        while True:
+            wait_for_network()
             try:
-                totals, kept = scan(content, outlet_set)
-            finally:
-                del content
-            return item, totals, kept, None
-        except Exception as exc:
-            return item, None, None, str(exc)
+                content = download(url)
+                try:
+                    totals, kept = scan(content, outlet_set)
+                finally:
+                    del content
+                return item, totals, kept, None
+            except Exception as exc:
+                if not is_network_error(exc) or not network_up():
+                    if is_network_error(exc):
+                        print(f"NETWORK_DOWN during {url}", flush=True)
+                        continue
+                    return item, None, None, str(exc)
+                strikes += 1
+                if strikes >= MAX_TRIES:
+                    return item, None, None, str(exc)
+                print(f"RETRY_PAUSE {url} {str(exc)[:120]}", flush=True)
+                time.sleep(PAUSE_S)
 
     with ThreadPoolExecutor(max_workers=MAX_PARALLEL) as pool:
         futs = [pool.submit(work, item) for item in todo]
