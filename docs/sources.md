@@ -82,9 +82,11 @@ MFA notes:
 
 Update 2026-10-06, public IP country LT: the daily collector requested `https://mid.ru/ru/rss/` with the research user-agent only. The response was HTTP 200 and a rejected page, not a feed. The source is disabled in `config/collect.yaml`. Do not spoof a browser user-agent and do not use a VPN to get past that rejection. MFA statements are covered via TASS and RIA. Re-test occasionally; never bypass.
 
+Update 2026-10-07, public IP country LT: `ria.ru` does not resolve (`Name or service not known`). TASS on the same network does resolve. This is treated as an ISP-level block, likely tied to EU sanctions, not as a transient DNS fault. The daily collector no longer requests RIA. DNS servers were not changed. No VPN and no proxy were used. RIA is still covered via GDELT. Do not circumvent the block.
+
 TASS.ru is blocked or throttled for a non-browser agent. It is not an auth wall. The feed itself has no archive.
 
-**Verdict: PARTLY.** Three current headline feeds work. None of them can back a 2021–Feb 2022 backtest. MFA fails from this host.
+**Verdict: PARTLY.** TASS English and TASS Russian answer from this network. RIA and MFA do not, and both are disabled in the daily collector. None of the live feeds can back a 2021–Feb 2022 backtest. GDELT remains the location-independent source.
 
 ## 3. Russian navigation warnings (Baltic and Gulf of Finland)
 

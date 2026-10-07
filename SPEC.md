@@ -63,7 +63,8 @@ These rules are not optional and override any feature request.
 4. **Respect source terms and licenses.** Check each data source's terms of use before using it (some conflict datasets restrict redistribution). Record license notes in `docs/sources.md`.
 5. **No secrets in the repo.** API keys live in a local `.env` file that is listed in `.gitignore`.
 6. **Never bypass access blocks** (no user-agent spoofing, no VPN workarounds).
-7. **Disclaimer** — shown on every page (short version in the footer, full version on an "About" page):
+7. **Never circumvent legal or sanctions-based blocks (DNS, VPN, proxies).**
+8. **Disclaimer** — shown on every page (short version in the footer, full version on an "About" page):
 
 > **Short:** Independent analysis project. Not an official warning service. In a crisis, follow your national authorities.
 >
@@ -283,6 +284,7 @@ The prompt for summaries lives in `prompts/summary.md` and is version-controlled
 - Outlet-type weighting: state outlets vs state-aligned media. Not applied yet.
 - Check rubaltic.ru coverage before adding it to the daily collector. It did not appear in the 2021-06-15 GKG sample.
 - Re-test MFA feed occasionally; never bypass.
+- Collector source availability depends on the admin's location; GDELT is the location-independent primary source.
 - Final project name.
 - Exact source for Russian navigation warnings (C1).
 - Whether automated GPS interference data is available (H1).

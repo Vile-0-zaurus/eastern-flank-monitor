@@ -2,3 +2,4 @@
 # A disabled source is not requested. Do not bypass a rejection.
 disabled:
   mfa.xml: rejects research user-agent from current IP; MFA statements covered via TASS/RIA
+  ria.xml: domain does not resolve on current network, likely ISP-level block (EU sanctions); RIA still covered via GDELT
