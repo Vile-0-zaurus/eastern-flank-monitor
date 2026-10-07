@@ -1,5 +1,7 @@
 [Unit]
 Description=Eastern flank daily source collect at 06:15
+After=network-online.target
+Wants=network-online.target
 
 [Timer]
 OnCalendar=*-*-* 06:15:00

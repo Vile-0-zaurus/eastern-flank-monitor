@@ -33,6 +33,24 @@ RU_MARK = re.compile(r"PETERSBURG NAV WARN|KALININGRAD NAV WARN", re.I)
 S = requests.Session()
 S.headers["User-Agent"] = UA
 _last: dict[str, float] = {}
+NETWORK_TRIES = 5
+PAUSE_S = 60
+NETWORK_MARKERS = (
+    "NameResolutionError",
+    "Name or service not known",
+    "Temporary failure in name resolution",
+    "Network is unreachable",
+    "timed out",
+    "Timeout",
+    "ConnectionError",
+    "Connection reset",
+    "Connection aborted",
+    "IncompleteRead",
+    "RemoteDisconnected",
+    "Connection refused",
+    "NewConnectionError",
+    "Max retries exceeded",
+)
 
 
 def disabled_sources(path: Path = COLLECT_CONFIG) -> dict[str, str]:
@@ -63,6 +81,28 @@ def get(url: str) -> requests.Response:
     resp = S.get(url, timeout=60, allow_redirects=True)
     _last[host] = time.monotonic()
     return resp
+
+
+def is_network_error(exc: BaseException) -> bool:
+    text = str(exc)
+    return any(marker in text for marker in NETWORK_MARKERS)
+
+
+def get_with_retry(url: str, source: str, note) -> requests.Response:
+    """Network and DNS errors pause and try again. Other errors are not retried."""
+    last: BaseException | None = None
+    tries = NETWORK_TRIES + 1
+    for attempt in range(1, tries + 1):
+        try:
+            return get(url)
+        except Exception as exc:
+            last = exc
+            if not is_network_error(exc) or attempt == tries:
+                raise
+            note("RETRY", source, f"attempt={attempt} pause={PAUSE_S}s error={exc}")
+            time.sleep(PAUSE_S)
+    assert last is not None
+    raise last
 
 
 def blocked(resp: requests.Response) -> str:
@@ -120,7 +160,7 @@ def main() -> None:
             note("SKIP", name, "disabled")
             continue
         try:
-            resp = get(url)
+            resp = get_with_retry(url, name, note)
         except Exception as exc:
             note("FAILURE", name, f"error={exc}")
             continue
@@ -132,7 +172,7 @@ def main() -> None:
         write_gz(dest / f"{name}.gz", resp.content)
         note("SUCCESS", name, f"HTTP {resp.status_code} bytes={len(resp.content)}")
     try:
-        resp = get(NAVTEX_URL)
+        resp = get_with_retry(NAVTEX_URL, "navtex-ru", note)
     except Exception as exc:
         note("FAILURE", "navtex-ru", f"error={exc}")
         resp = None

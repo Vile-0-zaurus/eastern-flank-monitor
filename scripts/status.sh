@@ -243,7 +243,8 @@ for key, label, added in sources:
         say(f"{label} {verb} collected today. {pronoun} missed {miss} days since {first}.")
     else:
         say(f"{label} {verb} not collected today. {pronoun} missed {miss} days since {first}.")
-    if any(day == now.date().isoformat() and fail for day, fail in seen):
+    today_rows = [fail for day, fail in seen if day == now.date().isoformat()]
+    if today_rows and today_rows[-1]:
         scheduled_fail.append(label)
 if scheduled_fail:
     actions.append("a scheduled collect failed for " + ", ".join(scheduled_fail))

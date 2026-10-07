@@ -5,5 +5,6 @@ Wants=network-online.target
 
 [Service]
 Type=oneshot
+TimeoutStartSec=3600
 WorkingDirectory=/home/supra/Projects/eastern-flank-monitor
 ExecStart=/home/supra/Projects/eastern-flank-monitor/.venv/bin/python -u /home/supra/Projects/eastern-flank-monitor/scripts/m0/daily_collect.py
