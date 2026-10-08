@@ -81,10 +81,18 @@ def hours(minutes):
     return f"about {h / 24:.1f} days"
 
 def translation_priority_state():
-    """Read-only. A chunk is finished only when its files are saved."""
+    """Read-only. Count files that were saved, not an assumed 96 files a day."""
     db = root / "data" / "backtest" / "gkg.sqlite"
-    expected = 96 * 116
-    empty = {"known": False, "done": 0, "left": expected, "retry": 0, "failed": 0, "expected": expected}
+    empty = {
+        "known": False,
+        "done": 0,
+        "left": 0,
+        "retry": 0,
+        "failed": 0,
+        "recorded": 0,
+        "missing_days": 116,
+        "finished": False,
+    }
     if not db.exists():
         return empty
     con = sqlite3.connect(f"file:{db}?mode=ro", uri=True, timeout=5)
@@ -98,22 +106,71 @@ def translation_priority_state():
             GROUP BY status
             """
         ).fetchall()
+        day_rows = con.execute(
+            """
+            SELECT stamp,
+                   SUM(CASE WHEN status='done' THEN 1 ELSE 0 END),
+                   COUNT(*)
+            FROM files
+            WHERE stream='translation' AND stamp>='20211101' AND stamp<='20220224'
+            GROUP BY stamp
+            """
+        ).fetchall()
     finally:
         con.close()
+    saved_days = {stamp for stamp, done_n, total in day_rows if total and done_n == total}
+    missing_days = 0
+    day = datetime(2021, 11, 1, tzinfo=timezone.utc)
+    end = datetime(2022, 2, 24, tzinfo=timezone.utc)
+    while day <= end:
+        if day.strftime("%Y%m%d") not in saved_days:
+            missing_days += 1
+        day += timedelta(days=1)
     counts = {status: n for status, n in rows}
     done = counts.get("done", 0)
     retry = counts.get("retry", 0)
     failed = counts.get("failed", 0)
     recorded = sum(counts.values())
-    left = (recorded - done) + max(expected - recorded, 0)
+    left = recorded - done
     return {
         "known": True,
         "done": done,
         "left": left,
         "retry": retry,
         "failed": failed,
-        "expected": expected,
+        "recorded": recorded,
+        "missing_days": missing_days,
+        "finished": missing_days == 0 and left == 0 and done > 0,
     }
+
+
+def say_translation(translation, rate):
+    saved = translation["done"]
+    left = translation["left"]
+    missing = translation["missing_days"]
+    if translation["finished"]:
+        say(
+            "The translation priority download, November 2021 through February 2022, "
+            f"is finished. {saved:,} files are saved."
+        )
+    else:
+        parts = [f"{saved:,} files are saved"]
+        if left:
+            extra = f", {hours(left / rate)}" if rate else ""
+            parts.append(f"{left:,} files are not saved yet{extra}")
+        if missing:
+            parts.append(f"{missing} days in that window are not saved yet")
+        say(
+            "The translation priority download, November 2021 through February 2022, has "
+            + ". ".join(parts)
+            + "."
+        )
+    say(f"{translation['retry']:,} files are waiting to retry. {translation['failed']:,} files are failed.")
+    recorded = translation["recorded"]
+    if recorded and translation["failed"] / recorded > 0.01:
+        actions.append(
+            f"{translation['failed']:,} files are failed, more than 1 percent of the translation priority chunk"
+        )
 
 active = service_active()
 priority_chunk_done = False
@@ -140,7 +197,7 @@ if progress and queue and index_total:
     pct = 100 * done_now / index_total
     say(f"The backfill is {pct:.1f} percent done, {done_now:,} of {index_total:,} files.")
     translation = translation_priority_state()
-    priority_chunk_done = translation["known"] and translation["left"] == 0
+    priority_chunk_done = translation["finished"]
     hour_ago = datetime.now(timezone.utc) - timedelta(hours=1)
     recent = [(t, d, n) for t, d, n in progress if t >= hour_ago]
     rate = None
@@ -159,21 +216,12 @@ if progress and queue and index_total:
             rate = gained / (span / 60)
     if rate:
         say(f"Over the last hour it finished about {rate:.1f} files per minute.")
-        translation_left = translation["left"]
         everything_left = max(todo - done_pass, 0)
-        if priority_chunk_done:
-            say("The translation priority download, November 2021 through February 2022, is finished.")
-        else:
-            say(f"The translation priority download, November 2021 through February 2022, has about {translation_left:,} files left, {hours(translation_left / rate)}.")
-        say(f"{translation['retry']:,} files are waiting to retry. {translation['failed']:,} files are failed.")
-        if translation["expected"] and translation["failed"] / translation["expected"] > 0.01:
-            actions.append(f"{translation['failed']:,} files are failed, more than 1 percent of the translation priority chunk")
+        say_translation(translation, rate)
         say(f"Everything still queued is about {everything_left:,} files, {hours(everything_left / rate)}.")
     else:
         say("There are not enough finished files in the last hour to estimate a speed or an arrival time.")
-        say(f"{translation['retry']:,} files are waiting to retry. {translation['failed']:,} files are failed.")
-        if translation["expected"] and translation["failed"] / translation["expected"] > 0.01:
-            actions.append(f"{translation['failed']:,} files are failed, more than 1 percent of the translation priority chunk")
+        say_translation(translation, None)
         actions.append("the backfill has no recent finished files, so its arrival time is unknown")
 else:
     say("I cannot see a current backfill count in the service log.")
