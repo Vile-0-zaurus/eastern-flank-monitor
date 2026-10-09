@@ -217,11 +217,14 @@ The prompt for summaries lives in `prompts/summary.md` and is version-controlled
 
 **Purpose:** prove the model is useful before anyone relies on it.
 
-- **Period:** January 2021 – 24 February 2022 (the buildup before Russia's full-scale invasion of Ukraine). The region differs from ours, but the method is the same.
+- **Period:** January 2021 – 24 February 2022 (the buildup before Russia's full-scale invasion of Ukraine).
+- **Two tests, both under `scoring-prereg-v2`:**
+  - **Test A — method validity.** Target region `ukraine_test`. A useful method should rise before 2022-02-24. This tests whether the method can see a known buildup. It is not a claim about the eastern flank.
+  - **Test B — specificity.** Target region `eastern_flank`. A useful method should not raise a war-level alarm in this window. The November 2021 Belarus crisis may show as a bump. A bump is not a failed specificity test. A war-level alarm is.
 - **No hindsight:** for each simulated date, only use information that was published **before** that date. Manual inputs are reconstructed from dated sources only.
 - **Data method:** stream-filtered raw GDELT GKG (download a file, keep matching rows, delete the zip). DOC API, RSS, and gpsjam are **not** used for the backtest. RSS has no 2021 archive. gpsjam starts 2022-02-14. DOC did not return data from this host.
 - **Mostly Intent layer:** historical data for other layers is sparse. The backtest is honest about this.
-- **Report:** when would the model have reached Elevated / Serious, how many weeks before 24 Feb 2022, and how many false alarms along the way.
+- **Report:** when would the model have reached Elevated / Serious, how many weeks before 24 Feb 2022, and how many false alarms along the way. The report must say that the baseline method was amended to `scoring-prereg-v2` before any real-data scoring run, and why: the calibration window contains the 2021-05-24 spike.
 - **Results are published in the app** (Depth 3 / About page), including weaknesses.
 
 ---
