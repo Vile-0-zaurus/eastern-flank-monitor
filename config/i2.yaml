@@ -1,0 +1,10 @@
+# I2 sample only. Not a scoring cutoff or a weight. See SPEC §5.6.
+# seed is fixed before the draw. Do not change it after looking at the sample.
+
+seed: 20261009
+per_week: 200
+batch_size: 50
+estimate_cap_usd: 8
+hard_stop_usd: 10
+prompt_flank: prompt-v3
+prompt_ukraine: prompt-v3-ukraine
