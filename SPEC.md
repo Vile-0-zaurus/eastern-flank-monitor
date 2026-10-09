@@ -280,6 +280,11 @@ The prompt for summaries lives in `prompts/summary.md` and is version-controlled
 
 ## 12. Open questions / parking lot
 
+- M5 — X as a source = a fixed WHITELIST of official accounts only, no open scanning.
+  (a) Hybrid layer: defense ministries, armed forces, border guards, police, crisis channels of FI/EE/LV/LT/PL — keep ONLY incident reports involving Russia/Belarus; never store posts about own/NATO force exercises or movements.
+  (b) Intent layer: Russian MFA and Russian embassies in FI/EE/LV/LT/PL.
+  Each account verified via a link from the institution's official website.
+  Prefer the institution's website/RSS where available; X via xAI API only, as a supplement. Check xAI API pricing and X terms first. Store post text + link only.
 - Ask the gpsjam owner for permission before any public use of its data.
 - Outlet-type weighting: state outlets vs state-aligned media. Not applied yet.
 - Check rubaltic.ru coverage before adding it to the daily collector. It did not appear in the 2021-06-15 GKG sample.
