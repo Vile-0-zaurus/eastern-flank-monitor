@@ -259,7 +259,7 @@ The prompt for summaries lives in `prompts/summary.md` and is version-controlled
 | ID | Milestone | Done when |
 |---|---|---|
 | **M0** | Data reality check | A short script per MVP source proves we can fetch real data. Results written to `docs/sources.md`. Failed sources get alternatives or are dropped. |
-| **M1** | Narrative pipeline (Intent) | I1 and I2 run on GDELT data for a chosen date range and store results. |
+| **M1** | Narrative pipeline (Intent) | Done. See `docs/validation-report.md`. The GKG backfill is still running; do not restart it. |
 | **M2** | Scoring | Baselines, layer levels and convergence rule work on stored data; config-driven. |
 | **M3** | Backtest | 2021–22 backtest report produced. Level thresholds tuned. |
 | **M4** | Dashboard | Three depths working locally in the browser, with disclaimer, level definitions, and demo mode (§16). |
@@ -422,6 +422,6 @@ The judge labels validation sets. The human audits about 20 headlines. The judge
 
 **Cascade.** The classifier scores every headline. The judge re-checks only headlines flagged hostile (§12).
 
-**Judge candidates.** Current candidates are Claude Opus 5.5 (`claude-opus-5-5`) and Claude Sonnet 5.5 (`claude-sonnet-5-5`). Batch 2 runs both. After the human audit, keep the cheapest judge that reaches at least 85% agreement. Batch 2 has not been run: the backfill is not finished, and this task makes no API calls.
+**Judge.** The pipeline judge is Claude Sonnet 5.5 (`claude-sonnet-5-5`). Opus 5.5 (`claude-opus-5-5`) is an optional reference and is not called by the pipeline. The classifier is grok-build-0.1. See `docs/validation-report.md`. The judge may stand in for gold on hostile-versus-ordinary only if agreement with the human is at least 85%.
 
 Non-urgent judge runs (validation, backtest) use the Batch API. The fixed rules block of the prompt is sent with prompt caching.

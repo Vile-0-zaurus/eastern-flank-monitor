@@ -9,7 +9,7 @@ Live monitoring is off (`config/app.yaml`). The default showcase is the saved 20
 | Milestone | Status |
 |---|---|
 | M0 Data reality check | Done. See `docs/sources.md`. |
-| M1 Narrative pipeline | In progress. Outlet filter and gold sets exist. The GKG backfill is still running. Do not restart it. |
+| M1 Narrative pipeline | Done. See `docs/validation-report.md`. The GKG backfill is still running. Do not restart it. |
 | M2 Scoring | Not started. |
 | M3 Backtest report | Not started. Waiting on the backfill. |
 | M4 Dashboard | Not started. Done only when demo mode is included. |

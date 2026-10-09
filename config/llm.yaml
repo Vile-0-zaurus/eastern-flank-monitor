@@ -2,11 +2,12 @@ provider: xai
 base_url: https://api.x.ai/v1
 batch_size: 50
 hard_stop_usd: 1.00
-model: grok-4.3
-compare_model: grok-build-0.1
-judge_model: claude-opus-5-5
-judge_candidate: claude-sonnet-5-5
-# Batch 2 will run both judges. Not started: no API calls in this task, backfill still running.
+model: grok-build-0.1
+compare_model: grok-4.3
+judge_model: claude-sonnet-5-5
+# Opus 5.5 is an optional reference. It is not used in the pipeline.
+judge_reference: claude-opus-5-5
+# Classifier is grok-build-0.1. Judge is Sonnet 5.5. See docs/validation-report.md.
 # Sonnet 5.5 price from platform.claude.com, September 2026: $2 / $10 per 1M tokens.
 models:
   grok-build-0.1:
@@ -16,16 +17,16 @@ models:
     output: 2.00
   grok-4.3:
     provider: xai
-    role: classifier
+    role: unused
     input: 1.25
     output: 2.50
   claude-opus-5-5:
     provider: anthropic
-    role: judge
+    role: reference
     input: 4.00
     output: 20.00
   claude-sonnet-5-5:
     provider: anthropic
-    role: judge_candidate
+    role: judge
     input: 2.00
     output: 10.00
