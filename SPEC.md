@@ -129,7 +129,7 @@ Manual indicators are honest by design: they are clearly labeled "analyst input"
 4. **Convergence rule — the main protection against false alarms:**
    - The overall level can only rise above **Watchful** when **two or more layers** are at Elevated or higher.
    - **Hybrid alone** and **Opportunity alone** can never raise the overall level above Watchful.
-   - **Serious** and **Critical** require manual analyst confirmation before being shown.
+   - **Serious** and **Critical** require manual analyst confirmation before being shown. Unconfirmed, they are shown as "Elevated (Serious proposed, awaiting confirmation)" or "Elevated (Critical proposed, awaiting confirmation)", not as plain Elevated.
 5. **Cadence:** data updates daily (short "what changed" note). The overall level is reassessed **weekly**, unless a layer jumps two or more levels at once.
 6. **No hindsight:** a row counts for week W only if source_date ≤ last day of W. A later source_date is ignored for that week. Week W is Monday through Sunday. A missing source_date does not count. Ignored is no data, not zero.
 

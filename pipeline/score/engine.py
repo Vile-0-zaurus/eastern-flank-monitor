@@ -95,12 +95,25 @@ def _clamp_level(level: int) -> int:
 class Overall:
     proposed: int | None
     shown: int | None
+    shown_label: str
+
+
+LEVEL_NAMES = {0: "Calm", 1: "Watchful", 2: "Elevated", 3: "Serious", 4: "Critical"}
+
+
+def _shown_label(proposed: int | None, shown: int | None, confirmed: bool) -> str:
+    if proposed is None or shown is None:
+        return "No data"
+    if not confirmed and proposed >= 3:
+        name = "Serious" if proposed == 3 else "Critical"
+        return f"Elevated ({name} proposed, awaiting confirmation)"
+    return LEVEL_NAMES[shown]
 
 
 def overall_level(layers, confirmed, elevated_level, strong_level) -> Overall:
     """Convergence rule. One layer, Hybrid alone, or Opportunity alone stays at Watchful."""
     if all(level is None for level in layers.values()):
-        return Overall(None, None)
+        return Overall(None, None, "No data")
     present = [level for level in layers.values() if level is not None]
     elevated = [level for level in present if level >= elevated_level]
     intent = layers.get("intent")
@@ -124,7 +137,7 @@ def overall_level(layers, confirmed, elevated_level, strong_level) -> Overall:
     shown = proposed
     if proposed >= 3 and not confirmed:
         shown = 2
-    return Overall(proposed, shown)
+    return Overall(proposed, shown, _shown_label(proposed, shown, confirmed))
 
 
 def level_from_z(z, thresholds) -> int | None:

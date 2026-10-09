@@ -121,6 +121,32 @@ class ConvergenceTest(unittest.TestCase):
         self.assertEqual(result.proposed, 3)
         self.assertEqual(result.shown, 2)
 
+    def test_unconfirmed_serious_is_not_shown_as_plain_elevated(self):
+        result = overall_level(
+            {"intent": 2, "capability": 2, "opportunity": 2, "hybrid": 0},
+            confirmed=False,
+            elevated_level=2,
+            strong_level=3,
+        )
+        self.assertEqual(
+            result.shown_label,
+            "Elevated (Serious proposed, awaiting confirmation)",
+        )
+        self.assertNotEqual(result.shown_label, "Elevated")
+
+    def test_unconfirmed_critical_is_not_shown_as_plain_elevated(self):
+        result = overall_level(
+            {"intent": 4, "capability": 4, "opportunity": 0, "hybrid": 2},
+            confirmed=False,
+            elevated_level=2,
+            strong_level=3,
+        )
+        self.assertEqual(
+            result.shown_label,
+            "Elevated (Critical proposed, awaiting confirmation)",
+        )
+        self.assertNotEqual(result.shown_label, "Elevated")
+
     def test_confirmed_serious_can_be_shown(self):
         result = overall_level(
             {"intent": 2, "capability": 2, "opportunity": 2, "hybrid": 0},
