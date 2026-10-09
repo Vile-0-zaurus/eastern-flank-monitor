@@ -10,7 +10,7 @@ Live monitoring is off (`config/app.yaml`). The default showcase is the saved 20
 |---|---|
 | M0 Data reality check | Done. See `docs/sources.md`. |
 | M1 Narrative pipeline | Done. See `docs/validation-report.md`. The GKG backfill is still running. Do not restart it. |
-| M2 Scoring | Not started. |
+| M2 Scoring | Skeleton only. Not run on stored data. See `pipeline/score/engine.py`. |
 | M3 Backtest report | Not started. Waiting on the backfill. |
 | M4 Dashboard | Not started. Done only when demo mode is included. |
 | M5 Admin page | Not started. |

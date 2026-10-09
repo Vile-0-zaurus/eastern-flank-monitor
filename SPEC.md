@@ -131,6 +131,7 @@ Manual indicators are honest by design: they are clearly labeled "analyst input"
    - **Hybrid alone** and **Opportunity alone** can never raise the overall level above Watchful.
    - **Serious** and **Critical** require manual analyst confirmation before being shown.
 5. **Cadence:** data updates daily (short "what changed" note). The overall level is reassessed **weekly**, unless a layer jumps two or more levels at once.
+6. **No hindsight:** a row counts for week W only if source_date ≤ last day of W. A later source_date is ignored for that week. Week W is Monday through Sunday. A missing source_date does not count. Ignored is no data, not zero.
 
 ### 5.4 Levels (draft — thresholds to be tuned by the backtest)
 
