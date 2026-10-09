@@ -143,6 +143,8 @@ Manual indicators are honest by design: they are clearly labeled "analyst input"
 | 3 | **Serious** | Three layers elevated, or Capability and Intent both strongly elevated. Analyst-confirmed. |
 | 4 | **Critical** | Capability and Intent both at high levels plus at least one other layer elevated. Analyst-confirmed. |
 
+Tuning is not silent. Cutoffs and weights are pre-registered in §5.6, before any real-data run. A later change must be reported separately in the backtest report.
+
 ### 5.5 Headline rules
 
 These rules apply to Intent classification (I1, I2) and to human labeling.
@@ -153,6 +155,16 @@ These rules apply to Intent classification (I1, I2) and to human labeling.
 4. Judge the wording, not the topic. A neutral report on a sensitive topic is ordinary news unless the wording itself is loaded.
 5. Scare quotes around the target country's own terms, such as «советская оккупация», are mild hostile framing.
 6. A quote from the target country's officials is not Russian framing. A quote from Russian officials is.
+
+### 5.6 Pre-registration
+
+Written before any real-data scoring run. Tag: `scoring-prereg`.
+
+Threshold method: z-score levels computed from a calm calibration period (2021-01-01..2021-06-30). Draft cutoffs, registered here and not yet computed from that period: level 1 ≥ 1.0, level 2 ≥ 1.5, level 3 ≥ 2.0, level 4 ≥ 3.0 SD. Below level 1 is level 0.
+
+Registered draft weights at this tag, not findings: Intent I1 1, I2 2, I3 3. Capability C1 2, C2 3. Opportunity O1 1, O2 1. Hybrid H1 2, H2 3.
+
+Any later change to cutoffs or weights must be reported separately in the backtest report. A change that appears only in code or config, and not in that report, does not count.
 
 ---
 

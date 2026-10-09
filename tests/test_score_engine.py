@@ -229,6 +229,15 @@ class ConfigTest(unittest.TestCase):
         )
         self.assertLessEqual(result.shown, 1)
 
+    def test_draft_cutoffs_match_the_preregistration(self):
+        from pathlib import Path
+
+        config = load_model(Path(__file__).resolve().parents[1] / "config" / "model.yaml")
+        self.assertEqual(config["z_levels"][1], 1.0)
+        self.assertEqual(config["z_levels"][2], 1.5)
+        self.assertEqual(config["z_levels"][3], 2.0)
+        self.assertEqual(config["z_levels"][4], 3.0)
+
 
 if __name__ == "__main__":
     unittest.main()

@@ -1,17 +1,19 @@
-# Draft. The backtest tunes these. Do not treat the numbers as findings.
-# Cheap signals weigh less than signals that are expensive to fake.
+# Pre-registered drafts. See SPEC §5.6. Not computed from the calm period yet.
+# A later change to these cutoffs or weights must be reported separately in the backtest report.
 
 baseline_days: 180
 min_baseline_points: 30
 elevated_level: 2
 strong_level: 3
+calibration_start: 2021-01-01
+calibration_end: 2021-06-30
 
-# A z-score at or above the value maps to that level. Below the first value is 0.
+# z-score at or above the value maps to that level. Below the first value is 0.
 z_levels:
-  1: 0.5
+  1: 1.0
   2: 1.5
-  3: 2.5
-  4: 3.5
+  3: 2.0
+  4: 3.0
 
 weights:
   intent:
