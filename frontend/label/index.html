@@ -107,7 +107,7 @@ function render() {
     const b = document.createElement("button");
     b.type = "button";
     b.textContent = name;
-    b.onclick = () => { x[key] = cycle(String(x[key] || "")); render(); };
+    b.onclick = async () => { x[key] = cycle(String(x[key] || "")); await save(); render(); };
     row.appendChild(b);
     row.insertAdjacentHTML("beforeend", badge(String(x[key] || "")));
     frames.appendChild(row);
@@ -131,6 +131,8 @@ async function choose(name) {
     FRAMES.forEach(([k]) => { x[k] = ""; });
     await save();
     if (i < items.length - 1) i += 1;
+  } else {
+    await save();
   }
   render();
 }
