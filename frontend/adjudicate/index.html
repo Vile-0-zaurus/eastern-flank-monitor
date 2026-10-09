@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Batch 2 adjudication</title>
+<style>
+  body { font-family: Georgia, serif; max-width: 46rem; margin: 2rem auto; padding: 0 1rem; color: #1c1c1c; background: #f7f4ee; }
+  button { font: inherit; margin: 0.25rem 0.25rem 0.25rem 0; padding: 0.45rem 0.7rem; cursor: pointer; }
+  button.on { background: #1c1c1c; color: #fff; }
+  .card { background: #fff; border: 1px solid #ddd; padding: 1rem 1.2rem; margin: 1rem 0; }
+  .en { font-size: 1.35rem; line-height: 1.35; margin: 0.3rem 0; }
+  .ru { color: #555; }
+  .meta, .rule { color: #333; }
+  .judge { background: #f3f0ea; padding: 0.5rem 0.7rem; margin: 0.4rem 0; }
+  textarea { width: 100%; min-height: 3rem; font: inherit; }
+</style>
+</head>
+<body>
+<h1>Adjudication</h1>
+<p id="progress"></p>
+<div id="list"></div>
+<script>
+const CHOICES = [
+  "My label stands",
+  "Judge applied the rule correctly",
+  "Rule is unclear"
+];
+let items = [];
+function render() {
+  const done = items.filter(x => CHOICES.includes(x.decision || "")).length;
+  document.getElementById("progress").textContent = done + " / " + items.length;
+  const list = document.getElementById("list");
+  list.innerHTML = "";
+  items.forEach((x, i) => {
+    const card = document.createElement("article");
+    card.className = "card";
+    card.innerHTML = "<p class='meta'>" + (i + 1) + ". Your label: " + (x.my_label || "") + "</p>"
+      + "<h2 class='en'></h2><p class='ru'></p>"
+      + "<div class='judge'><strong>Opus:</strong> <span class='opus-label'></span><br><span class='opus-reason'></span></div>"
+      + "<div class='judge'><strong>Sonnet:</strong> <span class='sonnet-label'></span><br><span class='sonnet-reason'></span></div>"
+      + "<p class='rule'><strong>Guide rule:</strong> <span class='rule-text'></span></p>"
+      + "<div class='choices'></div>"
+      + "<label>Note, optional <textarea></textarea></label>";
+    card.querySelector(".en").textContent = x.title_en || "";
+    card.querySelector(".ru").textContent = x.title || "";
+    card.querySelector(".opus-label").textContent = x.opus_label || "";
+    card.querySelector(".opus-reason").textContent = x.opus_reason || "";
+    card.querySelector(".sonnet-label").textContent = x.sonnet_label || "";
+    card.querySelector(".sonnet-reason").textContent = x.sonnet_reason || "";
+    card.querySelector(".rule-text").textContent = x.rule || "";
+    const box = card.querySelector(".choices");
+    CHOICES.forEach(name => {
+      const b = document.createElement("button");
+      b.type = "button";
+      b.textContent = name;
+      if (x.decision === name) b.className = "on";
+      b.onclick = () => choose(i, name, card);
+      box.appendChild(b);
+    });
+    const note = card.querySelector("textarea");
+    note.value = x.note || "";
+    note.onchange = () => save(i, card);
+    list.appendChild(card);
+  });
+}
+async function save(i, card) {
+  const x = items[i];
+  x.note = card.querySelector("textarea").value;
+  const res = await fetch("/api/save", {
+    method: "POST",
+    headers: {"Content-Type": "application/json"},
+    body: JSON.stringify({id: x.id, decision: x.decision || "", note: x.note})
+  });
+  if (!res.ok) throw new Error("save failed");
+  document.getElementById("progress").textContent = items.filter(row => CHOICES.includes(row.decision || "")).length + " / " + items.length;
+}
+async function choose(i, name, card) {
+  items[i].decision = name;
+  card.querySelectorAll("button").forEach(b => { b.className = b.textContent === name ? "on" : ""; });
+  await save(i, card);
+}
+fetch("/api/items").then(r => r.json()).then(data => { items = data; render(); });
+</script>
+</body>
+</html>

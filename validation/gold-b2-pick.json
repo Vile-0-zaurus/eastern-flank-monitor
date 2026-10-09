@@ -1,0 +1,802 @@
+[
+  {
+    "id": "681100",
+    "domain": "tass.com",
+    "date": "2021-11-16",
+    "title": "Belarus didn't send troops to Polish border, but seeks to counter aggression — Lukashenko - World",
+    "title_en": "",
+    "url": "https://tass.com/world/1362101",
+    "month": "2021-11",
+    "bucket": "hostile_keyword"
+  },
+  {
+    "id": "319100",
+    "domain": "kp.ru",
+    "date": "2021-12-17",
+    "title": "Госдума осудила дискриминацию россиян в Латвии",
+    "title_en": "",
+    "url": "https://pda.kp.ru/online/news/4559577/",
+    "month": "2021-12",
+    "bucket": "hostile_keyword"
+  },
+  {
+    "id": "498876",
+    "domain": "gazeta.ru",
+    "date": "2022-01-23",
+    "title": "Туристку из Нидерландов оштрафовали в Польше за нацистское приветствие у ворот Освенцима - Газета.Ru",
+    "title_en": "",
+    "url": "https://www.gazeta.ru/social/news/2022/01/24/17182393.shtml",
+    "month": "2022-01",
+    "bucket": "hostile_keyword"
+  },
+  {
+    "id": "598105",
+    "domain": "ria.ru",
+    "date": "2022-02-10",
+    "title": "Бежавший в Белоруссию солдат назвал миграционную политику Польши геноцидом",
+    "title_en": "",
+    "url": "https://ria.ru/20220210/migranty-1772067938.html",
+    "month": "2022-02",
+    "bucket": "hostile_keyword"
+  },
+  {
+    "id": "123254",
+    "domain": "rt.com",
+    "date": "2021-11-13",
+    "title": "Путин рассказал об агрессивных действиях Польши против мигрантов на границе",
+    "title_en": "",
+    "url": "https://russian.rt.com/world/news/927410-putin-polsha-agressiya-migranty",
+    "month": "2021-11",
+    "bucket": "hostile_keyword"
+  },
+  {
+    "id": "263389",
+    "domain": "tass.ru",
+    "date": "2021-12-08",
+    "title": "На Урале прекратили уголовное преследование женщины, заказавшей антидепрессанты из Польши",
+    "title_en": "",
+    "url": "https://tass.ru/proisshestviya/13141913",
+    "month": "2021-12",
+    "bucket": "hostile_keyword"
+  },
+  {
+    "id": "410955",
+    "domain": "regnum.ru",
+    "date": "2022-01-06",
+    "title": "Лукашенко готов назвать эпоху польского владычества оккупацией и этноцидом",
+    "title_en": "",
+    "url": "https://regnum.ru/news/3469832.html",
+    "month": "2022-01",
+    "bucket": "hostile_keyword"
+  },
+  {
+    "id": "674890",
+    "domain": "regnum.ru",
+    "date": "2022-02-24",
+    "title": "Сейм Польши принял резолюцию, осуждающую «агрессию России против Украины»",
+    "title_en": "",
+    "url": "https://regnum.ru/news/3516459.html",
+    "month": "2022-02",
+    "bucket": "hostile_keyword"
+  },
+  {
+    "id": "210953",
+    "domain": "regnum.ru",
+    "date": "2021-11-29",
+    "title": "«Там нацисты взяли реванш» — сети о памятнике бойцам Красной армии в Латвии",
+    "title_en": "",
+    "url": "https://regnum.ru/news/3436091.html",
+    "month": "2021-11",
+    "bucket": "hostile_keyword"
+  },
+  {
+    "id": "31908",
+    "domain": "tass.com",
+    "date": "2021-12-14",
+    "title": "Russia's State Duma condemns discrimination of Russian compatriots in Latvia — statement - Russian Politics & Diplomacy",
+    "title_en": "",
+    "url": "https://tass.com/politics/1375321",
+    "month": "2021-12",
+    "bucket": "hostile_keyword"
+  },
+  {
+    "id": "480182",
+    "domain": "lenta.ru",
+    "date": "2022-01-20",
+    "title": "Зеленский обсудит «российскую агрессию» в Польше",
+    "title_en": "",
+    "url": "https://lenta.ru/news/2022/01/20/poland_zel/",
+    "month": "2022-01",
+    "bucket": "hostile_keyword"
+  },
+  {
+    "id": "554074",
+    "domain": "regnum.ru",
+    "date": "2022-02-02",
+    "title": "Украина поблагодарила Польшу за поддержку «перед лицом агрессии России»",
+    "title_en": "",
+    "url": "https://regnum.ru/news/3494991.html",
+    "month": "2022-02",
+    "bucket": "hostile_keyword"
+  },
+  {
+    "id": "114446",
+    "domain": "kp.ru",
+    "date": "2021-11-11",
+    "title": "В Латвии запретили георгиевскую ленточку, стремясь забыть о собственном фашистском прошлом",
+    "title_en": "",
+    "url": "https://pda.kp.ru/daily/28355/4502636/",
+    "month": "2021-11",
+    "bucket": "hostile_keyword"
+  },
+  {
+    "id": "357235",
+    "domain": "tass.ru",
+    "date": "2021-12-24",
+    "title": "В польскую прокуратуру подали заявление с обвинениями Лукашенко в геноциде",
+    "title_en": "",
+    "url": "https://tass.ru/mezhdunarodnaya-panorama/13292995",
+    "month": "2021-12",
+    "bucket": "hostile_keyword"
+  },
+  {
+    "id": "421559",
+    "domain": "kp.ru",
+    "date": "2022-01-09",
+    "title": "Литва и Латвия отказали Минску в помощи по делу о геноциде белорусов",
+    "title_en": "",
+    "url": "https://pda.kp.ru/online/news/4582542/",
+    "month": "2022-01",
+    "bucket": "hostile_keyword"
+  },
+  {
+    "id": "675348",
+    "domain": "regnum.ru",
+    "date": "2022-02-24",
+    "title": "8% жителей Польши 60-69 лет страдают от дискриминации на работе — опрос",
+    "title_en": "",
+    "url": "https://regnum.ru/news/3516530.html",
+    "month": "2022-02",
+    "bucket": "hostile_keyword"
+  },
+  {
+    "id": "161699",
+    "domain": "iz.ru",
+    "date": "2021-11-19",
+    "title": "Лукашенко сравнил меры польских силовиков с фашистскими действиями",
+    "title_en": "",
+    "url": "https://iz.ru/1252634/2021-11-20/lukashenko-sravnil-mery-polskikh-silovikov-s-fashistskimi-deistviiami",
+    "month": "2021-11",
+    "bucket": "hostile_keyword"
+  },
+  {
+    "id": "331834",
+    "domain": "rt.com",
+    "date": "2021-12-20",
+    "title": "В МИД Белоруссии назвали актом враждебности и агрессии закон о запрете Литвой транзита",
+    "title_en": "",
+    "url": "https://russian.rt.com/ussr/news/940716-litva-belorussiya-tranzit",
+    "month": "2021-12",
+    "bucket": "hostile_keyword"
+  },
+  {
+    "id": "421591",
+    "domain": "iz.ru",
+    "date": "2022-01-09",
+    "title": "Минск возмутил отказ Латвии и Литвы помогать в расследовании геноцида",
+    "title_en": "",
+    "url": "https://iz.ru/1274740/2022-01-10/minsk-vozmutil-otkaz-latvii-i-litvy-pomogat-v-rassledovanii-genotcida",
+    "month": "2022-01",
+    "bucket": "hostile_keyword"
+  },
+  {
+    "id": "561555",
+    "domain": "gazeta.ru",
+    "date": "2022-02-03",
+    "title": "В Литве указали на предсказуемость агрессии Белоруссии - Газета.Ru",
+    "title_en": "",
+    "url": "https://www.gazeta.ru/politics/news/2022/02/03/17235733.shtml",
+    "month": "2022-02",
+    "bucket": "hostile_keyword"
+  },
+  {
+    "id": "131905",
+    "domain": "regnum.ru",
+    "date": "2021-11-15",
+    "title": "Гостелевидение Белоруссии называет польских пограничников «карателями»",
+    "title_en": "",
+    "url": "https://regnum.ru/news/3423430.html",
+    "month": "2021-11",
+    "bucket": "hostile_keyword"
+  },
+  {
+    "id": "353806",
+    "domain": "regnum.ru",
+    "date": "2021-12-23",
+    "title": "Сеть: «Самые главные русофобы» — Газпром оставил Польшу без газа",
+    "title_en": "",
+    "url": "https://regnum.ru/news/3460584.html",
+    "month": "2021-12",
+    "bucket": "hostile_keyword"
+  },
+  {
+    "id": "477140",
+    "domain": "ria.ru",
+    "date": "2022-01-19",
+    "title": "Премьер Эстонии обвинила Россию в военной агрессии против Украины",
+    "title_en": "",
+    "url": "https://ria.ru/20220119/estoniya-1768604516.html",
+    "month": "2022-01",
+    "bucket": "hostile_keyword"
+  },
+  {
+    "id": "649106",
+    "domain": "tvzvezda.ru",
+    "date": "2022-02-19",
+    "title": "Д/с «Война миров». Фашистские тайны белой Финляндии",
+    "title_en": "",
+    "url": "https://tvzvezda.ru/schedule/films-online/2022218168-WOUyk.html",
+    "month": "2022-02",
+    "bucket": "hostile_keyword"
+  },
+  {
+    "id": "682201",
+    "domain": "tass.com",
+    "date": "2021-11-22",
+    "title": "Anti-Semitism, Russophobia running rampant in Ukraine, Baltic states, warns Lavrov",
+    "title_en": "",
+    "url": "https://tass.com/world/1364529",
+    "month": "2021-11",
+    "bucket": "hostile_keyword"
+  },
+  {
+    "id": "270589",
+    "domain": "tass.ru",
+    "date": "2021-12-09",
+    "title": "Сейм Латвии дал согласие на начало уголовного преследования против депутата за шпионаж",
+    "title_en": "",
+    "url": "https://tass.ru/mezhdunarodnaya-panorama/13153211",
+    "month": "2021-12",
+    "bucket": "hostile_keyword"
+  },
+  {
+    "id": "428813",
+    "domain": "regnum.ru",
+    "date": "2022-01-11",
+    "title": "Реванш Голиафа, или К чему уже привело сотрудничество Литвы и Тайваня",
+    "title_en": "",
+    "url": "https://regnum.ru/news/3472095.html",
+    "month": "2022-01",
+    "bucket": "hostile_keyword"
+  },
+  {
+    "id": "600712",
+    "domain": "rt.com",
+    "date": "2022-02-10",
+    "title": "Суд в Гааге рассмотрит заявление правозащитников о «геноциде мигрантов» в Польше",
+    "title_en": "",
+    "url": "https://russian.rt.com/world/news/960437-sud-gaaga-polsha-migranty",
+    "month": "2022-02",
+    "bucket": "hostile_keyword"
+  },
+  {
+    "id": "111994",
+    "domain": "regnum.ru",
+    "date": "2021-11-11",
+    "title": "«Как фашисты, гестапо»: Лукашенко о защите Польши от нелегалов",
+    "title_en": "",
+    "url": "https://regnum.ru/news/polit/3420512.html",
+    "month": "2021-11",
+    "bucket": "hostile_keyword"
+  },
+  {
+    "id": "226148",
+    "domain": "rg.ru",
+    "date": "2021-12-01",
+    "title": "Встреча НАТО в Латвии подтвердила агрессивное направление в эволюции альянса",
+    "title_en": "",
+    "url": "https://rg.ru/2021/12/01/vstrecha-nato-v-latvii-podtverdila-agressivnoe-napravlenie-v-evoliucii-aliansa.html",
+    "month": "2021-12",
+    "bucket": "hostile_keyword"
+  },
+  {
+    "id": "485234",
+    "domain": "regnum.ru",
+    "date": "2022-01-20",
+    "title": "Президента Латвии освистали на открытии памятника диссиденту-русофобу",
+    "title_en": "",
+    "url": "https://regnum.ru/news/3482768.html",
+    "month": "2022-01",
+    "bucket": "hostile_keyword"
+  },
+  {
+    "id": "638124",
+    "domain": "tass.ru",
+    "date": "2022-02-17",
+    "title": "Латвийская партия считает языковые ограничения в предвыборной агитации дискриминационными",
+    "title_en": "",
+    "url": "https://tass.ru/mezhdunarodnaya-panorama/13743313",
+    "month": "2022-02",
+    "bucket": "hostile_keyword"
+  },
+  {
+    "id": "120427",
+    "domain": "regnum.ru",
+    "date": "2021-11-12",
+    "title": "«Откровенный нацистский жест» — сети о запрете георгиевских лент в Латвии",
+    "title_en": "",
+    "url": "https://regnum.ru/news/polit/3421811.html",
+    "month": "2021-11",
+    "bucket": "hostile_keyword"
+  },
+  {
+    "id": "352777",
+    "domain": "rt.com",
+    "date": "2021-12-23",
+    "title": "Депутат Рады Бужанский заявил о «польском, румынском и венгерском реваншизме»",
+    "title_en": "",
+    "url": "https://russian.rt.com/ussr/news/942162-deputat-rady-buzhanskii",
+    "month": "2021-12",
+    "bucket": "hostile_keyword"
+  },
+  {
+    "id": "424111",
+    "domain": "regnum.ru",
+    "date": "2022-01-10",
+    "title": "В Латвии признали дискриминацию молодежи и людей старше 50 лет",
+    "title_en": "",
+    "url": "https://regnum.ru/news/3471867.html",
+    "month": "2022-01",
+    "bucket": "hostile_keyword"
+  },
+  {
+    "id": "588682",
+    "domain": "tass.ru",
+    "date": "2022-02-08",
+    "title": "ФРГ, Франция и Польша заявили, что агрессия против Украины будет иметь высокую цену для РФ",
+    "title_en": "",
+    "url": "https://tass.ru/mezhdunarodnaya-panorama/13653439",
+    "month": "2022-02",
+    "bucket": "hostile_keyword"
+  },
+  {
+    "id": "199433",
+    "domain": "tass.ru",
+    "date": "2021-11-26",
+    "title": "Польские поисковики обнаружили в Лодзи 77 могил узников нацистского концлагеря для детей",
+    "title_en": "",
+    "url": "https://tass.ru/mezhdunarodnaya-panorama/13037847",
+    "month": "2021-11",
+    "bucket": "hostile_keyword"
+  },
+  {
+    "id": "298069",
+    "domain": "tass.ru",
+    "date": "2021-12-14",
+    "title": "Госдума осудила дискриминацию российских соотечественников в Латвии",
+    "title_en": "",
+    "url": "https://tass.ru/obschestvo/13195183",
+    "month": "2021-12",
+    "bucket": "hostile_keyword"
+  },
+  {
+    "id": "434631",
+    "domain": "lenta.ru",
+    "date": "2022-01-12",
+    "title": "В Польше рассказали о «монетизации российской агрессии» в отношении Украины",
+    "title_en": "",
+    "url": "https://lenta.ru/news/2022/01/12/agression/",
+    "month": "2022-01",
+    "bucket": "hostile_keyword"
+  },
+  {
+    "id": "578306",
+    "domain": "regnum.ru",
+    "date": "2022-02-07",
+    "title": "Главный военный ястреб и русофоб Эстонии гостит в Москве",
+    "title_en": "",
+    "url": "https://regnum.ru/news/3499408.html",
+    "month": "2022-02",
+    "bucket": "hostile_keyword"
+  },
+  {
+    "id": "18790",
+    "domain": "regnum.ru",
+    "date": "2021-11-02",
+    "title": "Единственный невакцинированный министр Эстонии ушла в отставку",
+    "title_en": "",
+    "url": "https://regnum.ru/news/3414055.html",
+    "month": "2021-11",
+    "bucket": "random"
+  },
+  {
+    "id": "380377",
+    "domain": "tass.ru",
+    "date": "2021-12-29",
+    "title": "Президент Эстонии предложил сохранить русские школы после перевода обучения на эстонский",
+    "title_en": "",
+    "url": "https://tass.ru/mezhdunarodnaya-panorama/13323111",
+    "month": "2021-12",
+    "bucket": "random"
+  },
+  {
+    "id": "533878",
+    "domain": "lenta.ru",
+    "date": "2022-01-29",
+    "title": "Сбежавший в Белоруссию польский солдат обратился в Гаагский трибунал",
+    "title_en": "",
+    "url": "https://lenta.ru/news/2022/01/29/chechko/",
+    "month": "2022-01",
+    "bucket": "random"
+  },
+  {
+    "id": "628607",
+    "domain": "kp.ru",
+    "date": "2022-02-16",
+    "title": "Польские волейболистки ехали на встречу с «Локомотивом» в Калининград на автобусе 12 часов",
+    "title_en": "",
+    "url": "https://pda.kaliningrad.kp.ru/online/news/4631160/",
+    "month": "2022-02",
+    "bucket": "random"
+  },
+  {
+    "id": "99742",
+    "domain": "rt.com",
+    "date": "2021-11-09",
+    "title": "Путин обсудил с Лукашенко ситуацию с беженцами на границах Белоруссии с Польшей и Литвой",
+    "title_en": "",
+    "url": "https://russian.rt.com/ussr/news/925993-putin-obsudil-s-lukashenko-situaciyu",
+    "month": "2021-11",
+    "bucket": "random"
+  },
+  {
+    "id": "300431",
+    "domain": "aif.ru",
+    "date": "2021-12-14",
+    "title": "О чем говорили Владимир Путин и президент Финляндии Саули Ниинистё?",
+    "title_en": "",
+    "url": "https://aif.ru/politics/world/o_chem_govorili_vladimir_putin_i_prezident_finlyandii_sauli_niinistyo",
+    "month": "2021-12",
+    "bucket": "random"
+  },
+  {
+    "id": "404696",
+    "domain": "ria.ru",
+    "date": "2022-01-04",
+    "title": "Эстонский депутат назвала свою страну \"мелким злобным провокатором\"",
+    "title_en": "",
+    "url": "https://ria.ru/20220104/estoniya-1766569755.html",
+    "month": "2022-01",
+    "bucket": "random"
+  },
+  {
+    "id": "628593",
+    "domain": "regnum.ru",
+    "date": "2022-02-16",
+    "title": "В Польше намерены готовиться к «разным сценариям на Украине»",
+    "title_en": "",
+    "url": "https://regnum.ru/news/3508568.html",
+    "month": "2022-02",
+    "bucket": "random"
+  },
+  {
+    "id": "25690",
+    "domain": "rt.com",
+    "date": "2021-11-03",
+    "title": "Польский журналист поразмышлял о необходимости «Северного потока — 2»",
+    "title_en": "",
+    "url": "https://russian.rt.com/business/news/924286-polskii-zhurnalist-gaz",
+    "month": "2021-11",
+    "bucket": "random"
+  },
+  {
+    "id": "308957",
+    "domain": "ria.ru",
+    "date": "2021-12-16",
+    "title": "Прибалтике преподнесли урок китайской дипломатии",
+    "title_en": "",
+    "url": "https://ria.ru/20211216/litva-1763850300.html",
+    "month": "2021-12",
+    "bucket": "random"
+  },
+  {
+    "id": "539524",
+    "domain": "regnum.ru",
+    "date": "2022-01-31",
+    "title": "В Польше 2021 год стал рекордным по объему ипотечных кредитов",
+    "title_en": "",
+    "url": "https://regnum.ru/news/3492244.html",
+    "month": "2022-01",
+    "bucket": "random"
+  },
+  {
+    "id": "586183",
+    "domain": "regnum.ru",
+    "date": "2022-02-08",
+    "title": "В Польше за сутки выявили 35 960 случаев заражения SARS-CoV-2",
+    "title_en": "",
+    "url": "https://regnum.ru/news/society/3501030.html",
+    "month": "2022-02",
+    "bucket": "random"
+  },
+  {
+    "id": "150916",
+    "domain": "gazeta.ru",
+    "date": "2021-11-18",
+    "title": "Премьер Польши призвал Германию остановить сертификацию «Северного потока — 2»",
+    "title_en": "",
+    "url": "https://www.gazeta.ru/business/2021/11/18/14216005.shtml",
+    "month": "2021-11",
+    "bucket": "random"
+  },
+  {
+    "id": "319555",
+    "domain": "iz.ru",
+    "date": "2021-12-17",
+    "title": "В Сети появилось фото сбежавшего в Белоруссию польского военного",
+    "title_en": "",
+    "url": "https://iz.ru/1265959/2021-12-17/v-seti-poiavilos-foto-sbezhavshego-v-belorussiiu-polskogo-voennogo",
+    "month": "2021-12",
+    "bucket": "random"
+  },
+  {
+    "id": "429026",
+    "domain": "aif.ru",
+    "date": "2022-01-11",
+    "title": "В Латвии задержаны подозреваемые в сотрудничестве с разведкой России",
+    "title_en": "",
+    "url": "https://aif.ru/incidents/v_latvii_zaderzhany_podozrevaemye_v_sotrudnichestve_s_razvedkoy_rossii",
+    "month": "2022-01",
+    "bucket": "random"
+  },
+  {
+    "id": "655073",
+    "domain": "tass.ru",
+    "date": "2022-02-21",
+    "title": "В Польше назвали очень вероятным прибытие новых подразделений армии США",
+    "title_en": "",
+    "url": "https://tass.ru/mezhdunarodnaya-panorama/13778737",
+    "month": "2022-02",
+    "bucket": "random"
+  },
+  {
+    "id": "166694",
+    "domain": "ria.ru",
+    "date": "2021-11-21",
+    "title": "В Белоруссии находятся более десяти тысяч мигрантов, заявил премьер Польши",
+    "title_en": "",
+    "url": "https://ria.ru/20211121/migranty-1760067362.html",
+    "month": "2021-11",
+    "bucket": "random"
+  },
+  {
+    "id": "31930",
+    "domain": "sputniknews.com",
+    "date": "2021-12-14",
+    "title": "Baltic Sea Collision: Two UK Ship Crew Members 'Exceeded Legal Limit of Drugs, Alcohol' After Test",
+    "title_en": "",
+    "url": "https://sputniknews.com/20211214/baltic-sea-collision-two-uk-ship-crew-members-exceeded-legal-limit-of-drugs-alcohol-after-test-1091519172.html",
+    "month": "2021-12",
+    "bucket": "random"
+  },
+  {
+    "id": "435475",
+    "domain": "rg.ru",
+    "date": "2022-01-12",
+    "title": "Сбежавший в Беларусь польский солдат рассказал об убийствах сотен беженцев",
+    "title_en": "",
+    "url": "https://rg.ru/2022/01/12/sbezhavshij-v-belarus-polskij-soldat-rasskazal-ob-ubijstvah-soten-bezhencev.html",
+    "month": "2022-01",
+    "bucket": "random"
+  },
+  {
+    "id": "608347",
+    "domain": "tass.ru",
+    "date": "2022-02-11",
+    "title": "МИД Финляндии призвал своих граждан покинуть Украину",
+    "title_en": "",
+    "url": "https://tass.ru/mezhdunarodnaya-panorama/13687555",
+    "month": "2022-02",
+    "bucket": "random"
+  },
+  {
+    "id": "136165",
+    "domain": "aif.ru",
+    "date": "2021-11-16",
+    "title": "В Польше исключили войну с применением оружия против Белоруссии",
+    "title_en": "",
+    "url": "https://aif.ru/politics/world/v_polshe_isklyuchili_voynu_s_primeneniem_oruzhiya_protiv_belorussii",
+    "month": "2021-11",
+    "bucket": "random"
+  },
+  {
+    "id": "323783",
+    "domain": "kp.ru",
+    "date": "2021-12-18",
+    "title": "В МИД Латвии считают невозможным выполнение требований России по гарантиям безопасности",
+    "title_en": "",
+    "url": "https://pda.kp.ru/online/news/4560536/",
+    "month": "2021-12",
+    "bucket": "random"
+  },
+  {
+    "id": "54000",
+    "domain": "tass.com",
+    "date": "2022-01-21",
+    "title": "Kiev keeps avoiding implementation of Minsk accords, Putin tells Finnish president",
+    "title_en": "",
+    "url": "https://tass.com/politics/1391437",
+    "month": "2022-01",
+    "bucket": "random"
+  },
+  {
+    "id": "605175",
+    "domain": "regnum.ru",
+    "date": "2022-02-11",
+    "title": "Отмена ковид-сертификатов в Эстонии возможна не ранее весны",
+    "title_en": "",
+    "url": "https://regnum.ru/news/3504662.html",
+    "month": "2022-02",
+    "bucket": "random"
+  },
+  {
+    "id": "141782",
+    "domain": "lenta.ru",
+    "date": "2021-11-17",
+    "title": "Описан самый плохой вариант развития ситуации на границе Польши и Белоруссии",
+    "title_en": "",
+    "url": "https://lenta.ru/news/2021/11/17/war/",
+    "month": "2021-11",
+    "bucket": "random"
+  },
+  {
+    "id": "345078",
+    "domain": "tass.ru",
+    "date": "2021-12-22",
+    "title": "На Варшавском шоссе в Новой Москве перевернулся автобус",
+    "title_en": "",
+    "url": "https://tass.ru/proisshestviya/13272885",
+    "month": "2021-12",
+    "bucket": "random"
+  },
+  {
+    "id": "466968",
+    "domain": "regnum.ru",
+    "date": "2022-01-18",
+    "title": "В Польше оценили работу морских портов по итогам 2021 года",
+    "title_en": "",
+    "url": "https://regnum.ru/news/3479522.html",
+    "month": "2022-01",
+    "bucket": "random"
+  },
+  {
+    "id": "616330",
+    "domain": "regnum.ru",
+    "date": "2022-02-14",
+    "title": "На уличных мероприятиях в Эстонии отменили ковид-сертификаты",
+    "title_en": "",
+    "url": "https://regnum.ru/news/3506432.html",
+    "month": "2022-02",
+    "bucket": "random"
+  },
+  {
+    "id": "175307",
+    "domain": "rt.com",
+    "date": "2021-11-23",
+    "title": "В Польше заявили о готовности к переговорам с Россией по ситуации на границе с Белоруссией",
+    "title_en": "",
+    "url": "https://russian.rt.com/world/news/930884-polsha-granica-migranty-peregovory",
+    "month": "2021-11",
+    "bucket": "random"
+  },
+  {
+    "id": "232860",
+    "domain": "rt.com",
+    "date": "2021-12-02",
+    "title": "В МИД Польши рассказали о новых санкциях ЕС против Белоруссии",
+    "title_en": "",
+    "url": "https://russian.rt.com/world/news/934572-polsha-belorussiya-sankcii",
+    "month": "2021-12",
+    "bucket": "random"
+  },
+  {
+    "id": "38085",
+    "domain": "sputniknews.com",
+    "date": "2022-01-27",
+    "title": "Lithuania Considering Military Draft for Women",
+    "title_en": "",
+    "url": "https://sputniknews.com/20220127/lithuania-considering-military-draft-for-women-1092559480.html",
+    "month": "2022-01",
+    "bucket": "random"
+  },
+  {
+    "id": "643062",
+    "domain": "regnum.ru",
+    "date": "2022-02-18",
+    "title": "Эстонские военные завершают свою миссию в Мали",
+    "title_en": "",
+    "url": "https://regnum.ru/news/3511385.html",
+    "month": "2022-02",
+    "bucket": "random"
+  },
+  {
+    "id": "119080",
+    "domain": "rt.com",
+    "date": "2021-11-12",
+    "title": "Focus: годы бездействия и политической слепоты — Евросоюз сам повинен в кризисе на белорусско-польской границе — ИноТВ",
+    "title_en": "",
+    "url": "https://russian.rt.com/inotv/2021-11-12/Focus-godi-bezdejstviya-i-politicheskoj",
+    "month": "2021-11",
+    "bucket": "random"
+  },
+  {
+    "id": "367495",
+    "domain": "regnum.ru",
+    "date": "2021-12-27",
+    "title": "Жителей Польши предупредили о сильных морозах",
+    "title_en": "",
+    "url": "https://regnum.ru/news/3462855.html",
+    "month": "2021-12",
+    "bucket": "random"
+  },
+  {
+    "id": "412427",
+    "domain": "lenta.ru",
+    "date": "2022-01-06",
+    "title": "Сбежавший в Белоруссию польский солдат потребовал от Минобороны Польши зарплату",
+    "title_en": "",
+    "url": "https://lenta.ru/news/2022/01/06/where_is_my_money/",
+    "month": "2022-01",
+    "bucket": "random"
+  },
+  {
+    "id": "549378",
+    "domain": "regnum.ru",
+    "date": "2022-02-01",
+    "title": "Стоимость центрального отопления для жителей Таллина снова выросла",
+    "title_en": "",
+    "url": "https://regnum.ru/news/3494171.html",
+    "month": "2022-02",
+    "bucket": "random"
+  },
+  {
+    "id": "142650",
+    "domain": "ria.ru",
+    "date": "2021-11-17",
+    "title": "В Польше заявили о попытках мигрантов прорваться через границу",
+    "title_en": "",
+    "url": "https://ria.ru/20211117/granitsa-1759400812.html",
+    "month": "2021-11",
+    "bucket": "random"
+  },
+  {
+    "id": "239532",
+    "domain": "kp.ru",
+    "date": "2021-12-03",
+    "title": "На белорусско-польскую границу прибыли военные из Великобритании и Эстонии",
+    "title_en": "",
+    "url": "https://pda.kp.ru/online/news/4541597/",
+    "month": "2021-12",
+    "bucket": "random"
+  },
+  {
+    "id": "515193",
+    "domain": "rt.com",
+    "date": "2022-01-26",
+    "title": "Президент Латвии Левитс считает, что Россия намерена восстановить советскую империю",
+    "title_en": "",
+    "url": "https://russian.rt.com/ussr/news/953646-latviya-rossiya-sovetskaya-imperiya",
+    "month": "2022-01",
+    "bucket": "random"
+  },
+  {
+    "id": "614574",
+    "domain": "ria.ru",
+    "date": "2022-02-13",
+    "title": "МИД Литвы рекомендовал гражданам немедленно покинуть Украину",
+    "title_en": "",
+    "url": "https://ria.ru/20220214/aviasoobschenie-1772620095.html",
+    "month": "2022-02",
+    "bucket": "random"
+  }
+]
