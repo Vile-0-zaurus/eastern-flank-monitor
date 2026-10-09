@@ -77,6 +77,37 @@ def estimate_cost(input_tokens: int, output_tokens: int, cfg: dict | None = None
     return (input_tokens * prices["input"] + output_tokens * prices["output"]) / 1_000_000
 
 
+def require_explicit_ok(usd: float, run_id: str = "") -> None:
+    """A run estimated above the recorded line does not call. An already-approved run may finish."""
+    budget = ROOT / "config" / "budget.yaml"
+    limit = 2.0
+    approved = ""
+    cap = limit
+    if budget.exists():
+        for raw in budget.read_text(encoding="utf-8").splitlines():
+            line = raw.split("#", 1)[0].strip()
+            if not line or ":" not in line:
+                continue
+            key, _, val = line.partition(":")
+            key, val = key.strip(), val.strip()
+            if key == "estimate_ok_usd":
+                limit = float(val)
+            elif key == "approved_run":
+                approved = val
+            elif key == "approved_cap_usd":
+                cap = float(val)
+    if run_id and run_id == approved:
+        if usd <= cap:
+            return
+        raise SystemExit(
+            f"estimate ${usd:.2f} is above the approved cap ${cap:.0f}. Waiting for explicit OK. No call was made."
+        )
+    if usd > limit:
+        raise SystemExit(
+            f"estimate ${usd:.2f} is above ${limit:.0f}. Waiting for explicit OK. No call was made."
+        )
+
+
 def assert_under_cap(usd: float, cfg: dict | None = None) -> None:
     cfg = cfg or load_config()
     if usd > cfg["hard_stop_usd"]:

@@ -373,6 +373,8 @@ def main() -> None:
     )
     if est["gate"] > cfg["estimate_cap_usd"]:
         raise SystemExit("STOP estimate over $8")
+    from pipeline.llm.client import require_explicit_ok
+    require_explicit_ok(est["gate"], run_id="i2-backtest-classification")
     con = open_answers()
     # stories table is in the sample db; the join in hostile_ids needs it attached.
     con.execute("ATTACH DATABASE ? AS sample", (str(SAMPLE),))

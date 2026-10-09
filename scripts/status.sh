@@ -394,6 +394,48 @@ if now.hour >= 8:
             reason = "the machine was asleep or off, or the network was down"
         actions.append("not collected today: " + ", ".join(not_run) + ". Likely reason: " + reason)
 
+def say_budget(now):
+    """xAI $10 top-up from config/budget.yaml. Anthropic is shown, not subtracted."""
+    topup = 10.0
+    start = "2026-10-09"
+    budget = root / "config" / "budget.yaml"
+    if budget.exists():
+        for raw in budget.read_text(encoding="utf-8").splitlines():
+            line = raw.split("#", 1)[0].strip()
+            if not line or ":" not in line:
+                continue
+            key, _, val = line.partition(":")
+            key, val = key.strip(), val.strip()
+            if key == "xai_topup_usd":
+                topup = float(val)
+            elif key == "budget_start":
+                start = val
+    spent = defaultdict(float)
+    usage = root / "data" / "llm" / "usage.log"
+    if usage.exists():
+        for line in usage.read_text(encoding="utf-8", errors="replace").splitlines():
+            if line[:10] < start:
+                continue
+            if "usd=" not in line or "model=" not in line:
+                continue
+            model = line.split("model=", 1)[1].split()[0]
+            try:
+                usd = float(line.split("usd=", 1)[1].split()[0])
+            except ValueError:
+                continue
+            provider = "xAI" if model.startswith("grok") else "Anthropic" if model.startswith("claude") else model
+            spent[provider] += usd
+    xai = spent.get("xAI", 0.0)
+    anthropic = spent.get("Anthropic", 0.0)
+    left = topup - xai
+    say(
+        f"Since {start}, xAI spend is ${xai:.2f} and Anthropic spend is ${anthropic:.2f}. "
+        f"${left:.2f} of the ${topup:.0f} xAI top-up remains."
+    )
+    if left <= 0:
+        actions.append("the xAI top-up is used up")
+
+
 spend = defaultdict(float)
 usage = root / "data" / "llm" / "usage.log"
 month = now.strftime("%Y-%m")
@@ -415,6 +457,7 @@ if spend:
     say("API spend this month is " + ", ".join(bits) + ".")
 else:
     say("There is no API spend recorded this month.")
+say_budget(now)
 
 candidates = root / "validation" / "gold-b2-candidates.csv"
 m1_done = batch2_tagged()

@@ -1,1 +1,3 @@
+# Off means no API calls. After the backtest this stays off.
+# The test phase runs only within the remaining credits, then demo mode.
 live_monitoring: off

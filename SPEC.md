@@ -377,6 +377,8 @@ Estimates depend on real headline volumes (to be confirmed in M0/M1).
 5. **Cache every classification** in the database; never classify the same headline twice.
 6. Before any large run, the pipeline prints an **estimated cost** and waits for confirmation.
 7. Scaling (more users, hosting, more sources) is decided only after Stage 1 shows the app is used and useful.
+8. **A single run estimated above $2 needs explicit OK.** The pipeline prints the estimate and does not call. Under $2 still prints the estimate.
+9. **After the backtest, `live_monitoring` stays off.** The test phase runs only within the remaining credits, then demo mode. Demo mode makes no API calls.
 
 ### 14.3 Maintenance
 | When | Task | Time |
@@ -392,6 +394,12 @@ Estimates depend on real headline volumes (to be confirmed in M0/M1).
 3. If a manual layer has not been updated for **more than 14 days**, it is marked **out of date** on the public view.
 4. If the overall assessment rests mostly on stale or missing data, the summary says so.
 5. If an AI provider errors, the app shows **"AI unavailable"**. It never stores a default or zero classification.
+
+### 14.5 Final funding
+
+The xAI $10 top-up on 2026-10-09 is the final funding for this project. It is not a monthly refill. Hermes does not use this key. The project key is `XAI_API_KEY` in the local `.env` only.
+
+Spend since that top-up is shown by `efm-status`: xAI, Anthropic, and what remains of the $10. The clock starts at 2026-10-09 00:00 UTC, because no hour was given. Anthropic spend is shown separately. It does not come out of the xAI $10. When the xAI remainder is used up, paid calls stop. Demo mode continues.
 
 ---
 
@@ -418,7 +426,7 @@ Estimates depend on real headline volumes (to be confirmed in M0/M1).
 
 **Demo mode** replays the 2021–22 backtest from saved data. It is the default showcase. It makes no API calls.
 
-`config/app.yaml` has `live_monitoring: off`. Off means no API calls. The app shows "paused since <date> — showing demo".
+`config/app.yaml` has `live_monitoring: off`. Off means no API calls. The app shows "paused since <date> — showing demo". After the backtest it stays off. The test phase runs only within the remaining credits, then demo mode.
 
 **Auto-pause** if there has been no admin session for 30 days, or if key sources have failed for 7 or more days. Free collectors may keep running. Paid calls stop.
 
