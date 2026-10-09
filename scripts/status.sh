@@ -144,6 +144,20 @@ def translation_priority_state():
     }
 
 
+def batch2_tagged():
+    """M1 is done only when both batch 2 tags exist. A missing tag is not done."""
+    try:
+        out = subprocess.check_output(
+            ["git", "-C", str(root), "tag", "--list", "gold-b2-audit", "gold-b2-adjudicated"],
+            text=True,
+            stderr=subprocess.DEVNULL,
+        )
+    except (subprocess.CalledProcessError, FileNotFoundError):
+        return False
+    names = {line.strip() for line in out.splitlines() if line.strip()}
+    return {"gold-b2-audit", "gold-b2-adjudicated"} <= names
+
+
 def say_translation(translation, rate):
     saved = translation["done"]
     left = translation["left"]
@@ -339,7 +353,10 @@ else:
     say("There is no API spend recorded this month.")
 
 candidates = root / "validation" / "gold-b2-candidates.csv"
-if candidates.exists():
+m1_done = batch2_tagged()
+if m1_done:
+    say("M1 done.")
+elif candidates.exists():
     say("Batch 2 is ready for your audit.")
     actions.append("batch 2 is ready for you to label")
 elif priority_chunk_done:
@@ -347,7 +364,7 @@ elif priority_chunk_done:
 else:
     say("Batch 2 is waiting. The translation priority download is not finished, so there is nothing for you to audit yet.")
 
-if priority_chunk_done:
+if priority_chunk_done and not m1_done:
     if actions:
         say("ACTION NEEDED: " + "; ".join(actions) + ".")
     say("ACTION NEEDED: Priority download done. Tell Hermes: 'Continue the previous assignment from step 7 (batch 2).'")
