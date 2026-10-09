@@ -76,6 +76,24 @@ def rolling_baseline(points, as_of: date, window_days: int, min_points: int):
     return (mean, math.sqrt(variance))
 
 
+def rolling_baseline_mad(points, as_of: date, window_days: int, min_points: int, mad_scale: float):
+    """Median and MAD scaled to an SD-equivalent. Too few points is no data, not zero."""
+    values = _trailing_values(points, as_of, window_days)
+    if len(values) < max(min_points, 2):
+        return None
+    center = _median(values)
+    mad = _median([abs(value - center) for value in values])
+    return (center, mad * float(mad_scale))
+
+
+def _median(values) -> float:
+    ordered = sorted(values)
+    mid = len(ordered) // 2
+    if len(ordered) % 2:
+        return ordered[mid]
+    return (ordered[mid - 1] + ordered[mid]) / 2
+
+
 def _trailing_values(points, as_of: date, window_days: int) -> list[float]:
     start = as_of - timedelta(days=window_days)
     values = []
@@ -166,17 +184,31 @@ def _level(value) -> int | None:
     return None
 
 
-def indicator_level(value, points, as_of, window_days, min_points, thresholds):
-    """Indicator level from a rolling baseline. No baseline is no data, not zero."""
+def indicator_level(
+    value,
+    points,
+    as_of,
+    window_days,
+    min_points,
+    thresholds,
+    method="median_mad",
+    mad_scale=1.4826,
+):
+    """Indicator level from the registered baseline. No baseline is no data, not zero."""
     if value is None:
         return None
-    base = rolling_baseline(points, as_of, window_days, min_points)
+    if method == "median_mad":
+        base = rolling_baseline_mad(points, as_of, window_days, min_points, mad_scale)
+    elif method == "mean_sd":
+        base = rolling_baseline(points, as_of, window_days, min_points)
+    else:
+        raise ValueError(method)
     if base is None:
         return None
-    mean, std = base
-    if std == 0:
-        return 0 if float(value) == mean else None
-    return level_from_z((float(value) - mean) / std, thresholds)
+    center, scale = base
+    if scale == 0:
+        return 0 if float(value) == center else None
+    return level_from_z((float(value) - center) / scale, thresholds)
 
 
 def visible_incidents(rows, week_monday: date) -> list[dict]:

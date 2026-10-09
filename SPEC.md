@@ -158,13 +158,15 @@ These rules apply to Intent classification (I1, I2) and to human labeling.
 
 ### 5.6 Pre-registration
 
-Written before any real-data scoring run. Tag: `scoring-prereg`.
+Written before any real-data scoring run. Tag: `scoring-prereg`. Amended by `scoring-prereg-v2` before any real-data scoring run. No real-data scoring run has used either tag.
 
-Threshold method: z-score levels computed from a calm calibration period (2021-01-01..2021-06-30). Draft cutoffs, registered here and not yet computed from that period: level 1 ≥ 1.0, level 2 ≥ 1.5, level 3 ≥ 2.0, level 4 ≥ 3.0 SD. Below level 1 is level 0.
+Threshold method at `scoring-prereg`: z-score levels from a calm calibration period (2021-01-01..2021-06-30). Draft cutoffs, not computed from that period: level 1 ≥ 1.0, level 2 ≥ 1.5, level 3 ≥ 2.0, level 4 ≥ 3.0. Below level 1 is level 0.
 
-Registered draft weights at this tag, not findings: Intent I1 1, I2 2, I3 3. Capability C1 2, C2 3. Opportunity O1 1, O2 1. Hybrid H1 2, H2 3.
+Amendment `scoring-prereg-v2`: that calendar window is not calm. Week 2021-05-24 is a spike in the stored I1 share (likely the Ryanair/Minsk week). A mean and sample standard deviation would treat that spike as part of normal. The baseline is the median. The scale is the median absolute deviation times 1.4826, so the same cutoffs stay on an SD-equivalent scale. Cutoffs stay 1.0 / 1.5 / 2.0 / 3.0. Weights are unchanged. A zero scale is no data, not a zero level, except when today's value equals the median, which is level 0.
 
-Any later change to cutoffs or weights must be reported separately in the backtest report. A change that appears only in code or config, and not in that report, does not count.
+Registered draft weights, not findings: Intent I1 1, I2 2, I3 3. Capability C1 2, C2 3. Opportunity O1 1, O2 1. Hybrid H1 2, H2 3.
+
+Any later change to cutoffs, weights, or the baseline method must be reported separately in the backtest report. A change that appears only in code or config, and not in that report, does not count.
 
 ---
 

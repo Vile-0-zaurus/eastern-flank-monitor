@@ -8,6 +8,7 @@ from pipeline.score.engine import (
     manual_level_for_week,
     overall_level,
     rolling_baseline,
+    rolling_baseline_mad,
     rows_for_week,
     indicator_level,
     visible_incidents,
@@ -237,6 +238,38 @@ class ConfigTest(unittest.TestCase):
         self.assertEqual(config["z_levels"][2], 1.5)
         self.assertEqual(config["z_levels"][3], 2.0)
         self.assertEqual(config["z_levels"][4], 3.0)
+        self.assertEqual(config["baseline_method"], "median_mad")
+        self.assertEqual(config["mad_scale"], 1.4826)
+
+    def test_a_spike_moves_the_mean_and_not_the_median(self):
+        from datetime import timedelta
+
+        points = [(date(2022, 1, 1) + timedelta(days=i), 1.0) for i in range(29)]
+        points.append((date(2022, 1, 20), 100.0))
+        as_of = date(2022, 2, 1)
+        mean, _std = rolling_baseline(points, as_of, window_days=180, min_points=10)
+        center, scale = rolling_baseline_mad(points, as_of, 180, 10, 1.4826)
+        self.assertGreater(mean, center)
+        self.assertEqual(center, 1.0)
+        self.assertEqual(scale, 0.0)
+        level = indicator_level(
+            1.0,
+            points,
+            as_of,
+            window_days=180,
+            min_points=10,
+            thresholds={1: 1.0, 2: 1.5, 3: 2.0, 4: 3.0},
+        )
+        self.assertEqual(level, 0)
+        off = indicator_level(
+            4.0,
+            points,
+            as_of,
+            window_days=180,
+            min_points=10,
+            thresholds={1: 1.0},
+        )
+        self.assertIsNone(off)
 
 
 if __name__ == "__main__":
