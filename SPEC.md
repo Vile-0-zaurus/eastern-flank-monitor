@@ -149,7 +149,7 @@ Tuning is not silent. Cutoffs and weights are pre-registered in §5.6, before an
 
 These rules apply to Intent classification (I1, I2) and to human labeling.
 
-1. "About the region" means about Finland, Estonia, Latvia, Lithuania, or Poland, on any topic.
+1. "About the region" means about Finland, Estonia, Latvia, Lithuania, or Poland, on any topic. A Baltic sea-only title is not about the region. Bare stems Baltic, балтий, and балтик do not count. прибалт counts. The phrases балтийские страны, балтийские государства, and балтийские республики count in every plural case form. Baltic states, Baltic countries, and Baltic nations count, including the singular.
 2. Kaliningrad local or domestic news is not about the region. It is Russia, unless it involves those five countries, NATO, borders, or the military.
 3. Ukraine-only or Russia-only news is not about the region, even if NATO is mentioned.
 4. Judge the wording, not the topic. A neutral report on a sensitive topic is ordinary news unless the wording itself is loaded.
@@ -198,7 +198,7 @@ Plain-language summaries are written by an AI model from the scored data. They m
 
 Headline classification uses these rules:
 
-1. "About the region" means about Finland, Estonia, Latvia, Lithuania, or Poland, on any topic.
+1. "About the region" means about Finland, Estonia, Latvia, Lithuania, or Poland, on any topic. A Baltic sea-only title is not about the region. Bare stems Baltic, балтий, and балтик do not count. прибалт counts. The phrases балтийские страны, балтийские государства, and балтийские республики count in every plural case form. Baltic states, Baltic countries, and Baltic nations count, including the singular.
 2. Kaliningrad local or domestic news is not about the region. It is Russia, unless it involves those five countries, NATO, borders, or the military.
 3. Ukraine-only or Russia-only news is not about the region, even if NATO is mentioned.
 4. Judge the wording, not the topic. A neutral report on a sensitive topic is ordinary news unless the wording itself is loaded.

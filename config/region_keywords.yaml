@@ -29,8 +29,6 @@ title_stems:
     - польск
     - поляк
     - прибалт
-    - балтий
-    - балтик
     - калининград
     - сувалк
     - варшав
@@ -49,7 +47,6 @@ title_stems:
     - Lithuanian
     - Poland
     - Polish
-    - Baltic
     - Warsaw
     - Vilnius
     - Tallinn
@@ -61,6 +58,13 @@ title_stems:
     - Suwałki
 
 # Short place names that need an explicit ending, not a bare stem.
+# Baltic sea-only stems are not here. Only the country phrases, all plural case forms.
 title_groups:
   - риг(а|и|е|у|ой)
   - нарв(а|ы|е|у|ой|ск)
+  - балтийск(?:ие|их|им|ими)\s+стран(?:ы|ам|ами|ах)?(?!\w)
+  - балтийск(?:ие|их|им|ими)\s+государств(?:а|ам|ами|ах)?(?!\w)
+  - балтийск(?:ие|их|им|ими)\s+республик(?:и|ам|ами|ах)?(?!\w)
+  - Baltic\s+states?(?!\w)
+  - Baltic\s+countr(?:y|ies)(?!\w)
+  - Baltic\s+nations?(?!\w)

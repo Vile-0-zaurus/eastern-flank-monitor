@@ -11,6 +11,10 @@ def hit(title, domain="tass.ru"):
     return title_about_flank(title, STEMS, GROUPS, domain, min_chars=15)
 
 
+def hit_config(title, stems, groups, min_chars, domain="tass.ru"):
+    return title_about_flank(title, stems, groups, domain, min_chars)
+
+
 class TitleRuleTest(unittest.TestCase):
     def test_a_five_country_title_counts(self):
         self.assertTrue(hit("Польша закрыла границу на неделю"))
@@ -34,6 +38,68 @@ class TitleRuleTest(unittest.TestCase):
         self.assertNotIn("kaliningrad", low)
         self.assertIn("польш", low)
         self.assertIn("poland", low)
+
+    def test_sea_only_baltic_does_not_count_and_the_country_phrase_does(self):
+        from pathlib import Path
+
+        from pipeline.score.region_filter import load_keywords
+
+        path = Path(__file__).resolve().parents[1] / "config" / "region_keywords.yaml"
+        stems, groups = flank_terms(path)
+        _fips, _names, _stems, _groups, min_chars = load_keywords(path)
+        low = {stem.lower() for stem in stems}
+        self.assertNotIn("балтий", low)
+        self.assertNotIn("балтик", low)
+        self.assertNotIn("baltic", low)
+        self.assertIn("прибалт", low)
+        self.assertFalse(hit_config("Балтийское море закрыли для учений", stems, groups, min_chars))
+        self.assertFalse(hit_config("The Baltic Sea stays open this week", stems, groups, min_chars))
+        self.assertTrue(hit_config("Балтийские страны обсудили границу", stems, groups, min_chars))
+        self.assertTrue(hit_config("В балтийских республиках сменилось правительство", stems, groups, min_chars))
+        self.assertTrue(hit_config("Балтийским государствам направили ноту", stems, groups, min_chars))
+        self.assertTrue(hit_config("Baltic states argue over the border", stems, groups, min_chars))
+        self.assertTrue(hit_config("Прибалтика ждёт нового заявления", stems, groups, min_chars))
+
+
+class RegionFileTest(unittest.TestCase):
+    def test_ukraine_matches_the_country_and_not_poland(self):
+        from pipeline.score.i1 import matchers
+
+        by_name = {spec["name"]: spec for spec in matchers()}
+        ukraine = by_name["ukraine_test"]
+        flank = by_name["eastern_flank"]
+        self.assertEqual(ukraine["indicator"], "I1_ukraine_test")
+        self.assertEqual(flank["indicator"], "I1")
+        self.assertTrue(
+            title_about_flank(
+                "Украина закрыла границу на неделю",
+                ukraine["stems"],
+                ukraine["groups"],
+                "tass.ru",
+                ukraine["min_chars"],
+                ukraine["pattern"],
+            )
+        )
+        self.assertTrue(
+            title_about_flank(
+                "Ukraine closed the border for a week",
+                ukraine["stems"],
+                ukraine["groups"],
+                "tass.ru",
+                ukraine["min_chars"],
+                ukraine["pattern"],
+            )
+        )
+        self.assertFalse(
+            title_about_flank(
+                "Польша закрыла границу на неделю",
+                ukraine["stems"],
+                ukraine["groups"],
+                "tass.ru",
+                ukraine["min_chars"],
+                ukraine["pattern"],
+            )
+        )
 
 
 class DedupTest(unittest.TestCase):

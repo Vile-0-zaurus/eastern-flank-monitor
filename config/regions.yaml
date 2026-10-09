@@ -1,0 +1,14 @@
+# Title regions. eastern_flank is the product region. ukraine_test is the method check only.
+# Stems are matched with a leading word boundary. Groups are raw patterns.
+
+eastern_flank:
+  indicator: I1
+  keywords: config/region_keywords.yaml
+
+ukraine_test:
+  indicator: I1_ukraine_test
+  title_stems:
+    - украин
+    - Ukraine
+    - Ukrainian
+  title_groups: []

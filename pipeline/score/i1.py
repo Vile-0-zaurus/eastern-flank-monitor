@@ -16,8 +16,10 @@ ROOT = Path(__file__).resolve().parents[2]
 SRC = ROOT / "data" / "backtest" / "gkg.sqlite"
 OUT = ROOT / "data" / "indicators" / "indicators.sqlite"
 KEYWORDS = ROOT / "config" / "region_keywords.yaml"
+REGIONS = ROOT / "config" / "regions.yaml"
 WINDOW = ("20210101", "20220224")
 KALININGRAD = {"калининград", "kaliningrad"}
+MIN_FREE_KB = int(1.5 * 1024 * 1024)
 
 
 def story_key(domain: str, url: str, title: str) -> str:
@@ -86,24 +88,116 @@ def each_day(start: str, end: str):
         day += timedelta(days=1)
 
 
-def write_indicators(src: Path, dst: Path, start: str = WINDOW[0], end: str = WINDOW[1]) -> list[dict]:
+def available_kb() -> int:
+    for line in Path("/proc/meminfo").read_text(encoding="utf-8").splitlines():
+        if line.startswith("MemAvailable:"):
+            return int(line.split()[1])
+    raise SystemExit("MemAvailable missing")
+
+
+def require_memory() -> None:
+    free = available_kb()
+    if free < MIN_FREE_KB:
+        raise SystemExit(f"available memory {free} kB is under 1.5 GB; stopped")
+
+
+def load_regions(path: Path = REGIONS) -> dict:
+    regions: dict[str, dict] = {}
+    current = None
+    section = None
+    for raw in path.read_text(encoding="utf-8").splitlines():
+        line = raw.split("#", 1)[0].rstrip()
+        if not line.strip():
+            continue
+        indent = len(raw) - len(raw.lstrip(" "))
+        stripped = line.strip()
+        if indent == 0 and stripped.endswith(":"):
+            current = stripped[:-1]
+            regions[current] = {"indicator": current, "keywords": None, "stems": [], "groups": []}
+            section = None
+            continue
+        if current is None:
+            continue
+        if stripped.startswith("- ") and section in ("title_stems", "title_groups"):
+            key = "stems" if section == "title_stems" else "groups"
+            regions[current][key].append(stripped[2:].strip())
+            continue
+        key, _, val = stripped.partition(":")
+        key, val = key.strip(), val.strip()
+        if not val:
+            section = key
+            continue
+        section = None
+        if key == "keywords":
+            regions[current]["keywords"] = val
+        elif key == "indicator":
+            regions[current]["indicator"] = val
+    return regions
+
+
+def matchers(path: Path = REGIONS) -> list[dict]:
+    out = []
+    for name, spec in load_regions(path).items():
+        if spec["keywords"]:
+            keyword_path = ROOT / spec["keywords"]
+            stems, groups = flank_terms(keyword_path)
+            _fips, _names, _stems, _groups, min_chars = load_keywords(keyword_path)
+        else:
+            stems, groups, min_chars = spec["stems"], spec["groups"], 15
+        if not stems and not groups:
+            raise SystemExit(f"{name} has no title rules")
+        out.append(
+            {
+                "name": name,
+                "indicator": spec["indicator"],
+                "stems": stems,
+                "groups": groups,
+                "min_chars": min_chars,
+                "pattern": title_pattern(stems, groups),
+            }
+        )
+    return out
+
+
+def read_stored(dst: Path, indicator: str = "I1") -> list[dict]:
+    if not dst.exists():
+        return []
+    con = sqlite3.connect(f"file:{dst}?mode=ro", uri=True)
+    con.execute("PRAGMA query_only=ON")
+    try:
+        rows = con.execute(
+            "SELECT day, numerator, denominator, value FROM indicators WHERE indicator=? ORDER BY day",
+            (indicator,),
+        ).fetchall()
+    except sqlite3.OperationalError:
+        rows = []
+    con.close()
+    return [
+        {"day": day, "numerator": numer, "denominator": denom, "value": value}
+        for day, numer, denom, value in rows
+    ]
+
+
+def write_indicators(src: Path, dst: Path, start: str = WINDOW[0], end: str = WINDOW[1]) -> dict[str, list[dict]]:
+    """Stream kept rows. One story key per day per region. Does not load the source table."""
+    require_memory()
     if not src.exists():
         raise SystemExit(f"missing {src}")
-    stems, groups = flank_terms(KEYWORDS)
-    _fips, _names, _stems, _groups, min_chars = load_keywords(KEYWORDS)
-    pattern = title_pattern(stems, groups)
+    specs = matchers()
     dst.parent.mkdir(parents=True, exist_ok=True)
     if dst.exists():
         dst.unlink()
     out = sqlite3.connect(dst)
     out.execute("PRAGMA journal_mode=WAL")
+    out.execute("PRAGMA cache_size=-8000")
     out.executescript(
         """
         CREATE TABLE stories (
           day TEXT NOT NULL,
           story_key TEXT NOT NULL,
+          region TEXT NOT NULL,
           relevant INTEGER NOT NULL,
-          PRIMARY KEY (day, story_key)
+          PRIMARY KEY (day, story_key, region)
         );
         CREATE TABLE indicators (
           indicator TEXT NOT NULL,
@@ -117,6 +211,7 @@ def write_indicators(src: Path, dst: Path, start: str = WINDOW[0], end: str = WI
     )
     src_con = sqlite3.connect(f"file:{src}?mode=ro", uri=True)
     src_con.execute("PRAGMA query_only=ON")
+    src_con.execute("PRAGMA cache_size=-8000")
     batch = []
 
     def flush() -> None:
@@ -124,8 +219,8 @@ def write_indicators(src: Path, dst: Path, start: str = WINDOW[0], end: str = WI
             return
         out.executemany(
             """
-            INSERT INTO stories (day, story_key, relevant) VALUES (?,?,?)
-            ON CONFLICT(day, story_key) DO UPDATE SET
+            INSERT INTO stories (day, story_key, region, relevant) VALUES (?,?,?,?)
+            ON CONFLICT(day, story_key, region) DO UPDATE SET
               relevant = MAX(relevant, excluded.relevant)
             """,
             batch,
@@ -141,41 +236,49 @@ def write_indicators(src: Path, dst: Path, start: str = WINDOW[0], end: str = WI
         """,
         (start, end),
     )
+    seen = 0
     for day, domain, url, title in cur:
+        seen += 1
         key = story_key(domain or "", url or "", title or "")
-        relevant = 1 if title_about_flank(title, stems, groups, domain or "", min_chars, pattern) else 0
-        batch.append((day, key, relevant))
+        for spec in specs:
+            relevant = 1 if title_about_flank(
+                title, spec["stems"], spec["groups"], domain or "", spec["min_chars"], spec["pattern"]
+            ) else 0
+            batch.append((day, key, spec["name"], relevant))
         if len(batch) >= 5000:
             flush()
+        if seen % 500000 == 0:
+            print(f"streamed {seen}", flush=True)
+            require_memory()
     flush()
     src_con.close()
-    by_day = {
-        day: (numer, denom)
-        for day, numer, denom in out.execute(
-            "SELECT day, SUM(relevant), COUNT(*) FROM stories GROUP BY day"
-        )
-    }
-    rows = []
-    for day in each_day(start, end):
-        stamp = day.strftime("%Y%m%d")
-        numer, denom = by_day.get(stamp, (None, None))
-        value = None if not denom else numer / denom
-        out.execute(
-            "INSERT INTO indicators (indicator, day, numerator, denominator, value) VALUES ('I1',?,?,?,?)",
-            (iso_day(stamp), numer, denom, value),
-        )
-        rows.append(
-            {
-                "day": iso_day(stamp),
-                "numerator": numer,
-                "denominator": denom,
-                "value": value,
-            }
-        )
+    print(f"streamed {seen}", flush=True)
+    by_region: dict[str, dict[str, tuple]] = {spec["name"]: {} for spec in specs}
+    for region, day, numer, denom in out.execute(
+        "SELECT region, day, SUM(relevant), COUNT(*) FROM stories GROUP BY region, day"
+    ):
+        by_region[region][day] = (numer, denom)
+    stored: dict[str, list[dict]] = {}
+    for spec in specs:
+        rows = []
+        for day in each_day(start, end):
+            stamp = day.strftime("%Y%m%d")
+            numer, denom = by_region[spec["name"]].get(stamp, (None, None))
+            value = None if not denom else numer / denom
+            out.execute(
+                "INSERT INTO indicators (indicator, day, numerator, denominator, value) VALUES (?,?,?,?,?)",
+                (spec["indicator"], iso_day(stamp), numer, denom, value),
+            )
+            rows.append(
+                {"day": iso_day(stamp), "numerator": numer, "denominator": denom, "value": value}
+            )
+        stored[spec["name"]] = rows
     out.execute("DROP TABLE stories")
     out.commit()
+    require_memory()
+    out.execute("VACUUM")
     out.close()
-    return rows
+    return stored
 
 
 def weekly_summary(rows: list[dict]) -> list[dict]:
@@ -213,11 +316,19 @@ def format_weekly(weeks: list[dict]) -> str:
 
 
 def main() -> None:
-    rows = write_indicators(SRC, OUT)
-    weeks = weekly_summary(rows)
-    text = format_weekly(weeks)
-    print(text)
-    print(f"stored {len(rows)} daily rows in {OUT}")
+    require_memory()
+    old = read_stored(OUT, "I1")
+    if old:
+        print("## old_eastern_flank")
+        print(format_weekly(weekly_summary(old)))
+    stored = write_indicators(SRC, OUT)
+    for name, rows in stored.items():
+        print(f"## {name}")
+        print(format_weekly(weekly_summary(rows)))
+        numer = sum(row["numerator"] or 0 for row in rows if row["denominator"])
+        denom = sum(row["denominator"] or 0 for row in rows if row["denominator"])
+        share = "no data" if not denom else f"{numer / denom:.4f}"
+        print(f"stored {len(rows)} daily rows  relevant {numer}  outlet {denom}  share {share}")
 
 
 if __name__ == "__main__":
