@@ -295,6 +295,8 @@ if progress and queue and index_total:
         everything_left = max(todo - done_pass, 0)
         say_translation(translation, rate)
         say(f"Everything still queued is about {everything_left:,} files, {hours(everything_left / rate)}.")
+    elif complete_n:
+        say_translation(translation, None)
     else:
         say("There are not enough finished files in the last hour to estimate a speed or an arrival time.")
         say_translation(translation, None)
