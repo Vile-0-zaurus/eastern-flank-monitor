@@ -1,6 +1,6 @@
 # Validation report
 
-This closes the M1 narrative check. It is not a claim that the GKG backfill is finished. Do not restart that job.
+This closes the M1 narrative check. It is not a claim that the GKG backfill was finished on the day of this report. The backfill later finished on 2026-10-09. The service is disabled. Do not restart that job.
 
 Rules 7 and 8 were written from the batch 2 adjudication items. The prompt-v3 numbers below are a no-regression check on those same items, not a fresh test.
 
@@ -56,4 +56,4 @@ grok-build-0.1 is the pipeline classifier. On the saved prompt-v2 answers it agr
 - Two items remain "Rule is unclear" (485234, 421591). They are excluded from the percentage and are parked for a later rule fix.
 - 428813 stayed "Not about region" by the human. The new models still called it hostile. That row is outside the hostile-versus-ordinary percentage.
 - 480182 was not scored. The human said the judge was correct, but Opus and Sonnet had disagreed with each other.
-- The GKG backfill is still running. This report does not depend on stopping it.
+- The GKG backfill later finished on 2026-10-09. This report did not depend on stopping it.

@@ -272,7 +272,7 @@ The prompt for summaries lives in `prompts/summary.md` and is version-controlled
 | ID | Milestone | Done when |
 |---|---|---|
 | **M0** | Data reality check | A short script per MVP source proves we can fetch real data. Results written to `docs/sources.md`. Failed sources get alternatives or are dropped. |
-| **M1** | Narrative pipeline (Intent) | Done. See `docs/validation-report.md`. The GKG backfill is still running; do not restart it. |
+| **M1** | Narrative pipeline (Intent) | Done. See `docs/validation-report.md`. The GKG backfill finished on 2026-10-09. The service is disabled. Do not restart it. |
 | **M2** | Scoring | Baselines, layer levels and convergence rule work on stored data; config-driven. |
 | **M3** | Backtest | 2021–22 backtest report produced. Level thresholds tuned. |
 | **M4** | Dashboard | Three depths working locally in the browser, with disclaimer, level definitions, and demo mode (§16). |

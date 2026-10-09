@@ -27,6 +27,62 @@ def service_active():
         return (exc.output or "").strip() or "inactive"
     return out
 
+def service_result():
+    try:
+        out = subprocess.check_output(
+            ["systemctl", "--user", "show", "gkg-backfill.service",
+             "-p", "Result", "-p", "ExecMainExitTimestamp"],
+            text=True, stderr=subprocess.DEVNULL,
+        )
+    except subprocess.CalledProcessError:
+        return {}, ""
+    data = {}
+    for line in out.splitlines():
+        if "=" in line:
+            key, val = line.split("=", 1)
+            data[key] = val.strip()
+    stamp = data.get("ExecMainExitTimestamp", "")
+    day = ""
+    for bit in stamp.split():
+        if len(bit) == 10 and bit[4] == "-" and bit[7] == "-":
+            day = bit
+            break
+    if not day:
+        day = journal_exit_day()
+    return data, day
+
+def journal_exit_day():
+    """Date only. Does not print the log line."""
+    try:
+        out = subprocess.check_output(
+            ["journalctl", "--user", "-u", "gkg-backfill.service",
+             "-o", "short-iso", "-n", "1", "--no-pager"],
+            text=True, stderr=subprocess.DEVNULL,
+        ).strip()
+    except subprocess.CalledProcessError:
+        return ""
+    if len(out) >= 10 and out[4] == "-" and out[7] == "-":
+        return out[:10]
+    return ""
+
+def files_all_done():
+    """Count of done files when every stored file is done. Otherwise None."""
+    db = root / "data" / "backtest" / "gkg.sqlite"
+    if not db.exists():
+        return None
+    con = sqlite3.connect(f"file:{db}?mode=ro", uri=True, timeout=5)
+    try:
+        con.execute("PRAGMA query_only=ON")
+        rows = con.execute("SELECT status, COUNT(*) FROM files GROUP BY status").fetchall()
+    finally:
+        con.close()
+    counts = {status: n for status, n in rows}
+    done = counts.get("done", 0)
+    others = sum(n for status, n in counts.items() if status != "done")
+    if done > 0 and others == 0:
+        return done
+    return None
+
 def journal_lines():
     try:
         out = subprocess.check_output(
@@ -188,8 +244,14 @@ def say_translation(translation, rate):
 
 active = service_active()
 priority_chunk_done = False
+show, exit_day = service_result()
+complete_n = None
+if active != "active" and show.get("Result") == "success":
+    complete_n = files_all_done()
 if active == "active":
     say("The backfill is running.")
+elif complete_n:
+    say(f"Backfill complete ({complete_n:,} files, {exit_day or 'date unknown'}).")
 else:
     say(f"The backfill is not running. Its status is {active}.")
     actions.append("the backfill service is not running")
