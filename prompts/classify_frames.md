@@ -38,6 +38,8 @@ A JSON array with one object per input id, same order:
 4. Judge the wording, not the topic. A neutral report on a sensitive topic — language policy, monuments, minorities — is ordinary news unless the wording itself is loaded.
 5. Scare quotes around the target country's own terms, such as «советская оккупация», are mild hostile framing.
 6. A quote from the target country's officials is not Russian framing. A quote from Russian officials is.
+7. A loaded label attached to a person or state from Finland, Estonia, Latvia, Lithuania, or Poland — "Russophobe", "regime", "Nazi", "hawk" — is at least mild hostile framing, even if the event is ordinary.
+8. Claims by Belarusian officials amplified by Russian media count like quotes from Russian officials.
 
 If `relevant` is `no`, set `hostile_framing` to `no` and every frame to 0.
 
