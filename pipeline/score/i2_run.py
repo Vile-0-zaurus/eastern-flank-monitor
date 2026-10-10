@@ -12,6 +12,7 @@ import urllib.error
 import urllib.request
 from pathlib import Path
 
+from pipeline.llm.call_guard import decide, note_success
 from pipeline.llm.client import (
     AI_UNAVAILABLE,
     _api_key,
@@ -25,6 +26,7 @@ from pipeline.score.retry_grok_build import complete_objects, require_answers
 
 ROOT = Path(__file__).resolve().parents[2]
 ANSWERS = ROOT / "data" / "llm" / "i2-answers.sqlite"
+ERROR_LOG = ROOT / "data" / "llm" / "i2-errors.log"
 PROMPTS = {
     "eastern_flank": ROOT / "prompts" / "classify_frames.md",
     "ukraine_test": ROOT / "prompts" / "classify_frames_ukraine.md",
@@ -38,6 +40,23 @@ CONV = {
     "eastern_flank": "efm-i2-flank-20261009",
     "ukraine_test": "efm-i2-ukraine-20261009",
 }
+
+
+RETRY_CAP = 6.10
+RETRY_RUN = "i2-unavailable-retry"
+
+
+def assert_retry_allowed(usd: float) -> None:
+    """This retry does not inherit the old $8 approval."""
+    if usd > RETRY_CAP:
+        raise SystemExit(
+            f"STOP retry estimate ${usd:.2f} is above ${RETRY_CAP:.2f}. No call was made."
+        )
+
+
+def retry_spend_ceiling(already_spent: float, task_cap: float, config_hard: float) -> float:
+    """New spend cannot pass the approved cap. Does not raise the config hard stop."""
+    return min(config_hard, already_spent + task_cap)
 
 
 def sample_rows() -> list[dict]:
@@ -107,6 +126,7 @@ def estimate(n: int, batch_size: int) -> dict:
         "grok_cap": grok_cap,
         "sonnet_batch": sonnet_batch,
         "gate": grok_cap + sonnet_batch,
+        "retry_gate": max(grok_expected, grok_cap),
     }
 
 
@@ -143,20 +163,32 @@ def already(con: sqlite3.Connection, model: str) -> set[str]:
     return {row[0] for row in con.execute("SELECT sample_id FROM answers WHERE model=?", (model,))}
 
 
+def grok_pending(rows: list[dict], stored: dict[str, str]) -> list[dict]:
+    """Real answers stay stored. A missing row or AI unavailable is called again."""
+    return [row for row in rows if stored.get(row["id"]) in (None, AI_UNAVAILABLE)]
+
+
+def stored_status(con: sqlite3.Connection, model: str) -> dict[str, str]:
+    return {row[0]: row[1] for row in con.execute("SELECT sample_id, status FROM answers WHERE model=?", (model,))}
+
+
 def run_grok(con: sqlite3.Connection, rows: list[dict], hard: float) -> None:
     cfg = load_config()
-    done = already(con, "grok-build-0.1")
-    pending = [row for row in rows if row["id"] not in done]
+    done = stored_status(con, "grok-build-0.1")
+    pending = grok_pending(rows, done)
     by_region: dict[str, list[dict]] = {}
     for row in pending:
         by_region.setdefault(row["region"], []).append(row)
+    failures: list[bool] = []
     for region in ("eastern_flank", "ukraine_test"):
         prompt = PROMPTS[region].read_text(encoding="utf-8")
         for batch in chunks(by_region.get(region, []), 50):
-            _one_grok(con, cfg, prompt, region, batch, hard, tries_left=2)
+            _one_grok(con, cfg, prompt, region, batch, hard, tries_left=2, failures=failures)
 
 
-def _one_grok(con, cfg, prompt, region, batch, hard, tries_left: int) -> None:
+def _one_grok(con, cfg, prompt, region, batch, hard, tries_left: int, failures: list | None = None) -> None:
+    if failures is None:
+        failures = []
     if not batch:
         return
     if spent(con) >= hard:
@@ -178,15 +210,23 @@ def _one_grok(con, cfg, prompt, region, batch, hard, tries_left: int) -> None:
             usage_sink=usage,
         )
     except Exception as exc:
-        kind = type(exc).__name__
-        print(f"GROK ERROR {kind} tries_left={tries_left}", flush=True)
-        if tries_left > 0:
-            time.sleep(20)
-            _one_grok(con, cfg, prompt, region, batch, hard, tries_left - 1)
+        attempt = max(0, 2 - tries_left)
+        decision = decide(exc, attempt, failures)
+        print(f"GROK ERROR {decision['log']}", flush=True)
+        ERROR_LOG.parent.mkdir(parents=True, exist_ok=True)
+        with ERROR_LOG.open("a", encoding="utf-8") as fh:
+            fh.write(decision["log"] + "\n")
+        if decision["action"] in ("stop", "pause"):
+            print(decision["report"], flush=True)
+            raise SystemExit(decision["report"])
+        if decision["action"] == "retry":
+            time.sleep(decision["wait"])
+            _one_grok(con, cfg, prompt, region, batch, hard, tries_left - 1, failures)
             return
         parsed = require_answers([row["id"] for row in batch], {})
         store_rows(con, "grok-build-0.1", batch, parsed)
         return
+    note_success(failures)
     usd = estimate_cost(pin, pout, cfg, "grok-build-0.1")
     log_usage("grok-build-0.1", pin, pout, usd)
     con.execute("INSERT INTO spend (model, usd, note) VALUES (?,?,?)", ("grok-build-0.1", usd, region))
@@ -204,7 +244,7 @@ def _one_grok(con, cfg, prompt, region, batch, hard, tries_left: int) -> None:
         flush=True,
     )
     if missing and tries_left > 0 and spent(con) < hard:
-        _one_grok(con, cfg, prompt, region, missing, hard, tries_left - 1)
+        _one_grok(con, cfg, prompt, region, missing, hard, tries_left - 1, failures)
     elif missing:
         store_rows(con, "grok-build-0.1", missing, parsed)
 
@@ -365,6 +405,27 @@ def save_sonnet(con: sqlite3.Connection, batch_id: str, chosen: list[dict], hard
 def main() -> None:
     cfg = load_i2_config()
     rows = sample_rows()
+    con = open_answers()
+    stored = stored_status(con, "grok-build-0.1")
+    pending = grok_pending(rows, stored)
+    retrying = any(stored.get(row["id"]) == AI_UNAVAILABLE for row in pending)
+    if retrying:
+        est = estimate(len(pending), cfg["batch_size"])
+        print(
+            f"RETRY ESTIMATE n={est['n']} batches={est['batches']} "
+            f"grok_expected={est['grok_expected']:.2f} grok_cap={est['grok_cap']:.2f} "
+            f"retry_gate={est['retry_gate']:.2f} cap={RETRY_CAP:.2f} run={RETRY_RUN}",
+            flush=True,
+        )
+        assert_retry_allowed(est["retry_gate"])
+        from pipeline.llm.client import require_explicit_ok
+        require_explicit_ok(est["retry_gate"], run_id=RETRY_RUN)
+        con.execute("ATTACH DATABASE ? AS sample", (str(SAMPLE),))
+        run_grok(con, rows, retry_spend_ceiling(spent(con), RETRY_CAP, cfg["hard_stop_usd"]))
+        print(f"GROK DONE spent={spent(con):.4f}", flush=True)
+        print("SONNET already stored. No further spend.", flush=True)
+        con.close()
+        return
     est = estimate(len(rows), cfg["batch_size"])
     print(
         f"ESTIMATE n={est['n']} batches={est['batches']} grok_expected={est['grok_expected']:.2f} "
@@ -375,8 +436,6 @@ def main() -> None:
         raise SystemExit("STOP estimate over $8")
     from pipeline.llm.client import require_explicit_ok
     require_explicit_ok(est["gate"], run_id="i2-backtest-classification")
-    con = open_answers()
-    # stories table is in the sample db; the join in hostile_ids needs it attached.
     con.execute("ATTACH DATABASE ? AS sample", (str(SAMPLE),))
     run_grok(con, rows, cfg["hard_stop_usd"])
     print(f"GROK DONE spent={spent(con):.4f}", flush=True)

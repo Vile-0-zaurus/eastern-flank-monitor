@@ -4,6 +4,6 @@
 xai_topup_usd: 10
 budget_start: 2026-10-09
 estimate_ok_usd: 2
-# Already approved before the $2 rule. A resume of this run may finish. Do not copy this for a new run.
-approved_run: i2-backtest-classification
-approved_cap_usd: 8
+# Approved for i2-unavailable-retry only. Does not raise llm.yaml hard_stop. Do not copy to another run id.
+approved_run: i2-unavailable-retry
+approved_cap_usd: 6.10
