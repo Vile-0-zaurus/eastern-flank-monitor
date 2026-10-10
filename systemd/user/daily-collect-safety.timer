@@ -1,0 +1,12 @@
+[Unit]
+Description=Eastern flank collect safety run at 18:00
+After=network-online.target
+Wants=network-online.target
+
+[Timer]
+OnCalendar=*-*-* 18:00:00
+Persistent=true
+Unit=daily-collect.service
+
+[Install]
+WantedBy=timers.target
