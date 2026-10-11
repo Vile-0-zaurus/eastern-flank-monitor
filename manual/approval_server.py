@@ -18,7 +18,7 @@ from pathlib import Path
 HOST = "127.0.0.1"
 PORT = 8765
 ROOT = Path(__file__).resolve().parent
-DECISIONS = ("Approve", "Reject", "Unsure")
+DECISIONS = ("Approve", "Reject", "Unsure", "Value should be")
 FIELDS = [
     "input",
     "date",
@@ -28,6 +28,7 @@ FIELDS = [
     "source_link",
     "source_date",
     "decision",
+    "corrected_value",
     "reviewer_note",
     "saved_at",
 ]
@@ -49,7 +50,15 @@ def approved_path(name: str) -> Path:
 def ensure_approved() -> None:
     for _key, _draft, approved in DRAFTS:
         path = ROOT / approved
-        if path.exists():
+        if not path.exists():
+            with path.open("w", newline="") as handle:
+                csv.DictWriter(handle, fieldnames=FIELDS).writeheader()
+            continue
+        with path.open(newline="") as handle:
+            reader = csv.reader(handle)
+            header = next(reader, [])
+            has_rows = next(reader, None) is not None
+        if header == FIELDS or has_rows:
             continue
         with path.open("w", newline="") as handle:
             csv.DictWriter(handle, fieldnames=FIELDS).writeheader()
@@ -104,7 +113,7 @@ def saved_ids() -> set[str]:
     return found
 
 
-def append_decision(entry: dict, decision: str, reviewer_note: str) -> None:
+def append_decision(entry: dict, decision: str, reviewer_note: str, corrected_value: str = "") -> None:
     path = approved_path(entry["input"])
     ensure_approved()
     row = {
@@ -116,6 +125,7 @@ def append_decision(entry: dict, decision: str, reviewer_note: str) -> None:
         "source_link": entry["source_link"],
         "source_date": entry["source_date"],
         "decision": decision,
+        "corrected_value": corrected_value,
         "reviewer_note": reviewer_note,
         "saved_at": datetime.now().isoformat(timespec="seconds"),
     }
@@ -148,6 +158,10 @@ a { word-break: break-all; }
 <p>Source date: <span id="source-date"></span></p>
 <p id="link"></p>
 <label>Optional note<br><textarea id="reviewer"></textarea></label>
+<p>
+<label>Value should be <input id="corrected" inputmode="numeric" maxlength="1" size="2"></label>
+<button id="correct" type="button">Value should be</button>
+</p>
 <p>
 <button id="approve" type="button">Approve</button>
 <button id="reject" type="button">Reject</button>
@@ -191,6 +205,7 @@ function show() {
     link.textContent = "No source link.";
   }
   document.getElementById("reviewer").value = "";
+  document.getElementById("corrected").value = "";
   document.getElementById("status").textContent = saved.includes(item.id) ? "Already saved. A new click appends another row." : "";
 }
 
@@ -203,7 +218,7 @@ async function load() {
   show();
 }
 
-async function save(decision) {
+async function save(decision, corrected) {
   const item = entries[index];
   document.getElementById("status").textContent = "Saving...";
   const response = await fetch("/api/save", {
@@ -212,6 +227,7 @@ async function save(decision) {
     body: JSON.stringify({
       id: item.id,
       decision: decision,
+      corrected_value: corrected || "",
       reviewer_note: document.getElementById("reviewer").value
     })
   });
@@ -230,6 +246,14 @@ async function save(decision) {
 document.getElementById("approve").onclick = () => save("Approve");
 document.getElementById("reject").onclick = () => save("Reject");
 document.getElementById("unsure").onclick = () => save("Unsure");
+document.getElementById("correct").onclick = () => {
+  const number = document.getElementById("corrected").value.trim();
+  if (!/^[0-4]$/.test(number)) {
+    document.getElementById("status").textContent = "Enter a value from 0 to 4.";
+    return;
+  }
+  save("Value should be", number);
+};
 document.getElementById("prev").onclick = () => { if (index > 0) { index -= 1; show(); } };
 document.getElementById("next").onclick = () => { if (index + 1 < entries.length) { index += 1; show(); } };
 load();
@@ -276,11 +300,17 @@ class Handler(BaseHTTPRequestHandler):
             return
         decision = payload.get("decision")
         note = str(payload.get("reviewer_note") or "")[:500]
+        corrected = str(payload.get("corrected_value") or "")
         entry = next((item for item in load_entries() if item["id"] == payload.get("id")), None)
         if decision not in DECISIONS or entry is None:
             self.send_error(400)
             return
-        append_decision(entry, decision, note)
+        if decision == "Value should be" and corrected not in {"0", "1", "2", "3", "4"}:
+            self.send_error(400)
+            return
+        if decision != "Value should be":
+            corrected = ""
+        append_decision(entry, decision, note, corrected)
         body = json.dumps({"ok": True, "saved": sorted(saved_ids())}).encode()
         self.send_response(200)
         self.send_header("Content-Type", "application/json")
