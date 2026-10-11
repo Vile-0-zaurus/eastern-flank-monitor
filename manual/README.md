@@ -10,11 +10,59 @@ Until the admin page exists, edit these by hand. One source link per row. A row 
 
 | File | What `value` is | What `date` is |
 |---|---|---|
-| `o1-ukraine-war.csv` | Integer 0–4. Ukraine war status for the week. | Monday of the week |
-| `o2-us-commitment.csv` | Integer 0–4. US commitment to European defense for the week. | Monday of the week |
-| `c2-force-posture.csv` | Short note. Official intelligence report or established think tank only. | Monday of the week |
+| `o1-ukraine-war.csv` | Integer 0–4. Live weekly file. Header only. | Monday of the week |
+| `o2-us-commitment.csv` | Integer 0–4. Live weekly file. Header only. | Monday of the week |
+| `c2-force-posture.csv` | Short note. Live weekly file. Header only. | Monday of the week |
 | `h2-incident-log.csv` | One incident note. Several incidents in one week are several rows. | The incident's own date |
 
 No-hindsight rule: a row counts for week W only if source_date ≤ last day of W. Week W runs Monday through Sunday, so the last day is Sunday. A source published after that Sunday is ignored for W. It may count for a later week. A missing source_date does not count. Ignored is no data, not zero.
 
-The 0–4 scale is not tuned yet. Do not invent rows.
+Do not invent rows.
+
+## Locked backtest scales
+
+Locked 2026-10-11, before any draft. Tag `manual-scales` points at this commit. Do not retune these definitions after drafting starts.
+
+SPEC still describes the live weekly indicators. This section does not amend SPEC. It locks the backtest reconstruction only. The live CSV files above stay header-only.
+
+Rungs that are not written here are not part of the scale. Do not fill them in.
+
+### O2 — US commitment to European security
+
+Monthly. One row per calendar month from 2021-01 through 2022-02.
+
+`date` is the first day of that month.
+
+- 0 = strong visible commitment
+- 4 = clear signals of withdrawal or abandonment
+
+Rungs 1, 2, and 3 were not written. A draft may use 0 or 4 only when a dated source matches that wording. Otherwise the value stays empty.
+
+### O1 — availability of Russian ground forces for a new operation
+
+Change-points only. Not a weekly series. The file name `o1-ukraine-war` is the existing stem. The locked construct is force availability, not a war-status label.
+
+`date` is the date of the change the source supports.
+
+- 0 = heavily committed elsewhere
+- 4 = largely free
+
+Rungs 1, 2, and 3 were not written. A draft may use 0 or 4 only when a dated source matches that wording. Otherwise the value stays empty. No dated change means no row.
+
+### C2 — force posture
+
+Event-based. Not a weekly series.
+
+`date` is the event date.
+
+`region` is one of: `near_ukraine`, `belarus`, `kaliningrad`, `western_md`.
+
+`value` is severity:
+
+- 0 = normal
+- 1 = unusual exercise
+- 2 = large buildup reported
+- 3 = buildup plus logistics signs (field hospitals, blood, fuel)
+- 4 = forces in attack positions or official warnings of imminent attack
+
+No dated event means no row.
