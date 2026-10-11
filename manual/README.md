@@ -17,7 +17,17 @@ Until the admin page exists, edit these by hand. One source link per row. A row 
 
 No-hindsight rule: a row counts for week W only if source_date ≤ last day of W. Week W runs Monday through Sunday, so the last day is Sunday. A source published after that Sunday is ignored for W. It may count for a later week. A missing source_date does not count. Ignored is no data, not zero.
 
-Do not invent rows.
+For a monthly O2 row, the last day is the last calendar day of that month. A source published after that day does not count for that month.
+
+## Source rules
+
+These rules apply to every backtest draft. They were written before any draft row.
+
+1. Each entry needs a link and a `source_date`. The source must have been published on or before the last day of that entry's week or month.
+2. An archived copy is allowed only if the capture date also falls on or before that last day. A later capture of an earlier page does not qualify.
+3. Prefer official statements, major news outlets, and established think tanks. Do not use a model summary, a search snippet, or an undated page as the source.
+4. Never write a row from model memory. If the page was not fetched, or the publication date was not on the page, do not write the row.
+5. No source means leave the value empty. Empty is no data. It is never calm, and it is never zero.
 
 ## Locked backtest scales
 
