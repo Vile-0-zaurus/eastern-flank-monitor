@@ -44,9 +44,12 @@ Monthly. One row per calendar month from 2021-01 through 2022-02.
 `date` is the first day of that month.
 
 - 0 = strong visible commitment
+- 1 = commitment with some doubts
+- 2 = mixed or contested signals
+- 3 = weak commitment / significant pullback signals
 - 4 = clear signals of withdrawal or abandonment
 
-Rungs 1, 2, and 3 were not written. A draft may use 0 or 4 only when a dated source matches that wording. Otherwise the value stays empty.
+Amended 2026-10-11, before any approval. Reason: middle rungs were undefined. Tag `manual-scales-v2` points at this amendment. Tag `manual-scales` still points at the earlier lock, which had only the endpoints.
 
 ### O1 — availability of Russian ground forces for a new operation
 
@@ -55,9 +58,12 @@ Change-points only. Not a weekly series. The file name `o1-ukraine-war` is the e
 `date` is the date of the change the source supports.
 
 - 0 = heavily committed elsewhere
+- 1 = mostly free with notable commitments
+- 2 = moderately committed
+- 3 = largely committed
 - 4 = largely free
 
-Rungs 1, 2, and 3 were not written. A draft may use 0 or 4 only when a dated source matches that wording. Otherwise the value stays empty. No dated change means no row.
+Amended 2026-10-11, before any approval. Reason: middle rungs were undefined. The numbers are the ones written in the amendment. They were not reordered.
 
 ### C2 — force posture
 
