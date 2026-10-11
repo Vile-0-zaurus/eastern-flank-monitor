@@ -16,10 +16,12 @@ from pipeline.llm.call_guard import decide, note_success
 from pipeline.llm.client import (
     AI_UNAVAILABLE,
     _api_key,
+    billed_usd,
     complete,
     estimate_cost,
     load_config,
     log_usage,
+    usage_parts,
 )
 from pipeline.score.i2_collect import SAMPLE, load_i2_config
 from pipeline.score.retry_grok_build import complete_objects, require_answers
@@ -100,12 +102,47 @@ def open_answers() -> sqlite3.Connection:
         )
         """
     )
+    cols = {row[1] for row in con.execute("PRAGMA table_info(spend)")}
+    if "ticks" not in cols:
+        con.execute("ALTER TABLE spend ADD COLUMN ticks INTEGER")
+    if "run_id" not in cols:
+        con.execute("ALTER TABLE spend ADD COLUMN run_id TEXT")
     return con
 
 
 def spent(con: sqlite3.Connection) -> float:
     row = con.execute("SELECT COALESCE(SUM(usd), 0) FROM spend").fetchone()
     return float(row[0])
+
+
+def upfront_usd(expected: float, output_cap: float, factor: float) -> float:
+    """Higher visible estimate, times the config calibration factor. No API call."""
+    return max(expected, output_cap) * factor
+
+
+def real_spend_usd(ticks: list) -> float | None:
+    """Sum of cost_in_usd_ticks for this run. None if any call did not record ticks."""
+    if any(item is None for item in ticks):
+        return None
+    return sum(int(item) for item in ticks) / 10_000_000_000
+
+
+def real_cap_blocks(ticks: list, cap_usd: float) -> bool:
+    """True when real spend has reached the cap, or ticks are missing so the cap cannot be checked."""
+    spent_usd = real_spend_usd(ticks)
+    if spent_usd is None:
+        return True
+    return spent_usd >= cap_usd
+
+
+def run_ticks(con: sqlite3.Connection, after_id: int, run_id: str) -> list:
+    return [
+        row[0]
+        for row in con.execute(
+            "SELECT ticks FROM spend WHERE id > ? AND run_id = ? ORDER BY id",
+            (after_id, run_id),
+        )
+    ]
 
 
 def estimate(n: int, batch_size: int) -> dict:
@@ -186,16 +223,32 @@ def run_grok(con: sqlite3.Connection, rows: list[dict], hard: float) -> None:
             _one_grok(con, cfg, prompt, region, batch, hard, tries_left=2, failures=failures)
 
 
-def _one_grok(con, cfg, prompt, region, batch, hard, tries_left: int, failures: list | None = None) -> None:
+def _real_stop(con: sqlite3.Connection, spend_after: int, run_id: str, real_cap: float, where: str) -> bool:
+    """True when this run must not make another call. Does not call the API."""
+    if not run_id:
+        print(f"REAL STOP {where} run_id missing", flush=True)
+        return True
+    ticks = run_ticks(con, spend_after, run_id)
+    if not real_cap_blocks(ticks, real_cap):
+        return False
+    spent_usd = real_spend_usd(ticks)
+    shown = "missing" if spent_usd is None else f"{spent_usd:.6f}"
+    print(f"REAL STOP {where} usd={shown} cap={real_cap:.2f}", flush=True)
+    return True
+
+
+def _one_grok(con, cfg, prompt, region, batch, hard, tries_left: int, failures: list | None = None, *, real_cap: float | None = None, spend_after: int = 0, run_id: str = "") -> str:
     if failures is None:
         failures = []
     if not batch:
-        return
+        return "ok"
+    if real_cap is not None and _real_stop(con, spend_after, run_id, real_cap, "before batch"):
+        return "stop"
     if spent(con) >= hard:
         parsed = require_answers([row["id"] for row in batch], {})
         store_rows(con, "grok-build-0.1", batch, parsed)
         print(f"HARD STOP before batch spent={spent(con):.4f}", flush=True)
-        return
+        return "stop"
     payload = json.dumps([{"id": row["id"], "title": row["title"]} for row in batch], ensure_ascii=False)
     usage: list[dict] = []
     try:
@@ -220,33 +273,63 @@ def _one_grok(con, cfg, prompt, region, batch, hard, tries_left: int, failures: 
             print(decision["report"], flush=True)
             raise SystemExit(decision["report"])
         if decision["action"] == "retry":
+            if real_cap is not None and _real_stop(con, spend_after, run_id, real_cap, "before retry"):
+                return "stop"
             time.sleep(decision["wait"])
-            _one_grok(con, cfg, prompt, region, batch, hard, tries_left - 1, failures)
-            return
+            return _one_grok(
+                con, cfg, prompt, region, batch, hard, tries_left - 1, failures,
+                real_cap=real_cap, spend_after=spend_after, run_id=run_id,
+            )
         parsed = require_answers([row["id"] for row in batch], {})
         store_rows(con, "grok-build-0.1", batch, parsed)
-        return
+        return "error"
     note_success(failures)
-    usd = estimate_cost(pin, pout, cfg, "grok-build-0.1")
-    log_usage("grok-build-0.1", pin, pout, usd)
-    con.execute("INSERT INTO spend (model, usd, note) VALUES (?,?,?)", ("grok-build-0.1", usd, region))
+    raw = usage[0] if usage else {}
+    parts = usage_parts(raw)
+    usd = billed_usd(raw, cfg, "grok-build-0.1") if raw else estimate_cost(pin, pout, cfg, "grok-build-0.1")
+    bill = "ticks" if parts["ticks"] is not None else "formula"
+    log_usage(
+        "grok-build-0.1",
+        pin,
+        pout,
+        usd,
+        extra={
+            "cached_tokens": parts["cached"],
+            "reasoning_tokens": parts["reasoning"],
+            "reasoning_extra": parts["reasoning_extra"],
+            "cost_ticks": parts["ticks"],
+            "bill": bill,
+        },
+    )
+    cols = {row[1] for row in con.execute("PRAGMA table_info(spend)")}
+    if "ticks" not in cols:
+        con.execute("ALTER TABLE spend ADD COLUMN ticks INTEGER")
+    if "run_id" not in cols:
+        con.execute("ALTER TABLE spend ADD COLUMN run_id TEXT")
+    con.execute(
+        "INSERT INTO spend (model, usd, note, ticks, run_id) VALUES (?,?,?,?,?)",
+        ("grok-build-0.1", usd, region, parts["ticks"], run_id or None),
+    )
     con.commit()
     parsed = require_answers([row["id"] for row in batch], complete_objects(text))
     missing = [row for row in batch if parsed[row["id"]].get("status") == AI_UNAVAILABLE]
     got = [row for row in batch if parsed[row["id"]].get("status") != AI_UNAVAILABLE]
     store_rows(con, "grok-build-0.1", got, parsed)
-    cached = 0
-    if usage:
-        details = usage[0].get("prompt_tokens_details") or {}
-        cached = int(details.get("cached_tokens") or usage[0].get("cached_tokens") or 0)
     print(
-        f"USED grok region={region} n={len(batch)} in={pin} out={pout} cached={cached} usd={usd:.6f} spent={spent(con):.4f} missing={len(missing)}",
+        f"USED grok region={region} n={len(batch)} in={pin} out={pout} cached={parts['cached']} "
+        f"reasoning={parts['reasoning']} extra={parts['reasoning_extra']} ticks={parts['ticks'] or 0} "
+        f"bill={bill} usd={usd:.6f} spent={spent(con):.4f} missing={len(missing)}",
         flush=True,
     )
-    if missing and tries_left > 0 and spent(con) < hard:
-        _one_grok(con, cfg, prompt, region, missing, hard, tries_left - 1, failures)
-    elif missing:
+    stopped = real_cap is not None and _real_stop(con, spend_after, run_id, real_cap, "after batch")
+    if missing and tries_left > 0 and spent(con) < hard and not stopped:
+        return _one_grok(
+            con, cfg, prompt, region, missing, hard, tries_left - 1, failures,
+            real_cap=real_cap, spend_after=spend_after, run_id=run_id,
+        )
+    if missing:
         store_rows(con, "grok-build-0.1", missing, parsed)
+    return "stop" if stopped else "ok"
 
 
 def hostile_ids(con: sqlite3.Connection) -> list[dict]:

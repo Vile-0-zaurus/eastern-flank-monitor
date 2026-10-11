@@ -14,12 +14,16 @@ models:
     provider: xai
     role: classifier
     input: 1.00
+    cached: 0.20
     output: 2.00
+    reasoning: 2.00
   grok-4.3:
     provider: xai
     role: unused
     input: 1.25
+    cached: 0.20
     output: 2.50
+    reasoning: 2.50
   claude-opus-5-5:
     provider: anthropic
     role: reference

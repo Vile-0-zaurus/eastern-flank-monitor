@@ -3,6 +3,8 @@
 
 seed: 20261009
 per_week: 200
+# Ukraine calibration record only. Seed unchanged. Not a redraw. Flank stays at per_week.
+ukraine_per_week: 100
 batch_size: 50
 estimate_cap_usd: 8
 hard_stop_usd: 10

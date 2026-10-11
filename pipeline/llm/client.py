@@ -47,7 +47,7 @@ def load_config(path: Path = CONFIG) -> dict:
             cfg["models"][current] = {"role": "", "input": 0.0, "output": 0.0}
             continue
         if section == "models" and indent >= 4 and current:
-            if key in ("input", "output"):
+            if key in ("input", "output", "cached", "reasoning"):
                 cfg["models"][current][key] = float(val)
             else:
                 cfg["models"][current][key] = val
@@ -71,36 +71,133 @@ def title_hash(title: str) -> str:
 
 
 def estimate_cost(input_tokens: int, output_tokens: int, cfg: dict | None = None, model: str | None = None) -> float:
+    """Pre-call ceiling from visible tokens only. It does not know reasoning tokens."""
     cfg = cfg or load_config()
     name = model or cfg["model"]
     prices = cfg["models"].get(name) or cfg["price_per_million"]
     return (input_tokens * prices["input"] + output_tokens * prices["output"]) / 1_000_000
 
 
+TICKS_PER_USD = 10_000_000_000
+LONG_PROMPT = 200_000
+
+
+def usage_parts(usage: dict | None) -> dict:
+    """Token fields the API may bill. Missing fields stay zero. Does not call the API."""
+    usage = usage or {}
+    prompt_details = usage.get("prompt_tokens_details") or {}
+    completion_details = usage.get("completion_tokens_details") or {}
+    prompt = int(usage.get("prompt_tokens") or usage.get("input_tokens") or 0)
+    completion = int(usage.get("completion_tokens") or usage.get("output_tokens") or 0)
+    cached = int(
+        prompt_details.get("cached_tokens")
+        or usage.get("cached_tokens")
+        or usage.get("cached_prompt_text_tokens")
+        or 0
+    )
+    if prompt:
+        cached = min(cached, prompt)
+    reasoning = int(usage.get("reasoning_tokens") or completion_details.get("reasoning_tokens") or 0)
+    total = usage.get("total_tokens")
+    ticks = usage.get("cost_in_usd_ticks")
+    return {
+        "prompt": prompt,
+        "completion": completion,
+        "cached": cached,
+        "reasoning": reasoning,
+        "reasoning_extra": _reasoning_extra(usage, prompt, completion, reasoning),
+        "total": None if total is None else int(total),
+        "ticks": None if ticks is None else int(ticks),
+    }
+
+
+def _reasoning_extra(usage: dict, prompt: int, completion: int, reasoning: int) -> int:
+    """Reasoning tokens billed on top of completion_tokens.
+
+    xAI lists reasoning and completion as separate billed types. OpenAI-shaped
+    responses often nest reasoning inside completion_tokens. total_tokens tells
+    those apart. A top-level reasoning_tokens field with no total is the xAI
+    proto field and is extra. A nested field alone is already inside completion.
+    """
+    if reasoning <= 0:
+        return 0
+    total = usage.get("total_tokens")
+    if total is not None:
+        gap = int(total) - prompt - completion
+        return reasoning if gap >= reasoning else 0
+    if usage.get("reasoning_tokens") is not None:
+        return int(usage["reasoning_tokens"])
+    return 0
+
+
+def billed_usd(usage: dict | None, cfg: dict | None = None, model: str | None = None) -> float:
+    """Exact charge when the response carries it, otherwise every billed token type.
+
+    cost_in_usd_ticks is the amount xAI billed for that request, after cache
+    discounts and including reasoning. 1 USD = 10^10 ticks. Without ticks, cached
+    input uses the cached rate, and reasoning tokens that are not already inside
+    completion_tokens use the output rate. A prompt of 200k tokens or more uses
+    the long-context rates, which are double the short rates for grok-build-0.1.
+    """
+    cfg = cfg or load_config()
+    name = model or cfg["model"]
+    prices = cfg["models"].get(name) or cfg["price_per_million"]
+    parts = usage_parts(usage)
+    if parts["ticks"] is not None:
+        return parts["ticks"] / TICKS_PER_USD
+    prompt = parts["prompt"]
+    scale = 2 if prompt >= LONG_PROMPT else 1
+    input_rate = float(prices["input"]) * scale
+    output_rate = float(prices["output"]) * scale
+    cached_rate = float(prices.get("cached") or prices["input"]) * scale
+    reasoning_rate = float(prices.get("reasoning") or prices["output"]) * scale
+    uncached = max(prompt - parts["cached"], 0)
+    return (
+        uncached * input_rate
+        + parts["cached"] * cached_rate
+        + parts["completion"] * output_rate
+        + parts["reasoning_extra"] * reasoning_rate
+    ) / 1_000_000
+
+
+def load_budget(path: Path | None = None) -> dict:
+    """Spend gates from config/budget.yaml. Does not call the API."""
+    budget = path or (ROOT / "config" / "budget.yaml")
+    out = {
+        "estimate_ok_usd": 2.0,
+        "approved_run": "",
+        "approved_cap_usd": 2.0,
+        "calibration_factor": 1.0,
+        "calibration_factor_set": False,
+    }
+    if not budget.exists():
+        return out
+    for raw in budget.read_text(encoding="utf-8").splitlines():
+        line = raw.split("#", 1)[0].strip()
+        if not line or ":" not in line:
+            continue
+        key, _, val = line.partition(":")
+        key, val = key.strip(), val.strip()
+        if key in ("estimate_ok_usd", "approved_cap_usd", "calibration_factor"):
+            out[key] = float(val)
+            if key == "calibration_factor":
+                out["calibration_factor_set"] = True
+        elif key == "approved_run":
+            out[key] = val
+    return out
+
+
 def require_explicit_ok(usd: float, run_id: str = "") -> None:
     """A run estimated above the recorded line does not call. An already-approved run may finish."""
-    budget = ROOT / "config" / "budget.yaml"
-    limit = 2.0
-    approved = ""
-    cap = limit
-    if budget.exists():
-        for raw in budget.read_text(encoding="utf-8").splitlines():
-            line = raw.split("#", 1)[0].strip()
-            if not line or ":" not in line:
-                continue
-            key, _, val = line.partition(":")
-            key, val = key.strip(), val.strip()
-            if key == "estimate_ok_usd":
-                limit = float(val)
-            elif key == "approved_run":
-                approved = val
-            elif key == "approved_cap_usd":
-                cap = float(val)
+    saved = load_budget()
+    limit = saved["estimate_ok_usd"]
+    approved = saved["approved_run"]
+    cap = saved["approved_cap_usd"]
     if run_id and run_id == approved:
         if usd <= cap:
             return
         raise SystemExit(
-            f"estimate ${usd:.2f} is above the approved cap ${cap:.0f}. Waiting for explicit OK. No call was made."
+            f"estimate ${usd:.2f} is above the approved cap ${cap:.2f}. Waiting for explicit OK. No call was made."
         )
     if usd > limit:
         raise SystemExit(
@@ -143,14 +240,18 @@ def store(title: str, model: str, result: dict) -> None:
     con.close()
 
 
-def log_usage(model: str, input_tokens: int, output_tokens: int, usd: float) -> None:
+def log_usage(model: str, input_tokens: int, output_tokens: int, usd: float, extra: dict | None = None) -> None:
     USAGE.parent.mkdir(parents=True, exist_ok=True)
     line = (
         f"{datetime.now(timezone.utc).isoformat()} model={model} "
-        f"input_tokens={input_tokens} output_tokens={output_tokens} usd={usd:.6f}\n"
+        f"input_tokens={input_tokens} output_tokens={output_tokens} usd={usd:.6f}"
     )
+    for key in ("cached_tokens", "reasoning_tokens", "reasoning_extra", "cost_ticks", "bill"):
+        if not extra or extra.get(key) is None or extra.get(key) == "":
+            continue
+        line += f" {key}={extra[key]}"
     with USAGE.open("a", encoding="utf-8") as fh:
-        fh.write(line)
+        fh.write(line + "\n")
 
 
 def _api_key(name: str) -> str:
