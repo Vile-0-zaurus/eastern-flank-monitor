@@ -68,6 +68,7 @@ def load_entries() -> list[dict]:
                         "date": row.get("date", ""),
                         "region": row.get("region", ""),
                         "value": row.get("value", ""),
+                        "mark": row.get("mark", ""),
                         "note": row.get("note", ""),
                         "source_link": row.get("source_link", ""),
                         "source_date": row.get("source_date", ""),
@@ -174,7 +175,7 @@ function show() {
   }
   const region = item.region ? " / " + item.region : "";
   document.getElementById("title").textContent = item.input.toUpperCase() + " " + item.date + region;
-  document.getElementById("value").textContent = item.value === "" ? "Value: no data. Not calm, and not zero." : "Value: " + item.value;
+  document.getElementById("value").textContent = item.value === "" ? "Value: no data. Not calm, and not zero." : "Value: " + item.value + (item.mark ? " (" + item.mark + ")" : "");
   document.getElementById("note").textContent = item.note;
   document.getElementById("source-date").textContent = item.source_date || "none";
   const link = document.getElementById("link");
