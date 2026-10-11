@@ -76,3 +76,9 @@ Event-based. Not a weekly series.
 - 4 = forces in attack positions or official warnings of imminent attack
 
 No dated event means no row.
+
+## Approval page
+
+Drafts are `*-draft.csv`. A click appends to the matching `*-approved.csv`. The page is local only.
+
+Start it with `python3 manual/approval_server.py`. It listens on 127.0.0.1:8765. If that port is already this page, stop that process before starting another.
