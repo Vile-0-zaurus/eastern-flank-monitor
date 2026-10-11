@@ -36,6 +36,7 @@ An independent early-warning app that tracks Russian military, political and gre
 6. **Each level links to official preparedness guidance** for each covered country (e.g. Finland's 72-hour home preparedness guidance). The app never writes its own crisis instructions.
 7. **Language:** English only in Stage 1, but all UI text lives in translation files from day one (see §9) so other languages can be added later.
 8. **Platform:** desktop browser first. Layout should not break on a narrow screen, but mobile design is not a Stage 1 goal.
+9. **Explain complex concepts with fixed everyday comparisons (About page, level definitions, README, portfolio).** Comparisons are written once and reviewed; AI-generated daily summaries stay plain and factual, no improvised analogies.
 
 ---
 
