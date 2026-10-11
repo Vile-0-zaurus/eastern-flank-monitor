@@ -61,6 +61,8 @@ Monthly. One row per calendar month from 2021-01 through 2022-02.
 
 Amended 2026-10-11, before any approval. Reason: middle rungs were undefined. Tag `manual-scales-v2` points at this amendment. Tag `manual-scales` still points at the earlier lock, which had only the endpoints.
 
+Checked 2026-10-11 for manual-scales-v3. The middle rungs run the same direction as the endpoints: 0 is strong commitment, and 4 is withdrawal or abandonment. No O2 rung was changed.
+
 ### O1 — availability of Russian ground forces for a new operation
 
 Change-points only. Not a weekly series. The file name `o1-ukraine-war` is the existing stem. The locked construct is force availability, not a war-status label.
@@ -68,12 +70,16 @@ Change-points only. Not a weekly series. The file name `o1-ukraine-war` is the e
 `date` is the Monday of the week that contains `source_date`. It is not an earlier week.
 
 - 0 = heavily committed elsewhere
-- 1 = mostly free with notable commitments
+- 1 = largely committed
 - 2 = moderately committed
-- 3 = largely committed
+- 3 = mostly free with notable commitments
 - 4 = largely free
 
-Amended 2026-10-11, before any approval. Reason: middle rungs were undefined. The numbers are the ones written in the amendment. They were not reordered.
+Amended 2026-10-11, before any approval. Reason: middle rungs were undefined. The numbers are the ones written in the amendment. They were not reordered. Tag `manual-scales-v2` points at that amendment.
+
+Amended 2026-10-11, after approval and before the backtest. Reason: the v2 middle rungs were inverted. Rungs 1 and 3 are corrected above. The numbers were not reordered. Tag `manual-scales-v3` points at this amendment. Tags `manual-scales` and `manual-scales-v2` stay where they are.
+
+Applied value: the saved correction on 2021-04-19 stands. Use 3, not the draft value 1. Under this amendment, 3 means mostly free with notable commitments. The approved row was not rewritten.
 
 ### C2 — force posture
 
@@ -93,8 +99,12 @@ Event-based. Not a weekly series.
 
 No dated event means no row.
 
+Judgment rule, recorded 2026-10-11 from the approval sitting. Value 4 requires explicit words in the source: an official "imminent" warning, or forces described as in attack positions. Otherwise the stricter value is kept.
+
 ## Approval page
 
 Drafts are `*-draft.csv`. A click appends to the matching `*-approved.csv`. Approve, Reject, and Unsure save the draft value. "Value should be" saves a number from 0 to 4 plus the optional note, in `corrected_value`. The page is local only.
+
+Future approval pages auto-acknowledge carried rows and empty rows. Those rows are listed in the report. They do not need a click.
 
 Start it with `python3 manual/approval_server.py`. It listens on 127.0.0.1:8765. If that port is already this page, stop that process before starting another.
