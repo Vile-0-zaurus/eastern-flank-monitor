@@ -57,3 +57,4 @@ grok-build-0.1 is the pipeline classifier. On the saved prompt-v2 answers it agr
 - 428813 stayed "Not about region" by the human. The new models still called it hostile. That row is outside the hostile-versus-ordinary percentage.
 - 480182 was not scored. The human said the judge was correct, but Opus and Sonnet had disagreed with each other.
 - The GKG backfill later finished on 2026-10-09. This report did not depend on stopping it.
+- prompt-v3-ukraine validated by AI judge only, no human audit.
