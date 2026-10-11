@@ -1,1 +1,16 @@
 input,date,region,value,note,source_link,source_date,decision,corrected_value,reviewer_note,saved_at
+o2,2021-01-01,,,No source found. Nothing to carry.,,,Approve,,,2026-10-11T20:00:07
+o2,2021-02-01,,0,White House transcript: America is back. The transatlantic alliance is back. Article 5 is a guarantee.,https://web.archive.org/web/20210219190025/https://www.whitehouse.gov/briefing-room/speeches-remarks/2021/02/19/remarks-by-president-biden-at-the-2021-virtual-munich-security-conference/,2021-02-19,Approve,,,2026-10-11T20:04:38
+o2,2021-03-01,,0,carried from 2021-02. No new source this month.,https://web.archive.org/web/20210219190025/https://www.whitehouse.gov/briefing-room/speeches-remarks/2021/02/19/remarks-by-president-biden-at-the-2021-virtual-munich-security-conference/,2021-02-19,Approve,,,2026-10-11T20:06:40
+o2,2021-04-01,,0,carried from 2021-02. No new source this month.,https://web.archive.org/web/20210219190025/https://www.whitehouse.gov/briefing-room/speeches-remarks/2021/02/19/remarks-by-president-biden-at-the-2021-virtual-munich-security-conference/,2021-02-19,Approve,,,2026-10-11T20:06:44
+o2,2021-05-01,,0,carried from 2021-02. No new source this month.,https://web.archive.org/web/20210219190025/https://www.whitehouse.gov/briefing-room/speeches-remarks/2021/02/19/remarks-by-president-biden-at-the-2021-virtual-munich-security-conference/,2021-02-19,Approve,,,2026-10-11T20:07:27
+o2,2021-06-01,,0,White House greeting: Article 5 is a sacred obligation. The United States is there.,https://bidenwhitehouse.archives.gov/briefing-room/speeches-remarks/2021/06/14/remarks-by-president-biden-and-nato-secretary-general-jens-stoltenberg-during-greeting/,2021-06-14,Approve,,,2026-10-11T20:07:31
+o2,2021-07-01,,0,carried from 2021-06. No new source this month.,https://bidenwhitehouse.archives.gov/briefing-room/speeches-remarks/2021/06/14/remarks-by-president-biden-and-nato-secretary-general-jens-stoltenberg-during-greeting/,2021-06-14,Approve,,,2026-10-11T20:07:32
+o2,2021-08-01,,0,carried from 2021-06. No new source this month. Afghanistan pages were not scored.,https://bidenwhitehouse.archives.gov/briefing-room/speeches-remarks/2021/06/14/remarks-by-president-biden-and-nato-secretary-general-jens-stoltenberg-during-greeting/,2021-06-14,Approve,,,2026-10-11T20:08:17
+o2,2021-09-01,,0,carried from 2021-06. No new source this month.,https://bidenwhitehouse.archives.gov/briefing-room/speeches-remarks/2021/06/14/remarks-by-president-biden-and-nato-secretary-general-jens-stoltenberg-during-greeting/,2021-06-14,Approve,,,2026-10-11T20:08:19
+o2,2021-10-01,,,No source found. The June value was already carried for three months.,,,Approve,,,2026-10-11T20:08:24
+o2,2021-11-01,,,No source found. Nothing left to carry.,,,Approve,,,2026-10-11T20:08:44
+o2,2021-12-01,,,No source fetched for this month.,,,Approve,,,2026-10-11T20:08:45
+o2,2022-01-01,,,No source fetched for this month.,,,Approve,,,2026-10-11T20:08:45
+o2,2022-02-01,,0,"Army.mil: about 3,000 troops to Romania, Poland, and Germany. Kirby: commitment to the defense of NATO allies and Article Five.",https://web.archive.org/web/20220204180646/https://www.army.mil/article/253724,2022-02-04,Approve,,,2026-10-11T20:09:15
+o2,2021-01-01,,,No source found. Nothing to carry.,,,Approve,,,2026-10-11T20:35:37
