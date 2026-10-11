@@ -96,7 +96,7 @@ The November titles are quotes of what the stored headlines name. They are not a
 
 ## Charts
 
-One file per region. Grey band is 2021-01-01 through 2021-06-30. Vertical line is 2022-02-24. I2 panel is the raw share and the Wilson band. Eastern flank also has the precision-corrected line. Ukraine is marked precision not measured. Drawn with matplotlib from the project venv. No GPU. No model call.
+One file per region. Grey band is 2021-01-01 through 2021-06-30. Vertical line is 2022-02-24, labeled Invasion. Event labels are notes, not a rescore: Ryanair/Minsk on 2021-05-23, Lithuania border crisis in July 2021, Poland border crisis in November 2021, and the spring 2021 buildup in March–April. The last partial week is a dotted segment and is not ranked. The fourth panel is the raw hostile count. I2 panel is the raw share and the Wilson band. Eastern flank also has the precision-corrected line. Ukraine is marked precision not measured. Drawn with matplotlib from the project venv. No GPU. No model call.
 
 1. xdg-open /home/supra/Projects/eastern-flank-monitor/docs/charts/eastern_flank-intent.png
 2. xdg-open /home/supra/Projects/eastern-flank-monitor/docs/charts/ukraine_test-intent.png

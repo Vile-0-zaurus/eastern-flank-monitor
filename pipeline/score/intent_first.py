@@ -258,6 +258,58 @@ def write_csv(series: dict[str, list[dict]]) -> None:
             writer.writerows(rows)
 
 
+def _num(value) -> float | None:
+    if value in ("", "None", None):
+        return None
+    return float(value)
+
+
+def _annotate(axis) -> None:
+    """Event labels are notes. They do not change a score."""
+    spans = [
+        (date(2021, 3, 1), date(2021, 4, 30), "#b45309", "Spring buildup near Ukraine", 1.02),
+        (date(2021, 7, 1), date(2021, 7, 31), "#0369a1", "Lithuania border crisis", 1.02),
+        (date(2021, 11, 1), date(2021, 11, 30), "#7c3aed", "Poland border crisis", 1.02),
+    ]
+    for start, end, color, label, height in spans:
+        axis.axvspan(start, end, color=color, alpha=0.12, zorder=0)
+        axis.annotate(
+            label,
+            xy=(start, height),
+            xycoords=("data", "axes fraction"),
+            ha="left",
+            va="bottom",
+            fontsize=6.5,
+            color=color,
+            annotation_clip=False,
+        )
+    axis.axvline(date(2021, 5, 23), color="#b45309", linewidth=0.8, linestyle=":")
+    axis.annotate(
+        "Ryanair/Minsk",
+        xy=(date(2021, 5, 23), 1.10),
+        xycoords=("data", "axes fraction"),
+        ha="center",
+        va="bottom",
+        fontsize=6.5,
+        color="#b45309",
+        annotation_clip=False,
+    )
+
+
+def _plot_tail(axis, weeks: list[date], values: list[float | None], partial: bool, **style) -> None:
+    solid_weeks = weeks[:-1] if partial and len(weeks) > 1 else weeks
+    solid_values = values[:-1] if partial and len(values) > 1 else values
+    axis.plot(solid_weeks, solid_values, **style)
+    if partial and len(weeks) > 1:
+        axis.plot(
+            weeks[-2:],
+            values[-2:],
+            color=style.get("color", "#111827"),
+            linewidth=style.get("linewidth", 1.2),
+            linestyle=":",
+        )
+
+
 def chart(region: str, rows: list[dict], precision: float | None) -> Path:
     import matplotlib
 
@@ -266,44 +318,102 @@ def chart(region: str, rows: list[dict], precision: float | None) -> Path:
     import matplotlib.pyplot as plt
 
     CHARTS.mkdir(parents=True, exist_ok=True)
-    weeks = [date.fromisoformat(row["week"]) for row in rows]
-    fig, axes = plt.subplots(3, 1, figsize=(11, 8), sharex=True)
-    axes[0].plot(weeks, [row["i1"] for row in rows], color="#1f4e79", linewidth=1.4)
+    weeks = [date.fromisoformat(str(row["week"])) for row in rows]
+    partial = bool(rows[-1].get("partial")) if rows else False
+    fig, axes = plt.subplots(4, 1, figsize=(11, 11), sharex=True)
+    _plot_tail(axes[0], weeks, [_num(row.get("i1")) for row in rows], partial, color="#1f4e79", linewidth=1.4)
     axes[0].set_ylabel("I1 share")
-    raw = [row["value"] for row in rows]
-    low = [row["low"] for row in rows]
-    high = [row["high"] for row in rows]
-    axes[1].plot(weeks, raw, color="#9a3412", linewidth=1.4, label="raw")
+    _plot_tail(
+        axes[1],
+        weeks,
+        [_num(row.get("value")) for row in rows],
+        partial,
+        color="#9a3412",
+        linewidth=1.4,
+        label="raw",
+    )
+    low = [_num(row.get("low")) for row in rows]
+    high = [_num(row.get("high")) for row in rows]
     axes[1].fill_between(weeks, low, high, color="#9a3412", alpha=0.18, label="95% Wilson")
     if precision is not None:
-        axes[1].plot(
+        _plot_tail(
+            axes[1],
             weeks,
-            [row["corrected"] for row in rows],
+            [_num(row.get("corrected")) for row in rows],
+            partial,
             color="#9a3412",
             linewidth=1.2,
             linestyle="--",
             label="precision-corrected",
         )
-        axes[1].legend(frameon=False, fontsize=8)
+        axes[1].legend(frameon=False, fontsize=8, loc="upper left")
     else:
-        axes[1].text(0.01, 0.92, "precision not measured", transform=axes[1].transAxes, fontsize=8)
+        axes[1].text(0.01, 0.90, "precision not measured", transform=axes[1].transAxes, fontsize=8)
     axes[1].set_ylabel("I2 hostile share")
-    axes[2].plot(weeks, [row["intent"] for row in rows], color="#14532d", linewidth=1.4, marker="o", markersize=2.5)
+    intent = [_num(row.get("intent")) for row in rows]
+    _plot_tail(axes[2], weeks, intent, False, color="#14532d", linewidth=1.4, marker="o", markersize=2.5)
     axes[2].set_ylabel("Intent level")
     axes[2].set_ylim(-0.2, 4.2)
     axes[2].set_yticks([0, 1, 2, 3, 4])
+    counts = [_num(row.get("hostile")) for row in rows]
+    _plot_tail(axes[3], weeks, counts, partial, color="#1f2937", linewidth=1.4)
+    axes[3].set_ylabel("Hostile count")
     for axis in axes:
-        axis.axvspan(CAL_START, CAL_END, color="#d6d3d1", alpha=0.45, zorder=0)
+        axis.axvspan(CAL_START, CAL_END, color="#d6d3d1", alpha=0.35, zorder=0)
         axis.axvline(INVASION, color="#111827", linewidth=1.0)
         axis.grid(True, axis="y", linewidth=0.4, alpha=0.4)
-    axes[2].xaxis.set_major_formatter(mdates.DateFormatter("%Y-%m"))
+    _annotate(axes[0])
+    axes[0].annotate(
+        "Invasion",
+        xy=(INVASION, 1.10),
+        xycoords=("data", "axes fraction"),
+        ha="right",
+        va="bottom",
+        fontsize=6.5,
+        color="#111827",
+        annotation_clip=False,
+    )
+    if partial:
+        axes[0].annotate(
+            "partial week",
+            xy=(weeks[-1], 0.02),
+            xycoords=("data", "axes fraction"),
+            ha="right",
+            va="bottom",
+            fontsize=6.5,
+            color="#111827",
+        )
+        axes[2].annotate(
+            "not ranked",
+            xy=(weeks[-1], 0.05),
+            ha="right",
+            va="bottom",
+            fontsize=6.5,
+            color="#111827",
+        )
+    axes[3].xaxis.set_major_formatter(mdates.DateFormatter("%Y-%m"))
     title = "Eastern flank" if region == "eastern_flank" else "Ukraine test"
-    fig.suptitle(f"{title}: weekly I1, I2, Intent  |  scoring-prereg-v2")
+    fig.suptitle(f"{title}: weekly I1, I2, Intent, hostile count  |  scoring-prereg-v2")
     fig.tight_layout()
+    fig.subplots_adjust(top=0.86)
     path = CHARTS / f"{region}-intent.png"
     fig.savefig(path, dpi=120)
     plt.close(fig)
     return path
+
+
+def redraw_charts() -> list[str]:
+    """Redraw from the checked week table. Does not open the indicator database."""
+    by_region: dict[str, list[dict]] = {}
+    with WEEKS_CSV.open(encoding="utf-8", newline="") as handle:
+        for row in csv.DictReader(handle):
+            row["partial"] = row["partial"] == "True"
+            by_region.setdefault(row["region"], []).append(row)
+    paths = []
+    for region, rows in by_region.items():
+        precision = 123 / 194 if region == "eastern_flank" else None
+        paths.append(str(chart(region, rows, precision)))
+    return paths
 
 
 def first_reach(rows: list[dict], level: int) -> str | None:
