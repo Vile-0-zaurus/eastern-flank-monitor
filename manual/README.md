@@ -29,6 +29,16 @@ These rules apply to every backtest draft. They were written before any draft ro
 4. Never write a row from model memory. If the page was not fetched, or the publication date was not on the page, do not write the row.
 5. No source means leave the value empty. Empty is no data. It is never calm, and it is never zero.
 
+## Dating rule
+
+An entry is dated to the week, or the month, of its `source_date`. Never earlier.
+
+The row `date` is the Monday of that week, or the first day of that month. It is not the day the event happened if that day falls in an earlier week or month. A source published on Monday belongs to that Monday's week. A source published on Sunday belongs to the week that began the previous Monday, not to the next week.
+
+## O2 carry-forward
+
+If a month has no new source, carry the last sourced value for up to 3 months. Mark that row `carried`. The fourth month with no new source is empty. A new source replaces the carry. A carried row keeps the link and `source_date` of the value it carries. It does not invent a publication date.
+
 ## Locked backtest scales
 
 Locked 2026-10-11, before any draft. Tag `manual-scales` points at this commit. Do not retune these definitions after drafting starts.
@@ -41,7 +51,7 @@ Rungs that are not written here are not part of the scale. Do not fill them in.
 
 Monthly. One row per calendar month from 2021-01 through 2022-02.
 
-`date` is the first day of that month.
+`date` is the first day of the month that contains `source_date`. It is not an earlier month.
 
 - 0 = strong visible commitment
 - 1 = commitment with some doubts
@@ -55,7 +65,7 @@ Amended 2026-10-11, before any approval. Reason: middle rungs were undefined. Ta
 
 Change-points only. Not a weekly series. The file name `o1-ukraine-war` is the existing stem. The locked construct is force availability, not a war-status label.
 
-`date` is the date of the change the source supports.
+`date` is the Monday of the week that contains `source_date`. It is not an earlier week.
 
 - 0 = heavily committed elsewhere
 - 1 = mostly free with notable commitments
@@ -69,7 +79,7 @@ Amended 2026-10-11, before any approval. Reason: middle rungs were undefined. Th
 
 Event-based. Not a weekly series.
 
-`date` is the event date.
+`date` is the Monday of the week that contains `source_date`. It is not an earlier week.
 
 `region` is one of: `near_ukraine`, `belarus`, `kaliningrad`, `western_md`.
 
