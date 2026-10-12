@@ -58,17 +58,21 @@ Seventeen ranked Ukraine Intent levels change. The flank is unchanged, so Test B
 
 ### d. Belarus by deployment direction
 
-NOT pre-registered. Southern Belarus maps to ukraine_test only. Direction is taken from the stored note. It is not taken from memory.
+NOT pre-registered. Corrected 2026-10-12 from the source text, not the note. Southern Belarus maps to ukraine_test only. The other four rows still use the stored note, because this correction named one page.
 
-1. 2022-02-14. The note says field hospitals near the Belarusian border with Ukraine. Southern. Ukraine only.
-2. 2022-02-21. The note says an airfield near Mozyr, less than 40 km from Ukraine. Southern. Ukraine only.
-3. 2021-09-20. The note says western Belarus. It does not mention Ukraine. Western. Eastern flank only.
-4. 2022-01-17. The note gives no direction. The registered both-mapping stays.
-5. 2022-02-07. The note does not place the force toward Ukraine. The registered both-mapping stays. This is the week Test B failed. This check does not move it.
+The BBC page dated 10 February 2022 says the Allied Resolve drills take place close to the Belarusian border with Ukraine. That page is the source for the Belarus row dated 2022-02-07. The stored note did not use that sentence. The source text does. That row is southern. It maps to ukraine_test only.
 
-Test A: PASS. Test B: FAIL.
+1. 2022-02-07. Source text: Allied Resolve takes place close to the Belarusian border with Ukraine. Southern. Ukraine only.
+2. 2022-02-14. The note says field hospitals near the Belarusian border with Ukraine. Southern. Ukraine only.
+3. 2022-02-21. The note says an airfield near Mozyr, less than 40 km from Ukraine. Southern. Ukraine only.
+4. 2021-09-20. The note says western Belarus. It does not mention Ukraine. Western. Eastern flank only.
+5. 2022-01-17. The note gives no direction. The registered both-mapping stays.
 
-One ranked week changes. On 2022-02-14 the flank Capability falls from 4 to 2. The southern event is removed. The earlier unspecified Belarus event is still inside its four-week hold, so the level is 2, not empty. The proposal that week stays 2. Test B still fails on 2022-02-07.
+Test A: PASS. Test B: PASS.
+
+The registered both-mapping had given the flank Capability 2 on 2022-02-07. That event no longer maps to the flank. The 17 January row is still inside its four-week hold, at level 1, which is not elevated. Intent is 2 and Opportunity is 2, so the proposal is 2, not 3.
+
+Three weeks change. On 2022-02-07 flank Capability falls from 2 to 1. On 2022-02-14 it falls from 4 to 1, because the southern event is removed and the January hold is still active. On the partial week of 2022-02-21 it falls from 2 to no data. That partial week does not decide the test.
 
 ### e. No rounding
 
@@ -94,13 +98,13 @@ NOT pre-registered. All 63 non-empty combinations were scored. A combination app
 
 Test A does not fail in any combination.
 
-Test B passes in 44 combinations. It still fails in the other 19.
+Test B passes in 52 combinations. It still fails in the other 11. Every combination that includes the corrected Belarus map passes Test B. The map removes the Capability 2 that had made 2022-02-07 a Serious proposal.
 
-It fails in every combination that uses only checks a, b, c, and d. Those four, alone or together, do not remove the week of 2022-02-07.
+It still fails in a, b, c, and every combination of those three. Those checks do not move the Belarus row.
 
-It also fails in four combinations that include the Capability floor but not the rounding check and not the Belarus map: a+f, a+b+f, a+c+f, and a+b+c+f. Max-indicator raises the flank week of 2022-02-14 to a Serious proposal with Capability 4. The floor does not remove a week whose Capability is already at least 3.
+It also still fails in a+f, a+b+f, a+c+f, and a+b+c+f. Those keep the registered Belarus map. Max-indicator raises the flank week of 2022-02-14 to a Serious proposal with Capability 4. The Capability floor does not remove a week whose Capability is already at least 3.
 
-All six together: Test A PASS, Test B PASS. The flank week of 2022-02-07 is Intent 3, Capability 2, Opportunity 1.5. Opportunity is below 2, so it is not a third elevated layer. The proposal is 2.
+All six together: Test A PASS, Test B PASS. The flank week of 2022-02-07 is Intent 3, Capability 1, Opportunity 1.5. Capability 1 is the January hold. It is not elevated. Opportunity is below 2. The proposal is 2.
 
 ## Rules for the live app
 
@@ -111,7 +115,7 @@ These proposals were learned from 2021-22. They must be validated on future data
 3. Do not adopt max-indicator aggregation. On this window it added a flank Serious proposal. The volume-spike reading stays a separate note. It is not a live rule.
 4. Do not adopt hostile count instead of share. It changed no ranked Intent level.
 5. Do not adopt the alternative Ukraine calibration window. The window was chosen after the result. The registered baseline stays.
-6. Do not rescore 2021-22 with a Belarus direction map. The stored note for the failing week does not say southern, so the map does not change Test B. Future C2 rows can be required to record direction from the page. That requirement is not a change to this table.
+6. Do not adopt the Belarus direction map for the stored table. The source-text version is still not pre-registered. It would pass Test B, because the BBC page places the 7 February drills close to the Belarusian border with Ukraine. That was learned from this window. It stays a candidate for a future envelope. It does not change this score.
 7. Do not adopt a rule that Serious requires Capability at least 3. It removes the only pre-registered flank Serious proposal. Adopting it from this result would fit the rule to the failed test. The confirmation gate already stops that proposal from being shown as Serious.
 
 ## Portfolio summary
