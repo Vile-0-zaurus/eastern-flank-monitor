@@ -111,7 +111,7 @@ All six together: Test A PASS, Test B PASS. The flank week of 2022-02-07 is Inte
 These proposals were learned from 2021-22. They must be validated on future data. They are not applied to the stored table. The pre-registered tags stay where they are.
 
 1. Keep the human confirmation gate. It is already registered. Serious was proposed. It was not confirmed. The live app should keep showing that as Elevated, with the proposal named.
-2. Propose one later rule: do not round a layer average up to the next level. 1.5 is not 2. This was learned here because that rounding created the third elevated layer on the week Test B failed. Write it in a new envelope before the next test window. Do not use it to change this score.
+2. Adopted for the live app only, tag live-rules-v1: do not round a layer average up to the next level. 1.5 is not 2. This was learned from 2021-22, because that rounding created the third elevated layer on the week Test B failed. It is not applied to the stored table. It has to be validated on future data.
 3. Do not adopt max-indicator aggregation. On this window it added a flank Serious proposal. The volume-spike reading stays a separate note. It is not a live rule.
 4. Do not adopt hostile count instead of share. It changed no ranked Intent level.
 5. Do not adopt the alternative Ukraine calibration window. The window was chosen after the result. The registered baseline stays.

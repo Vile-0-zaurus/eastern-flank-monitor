@@ -66,6 +66,24 @@ def layer_level(levels: dict, weights: dict) -> int | None:
     return _clamp_level(round(total / weight))
 
 
+def live_layer_level(levels: dict, weights: dict, round_average: bool):
+    """Live rule. round_average false keeps 1.5. It does not change the stored backtest."""
+    total = 0.0
+    weight = 0.0
+    for name, raw_weight in weights.items():
+        level = levels.get(name)
+        if level is None:
+            continue
+        total += level * raw_weight
+        weight += raw_weight
+    if weight <= 0:
+        return None
+    value = total / weight
+    if round_average:
+        return _clamp_level(round(value))
+    return value
+
+
 def rolling_baseline(points, as_of: date, window_days: int, min_points: int):
     """Mean and sample std of the trailing window. Too few points is no data, not zero."""
     values = _trailing_values(points, as_of, window_days)

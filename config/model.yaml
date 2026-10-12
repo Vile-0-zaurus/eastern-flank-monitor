@@ -32,3 +32,7 @@ weights:
   hybrid:
     H1: 2
     H2: 3
+
+# live-rules-v1. Learned from 2021-22. Not applied to the stored backtest table.
+# 0 keeps a layer average exact. 1.5 is not rounded to 2.
+live_round_layer_average: 0

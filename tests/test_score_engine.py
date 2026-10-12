@@ -271,6 +271,16 @@ class ConfigTest(unittest.TestCase):
         )
         self.assertIsNone(off)
 
+    def test_live_rule_keeps_one_point_five(self):
+        from pathlib import Path
+
+        from pipeline.score.engine import live_layer_level, load_model
+
+        config = load_model(Path(__file__).resolve().parents[1] / "config" / "model.yaml")
+        self.assertEqual(config["live_round_layer_average"], 0)
+        level = live_layer_level({"O1": 3, "O2": 0}, {"O1": 1, "O2": 1}, round_average=False)
+        self.assertEqual(level, 1.5)
+
 
 if __name__ == "__main__":
     unittest.main()
