@@ -14,6 +14,9 @@ const state = {
   rows: [],
   intent: {},
   events: [],
+  headlines: {},
+  baselines: {},
+  compare: false,
   region: "eastern_flank",
   index: 0,
   depth: 1,
@@ -185,8 +188,145 @@ function driverLine(row) {
   return fill(state.text.driven_by, { layers: joinNames(names) });
 }
 
+function layerClause(layer, row) {
+  if (layer === "intent") {
+    const extra = state.intent[row.region + "|" + row.week] || {};
+    const hostile = numberOrNull(extra.i2_level);
+    const attention = numberOrNull(extra.i1_level);
+    if (hostile !== null && hostile >= 2) return state.text.clause_hostile;
+    if (attention !== null && attention >= 2) return state.text.clause_attention;
+    return state.text.clause_intent;
+  }
+  if (layer === "capability") return state.text.clause_forces;
+  if (layer === "opportunity") return state.text.clause_window;
+  return state.text["layer_" + layer];
+}
+
+function whySentence(row) {
+  const shown = numberOrNull(row.shown);
+  if (shown === null) return state.text.why_empty;
+  const elevated = LAYERS.filter((layer) => {
+    const value = numberOrNull(row[layer]);
+    return value !== null && value >= 2;
+  });
+  const up = LAYERS.filter((layer) => {
+    const value = numberOrNull(row[layer]);
+    return value !== null && value >= 1;
+  });
+  if (row.shown_label && row.shown_label.includes("proposed")) {
+    const names = (elevated.length ? elevated : up).map((layer) => state.text["layer_" + layer]);
+    return fill(state.text.why_proposed, { layers: joinNames(names) });
+  }
+  if (shown === 0 || !up.length) return state.text.why_calm;
+  if (shown === 1) {
+    return fill(state.text.why_one, { layer: state.text["layer_" + up[0]] });
+  }
+  const used = elevated.length ? elevated : up;
+  return fill(state.text.why_agree, {
+    level: levelName(shown),
+    reasons: joinNames(used.map((layer) => layerClause(layer, row))),
+  });
+}
+
+function timesWord(ratio) {
+  const rounded = ratio >= 10 ? Math.round(ratio) : Math.round(ratio * 10) / 10;
+  return String(rounded);
+}
+
+function versusLines(row) {
+  const extra = state.intent[row.region + "|" + row.week] || {};
+  const base = state.baselines[row.region] || {};
+  const share = numberOrNull(extra.i1);
+  const hostile = numberOrNull(extra.value);
+  const lines = [];
+  if (share === null || !base.i1) {
+    lines.push(state.text.attention_missing);
+  } else {
+    const ratio = share / base.i1;
+    if (ratio >= 1.25) lines.push(fill(state.text.attention_times, { times: timesWord(ratio) }));
+    else if (ratio <= 0.8) lines.push(state.text.attention_less);
+    else lines.push(state.text.attention_usual);
+  }
+  if (hostile === null || base.i2 === undefined) {
+    lines.push(state.text.hostile_missing);
+  } else {
+    lines.push(fill(state.text.hostile_line, {
+      pct: String(Math.round(hostile * 100)),
+      normal: String(Math.round(base.i2 * 100)),
+    }));
+  }
+  return lines;
+}
+
+function dateWords(iso) {
+  const [year, month, day] = iso.split("-");
+  return Number(day) + " " + state.text["month_" + Number(month)] + " " + year;
+}
+
+function renderHeadlines(row) {
+  document.getElementById("headlines-title").textContent = state.text.headlines_title;
+  document.getElementById("headlines-note").textContent = state.text.headlines_note;
+  const list = document.getElementById("headlines");
+  list.innerHTML = "";
+  const items = state.headlines[row.region + "|" + row.week] || [];
+  if (!items.length) {
+    const item = document.createElement("li");
+    item.textContent = state.text.headlines_none;
+    list.appendChild(item);
+    return;
+  }
+  items.slice(0, 3).forEach((story) => {
+    const item = document.createElement("li");
+    item.className = "story";
+    const original = document.createElement("p");
+    original.textContent = state.text.original_label + ": " + story.title;
+    const english = document.createElement("p");
+    english.textContent = state.text.english_label + ": " + story.english;
+    const meta = document.createElement("p");
+    meta.className = "note";
+    meta.textContent = story.outlet + ", " + dateWords(story.date);
+    const link = document.createElement("a");
+    link.href = story.url;
+    link.textContent = state.text.source;
+    item.append(original, english, meta, link);
+    list.appendChild(item);
+  });
+}
+
+function appendEvent(list, event, withDate) {
+  const item = document.createElement("li");
+  const summary = document.createElement("p");
+  summary.textContent = (withDate ? event.date + ": " : "") + eventText(event);
+  const note = document.createElement("p");
+  note.className = "event-note";
+  note.textContent = event.note || "";
+  const link = document.createElement("a");
+  link.href = event.source || "";
+  link.textContent = state.text.source;
+  item.append(summary, note, link);
+  list.appendChild(item);
+}
+
+function renderCompare(week) {
+  const box = document.getElementById("compare-columns");
+  box.innerHTML = "";
+  ["eastern_flank", "ukraine_test"].forEach((region) => {
+    const row = state.rows.find((item) => item.region === region && item.week === week);
+    const column = document.createElement("article");
+    const title = document.createElement("h2");
+    title.textContent = state.text["region_" + region];
+    const badge = document.createElement("p");
+    badge.className = "badge " + levelClass(row ? numberOrNull(row.shown) : null);
+    badge.textContent = row ? badgeText(row) : state.text.level_none;
+    const why = document.createElement("p");
+    why.textContent = row ? whySentence(row) : state.text.why_empty;
+    column.append(title, badge, why);
+    box.appendChild(column);
+  });
+}
+
 function badgeText(row) {
-  if (row.shown_label && row.shown_label.includes("proposed")) return row.shown_label;
+  if (row.shown_label && row.shown_label.includes("proposed")) return state.text.badge_proposed;
   return levelName(numberOrNull(row.shown));
 }
 
@@ -201,6 +341,7 @@ function renderStatic() {
   document.getElementById("disclaimer-short").textContent = state.text.disclaimer_short;
   document.getElementById("disclaimer-more").textContent = state.text.more;
   document.getElementById("disclaimer-full").textContent = state.text.disclaimer_full;
+  document.getElementById("compare-toggle").textContent = state.text.compare;
   document.querySelectorAll("[data-depth]").forEach((button) => {
     button.textContent = state.text["depth_" + button.dataset.depth];
   });
@@ -249,15 +390,26 @@ function renderWeek() {
   const badge = document.getElementById("level-badge");
   badge.textContent = badgeText(row);
   badge.className = "badge " + levelClass(numberOrNull(row.shown));
-  document.getElementById("drivers").textContent = driverLine(row);
+  document.getElementById("why-level").textContent = whySentence(row);
+  const versus = document.getElementById("versus-normal");
+  versus.innerHTML = "";
+  versusLines(row).forEach((line) => {
+    const item = document.createElement("p");
+    item.textContent = line;
+    versus.appendChild(item);
+  });
+  renderHeadlines(row);
+  document.getElementById("this-week-title").textContent = state.text.this_week_events;
   const weekEvents = document.getElementById("week-events");
   weekEvents.innerHTML = "";
-  const lines = uniqueTexts(state.events.filter((event) => event.date === row.week && event.regions.includes(state.region)));
-  (lines.length ? lines : [state.text.no_new_events]).forEach((line) => {
+  const thisWeek = state.events.filter((event) => event.date === row.week && event.regions.includes(state.region));
+  if (!thisWeek.length) {
     const item = document.createElement("li");
-    item.textContent = line;
+    item.textContent = state.text.no_new_events;
     weekEvents.appendChild(item);
-  });
+  } else {
+    thisWeek.forEach((event) => appendEvent(weekEvents, event, false));
+  }
   const partial = document.getElementById("partial-note");
   partial.hidden = row.partial !== "True";
   partial.textContent = state.text.partial;
@@ -268,9 +420,13 @@ function renderWeek() {
   document.querySelectorAll("[data-depth]").forEach((button) => {
     button.setAttribute("aria-pressed", button.dataset.depth === String(state.depth) ? "true" : "false");
   });
-  document.getElementById("depth-1").hidden = state.depth !== 1;
-  document.getElementById("depth-2").hidden = state.depth !== 2;
-  document.getElementById("depth-3").hidden = state.depth !== 3;
+  document.getElementById("depth-1").hidden = state.compare || state.depth !== 1;
+  document.getElementById("depth-2").hidden = state.compare || state.depth !== 2;
+  document.getElementById("depth-3").hidden = state.compare || state.depth !== 3;
+  document.getElementById("compare").hidden = !state.compare;
+  document.getElementById("compare-toggle").textContent = state.compare ? state.text.compare_close : state.text.compare;
+  document.getElementById("compare-toggle").setAttribute("aria-pressed", state.compare ? "true" : "false");
+  if (state.compare) renderCompare(row.week);
 }
 
 function cardLevel(layer, row) {
@@ -323,24 +479,18 @@ function renderEvents(week) {
   const list = document.getElementById("events");
   list.innerHTML = "";
   const reached = state.events.filter((event) => event.date <= week && event.regions.includes(state.region));
-  const lines = [];
-  const seen = new Set();
-  reached.forEach((event) => {
-    const text = event.date + ": " + eventText(event);
-    if (seen.has(text)) return;
-    seen.add(text);
-    lines.push(text);
-  });
-  if (!lines.length) {
+  if (!reached.length) {
     const item = document.createElement("li");
     item.textContent = state.text.events_none;
     list.appendChild(item);
     return;
   }
-  lines.forEach((line) => {
-    const item = document.createElement("li");
-    item.textContent = line;
-    list.appendChild(item);
+  const seen = new Set();
+  reached.forEach((event) => {
+    const key = event.date + "|" + event.tag + "|" + event.note;
+    if (seen.has(key)) return;
+    seen.add(key);
+    appendEvent(list, event, true);
   });
 }
 
@@ -474,11 +624,13 @@ function play() {
 }
 
 async function main() {
-  const [text, csv, intentCsv, events] = await Promise.all([
+  const [text, csv, intentCsv, events, headlines, baselines] = await Promise.all([
     fetch("i18n/en.json").then((response) => response.json()),
     fetch("../docs/reports/2026-10-12-backtest-weeks.csv").then((response) => response.text()),
     fetch("../docs/reports/2026-10-11-i2-weeks.csv").then((response) => response.text()),
     fetch("events.json").then((response) => response.json()),
+    fetch("headlines.json").then((response) => response.json()),
+    fetch("baselines.json").then((response) => response.json()),
   ]);
   state.text = text;
   state.rows = parseCsv(csv).filter((row) => row.week >= START);
@@ -486,6 +638,8 @@ async function main() {
     state.intent[row.region + "|" + row.week] = row;
   });
   state.events = events;
+  state.headlines = headlines;
+  state.baselines = baselines;
   const params = new URLSearchParams(location.search);
   if (params.get("region")) state.region = params.get("region");
   if (params.get("depth")) state.depth = Number(params.get("depth"));
@@ -515,9 +669,14 @@ async function main() {
   });
   document.querySelectorAll("[data-depth]").forEach((button) => {
     button.addEventListener("click", () => {
+      state.compare = false;
       state.depth = Number(button.dataset.depth);
       renderWeek();
     });
+  });
+  document.getElementById("compare-toggle").addEventListener("click", () => {
+    state.compare = !state.compare;
+    renderWeek();
   });
 }
 

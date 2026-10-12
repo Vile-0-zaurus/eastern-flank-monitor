@@ -28,11 +28,17 @@
       <button type="button" data-depth="1"></button>
       <button type="button" data-depth="2"></button>
       <button type="button" data-depth="3"></button>
+      <button type="button" id="compare-toggle"></button>
     </nav>
     <section id="depth-1">
       <p id="week-label" class="week-of"></p>
       <p id="level-badge" class="badge"></p>
-      <p id="drivers"></p>
+      <p id="why-level"></p>
+      <div id="versus-normal"></div>
+      <h2 id="headlines-title"></h2>
+      <p id="headlines-note" class="note"></p>
+      <ul id="headlines"></ul>
+      <h2 id="this-week-title"></h2>
       <ul id="week-events"></ul>
       <p id="partial-note" class="note" hidden></p>
     </section>
@@ -55,6 +61,9 @@
       <h2 id="preparedness-title"></h2>
       <p><a id="fi-link" href="https://72tuntia.fi/en/"></a></p>
       <p id="preparedness-other"></p>
+    </section>
+    <section id="compare" hidden>
+      <div id="compare-columns" class="compare"></div>
     </section>
   </main>
   <div class="disclaimer-bar">

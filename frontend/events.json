@@ -1,13 +1,129 @@
 [
-  {"date": "2021-04-19", "tag": "near_ukraine", "level": 2, "regions": ["ukraine_test"], "textKey": "event_buildup_apr"},
-  {"date": "2021-09-20", "tag": "belarus", "level": 1, "regions": ["ukraine_test", "eastern_flank"], "textKey": "event_zapad"},
-  {"date": "2021-09-20", "tag": "western_md", "level": 1, "regions": ["ukraine_test", "eastern_flank"], "textKey": "event_zapad"},
-  {"date": "2021-12-20", "tag": "near_ukraine", "level": 2, "regions": ["ukraine_test"], "textKey": "event_vehicles_dec"},
-  {"date": "2022-01-17", "tag": "belarus", "level": 1, "regions": ["ukraine_test", "eastern_flank"], "textKey": "event_arriving"},
-  {"date": "2022-01-24", "tag": "near_ukraine", "level": 3, "regions": ["ukraine_test"], "textKey": "event_logistics"},
-  {"date": "2022-02-07", "tag": "belarus", "level": 2, "regions": ["ukraine_test", "eastern_flank"], "textKey": "event_allied"},
-  {"date": "2022-02-07", "tag": "near_ukraine", "level": 4, "regions": ["ukraine_test"], "textKey": "event_warning"},
-  {"date": "2022-02-14", "tag": "belarus", "level": 4, "regions": ["ukraine_test", "eastern_flank"], "textKey": "event_hospitals"},
-  {"date": "2022-02-21", "tag": "belarus", "level": 2, "regions": ["ukraine_test", "eastern_flank"], "textKey": "event_mozyr"},
-  {"date": "2022-02-21", "tag": "near_ukraine", "level": 3, "regions": ["ukraine_test"], "textKey": "event_belgorod"}
+  {
+    "date": "2021-04-19",
+    "tag": "near_ukraine",
+    "level": 2,
+    "regions": [
+      "ukraine_test"
+    ],
+    "textKey": "event_buildup_apr",
+    "note": "Reuters: a buildup of tens of thousands near Ukraine. Shoigu ordered those troops back by May 1. Hardware was left near Voronezh. Not field hospitals, blood, or fuel.",
+    "source": "https://web.archive.org/web/20210422164208/https://www.reuters.com/world/europe/russia-orders-troops-back-base-after-buildup-near-ukraine-2021-04-22/"
+  },
+  {
+    "date": "2021-09-20",
+    "tag": "belarus",
+    "level": 1,
+    "regions": [
+      "ukraine_test",
+      "eastern_flank"
+    ],
+    "textKey": "event_zapad",
+    "note": "Moscow Times, Sep. 23, 2021: Zapad-2021 was a large exercise, larger than 2017, with Russian forces deployed to western Belarus. Dated to the source week, not the exercise week.",
+    "source": "https://www.themoscowtimes.com/2021/09/23/zapad-2021-what-we-learned-from-russias-massive-military-drills-a75127"
+  },
+  {
+    "date": "2021-09-20",
+    "tag": "western_md",
+    "level": 1,
+    "regions": [
+      "ukraine_test",
+      "eastern_flank"
+    ],
+    "textKey": "event_zapad",
+    "note": "Same page: Zapad-2021 focused on the Western Military District and Belarus, with at least 15 training ranges in Russia.",
+    "source": "https://www.themoscowtimes.com/2021/09/23/zapad-2021-what-we-learned-from-russias-massive-military-drills-a75127"
+  },
+  {
+    "date": "2021-12-20",
+    "tag": "near_ukraine",
+    "level": 2,
+    "regions": [
+      "ukraine_test"
+    ],
+    "textKey": "event_vehicles_dec",
+    "note": "Reuters, Dec 24: Maxar images showed a Crimea base packed with hundreds of armoured vehicles and tanks, and a larger concentration at Soloti than in September. Dated to the source week.",
+    "source": "https://web.archive.org/web/20211224180833/https://www.reuters.com/world/europe/satellite-images-show-russia-still-building-up-forces-near-ukraine-2021-12-24/"
+  },
+  {
+    "date": "2022-01-17",
+    "tag": "belarus",
+    "level": 1,
+    "regions": [
+      "ukraine_test",
+      "eastern_flank"
+    ],
+    "textKey": "event_arriving",
+    "note": "Reuters, Jan 17: Russian forces and hardware began arriving in Belarus for February drills. The page does not give a size, so this is not scored as a large buildup.",
+    "source": "https://web.archive.org/web/20220117175745/https://www.reuters.com/world/europe/russia-belarus-plan-joint-military-drills-february-lukashenko-2022-01-17/"
+  },
+  {
+    "date": "2022-01-24",
+    "tag": "near_ukraine",
+    "level": 3,
+    "regions": [
+      "ukraine_test"
+    ],
+    "textKey": "event_logistics",
+    "note": "Reuters: the buildup near Ukraine included blood and other medical supplies, and more than 100,000 troops were reported near the borders. Stays 3: blood is a logistics sign. The page says Russia could be preparing, not that an attack is imminent.",
+    "source": "https://web.archive.org/web/20220128173518/https://www.reuters.com/world/europe/exclusive-russia-moves-blood-supplies-near-ukraine-adding-us-concern-officials-2022-01-28/"
+  },
+  {
+    "date": "2022-02-07",
+    "tag": "belarus",
+    "level": 2,
+    "regions": [
+      "ukraine_test",
+      "eastern_flank"
+    ],
+    "textKey": "event_allied",
+    "note": "BBC, 10 February 2022: Allied Resolve drills. The US says some 30,000 Russian troops are expected. Stays 2: the page's attack warning is about the border massing, not attack positions in Belarus.",
+    "source": "https://www.bbc.co.uk/news/world-europe-60327930"
+  },
+  {
+    "date": "2022-02-07",
+    "tag": "near_ukraine",
+    "level": 4,
+    "regions": [
+      "ukraine_test"
+    ],
+    "textKey": "event_warning",
+    "note": "BBC: more than 100,000 troops at the Ukrainian border. The US and other Western countries warned that an attack could come at any time. Changed from 2 to 4: that is an official warning of imminent attack.",
+    "source": "https://www.bbc.co.uk/news/world-europe-60327930"
+  },
+  {
+    "date": "2022-02-14",
+    "tag": "belarus",
+    "level": 4,
+    "regions": [
+      "ukraine_test",
+      "eastern_flank"
+    ],
+    "textKey": "event_hospitals",
+    "note": "iNews, 15 February 2022: Boris Johnson said Moscow appeared to be constructing field hospitals near the Belarusian border with Ukraine. Field hospitals are a logistics sign, so this is 3, not 4.",
+    "source": "https://inews.co.uk/news/world/russia-ukraine-conflict-satellite-image-new-russian-military-activity-near-border-1461776"
+  },
+  {
+    "date": "2022-02-21",
+    "tag": "belarus",
+    "level": 2,
+    "regions": [
+      "ukraine_test",
+      "eastern_flank"
+    ],
+    "textKey": "event_mozyr",
+    "note": "Same page: more than 100 vehicles and dozens of troop shelters on 22 February at an airfield near Mozyr, less than 40 km from Ukraine. No field hospital is stated for this site.",
+    "source": "https://www.rferl.org/a/russia-belarus-ukraine-satellite-images-military-weaponry/31718099.html"
+  },
+  {
+    "date": "2022-02-21",
+    "tag": "near_ukraine",
+    "level": 3,
+    "regions": [
+      "ukraine_test"
+    ],
+    "textKey": "event_belgorod",
+    "note": "RFE/RL, 23 February 2022: Maxar images from 21 February showed a new field hospital on the western outskirts of Belgorod, less than 20 km from Ukraine.",
+    "source": "https://www.rferl.org/a/russia-belarus-ukraine-satellite-images-military-weaponry/31718099.html"
+  }
 ]

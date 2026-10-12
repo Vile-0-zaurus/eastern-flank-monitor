@@ -140,11 +140,27 @@ td, th {
   cursor: pointer;
   width: fit-content;
 }
+.compare {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+.compare article {
+  border: 1px solid #d6d3d1;
+  background: #fff;
+  padding: 0.8rem;
+}
+.story p, .event-note {
+  margin: 0.2rem 0;
+}
+a {
+  color: #1f4e79;
+}
 @media (max-width: 700px) {
   body {
     padding: 0.7rem 0.7rem 5rem;
   }
-  .cards {
+  .cards, .compare {
     grid-template-columns: 1fr;
   }
   .controls, .depths {

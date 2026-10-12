@@ -1,0 +1,5 @@
+{
+  "note": "Registered medians from the scoring rules. Not refit from this page.",
+  "eastern_flank": {"i1": 0.0086, "i2": 0.12},
+  "ukraine_test": {"i1": 0.0271, "i2": 0.29}
+}
