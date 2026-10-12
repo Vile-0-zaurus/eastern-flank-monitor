@@ -1,107 +1,13 @@
 [
-  {
-    "date": "2021-04-19",
-    "tag": "near_ukraine",
-    "level": 2,
-    "regions": [
-      "ukraine_test"
-    ],
-    "label": "Near Ukraine, buildup reported"
-  },
-  {
-    "date": "2021-09-20",
-    "tag": "belarus",
-    "level": 1,
-    "regions": [
-      "ukraine_test",
-      "eastern_flank"
-    ],
-    "label": "Belarus, exercise"
-  },
-  {
-    "date": "2021-09-20",
-    "tag": "western_md",
-    "level": 1,
-    "regions": [
-      "ukraine_test",
-      "eastern_flank"
-    ],
-    "label": "Western Military District, exercise"
-  },
-  {
-    "date": "2021-12-20",
-    "tag": "near_ukraine",
-    "level": 2,
-    "regions": [
-      "ukraine_test"
-    ],
-    "label": "Near Ukraine, armoured vehicles reported"
-  },
-  {
-    "date": "2022-01-17",
-    "tag": "belarus",
-    "level": 1,
-    "regions": [
-      "ukraine_test",
-      "eastern_flank"
-    ],
-    "label": "Belarus, forces arriving"
-  },
-  {
-    "date": "2022-01-24",
-    "tag": "near_ukraine",
-    "level": 3,
-    "regions": [
-      "ukraine_test"
-    ],
-    "label": "Near Ukraine, logistics signs"
-  },
-  {
-    "date": "2022-02-07",
-    "tag": "belarus",
-    "level": 2,
-    "regions": [
-      "ukraine_test",
-      "eastern_flank"
-    ],
-    "label": "Belarus, Allied Resolve"
-  },
-  {
-    "date": "2022-02-07",
-    "tag": "near_ukraine",
-    "level": 4,
-    "regions": [
-      "ukraine_test"
-    ],
-    "label": "Near Ukraine, official warning"
-  },
-  {
-    "date": "2022-02-14",
-    "tag": "belarus",
-    "level": 4,
-    "regions": [
-      "ukraine_test",
-      "eastern_flank"
-    ],
-    "label": "Belarus, field hospitals near Ukraine"
-  },
-  {
-    "date": "2022-02-21",
-    "tag": "belarus",
-    "level": 2,
-    "regions": [
-      "ukraine_test",
-      "eastern_flank"
-    ],
-    "label": "Belarus, vehicles near Mozyr"
-  },
-  {
-    "date": "2022-02-21",
-    "tag": "near_ukraine",
-    "level": 3,
-    "regions": [
-      "ukraine_test"
-    ],
-    "label": "Near Ukraine, field hospital"
-  }
+  {"date": "2021-04-19", "tag": "near_ukraine", "level": 2, "regions": ["ukraine_test"], "textKey": "event_buildup_apr"},
+  {"date": "2021-09-20", "tag": "belarus", "level": 1, "regions": ["ukraine_test", "eastern_flank"], "textKey": "event_zapad"},
+  {"date": "2021-09-20", "tag": "western_md", "level": 1, "regions": ["ukraine_test", "eastern_flank"], "textKey": "event_zapad"},
+  {"date": "2021-12-20", "tag": "near_ukraine", "level": 2, "regions": ["ukraine_test"], "textKey": "event_vehicles_dec"},
+  {"date": "2022-01-17", "tag": "belarus", "level": 1, "regions": ["ukraine_test", "eastern_flank"], "textKey": "event_arriving"},
+  {"date": "2022-01-24", "tag": "near_ukraine", "level": 3, "regions": ["ukraine_test"], "textKey": "event_logistics"},
+  {"date": "2022-02-07", "tag": "belarus", "level": 2, "regions": ["ukraine_test", "eastern_flank"], "textKey": "event_allied"},
+  {"date": "2022-02-07", "tag": "near_ukraine", "level": 4, "regions": ["ukraine_test"], "textKey": "event_warning"},
+  {"date": "2022-02-14", "tag": "belarus", "level": 4, "regions": ["ukraine_test", "eastern_flank"], "textKey": "event_hospitals"},
+  {"date": "2022-02-21", "tag": "belarus", "level": 2, "regions": ["ukraine_test", "eastern_flank"], "textKey": "event_mozyr"},
+  {"date": "2022-02-21", "tag": "near_ukraine", "level": 3, "regions": ["ukraine_test"], "textKey": "event_belgorod"}
 ]

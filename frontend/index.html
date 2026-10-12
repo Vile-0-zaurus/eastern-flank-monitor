@@ -10,7 +10,6 @@
   <header>
     <p id="banner" class="banner"></p>
     <h1 id="title"></h1>
-    <p id="paused" class="paused"></p>
   </header>
   <main>
     <div class="controls">
@@ -20,8 +19,6 @@
         <span id="week-name"></span>
         <input id="slider" type="range" min="0" value="0">
       </label>
-      <p id="week-label"></p>
-      <p id="arrived" class="note"></p>
       <label>
         <span id="region-name"></span>
         <select id="region"></select>
@@ -33,8 +30,10 @@
       <button type="button" data-depth="3"></button>
     </nav>
     <section id="depth-1">
-      <p id="level-words" class="level-words"></p>
-      <p id="summary"></p>
+      <p id="week-label" class="week-of"></p>
+      <p id="level-badge" class="badge"></p>
+      <p id="drivers"></p>
+      <ul id="week-events"></ul>
       <p id="partial-note" class="note" hidden></p>
     </section>
     <section id="depth-2" hidden>
@@ -58,10 +57,13 @@
       <p id="preparedness-other"></p>
     </section>
   </main>
-  <footer>
+  <div class="disclaimer-bar">
     <p id="disclaimer-short"></p>
-    <p id="disclaimer-full"></p>
-  </footer>
+    <details>
+      <summary id="disclaimer-more"></summary>
+      <p id="disclaimer-full"></p>
+    </details>
+  </div>
   <script src="vendor/chart.umd.min.js"></script>
   <script src="app.js"></script>
 </body>
