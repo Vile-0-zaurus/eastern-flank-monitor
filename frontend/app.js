@@ -362,7 +362,7 @@ async function main() {
   const [text, csv, events] = await Promise.all([
     fetch("i18n/en.json").then((response) => response.json()),
     fetch("../docs/reports/2026-10-12-backtest-weeks.csv").then((response) => response.text()),
-    fetch("data/events.json").then((response) => response.json()),
+    fetch("events.json").then((response) => response.json()),
   ]);
   state.text = text;
   state.rows = parseCsv(csv).filter((row) => row.week >= START);
