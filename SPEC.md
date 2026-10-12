@@ -228,6 +228,29 @@ The prompt for summaries lives in `prompts/summary.md` and is version-controlled
 - **Report:** when would the model have reached Elevated / Serious, how many weeks before 24 Feb 2022, and how many false alarms along the way. The report must say that the baseline method was amended to `scoring-prereg-v2` before any real-data scoring run, and why: the calibration window contains the 2021-05-24 spike.
 - **Results are published in the app** (Depth 3 / About page), including weaknesses.
 
+### 8.1 Full-run pre-registration
+
+Written 2026-10-12, before the full scoring run. Tag: `backtest-run-prereg`. This tag does not change cutoffs, weights, or the Intent baseline. Those stay `scoring-prereg-v2`. A result computed before this tag does not count.
+
+Intent is not recomputed. Each week uses the stored Intent level in `docs/reports/2026-10-11-i2-weeks.csv`. A blank Intent cell is no data, not zero. That file is not edited by this run.
+
+Manual clicks are collapsed first. One decision per input, date, and region. The latest `saved_at` wins. The raw approved files are not rewritten. Approve uses `value`. "Value should be" uses `corrected_value`. Empty is no data, not zero. The O1 correction stays 3. It is not remapped to 1. Under `manual-scales-v3`, 3 means mostly free with notable commitments.
+
+1. **C2 region mapping, by shared border.** `near_ukraine` maps to `ukraine_test` only. `kaliningrad` maps to `eastern_flank` only. `belarus` and `western_md` map to both. Any other region tag does not count.
+2. **C2 hold.** An event is active on its Monday and on the next four Mondays, unless superseded. A later event with the same region tag supersedes it on the later Monday. The earlier event is not active from that Monday on. A different region tag does not supersede it. The layer value is the maximum applied level among events that map to the scoring region and are still active. No active event is no data, not zero. Example, not a result: an event dated 2022-01-24 is active on 2022-01-24, 2022-01-31, 2022-02-07, 2022-02-14, and 2022-02-21, unless a later event with the same region tag starts on one of those Mondays. A later event dated 2022-02-07 with that same tag supersedes it on 2022-02-07.
+3. **O1 is a step function.** It applies to both regions. This assignment names no region split, and O1 is not border-mapped. Before the first change-point Monday, the level is no data. From a change-point Monday until the next change-point Monday, that applied level holds. The only stored change-point is 2021-04-19, applied level 3.
+4. **O2 is monthly, as approved.** It applies to both regions, for the same reason as O1. A week uses the applied level of the month that contains its Monday. A carried row with a level is a value. An empty month is no data. It does not keep the previous month. No hindsight: the month counts for week W only if `source_date` is on or before Sunday of W. Example, not a result: the February 2021 source is dated 2021-02-19. The week of 2021-02-08 ends 2021-02-14, so it does not use that source. The week of 2021-02-15 ends 2021-02-21, so it can.
+5. **Manual values 0–4 are levels.** They are not z-scored and not remapped. Capability and Opportunity use `layer_level` and the weights in `config/model.yaml`. A missing indicator is left out, not scored as zero. C1 has no backtest archive, so Capability is the C2 level when an event is active, and no data otherwise. I3 stays left out.
+6. **Hybrid is no data.** H1 and H2 are not read. Hybrid is not zero.
+7. **Pass criteria.** These decide this run. They replace the looser "war-level alarm" sentence above for the verdict only. That sentence is not deleted. A Serious or Critical proposal means overall proposed level 3 or 4. An Intent peak that the convergence rule holds at Watchful is not a Serious proposal.
+   - Ranked weeks are the 59 full weeks in the stored Intent table, Mondays 2021-01-04 through 2022-02-14. The weeks of 2020-12-28 and 2022-02-21 are partial. They are listed and do not decide either test.
+   - Test A passes if `ukraine_test` shown overall level is at least Elevated (2) in at least one ranked week. An unconfirmed Serious or Critical is shown as Elevated, so it meets this test.
+   - Test B passes if `eastern_flank` proposed level is never 3 or 4 on a ranked week. The shown label does not decide Test B.
+   - Overall level uses the convergence rule in §5.3, called with confirmation false for every week. Unconfirmed Serious is shown as "Elevated (Serious proposed, awaiting confirmation)". Unconfirmed Critical is shown as "Elevated (Critical proposed, awaiting confirmation)". The numeric shown level stays 2. This run does not confirm any week.
+   - First reach, on ranked weeks only: Watchful is the first shown level of at least 1. Elevated is the first shown level of at least 2. Serious-proposed is the first proposed level of at least 3. If none, say never. If that week is inside the calibration window, Monday 2021-01-04 through 2021-06-21, say so, and also name the first such week after that window.
+
+The report must still say that the Intent baseline was amended to `scoring-prereg-v2` before any real-data scoring run, because the calibration window contains the 2021-05-24 spike. This run does not refit that baseline. A later change to these rules is a new tag and a separate report. This run's levels stay as stored.
+
 ---
 
 ## 9. Technical architecture (Stage 1)
