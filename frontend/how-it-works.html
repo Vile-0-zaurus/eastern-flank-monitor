@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>How it works</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body data-page="how">
+  <p class="back-link"><a href="index.html">Back to the map</a></p>
+  <header>
+    <p id="banner" class="banner"></p>
+    <h1 id="title"></h1>
+    <p class="note">These cards and charts are the working parts behind the signs. They are not on the main screen.</p>
+  </header>
+  <main>
+    <div class="controls">
+      <button id="play" type="button"></button>
+      <button id="pause" type="button"></button>
+      <label class="slider-label">
+        <span id="week-name"></span>
+        <input id="slider" type="range" min="0" value="0">
+      </label>
+      <label>
+        <span id="region-name"></span>
+        <select id="region"></select>
+      </label>
+    </div>
+    <nav class="depths" aria-label="Depth">
+      <button type="button" data-depth="1"></button>
+      <button type="button" data-depth="2"></button>
+      <button type="button" data-depth="3"></button>
+      <button type="button" id="compare-toggle"></button>
+    </nav>
+    <section id="depth-1">
+      <p id="week-label" class="week-of"></p>
+      <p id="level-badge" class="badge"></p>
+      <p id="why-level"></p>
+      <div id="versus-normal"></div>
+      <h2 id="headlines-title"></h2>
+      <p id="headlines-note" class="note"></p>
+      <ul id="headlines"></ul>
+      <h2 id="this-week-title"></h2>
+      <ul id="week-events"></ul>
+      <p id="partial-note" class="note" hidden></p>
+    </section>
+    <section id="depth-2" hidden>
+      <div id="cards" class="cards"></div>
+    </section>
+    <section id="depth-3" hidden>
+      <h2 id="chart-title"></h2>
+      <div class="chart-box"><canvas id="chart"></canvas></div>
+      <h2 id="indicators-title"></h2>
+      <table id="indicators"></table>
+      <h2 id="sources-title"></h2>
+      <p id="intent-source"></p>
+      <h3 id="events-heading"></h3>
+      <ul id="events"></ul>
+      <h2 id="definitions-title"></h2>
+      <ul id="definitions"></ul>
+      <h2 id="explainers-title"></h2>
+      <ul id="explainers"></ul>
+      <h2 id="preparedness-title"></h2>
+      <p><a id="fi-link" href="https://72tuntia.fi/en/"></a></p>
+      <p id="preparedness-other"></p>
+    </section>
+    <section id="compare" hidden>
+      <div id="compare-columns" class="compare"></div>
+    </section>
+  </main>
+  <div class="disclaimer-bar">
+    <p id="disclaimer-short"></p>
+    <details>
+      <summary id="disclaimer-more"></summary>
+      <p id="disclaimer-full"></p>
+    </details>
+  </div>
+  <script src="vendor/chart.umd.min.js"></script>
+  <script src="how.js"></script>
+</body>
+</html>
