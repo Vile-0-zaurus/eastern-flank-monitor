@@ -7,6 +7,8 @@ const state = {
   events: [],
   map: null,
   news: [],
+  official: {},
+  why: null,
   index: 0,
   timer: null,
   filter: "all",
@@ -251,6 +253,8 @@ function renderMap() {
       dot.addEventListener("click", (click) => {
         click.stopPropagation();
         showEvent(event, place);
+        const code = event.regions.includes("eastern_flank") ? null : "UA";
+        openWhy(code, event);
       });
       svg.appendChild(dot);
     });
@@ -319,16 +323,111 @@ function renderNews() {
   });
 }
 
-function openWhy(code) {
+function dateWords(iso) {
+  return weekWords(iso).replace("Week of ", "");
+}
+
+function rowForCode(code) {
+  const region = code === "UA" ? "ukraine_test" : "eastern_flank";
+  return state.rows.find((row) => row.region === region && row.week === current().week) || current();
+}
+
+function appendStory(list, story) {
+  const item = document.createElement("li");
+  item.className = "story";
+  const original = document.createElement("p");
+  original.textContent = state.text.original_label + ": " + story.title;
+  const english = document.createElement("p");
+  english.textContent = state.text.machine_translation + ": " + (story.english || "not stored.");
+  const meta = document.createElement("p");
+  meta.className = "note";
+  meta.textContent = story.outlet + ", " + dateWords(story.date);
+  const link = document.createElement("a");
+  link.href = story.url;
+  link.textContent = state.text.source;
+  item.append(original, english, meta, link);
+  list.appendChild(item);
+}
+
+function appendEventLine(list, event) {
+  const item = document.createElement("li");
+  const title = document.createElement("p");
+  const place = (event.places || []).map((item) => item.name).join(", ");
+  title.textContent = (place ? place + ". " : "") + (state.text[event.textKey] || "");
+  const when = document.createElement("p");
+  when.className = "note";
+  when.textContent = dateWords(event.date);
+  const note = document.createElement("p");
+  note.textContent = event.note || "";
+  const link = document.createElement("a");
+  link.href = event.source;
+  link.textContent = state.text.source;
+  item.append(title, when, note, link);
+  list.appendChild(item);
+}
+
+function openWhy(code, focus) {
+  state.why = { code: code || null, focusDate: focus ? focus.date : "", focusTag: focus ? focus.tag : "" };
   const panel = document.getElementById("why");
-  const sign = signFor(current());
+  const row = rowForCode(code);
+  const sign = signFor(row);
   panel.hidden = false;
   document.getElementById("why-title").textContent = state.text.why_panel;
   document.getElementById("why-close").textContent = state.text.close;
-  document.getElementById("why-subject").textContent = state.text["country_" + code] + " — " + weekWords(current().week);
-  document.getElementById("why-events").textContent = sign.reason;
-  document.getElementById("why-official").textContent = state.text.no_source_found;
-  document.getElementById("why-media").textContent = "";
+  const name = code ? state.text["country_" + code] : (focus && focus.places ? focus.places[0].name : "This report");
+  document.getElementById("why-subject").textContent = name + " — " + sign.word + " — " + weekWords(current().week);
+  const eventsHost = document.getElementById("why-events");
+  const officialHost = document.getElementById("why-official");
+  const mediaHost = document.getElementById("why-media");
+  eventsHost.innerHTML = "";
+  officialHost.innerHTML = "";
+  mediaHost.innerHTML = "";
+  const region = code === "UA" ? "ukraine_test" : "eastern_flank";
+  let events = activeEvents(current().week).filter((event) => !code || event.regions.includes(region));
+  if (focus && !events.some((event) => event.date === focus.date && event.tag === focus.tag)) {
+    events = [focus].concat(events);
+  }
+  if (!events.length) {
+    eventsHost.textContent = "No events reported in our sources.";
+  } else {
+    const list = document.createElement("ul");
+    events.forEach((event) => appendEventLine(list, event));
+    eventsHost.appendChild(list);
+  }
+  const official = (state.official[current().week] || []).filter((item) => {
+    if (!code || !item.countries || !item.countries.length) return true;
+    return item.countries.includes(code);
+  });
+  if (!official.length) {
+    officialHost.textContent = state.text.no_source_found;
+  } else {
+    const list = document.createElement("ul");
+    official.forEach((item) => {
+      const line = document.createElement("li");
+      const summary = document.createElement("p");
+      summary.textContent = item.summary;
+      const meta = document.createElement("p");
+      meta.className = "note";
+      meta.textContent = item.who + ", " + dateWords(item.date) + ". " + item.label;
+      const link = document.createElement("a");
+      link.href = item.url;
+      link.textContent = state.text.source;
+      line.append(summary, meta, link);
+      list.appendChild(line);
+    });
+    officialHost.appendChild(list);
+  }
+  let media = weekNews();
+  if (code) media = media.filter((story) => (story.countries || []).includes(code));
+  if (!media.length) {
+    mediaHost.textContent = code
+      ? "No headline in the stored sample names " + state.text["country_" + code] + " this week."
+      : state.text.news_empty;
+  } else {
+    const list = document.createElement("ul");
+    media.slice(0, 6).forEach((story) => appendStory(list, story));
+    mediaHost.appendChild(list);
+  }
 }
 
 function renderWeek() {
@@ -343,9 +442,9 @@ function renderWeek() {
   renderStrip();
   renderMap();
   renderNews();
-  if (!document.getElementById("why").hidden) {
-    const open = document.querySelector(".country-card[aria-pressed='true']");
-    if (open) openWhy(open.dataset.country);
+  if (!document.getElementById("why").hidden && state.why) {
+    const focus = state.events.find((event) => event.date === state.why.focusDate && event.tag === state.why.focusTag);
+    openWhy(state.why.code, focus);
   }
 }
 
@@ -369,18 +468,20 @@ function play() {
 }
 
 async function main() {
-  const [text, csv, events, map, news] = await Promise.all([
+  const [text, csv, events, map, news, official] = await Promise.all([
     fetch("i18n/en.json").then((response) => response.json()),
     fetch("../docs/reports/2026-10-12-backtest-weeks.csv").then((response) => response.text()),
     fetch("events.json").then((response) => response.json()),
     fetch("vendor/flank-map.json").then((response) => response.json()),
     fetch("news.json").then((response) => response.json()),
+    fetch("official.json").then((response) => response.json()),
   ]);
   state.text = text;
   state.rows = parseCsv(csv).filter((row) => row.week >= START);
   state.events = events;
   state.map = map;
   state.news = news;
+  state.official = official;
   document.title = text.title;
   document.getElementById("title").textContent = text.title;
   document.getElementById("banner").textContent = text.banner;
@@ -405,6 +506,7 @@ async function main() {
   });
   document.getElementById("why-close").addEventListener("click", () => {
     document.getElementById("why").hidden = true;
+    state.why = null;
   });
   document.getElementById("filter-all").addEventListener("click", () => {
     state.filter = "all";
