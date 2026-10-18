@@ -1,1 +1,176 @@
-{}
+{
+  "2021-05-24": [
+    {
+      "date": "2021-05-25",
+      "who": "NATO Secretary General",
+      "countries": ["EE", "UA"],
+      "summary": "NATO's secretary general told Estonia's prime minister that Belarus's forced landing of a passenger flight was a dangerous and unacceptable state hijacking, and that tens of thousands of Russian troops remained in and around Ukraine.",
+      "label": "Summarized by AI from the linked source.",
+      "url": "https://www.nato.int/en/news-and-events/articles/news/2021/05/25/secretary-general-discusses-nato-summit-belarus-ukraine-with-estonian-prime-minister"
+    },
+    {
+      "date": "2021-05-27",
+      "who": "Government of Estonia",
+      "countries": ["EE"],
+      "summary": "Estonia banned Belarusian airlines from its airspace and airports after Belarus forced a Ryanair flight from Athens to Vilnius to land in Minsk.",
+      "label": "Summarized by AI from the linked source.",
+      "url": "https://www.valitsus.ee/en/news/government-bans-belarusian-airlines-flying-over-estonia-and-landing-estonian-airports"
+    }
+  ],
+  "2021-07-05": [
+    {
+      "date": "2021-07-07",
+      "who": "Ministry of Foreign Affairs of Lithuania",
+      "countries": ["LT"],
+      "summary": "Lithuania told Belarus to cut its embassy staff and protested the flow of illegal migration across their border.",
+      "label": "Summarized by AI from the linked source.",
+      "url": "https://www.urm.lt/en/news/928/lithuania-to-reduce-the-diplomatic-presence-of-belarus-in-the-country:34684"
+    }
+  ],
+  "2021-07-12": [
+    {
+      "date": "2021-07-16",
+      "who": "Ministry of Foreign Affairs of Lithuania",
+      "countries": ["LT"],
+      "summary": "Lithuania told the OSCE that Belarus had stopped border cooperation and was using illegal crossings as a political weapon.",
+      "label": "Summarized by AI from the linked source.",
+      "url": "https://www.urm.lt/en/news/928/at-the-osce-permanent-council-lithuanias-demands-for-belarus-to-stop-sending-illegal-migrants-to-its-territory:34700"
+    }
+  ],
+  "2021-07-26": [
+    {
+      "date": "2021-07-29",
+      "who": "Ministry of Foreign Affairs of Lithuania",
+      "countries": ["LT"],
+      "summary": "Lithuania told the OSCE that the migrant flows were artificially created by the regime in Minsk to pressure Lithuania and the EU.",
+      "label": "Summarized by AI from the linked source.",
+      "url": "https://www.urm.lt/en/news/928/at-the-osce-permanent-council-lithuania-condemns-belarus-for-artificially-creating-migration-crisis:34708"
+    }
+  ],
+  "2021-08-02": [
+    {
+      "date": "2021-08-06",
+      "who": "Prime ministers of Estonia, Latvia and Lithuania",
+      "countries": ["EE", "LV", "LT"],
+      "summary": "The Baltic prime ministers said they would lead further EU sanctions on the Belarusian regime and keep protecting the EU's external border.",
+      "label": "Summarized by AI from the linked source.",
+      "url": "https://www.valitsus.ee/en/news/baltic-prime-ministers-protecting-schengen-external-borders-shared-european-responsibility"
+    }
+  ],
+  "2021-08-23": [
+    {
+      "date": "2021-08-23",
+      "who": "Prime ministers of Lithuania, Latvia, Estonia and Poland",
+      "countries": ["LT", "LV", "EE", "PL"],
+      "summary": "The four prime ministers said the Belarus border crisis was planned by the Lukashenka regime and that using migrants to destabilize neighbors was a hybrid attack.",
+      "label": "Summarized by AI from the linked source.",
+      "url": "https://www.valitsus.ee/en/news/statement-prime-ministers-lithuania-latvia-estonia-and-poland-hybrid-attack-our-borders"
+    }
+  ],
+  "2021-10-04": [
+    {
+      "date": "2021-10-05",
+      "who": "Prime Minister of Poland",
+      "countries": ["PL", "EE", "LV", "LT"],
+      "summary": "Poland's prime minister told Austria's president that Belarus was continuing hybrid attacks on Poland and the Baltic states to pressure the EU over sanctions.",
+      "label": "Summarized by AI from the linked source.",
+      "url": "https://www.gov.pl/web/primeminister/prime-minister-mateusz-morawiecki-has-met-with-the-austrian-president-it-is-the-first-official-visit-of-president-alexander-van-der-bellen-to-poland"
+    }
+  ],
+  "2021-11-08": [
+    {
+      "date": "2021-11-12",
+      "who": "North Atlantic Council",
+      "countries": ["PL", "LT", "LV"],
+      "summary": "NATO's North Atlantic Council condemned Belarus for using irregular migration against Poland, Lithuania and Latvia, and said allies stand with them.",
+      "label": "Summarized by AI from the linked source.",
+      "url": "https://www.nato.int/cps/en/natohq/news_188529.htm"
+    }
+  ],
+  "2021-11-15": [
+    {
+      "date": "2021-11-16",
+      "who": "NATO Secretary General",
+      "countries": ["PL", "LV", "LT", "UA"],
+      "summary": "NATO's secretary general said the Lukashenko regime was using migrants as a hybrid tactic against Poland, Latvia and Lithuania, and that Russia had an unusually large force near Ukraine.",
+      "label": "Summarized by AI from the linked source.",
+      "url": "https://www.nato.int/en/news-and-events/events/transcripts/2021/11/16/doorstep-statement"
+    },
+    {
+      "date": "2021-11-19",
+      "who": "NATO Secretary General",
+      "countries": ["PL", "LT", "LV", "UA"],
+      "summary": "NATO's secretary general said the alliance stands with Poland, Lithuania and Latvia, and called on Russia to be transparent about its military buildup near Ukraine.",
+      "label": "Summarized by AI from the linked source.",
+      "url": "https://www.nato.int/en/news-and-events/events/transcripts/2021/11/19/doorstep-statement"
+    }
+  ],
+  "2021-11-22": [
+    {
+      "date": "2021-11-23",
+      "who": "Prime Minister of Poland",
+      "countries": ["PL", "LT", "LV", "EE"],
+      "summary": "Poland's prime minister said the pressure on the Polish-Belarusian border was not an ordinary migration crisis, and that Poland was protecting the EU and NATO border.",
+      "label": "Summarized by AI from the linked source.",
+      "url": "https://www.gov.pl/web/premier/premier-po-spotkaniu-z-liderami-v4-i-premierem-chorwacji-poziom-solidarnosci-jest-budujacy-i-bezprecedensowy"
+    },
+    {
+      "date": "2021-11-25",
+      "who": "NATO Secretary General",
+      "countries": ["PL", "LV", "LT", "UA"],
+      "summary": "NATO's secretary general, with Poland's president, condemned the Lukashenko regime's use of vulnerable people and called on Russia to de-escalate its buildup near Ukraine.",
+      "label": "Summarized by AI from the linked source.",
+      "url": "https://www.nato.int/cps/en/natohq/opinions_188958.htm"
+    }
+  ],
+  "2021-12-06": [
+    {
+      "date": "2021-12-12",
+      "who": "US Department of State",
+      "countries": ["UA"],
+      "summary": "The G7 foreign ministers, in a statement released by the US State Department, condemned Russia's military buildup and aggressive rhetoric toward Ukraine and called on Russia to de-escalate.",
+      "label": "Summarized by AI from the linked source.",
+      "url": "https://web.archive.org/web/20220219194500/https://www.state.gov/g7-foreign-ministers-statement-on-russia-and-ukraine/"
+    }
+  ],
+  "2022-01-17": [
+    {
+      "date": "2022-01-18",
+      "who": "NATO Secretary General",
+      "countries": ["UA"],
+      "summary": "NATO's secretary general said the risk of conflict in Europe was real because of Russia's unexplained military buildup in and around Ukraine, and called on Russia to de-escalate.",
+      "label": "Summarized by AI from the linked source.",
+      "url": "https://www.nato.int/en/news-and-events/articles/news/2022/01/18/nato-secretary-general-german-chancellor-discuss-russias-military-build-up"
+    }
+  ],
+  "2022-02-14": [
+    {
+      "date": "2022-02-19",
+      "who": "US Department of State",
+      "countries": ["UA"],
+      "summary": "The G7 foreign ministers, in a statement released by the US State Department, said they were gravely concerned about Russia's military buildup around Ukraine, in Crimea and in Belarus, and called on Russia to withdraw those forces.",
+      "label": "Summarized by AI from the linked source.",
+      "url": "https://web.archive.org/web/20220220161828/https://www.state.gov/g7-foreign-ministers-statement-on-russia-and-ukraine-2/"
+    }
+  ],
+  "2022-02-07": [
+    {
+      "date": "2022-02-07",
+      "who": "NATO Secretary General",
+      "countries": ["PL", "UA"],
+      "summary": "NATO's secretary general told Poland's president that Russia had well over 100,000 troops near Ukraine, and that about 30,000 more were expected in Belarus.",
+      "label": "Summarized by AI from the linked source.",
+      "url": "https://www.nato.int/en/news-and-events/articles/news/2022/02/07/nato-secretary-general-discusses-russian-military-build-up-with-president-of-poland"
+    }
+  ],
+  "2022-02-21": [
+    {
+      "date": "2022-02-24",
+      "who": "President of Finland",
+      "countries": ["FI", "UA"],
+      "summary": "Finland's president said Finland strongly condemns Russia's warfare in Ukraine and demands an immediate end to hostilities.",
+      "label": "Summarized by AI from the linked source.",
+      "url": "https://www.presidentti.fi/niinisto/en/news/president-niinisto-finland-strongly-condemns-russias-actions-and-warfare/index.html"
+    }
+  ]
+}
