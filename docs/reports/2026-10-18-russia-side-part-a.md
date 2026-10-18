@@ -70,3 +70,10 @@ Quoting a published number or a short excerpt with the link is the use this assi
 ## Biggest risk
 
 The Telegram window is real, and it was not collected. A card built from two excerpts would look more complete than the file is. The cheapest next step that stays inside the rules is a paced walk of the two verified channels from January 2021 through February 2022, keeping only posts that name the region, with the English line written here.
+
+## Full walk, later the same day
+
+The walk was done. Public preview only, one request a second, research user-agent. MID_Russia: 421 pages. MFARussia: 184 pages. Both walks passed back into December 2020, so the window was covered. After dropping false hits inside unrelated words, 1,009 posts remain, in all 60 weeks from 11 January 2021 through 28 February 2022. The week of 4 January 2021 had no matching post. Counts are in `manual/russia/telegram.json`. Each kept post has a date, a link, and an English line written here. The line names the action when the post is a briefing, a press answer, or a call, and names the topics in the text. It is not a full translation of every sentence.
+
+One Levada search, for "дружественные и недружественные", found the 15 June 2021 survey. May 2021 results: Belarus was named a friend by 58 percent. As unfriendly: the United States 66 percent, Ukraine 40 percent, Latvia 21 percent, Poland 21 percent, Lithuania 20 percent, Estonia 9 percent. Finland and NATO were not in the printed tables. Stock prices stay out. The reason is in `docs/decisions.md`.
+
