@@ -749,3 +749,217 @@ body.briefing .event-dot {
   body.briefing .event-dot { transition: none; animation: none; }
 }
 
+body.briefing .top-strip {
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: 8px;
+  height: 4.2rem;
+  overflow: hidden;
+  padding: 4px 16px;
+  box-sizing: border-box;
+}
+body.briefing .region-state {
+  display: grid;
+  grid-template-columns: 4.2rem 10.2rem 1.6rem;
+  align-items: center;
+  width: 16rem;
+  height: 2.8rem;
+  flex: 0 0 16rem;
+  margin: 0;
+  overflow: hidden;
+  font-size: 14px;
+}
+body.briefing .region-label { width: 4.2rem; white-space: nowrap; }
+body.briefing .state-word {
+  width: 10.2rem;
+  height: 2.6rem;
+  line-height: 1.15rem;
+  overflow: hidden;
+}
+body.briefing .trend-arrow {
+  width: 1.6rem;
+  text-align: center;
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+}
+body.briefing #country-strip {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 8px;
+  width: 46rem;
+  height: 3.4rem;
+  flex: 0 0 46rem;
+}
+body.briefing .country-card {
+  width: 8.8rem;
+  height: 3.4rem;
+  flex: 0 0 8.8rem;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 1.4rem;
+  grid-template-rows: 1.2rem 1.8rem;
+  align-items: center;
+  padding: 2px 4px;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+body.briefing .country-name {
+  grid-column: 1 / -1;
+  height: 1.2rem;
+  line-height: 1.2rem;
+  overflow: hidden;
+  white-space: nowrap;
+}
+body.briefing .country-card .sign {
+  width: 100%;
+  height: 1.8rem;
+  margin: 0;
+  font-size: 11px;
+  line-height: 0.9rem;
+  overflow: hidden;
+  white-space: normal;
+}
+body.briefing .chip-arrow {
+  width: 1.4rem;
+  margin: 0;
+  text-align: center;
+}
+body.briefing #show-all {
+  width: 6rem;
+  height: 2.4rem;
+  flex: 0 0 6rem;
+  box-sizing: border-box;
+}
+body.briefing .room {
+  display: grid;
+  grid-template-columns: minmax(0, 38%) minmax(0, 62%);
+  grid-template-rows: minmax(8rem, 1fr) auto;
+  grid-template-areas:
+    "map dossier"
+    "controls dossier";
+  flex: 1;
+  min-height: 0;
+  width: 100%;
+  height: auto;
+}
+body.briefing .stage {
+  grid-area: map;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  max-width: 100%;
+  min-height: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+body.briefing .rail {
+  grid-area: controls;
+  position: static;
+  top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-height: 9.5rem;
+  height: auto;
+  overflow: visible;
+  border-right: 0;
+  border-top: 1px solid var(--line);
+  padding: 8px 12px 10px;
+  box-sizing: border-box;
+  z-index: 2;
+}
+body.briefing #play {
+  width: 5.5rem;
+  height: 2.4rem;
+  flex: 0 0 auto;
+  box-sizing: border-box;
+}
+body.briefing #week-label {
+  width: 16rem;
+  height: 1.5rem;
+  margin: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  flex: 0 0 auto;
+}
+body.briefing .slider-label {
+  display: block;
+  width: 100%;
+  height: auto;
+  flex: 0 0 auto;
+  margin: 0;
+}
+body.briefing #slider { width: 100%; height: auto; margin: 0; }
+body.briefing #map-panel,
+body.briefing .drawer,
+body.briefing .rail,
+body.briefing .stage {
+  box-sizing: border-box;
+}
+body.briefing .rail-foot {
+  position: static;
+  margin-top: 0;
+  min-height: 1.6rem;
+  overflow: visible;
+  white-space: nowrap;
+}
+body.briefing .drawer {
+  grid-area: dossier;
+  position: static;
+  top: auto;
+  right: auto;
+  transform: none;
+  width: auto;
+  height: 100%;
+  max-height: 100%;
+  min-height: 0;
+  align-self: stretch;
+  overflow: auto;
+  display: block;
+  z-index: 1;
+}
+body.briefing #map-panel {
+  flex: 1;
+  min-height: 8rem;
+  min-width: 0;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+body.briefing #map,
+body.briefing #map svg {
+  flex: 1;
+  width: 100%;
+  height: 100%;
+  min-width: 0;
+  max-width: 100%;
+  min-height: 0;
+  max-height: none;
+}
+body.briefing #map { overflow: hidden; }
+body.briefing #region-overview h2 { margin: 8px 0; font-size: 18px; }
+body.briefing #region-overview-line { margin: 0 0 12px; }
+@media (max-width: 700px) {
+  html, body.briefing { height: auto; overflow: auto; }
+  body.briefing .top-strip,
+  body.briefing #country-strip { flex-wrap: wrap; width: auto; height: auto; overflow: visible; }
+  body.briefing .room {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    min-height: 0;
+  }
+  body.briefing .stage,
+  body.briefing .rail,
+  body.briefing .drawer {
+    position: static;
+    width: 100%;
+    height: auto;
+    min-height: 0;
+    transform: none;
+    overflow: visible;
+  }
+  body.briefing #map { height: 16rem; overflow: hidden; }
+  body.briefing .drawer { display: block; }
+}
+

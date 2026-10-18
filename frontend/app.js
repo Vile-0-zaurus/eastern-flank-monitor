@@ -278,7 +278,19 @@ function renderStrip() {
   const strip = document.getElementById("country-strip");
   strip.innerHTML = "";
   const region = document.getElementById("region-state");
-  if (region) region.textContent = regionLine();
+  if (region) {
+    region.replaceChildren();
+    const label = document.createElement("span");
+    label.className = "region-label";
+    label.textContent = "Region: ";
+    const word = document.createElement("span");
+    word.className = "state-word";
+    word.textContent = signFor(current()).word;
+    const mark = document.createElement("span");
+    mark.className = "trend-arrow";
+    mark.textContent = trendArrow();
+    region.append(label, word, mark);
+  }
   COUNTRIES.forEach((code) => {
     const button = document.createElement("button");
     button.type = "button";
@@ -307,7 +319,54 @@ function renderStrip() {
 }
 
 function syncDrawer() {
-  document.body.classList.toggle("dossier-open", Boolean(state.focus));
+  document.body.classList.add("dossier-open");
+  renderRegionOverview();
+}
+
+function renderRegionOverview() {
+  const section = document.getElementById("region-overview");
+  if (!section) return;
+  const open = !state.focus;
+  section.hidden = !open;
+  const close = document.getElementById("drawer-close");
+  if (close) close.hidden = open;
+  if (!open) return;
+  const line = document.getElementById("region-overview-line");
+  if (line) line.textContent = regionLine();
+  const eventsHost = document.getElementById("region-events");
+  eventsHost.innerHTML = "";
+  const events = activeEvents(current().week);
+  if (!events.length) {
+    eventsHost.textContent = "No events reported in our sources.";
+  } else {
+    const list = document.createElement("ul");
+    events.forEach((event) => appendEventLine(list, event));
+    eventsHost.appendChild(list);
+  }
+  const newsHost = document.getElementById("region-news");
+  newsHost.innerHTML = "";
+  const items = dedupeStories(weekNews());
+  if (!items.length) {
+    const empty = document.createElement("p");
+    empty.textContent = "No news this week.";
+    newsHost.appendChild(empty);
+    return;
+  }
+  const shown = state.moreRegion ? items : items.slice(0, 3);
+  const list = document.createElement("ul");
+  shown.forEach((story) => appendStory(list, story));
+  newsHost.appendChild(list);
+  if (items.length > 3) {
+    const more = document.createElement("button");
+    more.type = "button";
+    more.className = "show-more";
+    more.textContent = state.moreRegion ? "Show less" : "Show more";
+    more.addEventListener("click", () => {
+      state.moreRegion = !state.moreRegion;
+      renderRegionOverview();
+    });
+    newsHost.appendChild(more);
+  }
 }
 
 function reducedMotion() {
@@ -461,11 +520,7 @@ function renderMap() {
   }
   const week = current().week;
   const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-  const box = host.getBoundingClientRect();
-  const viewH = 1100;
-  const aspect = box.width > 40 && box.height > 40 ? box.width / box.height : 2.4;
-  const viewW = Math.round(viewH * aspect);
-  svg.setAttribute("viewBox", "-40 -20 " + (viewW + 40) + " " + viewH);
+  svg.setAttribute("viewBox", "-40 -36 860 1060");
   svg.setAttribute("preserveAspectRatio", "xMidYMid meet");
   svg.setAttribute("width", "100%");
   svg.setAttribute("height", "100%");

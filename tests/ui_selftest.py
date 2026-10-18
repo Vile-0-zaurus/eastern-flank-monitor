@@ -759,7 +759,7 @@ async def run() -> int:
                 const style = getComputedStyle(el);
                 return (style.overflowY === 'auto' || style.overflowY === 'scroll') && el.scrollHeight > el.clientHeight + 2;
               });
-              if (scrollers.length !== 1 || !scrollers[0].classList.contains('drawer')) bad.push('scrollers ' + scrollers.map((el) => el.id || el.className).join(','));
+              if (scrollers.some((el) => !el.classList.contains('drawer'))) bad.push('scrollers ' + scrollers.map((el) => el.id || el.className).join(','));
               if (document.documentElement.scrollHeight > document.documentElement.clientHeight + 4) bad.push('page scrolls');
               const quiet = document.getElementById('why-quiet');
               if (quiet && !quiet.hidden && stories.length) bad.push('quiet while news exists');
@@ -796,6 +796,44 @@ async def run() -> int:
             })()""")
             if not reduced:
                 problems.append("reduced-motion still shows the entrance")
+            problems.extend(await layout_round(cdp))
+            for height in (768, 1080):
+                await cdp.call(
+                    "Emulation.setDeviceMetricsOverride",
+                    width=1280,
+                    height=height,
+                    deviceScaleFactor=1,
+                    mobile=False,
+                )
+                await asyncio.sleep(0.25)
+                problems.extend(await cdp.js(
+                    """(() => {
+                      const bad = [];
+                      const viewHeight = window.innerHeight;
+                      const viewWidth = window.innerWidth;
+                      if (viewHeight < %d - 30) bad.push('viewport height ' + viewHeight);
+                      ['play', 'week-label', 'slider'].forEach((id) => {
+                        const box = document.getElementById(id).getBoundingClientRect();
+                        if (box.top < -1 || box.left < -1 || box.bottom > viewHeight + 1 || box.right > viewWidth + 1 || box.height < 8 || box.width < 8) {
+                          bad.push('%d ' + id + ' cut ' + Math.round(box.top) + ',' + Math.round(box.bottom) + ' of ' + viewHeight);
+                        }
+                      });
+                      const foot = document.querySelector('.rail-foot').getBoundingClientRect();
+                      if (foot.top < -1 || foot.bottom > viewHeight + 1 || foot.height < 8 || foot.right > viewWidth + 1) {
+                        bad.push('%d disclaimer cut ' + Math.round(foot.top) + ',' + Math.round(foot.bottom));
+                      }
+                      const rail = document.querySelector('.rail').getBoundingClientRect();
+                      if (rail.height + 1 < 9.5 * 16) bad.push('%d controls min-height ' + Math.round(rail.height));
+                      if (document.documentElement.scrollHeight > document.documentElement.clientHeight + 4) bad.push('%d page scrolls');
+                      const scrollers = [...document.querySelectorAll('*')].filter((el) => {
+                        const style = getComputedStyle(el);
+                        return (style.overflowY === 'auto' || style.overflowY === 'scroll') && el.scrollHeight > el.clientHeight + 2;
+                      });
+                      if (scrollers.some((el) => !el.classList.contains('drawer'))) bad.push('%d extra scroll');
+                      return bad;
+                    })()""" % (height, height, height, height, height, height)
+                ) or [])
+            await cdp.call("Emulation.clearDeviceMetricsOverride")
             problems.extend(f"browser: {line}" for line in cdp.console)
     finally:
         chrome.terminate()
@@ -812,6 +850,92 @@ async def run() -> int:
         return 1
     print("PASS main screen: every week, map dots, links, play, pause, English first, no How it works")
     return 0
+
+
+async def layout_round(cdp: Cdp) -> list[str]:
+    """Round 2: stable strip, open dossier, controls inside 768 and 1080."""
+    return await cdp.js(r"""(async () => {
+      const bad = [];
+      const doors = document.getElementById('doors');
+      if (doors) doors.remove();
+      if (document.fonts && document.fonts.ready) await document.fonts.ready;
+      document.getElementById('show-all').click();
+      const overview = document.getElementById('region-overview');
+      if (!overview || overview.hidden) bad.push('region overview hidden');
+      if (!overview.innerText.includes('Region overview')) bad.push('region overview missing');
+      const drawer = document.getElementById('drawer');
+      const map = document.getElementById('map-panel').getBoundingClientRect();
+      const dossier = drawer.getBoundingClientRect();
+      const width = window.innerWidth;
+      const mapShare = map.width / width;
+      const dossierShare = dossier.width / width;
+      if (mapShare < 0.35 || mapShare > 0.40) bad.push('map width ' + mapShare.toFixed(3));
+      if (dossierShare < 0.58 || dossierShare > 0.66) bad.push('dossier width ' + dossierShare.toFixed(3));
+      if (dossier.width < 200 || dossier.right > width + 2) bad.push('dossier not open');
+      const rail = document.querySelector('.rail');
+      if (rail.getBoundingClientRect().height + 1 < 9.5 * 16) bad.push('controls min-height ' + rail.getBoundingClientRect().height);
+      function boxes() {
+        const found = {};
+        ['region-state', 'country-FI', 'country-EE', 'country-LV', 'country-LT', 'country-PL', 'show-all', 'play', 'week-label', 'slider'].forEach((id) => {
+          const node = document.getElementById(id);
+          const box = node.getBoundingClientRect();
+          found[id] = [Math.round(box.x), Math.round(box.y), Math.round(box.width), Math.round(box.height)];
+        });
+        document.querySelectorAll('.state-word, .trend-arrow, .country-card .sign, .chip-arrow').forEach((node, index) => {
+          const box = node.getBoundingClientRect();
+          found['slot' + index] = [Math.round(box.x), Math.round(box.y), Math.round(box.width), Math.round(box.height)];
+        });
+        return found;
+      }
+      const slider = document.getElementById('slider');
+      const max = Number(slider.max);
+      const words = [];
+      for (let i = 0; i <= max; i += 1) {
+        slider.value = String(i);
+        slider.dispatchEvent(new Event('input', {bubbles: true}));
+        words.push(document.querySelector('.state-word').textContent);
+      }
+      let start = 0;
+      for (let i = 0; i + 9 <= max; i += 1) {
+        if (new Set(words.slice(i, i + 10)).size > 1) {
+          start = i;
+          break;
+        }
+      }
+      slider.value = String(start);
+      slider.dispatchEvent(new Event('input', {bubbles: true}));
+      const first = boxes();
+      const seen = new Set([words[start]]);
+      for (let step = 1; step <= 10; step += 1) {
+        slider.value = String(start + step);
+        slider.dispatchEvent(new Event('input', {bubbles: true}));
+        seen.add(words[start + step]);
+        const now = boxes();
+        Object.keys(first).forEach((key) => {
+          const left = first[key];
+          const right = now[key];
+          if (!right || left.some((value, index) => Math.abs(value - right[index]) > 1)) {
+            bad.push('moved ' + key + ' week ' + step + ' ' + left.join(',') + ' -> ' + (right ? right.join(',') : 'missing'));
+          }
+        });
+      }
+      if (seen.size < 2) bad.push('10 weeks did not change the state word');
+      function cutOff(tag) {
+        const height = window.innerHeight;
+        const viewWidth = window.innerWidth;
+        ['play', 'week-label', 'slider'].forEach((id) => {
+          const box = document.getElementById(id).getBoundingClientRect();
+          if (box.top < -1 || box.left < -1 || box.bottom > height + 1 || box.right > viewWidth + 1 || box.height < 8 || box.width < 8) {
+            bad.push(tag + ' ' + id + ' cut ' + Math.round(box.top) + ',' + Math.round(box.bottom) + ' of ' + height);
+          }
+        });
+        const foot = document.querySelector('.rail-foot').getBoundingClientRect();
+        if (foot.top < -1 || foot.bottom > height + 1 || foot.height < 8) bad.push(tag + ' disclaimer cut');
+        if (document.documentElement.scrollHeight > document.documentElement.clientHeight + 4) bad.push(tag + ' page scrolls');
+      }
+      cutOff('900');
+      return bad;
+    })()""")
 
 
 if __name__ == "__main__":
