@@ -710,8 +710,17 @@ async def run() -> int:
               for (let i = 0; i <= max; i += 1) {
                 slider.value = String(i);
                 slider.dispatchEvent(new Event('input', {bubbles: true}));
-                const lines = [...document.querySelectorAll('#inside-lines .inside-line')];
-                if (lines.length !== 5) bad.push('inside week ' + i + ' lines ' + lines.length);
+                const cards = [...document.querySelectorAll('#inside-cards .russia-card')];
+                if (cards.length !== 5) bad.push('inside cards ' + cards.length);
+                cards.forEach((card) => {
+                  const en = card.querySelector('.headline-en');
+                  const ru = card.querySelector('.headline-ru');
+                  if (ru && en && !(en.compareDocumentPosition(ru) & Node.DOCUMENT_POSITION_FOLLOWING)) bad.push('inside Russian before English');
+                });
+                const mainPanel = document.getElementById('inside-main').innerText;
+                if (!mainPanel.includes('Inside Russia informs; it does not change the tension levels.')) bad.push('inside note missing');
+                if (!mainPanel.includes('Telegram coverage: 1 January 2021 through 28 February 2022.')) bad.push('coverage missing');
+                if (/imminent|war is coming|alarming|shocking/i.test(mainPanel)) bad.push('scare wording');
                 const foreignLetters = /[ãõçñ¿¡ğşıİıіїєґјљњћђџ]/;
                 const regionWord = /finland|finnish|estonia|estonian|latvia|latvian|lithuania|lithuanian|poland|polish|baltic|belarus|kaliningrad|ukraine|ukrainian|nato|border|military|troop|army|exercise|drill|sanction|deploy|финлянд|эстон|латви|литв|польш|прибалт|балтий|беларус|белорус|калининград|украин|нато|границ|погранич|военн|войск|учен|санкц/i;
                 const ruSpeaker = /путин|кремл|песков|лавров|захаров|шоигу|миноборон|госдум|совфед|совет федерации|сенатор|putin|kremlin|peskov|lavrov|zakharova|shoigu|state duma|federation council/i;
@@ -729,16 +738,7 @@ async def run() -> int:
                 document.querySelectorAll('#officials-west .story').forEach((story) => {
                   if (!westSpeaker.test(story.innerText)) bad.push('week ' + i + ' Western column speaker');
                 });
-                lines.forEach((line) => {
-                  const en = line.querySelector('.headline-en');
-                  const ru = line.querySelector('.headline-ru');
-                  if (!en || !en.textContent.trim()) bad.push('inside week ' + i + ' empty');
-                  if (ru && en && !(en.compareDocumentPosition(ru) & Node.DOCUMENT_POSITION_FOLLOWING)) bad.push('inside Russian before English');
-                });
-                const panel = document.getElementById('inside-russia').innerText;
-                if (!panel.includes('does not affect the levels')) bad.push('inside note missing');
-                if (!panel.includes('No exchange was used')) bad.push('inside sources missing');
-                if (!panel.includes('Counts measure news volume, not military preparation.')) bad.push('volume note missing');
+                if (!mainPanel.includes('Counts measure news volume, not military preparation.')) bad.push('volume note missing');
               }
               document.getElementById('show-all').click();
               if (document.querySelector('.picked')) bad.push('focus remained after show all');

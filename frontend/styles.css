@@ -962,4 +962,16 @@ body.briefing #region-overview-line { margin: 0 0 12px; }
   body.briefing #map { height: 16rem; overflow: hidden; }
   body.briefing .drawer { display: block; }
 }
+body.briefing #inside-main h2 { margin: 0 0 8px; font-size: 28px; }
+body.briefing .russia-card {
+  border: 1px solid var(--line);
+  padding: 12px;
+  margin: 0 0 12px;
+  min-height: 7.5rem;
+  overflow: visible;
+}
+body.briefing .russia-card h3 { margin: 0 0 6px; font-size: 18px; }
+body.briefing .russia-line { margin: 0 0 8px; }
+body.briefing #inside-russia { display: none; }
+
 

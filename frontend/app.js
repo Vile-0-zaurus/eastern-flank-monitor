@@ -789,6 +789,49 @@ function openWhy(code, focus) {
   renderOfficials();
 }
 
+function renderInsideMain() {
+  const host = document.getElementById("inside-cards");
+  if (!host || !state.insideMain) return;
+  const note = document.getElementById("inside-main-note");
+  const coverage = document.getElementById("inside-coverage");
+  const volume = document.getElementById("inside-volume");
+  if (note) note.textContent = state.insideMain.note || "";
+  if (coverage) coverage.textContent = state.insideMain.coverage || "";
+  if (volume) volume.textContent = state.insideMain.volume_note || "";
+  host.innerHTML = "";
+  const week = (state.insideMain.weeks || {})[current().week];
+  const cards = week ? week.cards : [];
+  cards.forEach((item) => {
+    const article = document.createElement("article");
+    article.className = "russia-card";
+    const title = document.createElement("h3");
+    title.textContent = item.title;
+    const line = document.createElement("p");
+    line.className = "russia-line";
+    line.textContent = item.line + (item.arrow ? " " + item.arrow : "");
+    article.append(title, line);
+    if (item.english) {
+      const english = document.createElement("p");
+      english.className = "headline-en";
+      english.textContent = item.english;
+      article.append(english);
+    }
+    if (item.russian) {
+      const russian = document.createElement("p");
+      russian.className = "headline-ru";
+      russian.textContent = item.russian;
+      article.append(russian);
+    }
+    if (item.url) {
+      const link = document.createElement("a");
+      link.href = item.url;
+      link.textContent = "Source";
+      article.append(link);
+    }
+    host.append(article);
+  });
+}
+
 function renderWeek() {
   const rows = flankWeeks();
   const row = rows[state.index];
@@ -805,6 +848,7 @@ function renderWeek() {
   }
   renderOfficials();
   renderInside();
+  renderInsideMain();
   renderCountryNews();
   syncDrawer();
 }
@@ -920,7 +964,7 @@ function togglePlayback() {
 
 async function main() {
   setupDoors();
-  const [text, csv, events, map, news, official, countryHeadlines, officials, inside] = await Promise.all([
+  const [text, csv, events, map, news, official, countryHeadlines, officials, inside, insideMain] = await Promise.all([
     fetch("i18n/en.json").then((response) => response.json()),
     fetch("../docs/reports/2026-10-12-backtest-weeks.csv").then((response) => response.text()),
     fetch("events.json").then((response) => response.json()),
@@ -930,6 +974,7 @@ async function main() {
     fetch("country-headlines.json").then((response) => response.json()),
     fetch("officials.json").then((response) => response.json()),
     fetch("inside-russia.json").then((response) => response.json()),
+    fetch("inside-main.json").then((response) => response.json()),
   ]);
   state.text = text;
   state.rows = parseCsv(csv).filter((row) => row.week >= START);
@@ -939,6 +984,7 @@ async function main() {
   state.official = official;
   state.officials = officials;
   state.inside = inside;
+  state.insideMain = insideMain;
   state.countryHeadlines = countryHeadlines;
   document.title = text.title;
   document.getElementById("title").textContent = text.title;
