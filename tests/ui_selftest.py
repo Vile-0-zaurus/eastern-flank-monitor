@@ -704,6 +704,23 @@ async def run() -> int:
               });
               const note = document.getElementById('officials') ? document.getElementById('officials').innerText : '';
               if (!note.includes('Russian officials: full coverage from Russian state media. Western officials: selected weeks.')) bad.push('officials note missing');
+              const slider = document.getElementById('slider');
+              const max = Number(slider.max);
+              for (let i = 0; i <= max; i += 1) {
+                slider.value = String(i);
+                slider.dispatchEvent(new Event('input', {bubbles: true}));
+                const lines = [...document.querySelectorAll('#inside-lines .inside-line')];
+                if (lines.length !== 5) bad.push('inside week ' + i + ' lines ' + lines.length);
+                lines.forEach((line) => {
+                  const en = line.querySelector('.headline-en');
+                  const ru = line.querySelector('.headline-ru');
+                  if (!en || !en.textContent.trim()) bad.push('inside week ' + i + ' empty');
+                  if (ru && en && !(en.compareDocumentPosition(ru) & Node.DOCUMENT_POSITION_FOLLOWING)) bad.push('inside Russian before English');
+                });
+                const panel = document.getElementById('inside-russia').innerText;
+                if (!panel.includes('does not affect the levels')) bad.push('inside note missing');
+                if (!panel.includes('No exchange was used')) bad.push('inside sources missing');
+              }
               return bad;
             })()""")
             problems.extend(order or [])

@@ -14,7 +14,7 @@
   {
     "week": "2021-01-04",
     "title": "Бальбек прокомментировал ожидания разведкой Украины \"вторжения России\"",
-    "english": null,
+    "english": "Balbek commented on Ukrainian intelligence expectations of a Russian invasion",
     "outlet": "RIA Novosti",
     "date": "2021-01-04",
     "url": "https://ria.ru/20210104/krym-1591955929.html",
@@ -26,7 +26,7 @@
   {
     "week": "2021-01-04",
     "title": "В Литве присутствие военных США назвали важным инструментом сдерживания",
-    "english": null,
+    "english": "US military presence in Lithuania was called an important deterrence tool",
     "outlet": "Regnum",
     "date": "2021-01-04",
     "url": "https://regnum.ru/news/polit/3156936.html",
@@ -38,7 +38,7 @@
   {
     "week": "2021-01-04",
     "title": "В Литве сообщили, что ВВС НАТО за декабрь семь раз сопровождали самолеты РФ над Балтикой",
-    "english": null,
+    "english": "Lithuania said NATO air forces escorted Russian aircraft over the Baltic seven times in December",
     "outlet": "TASS",
     "date": "2021-01-04",
     "url": "https://tass.ru/mezhdunarodnaya-panorama/10403617",
@@ -50,7 +50,7 @@
   {
     "week": "2021-01-04",
     "title": "В Польше гражданин Украины ранил соотечественника и напал на полицейских",
-    "english": null,
+    "english": "In Poland a Ukrainian citizen wounded a compatriot and attacked police officers",
     "outlet": "Regnum",
     "date": "2021-01-04",
     "url": "https://regnum.ru/news/accidents/3156604.html",
@@ -63,10 +63,34 @@
   {
     "week": "2021-01-04",
     "title": "В Польше предотвратили теракт против мусульман",
-    "english": null,
+    "english": "A terrorist attack against Muslims was prevented in Poland",
     "outlet": "RIA Novosti",
     "date": "2021-01-04",
     "url": "https://ria.ru/20210104/terakt-1591954371.html",
+    "hostile": false,
+    "countries": [
+      "PL"
+    ]
+  },
+  {
+    "week": "2021-01-04",
+    "title": "В Польше предотвратили теракт против мусульман с помощью химикатов",
+    "english": null,
+    "outlet": "Komsomolskaya Pravda",
+    "date": "2021-01-04",
+    "url": "https://pda.kp.ru/online/news/4141211/",
+    "hostile": false,
+    "countries": [
+      "PL"
+    ]
+  },
+  {
+    "week": "2021-01-04",
+    "title": "В Польше пресекли подготовку теракта против мусульман",
+    "english": null,
+    "outlet": "Regnum",
+    "date": "2021-01-04",
+    "url": "https://regnum.ru/news/accidents/3156903.html",
     "hostile": false,
     "countries": [
       "PL"
@@ -94,6 +118,42 @@
     "hostile": false,
     "countries": [
       "EE"
+    ]
+  },
+  {
+    "week": "2021-01-04",
+    "title": "Власти Литвы заявили, что присутствие военных США является важным инструментом сдерживания",
+    "english": null,
+    "outlet": "TASS",
+    "date": "2021-01-04",
+    "url": "https://tass.ru/mezhdunarodnaya-panorama/10405207",
+    "hostile": false,
+    "countries": [
+      "LT"
+    ]
+  },
+  {
+    "week": "2021-01-04",
+    "title": "Депутат рады назвал условия для цивилизованного изменения курса Украины",
+    "english": null,
+    "outlet": "Izvestia",
+    "date": "2021-01-04",
+    "url": "https://iz.ru/1108222/2021-01-04/deputat-rady-nazval-usloviia-dlia-tcivilizovannogo-izmeneniia-kursa-ukrainy",
+    "hostile": false,
+    "countries": [
+      "UA"
+    ]
+  },
+  {
+    "week": "2021-01-04",
+    "title": "Медики на Украине назвали «враньём» заявление Ляшко о российской вакцине",
+    "english": null,
+    "outlet": "Regnum",
+    "date": "2021-01-04",
+    "url": "https://regnum.ru/news/polit/3156587.html",
+    "hostile": false,
+    "countries": [
+      "UA"
     ]
   },
   {
@@ -157,7 +217,7 @@
   {
     "week": "2021-01-11",
     "title": "Finnair возобновляет полеты из Финляндии в Санкт-Петербург",
-    "english": null,
+    "english": "Finnair resumes flights from Finland to St Petersburg",
     "outlet": "pda.spb.kp.ru",
     "date": "2021-01-11",
     "url": "https://pda.spb.kp.ru/daily/27224/4350466/",
@@ -169,7 +229,7 @@
   {
     "week": "2021-01-11",
     "title": "NI объяснил, почему Запад проигрывает Украину России",
-    "english": null,
+    "english": "NI explained why the West is losing Ukraine to Russia",
     "outlet": "RIA Novosti",
     "date": "2021-01-11",
     "url": "https://ria.ru/20210111/ukraina-1592647882.html",
@@ -181,7 +241,7 @@
   {
     "week": "2021-01-11",
     "title": "Бывший премьер Украины призвал предоставить Донбассу «широчайшую автономию»",
-    "english": null,
+    "english": "A former Ukrainian prime minister called for the widest autonomy for Donbas",
     "outlet": "Lenta",
     "date": "2021-01-11",
     "url": "https://lenta.ru/news/2021/01/11/donbass_azarov/",
@@ -193,7 +253,7 @@
   {
     "week": "2021-01-11",
     "title": "В Варшаве совершено нападение на гражданина Украины",
-    "english": null,
+    "english": "An attack on a Ukrainian citizen was committed in Warsaw",
     "outlet": "Regnum",
     "date": "2021-01-11",
     "url": "https://regnum.ru/news/accidents/3159315.html",
@@ -205,13 +265,75 @@
   {
     "week": "2021-01-11",
     "title": "В Литве дали Грузии новое официальное название",
-    "english": null,
+    "english": "Lithuania gave Georgia a new official name",
     "outlet": "Regnum",
     "date": "2021-01-11",
     "url": "https://regnum.ru/news/polit/3159863.html",
     "hostile": false,
     "countries": [
       "LT"
+    ]
+  },
+  {
+    "week": "2021-01-11",
+    "title": "В Литве дали новое название Грузии",
+    "english": null,
+    "outlet": "RIA Novosti",
+    "date": "2021-01-11",
+    "url": "https://ria.ru/20210111/litva-1592570329.html",
+    "hostile": false,
+    "countries": [
+      "LT"
+    ]
+  },
+  {
+    "week": "2021-01-11",
+    "title": "В Литве заявили о готовности поменять название Белоруссии",
+    "english": null,
+    "outlet": "RT",
+    "date": "2021-01-11",
+    "url": "https://russian.rt.com/ussr/news/821307-litva-nazvanie-belorussii",
+    "hostile": false,
+    "countries": [
+      "LT",
+      "BY"
+    ]
+  },
+  {
+    "week": "2021-01-11",
+    "title": "В Литве пригрозили переименовать Белоруссию",
+    "english": null,
+    "outlet": "Komsomolskaya Pravda",
+    "date": "2021-01-11",
+    "url": "https://pda.kp.ru/online/news/4146471/",
+    "hostile": false,
+    "countries": [
+      "LT",
+      "BY"
+    ]
+  },
+  {
+    "week": "2021-01-11",
+    "title": "В Польше мужчина подозревается в убийстве сына в магазине",
+    "english": null,
+    "outlet": "Regnum",
+    "date": "2021-01-11",
+    "url": "https://regnum.ru/news/accidents/3159886.html",
+    "hostile": false,
+    "countries": [
+      "PL"
+    ]
+  },
+  {
+    "week": "2021-01-11",
+    "title": "В Польше назвали причину высокой смертности от COVID-19 по стране",
+    "english": null,
+    "outlet": "Regnum",
+    "date": "2021-01-11",
+    "url": "https://regnum.ru/news/society/3159946.html",
+    "hostile": false,
+    "countries": [
+      "PL"
     ]
   },
   {
@@ -313,7 +435,7 @@
   {
     "week": "2021-01-18",
     "title": "\"Только контрабанда\". Почему Украина пока не получила вакцину от COVID",
-    "english": null,
+    "english": "Smuggling only. Why Ukraine has not yet received a COVID vaccine",
     "outlet": "RIA Novosti",
     "date": "2021-01-18",
     "url": "https://ria.ru/20210118/ukraina-1593271830.html",
@@ -337,7 +459,7 @@
   {
     "week": "2021-01-18",
     "title": "Pfizer поставила в Польшу вдвое меньше вакцин, чем планировалось",
-    "english": null,
+    "english": "Pfizer delivered half as many vaccines to Poland as planned",
     "outlet": "RIA Novosti",
     "date": "2021-01-18",
     "url": "https://ria.ru/20210118/vaktsina-1593473418.html",
@@ -361,7 +483,7 @@
   {
     "week": "2021-01-18",
     "title": "«Не готов работать в море»: почему в Турции затонул украинский сухогруз",
-    "english": null,
+    "english": "Not ready to work at sea: why a Ukrainian cargo ship sank in Turkey",
     "outlet": "Zvezda",
     "date": "2021-01-18",
     "url": "https://tvzvezda.ru/news/vstrane_i_mire/content/202111847-oHlgE.html",
@@ -385,10 +507,58 @@
   {
     "week": "2021-01-18",
     "title": "В Калининграде возобновило работу генконсульство Польши",
-    "english": null,
+    "english": "Poland's consulate general resumed work in Kaliningrad",
     "outlet": "TASS",
     "date": "2021-01-18",
     "url": "https://tass.ru/obschestvo/10488741",
+    "hostile": false,
+    "countries": [
+      "PL"
+    ]
+  },
+  {
+    "week": "2021-01-18",
+    "title": "В Латвии заявили о способности провести чемпионат мира по хоккею в 2021 году",
+    "english": null,
+    "outlet": "Izvestia",
+    "date": "2021-01-18",
+    "url": "https://iz.ru/1113138/2021-01-18/v-latvii-zaiavili-o-sposobnosti-provesti-chempionat-mira-po-khokkeiu-v-2021-godu",
+    "hostile": false,
+    "countries": [
+      "LV"
+    ]
+  },
+  {
+    "week": "2021-01-18",
+    "title": "В Литве за выходные замерзли насмерть 8 человек",
+    "english": null,
+    "outlet": "Komsomolskaya Pravda",
+    "date": "2021-01-18",
+    "url": "https://pda.kaliningrad.kp.ru/online/news/4154031/",
+    "hostile": false,
+    "countries": [
+      "LT"
+    ]
+  },
+  {
+    "week": "2021-01-18",
+    "title": "В МИД Польши прокомментировали выход России из Договора по открытому небу",
+    "english": null,
+    "outlet": "RIA Novosti",
+    "date": "2021-01-18",
+    "url": "https://ria.ru/20210118/dogovor-1593543874.html",
+    "hostile": false,
+    "countries": [
+      "PL"
+    ]
+  },
+  {
+    "week": "2021-01-18",
+    "title": "В Польше подросток угнал автомобиль ради свидания",
+    "english": null,
+    "outlet": "Regnum",
+    "date": "2021-01-18",
+    "url": "https://regnum.ru/news/accidents/3165892.html",
     "hostile": false,
     "countries": [
       "PL"
@@ -453,7 +623,7 @@
   {
     "week": "2021-01-25",
     "title": "Алене Апиной запретили въезд на Украину",
-    "english": null,
+    "english": "Alena Apina was banned from entering Ukraine",
     "outlet": "Argumenty i Fakty",
     "date": "2021-01-25",
     "url": "https://aif.ru/culture/person/alene_apinoy_zapretili_vezd_na_ukrainu",
@@ -465,7 +635,7 @@
   {
     "week": "2021-01-25",
     "title": "Анджей Дуда поставил правительству Польши «4+» за борьбу с пандемией",
-    "english": null,
+    "english": "Andrzej Duda gave the Polish government a 4+ for its pandemic response",
     "outlet": "Regnum",
     "date": "2021-01-25",
     "url": "https://regnum.ru/news/polit/3171819.html",
@@ -489,7 +659,7 @@
   {
     "week": "2021-01-25",
     "title": "В Крыму назвали пресс-секретаря украинского МИДа воинствующим неучем",
-    "english": null,
+    "english": "In Crimea the spokesperson of Ukraine's foreign ministry was called a militant ignoramus",
     "outlet": "RIA Novosti",
     "date": "2021-01-25",
     "url": "https://ria.ru/20210125/krym-1594479841.html",
@@ -501,7 +671,7 @@
   {
     "week": "2021-01-25",
     "title": "В Польше 60% жителей не знают лидера оппозиции – опрос",
-    "english": null,
+    "english": "In Poland 60 percent of residents do not know the opposition leader, a poll says",
     "outlet": "Regnum",
     "date": "2021-01-25",
     "url": "https://regnum.ru/news/society/3172277.html",
@@ -513,7 +683,7 @@
   {
     "week": "2021-01-25",
     "title": "В Польше мужчина скончался после вакцинации от COVID-19",
-    "english": null,
+    "english": "A man in Poland died after a COVID-19 vaccination",
     "outlet": "Regnum",
     "date": "2021-01-25",
     "url": "https://regnum.ru/news/society/3172471.html",
@@ -525,10 +695,82 @@
   {
     "week": "2021-01-25",
     "title": "В Польше на свадьбе убили мужчину",
-    "english": null,
+    "english": "A man was killed at a wedding in Poland",
     "outlet": "Regnum",
     "date": "2021-01-25",
     "url": "https://regnum.ru/news/accidents/3172396.html",
+    "hostile": false,
+    "countries": [
+      "PL"
+    ]
+  },
+  {
+    "week": "2021-01-25",
+    "title": "В Польше намерены ввести в оборот новую банкноту",
+    "english": null,
+    "outlet": "Regnum",
+    "date": "2021-01-25",
+    "url": "https://regnum.ru/news/economy/3171893.html",
+    "hostile": false,
+    "countries": [
+      "PL"
+    ]
+  },
+  {
+    "week": "2021-01-25",
+    "title": "В Польше началась вакцинация от коронавируса людей старше 70 лет",
+    "english": null,
+    "outlet": "RT",
+    "date": "2021-01-25",
+    "url": "https://russian.rt.com/world/news/825548-polsha-vakcinaciya-starshe-70-let",
+    "hostile": false,
+    "countries": [
+      "PL"
+    ]
+  },
+  {
+    "week": "2021-01-25",
+    "title": "В Польше призвали оппозицию объединиться в два блока",
+    "english": null,
+    "outlet": "Regnum",
+    "date": "2021-01-25",
+    "url": "https://regnum.ru/news/polit/3172479.html",
+    "hostile": false,
+    "countries": [
+      "PL"
+    ]
+  },
+  {
+    "week": "2021-01-25",
+    "title": "В нацбанке Украины назвали количество купюр и монет в экономике страны",
+    "english": null,
+    "outlet": "Regnum",
+    "date": "2021-01-25",
+    "url": "https://regnum.ru/news/economy/3172346.html",
+    "hostile": false,
+    "countries": [
+      "UA"
+    ]
+  },
+  {
+    "week": "2021-01-25",
+    "title": "В сейме Латвии раскритиковали политиков за критику России по Навальному",
+    "english": null,
+    "outlet": "RIA Novosti",
+    "date": "2021-01-25",
+    "url": "https://ria.ru/20210125/uprek-1594509978.html",
+    "hostile": false,
+    "countries": [
+      "LV"
+    ]
+  },
+  {
+    "week": "2021-01-25",
+    "title": "Ведущие партии Польши теряют поддержку — опрос",
+    "english": null,
+    "outlet": "Regnum",
+    "date": "2021-01-25",
+    "url": "https://regnum.ru/news/polit/3172404.html",
     "hostile": false,
     "countries": [
       "PL"
@@ -607,7 +849,7 @@
   {
     "week": "2021-02-01",
     "title": "\"Начнем голодать\". РЕН ТВ отреагировал на прекращение вещания в Латвии",
-    "english": null,
+    "english": "We will start to starve. REN TV reacted to the end of its broadcasts in Latvia",
     "outlet": "RIA Novosti",
     "date": "2021-02-01",
     "url": "https://ria.ru/20210201/veschanie-1595495232.html",
@@ -631,7 +873,7 @@
   {
     "week": "2021-02-01",
     "title": "Белорусские военные участвуют в миссиях в Ливане и на Украине",
-    "english": null,
+    "english": "Belarusian troops take part in missions in Lebanon and Ukraine",
     "outlet": "Regnum",
     "date": "2021-02-01",
     "url": "https://regnum.ru/news/polit/3179162.html",
@@ -644,7 +886,7 @@
   {
     "week": "2021-02-01",
     "title": "Более 70% украинцев заявили об ухудшении жизни с каждым новым президентом",
-    "english": null,
+    "english": "More than 70 percent of Ukrainians said life gets worse with each new president",
     "outlet": "Izvestia",
     "date": "2021-02-01",
     "url": "https://iz.ru/1119276/2021-02-01/bolee-70-ukraintcev-zaiavili-ob-ukhudshenii-zhizni-s-kazhdym-novym-prezidentom",
@@ -656,7 +898,7 @@
   {
     "week": "2021-02-01",
     "title": "Бывший президент Польши стал искать работу из-за коронавируса",
-    "english": null,
+    "english": "A former Polish president started looking for work because of the coronavirus",
     "outlet": "Lenta",
     "date": "2021-02-01",
     "url": "https://lenta.ru/news/2021/02/01/pensioner/",
@@ -668,13 +910,73 @@
   {
     "week": "2021-02-01",
     "title": "В Латвии прекратится вещание трех российских каналов",
-    "english": null,
+    "english": "Three Russian channels will stop broadcasting in Latvia",
     "outlet": "Argumenty i Fakty",
     "date": "2021-02-01",
     "url": "https://aif.ru/society/v_latvii_prekratitsya_veshchanie_treh_rossiyskih_kanalov",
     "hostile": false,
     "countries": [
       "LV"
+    ]
+  },
+  {
+    "week": "2021-02-01",
+    "title": "В Латвии прекратят ретрансляцию пяти российских телеканалов",
+    "english": null,
+    "outlet": "Izvestia",
+    "date": "2021-02-01",
+    "url": "https://iz.ru/1118979/2021-02-01/v-latvii-prekratiat-retransliatciiu-piati-rossiiskikh-telekanalov",
+    "hostile": false,
+    "countries": [
+      "LV"
+    ]
+  },
+  {
+    "week": "2021-02-01",
+    "title": "В Латвии призвали к бойкоту отключившего российские телеканалы оператора",
+    "english": null,
+    "outlet": "RIA Novosti",
+    "date": "2021-02-01",
+    "url": "https://ria.ru/20210202/boykot-1595597926.html",
+    "hostile": false,
+    "countries": [
+      "LV"
+    ]
+  },
+  {
+    "week": "2021-02-01",
+    "title": "В Литве выявили первый случай заражения штаммом коронавируса из Британии",
+    "english": null,
+    "outlet": "Regnum",
+    "date": "2021-02-01",
+    "url": "https://regnum.ru/news/society/3179206.html",
+    "hostile": false,
+    "countries": [
+      "LT"
+    ]
+  },
+  {
+    "week": "2021-02-01",
+    "title": "В ОП призвали к жесткому ответу на блокировку российских каналов в Латвии",
+    "english": null,
+    "outlet": "RIA Novosti",
+    "date": "2021-02-01",
+    "url": "https://ria.ru/20210201/latviya-1595538340.html",
+    "hostile": false,
+    "countries": [
+      "LV"
+    ]
+  },
+  {
+    "week": "2021-02-01",
+    "title": "В Польше за сутки выявили более 2,5 тыс. случаев заражения коронавирусом",
+    "english": null,
+    "outlet": "Regnum",
+    "date": "2021-02-01",
+    "url": "https://regnum.ru/news/society/3178958.html",
+    "hostile": false,
+    "countries": [
+      "PL"
     ]
   },
   {
@@ -750,7 +1052,7 @@
   {
     "week": "2021-02-08",
     "title": "25% жителей Польши опасаются хакерских атак – опрос",
-    "english": null,
+    "english": "25 percent of Poland's residents fear hacker attacks, a poll says",
     "outlet": "Regnum",
     "date": "2021-02-08",
     "url": "https://regnum.ru/news/society/3184941.html",
@@ -786,7 +1088,7 @@
   {
     "week": "2021-02-08",
     "title": "Акрон – Видзев (Польша) 8 февраля 2021: прямая видео-трансляция контрольного матча",
-    "english": null,
+    "english": "Akron versus Widzew of Poland on 8 February 2021: live video of a friendly match",
     "outlet": "pda.samara.kp.ru",
     "date": "2021-02-08",
     "url": "https://pda.samara.kp.ru/daily/27236/4364229/",
@@ -798,7 +1100,7 @@
   {
     "week": "2021-02-08",
     "title": "В ВГТРК прокомментировали запрет \"России-РТР\" в Латвии - РИА Новости, 08.02.2021",
-    "english": null,
+    "english": "VGTRK commented on the ban of Rossiya-RTR in Latvia",
     "outlet": "RIA Novosti",
     "date": "2021-02-08",
     "url": "https://ria.ru/20210208/zapret-1596530872.html",
@@ -810,13 +1112,61 @@
   {
     "week": "2021-02-08",
     "title": "В Кремле назвали Украину частью русского мира",
-    "english": null,
+    "english": "The Kremlin called Ukraine part of the Russian world",
     "outlet": "Rossiyskaya Gazeta",
     "date": "2021-02-08",
     "url": "https://rg.ru/2021/02/08/v-kremle-nazvali-ukrainu-chastiu-russkogo-mira.html",
     "hostile": false,
     "countries": [
       "UA"
+    ]
+  },
+  {
+    "week": "2021-02-08",
+    "title": "В Латвии запретили вещание телеканала \"Россия-РТР\"",
+    "english": null,
+    "outlet": "TASS",
+    "date": "2021-02-08",
+    "url": "https://tass.ru/mezhdunarodnaya-panorama/10647181",
+    "hostile": false,
+    "countries": [
+      "LV"
+    ]
+  },
+  {
+    "week": "2021-02-08",
+    "title": "В Латвии на год запретили ретрансляцию телеканала «Россия-РТР»",
+    "english": null,
+    "outlet": "Argumenty i Fakty",
+    "date": "2021-02-08",
+    "url": "https://aif.ru/society/media/v_latvii_na_god_zapretili_retranslyaciyu_telekanala_rossiya-rtr",
+    "hostile": false,
+    "countries": [
+      "LV"
+    ]
+  },
+  {
+    "week": "2021-02-08",
+    "title": "В Литве из-за пандемии усилят контроль за приезжающими в страну",
+    "english": null,
+    "outlet": "Regnum",
+    "date": "2021-02-08",
+    "url": "https://regnum.ru/news/society/3184710.html",
+    "hostile": false,
+    "countries": [
+      "LT"
+    ]
+  },
+  {
+    "week": "2021-02-08",
+    "title": "В МИД РФ отреагировали на высылку российских дипломатов из ФРГ, Польши и Швеции",
+    "english": null,
+    "outlet": "Zvezda",
+    "date": "2021-02-08",
+    "url": "https://tvzvezda.ru/news/vstrane_i_mire/content/2021281935-lUbLw.html",
+    "hostile": false,
+    "countries": [
+      "PL"
     ]
   },
   {
@@ -906,7 +1256,7 @@
   {
     "week": "2021-02-15",
     "title": "В Польше выявили восемь случаев заражения «британским» штаммом SARS-CoV-2",
-    "english": null,
+    "english": "Eight cases of the British SARS-CoV-2 strain were found in Poland",
     "outlet": "Regnum",
     "date": "2021-02-15",
     "url": "https://regnum.ru/news/society/3191442.html",
@@ -918,7 +1268,7 @@
   {
     "week": "2021-02-15",
     "title": "В Польше грузины напали с ножами на украинцев",
-    "english": null,
+    "english": "Georgians attacked Ukrainians with knives in Poland",
     "outlet": "RIA Novosti",
     "date": "2021-02-15",
     "url": "https://ria.ru/20210215/napadenie-1597572972.html",
@@ -931,7 +1281,7 @@
   {
     "week": "2021-02-15",
     "title": "В Польше грузины с ножами атаковали украинцев и оставили их истекать кровью",
-    "english": null,
+    "english": "Georgians with knives attacked Ukrainians in Poland and left them bleeding",
     "outlet": "Lenta",
     "date": "2021-02-15",
     "url": "https://lenta.ru/news/2021/02/15/krovushka/",
@@ -944,7 +1294,7 @@
   {
     "week": "2021-02-15",
     "title": "В Польше сообщили о расколе в партии «Гражданская платформа»",
-    "english": null,
+    "english": "A split was reported in Poland's Civic Platform party",
     "outlet": "Regnum",
     "date": "2021-02-15",
     "url": "https://regnum.ru/news/polit/3190885.html",
@@ -956,7 +1306,7 @@
   {
     "week": "2021-02-15",
     "title": "В Польше трое граждан Украины пострадали во время массовой драки",
-    "english": null,
+    "english": "Three Ukrainian citizens were hurt in a mass fight in Poland",
     "outlet": "Regnum",
     "date": "2021-02-15",
     "url": "https://regnum.ru/news/accidents/3191327.html",
@@ -979,10 +1329,83 @@
   {
     "week": "2021-02-15",
     "title": "В Финляндии отметили роль России в реализации Минских соглашений",
-    "english": null,
+    "english": "Finland noted Russia's role in implementing the Minsk agreements",
     "outlet": "RT",
     "date": "2021-02-15",
     "url": "https://russian.rt.com/world/news/832584-finlyandiya-rossiya-minskie-soglasheniya",
+    "hostile": false,
+    "countries": [
+      "FI"
+    ]
+  },
+  {
+    "week": "2021-02-15",
+    "title": "Генпрокуратура Белоруссии просит Латвию выдать Валерия Цепкало",
+    "english": null,
+    "outlet": "Argumenty i Fakty",
+    "date": "2021-02-15",
+    "url": "https://aif.ru/politics/genprokuratura_belorussii_prosit_latviyu_vydat_valeriya_cepkalo",
+    "hostile": false,
+    "countries": [
+      "LV",
+      "BY"
+    ]
+  },
+  {
+    "week": "2021-02-15",
+    "title": "Глава МИД Финляндии губернатору Ленобласти: надежда на скорое открытие границ есть",
+    "english": null,
+    "outlet": "pda.spb.kp.ru",
+    "date": "2021-02-15",
+    "url": "https://pda.spb.kp.ru/online/news/4189090/",
+    "hostile": false,
+    "countries": [
+      "FI"
+    ]
+  },
+  {
+    "week": "2021-02-15",
+    "title": "Глава МИД Финляндии заявил, что Россия играет важную роль в реализации минских соглашений",
+    "english": null,
+    "outlet": "TASS",
+    "date": "2021-02-15",
+    "url": "https://tass.ru/mezhdunarodnaya-panorama/10702259",
+    "hostile": false,
+    "countries": [
+      "FI"
+    ]
+  },
+  {
+    "week": "2021-02-15",
+    "title": "Глава МИД Финляндии намерен обсудить с Лавровым ситуацию вокруг Навального",
+    "english": null,
+    "outlet": "TASS",
+    "date": "2021-02-15",
+    "url": "https://tass.ru/mezhdunarodnaya-panorama/10701215",
+    "hostile": false,
+    "countries": [
+      "FI"
+    ]
+  },
+  {
+    "week": "2021-02-15",
+    "title": "Глава МИД Финляндии отметил важную роль РФ в реализации Минских соглашений",
+    "english": null,
+    "outlet": "Regnum",
+    "date": "2021-02-15",
+    "url": "https://regnum.ru/news/polit/3191337.html",
+    "hostile": false,
+    "countries": [
+      "FI"
+    ]
+  },
+  {
+    "week": "2021-02-15",
+    "title": "Глава МИД Финляндии посетил Петербург и выразил надежду на открытие границ",
+    "english": null,
+    "outlet": "pda.spb.kp.ru",
+    "date": "2021-02-15",
+    "url": "https://pda.spb.kp.ru/online/news/4189202/",
     "hostile": false,
     "countries": [
       "FI"
@@ -1040,7 +1463,7 @@
   {
     "week": "2021-02-22",
     "title": "«Давно предупреждали»: почему Украина и Польша призвали Байдена остановить «Северный поток — 2»",
-    "english": null,
+    "english": "They warned long ago: why Ukraine and Poland urged Biden to stop Nord Stream 2",
     "outlet": "RT",
     "date": "2021-02-22",
     "url": "https://russian.rt.com/world/article/835304-ukraina-polsha-severnyi-potok-baiden",
@@ -1053,7 +1476,7 @@
   {
     "week": "2021-02-22",
     "title": "В Госдуме раскритиковали обращение Польши и Украины к Байдену",
-    "english": null,
+    "english": "The State Duma criticized the appeal by Poland and Ukraine to Biden",
     "outlet": "RT",
     "date": "2021-02-22",
     "url": "https://russian.rt.com/world/news/835249-gosduma-polsha-ukraina-obraschenie",
@@ -1066,7 +1489,7 @@
   {
     "week": "2021-02-22",
     "title": "В РФ оценили призыв Польши и Украины остановить «Северный поток",
-    "english": null,
+    "english": "Russia assessed the call by Poland and Ukraine to stop Nord Stream",
     "outlet": "Zvezda",
     "date": "2021-02-22",
     "url": "https://tvzvezda.ru/news/vstrane_i_mire/content/20212221628-ZqNDi.html",
@@ -1079,7 +1502,7 @@
   {
     "week": "2021-02-22",
     "title": "В России оценили призыв Польши и Украины остановить \"Северный поток — 2\"",
-    "english": null,
+    "english": "Russia assessed the call by Poland and Ukraine to stop Nord Stream 2",
     "outlet": "RIA Novosti",
     "date": "2021-02-22",
     "url": "https://ria.ru/20210222/potok-1598572216.html",
@@ -1092,13 +1515,76 @@
   {
     "week": "2021-02-22",
     "title": "В России раскритиковали обращение Польши и Украины к Байдену",
-    "english": null,
+    "english": "Russia criticized the appeal by Poland and Ukraine to Biden",
     "outlet": "Lenta",
     "date": "2021-02-22",
     "url": "https://lenta.ru/news/2021/02/22/kritika/",
     "hostile": false,
     "countries": [
       "PL",
+      "UA"
+    ]
+  },
+  {
+    "week": "2021-02-22",
+    "title": "В Совфеде прокомментировали обращение Польши и Украины к Байдену",
+    "english": null,
+    "outlet": "RT",
+    "date": "2021-02-22",
+    "url": "https://russian.rt.com/world/news/835236-sovfed-ukraina-polsha-severnyi-potok",
+    "hostile": false,
+    "countries": [
+      "PL",
+      "UA"
+    ]
+  },
+  {
+    "week": "2021-02-22",
+    "title": "В сети отреагировали на обращение Польши и Украины к Байдену по СП-2",
+    "english": null,
+    "outlet": "Regnum",
+    "date": "2021-02-22",
+    "url": "https://regnum.ru/news/3198005.html",
+    "hostile": false,
+    "countries": [
+      "PL",
+      "UA"
+    ]
+  },
+  {
+    "week": "2021-02-22",
+    "title": "Вице-премьер Украины попал на фото с Кадыровым: подробности и комментарии",
+    "english": null,
+    "outlet": "Regnum",
+    "date": "2021-02-22",
+    "url": "https://regnum.ru/news/polit/3197857.html",
+    "hostile": false,
+    "countries": [
+      "UA"
+    ]
+  },
+  {
+    "week": "2021-02-22",
+    "title": "Главы МИД Польши и Украины привали Байдена остановить «Северный поток — 2»",
+    "english": null,
+    "outlet": "Regnum",
+    "date": "2021-02-22",
+    "url": "https://regnum.ru/news/polit/3197864.html",
+    "hostile": false,
+    "countries": [
+      "PL",
+      "UA"
+    ]
+  },
+  {
+    "week": "2021-02-22",
+    "title": "Зеленский заявил о невыполнении Украиной требований МВФ",
+    "english": null,
+    "outlet": "RIA Novosti",
+    "date": "2021-02-22",
+    "url": "https://ria.ru/20210222/trebovaniya-1598549935.html",
+    "hostile": false,
+    "countries": [
       "UA"
     ]
   },
@@ -1211,7 +1697,7 @@
   {
     "week": "2021-03-01",
     "title": "«Газпром» увеличил транзит газа через Украину",
-    "english": null,
+    "english": "Gazprom increased gas transit through Ukraine",
     "outlet": "Lenta",
     "date": "2021-03-01",
     "url": "https://lenta.ru/news/2021/03/01/yvelich/",
@@ -1223,7 +1709,7 @@
   {
     "week": "2021-03-01",
     "title": "Армия Украины изменила походку",
-    "english": null,
+    "english": "Ukraine's army changed its marching step",
     "outlet": "Rossiyskaya Gazeta",
     "date": "2021-03-01",
     "url": "https://rg.ru/2021/03/01/armiia-ukrainy-izmenila-pohodku.html",
@@ -1235,7 +1721,7 @@
   {
     "week": "2021-03-01",
     "title": "Более 600 тыс. доз вакцин от COVID-19 поставят в Польшу 1 марта",
-    "english": null,
+    "english": "More than 600,000 doses of COVID-19 vaccine will be delivered to Poland on 1 March",
     "outlet": "Regnum",
     "date": "2021-03-01",
     "url": "https://regnum.ru/news/3203406.html",
@@ -1247,13 +1733,62 @@
   {
     "week": "2021-03-01",
     "title": "Большинство украинцев не поддерживали запрет оппозиционных телеканалов",
-    "english": null,
+    "english": "Most Ukrainians did not support the ban on opposition television channels",
     "outlet": "Izvestia",
     "date": "2021-03-01",
     "url": "https://iz.ru/1130981/2021-03-01/bolshinstvo-ukraintcev-ne-podderzhivali-zapret-oppozitcionnykh-telekanalov",
     "hostile": false,
     "countries": [
       "UA"
+    ]
+  },
+  {
+    "week": "2021-03-01",
+    "title": "В Литве оценили возможность бойкота БелАЭС",
+    "english": null,
+    "outlet": "Regnum",
+    "date": "2021-03-01",
+    "url": "https://regnum.ru/news/3203247.html",
+    "hostile": false,
+    "countries": [
+      "LT"
+    ]
+  },
+  {
+    "week": "2021-03-01",
+    "title": "В Польше женщина на автомобиле въехала в здание АЗС",
+    "english": null,
+    "outlet": "Regnum",
+    "date": "2021-03-01",
+    "url": "https://regnum.ru/news/3203401.html",
+    "hostile": false,
+    "countries": [
+      "PL"
+    ]
+  },
+  {
+    "week": "2021-03-01",
+    "title": "В Польше задержали двух сотрудников украинского посольства",
+    "english": null,
+    "outlet": "Komsomolskaya Pravda",
+    "date": "2021-03-01",
+    "url": "https://pda.kp.ru/online/news/4204603/",
+    "hostile": false,
+    "countries": [
+      "PL",
+      "UA"
+    ]
+  },
+  {
+    "week": "2021-03-01",
+    "title": "В Финляндии ввели режим ЧП из-за COVID-19",
+    "english": null,
+    "outlet": "Zvezda",
+    "date": "2021-03-01",
+    "url": "https://tvzvezda.ru/news/vstrane_i_mire/content/2021311556-tWxSp.html",
+    "hostile": false,
+    "countries": [
+      "FI"
     ]
   },
   {
@@ -1329,7 +1864,7 @@
   {
     "week": "2021-03-08",
     "title": "Бары и рестораны в Финляндии из-за коронавируса закроются на три недели",
-    "english": null,
+    "english": "Bars and restaurants in Finland will close for three weeks because of the coronavirus",
     "outlet": "Argumenty i Fakty",
     "date": "2021-03-08",
     "url": "https://aif.ru/politics/world/bary_i_restorany_v_finlyandii_iz-za_koronavirusa_zakroyutsya_na_tri_nedeli",
@@ -1341,7 +1876,7 @@
   {
     "week": "2021-03-08",
     "title": "В Госдуме оценили провокации со стороны украинских властей",
-    "english": null,
+    "english": "The State Duma assessed provocations by the Ukrainian authorities",
     "outlet": "RIA Novosti",
     "date": "2021-03-08",
     "url": "https://ria.ru/20210308/gosduma-1600354680.html",
@@ -1353,7 +1888,7 @@
   {
     "week": "2021-03-08",
     "title": "В Госдуме оценили слова советника главы МВД Украины об «ударе» по РФ",
-    "english": null,
+    "english": "The State Duma assessed remarks by an adviser to Ukraine's interior minister about a strike on Russia",
     "outlet": "Argumenty i Fakty",
     "date": "2021-03-08",
     "url": "https://aif.ru/politics/russia/v_gosdume_ocenili_slova_sovetnika_glavy_mvd_ukrainy_ob_udare_po_rf",
@@ -1365,7 +1900,7 @@
   {
     "week": "2021-03-08",
     "title": "В Госдуме оценили слова советника главы МВД Украины об «ударе» по России",
-    "english": null,
+    "english": "The State Duma assessed remarks by an adviser to Ukraine's interior minister about a strike on Russia",
     "outlet": "RT",
     "date": "2021-03-08",
     "url": "https://russian.rt.com/ussr/news/840388-gosduma-ukraina-silnyi-udar",
@@ -1377,13 +1912,73 @@
   {
     "week": "2021-03-08",
     "title": "В Латвии выяснили личность возможного похитителя пушки с мемориала",
-    "english": null,
+    "english": "Latvia identified a possible thief of a cannon from a memorial",
     "outlet": "RIA Novosti",
     "date": "2021-03-08",
     "url": "https://ria.ru/20210308/latviya-1600364814.html",
     "hostile": false,
     "countries": [
       "LV"
+    ]
+  },
+  {
+    "week": "2021-03-08",
+    "title": "В Латвии допустили закупку «Спутника V» в случае одобрения препарата в ЕС",
+    "english": null,
+    "outlet": "Izvestia",
+    "date": "2021-03-08",
+    "url": "https://iz.ru/1134141/2021-03-08/v-latvii-dopustili-zakupku-sputnik-v-v-sluchae-odobreniia-preparata-v-es",
+    "hostile": false,
+    "countries": [
+      "LV"
+    ]
+  },
+  {
+    "week": "2021-03-08",
+    "title": "В Латвии нашли украденную с мемориала в Екабпилсе пушку",
+    "english": null,
+    "outlet": "Argumenty i Fakty",
+    "date": "2021-03-08",
+    "url": "https://aif.ru/incidents/v_latvii_nashli_ukradennuyu_s_memoriala_v_ekabpilse_pushku",
+    "hostile": false,
+    "countries": [
+      "LV"
+    ]
+  },
+  {
+    "week": "2021-03-08",
+    "title": "В Финляндии десятки организаций подверглись атакам из-за уязвимости ПО Microsoft",
+    "english": null,
+    "outlet": "TASS",
+    "date": "2021-03-08",
+    "url": "https://tass.ru/ekonomika/10856781",
+    "hostile": false,
+    "countries": [
+      "FI"
+    ]
+  },
+  {
+    "week": "2021-03-08",
+    "title": "В Эстонии допустили ужесточение ограничений из-за пандемии",
+    "english": null,
+    "outlet": "Regnum",
+    "date": "2021-03-08",
+    "url": "https://regnum.ru/news/3209130.html",
+    "hostile": false,
+    "countries": [
+      "EE"
+    ]
+  },
+  {
+    "week": "2021-03-08",
+    "title": "В Эстонии не исключили локдауна из-за ситуации с коронавирусом",
+    "english": null,
+    "outlet": "RT",
+    "date": "2021-03-08",
+    "url": "https://russian.rt.com/ussr/news/840464-estoniya-koronavirus-lokdaun-premer",
+    "hostile": false,
+    "countries": [
+      "EE"
     ]
   },
   {
@@ -1457,7 +2052,7 @@
   {
     "week": "2021-03-15",
     "title": "\"Готов к любому исходу\": Экс-президент Польши Лех Валенса записал прощальное видеообращение из больницы",
-    "english": null,
+    "english": "Ready for any outcome. Former Polish president Lech Walesa recorded a farewell video from hospital",
     "outlet": "Komsomolskaya Pravda",
     "date": "2021-03-15",
     "url": "https://pda.kp.ru/daily/27251/4381676/",
@@ -1493,7 +2088,7 @@
   {
     "week": "2021-03-15",
     "title": "«Право и справедливость» в Польше представит новую партийную программу",
-    "english": null,
+    "english": "Law and Justice in Poland will present a new party programme",
     "outlet": "Regnum",
     "date": "2021-03-15",
     "url": "https://regnum.ru/news/3215487.html",
@@ -1505,7 +2100,7 @@
   {
     "week": "2021-03-15",
     "title": "В Латвии выявили \"угандийский\" штамм коронавируса",
-    "english": null,
+    "english": "The Ugandan coronavirus strain was found in Latvia",
     "outlet": "Komsomolskaya Pravda",
     "date": "2021-03-15",
     "url": "https://pda.kp.ru/online/news/4221729/",
@@ -1517,7 +2112,7 @@
   {
     "week": "2021-03-15",
     "title": "В Латвии выявили семь случаев \"угандийского\" штамма коронавируса",
-    "english": null,
+    "english": "Seven cases of the Ugandan coronavirus strain were found in Latvia",
     "outlet": "RIA Novosti",
     "date": "2021-03-15",
     "url": "https://ria.ru/20210315/latviya-1601374142.html",
@@ -1529,13 +2124,73 @@
   {
     "week": "2021-03-15",
     "title": "В Латвии обнаружили угандийский штамм нового коронавируса",
-    "english": null,
+    "english": "The Ugandan strain of the new coronavirus was found in Latvia",
     "outlet": "TASS",
     "date": "2021-03-15",
     "url": "https://tass.ru/obschestvo/10907177",
     "hostile": false,
     "countries": [
       "LV"
+    ]
+  },
+  {
+    "week": "2021-03-15",
+    "title": "В Литве объяснили, почему Киркорова не уведомили о запрете на въезд",
+    "english": null,
+    "outlet": "RIA Novosti",
+    "date": "2021-03-15",
+    "url": "https://ria.ru/20210315/kirkorov-1601344451.html",
+    "hostile": false,
+    "countries": [
+      "LT"
+    ]
+  },
+  {
+    "week": "2021-03-15",
+    "title": "В Литве рассказали, почему не уведомили Киркорова о запрете на въезд",
+    "english": null,
+    "outlet": "Komsomolskaya Pravda",
+    "date": "2021-03-15",
+    "url": "https://pda.kp.ru/online/news/4221588/",
+    "hostile": false,
+    "countries": [
+      "LT"
+    ]
+  },
+  {
+    "week": "2021-03-15",
+    "title": "В Польше допустили введение локдауна из-за быстрого распространения COVID-19",
+    "english": null,
+    "outlet": "Izvestia",
+    "date": "2021-03-15",
+    "url": "https://iz.ru/1137338/2021-03-15/v-polshe-dopustili-vvedenie-lokdauna-iz-za-bystrogo-rasprostraneniia-covid-19",
+    "hostile": false,
+    "countries": [
+      "PL"
+    ]
+  },
+  {
+    "week": "2021-03-15",
+    "title": "В Польше заявили о возможном локдауне на всей территории страны",
+    "english": null,
+    "outlet": "Regnum",
+    "date": "2021-03-15",
+    "url": "https://regnum.ru/news/3215454.html",
+    "hostile": false,
+    "countries": [
+      "PL"
+    ]
+  },
+  {
+    "week": "2021-03-15",
+    "title": "В Польше растет число женщин-военнослужащих",
+    "english": null,
+    "outlet": "Regnum",
+    "date": "2021-03-15",
+    "url": "https://regnum.ru/news/3215461.html",
+    "hostile": false,
+    "countries": [
+      "PL"
     ]
   },
   {
@@ -1621,7 +2276,7 @@
   {
     "week": "2021-03-22",
     "title": "«Британский» штамм коронавируса в Польше стал доминирующим — вирусолог",
-    "english": null,
+    "english": "The British coronavirus strain has become dominant in Poland, a virologist said",
     "outlet": "Regnum",
     "date": "2021-03-22",
     "url": "https://regnum.ru/news/3221212.html",
@@ -1633,7 +2288,7 @@
   {
     "week": "2021-03-22",
     "title": "В Белоруссии прошел 10-й съезд Союза поляков республики",
-    "english": null,
+    "english": "The 10th congress of the Union of Poles was held in Belarus",
     "outlet": "Regnum",
     "date": "2021-03-22",
     "url": "https://regnum.ru/news/3221322.html",
@@ -1667,7 +2322,7 @@
   {
     "week": "2021-03-22",
     "title": "В Латвии хотят снять ограничения с переболевших COVID-19",
-    "english": null,
+    "english": "Latvia wants to lift restrictions for people who have recovered from COVID-19",
     "outlet": "Regnum",
     "date": "2021-03-22",
     "url": "https://regnum.ru/news/3221753.html",
@@ -1679,7 +2334,7 @@
   {
     "week": "2021-03-22",
     "title": "В Польше автобус с гражданами Украины попал в ДТП",
-    "english": null,
+    "english": "A bus carrying Ukrainian citizens crashed in Poland",
     "outlet": "RIA Novosti",
     "date": "2021-03-22",
     "url": "https://ria.ru/20210322/dtp-1602256023.html",
@@ -1704,13 +2359,37 @@
   {
     "week": "2021-03-22",
     "title": "В Польше стартовала акция «Нас объединяют деревья»",
-    "english": null,
+    "english": "The campaign Trees Unite Us started in Poland",
     "outlet": "Regnum",
     "date": "2021-03-22",
     "url": "https://regnum.ru/news/3221933.html",
     "hostile": false,
     "countries": [
       "PL"
+    ]
+  },
+  {
+    "week": "2021-03-22",
+    "title": "В Эстонии каждый пятый тест на коронавирус – положительный",
+    "english": null,
+    "outlet": "Regnum",
+    "date": "2021-03-22",
+    "url": "https://regnum.ru/news/3221783.html",
+    "hostile": false,
+    "countries": [
+      "EE"
+    ]
+  },
+  {
+    "week": "2021-03-22",
+    "title": "Глава МИД Литвы призвал Грузию не отклоняться от «демократического пути»",
+    "english": null,
+    "outlet": "Regnum",
+    "date": "2021-03-22",
+    "url": "https://regnum.ru/news/3221823.html",
+    "hostile": false,
+    "countries": [
+      "LT"
     ]
   },
   {
@@ -1723,6 +2402,43 @@
     "hostile": true,
     "countries": [
       "LV"
+    ]
+  },
+  {
+    "week": "2021-03-22",
+    "title": "Здание офиса президента Украины не отмыли после акции радикалов — 112.ua",
+    "english": null,
+    "outlet": "Regnum",
+    "date": "2021-03-22",
+    "url": "https://regnum.ru/news/3221579.html",
+    "hostile": false,
+    "countries": [
+      "UA"
+    ]
+  },
+  {
+    "week": "2021-03-22",
+    "title": "Латвия обвинила Россию в сборе данных о работе властей на фоне пандемии",
+    "english": null,
+    "outlet": "RIA Novosti",
+    "date": "2021-03-22",
+    "url": "https://ria.ru/20210322/pandemiya-1602399958.html",
+    "hostile": false,
+    "countries": [
+      "LV"
+    ]
+  },
+  {
+    "week": "2021-03-22",
+    "title": "Микроавтобус с гражданами Украины попал в ДТП в Польше, один человек погиб",
+    "english": null,
+    "outlet": "Rossiyskaya Gazeta",
+    "date": "2021-03-22",
+    "url": "https://rg.ru/2021/03/22/mikroavtobus-s-grazhdanami-ukrainy-popal-v-dtp-v-polshe-odin-chelovek-pogib.html",
+    "hostile": false,
+    "countries": [
+      "PL",
+      "UA"
     ]
   },
   {
@@ -1752,7 +2468,7 @@
   {
     "week": "2021-03-29",
     "title": "\"Красную\" зону карантина установили в Киеве и 10 областях Украины",
-    "english": null,
+    "english": "A red quarantine zone was set in Kyiv and 10 regions of Ukraine",
     "outlet": "TASS",
     "date": "2021-03-29",
     "url": "https://tass.ru/obschestvo/11017397",
@@ -1764,7 +2480,7 @@
   {
     "week": "2021-03-29",
     "title": "80 врачей с Украины и Белоруссии получили разрешение на работу в Польше",
-    "english": null,
+    "english": "80 doctors from Ukraine and Belarus received permission to work in Poland",
     "outlet": "Regnum",
     "date": "2021-03-29",
     "url": "https://regnum.ru/news/society/3228216.html",
@@ -1790,7 +2506,7 @@
   {
     "week": "2021-03-29",
     "title": "«12 лет колонии»: суд признал жительницу Крыма виновной в шпионаже в пользу Украины",
-    "english": null,
+    "english": "12 years in a penal colony: a court found a Crimean woman guilty of spying for Ukraine",
     "outlet": "RT",
     "date": "2021-03-29",
     "url": "https://russian.rt.com/russia/article/847279-sud-fsb-krym-pensionerka-gosizmena",
@@ -1802,7 +2518,7 @@
   {
     "week": "2021-03-29",
     "title": "«Зачем столько внимания этому убожеству?» — вице-премьера Украины в розыск!",
-    "english": null,
+    "english": "Why so much attention to this wretch? Ukraine's deputy prime minister is wanted",
     "outlet": "Regnum",
     "date": "2021-03-29",
     "url": "https://regnum.ru/news/polit/3227372.html",
@@ -1814,10 +2530,70 @@
   {
     "week": "2021-03-29",
     "title": "Адвокат Януковича заявил о признаках «узурпации власти» на Украине",
-    "english": null,
+    "english": "Yanukovych's lawyer spoke of signs of a usurpation of power in Ukraine",
     "outlet": "Regnum",
     "date": "2021-03-29",
     "url": "https://regnum.ru/news/3227834.html",
+    "hostile": false,
+    "countries": [
+      "UA"
+    ]
+  },
+  {
+    "week": "2021-03-29",
+    "title": "Бывший премьер Украины призвал избирателей Зеленского «пошевелить мозгами»",
+    "english": null,
+    "outlet": "Lenta",
+    "date": "2021-03-29",
+    "url": "https://lenta.ru/news/2021/03/29/azarov/",
+    "hostile": false,
+    "countries": [
+      "UA"
+    ]
+  },
+  {
+    "week": "2021-03-29",
+    "title": "В Варшаве обвинили Белоруссию в «занижении численности польской диаспоры»",
+    "english": null,
+    "outlet": "Regnum",
+    "date": "2021-03-29",
+    "url": "https://regnum.ru/news/3228144.html",
+    "hostile": false,
+    "countries": [
+      "BY"
+    ]
+  },
+  {
+    "week": "2021-03-29",
+    "title": "В Калининградской области задержали гражданина Евросоюза за нарушение границы с Польшей",
+    "english": null,
+    "outlet": "TASS",
+    "date": "2021-03-29",
+    "url": "https://tass.ru/proisshestviya/11022385",
+    "hostile": false,
+    "countries": [
+      "PL"
+    ]
+  },
+  {
+    "week": "2021-03-29",
+    "title": "В Китае предупредили Украину о больших потерях из-за «Мотор Сич»",
+    "english": null,
+    "outlet": "Lenta",
+    "date": "2021-03-29",
+    "url": "https://lenta.ru/news/2021/03/29/loss/",
+    "hostile": false,
+    "countries": [
+      "UA"
+    ]
+  },
+  {
+    "week": "2021-03-29",
+    "title": "В Китае предупредили Украину о последствиях из-за «Мотор Сич»",
+    "english": null,
+    "outlet": "Regnum",
+    "date": "2021-03-29",
+    "url": "https://regnum.ru/news/3227588.html",
     "hostile": false,
     "countries": [
       "UA"
@@ -1932,7 +2708,7 @@
   {
     "week": "2021-04-05",
     "title": "«Газовое лето на Украине закончилось — пусть готовятся к зиме»",
-    "english": null,
+    "english": "The gas summer in Ukraine is over. Let them prepare for winter",
     "outlet": "Regnum",
     "date": "2021-04-05",
     "url": "https://regnum.ru/news/economy/3234760.html",
@@ -1944,7 +2720,7 @@
   {
     "week": "2021-04-05",
     "title": "В Кремле прокомментировали украинские санкции против Россотрудничества",
-    "english": null,
+    "english": "The Kremlin commented on Ukrainian sanctions against Rossotrudnichestvo",
     "outlet": "RIA Novosti",
     "date": "2021-04-05",
     "url": "https://ria.ru/20210405/sanktsii-1604267494.html",
@@ -1956,7 +2732,7 @@
   {
     "week": "2021-04-05",
     "title": "В Латвии готовы создать телеканал для ковид-диссидентов",
-    "english": null,
+    "english": "Latvia is ready to create a television channel for COVID dissenters",
     "outlet": "Regnum",
     "date": "2021-04-05",
     "url": "https://regnum.ru/news/3234293.html",
@@ -1968,7 +2744,7 @@
   {
     "week": "2021-04-05",
     "title": "В Латвии начались военные учения НАТО",
-    "english": null,
+    "english": "NATO military exercises began in Latvia",
     "outlet": "Regnum",
     "date": "2021-04-05",
     "url": "https://regnum.ru/news/3234504.html",
@@ -1980,13 +2756,73 @@
   {
     "week": "2021-04-05",
     "title": "В Латвии начались учения НАТО",
-    "english": null,
+    "english": "NATO exercises began in Latvia",
     "outlet": "RIA Novosti",
     "date": "2021-04-05",
     "url": "https://ria.ru/20210405/nato-1604286512.html",
     "hostile": false,
     "countries": [
       "LV"
+    ]
+  },
+  {
+    "week": "2021-04-05",
+    "title": "В Латвии предложили ввести штрафы за демонстрацию военной техники СССР",
+    "english": null,
+    "outlet": "RIA Novosti",
+    "date": "2021-04-05",
+    "url": "https://ria.ru/20210405/shtraf-1604320446.html",
+    "hostile": false,
+    "countries": [
+      "LV"
+    ]
+  },
+  {
+    "week": "2021-04-05",
+    "title": "В Латвии стартовали учения НАТО",
+    "english": null,
+    "outlet": "Izvestia",
+    "date": "2021-04-05",
+    "url": "https://iz.ru/1146804/2021-04-05/v-latvii-startovali-ucheniia-nato",
+    "hostile": false,
+    "countries": [
+      "LV"
+    ]
+  },
+  {
+    "week": "2021-04-05",
+    "title": "В Литве полицейские выйдут на митинг против решения властей",
+    "english": null,
+    "outlet": "Rossiyskaya Gazeta",
+    "date": "2021-04-05",
+    "url": "https://rg.ru/2021/04/05/v-litve-policejskie-vyjdut-na-miting-protiv-resheniia-vlastej.html",
+    "hostile": false,
+    "countries": [
+      "LT"
+    ]
+  },
+  {
+    "week": "2021-04-05",
+    "title": "В Польше анонсировали изменения в системе образования",
+    "english": null,
+    "outlet": "Regnum",
+    "date": "2021-04-05",
+    "url": "https://regnum.ru/news/3233949.html",
+    "hostile": false,
+    "countries": [
+      "PL"
+    ]
+  },
+  {
+    "week": "2021-04-05",
+    "title": "В Польше погиб мотоциклист, столкнувшись с косулей",
+    "english": null,
+    "outlet": "Regnum",
+    "date": "2021-04-05",
+    "url": "https://regnum.ru/news/3234000.html",
+    "hostile": false,
+    "countries": [
+      "PL"
     ]
   },
   {
@@ -2070,7 +2906,7 @@
   {
     "week": "2021-04-12",
     "title": "«А что, Днепрогэс уже взорвали?» — 6 лет закону о декоммунизации на Украине",
-    "english": null,
+    "english": "Has the Dnieper dam already been blown up? Six years of Ukraine's decommunization law",
     "outlet": "Regnum",
     "date": "2021-04-12",
     "url": "https://regnum.ru/news/polit/3240294.html",
@@ -2094,7 +2930,7 @@
   {
     "week": "2021-04-12",
     "title": "Блинкен обсудил со Столтенбергом ситуацию на границе России и Украины",
-    "english": null,
+    "english": "Blinken discussed the situation on the Russia-Ukraine border with Stoltenberg",
     "outlet": "RIA Novosti",
     "date": "2021-04-12",
     "url": "https://ria.ru/20210412/blinken-1727960732.html",
@@ -2106,7 +2942,7 @@
   {
     "week": "2021-04-12",
     "title": "В Польше за сутки от COVID-19 скончались 749 человек",
-    "english": null,
+    "english": "749 people died of COVID-19 in Poland in one day",
     "outlet": "Regnum",
     "date": "2021-04-12",
     "url": "https://regnum.ru/news/3240126.html",
@@ -2118,7 +2954,7 @@
   {
     "week": "2021-04-12",
     "title": "В Польше призвали Россию «прекратить военную активность у границ Украины»",
-    "english": null,
+    "english": "Poland called on Russia to stop military activity near Ukraine's borders",
     "outlet": "Regnum",
     "date": "2021-04-12",
     "url": "https://regnum.ru/news/3240120.html",
@@ -2131,13 +2967,73 @@
   {
     "week": "2021-04-12",
     "title": "В Финляндии запустят на орбиту Земли первый в истории деревянный спутник",
-    "english": null,
+    "english": "Finland will launch the first wooden satellite in history into Earth orbit",
     "outlet": "Komsomolskaya Pravda",
     "date": "2021-04-12",
     "url": "https://pda.kp.ru/online/news/4255855/",
     "hostile": false,
     "countries": [
       "FI"
+    ]
+  },
+  {
+    "week": "2021-04-12",
+    "title": "В Финляндии запустят первый в мире деревянный спутник",
+    "english": null,
+    "outlet": "RIA Novosti",
+    "date": "2021-04-12",
+    "url": "https://ria.ru/20210412/sputnik-1727938688.html",
+    "hostile": false,
+    "countries": [
+      "FI"
+    ]
+  },
+  {
+    "week": "2021-04-12",
+    "title": "В Финляндии заявили о планах запустить первый в мире деревянный спутник",
+    "english": null,
+    "outlet": "RT",
+    "date": "2021-04-12",
+    "url": "https://russian.rt.com/science/news/852070-inlyandiya-zapusk-derevyannyi-sputnik",
+    "hostile": false,
+    "countries": [
+      "FI"
+    ]
+  },
+  {
+    "week": "2021-04-12",
+    "title": "В Эстонии впервые пройдет виртуальных форум зарубежных эстонцев",
+    "english": null,
+    "outlet": "Regnum",
+    "date": "2021-04-12",
+    "url": "https://regnum.ru/news/3240739.html",
+    "hostile": false,
+    "countries": [
+      "EE"
+    ]
+  },
+  {
+    "week": "2021-04-12",
+    "title": "В Эстонии закрыли и снесли школу им. Королева, где был музей космонавтики",
+    "english": null,
+    "outlet": "Regnum",
+    "date": "2021-04-12",
+    "url": "https://regnum.ru/news/3240718.html",
+    "hostile": false,
+    "countries": [
+      "EE"
+    ]
+  },
+  {
+    "week": "2021-04-12",
+    "title": "В столице Латвии закроют три школы и реорганизуют десять",
+    "english": null,
+    "outlet": "Regnum",
+    "date": "2021-04-12",
+    "url": "https://regnum.ru/news/3240736.html",
+    "hostile": false,
+    "countries": [
+      "LV"
     ]
   },
   {
@@ -2204,7 +3100,7 @@
   {
     "week": "2021-04-19",
     "title": "Авиасообщение между Эстонией и Россией возобновится с 25 апреля",
-    "english": null,
+    "english": "Flights between Estonia and Russia will resume from 25 April",
     "outlet": "Argumenty i Fakty",
     "date": "2021-04-19",
     "url": "https://aif.ru/society/aviasoobshchenie_mezhdu_estoniey_i_rossiey_vozobnovitsya_s_25_aprelya",
@@ -2216,7 +3112,7 @@
   {
     "week": "2021-04-19",
     "title": "Аресты таможенников в Латвии напомнили о скандальном деле 2007 года",
-    "english": null,
+    "english": "Arrests of customs officers in Latvia recalled a scandalous 2007 case",
     "outlet": "Regnum",
     "date": "2021-04-19",
     "url": "https://regnum.ru/news/3246839.html",
@@ -2228,19 +3124,20 @@
   {
     "week": "2021-04-19",
     "title": "Белорусский суд постановил ликвидировать брестскую «Польскую школу»",
-    "english": null,
+    "english": "A Belarusian court ordered the closure of the Polish School in Brest",
     "outlet": "Regnum",
     "date": "2021-04-19",
     "url": "https://regnum.ru/news/3247170.html",
     "hostile": false,
     "countries": [
+      "PL",
       "BY"
     ]
   },
   {
     "week": "2021-04-19",
     "title": "Боррель заявил о небывалом развёртывании сил России рядом с Украиной",
-    "english": null,
+    "english": "Borrell spoke of an unprecedented deployment of Russian forces near Ukraine",
     "outlet": "Regnum",
     "date": "2021-04-19",
     "url": "https://regnum.ru/news/polit/3246999.html",
@@ -2252,7 +3149,7 @@
   {
     "week": "2021-04-19",
     "title": "В Афганистане завершается самая опасная военная миссия Эстонии – мнение",
-    "english": null,
+    "english": "Estonia's most dangerous military mission is ending in Afghanistan, an opinion says",
     "outlet": "Regnum",
     "date": "2021-04-19",
     "url": "https://regnum.ru/news/3246700.html",
@@ -2264,13 +3161,85 @@
   {
     "week": "2021-04-19",
     "title": "В ЕС назвали развёртывание сил России у Украины «крупнейшим в истории»",
-    "english": null,
+    "english": "The EU called Russia's deployment of forces near Ukraine the largest in history",
     "outlet": "RT",
     "date": "2021-04-19",
     "url": "https://russian.rt.com/world/news/854463-es-razvertyvanie-rossiya",
     "hostile": false,
     "countries": [
       "UA"
+    ]
+  },
+  {
+    "week": "2021-04-19",
+    "title": "В Литве из-за карантина у пожилых не осталось денег на еду",
+    "english": null,
+    "outlet": "Rossiyskaya Gazeta",
+    "date": "2021-04-19",
+    "url": "https://rg.ru/2021/04/19/v-litve-iz-za-karantina-u-pozhilyh-ne-ostalos-deneg-na-edu.html",
+    "hostile": false,
+    "countries": [
+      "LT"
+    ]
+  },
+  {
+    "week": "2021-04-19",
+    "title": "В МИД Германии прокомментировали план Украины по \"сдерживанию России\"",
+    "english": null,
+    "outlet": "RIA Novosti",
+    "date": "2021-04-19",
+    "url": "https://ria.ru/20210419/sderzhivanie-1728971964.html",
+    "hostile": false,
+    "countries": [
+      "UA"
+    ]
+  },
+  {
+    "week": "2021-04-19",
+    "title": "В МИД Эстонии оценили предложение запретить россиянам въезд в ЕС",
+    "english": null,
+    "outlet": "Izvestia",
+    "date": "2021-04-19",
+    "url": "https://iz.ru/1153672/2021-04-19/v-mid-estonii-otcenili-predlozhenie-zapretit-rossiianam-vezd-v-es",
+    "hostile": false,
+    "countries": [
+      "EE"
+    ]
+  },
+  {
+    "week": "2021-04-19",
+    "title": "В Польше обсудили конкурсную картину фестваля \"Дубль дв@\"",
+    "english": null,
+    "outlet": "Rossiyskaya Gazeta",
+    "date": "2021-04-19",
+    "url": "https://rg.ru/2021/04/19/lokdaun-lokdaunom-a-rossijskoe-kino-v-polshe-idet-po-raspisaniiu.html",
+    "hostile": false,
+    "countries": [
+      "PL"
+    ]
+  },
+  {
+    "week": "2021-04-19",
+    "title": "В Польше открыли первый пункт для массовой вакцинации от COVID-19",
+    "english": null,
+    "outlet": "Regnum",
+    "date": "2021-04-19",
+    "url": "https://regnum.ru/news/society/3246659.html",
+    "hostile": false,
+    "countries": [
+      "PL"
+    ]
+  },
+  {
+    "week": "2021-04-19",
+    "title": "В Польше отмечают годовщину восстания в Варшавском гетто",
+    "english": null,
+    "outlet": "RIA Novosti",
+    "date": "2021-04-19",
+    "url": "https://ria.ru/20210419/godovschina-1728921007.html",
+    "hostile": false,
+    "countries": [
+      "PL"
     ]
   },
   {
@@ -2371,7 +3340,7 @@
   {
     "week": "2021-04-26",
     "title": "CNN: госсекретарь США может посетить Украину в мае",
-    "english": null,
+    "english": "CNN: the US secretary of state may visit Ukraine in May",
     "outlet": "TASS",
     "date": "2021-04-26",
     "url": "https://tass.ru/mezhdunarodnaya-panorama/11249943",
@@ -2407,7 +3376,7 @@
   {
     "week": "2021-04-26",
     "title": "«Была империей, ей и осталась»: почему Польша считает, что Россия — империя",
-    "english": null,
+    "english": "It was an empire and remains one: why Poland considers Russia an empire",
     "outlet": "Regnum",
     "date": "2021-04-26",
     "url": "https://regnum.ru/news/3252804.html",
@@ -2419,7 +3388,7 @@
   {
     "week": "2021-04-26",
     "title": "В Латвии готовят меры психоэмоциональной поддержки детей и молодежи",
-    "english": null,
+    "english": "Latvia is preparing psychological support measures for children and young people",
     "outlet": "Regnum",
     "date": "2021-04-26",
     "url": "https://regnum.ru/news/3253621.html",
@@ -2431,13 +3400,61 @@
   {
     "week": "2021-04-26",
     "title": "В Польше наши место для памятника польским жертвам Волынской резни?",
-    "english": null,
+    "english": "Has a place been found in Poland for a monument to Polish victims of the Volyn massacre?",
     "outlet": "Regnum",
     "date": "2021-04-26",
     "url": "https://regnum.ru/news/society/3253404.html",
     "hostile": false,
     "countries": [
       "PL"
+    ]
+  },
+  {
+    "week": "2021-04-26",
+    "title": "В оппозиции рассказали, как Запад превращает молодых украинцев в рабов",
+    "english": null,
+    "outlet": "Regnum",
+    "date": "2021-04-26",
+    "url": "https://regnum.ru/news/3253276.html",
+    "hostile": false,
+    "countries": [
+      "UA"
+    ]
+  },
+  {
+    "week": "2021-04-26",
+    "title": "Глава Литвы назвал БелАЭС угрозой безопасности для всех жителей стран ЕС",
+    "english": null,
+    "outlet": "Regnum",
+    "date": "2021-04-26",
+    "url": "https://regnum.ru/news/3253244.html",
+    "hostile": false,
+    "countries": [
+      "LT"
+    ]
+  },
+  {
+    "week": "2021-04-26",
+    "title": "Гражданин Украины осужден на 10 лет за попытку вывезти из России запчасти к ЗРК С-300. Новости. Первый канал",
+    "english": null,
+    "outlet": "Channel One",
+    "date": "2021-04-26",
+    "url": "https://www.1tv.ru/news/2021-04-26/405591-grazhdanin_ukrainy_osuzhden_na_10_let_za_popytku_vyvezti_iz_rossii_zapchasti_k_zrk_s_300",
+    "hostile": false,
+    "countries": [
+      "UA"
+    ]
+  },
+  {
+    "week": "2021-04-26",
+    "title": "Единство русских — вернуть Донбассу Украину",
+    "english": null,
+    "outlet": "RIA Novosti",
+    "date": "2021-04-26",
+    "url": "https://ria.ru/20210426/donbass-1729868442.html",
+    "hostile": false,
+    "countries": [
+      "UA"
     ]
   },
   {
@@ -2523,7 +3540,7 @@
   {
     "week": "2021-05-03",
     "title": "Анджей Дуда: НАТО обсудит дорожную карту для вступления Украины в альянс",
-    "english": null,
+    "english": "Andrzej Duda: NATO will discuss a road map for Ukraine to join the alliance",
     "outlet": "Regnum",
     "date": "2021-05-03",
     "url": "https://regnum.ru/news/3260130.html",
@@ -2535,7 +3552,7 @@
   {
     "week": "2021-05-03",
     "title": "Блинкен: США следят за отводом российских войск от границ Украины",
-    "english": null,
+    "english": "Blinken: the United States is watching the withdrawal of Russian troops from Ukraine's borders",
     "outlet": "RIA Novosti",
     "date": "2021-05-03",
     "url": "https://ria.ru/20210503/blinken-1730964871.html",
@@ -2557,7 +3574,7 @@
   {
     "week": "2021-05-03",
     "title": "В Польше возобновляют работу торговые центры и музеи",
-    "english": null,
+    "english": "Shopping centres and museums are reopening in Poland",
     "outlet": "TASS",
     "date": "2021-05-03",
     "url": "https://tass.ru/obschestvo/11301887",
@@ -2569,7 +3586,7 @@
   {
     "week": "2021-05-03",
     "title": "В Эстонии за неделю выявили 98 побочных реакций на прививки от COVID-19",
-    "english": null,
+    "english": "98 side effects from COVID-19 vaccines were recorded in Estonia in a week",
     "outlet": "RIA Novosti",
     "date": "2021-05-03",
     "url": "https://ria.ru/20210503/vaktsinatsiya-1731030221.html",
@@ -2581,13 +3598,74 @@
   {
     "week": "2021-05-03",
     "title": "В Эстонии смягчили ограничения из-за коронавируса",
-    "english": null,
+    "english": "Estonia eased coronavirus restrictions",
     "outlet": "TASS",
     "date": "2021-05-03",
     "url": "https://tass.ru/obschestvo/11298883",
     "hostile": false,
     "countries": [
       "EE"
+    ]
+  },
+  {
+    "week": "2021-05-03",
+    "title": "В Эстонии создали спрей от COVID-19 из молока беременных коров",
+    "english": null,
+    "outlet": "RIA Novosti",
+    "date": "2021-05-03",
+    "url": "https://ria.ru/20210503/sprey-1731009637.html",
+    "hostile": false,
+    "countries": [
+      "EE"
+    ]
+  },
+  {
+    "week": "2021-05-03",
+    "title": "Вопросы о национальности включены в анкету переписи населения Эстонии",
+    "english": null,
+    "outlet": "Regnum",
+    "date": "2021-05-03",
+    "url": "https://regnum.ru/news/3259834.html",
+    "hostile": false,
+    "countries": [
+      "EE"
+    ]
+  },
+  {
+    "week": "2021-05-03",
+    "title": "Выпускные экзамены в Латвии пройдут очно, но с ограничением числа учеников",
+    "english": null,
+    "outlet": "Regnum",
+    "date": "2021-05-03",
+    "url": "https://regnum.ru/news/3259844.html",
+    "hostile": false,
+    "countries": [
+      "LV"
+    ]
+  },
+  {
+    "week": "2021-05-03",
+    "title": "Глава МИД Украины рассказал о вакцинации иностранных дипломатов от COVID-19",
+    "english": null,
+    "outlet": "Regnum",
+    "date": "2021-05-03",
+    "url": "https://regnum.ru/news/3259789.html",
+    "hostile": false,
+    "countries": [
+      "UA"
+    ]
+  },
+  {
+    "week": "2021-05-03",
+    "title": "Глава Польши заявил, что на саммите НАТО обсудят вступление Украины",
+    "english": null,
+    "outlet": "RIA Novosti",
+    "date": "2021-05-03",
+    "url": "https://ria.ru/20210503/nato-1731011518.html",
+    "hostile": false,
+    "countries": [
+      "PL",
+      "UA"
     ]
   },
   {
@@ -2642,7 +3720,7 @@
   {
     "week": "2021-05-10",
     "title": "«Мы в реальной оккупации» — 9 мая на Украине",
-    "english": null,
+    "english": "We are under a real occupation: 9 May in Ukraine",
     "outlet": "Regnum",
     "date": "2021-05-10",
     "url": "https://regnum.ru/news/3264832.html",
@@ -2654,7 +3732,7 @@
   {
     "week": "2021-05-10",
     "title": "«Русский союз Латвии»: подготовку к 9 мая 2022 года начнем заранее",
-    "english": null,
+    "english": "The Russian Union of Latvia: we will start preparing for 9 May 2022 in advance",
     "outlet": "Regnum",
     "date": "2021-05-10",
     "url": "https://regnum.ru/news/polit/3264876.html",
@@ -2666,7 +3744,7 @@
   {
     "week": "2021-05-10",
     "title": "В СЖР напомнили, что Украина — опасная для журналистов страна",
-    "english": null,
+    "english": "The Russian Union of Journalists recalled that Ukraine is a dangerous country for journalists",
     "outlet": "Regnum",
     "date": "2021-05-10",
     "url": "https://regnum.ru/news/3264943.html",
@@ -2678,7 +3756,7 @@
   {
     "week": "2021-05-10",
     "title": "В Эстонии с 17 мая начнется массовая вакцинация",
-    "english": null,
+    "english": "Mass vaccination will begin in Estonia on 17 May",
     "outlet": "Regnum",
     "date": "2021-05-10",
     "url": "https://regnum.ru/news/3264991.html",
@@ -2690,7 +3768,7 @@
   {
     "week": "2021-05-10",
     "title": "Важно в Эстонии закрепить память о великой Победе 9 мая — мнение",
-    "english": null,
+    "english": "It is important for Estonia to preserve the memory of the great Victory of 9 May, an opinion says",
     "outlet": "Regnum",
     "date": "2021-05-10",
     "url": "https://regnum.ru/news/polit/3264879.html",
@@ -2702,13 +3780,85 @@
   {
     "week": "2021-05-10",
     "title": "Владимир Литвиненко опроверг связь с Майклом Кентским",
-    "english": null,
+    "english": "Vladimir Litvinenko denied a connection with Michael of Kent",
     "outlet": "Vesti",
     "date": "2021-05-10",
     "url": "https://www.vesti.ru/article/2560366",
     "hostile": false,
     "countries": [
       "LT"
+    ]
+  },
+  {
+    "week": "2021-05-10",
+    "title": "Власти Польши назвали AstraZeneca ненадежным партнером",
+    "english": null,
+    "outlet": "Izvestia",
+    "date": "2021-05-10",
+    "url": "https://iz.ru/1161969/2021-05-10/vlasti-polshi-nazvali-astrazeneca-nenadezhnym-partnerom",
+    "hostile": false,
+    "countries": [
+      "PL"
+    ]
+  },
+  {
+    "week": "2021-05-10",
+    "title": "Власти Польши считают AstraZeneca ненадежным партнером",
+    "english": null,
+    "outlet": "TASS",
+    "date": "2021-05-10",
+    "url": "https://tass.ru/obschestvo/11334033",
+    "hostile": false,
+    "countries": [
+      "PL"
+    ]
+  },
+  {
+    "week": "2021-05-10",
+    "title": "Латвийская молодежь выложила ночью ковер из цветов около памятника освободителям Риги",
+    "english": null,
+    "outlet": "TASS",
+    "date": "2021-05-10",
+    "url": "https://tass.ru/obschestvo/11333805",
+    "hostile": false,
+    "countries": [
+      "LV"
+    ]
+  },
+  {
+    "week": "2021-05-10",
+    "title": "Лидер латвийской партии считает унизительными ограничения у памятника освободителям Риги",
+    "english": null,
+    "outlet": "TASS",
+    "date": "2021-05-10",
+    "url": "https://tass.ru/mezhdunarodnaya-panorama/11333695",
+    "hostile": false,
+    "countries": [
+      "LV"
+    ]
+  },
+  {
+    "week": "2021-05-10",
+    "title": "Мэр Таллина: в этом году праздник 9 мая в Эстонии особенно символичен",
+    "english": null,
+    "outlet": "Regnum",
+    "date": "2021-05-10",
+    "url": "https://regnum.ru/news/polit/3264880.html",
+    "hostile": false,
+    "countries": [
+      "EE"
+    ]
+  },
+  {
+    "week": "2021-05-10",
+    "title": "На Украине возбудили 13 уголовных дел после празднования Дня Победы",
+    "english": null,
+    "outlet": "Lenta",
+    "date": "2021-05-10",
+    "url": "https://lenta.ru/news/2021/05/10/dela/",
+    "hostile": false,
+    "countries": [
+      "UA"
     ]
   },
   {
@@ -2822,7 +3972,7 @@
   {
     "week": "2021-05-17",
     "title": "Reuters: Финляндия постепенно уменьшает закупки российской нефти",
-    "english": null,
+    "english": "Reuters: Finland is gradually reducing purchases of Russian oil",
     "outlet": "TASS",
     "date": "2021-05-17",
     "url": "https://tass.ru/ekonomika/11396617",
@@ -2846,7 +3996,7 @@
   {
     "week": "2021-05-17",
     "title": "Андрей Чибис поручил проверить Андрея Сысоева после информации о доме в Латвии",
-    "english": null,
+    "english": "Andrey Chibis ordered a check on Andrey Sysoev after reports of a house in Latvia",
     "outlet": "pda.murmansk.kp.ru",
     "date": "2021-05-17",
     "url": "https://pda.murmansk.kp.ru/online/news/4294086/",
@@ -2858,13 +4008,49 @@
   {
     "week": "2021-05-17",
     "title": "Британские солдаты подрались с жителями эстонского города - Газета.Ru",
-    "english": null,
+    "english": "British soldiers fought with residents of an Estonian town",
     "outlet": "Gazeta.ru",
     "date": "2021-05-17",
     "url": "https://www.gazeta.ru/army/news/2021/05/17/15990374.shtml",
     "hostile": false,
     "countries": [
       "EE"
+    ]
+  },
+  {
+    "week": "2021-05-17",
+    "title": "Бывший украинский судья заявил о своём похищении «влиятельными людьми»",
+    "english": null,
+    "outlet": "Regnum",
+    "date": "2021-05-17",
+    "url": "https://regnum.ru/news/3270942.html",
+    "hostile": false,
+    "countries": [
+      "UA"
+    ]
+  },
+  {
+    "week": "2021-05-17",
+    "title": "В Крыму рассказали об украинской «диванной армии»",
+    "english": null,
+    "outlet": "Lenta",
+    "date": "2021-05-17",
+    "url": "https://lenta.ru/news/2021/05/17/army/",
+    "hostile": false,
+    "countries": [
+      "UA"
+    ]
+  },
+  {
+    "week": "2021-05-17",
+    "title": "В Польше задержали подозреваемого в шпионаже в пользу России",
+    "english": null,
+    "outlet": "Regnum",
+    "date": "2021-05-17",
+    "url": "https://regnum.ru/news/3270928.html",
+    "hostile": false,
+    "countries": [
+      "PL"
     ]
   },
   {
@@ -2928,7 +4114,7 @@
   {
     "week": "2021-05-24",
     "title": "\"Белавиа\" приостановила рейсы в Литву и обратно - РИА Новости, 24.05.2021",
-    "english": null,
+    "english": "Belavia suspended flights to Lithuania and back",
     "outlet": "RIA Novosti",
     "date": "2021-05-24",
     "url": "https://ria.ru/20210524/belorussiya-1733719065.html",
@@ -2988,7 +4174,7 @@
   {
     "week": "2021-05-24",
     "title": "Безруков прокомментировал запрет ему въезда на Украину",
-    "english": null,
+    "english": "Bezrukov commented on being banned from entering Ukraine",
     "outlet": "RT",
     "date": "2021-05-24",
     "url": "https://russian.rt.com/russia/news/865501-bezrukov-ukraina-vezd",
@@ -3000,10 +4186,48 @@
   {
     "week": "2021-05-24",
     "title": "Белоруссия высылает всех сотрудников посольства Латвии",
-    "english": null,
+    "english": "Belarus is expelling all staff of the Latvian embassy",
     "outlet": "Vesti",
     "date": "2021-05-24",
     "url": "https://www.vesti.ru/article/2566175",
+    "hostile": false,
+    "countries": [
+      "LV",
+      "BY"
+    ]
+  },
+  {
+    "week": "2021-05-24",
+    "title": "Белоруссия вышлет посла Латвии после инцидента с флагом в Риге",
+    "english": null,
+    "outlet": "Izvestia",
+    "date": "2021-05-24",
+    "url": "https://iz.ru/1168460/2021-05-24/belorussiia-vyshlet-posla-latvii",
+    "hostile": false,
+    "countries": [
+      "LV",
+      "BY"
+    ]
+  },
+  {
+    "week": "2021-05-24",
+    "title": "Боевик Маркив официально вернулся на службу в национальную гвардию Украины",
+    "english": null,
+    "outlet": "Regnum",
+    "date": "2021-05-24",
+    "url": "https://regnum.ru/news/3278086.html",
+    "hostile": false,
+    "countries": [
+      "UA"
+    ]
+  },
+  {
+    "week": "2021-05-24",
+    "title": "В Латвии не планируют отстранять сборную Белоруссии от ЧМ-2021 по хоккею",
+    "english": null,
+    "outlet": "Regnum",
+    "date": "2021-05-24",
+    "url": "https://regnum.ru/news/3278191.html",
     "hostile": false,
     "countries": [
       "LV",
@@ -3094,7 +4318,7 @@
   {
     "week": "2021-05-31",
     "title": "«На Украине нет фашизма?! Процветает махровый!..»",
-    "english": null,
+    "english": "There is no fascism in Ukraine? It is flourishing",
     "outlet": "Regnum",
     "date": "2021-05-31",
     "url": "https://regnum.ru/news/3284256.html",
@@ -3106,7 +4330,7 @@
   {
     "week": "2021-05-31",
     "title": "«Почему Украину озаботила участь Протасевича? Он что-то знает?»",
-    "english": null,
+    "english": "Why is Ukraine concerned about Protasevich's fate? Does he know something?",
     "outlet": "Regnum",
     "date": "2021-05-31",
     "url": "https://regnum.ru/news/polit/3284024.html",
@@ -3118,7 +4342,7 @@
   {
     "week": "2021-05-31",
     "title": "Более 2,6 тыс. фур ожидают выезда из Белоруссии на границах с Латвией, Литвой и Польшей",
-    "english": null,
+    "english": "More than 2,600 trucks are waiting to leave Belarus at the borders with Latvia, Lithuania and Poland",
     "outlet": "TASS",
     "date": "2021-05-31",
     "url": "https://tass.ru/mezhdunarodnaya-panorama/11514923",
@@ -3133,13 +4357,61 @@
   {
     "week": "2021-05-31",
     "title": "В Латвии считают, что снижение числа заражений сезонное",
-    "english": null,
+    "english": "Latvia considers the fall in infections seasonal",
     "outlet": "Regnum",
     "date": "2021-05-31",
     "url": "https://regnum.ru/news/3284102.html",
     "hostile": false,
     "countries": [
       "LV"
+    ]
+  },
+  {
+    "week": "2021-05-31",
+    "title": "В Литве стартовала массовая вакцинация от COVID-19",
+    "english": null,
+    "outlet": "Regnum",
+    "date": "2021-05-31",
+    "url": "https://regnum.ru/news/3283567.html",
+    "hostile": false,
+    "countries": [
+      "LT"
+    ]
+  },
+  {
+    "week": "2021-05-31",
+    "title": "В МИД РФ рассказали о сроках поставки газа через Украину",
+    "english": null,
+    "outlet": "Izvestia",
+    "date": "2021-05-31",
+    "url": "https://iz.ru/1171656/2021-05-31/v-mid-rf-rasskazali-o-srokakh-postavki-gaza-cherez-ukrainu",
+    "hostile": false,
+    "countries": [
+      "UA"
+    ]
+  },
+  {
+    "week": "2021-05-31",
+    "title": "В МИД РФ рассказали о судьбе транзита газа через Украину",
+    "english": null,
+    "outlet": "Zvezda",
+    "date": "2021-05-31",
+    "url": "https://tvzvezda.ru/news/2021531125-rwl4P.html",
+    "hostile": false,
+    "countries": [
+      "UA"
+    ]
+  },
+  {
+    "week": "2021-05-31",
+    "title": "В МИД рассказали о судьбе транзита газа через Украину",
+    "english": null,
+    "outlet": "RIA Novosti",
+    "date": "2021-05-31",
+    "url": "https://ria.ru/20210531/gaz-1734882416.html",
+    "hostile": false,
+    "countries": [
+      "UA"
     ]
   },
   {
@@ -3236,7 +4508,7 @@
   {
     "week": "2021-06-07",
     "title": "«Благодарите за это майдан» — Украине предрекли возвращение в Средневековье",
-    "english": null,
+    "english": "Thank the Maidan for this: Ukraine was predicted a return to the Middle Ages",
     "outlet": "Regnum",
     "date": "2021-06-07",
     "url": "https://regnum.ru/news/3290566.html",
@@ -3248,7 +4520,7 @@
   {
     "week": "2021-06-07",
     "title": "«В СССР Украина поставляла говядину, а при нацистах поставляет человечину»",
-    "english": null,
+    "english": "In the USSR Ukraine supplied beef, and under the Nazis it supplies human flesh",
     "outlet": "Regnum",
     "date": "2021-06-07",
     "url": "https://regnum.ru/news/society/3289575.html",
@@ -3260,7 +4532,7 @@
   {
     "week": "2021-06-07",
     "title": "«Гудков сбежал на Украину от харассмента» — оппозиционер попал под травлю",
-    "english": null,
+    "english": "Gudkov fled to Ukraine from harassment: an opposition figure came under attack",
     "outlet": "Regnum",
     "date": "2021-06-07",
     "url": "https://regnum.ru/news/3290668.html",
@@ -3284,13 +4556,62 @@
   {
     "week": "2021-06-07",
     "title": "Активисты построили «палаточный городок» на белорусско-польской границе",
-    "english": null,
+    "english": "Activists built a tent camp on the Belarus-Poland border",
     "outlet": "Regnum",
     "date": "2021-06-07",
     "url": "https://regnum.ru/news/3289833.html",
     "hostile": false,
     "countries": [
+      "PL",
       "BY"
+    ]
+  },
+  {
+    "week": "2021-06-07",
+    "title": "Байден пообещал Зеленскому поговорить с Путиным о суверенитете Украины",
+    "english": null,
+    "outlet": "Lenta",
+    "date": "2021-06-07",
+    "url": "https://lenta.ru/news/2021/06/07/sovereign_borderlands/",
+    "hostile": false,
+    "countries": [
+      "UA"
+    ]
+  },
+  {
+    "week": "2021-06-07",
+    "title": "Британских солдат высадили из поезда у российско-эстонской границы за пьянство",
+    "english": null,
+    "outlet": "Izvestia",
+    "date": "2021-06-07",
+    "url": "https://iz.ru/1175384/2021-06-07/britanskikh-soldat-vysadili-iz-poezda-u-rossiisko-estonskoi-granitcy-za-pianstvo",
+    "hostile": false,
+    "countries": [
+      "EE"
+    ]
+  },
+  {
+    "week": "2021-06-07",
+    "title": "В Болгарии раскрыли схему продажи органов украинских мигрантов богатым иностранцам",
+    "english": null,
+    "outlet": "Zvezda",
+    "date": "2021-06-07",
+    "url": "https://tvzvezda.ru/news/202167729-pHAx0.html",
+    "hostile": false,
+    "countries": [
+      "UA"
+    ]
+  },
+  {
+    "week": "2021-06-07",
+    "title": "В Госдуме оценили слова Зеленского о важности вступления Украины в НАТО",
+    "english": null,
+    "outlet": "RIA Novosti",
+    "date": "2021-06-07",
+    "url": "https://ria.ru/20210607/ukraina-1735947889.html",
+    "hostile": false,
+    "countries": [
+      "UA"
     ]
   },
   {
@@ -3401,7 +4722,7 @@
   {
     "week": "2021-06-14",
     "title": "В Госдуме понадеялись на отказ от передачи акций «Северного потока-2» Украине",
-    "english": null,
+    "english": "The State Duma hoped shares in Nord Stream 2 would not be transferred to Ukraine",
     "outlet": "Lenta",
     "date": "2021-06-14",
     "url": "https://lenta.ru/news/2021/06/14/sevpot_actions/",
@@ -3413,7 +4734,7 @@
   {
     "week": "2021-06-14",
     "title": "В МВД Латвии разгорается коррупционный скандал",
-    "english": null,
+    "english": "A corruption scandal is flaring in Latvia's interior ministry",
     "outlet": "Regnum",
     "date": "2021-06-14",
     "url": "https://regnum.ru/news/3295899.html",
@@ -3425,7 +4746,7 @@
   {
     "week": "2021-06-14",
     "title": "В НАТО оценили шансы Грузии и Украины на вступление в альянс",
-    "english": null,
+    "english": "NATO assessed the chances of Georgia and Ukraine joining the alliance",
     "outlet": "Zvezda",
     "date": "2021-06-14",
     "url": "https://tvzvezda.ru/news/20216141924-6b7Di.html",
@@ -3437,7 +4758,7 @@
   {
     "week": "2021-06-14",
     "title": "В СК Белоруссии заявили, что участницы Союза поляков выехали в Польшу добровольно",
-    "english": null,
+    "english": "Belarus's investigative committee said members of the Union of Poles left for Poland voluntarily",
     "outlet": "TASS",
     "date": "2021-06-14",
     "url": "https://tass.ru/mezhdunarodnaya-panorama/11646273",
@@ -3445,6 +4766,54 @@
     "countries": [
       "PL",
       "BY"
+    ]
+  },
+  {
+    "week": "2021-06-14",
+    "title": "Вакцинировавшимся в других странах латвийцам выдадут ковид-сертификат",
+    "english": null,
+    "outlet": "Regnum",
+    "date": "2021-06-14",
+    "url": "https://regnum.ru/news/society/3295896.html",
+    "hostile": false,
+    "countries": [
+      "LV"
+    ]
+  },
+  {
+    "week": "2021-06-14",
+    "title": "Зеленский намерен добиться от МВФ привилегированного статуса для Украины",
+    "english": null,
+    "outlet": "TASS",
+    "date": "2021-06-14",
+    "url": "https://tass.ru/ekonomika/11646741",
+    "hostile": false,
+    "countries": [
+      "UA"
+    ]
+  },
+  {
+    "week": "2021-06-14",
+    "title": "Зеленский обсудил с Джонсоном перспективы членства Украины в НАТО",
+    "english": null,
+    "outlet": "RT",
+    "date": "2021-06-14",
+    "url": "https://russian.rt.com/world/news/873002-zelenskii-dzhonson-peregovory-nato",
+    "hostile": false,
+    "countries": [
+      "UA"
+    ]
+  },
+  {
+    "week": "2021-06-14",
+    "title": "Зеленский обсудит вступление Украины в НАТО на встрече с Байденом",
+    "english": null,
+    "outlet": "Lenta",
+    "date": "2021-06-14",
+    "url": "https://lenta.ru/news/2021/06/14/ukraina_nato/",
+    "hostile": false,
+    "countries": [
+      "UA"
     ]
   },
   {
@@ -3547,7 +4916,7 @@
   {
     "week": "2021-06-21",
     "title": "«Бог много им дал воды». Зачем украинский чиновник глумится над Крымом?",
-    "english": null,
+    "english": "God gave them a lot of water. Why is a Ukrainian official mocking Crimea?",
     "outlet": "Argumenty i Fakty",
     "date": "2021-06-21",
     "url": "https://aif.ru/politics/world/bog_mnogo_im_dal_vody_zachem_ukrainskiy_chinovnik_glumitsya_nad_krymom",
@@ -3559,7 +4928,7 @@
   {
     "week": "2021-06-21",
     "title": "«Газпром» отказался увеличить прокачку газа через Украину",
-    "english": null,
+    "english": "Gazprom refused to increase gas pumping through Ukraine",
     "outlet": "Lenta",
     "date": "2021-06-21",
     "url": "https://lenta.ru/news/2021/06/21/gazprom/",
@@ -3571,10 +4940,46 @@
   {
     "week": "2021-06-21",
     "title": "«Милан» хочет усилиться полузащитником сборной Украины Русланом Малиновским",
-    "english": null,
+    "english": "Milan wants to strengthen with Ukraine national team midfielder Ruslan Malinovsky",
     "outlet": "Regnum",
     "date": "2021-06-21",
     "url": "https://regnum.ru/news/3301964.html",
+    "hostile": false,
+    "countries": [
+      "UA"
+    ]
+  },
+  {
+    "week": "2021-06-21",
+    "title": "«Страшно, аж жуть!» — Украина пугает Россию турецкими беспилотниками",
+    "english": null,
+    "outlet": "Regnum",
+    "date": "2021-06-21",
+    "url": "https://regnum.ru/news/3301717.html",
+    "hostile": false,
+    "countries": [
+      "UA"
+    ]
+  },
+  {
+    "week": "2021-06-21",
+    "title": "В Литве высмеяли сторонников традиционных ценностей",
+    "english": null,
+    "outlet": "Lenta",
+    "date": "2021-06-21",
+    "url": "https://lenta.ru/news/2021/06/21/litva_vs_homophopia/",
+    "hostile": false,
+    "countries": [
+      "LT"
+    ]
+  },
+  {
+    "week": "2021-06-21",
+    "title": "В МИД ЛНР назвали «провокационными» заявления представителей Украины",
+    "english": null,
+    "outlet": "Regnum",
+    "date": "2021-06-21",
+    "url": "https://regnum.ru/news/3301587.html",
     "hostile": false,
     "countries": [
       "UA"
@@ -3639,7 +5044,7 @@
   {
     "week": "2021-06-28",
     "title": "«Извините, по-русски». Почему президент Украины извиняется за родной язык?",
-    "english": null,
+    "english": "Sorry, in Russian. Why is Ukraine's president apologizing for his native language?",
     "outlet": "Argumenty i Fakty",
     "date": "2021-06-28",
     "url": "https://aif.ru/politics/world/izvinite_po-russki_pochemu_prezident_ukrainy_izvinyaetsya_za_rodnoy_yazyk",
@@ -3651,7 +5056,7 @@
   {
     "week": "2021-06-28",
     "title": "Американо-украинские учения Sea Breeze начались в Черном море",
-    "english": null,
+    "english": "The US-Ukrainian Sea Breeze exercises began in the Black Sea",
     "outlet": "Izvestia",
     "date": "2021-06-28",
     "url": "https://iz.ru/1184980/2021-06-28/amerikano-ukrainskie-ucheniia-sea-breeze-nachalis-v-chernom-more",
@@ -3663,7 +5068,7 @@
   {
     "week": "2021-06-28",
     "title": "Бывший спикер Рады призвал Зеленского не продавать «украинскую землю»",
-    "english": null,
+    "english": "A former Rada speaker urged Zelensky not to sell Ukrainian land",
     "outlet": "Regnum",
     "date": "2021-06-28",
     "url": "https://regnum.ru/news/3307284.html",
@@ -3675,7 +5080,7 @@
   {
     "week": "2021-06-28",
     "title": "В Латвии зафиксирован день без смертей от COVID-19",
-    "english": null,
+    "english": "Latvia recorded a day with no deaths from COVID-19",
     "outlet": "Regnum",
     "date": "2021-06-28",
     "url": "https://regnum.ru/news/3307426.html",
@@ -3687,7 +5092,7 @@
   {
     "week": "2021-06-28",
     "title": "В Латвии предлагают ввести «легкий» язык для общения властей с народом",
-    "english": null,
+    "english": "Latvia proposes a plain language for authorities to use with the public",
     "outlet": "Regnum",
     "date": "2021-06-28",
     "url": "https://regnum.ru/news/3307406.html",
@@ -3699,10 +5104,83 @@
   {
     "week": "2021-06-28",
     "title": "В Литве сочли незаконным выход Белоруссии из \"Восточного партнерства\"",
-    "english": null,
+    "english": "Lithuania called Belarus's exit from the Eastern Partnership unlawful",
     "outlet": "Komsomolskaya Pravda",
     "date": "2021-06-28",
     "url": "https://pda.kp.ru/online/news/4345425/",
+    "hostile": false,
+    "countries": [
+      "LT",
+      "BY"
+    ]
+  },
+  {
+    "week": "2021-06-28",
+    "title": "В Польше за сутки выявили более 70 случаев заражения SARS-CoV-2",
+    "english": null,
+    "outlet": "Regnum",
+    "date": "2021-06-28",
+    "url": "https://regnum.ru/news/society/3306999.html",
+    "hostile": false,
+    "countries": [
+      "PL"
+    ]
+  },
+  {
+    "week": "2021-06-28",
+    "title": "В Польше обнародовали данные о случаях насилия над детьми в церкви",
+    "english": null,
+    "outlet": "Regnum",
+    "date": "2021-06-28",
+    "url": "https://regnum.ru/news/3307539.html",
+    "hostile": false,
+    "countries": [
+      "PL"
+    ]
+  },
+  {
+    "week": "2021-06-28",
+    "title": "В Польше ослабили ряд связанных с пандемией ограничений",
+    "english": null,
+    "outlet": "Regnum",
+    "date": "2021-06-28",
+    "url": "https://regnum.ru/news/polit/3306908.html",
+    "hostile": false,
+    "countries": [
+      "PL"
+    ]
+  },
+  {
+    "week": "2021-06-28",
+    "title": "В Польше оценили вероятность четвертой волны пандемии SARS-CoV-2",
+    "english": null,
+    "outlet": "Regnum",
+    "date": "2021-06-28",
+    "url": "https://regnum.ru/news/society/3307019.html",
+    "hostile": false,
+    "countries": [
+      "PL"
+    ]
+  },
+  {
+    "week": "2021-06-28",
+    "title": "В Польше сообщили о начале укладки газопровода в Балтийском море",
+    "english": null,
+    "outlet": "Regnum",
+    "date": "2021-06-28",
+    "url": "https://regnum.ru/news/3307381.html",
+    "hostile": false,
+    "countries": [
+      "PL"
+    ]
+  },
+  {
+    "week": "2021-06-28",
+    "title": "Вильнюс обвинил Минск в пропуске арабских нелегалов на белорусско-литовской границе",
+    "english": null,
+    "outlet": "Gazeta.ru",
+    "date": "2021-06-28",
+    "url": "https://www.gazeta.ru/politics/2021/06/28_a_13680608.shtml",
     "hostile": false,
     "countries": [
       "LT",
@@ -3786,7 +5264,7 @@
   {
     "week": "2021-07-05",
     "title": "\"Газпром\" не забронировал мощности транзита через Польшу и Украину",
-    "english": null,
+    "english": "Gazprom did not book transit capacity through Poland and Ukraine",
     "outlet": "Rossiyskaya Gazeta",
     "date": "2021-07-05",
     "url": "https://rg.ru/2021/07/05/gazprom-ne-zabroniroval-moshchnosti-tranzita-cherez-polshu-i-ukrainu.html",
@@ -3799,7 +5277,7 @@
   {
     "week": "2021-07-05",
     "title": "\"Газпром\" не стал бронировать транзитные мощности в Польше и на Украине",
-    "english": null,
+    "english": "Gazprom did not book transit capacity in Poland and Ukraine",
     "outlet": "RIA Novosti",
     "date": "2021-07-05",
     "url": "https://ria.ru/20210705/tranzit-1739998988.html",
@@ -3812,7 +5290,7 @@
   {
     "week": "2021-07-05",
     "title": "Postimees: Эстония может закрыть въезд из России из-за коронавируса",
-    "english": null,
+    "english": "Postimees: Estonia may close entry from Russia because of the coronavirus",
     "outlet": "RT",
     "date": "2021-07-05",
     "url": "https://russian.rt.com/russia/news/881924-estoniya-turizm-rossiya",
@@ -3824,7 +5302,7 @@
   {
     "week": "2021-07-05",
     "title": "«Газпром» решил не бронировать мощности для транзита через Польшу и Украину",
-    "english": null,
+    "english": "Gazprom decided not to book transit capacity through Poland and Ukraine",
     "outlet": "Argumenty i Fakty",
     "date": "2021-07-05",
     "url": "https://aif.ru/money/company/gazprom_reshil_ne_bronirovat_moshchnosti_dlya_tranzita_cherez_polshu_i_ukrainu",
@@ -3837,7 +5315,7 @@
   {
     "week": "2021-07-05",
     "title": "Боярский назвал разницу между сборными России и Украины по футболу",
-    "english": null,
+    "english": "Boyarsky named the difference between the Russian and Ukrainian football teams",
     "outlet": "Lenta",
     "date": "2021-07-05",
     "url": "https://lenta.ru/news/2021/07/05/boyarsky/",
@@ -3861,10 +5339,22 @@
   {
     "week": "2021-07-05",
     "title": "В ГД прокомментировали выпуск украинского телеканала с Крымом на карте России",
-    "english": null,
+    "english": "The State Duma commented on a Ukrainian channel showing Crimea on a map of Russia",
     "outlet": "RT",
     "date": "2021-07-05",
     "url": "https://russian.rt.com/ussr/news/882112-gosduma-krym-ukrainskii-telekanal-karta",
+    "hostile": false,
+    "countries": [
+      "UA"
+    ]
+  },
+  {
+    "week": "2021-07-05",
+    "title": "В Госдуме оценили выпуск украинского гостелеканала с Крымом в составе России",
+    "english": null,
+    "outlet": "Lenta",
+    "date": "2021-07-05",
+    "url": "https://lenta.ru/news/2021/07/05/beznadega/",
     "hostile": false,
     "countries": [
       "UA"
@@ -3892,6 +5382,55 @@
   },
   {
     "week": "2021-07-05",
+    "title": "В Кремле рассказали о работе Путина над статьей про Украину",
+    "english": null,
+    "outlet": "Argumenty i Fakty",
+    "date": "2021-07-05",
+    "url": "https://aif.ru/politics/v_kremle_rasskazali_o_rabote_putina_nad_statey_pro_ukrainu",
+    "hostile": false,
+    "countries": [
+      "UA"
+    ]
+  },
+  {
+    "week": "2021-07-05",
+    "title": "В Крыму готовы трудоустроить коллектив украинского телеканала \"Дом\"",
+    "english": null,
+    "outlet": "TASS",
+    "date": "2021-07-05",
+    "url": "https://tass.ru/obschestvo/11827261",
+    "hostile": false,
+    "countries": [
+      "UA"
+    ]
+  },
+  {
+    "week": "2021-07-05",
+    "title": "В МИД Украины заявили, что не хотят разрывать торговые связи с Минском",
+    "english": null,
+    "outlet": "RIA Novosti",
+    "date": "2021-07-05",
+    "url": "https://ria.ru/20210705/ukraina-1739899682.html",
+    "hostile": false,
+    "countries": [
+      "UA"
+    ]
+  },
+  {
+    "week": "2021-07-05",
+    "title": "В Польше пилот назвал себя «королем самолета» и не пустил на борт украинцев - Газета.Ru",
+    "english": null,
+    "outlet": "Gazeta.ru",
+    "date": "2021-07-05",
+    "url": "https://www.gazeta.ru/social/news/2021/07/05/n_16203158.shtml",
+    "hostile": false,
+    "countries": [
+      "PL",
+      "UA"
+    ]
+  },
+  {
+    "week": "2021-07-05",
     "title": "В России высмеяли требование кандидата в президенты Эстонии вернуть Псковскую и Ленинградскую области",
     "english": "Russia mocked an Estonian presidential candidate's demand to return the Pskov and Leningrad regions",
     "outlet": "Komsomolskaya Pravda",
@@ -3910,6 +5449,18 @@
     "date": "2021-07-05",
     "url": "https://www.gazeta.ru/politics/2021/07/05_a_13702556.shtml",
     "hostile": true,
+    "countries": [
+      "EE"
+    ]
+  },
+  {
+    "week": "2021-07-05",
+    "title": "В Эстонии предлагают декриминализировать мелкие кражи",
+    "english": null,
+    "outlet": "Regnum",
+    "date": "2021-07-05",
+    "url": "https://regnum.ru/news/society/3310410.html",
+    "hostile": false,
     "countries": [
       "EE"
     ]
@@ -3978,7 +5529,7 @@
   {
     "week": "2021-07-12",
     "title": "«Северный поток-2» достроят в августе. Что изменится для РФ, ЕС и Украины?",
-    "english": null,
+    "english": "Nord Stream 2 will be completed in August. What will change for Russia, the EU and Ukraine?",
     "outlet": "Argumenty i Fakty",
     "date": "2021-07-12",
     "url": "https://aif.ru/money/economy/severnyy_potok-2_dostroyat_v_avguste_chto_izmenitsya_dlya_rf_es_i_ukrainy",
@@ -3990,7 +5541,7 @@
   {
     "week": "2021-07-12",
     "title": "«Ситуация остаётся тревожной»: ЕС пообещал срочную помощь Литве в связи с миграционным кризисом на границе с Белоруссией",
-    "english": null,
+    "english": "The situation remains alarming: the EU promised urgent help to Lithuania over the migration crisis on the border with Belarus",
     "outlet": "RT",
     "date": "2021-07-12",
     "url": "https://russian.rt.com/ussr/article/884675-litva-belorussiya-granica-migranty",
@@ -4003,7 +5554,7 @@
   {
     "week": "2021-07-12",
     "title": "Агентство ЕС начинает операцию на границе Литвы с Белоруссией",
-    "english": null,
+    "english": "An EU agency is starting an operation on Lithuania's border with Belarus",
     "outlet": "Argumenty i Fakty",
     "date": "2021-07-12",
     "url": "https://aif.ru/politics/world/agentstvo_es_nachinaet_operaciyu_na_granice_litvy_s_belorussiey",
@@ -4016,10 +5567,36 @@
   {
     "week": "2021-07-12",
     "title": "Агентство ЕС начинает срочную операцию на границе Литвы с Белоруссией",
-    "english": null,
+    "english": "An EU agency is starting an urgent operation on Lithuania's border with Belarus",
     "outlet": "RIA Novosti",
     "date": "2021-07-12",
     "url": "https://ria.ru/20210712/operatsiya-1740879219.html",
+    "hostile": false,
+    "countries": [
+      "LT",
+      "BY"
+    ]
+  },
+  {
+    "week": "2021-07-12",
+    "title": "Агентство ЕС проведет операцию на границе Литвы и Белоруссии из-за мигрантов",
+    "english": null,
+    "outlet": "Izvestia",
+    "date": "2021-07-12",
+    "url": "https://iz.ru/1191915/2021-07-12/agentstvo-es-provedet-operatciiu-na-granitce-litvy-i-belorussii-iz-za-migrantov",
+    "hostile": false,
+    "countries": [
+      "LT",
+      "BY"
+    ]
+  },
+  {
+    "week": "2021-07-12",
+    "title": "Агентство ЕС ускоренно направит помощь Литве на границу с Белоруссией из-за миграции",
+    "english": null,
+    "outlet": "TASS",
+    "date": "2021-07-12",
+    "url": "https://tass.ru/mezhdunarodnaya-panorama/11880391",
     "hostile": false,
     "countries": [
       "LT",
@@ -4036,6 +5613,30 @@
     "hostile": true,
     "countries": [
       "PL"
+    ]
+  },
+  {
+    "week": "2021-07-12",
+    "title": "В ЕС заявили о нужде Литвы в двух вертолётах для контроля границы",
+    "english": null,
+    "outlet": "RT",
+    "date": "2021-07-12",
+    "url": "https://russian.rt.com/ussr/news/884621-es-litva-granica",
+    "hostile": false,
+    "countries": [
+      "LT"
+    ]
+  },
+  {
+    "week": "2021-07-12",
+    "title": "В ЛНР заявили о прибытии в Донбасс разведгруппы украинских силовиков",
+    "english": null,
+    "outlet": "RIA Novosti",
+    "date": "2021-07-12",
+    "url": "https://ria.ru/20210712/donbass-1740969121.html",
+    "hostile": false,
+    "countries": [
+      "UA"
     ]
   },
   {
@@ -4089,7 +5690,7 @@
   {
     "week": "2021-07-19",
     "title": "NI назвал договор США и Польши сигналом России",
-    "english": null,
+    "english": "NI called the US-Poland agreement a signal to Russia",
     "outlet": "RIA Novosti",
     "date": "2021-07-19",
     "url": "https://ria.ru/20210719/tanki-1741937605.html",
@@ -4113,7 +5714,7 @@
   {
     "week": "2021-07-19",
     "title": "Бывший глава МВД Латвии рассказал о плане России «оккупировать» Прибалтику",
-    "english": null,
+    "english": "A former Latvian interior minister spoke of a Russian plan to occupy the Baltics",
     "outlet": "Lenta",
     "date": "2021-07-19",
     "url": "https://lenta.ru/news/2021/07/19/drunk_insides/",
@@ -4125,7 +5726,7 @@
   {
     "week": "2021-07-19",
     "title": "В Польше выявили 185 случаев заражения «индийским» штаммом коронавируса",
-    "english": null,
+    "english": "185 cases of the Indian coronavirus strain were found in Poland",
     "outlet": "Regnum",
     "date": "2021-07-19",
     "url": "https://regnum.ru/news/society/3325699.html",
@@ -4137,7 +5738,7 @@
   {
     "week": "2021-07-19",
     "title": "В Польше за сутки выявили 67 случаев заражения SARS-CoV-2",
-    "english": null,
+    "english": "67 cases of SARS-CoV-2 were found in Poland in one day",
     "outlet": "Regnum",
     "date": "2021-07-19",
     "url": "https://regnum.ru/news/society/3325566.html",
@@ -4149,7 +5750,7 @@
   {
     "week": "2021-07-19",
     "title": "В Польше зафиксировали резкий рост заболеваемости COVID-19",
-    "english": null,
+    "english": "A sharp rise in COVID-19 cases was recorded in Poland",
     "outlet": "RIA Novosti",
     "date": "2021-07-19",
     "url": "https://ria.ru/20210719/covid-19-1741885004.html",
@@ -4161,13 +5762,85 @@
   {
     "week": "2021-07-19",
     "title": "В Польше подготовили поправки в закон о борьбе с домашним насилием",
-    "english": null,
+    "english": "Poland prepared amendments to the law on fighting domestic violence",
     "outlet": "Regnum",
     "date": "2021-07-19",
     "url": "https://regnum.ru/news/3325778.html",
     "hostile": false,
     "countries": [
       "PL"
+    ]
+  },
+  {
+    "week": "2021-07-19",
+    "title": "В Польше реки вышли из берегов и затопили сотни домов",
+    "english": null,
+    "outlet": "Lenta",
+    "date": "2021-07-19",
+    "url": "https://lenta.ru/news/2021/07/19/poland_flood/",
+    "hostile": false,
+    "countries": [
+      "PL"
+    ]
+  },
+  {
+    "week": "2021-07-19",
+    "title": "В Раде предрекли Украине тяжелые времена после статьи Путина",
+    "english": null,
+    "outlet": "RIA Novosti",
+    "date": "2021-07-19",
+    "url": "https://ria.ru/20210719/ukraina-1741788816.html",
+    "hostile": false,
+    "countries": [
+      "UA"
+    ]
+  },
+  {
+    "week": "2021-07-19",
+    "title": "В России оценили предсказание о тяжелых временах на Украине",
+    "english": null,
+    "outlet": "Lenta",
+    "date": "2021-07-19",
+    "url": "https://lenta.ru/news/2021/07/19/dza_ukraine/",
+    "hostile": false,
+    "countries": [
+      "UA"
+    ]
+  },
+  {
+    "week": "2021-07-19",
+    "title": "В США сочли продажу танков Abrams Польше «сигналом» России",
+    "english": null,
+    "outlet": "Komsomolskaya Pravda",
+    "date": "2021-07-19",
+    "url": "https://pda.kp.ru/online/news/4370258/",
+    "hostile": false,
+    "countries": [
+      "PL"
+    ]
+  },
+  {
+    "week": "2021-07-19",
+    "title": "В Эстонии прививку от коронавируса можно будет получить в аптеках",
+    "english": null,
+    "outlet": "TASS",
+    "date": "2021-07-19",
+    "url": "https://tass.ru/obschestvo/11935565",
+    "hostile": false,
+    "countries": [
+      "EE"
+    ]
+  },
+  {
+    "week": "2021-07-19",
+    "title": "В Эстонии протестируют береговой ракетный комплекс НАТО",
+    "english": null,
+    "outlet": "Regnum",
+    "date": "2021-07-19",
+    "url": "https://regnum.ru/news/3325658.html",
+    "hostile": false,
+    "countries": [
+      "EE"
     ]
   },
   {
@@ -4221,7 +5894,7 @@
   {
     "week": "2021-07-26",
     "title": "«Горячие эстонские парни». Какие символы советской жизни они сохранили",
-    "english": null,
+    "english": "Hot Estonian guys. Which symbols of Soviet life they kept",
     "outlet": "Argumenty i Fakty",
     "date": "2021-07-26",
     "url": "https://aif.ru/politics/world/goryachie_estonskie_parni_kakie_simvoly_sovetskoy_zhizni_im_udalos_sohranit",
@@ -4233,7 +5906,7 @@
   {
     "week": "2021-07-26",
     "title": "«Хай вывчають!» — олимпийскую сборную Украины призвали говорить на мове",
-    "english": null,
+    "english": "Let them learn it: Ukraine's Olympic team was urged to speak Ukrainian",
     "outlet": "Regnum",
     "date": "2021-07-26",
     "url": "https://regnum.ru/news/3329655.html",
@@ -4245,7 +5918,7 @@
   {
     "week": "2021-07-26",
     "title": "Аналитик усомнился в возможности Украины начать разработку зелёного водорода",
-    "english": null,
+    "english": "An analyst doubted Ukraine could start producing green hydrogen",
     "outlet": "RT",
     "date": "2021-07-26",
     "url": "https://russian.rt.com/ussr/news/889061-ekspert-saakashvili-severnyi-potok-2-ukraina-vodorod",
@@ -4269,7 +5942,7 @@
   {
     "week": "2021-07-26",
     "title": "В Литве взбунтовались нелегальные мигранты",
-    "english": null,
+    "english": "Irregular migrants rebelled in Lithuania",
     "outlet": "Lenta",
     "date": "2021-07-26",
     "url": "https://lenta.ru/news/2021/07/26/bund/",
@@ -4281,7 +5954,7 @@
   {
     "week": "2021-07-26",
     "title": "В Финляндии блогеры впервые смогут получить профильное высшее образование",
-    "english": null,
+    "english": "Bloggers in Finland will be able to get a specialist higher education for the first time",
     "outlet": "Lenta",
     "date": "2021-07-26",
     "url": "https://lenta.ru/news/2021/07/26/blog_finland/",
@@ -4293,13 +5966,25 @@
   {
     "week": "2021-07-26",
     "title": "В Финляндии в 2022 году запустят образовательную программу для блогеров",
-    "english": null,
+    "english": "Finland will launch an education programme for bloggers in 2022",
     "outlet": "RIA Novosti",
     "date": "2021-07-26",
     "url": "https://ria.ru/20210726/blogery-1742951508.html",
     "hostile": false,
     "countries": [
       "FI"
+    ]
+  },
+  {
+    "week": "2021-07-26",
+    "title": "Германия будет мешать Польше проводить многовекторную политику",
+    "english": null,
+    "outlet": "Regnum",
+    "date": "2021-07-26",
+    "url": "https://regnum.ru/news/polit/3329471.html",
+    "hostile": false,
+    "countries": [
+      "PL"
     ]
   },
   {
@@ -4322,6 +6007,67 @@
     "hostile": true,
     "countries": [
       "UA"
+    ]
+  },
+  {
+    "week": "2021-07-26",
+    "title": "Жители Литвы протестуют против лагеря для нелегалов",
+    "english": null,
+    "outlet": "Vesti",
+    "date": "2021-07-26",
+    "url": "https://www.vesti.ru/article/2592899",
+    "hostile": false,
+    "countries": [
+      "LT"
+    ]
+  },
+  {
+    "week": "2021-07-26",
+    "title": "Каждый четвертый педофил в Польше оказался священником",
+    "english": null,
+    "outlet": "Lenta",
+    "date": "2021-07-26",
+    "url": "https://lenta.ru/news/2021/07/26/pedopriests/",
+    "hostile": false,
+    "countries": [
+      "PL"
+    ]
+  },
+  {
+    "week": "2021-07-26",
+    "title": "Калининградец пообещал отвезти 55 тысяч рублей в Польшу и присвоил деньги",
+    "english": null,
+    "outlet": "Komsomolskaya Pravda",
+    "date": "2021-07-26",
+    "url": "https://pda.kaliningrad.kp.ru/online/news/4377461/",
+    "hostile": false,
+    "countries": [
+      "PL"
+    ]
+  },
+  {
+    "week": "2021-07-26",
+    "title": "Литва предложила ужесточить санкции против Минска при ухудшении кризиса с мигрантами",
+    "english": null,
+    "outlet": "TASS",
+    "date": "2021-07-26",
+    "url": "https://tass.ru/mezhdunarodnaya-panorama/11986505",
+    "hostile": false,
+    "countries": [
+      "LT"
+    ]
+  },
+  {
+    "week": "2021-07-26",
+    "title": "Литва разместит бегущих из Белоруссии нелегалов на военном полигоне",
+    "english": null,
+    "outlet": "Lenta",
+    "date": "2021-07-26",
+    "url": "https://lenta.ru/news/2021/07/26/poligon_migrantov/",
+    "hostile": false,
+    "countries": [
+      "LT",
+      "BY"
     ]
   },
   {
@@ -4361,7 +6107,7 @@
   {
     "week": "2021-08-02",
     "title": "\"Газпром\" не забронировал допмощности Украины и Польши для транзита газа",
-    "english": null,
+    "english": "Gazprom did not book extra Ukrainian and Polish capacity for gas transit",
     "outlet": "Rossiyskaya Gazeta",
     "date": "2021-08-02",
     "url": "https://rg.ru/2021/08/02/gazprom-ne-zabroniroval-dopmoshchnosti-ukrainy-i-polshi-dlia-tranzita-gaza.html",
@@ -4374,7 +6120,7 @@
   {
     "week": "2021-08-02",
     "title": "FT: Польша предложила убежище Кристине Тимановской",
-    "english": null,
+    "english": "FT: Poland offered asylum to Kristina Timanovskaya",
     "outlet": "TASS",
     "date": "2021-08-02",
     "url": "https://tass.ru/mezhdunarodnaya-panorama/12038775",
@@ -4398,7 +6144,7 @@
   {
     "week": "2021-08-02",
     "title": "«Лучшее время, чтоб уйти». Шевченко больше не тренер сборной Украины",
-    "english": null,
+    "english": "The best time to leave. Shevchenko is no longer coach of Ukraine's national team",
     "outlet": "Regnum",
     "date": "2021-08-02",
     "url": "https://regnum.ru/news/3334893.html",
@@ -4410,19 +6156,20 @@
   {
     "week": "2021-08-02",
     "title": "Белорусская бегунья Тимановская получила польскую визу",
-    "english": null,
+    "english": "Belarusian runner Timanovskaya received a Polish visa",
     "outlet": "Vesti",
     "date": "2021-08-02",
     "url": "https://www.vesti.ru/article/2595611",
     "hostile": false,
     "countries": [
+      "PL",
       "BY"
     ]
   },
   {
     "week": "2021-08-02",
     "title": "В Британии рассказали, как идёт разработка военных катеров для Украины",
-    "english": null,
+    "english": "Britain described how work is going on military boats for Ukraine",
     "outlet": "Regnum",
     "date": "2021-08-02",
     "url": "https://regnum.ru/news/polit/3335326.html",
@@ -4434,13 +6181,88 @@
   {
     "week": "2021-08-02",
     "title": "В ДНР сообщили, что двое жителей пострадали в результате обстрела украинских силовиков",
-    "english": null,
+    "english": "The DPR said two residents were hurt by shelling from Ukrainian security forces",
     "outlet": "TASS",
     "date": "2021-08-02",
     "url": "https://tass.ru/mezhdunarodnaya-panorama/12044715",
     "hostile": false,
     "countries": [
       "UA"
+    ]
+  },
+  {
+    "week": "2021-08-02",
+    "title": "В Литве за сутки задержали рекордное число нелегалов из Белоруссии",
+    "english": null,
+    "outlet": "RIA Novosti",
+    "date": "2021-08-02",
+    "url": "https://ria.ru/20210802/migranty-1743962231.html",
+    "hostile": false,
+    "countries": [
+      "LT",
+      "BY"
+    ]
+  },
+  {
+    "week": "2021-08-02",
+    "title": "В Литве заявили о переполненных погранзаставах на границе с Белоруссией",
+    "english": null,
+    "outlet": "Argumenty i Fakty",
+    "date": "2021-08-02",
+    "url": "https://aif.ru/politics/world/v_litve_zayavili_o_perepolnennyh_pogranzastavah_na_granice_s_belorussiey",
+    "hostile": false,
+    "countries": [
+      "LT",
+      "BY"
+    ]
+  },
+  {
+    "week": "2021-08-02",
+    "title": "В Литве заявили, что погранзаставы на границе с Белоруссией переполнены нелегалами",
+    "english": null,
+    "outlet": "TASS",
+    "date": "2021-08-02",
+    "url": "https://tass.ru/mezhdunarodnaya-panorama/12038151",
+    "hostile": false,
+    "countries": [
+      "LT",
+      "BY"
+    ]
+  },
+  {
+    "week": "2021-08-02",
+    "title": "В Литве поймали рекордное число нелегалов",
+    "english": null,
+    "outlet": "Lenta",
+    "date": "2021-08-02",
+    "url": "https://lenta.ru/news/2021/08/02/migrants_record/",
+    "hostile": false,
+    "countries": [
+      "LT"
+    ]
+  },
+  {
+    "week": "2021-08-02",
+    "title": "В Литве рассказали о сопровождении ВВС НАТО российских самолётов",
+    "english": null,
+    "outlet": "Regnum",
+    "date": "2021-08-02",
+    "url": "https://regnum.ru/news/3334933.html",
+    "hostile": false,
+    "countries": [
+      "LT"
+    ]
+  },
+  {
+    "week": "2021-08-02",
+    "title": "В МИД Польши заявили, что вопрос репараций от Германии за Вторую мировую остается открытым",
+    "english": null,
+    "outlet": "Komsomolskaya Pravda",
+    "date": "2021-08-02",
+    "url": "https://pda.kp.ru/online/news/4386096/",
+    "hostile": false,
+    "countries": [
+      "PL"
     ]
   },
   {
@@ -4519,7 +6341,7 @@
   {
     "week": "2021-08-09",
     "title": "Британия объявила «в принципе решённым» вопрос вступления Украины в НАТО",
-    "english": null,
+    "english": "Britain called Ukraine's joining NATO settled in principle",
     "outlet": "Regnum",
     "date": "2021-08-09",
     "url": "https://regnum.ru/news/polit/3340527.html",
@@ -4531,7 +6353,7 @@
   {
     "week": "2021-08-09",
     "title": "В МИД Литвы заявили о непризнании международных соглашений нынешних властей Белоруссии",
-    "english": null,
+    "english": "Lithuania's foreign ministry said it does not recognize international agreements of Belarus's current authorities",
     "outlet": "TASS",
     "date": "2021-08-09",
     "url": "https://tass.ru/mezhdunarodnaya-panorama/12088831",
@@ -4544,7 +6366,7 @@
   {
     "week": "2021-08-09",
     "title": "В МИД Украины ожидают больше инвестиций США",
-    "english": null,
+    "english": "Ukraine's foreign ministry expects more US investment",
     "outlet": "TASS",
     "date": "2021-08-09",
     "url": "https://tass.ru/mezhdunarodnaya-panorama/12086875",
@@ -4556,7 +6378,7 @@
   {
     "week": "2021-08-09",
     "title": "В Польше суд отказался закрыть дело об оскорблении президента",
-    "english": null,
+    "english": "A court in Poland refused to close a case about insulting the president",
     "outlet": "Rossiyskaya Gazeta",
     "date": "2021-08-09",
     "url": "https://rg.ru/2021/08/09/v-polshe-sud-otkazalsia-zakryt-delo-ob-oskorblenii-prezidenta.html",
@@ -4568,13 +6390,74 @@
   {
     "week": "2021-08-09",
     "title": "В Финляндии от COVID-19 начали вакцинировать подростков",
-    "english": null,
+    "english": "Finland started vaccinating teenagers against COVID-19",
     "outlet": "Regnum",
     "date": "2021-08-09",
     "url": "https://regnum.ru/news/society/3340242.html",
     "hostile": false,
     "countries": [
       "FI"
+    ]
+  },
+  {
+    "week": "2021-08-09",
+    "title": "Глава МВД Латвии: пора вводить ЧС на границе с Белоруссией",
+    "english": null,
+    "outlet": "Regnum",
+    "date": "2021-08-09",
+    "url": "https://regnum.ru/news/3340310.html",
+    "hostile": false,
+    "countries": [
+      "LV",
+      "BY"
+    ]
+  },
+  {
+    "week": "2021-08-09",
+    "title": "Глава МИД Латвии допустил военное столкновение России и НАТО",
+    "english": null,
+    "outlet": "Regnum",
+    "date": "2021-08-09",
+    "url": "https://regnum.ru/news/3340158.html",
+    "hostile": false,
+    "countries": [
+      "LV"
+    ]
+  },
+  {
+    "week": "2021-08-09",
+    "title": "Две трети украинцев назвали себя бедными",
+    "english": null,
+    "outlet": "Lenta",
+    "date": "2021-08-09",
+    "url": "https://lenta.ru/news/2021/08/09/poor/",
+    "hostile": false,
+    "countries": [
+      "UA"
+    ]
+  },
+  {
+    "week": "2021-08-09",
+    "title": "Зеленский понаблюдал за украинскими учениями с острова Змеиный",
+    "english": null,
+    "outlet": "Lenta",
+    "date": "2021-08-09",
+    "url": "https://lenta.ru/news/2021/08/09/zmei_zell/",
+    "hostile": false,
+    "countries": [
+      "UA"
+    ]
+  },
+  {
+    "week": "2021-08-09",
+    "title": "Инфляция на Украине в июле ускорилась до 10,2%",
+    "english": null,
+    "outlet": "TASS",
+    "date": "2021-08-09",
+    "url": "https://tass.ru/ekonomika/12092125",
+    "hostile": false,
+    "countries": [
+      "UA"
     ]
   },
   {
@@ -4651,7 +6534,7 @@
   {
     "week": "2021-08-16",
     "title": "Афганцы попросили Украину предоставить убежище",
-    "english": null,
+    "english": "Afghans asked Ukraine to grant asylum",
     "outlet": "Lenta",
     "date": "2021-08-16",
     "url": "https://lenta.ru/news/2021/08/16/ua_refugees/",
@@ -4663,7 +6546,7 @@
   {
     "week": "2021-08-16",
     "title": "Белоруссия готова быстро перенаправить экспорт удобрений из Литвы в порты России",
-    "english": null,
+    "english": "Belarus is ready to quickly redirect fertilizer exports from Lithuania to Russian ports",
     "outlet": "TASS",
     "date": "2021-08-16",
     "url": "https://tass.ru/ekonomika/12139849",
@@ -4676,7 +6559,7 @@
   {
     "week": "2021-08-16",
     "title": "Бывший мэр города в Афганистане просит с семьей убежища в Латвии",
-    "english": null,
+    "english": "A former mayor of a city in Afghanistan is asking for asylum in Latvia with his family",
     "outlet": "Regnum",
     "date": "2021-08-16",
     "url": "https://regnum.ru/news/3345287.html",
@@ -4688,7 +6571,7 @@
   {
     "week": "2021-08-16",
     "title": "В Литву из США поступила первая партия армейских вездеходов по контракту на €149 млн",
-    "english": null,
+    "english": "The first batch of army all-terrain vehicles arrived in Lithuania from the United States under a 149 million euro contract",
     "outlet": "TASS",
     "date": "2021-08-16",
     "url": "https://tass.ru/mezhdunarodnaya-panorama/12139575",
@@ -4700,7 +6583,7 @@
   {
     "week": "2021-08-16",
     "title": "В МИД Польши заявили, что не собираются отзывать своего посла в Израиле",
-    "english": null,
+    "english": "Poland's foreign ministry said it does not intend to recall its ambassador to Israel",
     "outlet": "Regnum",
     "date": "2021-08-16",
     "url": "https://regnum.ru/news/3345277.html",
@@ -4712,13 +6595,85 @@
   {
     "week": "2021-08-16",
     "title": "В Молдавию с рабочим визитом прибыл глава МИД Латвии",
-    "english": null,
+    "english": "Latvia's foreign minister arrived in Moldova on a working visit",
     "outlet": "Regnum",
     "date": "2021-08-16",
     "url": "https://regnum.ru/news/3345486.html",
     "hostile": false,
     "countries": [
       "LV"
+    ]
+  },
+  {
+    "week": "2021-08-16",
+    "title": "В ООН обеспокоились действиями Латвии в отношении нелегалов",
+    "english": null,
+    "outlet": "Lenta",
+    "date": "2021-08-16",
+    "url": "https://lenta.ru/news/2021/08/16/un_lv/",
+    "hostile": false,
+    "countries": [
+      "LV"
+    ]
+  },
+  {
+    "week": "2021-08-16",
+    "title": "В Польше заявили, что не принимали решения об отзыве посла из Израиля",
+    "english": null,
+    "outlet": "TASS",
+    "date": "2021-08-16",
+    "url": "https://tass.ru/mezhdunarodnaya-panorama/12138309",
+    "hostile": false,
+    "countries": [
+      "PL"
+    ]
+  },
+  {
+    "week": "2021-08-16",
+    "title": "Военные эксперты РФ приступили к инспекции подразделений армии Литвы",
+    "english": null,
+    "outlet": "TASS",
+    "date": "2021-08-16",
+    "url": "https://tass.ru/mezhdunarodnaya-panorama/12144047",
+    "hostile": false,
+    "countries": [
+      "LT"
+    ]
+  },
+  {
+    "week": "2021-08-16",
+    "title": "Восточный отток: как отъезд трудоспособного населения может сказаться на будущем Украины",
+    "english": null,
+    "outlet": "RT",
+    "date": "2021-08-16",
+    "url": "https://russian.rt.com/ussr/article/896152-ukraina-migraciya-defolt",
+    "hostile": false,
+    "countries": [
+      "UA"
+    ]
+  },
+  {
+    "week": "2021-08-16",
+    "title": "Глава Союза потребителей Украины предсказал стране нехватку питьевой воды",
+    "english": null,
+    "outlet": "Komsomolskaya Pravda",
+    "date": "2021-08-16",
+    "url": "https://pda.kp.ru/online/news/4402263/",
+    "hostile": false,
+    "countries": [
+      "UA"
+    ]
+  },
+  {
+    "week": "2021-08-16",
+    "title": "Глава Эстонии Керсти Кальюлайд будет баллотироваться на второй президентский срок",
+    "english": null,
+    "outlet": "Rossiyskaya Gazeta",
+    "date": "2021-08-16",
+    "url": "https://rg.ru/2021/08/16/glava-estonii-kersti-kaliulajd-budet-ballotirovatsia-na-vtoroj-prezidentskij-srok.html",
+    "hostile": false,
+    "countries": [
+      "EE"
     ]
   },
   {
@@ -4853,7 +6808,7 @@
   {
     "week": "2021-08-23",
     "title": "«Прям дно»: почему Украину стали считать страной-неудачницей",
-    "english": null,
+    "english": "Rock bottom: why Ukraine came to be seen as a failed country",
     "outlet": "Regnum",
     "date": "2021-08-23",
     "url": "https://regnum.ru/news/polit/3350491.html",
@@ -4865,7 +6820,7 @@
   {
     "week": "2021-08-23",
     "title": "В \"Ростелекоме\" прокомментировали санкции со стороны Украины - РИА Новости, 23.08.2021",
-    "english": null,
+    "english": "Rostelecom commented on sanctions from Ukraine",
     "outlet": "RIA Novosti",
     "date": "2021-08-23",
     "url": "https://ria.ru/20210823/ukraina-1746822914.html",
@@ -4877,13 +6832,50 @@
   {
     "week": "2021-08-23",
     "title": "В Госдуме прокомментировали слова премьера Украины об убытках из-за Крыма",
-    "english": null,
+    "english": "The State Duma commented on the Ukrainian prime minister's words about losses because of Crimea",
     "outlet": "RIA Novosti",
     "date": "2021-08-23",
     "url": "https://ria.ru/20210823/ubytki-1746862170.html",
     "hostile": false,
     "countries": [
       "UA"
+    ]
+  },
+  {
+    "week": "2021-08-23",
+    "title": "В ЛНР сообщили об обстреле со стороны украинских силовиков",
+    "english": null,
+    "outlet": "Regnum",
+    "date": "2021-08-23",
+    "url": "https://regnum.ru/news/3350541.html",
+    "hostile": false,
+    "countries": [
+      "UA"
+    ]
+  },
+  {
+    "week": "2021-08-23",
+    "title": "В Латвии заявили, что напряженность и риск на границе с Белоруссией остаются высокими",
+    "english": null,
+    "outlet": "TASS",
+    "date": "2021-08-23",
+    "url": "https://tass.ru/obschestvo/12194653",
+    "hostile": false,
+    "countries": [
+      "LV",
+      "BY"
+    ]
+  },
+  {
+    "week": "2021-08-23",
+    "title": "В Литве не появится аналитического подразделения НАТО",
+    "english": null,
+    "outlet": "Rossiyskaya Gazeta",
+    "date": "2021-08-23",
+    "url": "https://rg.ru/2021/08/23/v-litve-ne-poiavitsia-analiticheskogo-podrazdeleniia-nato.html",
+    "hostile": false,
+    "countries": [
+      "LT"
     ]
   },
   {
@@ -4987,7 +6979,7 @@
   {
     "week": "2021-08-30",
     "title": "«Вы сами виноваты, пан министр» — в сети возмущены работой судов Польши",
-    "english": null,
+    "english": "You are to blame yourself, Mr Minister: people online are outraged by the work of Poland's courts",
     "outlet": "Regnum",
     "date": "2021-08-30",
     "url": "https://regnum.ru/news/3356969.html",
@@ -5011,10 +7003,34 @@
   {
     "week": "2021-08-30",
     "title": "«Нафтогаз» поставил под сомнение старт отопительного сезона на Украине",
-    "english": null,
+    "english": "Naftogaz cast doubt on the start of the heating season in Ukraine",
     "outlet": "Regnum",
     "date": "2021-08-30",
     "url": "https://regnum.ru/news/economy/3355281.html",
+    "hostile": false,
+    "countries": [
+      "UA"
+    ]
+  },
+  {
+    "week": "2021-08-30",
+    "title": "Алар Карис: «Докажу, что я неплохой кандидат в президенты Эстонии»",
+    "english": null,
+    "outlet": "Regnum",
+    "date": "2021-08-30",
+    "url": "https://regnum.ru/news/3356578.html",
+    "hostile": false,
+    "countries": [
+      "EE"
+    ]
+  },
+  {
+    "week": "2021-08-30",
+    "title": "Блинкен рассказал о поставках американских вакцин на Украину",
+    "english": null,
+    "outlet": "RIA Novosti",
+    "date": "2021-08-30",
+    "url": "https://ria.ru/20210830/blinken-1747773964.html",
     "hostile": false,
     "countries": [
       "UA"
@@ -5081,7 +7097,7 @@
   {
     "week": "2021-09-06",
     "title": "«Над Украиной смеются!» — спикер Рады против переименования Украины",
-    "english": null,
+    "english": "They are laughing at Ukraine: the Rada speaker is against renaming Ukraine",
     "outlet": "Regnum",
     "date": "2021-09-06",
     "url": "https://regnum.ru/news/polit/3362767.html",
@@ -5093,7 +7109,7 @@
   {
     "week": "2021-09-06",
     "title": "«Пусть уже Украину демонтируют!» — в Киеве снесли памятник дружбе с Москвой",
-    "english": null,
+    "english": "Let them dismantle Ukraine already: a monument to friendship with Moscow was taken down in Kyiv",
     "outlet": "Regnum",
     "date": "2021-09-06",
     "url": "https://regnum.ru/news/3362504.html",
@@ -5105,7 +7121,7 @@
   {
     "week": "2021-09-06",
     "title": "Афганских беженцев сравнили со среднестатистическими украинцами",
-    "english": null,
+    "english": "Afghan refugees were compared with the average Ukrainian",
     "outlet": "Lenta",
     "date": "2021-09-06",
     "url": "https://lenta.ru/news/2021/09/06/arestovich_ua/",
@@ -5117,7 +7133,7 @@
   {
     "week": "2021-09-06",
     "title": "Байден пообещал Зеленскому не оставлять Украину наедине с Россией",
-    "english": null,
+    "english": "Biden promised Zelensky not to leave Ukraine alone with Russia",
     "outlet": "Lenta",
     "date": "2021-09-06",
     "url": "https://lenta.ru/news/2021/09/07/naedine/",
@@ -5129,7 +7145,7 @@
   {
     "week": "2021-09-06",
     "title": "Белорусская спортсменка Ольга Сафронова попросила убежища в Польше",
-    "english": null,
+    "english": "Belarusian athlete Olga Safronova asked for asylum in Poland",
     "outlet": "Regnum",
     "date": "2021-09-06",
     "url": "https://regnum.ru/news/3362576.html",
@@ -5142,13 +7158,86 @@
   {
     "week": "2021-09-06",
     "title": "В Киеве обвинили украинских военных в \"потере\" Крыма",
-    "english": null,
+    "english": "In Kyiv the Ukrainian military were blamed for the loss of Crimea",
     "outlet": "Komsomolskaya Pravda",
     "date": "2021-09-06",
     "url": "https://pda.kp.ru/online/news/4428969/",
     "hostile": false,
     "countries": [
       "UA"
+    ]
+  },
+  {
+    "week": "2021-09-06",
+    "title": "В Киеве рассказали, какая система ПВО нужна Украине",
+    "english": null,
+    "outlet": "RIA Novosti",
+    "date": "2021-09-06",
+    "url": "https://ria.ru/20210907/pvo-1748949239.html",
+    "hostile": false,
+    "countries": [
+      "UA"
+    ]
+  },
+  {
+    "week": "2021-09-06",
+    "title": "В Литве мигранты устроили акцию протеста под лозунгом «Мы не скот!»",
+    "english": null,
+    "outlet": "Lenta",
+    "date": "2021-09-06",
+    "url": "https://lenta.ru/news/2021/09/06/litva_migrants/",
+    "hostile": false,
+    "countries": [
+      "LT"
+    ]
+  },
+  {
+    "week": "2021-09-06",
+    "title": "В Польше захотели поговорить с Россией \"на языке силы\" - РИА Новости, 06.09.2021",
+    "english": null,
+    "outlet": "RIA Novosti",
+    "date": "2021-09-06",
+    "url": "https://ria.ru/20210906/pogovorit-1748925853.html",
+    "hostile": false,
+    "countries": [
+      "PL"
+    ]
+  },
+  {
+    "week": "2021-09-06",
+    "title": "В Польше начались учения с участием около 4 тыс. военнослужащих",
+    "english": null,
+    "outlet": "Regnum",
+    "date": "2021-09-06",
+    "url": "https://regnum.ru/news/3362229.html",
+    "hostile": false,
+    "countries": [
+      "PL"
+    ]
+  },
+  {
+    "week": "2021-09-06",
+    "title": "В Польше поддержали введение режима ЧП на границе с Белоруссией",
+    "english": null,
+    "outlet": "Lenta",
+    "date": "2021-09-06",
+    "url": "https://lenta.ru/news/2021/09/06/granica/",
+    "hostile": false,
+    "countries": [
+      "PL",
+      "BY"
+    ]
+  },
+  {
+    "week": "2021-09-06",
+    "title": "В Эстонии глава департамента здоровья уволился из-за испортившихся вакцин",
+    "english": null,
+    "outlet": "Lenta",
+    "date": "2021-09-06",
+    "url": "https://lenta.ru/news/2021/09/06/lanno/",
+    "hostile": false,
+    "countries": [
+      "EE"
     ]
   },
   {
@@ -5224,7 +7313,7 @@
   {
     "week": "2021-09-13",
     "title": "\"Русский союз Латвии\" раскритиковал проведение военных учений со стрельбой на улицах Риги",
-    "english": null,
+    "english": "The Russian Union of Latvia criticized military exercises with live fire on the streets of Riga",
     "outlet": "TASS",
     "date": "2021-09-13",
     "url": "https://tass.ru/mezhdunarodnaya-panorama/12374287",
@@ -5236,7 +7325,7 @@
   {
     "week": "2021-09-13",
     "title": "Welt: отказ главы Польши встретиться с Меркель — оскорбление, а не случайность — ИноТВ",
-    "english": null,
+    "english": "Welt: the Polish leader's refusal to meet Merkel is an insult, not an accident",
     "outlet": "RT",
     "date": "2021-09-13",
     "url": "https://russian.rt.com/inotv/2021-09-12/Welt-otkaz-glavi-Polshi-vstretitsya",
@@ -5248,7 +7337,7 @@
   {
     "week": "2021-09-13",
     "title": "Более половины украинцев заявили о нежелании прививаться от коронавируса",
-    "english": null,
+    "english": "More than half of Ukrainians said they do not want to be vaccinated against the coronavirus",
     "outlet": "Lenta",
     "date": "2021-09-13",
     "url": "https://lenta.ru/news/2021/09/13/corona_ukraine/",
@@ -5260,7 +7349,7 @@
   {
     "week": "2021-09-13",
     "title": "В Киеве заявили о 35 пострадавших украинских туристах в ДТП в Турции",
-    "english": null,
+    "english": "Kyiv said 35 Ukrainian tourists were hurt in a crash in Turkey",
     "outlet": "TASS",
     "date": "2021-09-13",
     "url": "https://tass.ru/proisshestviya/12370911",
@@ -5272,7 +7361,7 @@
   {
     "week": "2021-09-13",
     "title": "В Китае предрекли экономические санкции Литве из-за Тайваня",
-    "english": null,
+    "english": "China predicted economic sanctions on Lithuania because of Taiwan",
     "outlet": "Lenta",
     "date": "2021-09-13",
     "url": "https://lenta.ru/news/2021/09/13/taiwan_china/",
@@ -5284,13 +7373,85 @@
   {
     "week": "2021-09-13",
     "title": "В Латвии восстановят мемориал в память об освободителях Риги от немецко-фашистских войск",
-    "english": null,
+    "english": "Latvia will restore a memorial to the liberators of Riga from Nazi troops",
     "outlet": "TASS",
     "date": "2021-09-13",
     "url": "https://tass.ru/obschestvo/12368985",
     "hostile": false,
     "countries": [
       "LV"
+    ]
+  },
+  {
+    "week": "2021-09-13",
+    "title": "В Литве ввели жесткие ограничения для невакцинированных от коронавируса",
+    "english": null,
+    "outlet": "Lenta",
+    "date": "2021-09-13",
+    "url": "https://lenta.ru/news/2021/09/13/litva_covid/",
+    "hostile": false,
+    "countries": [
+      "LT"
+    ]
+  },
+  {
+    "week": "2021-09-13",
+    "title": "В Литве ввели жесткие ограничения для непривившихся от коронавируса",
+    "english": null,
+    "outlet": "TASS",
+    "date": "2021-09-13",
+    "url": "https://tass.ru/obschestvo/12369057",
+    "hostile": false,
+    "countries": [
+      "LT"
+    ]
+  },
+  {
+    "week": "2021-09-13",
+    "title": "В Литве мигранты жалуются на запугивание во время собеседования для получения убежища",
+    "english": null,
+    "outlet": "Komsomolskaya Pravda",
+    "date": "2021-09-13",
+    "url": "https://pda.kp.ru/online/news/4437720/",
+    "hostile": false,
+    "countries": [
+      "LT"
+    ]
+  },
+  {
+    "week": "2021-09-13",
+    "title": "В Литве мигранты заявили об угрозах во время интервью для получения убежища",
+    "english": null,
+    "outlet": "RIA Novosti",
+    "date": "2021-09-13",
+    "url": "https://ria.ru/20210913/migranty-1749849337.html",
+    "hostile": false,
+    "countries": [
+      "LT"
+    ]
+  },
+  {
+    "week": "2021-09-13",
+    "title": "В Одессе начались совместные учения Украины и НАТО",
+    "english": null,
+    "outlet": "Izvestia",
+    "date": "2021-09-13",
+    "url": "https://iz.ru/1221150/2021-09-13/v-odesse-nachalis-sovmestnye-ucheniia-ukrainy-i-nato",
+    "hostile": false,
+    "countries": [
+      "UA"
+    ]
+  },
+  {
+    "week": "2021-09-13",
+    "title": "В Польше врачи поставили палатки перед зданием правительства",
+    "english": null,
+    "outlet": "Lenta",
+    "date": "2021-09-13",
+    "url": "https://lenta.ru/news/2021/09/13/government_camp/",
+    "hostile": false,
+    "countries": [
+      "PL"
     ]
   },
   {
@@ -5369,7 +7530,7 @@
   {
     "week": "2021-09-20",
     "title": "\"Газпром\" не стал бронировать допмощности по транзиту газа через Украину в октябре",
-    "english": null,
+    "english": "Gazprom did not book extra gas transit capacity through Ukraine in October",
     "outlet": "TASS",
     "date": "2021-09-20",
     "url": "https://tass.ru/ekonomika/12455657",
@@ -5406,7 +7567,7 @@
   {
     "week": "2021-09-20",
     "title": "«Хороший день»: Украинский радикал порадовался трагедии в Перми",
-    "english": null,
+    "english": "A good day: a Ukrainian radical was glad about the tragedy in Perm",
     "outlet": "Regnum",
     "date": "2021-09-20",
     "url": "https://regnum.ru/news/polit/3376108.html",
@@ -5428,7 +7589,7 @@
   {
     "week": "2021-09-20",
     "title": "В Госдуме оценили намерение Украины платить спортсменам за победу над россиянами",
-    "english": null,
+    "english": "The State Duma assessed Ukraine's intention to pay athletes for beating Russians",
     "outlet": "Lenta",
     "date": "2021-09-20",
     "url": "https://lenta.ru/news/2021/09/20/svisghev/",
@@ -5440,7 +7601,7 @@
   {
     "week": "2021-09-20",
     "title": "В Литве и Польше раскритиковали парламентские выборы в России",
-    "english": null,
+    "english": "Lithuania and Poland criticized the parliamentary elections in Russia",
     "outlet": "RIA Novosti",
     "date": "2021-09-20",
     "url": "https://ria.ru/20210920/vybory-1751051948.html",
@@ -5448,6 +7609,54 @@
     "countries": [
       "LT",
       "PL"
+    ]
+  },
+  {
+    "week": "2021-09-20",
+    "title": "В Польше заявили о задержании россиянина по запросу Казахстана",
+    "english": null,
+    "outlet": "RIA Novosti",
+    "date": "2021-09-20",
+    "url": "https://ria.ru/20210920/polsha-1750940430.html",
+    "hostile": false,
+    "countries": [
+      "PL"
+    ]
+  },
+  {
+    "week": "2021-09-20",
+    "title": "В Польше раскритиковали прошедшие в России выборы в Госдуму",
+    "english": null,
+    "outlet": "Lenta",
+    "date": "2021-09-20",
+    "url": "https://lenta.ru/news/2021/09/20/poland_criticise/",
+    "hostile": false,
+    "countries": [
+      "PL"
+    ]
+  },
+  {
+    "week": "2021-09-20",
+    "title": "В Финляндии можно будет работать дистанционно не только дома, но и в лесу",
+    "english": null,
+    "outlet": "Rossiyskaya Gazeta",
+    "date": "2021-09-20",
+    "url": "https://rg.ru/2021/09/21/v-finliandii-mozhno-budet-rabotat-distancionno-ne-tolko-doma-no-i-v-lesu.html",
+    "hostile": false,
+    "countries": [
+      "FI"
+    ]
+  },
+  {
+    "week": "2021-09-20",
+    "title": "В Финляндии оборудовали рабочие места на деревьях",
+    "english": null,
+    "outlet": "Rossiyskaya Gazeta",
+    "date": "2021-09-20",
+    "url": "https://rg.ru/2021/09/20/v-finliandii-oborudovali-rabochie-mesta-na-dereviah.html",
+    "hostile": false,
+    "countries": [
+      "FI"
     ]
   },
   {
@@ -5532,7 +7741,7 @@
   {
     "week": "2021-09-27",
     "title": "«Газпром» раскрыл подробности отказа от транзита газа через Украину",
-    "english": null,
+    "english": "Gazprom disclosed details of its refusal to transit gas through Ukraine",
     "outlet": "Lenta",
     "date": "2021-09-27",
     "url": "https://lenta.ru/news/2021/09/27/dogovor/",
@@ -5544,7 +7753,7 @@
   {
     "week": "2021-09-27",
     "title": "«Ковид-партии» стали новой политической силой в Латвии – мнение",
-    "english": null,
+    "english": "COVID parties have become a new political force in Latvia, an opinion says",
     "outlet": "Regnum",
     "date": "2021-09-27",
     "url": "https://regnum.ru/news/3382338.html",
@@ -5556,7 +7765,7 @@
   {
     "week": "2021-09-27",
     "title": "«Это война…» — в Польше комментируют противоречия Варшавы и Брюсселя",
-    "english": null,
+    "english": "This is war: in Poland people comment on the contradictions between Warsaw and Brussels",
     "outlet": "Regnum",
     "date": "2021-09-27",
     "url": "https://regnum.ru/news/3382297.html",
@@ -5568,7 +7777,7 @@
   {
     "week": "2021-09-27",
     "title": "Белоруссия продолжит усиливать охрану границы с Украиной",
-    "english": null,
+    "english": "Belarus will continue to strengthen guarding of the border with Ukraine",
     "outlet": "RT",
     "date": "2021-09-27",
     "url": "https://russian.rt.com/ussr/news/911520-belorussiya-granica-ukraina",
@@ -5576,6 +7785,54 @@
     "countries": [
       "UA",
       "BY"
+    ]
+  },
+  {
+    "week": "2021-09-27",
+    "title": "В Калининградской области протестировали приграничную с Польшей велодорожку",
+    "english": null,
+    "outlet": "Lenta",
+    "date": "2021-09-27",
+    "url": "https://lenta.ru/news/2021/09/27/sveterkom/",
+    "hostile": false,
+    "countries": [
+      "PL"
+    ]
+  },
+  {
+    "week": "2021-09-27",
+    "title": "В Киеве ответили на слова Путина об опасности НАТО на Украине",
+    "english": null,
+    "outlet": "RIA Novosti",
+    "date": "2021-09-27",
+    "url": "https://ria.ru/20210927/ukraina-1752022745.html",
+    "hostile": false,
+    "countries": [
+      "UA"
+    ]
+  },
+  {
+    "week": "2021-09-27",
+    "title": "В Литве предложили сажать на 20 лет за организацию нелегальной миграции",
+    "english": null,
+    "outlet": "Lenta",
+    "date": "2021-09-27",
+    "url": "https://lenta.ru/news/2021/09/27/sazhat/",
+    "hostile": false,
+    "countries": [
+      "LT"
+    ]
+  },
+  {
+    "week": "2021-09-27",
+    "title": "В ОПЗЖ заявили, что Украина не имела полномочий признавать Россию \"страной-агрессором\"",
+    "english": null,
+    "outlet": "TASS",
+    "date": "2021-09-27",
+    "url": "https://tass.ru/mezhdunarodnaya-panorama/12513547",
+    "hostile": false,
+    "countries": [
+      "UA"
     ]
   },
   {
@@ -5654,7 +7911,7 @@
   {
     "week": "2021-10-04",
     "title": "\"Оператор ГТС Украины\" сообщил, что транзит газа в Венгрию не возобновлен",
-    "english": null,
+    "english": "Ukraine's gas grid operator said gas transit to Hungary has not resumed",
     "outlet": "Komsomolskaya Pravda",
     "date": "2021-10-04",
     "url": "https://pda.kp.ru/online/news/4464002/",
@@ -5666,7 +7923,7 @@
   {
     "week": "2021-10-04",
     "title": "В Германии раскритиковали идею создания военной миссии ЕС на Украине",
-    "english": null,
+    "english": "Germany criticized the idea of creating an EU military mission in Ukraine",
     "outlet": "Rossiyskaya Gazeta",
     "date": "2021-10-04",
     "url": "https://rg.ru/2021/10/04/v-germanii-raskritikovali-ideiu-sozdaniia-voennoj-missii-es-na-ukraine.html",
@@ -5678,7 +7935,7 @@
   {
     "week": "2021-10-04",
     "title": "В Госдуме оценили идею военной учебной миссии ЕС на Украине",
-    "english": null,
+    "english": "The State Duma assessed the idea of an EU military training mission in Ukraine",
     "outlet": "Rossiyskaya Gazeta",
     "date": "2021-10-04",
     "url": "https://rg.ru/2021/10/04/v-gosdume-ocenili-ideiu-voennoj-uchebnoj-missii-es-na-ukraine.html",
@@ -5690,7 +7947,7 @@
   {
     "week": "2021-10-04",
     "title": "В Грузии отказались передавать Саакашвили Украине",
-    "english": null,
+    "english": "Georgia refused to hand Saakashvili over to Ukraine",
     "outlet": "Lenta",
     "date": "2021-10-04",
     "url": "https://lenta.ru/news/2021/10/04/vydachi_net/",
@@ -5702,7 +7959,7 @@
   {
     "week": "2021-10-04",
     "title": "В ДНР обвинили украинских силовиков в размещении вооружения в жилых районах",
-    "english": null,
+    "english": "The DPR accused Ukrainian security forces of placing weapons in residential areas",
     "outlet": "RIA Novosti",
     "date": "2021-10-04",
     "url": "https://ria.ru/20211004/donbass-1752951387.html",
@@ -5714,13 +7971,86 @@
   {
     "week": "2021-10-04",
     "title": "В ЕК оценили возможность размещения военной учебной миссии на Украине",
-    "english": null,
+    "english": "The European Commission assessed the possibility of placing a military training mission in Ukraine",
     "outlet": "RIA Novosti",
     "date": "2021-10-04",
     "url": "https://ria.ru/20211004/missiya-1753030105.html",
     "hostile": false,
     "countries": [
       "UA"
+    ]
+  },
+  {
+    "week": "2021-10-04",
+    "title": "В Еврокомиссии оценили вероятность создания военной миссии на Украине",
+    "english": null,
+    "outlet": "Lenta",
+    "date": "2021-10-04",
+    "url": "https://lenta.ru/news/2021/10/04/massrali/",
+    "hostile": false,
+    "countries": [
+      "UA"
+    ]
+  },
+  {
+    "week": "2021-10-04",
+    "title": "В Киеве заявили, что виртуальный импорт газа на Украину возможен через Польшу и Словакию",
+    "english": null,
+    "outlet": "TASS",
+    "date": "2021-10-04",
+    "url": "https://tass.ru/ekonomika/12569591",
+    "hostile": false,
+    "countries": [
+      "PL",
+      "UA"
+    ]
+  },
+  {
+    "week": "2021-10-04",
+    "title": "В Кремле оценили перспективы прямых контрактов с Украиной на поставку газа",
+    "english": null,
+    "outlet": "RIA Novosti",
+    "date": "2021-10-04",
+    "url": "https://ria.ru/20211004/gaz-1752983823.html",
+    "hostile": false,
+    "countries": [
+      "UA"
+    ]
+  },
+  {
+    "week": "2021-10-04",
+    "title": "В Литве заявили, что ВВС НАТО в сентябре девять раз сопровождали самолеты РФ над Балтикой",
+    "english": null,
+    "outlet": "TASS",
+    "date": "2021-10-04",
+    "url": "https://tass.ru/mezhdunarodnaya-panorama/12572899",
+    "hostile": false,
+    "countries": [
+      "LT"
+    ]
+  },
+  {
+    "week": "2021-10-04",
+    "title": "В Финляндии \"досье Пандоры\" назвали частью провокационной кампании",
+    "english": null,
+    "outlet": "RIA Novosti",
+    "date": "2021-10-04",
+    "url": "https://ria.ru/20211004/finlyandiya-1753015857.html",
+    "hostile": false,
+    "countries": [
+      "FI"
+    ]
+  },
+  {
+    "week": "2021-10-04",
+    "title": "В Финляндии назвали условие для конструктивного диалога с Россией",
+    "english": null,
+    "outlet": "Lenta",
+    "date": "2021-10-04",
+    "url": "https://lenta.ru/news/2021/10/05/uslovie/",
+    "hostile": false,
+    "countries": [
+      "FI"
     ]
   },
   {
@@ -5844,7 +8174,7 @@
   {
     "week": "2021-10-11",
     "title": "Алар Карис вступает в должность нового президента Эстонии",
-    "english": null,
+    "english": "Alar Karis takes office as Estonia's new president",
     "outlet": "Regnum",
     "date": "2021-10-11",
     "url": "https://regnum.ru/news/3394699.html",
@@ -5856,7 +8186,7 @@
   {
     "week": "2021-10-11",
     "title": "Алар Карис официально вступил в должность президента Эстонии",
-    "english": null,
+    "english": "Alar Karis officially took office as president of Estonia",
     "outlet": "RIA Novosti",
     "date": "2021-10-11",
     "url": "https://ria.ru/20211011/karis-1754036688.html",
@@ -5868,7 +8198,7 @@
   {
     "week": "2021-10-11",
     "title": "В Варшаве считают нелегальным блокирование ЕК средств для Польши из Фонда восстановления",
-    "english": null,
+    "english": "Warsaw considers the European Commission's blocking of recovery-fund money for Poland illegal",
     "outlet": "TASS",
     "date": "2021-10-11",
     "url": "https://tass.ru/ekonomika/12626677",
@@ -5880,13 +8210,61 @@
   {
     "week": "2021-10-11",
     "title": "В Латвии ввели ЧП из-за коронавируса",
-    "english": null,
+    "english": "Latvia declared a state of emergency because of the coronavirus",
     "outlet": "Rossiyskaya Gazeta",
     "date": "2021-10-11",
     "url": "https://rg.ru/2021/10/11/v-latvii-vveli-chp-iz-za-koronavirusa.html",
     "hostile": false,
     "countries": [
       "LV"
+    ]
+  },
+  {
+    "week": "2021-10-11",
+    "title": "В Минцифры обсудили перспективы российско-финляндского сотрудничества в области IT",
+    "english": null,
+    "outlet": "TASS",
+    "date": "2021-10-11",
+    "url": "https://tass.ru/ekonomika/12631787",
+    "hostile": false,
+    "countries": [
+      "FI"
+    ]
+  },
+  {
+    "week": "2021-10-11",
+    "title": "В Польше приостановку финансирования из Фонда в ЕС назвали незаконной",
+    "english": null,
+    "outlet": "RIA Novosti",
+    "date": "2021-10-11",
+    "url": "https://ria.ru/20211011/polsha-1753959261.html",
+    "hostile": false,
+    "countries": [
+      "PL"
+    ]
+  },
+  {
+    "week": "2021-10-11",
+    "title": "В Польше рассказали о последнем шансе остановить «Северный поток-2»",
+    "english": null,
+    "outlet": "Lenta",
+    "date": "2021-10-11",
+    "url": "https://lenta.ru/news/2021/10/11/ostanovka/",
+    "hostile": false,
+    "countries": [
+      "PL"
+    ]
+  },
+  {
+    "week": "2021-10-11",
+    "title": "В Совфеде назвали условия стабилизации отношений между Россией и Украиной",
+    "english": null,
+    "outlet": "Lenta",
+    "date": "2021-10-11",
+    "url": "https://lenta.ru/news/2021/10/11/ukr_prav/",
+    "hostile": false,
+    "countries": [
+      "UA"
     ]
   },
   {
@@ -5960,7 +8338,7 @@
   {
     "week": "2021-10-18",
     "title": "«Пора заканчивать с укрорейхом» — сеть об идее «ликвидировать Украину»",
-    "english": null,
+    "english": "It is time to finish with the Ukro-Reich: the internet on an idea to liquidate Ukraine",
     "outlet": "Regnum",
     "date": "2021-10-18",
     "url": "https://regnum.ru/news/3400110.html",
@@ -5972,7 +8350,7 @@
   {
     "week": "2021-10-18",
     "title": "В ЕП призвали Польшу снять запрет на работу СМИ возле границы с Белоруссией",
-    "english": null,
+    "english": "The European Parliament urged Poland to lift the ban on media working near the border with Belarus",
     "outlet": "RT",
     "date": "2021-10-18",
     "url": "https://russian.rt.com/world/news/917581-ep-polsha-smi",
@@ -5985,7 +8363,7 @@
   {
     "week": "2021-10-18",
     "title": "В Европарламенте призвали Польшу снять запрет на работу СМИ возле границы",
-    "english": null,
+    "english": "The European Parliament urged Poland to lift the ban on media working near the border",
     "outlet": "Regnum",
     "date": "2021-10-18",
     "url": "https://regnum.ru/news/3400170.html",
@@ -5997,7 +8375,7 @@
   {
     "week": "2021-10-18",
     "title": "В Латвии задержаны организаторы фиктивных вакцинаций",
-    "english": null,
+    "english": "Organizers of fake vaccinations were detained in Latvia",
     "outlet": "Regnum",
     "date": "2021-10-18",
     "url": "https://regnum.ru/news/society/3400857.html",
@@ -6009,13 +8387,75 @@
   {
     "week": "2021-10-18",
     "title": "В Латвии новый максимум по числу заразившихся коронавирусом",
-    "english": null,
+    "english": "Latvia set a new high for coronavirus infections",
     "outlet": "Regnum",
     "date": "2021-10-18",
     "url": "https://regnum.ru/news/society/3400849.html",
     "hostile": false,
     "countries": [
       "LV"
+    ]
+  },
+  {
+    "week": "2021-10-18",
+    "title": "В Литве вспомнили о миграционном кризисе в ЕС 2015 года",
+    "english": null,
+    "outlet": "Regnum",
+    "date": "2021-10-18",
+    "url": "https://regnum.ru/news/3400570.html",
+    "hostile": false,
+    "countries": [
+      "LT"
+    ]
+  },
+  {
+    "week": "2021-10-18",
+    "title": "В Литве завели дело за призывы к госперевороту на антиковидном митинге",
+    "english": null,
+    "outlet": "Lenta",
+    "date": "2021-10-18",
+    "url": "https://lenta.ru/news/2021/10/18/miting_litva/",
+    "hostile": false,
+    "countries": [
+      "LT"
+    ]
+  },
+  {
+    "week": "2021-10-18",
+    "title": "В Минске сообщили о новой попытке силового выдворения мигрантов из Польши в Белоруссию",
+    "english": null,
+    "outlet": "TASS",
+    "date": "2021-10-18",
+    "url": "https://tass.ru/mezhdunarodnaya-panorama/12690301",
+    "hostile": false,
+    "countries": [
+      "PL",
+      "BY"
+    ]
+  },
+  {
+    "week": "2021-10-18",
+    "title": "В Польше обвинили Россию в ведении многоступенчатой гибридной войны",
+    "english": null,
+    "outlet": "Lenta",
+    "date": "2021-10-18",
+    "url": "https://lenta.ru/news/2021/10/19/poland/",
+    "hostile": false,
+    "countries": [
+      "PL"
+    ]
+  },
+  {
+    "week": "2021-10-18",
+    "title": "В Польше укрепление границы с Белоруссией назвали «ответом на агрессию»",
+    "english": null,
+    "outlet": "Regnum",
+    "date": "2021-10-18",
+    "url": "https://regnum.ru/news/3400151.html",
+    "hostile": false,
+    "countries": [
+      "PL",
+      "BY"
     ]
   },
   {
@@ -6079,7 +8519,7 @@
   {
     "week": "2021-10-25",
     "title": "\"Укрэнерго\": запасы угля на Украине почти в пять раз меньше необходимых",
-    "english": null,
+    "english": "Ukrenergo: coal stocks in Ukraine are almost five times below what is needed",
     "outlet": "TASS",
     "date": "2021-10-25",
     "url": "https://tass.ru/ekonomika/12758435",
@@ -6141,10 +8581,34 @@
   {
     "week": "2021-10-25",
     "title": "«К кому теперь претензии?» — украинцы боятся остаться без тепла из-за СП-2",
-    "english": null,
+    "english": "Who do we complain to now? Ukrainians fear being left without heat because of Nord Stream 2",
     "outlet": "Regnum",
     "date": "2021-10-25",
     "url": "https://regnum.ru/news/polit/3406556.html",
+    "hostile": false,
+    "countries": [
+      "UA"
+    ]
+  },
+  {
+    "week": "2021-10-25",
+    "title": "«Мой юный принц». Украина дала денег на первый национальный фильм о геях",
+    "english": null,
+    "outlet": "Argumenty i Fakty",
+    "date": "2021-10-25",
+    "url": "https://aif.ru/culture/movie/moy_yunyy_princ_ukraina_dala_deneg_na_pervyy_nacionalnyy_film_o_geyah",
+    "hostile": false,
+    "countries": [
+      "UA"
+    ]
+  },
+  {
+    "week": "2021-10-25",
+    "title": "«Не дотянут»: в МИД РФ оценили «ракетную угрозу» Украины",
+    "english": null,
+    "outlet": "Regnum",
+    "date": "2021-10-25",
+    "url": "https://regnum.ru/news/3406726.html",
     "hostile": false,
     "countries": [
       "UA"
@@ -6219,7 +8683,7 @@
   {
     "week": "2021-11-01",
     "title": "67% жителей Польши против углубления интеграции в ЕС – опрос",
-    "english": null,
+    "english": "67 percent of Poland's residents oppose deeper EU integration, a poll says",
     "outlet": "Regnum",
     "date": "2021-11-01",
     "url": "https://regnum.ru/news/3412668.html",
@@ -6231,7 +8695,7 @@
   {
     "week": "2021-11-01",
     "title": "Активисты белорусской оппозиции провели шествие в Варшаве",
-    "english": null,
+    "english": "Activists of the Belarusian opposition held a march in Warsaw",
     "outlet": "Regnum",
     "date": "2021-11-01",
     "url": "https://regnum.ru/news/3412893.html",
@@ -6243,7 +8707,7 @@
   {
     "week": "2021-11-01",
     "title": "Байден и президент Финляндии обсудили безопасность в Балтийском море",
-    "english": null,
+    "english": "Biden and the president of Finland discussed security in the Baltic Sea",
     "outlet": "TASS",
     "date": "2021-11-01",
     "url": "https://tass.ru/mezhdunarodnaya-panorama/12823085",
@@ -6255,7 +8719,7 @@
   {
     "week": "2021-11-01",
     "title": "Байден обсудил с премьером Эстонии укрепление оборонного потенциала НАТО",
-    "english": null,
+    "english": "Biden discussed strengthening NATO's defence capacity with Estonia's prime minister",
     "outlet": "TASS",
     "date": "2021-11-01",
     "url": "https://tass.ru/mezhdunarodnaya-panorama/12820791",
@@ -6279,7 +8743,7 @@
   {
     "week": "2021-11-01",
     "title": "В Польше за сутки выявили 4894 случая заражения SARS-CoV-2",
-    "english": null,
+    "english": "4,894 cases of SARS-CoV-2 were found in Poland in one day",
     "outlet": "Regnum",
     "date": "2021-11-01",
     "url": "https://regnum.ru/news/3412627.html",
@@ -6291,13 +8755,85 @@
   {
     "week": "2021-11-01",
     "title": "В Польше зафиксировали 470 попыток незаконного пересечения границы за сутки",
-    "english": null,
+    "english": "Poland recorded 470 attempts to cross the border illegally in one day",
     "outlet": "Regnum",
     "date": "2021-11-01",
     "url": "https://regnum.ru/news/3412769.html",
     "hostile": false,
     "countries": [
       "PL"
+    ]
+  },
+  {
+    "week": "2021-11-01",
+    "title": "В Польше может не хватить угля на отопительный сезон – Rzeczpospolita",
+    "english": null,
+    "outlet": "Regnum",
+    "date": "2021-11-01",
+    "url": "https://regnum.ru/news/3412876.html",
+    "hostile": false,
+    "countries": [
+      "PL"
+    ]
+  },
+  {
+    "week": "2021-11-01",
+    "title": "В Польше отмечается День всех святых",
+    "english": null,
+    "outlet": "Regnum",
+    "date": "2021-11-01",
+    "url": "https://regnum.ru/news/3412882.html",
+    "hostile": false,
+    "countries": [
+      "PL"
+    ]
+  },
+  {
+    "week": "2021-11-01",
+    "title": "Велосипедисты Эстонии столкнулись с необычными трудностями",
+    "english": null,
+    "outlet": "Regnum",
+    "date": "2021-11-01",
+    "url": "https://regnum.ru/news/3412787.html",
+    "hostile": false,
+    "countries": [
+      "EE"
+    ]
+  },
+  {
+    "week": "2021-11-01",
+    "title": "Вице-премьер Украины Уруский решил покинуть пост",
+    "english": null,
+    "outlet": "RIA Novosti",
+    "date": "2021-11-01",
+    "url": "https://ria.ru/20211101/ukraina-1757207053.html",
+    "hostile": false,
+    "countries": [
+      "UA"
+    ]
+  },
+  {
+    "week": "2021-11-01",
+    "title": "Депутат Рады Рабинович обвинил Молдавию и Литву в предательстве",
+    "english": null,
+    "outlet": "Rossiyskaya Gazeta",
+    "date": "2021-11-01",
+    "url": "https://rg.ru/2021/11/01/deputat-rady-rabinovich-obvinil-moldaviiu-i-litvu-v-predatelstve.html",
+    "hostile": false,
+    "countries": [
+      "LT"
+    ]
+  },
+  {
+    "week": "2021-11-01",
+    "title": "Захарова оценила приговор русскоязычному журналисту в Латвии",
+    "english": null,
+    "outlet": "Lenta",
+    "date": "2021-11-01",
+    "url": "https://lenta.ru/news/2021/11/01/z_lav/",
+    "hostile": false,
+    "countries": [
+      "LV"
     ]
   },
   {
@@ -6363,7 +8899,7 @@
   {
     "week": "2021-11-08",
     "title": "\"Газпром\" сократил транзит газа через Украину на 22% - РИА Новости, 08.11.2021",
-    "english": null,
+    "english": "Gazprom cut gas transit through Ukraine by 22 percent",
     "outlet": "RIA Novosti",
     "date": "2021-11-08",
     "url": "https://ria.ru/20211108/gaz-1758091802.html",
@@ -6387,7 +8923,7 @@
   {
     "week": "2021-11-08",
     "title": "CNN: в США намерены обвинить россиянина и украинца в киберпреступлениях",
-    "english": null,
+    "english": "CNN: the United States intends to charge a Russian and a Ukrainian with cybercrimes",
     "outlet": "RT",
     "date": "2021-11-08",
     "url": "https://russian.rt.com/world/news/925685-kiberprestuplenie-ssha-obvineniya",
@@ -6434,13 +8970,49 @@
   {
     "week": "2021-11-08",
     "title": "«Агенты Кремля, не иначе» — BlaBlaCar выпустила карту Украины без Крыма",
-    "english": null,
+    "english": "Kremlin agents, no doubt: BlaBlaCar released a map of Ukraine without Crimea",
     "outlet": "Regnum",
     "date": "2021-11-08",
     "url": "https://regnum.ru/news/3417076.html",
     "hostile": false,
     "countries": [
       "UA"
+    ]
+  },
+  {
+    "week": "2021-11-08",
+    "title": "«Газпром» увеличил объем транзита газа в ЕС через Украину на 54%",
+    "english": null,
+    "outlet": "Argumenty i Fakty",
+    "date": "2021-11-08",
+    "url": "https://aif.ru/society/gazprom_uvelichil_obem_tranzita_gaza_v_es_cherez_ukrainu_na_54",
+    "hostile": false,
+    "countries": [
+      "UA"
+    ]
+  },
+  {
+    "week": "2021-11-08",
+    "title": "«Украине мир не нужен!» — Киев: «нормандский формат» под «большим вопросом»",
+    "english": null,
+    "outlet": "Regnum",
+    "date": "2021-11-08",
+    "url": "https://regnum.ru/news/3417229.html",
+    "hostile": false,
+    "countries": [
+      "UA"
+    ]
+  },
+  {
+    "week": "2021-11-08",
+    "title": "Белоруссия не видит объективных причин для закрытия польского пункта пропуска «Кузница»",
+    "english": null,
+    "outlet": "RT",
+    "date": "2021-11-08",
+    "url": "https://russian.rt.com/ussr/news/925747-belorussiya-ne-vidit-obektivnyh-prichin",
+    "hostile": false,
+    "countries": [
+      "BY"
     ]
   },
   {
@@ -6517,7 +9089,7 @@
   {
     "week": "2021-11-15",
     "title": "Handelsblatt: Польша потребовала от НАТО конкретных мер для решения ситуации с мигрантами",
-    "english": null,
+    "english": "Handelsblatt: Poland demanded concrete NATO measures to deal with the migrant situation",
     "outlet": "RT",
     "date": "2021-11-15",
     "url": "https://russian.rt.com/world/news/928206-polsha-nato-migranty",
@@ -6567,10 +9139,34 @@
   {
     "week": "2021-11-15",
     "title": "«Газпром» отказался увеличить поставки газа через Украину",
-    "english": null,
+    "english": "Gazprom refused to increase gas supplies through Ukraine",
     "outlet": "Lenta",
     "date": "2021-11-15",
     "url": "https://lenta.ru/news/2021/11/15/ukr/",
+    "hostile": false,
+    "countries": [
+      "UA"
+    ]
+  },
+  {
+    "week": "2021-11-15",
+    "title": "Блинкен обсудил с главой МИД Франции «внушающие обеспокоенность» действия РФ на Украине - Газета.Ru",
+    "english": null,
+    "outlet": "Gazeta.ru",
+    "date": "2021-11-15",
+    "url": "https://www.gazeta.ru/politics/news/2021/11/15/n_16855087.shtml",
+    "hostile": false,
+    "countries": [
+      "UA"
+    ]
+  },
+  {
+    "week": "2021-11-15",
+    "title": "В ЕС намерены обсудить «перемещение войск России» возле Украины",
+    "english": null,
+    "outlet": "Regnum",
+    "date": "2021-11-15",
+    "url": "https://regnum.ru/news/3422990.html",
     "hostile": false,
     "countries": [
       "UA"
@@ -6649,7 +9245,7 @@
   {
     "week": "2021-11-22",
     "title": "CNN: США могут отправить на Украину военных советников",
-    "english": null,
+    "english": "CNN: the United States may send military advisers to Ukraine",
     "outlet": "Komsomolskaya Pravda",
     "date": "2021-11-22",
     "url": "https://pda.kp.ru/online/news/4526268/",
@@ -6661,7 +9257,7 @@
   {
     "week": "2021-11-22",
     "title": "Delfi: в Литве задержали двух украинцев за перевозку нелегальных мигрантов",
-    "english": null,
+    "english": "Delfi: two Ukrainians were detained in Lithuania for transporting irregular migrants",
     "outlet": "RT",
     "date": "2021-11-22",
     "url": "https://russian.rt.com/ussr/news/930504-litva-migranty-perevozka",
@@ -6708,7 +9304,7 @@
   {
     "week": "2021-11-22",
     "title": "Белоруссия не хочет обострения отношений с Польшей, заявил Лукашенко",
-    "english": null,
+    "english": "Belarus does not want relations with Poland to worsen, Lukashenko said",
     "outlet": "RIA Novosti",
     "date": "2021-11-22",
     "url": "https://ria.ru/20211122/obostrenie-1760154545.html",
@@ -6721,7 +9317,7 @@
   {
     "week": "2021-11-22",
     "title": "В Латвии начались международные военные учения Winter Shield 2021",
-    "english": null,
+    "english": "The international military exercise Winter Shield 2021 began in Latvia",
     "outlet": "Rossiyskaya Gazeta",
     "date": "2021-11-22",
     "url": "https://rg.ru/2021/11/22/v-latvii-nachalis-mezhdunarodnye-voennye-ucheniia-winter-shield-2021.html",
@@ -6733,13 +9329,51 @@
   {
     "week": "2021-11-22",
     "title": "В Латвии стартовали учения НАТО Winter Shield 2021",
-    "english": null,
+    "english": "The NATO exercise Winter Shield 2021 started in Latvia",
     "outlet": "Komsomolskaya Pravda",
     "date": "2021-11-22",
     "url": "https://pda.kp.ru/online/news/4525044/",
     "hostile": false,
     "countries": [
       "LV"
+    ]
+  },
+  {
+    "week": "2021-11-22",
+    "title": "В Литве задержали граждан Украины за перевозку нелегальных мигрантов",
+    "english": null,
+    "outlet": "Regnum",
+    "date": "2021-11-22",
+    "url": "https://regnum.ru/news/3429324.html",
+    "hostile": false,
+    "countries": [
+      "LT",
+      "UA"
+    ]
+  },
+  {
+    "week": "2021-11-22",
+    "title": "В МИД Латвии заявили, что у границы страны в Белоруссии находятся около 2 тысяч мигрантов",
+    "english": null,
+    "outlet": "RT",
+    "date": "2021-11-22",
+    "url": "https://russian.rt.com/ussr/news/930418-v-mid-latvii-zayavili-chto-u-granicy",
+    "hostile": false,
+    "countries": [
+      "LV",
+      "BY"
+    ]
+  },
+  {
+    "week": "2021-11-22",
+    "title": "В МИД Польши сообщили о намерении закрыть «часть миграционных путей»",
+    "english": null,
+    "outlet": "Regnum",
+    "date": "2021-11-22",
+    "url": "https://regnum.ru/news/3429460.html",
+    "hostile": false,
+    "countries": [
+      "PL"
     ]
   },
   {
@@ -6752,6 +9386,30 @@
     "hostile": true,
     "countries": [
       "PL"
+    ]
+  },
+  {
+    "week": "2021-11-22",
+    "title": "В МИД России назвали мифологемой сообщения СМИ о подготовке «вторжения» на Украину",
+    "english": null,
+    "outlet": "RT",
+    "date": "2021-11-22",
+    "url": "https://russian.rt.com/russia/news/930565-mid-rossiya-smi-ukraina",
+    "hostile": false,
+    "countries": [
+      "UA"
+    ]
+  },
+  {
+    "week": "2021-11-22",
+    "title": "В Минэнерго Украины заявили, что АЭС в феврале заработают на максимальной мощности",
+    "english": null,
+    "outlet": "RT",
+    "date": "2021-11-22",
+    "url": "https://russian.rt.com/ussr/news/930566-ukraina-aes-moschnost-maksimalnaya",
+    "hostile": false,
+    "countries": [
+      "UA"
     ]
   },
   {
@@ -6818,7 +9476,7 @@
   {
     "week": "2021-11-29",
     "title": "Беженцы на границе Белоруссии и Польши заразились коронавирусом",
-    "english": null,
+    "english": "Refugees on the Belarus-Poland border caught the coronavirus",
     "outlet": "Lenta",
     "date": "2021-11-29",
     "url": "https://lenta.ru/news/2021/11/29/zarajenie/",
@@ -6831,7 +9489,7 @@
   {
     "week": "2021-11-29",
     "title": "В Кремле рассказали о работе с Украиной по обмену удерживаемых лиц",
-    "english": null,
+    "english": "The Kremlin described work with Ukraine on exchanging detainees",
     "outlet": "RIA Novosti",
     "date": "2021-11-29",
     "url": "https://ria.ru/20211129/obmen-1761260979.html",
@@ -6843,7 +9501,7 @@
   {
     "week": "2021-11-29",
     "title": "В Литве за перевозку нелегальных мигрантов задержали граждан Украины и Белоруссии",
-    "english": null,
+    "english": "Citizens of Ukraine and Belarus were detained in Lithuania for transporting irregular migrants",
     "outlet": "TASS",
     "date": "2021-11-29",
     "url": "https://tass.ru/mezhdunarodnaya-panorama/13053151",
@@ -6857,7 +9515,7 @@
   {
     "week": "2021-11-29",
     "title": "В Польше вводят ограничения из-за нового штамма коронавируса «омикрон»",
-    "english": null,
+    "english": "Poland is introducing restrictions because of the new Omicron coronavirus strain",
     "outlet": "RT",
     "date": "2021-11-29",
     "url": "https://russian.rt.com/world/news/933285-polsha-ogranicheniya-koronavirus-omikron",
@@ -6869,7 +9527,7 @@
   {
     "week": "2021-11-29",
     "title": "В Польше за сутки выявили 13 115 случаев заражения SARS-CoV-2",
-    "english": null,
+    "english": "13,115 cases of SARS-CoV-2 were found in Poland in one day",
     "outlet": "Regnum",
     "date": "2021-11-29",
     "url": "https://regnum.ru/news/society/3435778.html",
@@ -6881,13 +9539,74 @@
   {
     "week": "2021-11-29",
     "title": "В Польше не зарегистрировано случаев заражения штаммом «Омикрон» — минздрав",
-    "english": null,
+    "english": "No cases of the Omicron strain have been registered in Poland, the health ministry said",
     "outlet": "Regnum",
     "date": "2021-11-29",
     "url": "https://regnum.ru/news/3435368.html",
     "hostile": false,
     "countries": [
       "PL"
+    ]
+  },
+  {
+    "week": "2021-11-29",
+    "title": "В Финляндии у двух человек заподозрили омикрон-штамм коронавируса",
+    "english": null,
+    "outlet": "RIA Novosti",
+    "date": "2021-11-29",
+    "url": "https://ria.ru/20211129/omikron-1761281830.html",
+    "hostile": false,
+    "countries": [
+      "FI"
+    ]
+  },
+  {
+    "week": "2021-11-29",
+    "title": "В Эстонии анонсировали очередные санкции ЕС против Белоруссии",
+    "english": null,
+    "outlet": "Regnum",
+    "date": "2021-11-29",
+    "url": "https://regnum.ru/news/3436271.html",
+    "hostile": false,
+    "countries": [
+      "EE",
+      "BY"
+    ]
+  },
+  {
+    "week": "2021-11-29",
+    "title": "Вильнюс обвинил Минск в распространении дезинформации о якобы убитых в Литве мигрантах",
+    "english": null,
+    "outlet": "TASS",
+    "date": "2021-11-29",
+    "url": "https://tass.ru/mezhdunarodnaya-panorama/13059069",
+    "hostile": false,
+    "countries": [
+      "LT"
+    ]
+  },
+  {
+    "week": "2021-11-29",
+    "title": "Вирусологи: новый штамм коронавируса рано или поздно придет в Эстонию",
+    "english": null,
+    "outlet": "Regnum",
+    "date": "2021-11-29",
+    "url": "https://regnum.ru/news/society/3435779.html",
+    "hostile": false,
+    "countries": [
+      "EE"
+    ]
+  },
+  {
+    "week": "2021-11-29",
+    "title": "Военный эксперт оценил состояние украинской системы ПВО",
+    "english": null,
+    "outlet": "Regnum",
+    "date": "2021-11-29",
+    "url": "https://regnum.ru/news/3436011.html",
+    "hostile": false,
+    "countries": [
+      "UA"
     ]
   },
   {
@@ -6900,6 +9619,18 @@
     "hostile": true,
     "countries": [
       "LV"
+    ]
+  },
+  {
+    "week": "2021-11-29",
+    "title": "Глава МИД Украины заявил о «лежащем на столе» в Кремле решении",
+    "english": null,
+    "outlet": "Lenta",
+    "date": "2021-11-29",
+    "url": "https://lenta.ru/news/2021/11/29/kuleba/",
+    "hostile": false,
+    "countries": [
+      "UA"
     ]
   },
   {
@@ -6939,7 +9670,7 @@
   {
     "week": "2021-12-06",
     "title": "\"Сдерживавший\" Россию британский солдат замерз в Эстонии и стал заикой",
-    "english": null,
+    "english": "A British soldier who had been containing Russia froze in Estonia and developed a stutter",
     "outlet": "RIA Novosti",
     "date": "2021-12-06",
     "url": "https://ria.ru/20211207/kholod-1762479328.html",
@@ -6975,7 +9706,7 @@
   {
     "week": "2021-12-06",
     "title": "FT: США убедили Европу поверить во \"вторжение\" России на Украину",
-    "english": null,
+    "english": "FT: the United States persuaded Europe to believe in a Russian invasion of Ukraine",
     "outlet": "RIA Novosti",
     "date": "2021-12-06",
     "url": "https://ria.ru/20211206/ubezhdenie-1762310296.html",
@@ -7004,6 +9735,30 @@
     "outlet": "fr.sputniknews.com",
     "date": "2021-12-06",
     "url": "https://fr.sputniknews.com/20211206/pour-marine-le-pen-lue-est-un-pompier-pyromane-dans-les-relations-entre-lukraine-et-la-russie-1053813515.html",
+    "hostile": false,
+    "countries": [
+      "UA"
+    ]
+  },
+  {
+    "week": "2021-12-06",
+    "title": "Putin to listen with great attention to Biden's proposals on Ukraine, says spokesman - World",
+    "english": null,
+    "outlet": "TASS",
+    "date": "2021-12-06",
+    "url": "https://tass.com/world/1371585",
+    "hostile": false,
+    "countries": [
+      "UA"
+    ]
+  },
+  {
+    "week": "2021-12-06",
+    "title": "Times: страны НАТО и Украина опасаются, что Россия отрежет Прибалтику от альянса",
+    "english": null,
+    "outlet": "RT",
+    "date": "2021-12-06",
+    "url": "https://russian.rt.com/world/news/935729-smi-nato-rossiya-pribaltika",
     "hostile": false,
     "countries": [
       "UA"
@@ -7109,7 +9864,7 @@
   {
     "week": "2021-12-13",
     "title": "«Ярузельский раскис, а Каня начал выпивать»: как бунтовала Польша",
-    "english": null,
+    "english": "Jaruzelski went soft and Kania started drinking: how Poland rebelled",
     "outlet": "Gazeta.ru",
     "date": "2021-12-13",
     "url": "https://www.gazeta.ru/science/2021/12/12_a_14308027.shtml",
@@ -7121,7 +9876,7 @@
   {
     "week": "2021-12-13",
     "title": "Американский генерал рассказал об уже произошедшем вторжении России на Украину",
-    "english": null,
+    "english": "An American general spoke of a Russian invasion of Ukraine that had already happened",
     "outlet": "Lenta",
     "date": "2021-12-13",
     "url": "https://lenta.ru/news/2021/12/13/it_happened/",
@@ -7133,7 +9888,7 @@
   {
     "week": "2021-12-13",
     "title": "Белый дом изучает отправку военных в Европу из-за Украины, заявила Псаки",
-    "english": null,
+    "english": "The White House is studying sending troops to Europe because of Ukraine, Psaki said",
     "outlet": "RIA Novosti",
     "date": "2021-12-13",
     "url": "https://ria.ru/20211214/ukraina-1763581991.html",
@@ -7145,10 +9900,59 @@
   {
     "week": "2021-12-13",
     "title": "В \"Нафтогазе\" заявили, что на Украине достаточно газа, чтобы пережить зиму",
-    "english": null,
+    "english": "Naftogaz said Ukraine has enough gas to get through the winter",
     "outlet": "RIA Novosti",
     "date": "2021-12-13",
     "url": "https://ria.ru/20211214/zima-1763584376.html",
+    "hostile": false,
+    "countries": [
+      "UA"
+    ]
+  },
+  {
+    "week": "2021-12-13",
+    "title": "В Белоруссии заявили, что предоставляют Литве беспрецедентный объем информации по БелАЭС",
+    "english": null,
+    "outlet": "TASS",
+    "date": "2021-12-13",
+    "url": "https://tass.ru/ekonomika/13186785",
+    "hostile": false,
+    "countries": [
+      "LT",
+      "BY"
+    ]
+  },
+  {
+    "week": "2021-12-13",
+    "title": "В ЕС пригрозили жесткой реакцией в случае действий России против Украины",
+    "english": null,
+    "outlet": "RIA Novosti",
+    "date": "2021-12-13",
+    "url": "https://ria.ru/20211213/ukraina-1763424554.html",
+    "hostile": false,
+    "countries": [
+      "UA"
+    ]
+  },
+  {
+    "week": "2021-12-13",
+    "title": "В Колпино украинца выкинули из окна 12 этажа после ссоры с женщиной",
+    "english": null,
+    "outlet": "pda.spb.kp.ru",
+    "date": "2021-12-13",
+    "url": "https://pda.spb.kp.ru/online/news/4552488/",
+    "hostile": false,
+    "countries": [
+      "UA"
+    ]
+  },
+  {
+    "week": "2021-12-13",
+    "title": "В ЛНР заявили о прибытии украинских снайперов в Донбасс",
+    "english": null,
+    "outlet": "RIA Novosti",
+    "date": "2021-12-13",
+    "url": "https://ria.ru/20211213/snaypery-1763518529.html",
     "hostile": false,
     "countries": [
       "UA"
@@ -7228,7 +10032,7 @@
   {
     "week": "2021-12-20",
     "title": "\"Без перспектив\". На Украине признали \"поражение от Москвы\" - РИА Новости, 20.12.2021",
-    "english": null,
+    "english": "No prospects. Ukraine admitted defeat by Moscow",
     "outlet": "RIA Novosti",
     "date": "2021-12-20",
     "url": "https://ria.ru/20211220/ptsu-1764283083.html",
@@ -7240,7 +10044,7 @@
   {
     "week": "2021-12-20",
     "title": "CNN: Байден дал чиновникам США четыре недели на предотвращение \"вторжения\" России на Украину",
-    "english": null,
+    "english": "CNN: Biden gave US officials four weeks to prevent a Russian invasion of Ukraine",
     "outlet": "Komsomolskaya Pravda",
     "date": "2021-12-20",
     "url": "https://pda.kp.ru/online/news/4561498/",
@@ -7252,7 +10056,7 @@
   {
     "week": "2021-12-20",
     "title": "CNN: Байден поручил за четыре недели предотвратить «вторжение» России на Украину",
-    "english": null,
+    "english": "CNN: Biden ordered a Russian invasion of Ukraine to be prevented within four weeks",
     "outlet": "RT",
     "date": "2021-12-20",
     "url": "https://russian.rt.com/world/news/940493-cnn-ssha-rossiya-ukraina",
@@ -7301,6 +10105,30 @@
   },
   {
     "week": "2021-12-20",
+    "title": "«Объявить России войну и сдаться?» — Сеть о секретном плане обороны Украины",
+    "english": null,
+    "outlet": "Regnum",
+    "date": "2021-12-20",
+    "url": "https://regnum.ru/news/3456502.html",
+    "hostile": false,
+    "countries": [
+      "UA"
+    ]
+  },
+  {
+    "week": "2021-12-20",
+    "title": "«Силы Путина окружают Украину». Как британцам подают конфликт в Донбассе?",
+    "english": null,
+    "outlet": "Argumenty i Fakty",
+    "date": "2021-12-20",
+    "url": "https://aif.ru/politics/world/sily_putina_okruzhayut_ukrainu_kak_britancam_podayut_konflikt_v_donbasse",
+    "hostile": false,
+    "countries": [
+      "UA"
+    ]
+  },
+  {
+    "week": "2021-12-20",
     "title": "Белоруссия обвинила Литву в агрессии и цинизме",
     "english": "Belarus accused Lithuania of aggression and cynicism",
     "outlet": "Lenta",
@@ -7309,6 +10137,19 @@
     "hostile": true,
     "countries": [
       "LT",
+      "BY"
+    ]
+  },
+  {
+    "week": "2021-12-20",
+    "title": "Белорусский СК допросит сбежавшего из Польши солдата",
+    "english": null,
+    "outlet": "Komsomolskaya Pravda",
+    "date": "2021-12-20",
+    "url": "https://pda.kp.ru/online/news/4562535/",
+    "hostile": false,
+    "countries": [
+      "PL",
       "BY"
     ]
   },
@@ -7395,7 +10236,7 @@
   {
     "week": "2021-12-27",
     "title": "Биржевая стоимость электроэнергии в Эстонии стабилизировалась",
-    "english": null,
+    "english": "The exchange price of electricity in Estonia stabilized",
     "outlet": "Regnum",
     "date": "2021-12-27",
     "url": "https://regnum.ru/news/3463527.html",
@@ -7407,7 +10248,7 @@
   {
     "week": "2021-12-27",
     "title": "В Киеве заявили, что Верка Сердючка могла возглавить Украину",
-    "english": null,
+    "english": "Kyiv said Verka Serduchka could have led Ukraine",
     "outlet": "Argumenty i Fakty",
     "date": "2021-12-27",
     "url": "https://aif.ru/politics/world/v_kieve_zayavili_chto_verka_serdyuchka_mogla_vozglavit_ukrainu",
@@ -7419,7 +10260,7 @@
   {
     "week": "2021-12-27",
     "title": "В Польше будут отмечать День Великопольского восстания",
-    "english": null,
+    "english": "Poland will mark the Day of the Greater Poland Uprising",
     "outlet": "Regnum",
     "date": "2021-12-27",
     "url": "https://regnum.ru/news/3463144.html",
@@ -7431,10 +10272,60 @@
   {
     "week": "2021-12-27",
     "title": "В Польше будут судить политика за оскорбление солдат, охраняющих границу",
-    "english": null,
+    "english": "Poland will try a politician for insulting soldiers guarding the border",
     "outlet": "RIA Novosti",
     "date": "2021-12-27",
     "url": "https://ria.ru/20211227/polsha-1765721140.html",
+    "hostile": false,
+    "countries": [
+      "PL"
+    ]
+  },
+  {
+    "week": "2021-12-27",
+    "title": "В Польше зафиксировали 37 попыток незаконного пересечения границы за сутки",
+    "english": null,
+    "outlet": "Regnum",
+    "date": "2021-12-27",
+    "url": "https://regnum.ru/news/3463474.html",
+    "hostile": false,
+    "countries": [
+      "PL"
+    ]
+  },
+  {
+    "week": "2021-12-27",
+    "title": "В Польше следят за ситуацией на российско-украинской границе — Дуда",
+    "english": null,
+    "outlet": "Regnum",
+    "date": "2021-12-27",
+    "url": "https://regnum.ru/news/3463440.html",
+    "hostile": false,
+    "countries": [
+      "PL",
+      "UA"
+    ]
+  },
+  {
+    "week": "2021-12-27",
+    "title": "В Польше установили на границе с Белоруссией 41 тепловизионную камеру",
+    "english": null,
+    "outlet": "Regnum",
+    "date": "2021-12-27",
+    "url": "https://regnum.ru/news/3462778.html",
+    "hostile": false,
+    "countries": [
+      "PL",
+      "BY"
+    ]
+  },
+  {
+    "week": "2021-12-27",
+    "title": "В Польше школьники вернутся к очному обучению 10 января",
+    "english": null,
+    "outlet": "Regnum",
+    "date": "2021-12-27",
+    "url": "https://regnum.ru/news/3463453.html",
     "hostile": false,
     "countries": [
       "PL"
@@ -7507,7 +10398,7 @@
   {
     "week": "2022-01-03",
     "title": "\"Газпром\" втрое снизил транзит газа через Украину в Словакию с начала 2022 года",
-    "english": null,
+    "english": "Gazprom cut gas transit through Ukraine to Slovakia threefold since the start of 2022",
     "outlet": "Komsomolskaya Pravda",
     "date": "2022-01-03",
     "url": "https://pda.kp.ru/online/news/4578766/",
@@ -7571,6 +10462,18 @@
     "outlet": "fr.sputniknews.com",
     "date": "2022-01-03",
     "url": "https://fr.sputniknews.com/20220103/moscou-paris-et-berlin-prets-a-discuter-de-lukraine-en-labsence-des-representants-de-kiev-1054171600.html",
+    "hostile": false,
+    "countries": [
+      "UA"
+    ]
+  },
+  {
+    "week": "2022-01-03",
+    "title": "Блинкен обсудил с Чавушоглу ситуацию на российско-украинской границе",
+    "english": null,
+    "outlet": "RIA Novosti",
+    "date": "2022-01-03",
+    "url": "https://ria.ru/20220103/blinken-1766513503.html",
     "hostile": false,
     "countries": [
       "UA"
@@ -7663,7 +10566,7 @@
   {
     "week": "2022-01-10",
     "title": "«Обезьяне гранату? Немцы не идиоты!» — посол Украины требует у ФРГ оружие",
-    "english": null,
+    "english": "A grenade for a monkey? The Germans are not idiots. Ukraine's ambassador demands weapons from Germany",
     "outlet": "Regnum",
     "date": "2022-01-10",
     "url": "https://regnum.ru/news/3471732.html",
@@ -7675,7 +10578,7 @@
   {
     "week": "2022-01-10",
     "title": "«Укртрансгаз» заявил о низких запасах газа в украинских ПХГ",
-    "english": null,
+    "english": "Ukrtransgaz reported low gas stocks in Ukraine's underground storage",
     "outlet": "RT",
     "date": "2022-01-10",
     "url": "https://russian.rt.com/ussr/news/947297-ukrtransgaz-zapasy-gaz-ukraina",
@@ -7687,7 +10590,7 @@
   {
     "week": "2022-01-10",
     "title": "В Польше за правящую партию готовы проголосовать 33% — опрос",
-    "english": null,
+    "english": "33 percent are ready to vote for the ruling party in Poland, a poll says",
     "outlet": "Regnum",
     "date": "2022-01-10",
     "url": "https://regnum.ru/news/3472030.html",
@@ -7699,7 +10602,7 @@
   {
     "week": "2022-01-10",
     "title": "В Польше зафиксировали 49 попыток незаконного пересечения границы за сутки",
-    "english": null,
+    "english": "Poland recorded 49 attempts to cross the border illegally in one day",
     "outlet": "Regnum",
     "date": "2022-01-10",
     "url": "https://regnum.ru/news/3471934.html",
@@ -7711,13 +10614,73 @@
   {
     "week": "2022-01-10",
     "title": "В Польше зафиксировали первые смерти среди заразившихся \"омикроном\"",
-    "english": null,
+    "english": "Poland recorded the first deaths among people infected with Omicron",
     "outlet": "TASS",
     "date": "2022-01-10",
     "url": "https://tass.ru/obschestvo/13387511",
     "hostile": false,
     "countries": [
       "PL"
+    ]
+  },
+  {
+    "week": "2022-01-10",
+    "title": "В Польше заявили об очередной попытке штурма мигрантами границы",
+    "english": null,
+    "outlet": "RIA Novosti",
+    "date": "2022-01-10",
+    "url": "https://ria.ru/20220110/granitsa-1767144745.html",
+    "hostile": false,
+    "countries": [
+      "PL"
+    ]
+  },
+  {
+    "week": "2022-01-10",
+    "title": "В Польше повысили процентные ставки из-за инфляции",
+    "english": null,
+    "outlet": "Regnum",
+    "date": "2022-01-10",
+    "url": "https://regnum.ru/news/3471697.html",
+    "hostile": false,
+    "countries": [
+      "PL"
+    ]
+  },
+  {
+    "week": "2022-01-10",
+    "title": "В СБУ назвали причину отказа Дане Милохину во въезде на Украину",
+    "english": null,
+    "outlet": "Komsomolskaya Pravda",
+    "date": "2022-01-10",
+    "url": "https://pda.kp.ru/online/news/4583440/",
+    "hostile": false,
+    "countries": [
+      "UA"
+    ]
+  },
+  {
+    "week": "2022-01-10",
+    "title": "В Словакии обнаружили тела пропавших без вести граждан Польши",
+    "english": null,
+    "outlet": "Regnum",
+    "date": "2022-01-10",
+    "url": "https://regnum.ru/news/3471429.html",
+    "hostile": false,
+    "countries": [
+      "PL"
+    ]
+  },
+  {
+    "week": "2022-01-10",
+    "title": "В Эстонии уволили 34 невакцинированных полицейских",
+    "english": null,
+    "outlet": "TASS",
+    "date": "2022-01-10",
+    "url": "https://tass.ru/obschestvo/13392063",
+    "hostile": false,
+    "countries": [
+      "EE"
     ]
   },
   {
@@ -7830,7 +10793,7 @@
   {
     "week": "2022-01-17",
     "title": "«Газпром» не забронировал допмощности для транзита газа через Польшу и Украину",
-    "english": null,
+    "english": "Gazprom did not book extra capacity for gas transit through Poland and Ukraine",
     "outlet": "Zvezda",
     "date": "2022-01-17",
     "url": "https://tvzvezda.ru/news/20221171624-kFbzl.html",
@@ -7843,7 +10806,7 @@
   {
     "week": "2022-01-17",
     "title": "Бербок: Берлин не ведет переговоров по Украине за спиной Киева",
-    "english": null,
+    "english": "Baerbock: Berlin is not negotiating on Ukraine behind Kyiv's back",
     "outlet": "Regnum",
     "date": "2022-01-17",
     "url": "https://regnum.ru/news/3478503.html",
@@ -7855,7 +10818,7 @@
   {
     "week": "2022-01-17",
     "title": "Блинкен обсудил с главой МИД Польши дипломатическое взаимодействие с Россией",
-    "english": null,
+    "english": "Blinken discussed diplomatic engagement with Russia with Poland's foreign minister",
     "outlet": "TASS",
     "date": "2022-01-17",
     "url": "https://tass.ru/mezhdunarodnaya-panorama/13450399",
@@ -7879,7 +10842,7 @@
   {
     "week": "2022-01-17",
     "title": "В Киеве идет митинг сторонников экс-президента Украины Петра Порошенко",
-    "english": null,
+    "english": "A rally of supporters of former Ukrainian president Petro Poroshenko is under way in Kyiv",
     "outlet": "Argumenty i Fakty",
     "date": "2022-01-17",
     "url": "https://aif.ru/politics/world/v_kieve_idet_miting_storonnikov_eks-prezidenta_ukrainy_petra_poroshenko",
@@ -7898,6 +10861,55 @@
     "hostile": true,
     "countries": [
       "PL"
+    ]
+  },
+  {
+    "week": "2022-01-17",
+    "title": "В Польше в 2021 году число хакерских атак выросло на 40%",
+    "english": null,
+    "outlet": "Regnum",
+    "date": "2022-01-17",
+    "url": "https://regnum.ru/news/3478455.html",
+    "hostile": false,
+    "countries": [
+      "PL"
+    ]
+  },
+  {
+    "week": "2022-01-17",
+    "title": "В Польше за сутки выявили 10 445 случаев заражения SARS-CoV-2",
+    "english": null,
+    "outlet": "Regnum",
+    "date": "2022-01-17",
+    "url": "https://regnum.ru/news/society/3478777.html",
+    "hostile": false,
+    "countries": [
+      "PL"
+    ]
+  },
+  {
+    "week": "2022-01-17",
+    "title": "В Польше задержали наркомана, напавшего на прохожих с ножом",
+    "english": null,
+    "outlet": "Regnum",
+    "date": "2022-01-17",
+    "url": "https://regnum.ru/news/3478914.html",
+    "hostile": false,
+    "countries": [
+      "PL"
+    ]
+  },
+  {
+    "week": "2022-01-17",
+    "title": "В Польше заявили, что кризис на границе с Белоруссией не закончен",
+    "english": null,
+    "outlet": "Regnum",
+    "date": "2022-01-17",
+    "url": "https://regnum.ru/news/3478674.html",
+    "hostile": false,
+    "countries": [
+      "PL",
+      "BY"
     ]
   },
   {
@@ -7938,7 +10950,7 @@
   {
     "week": "2022-01-24",
     "title": "\"Газпром\": запасы газа в ПХГ Европы и Украины рекордно снизились",
-    "english": null,
+    "english": "Gazprom: gas stocks in European and Ukrainian storage have fallen to a record low",
     "outlet": "Vesti",
     "date": "2022-01-24",
     "url": "https://www.vesti.ru/finance/article/2667834",
@@ -7950,7 +10962,7 @@
   {
     "week": "2022-01-24",
     "title": "AFP: Макрон намерен предложить Путину свой вариант деэскалации украинского кризиса",
-    "english": null,
+    "english": "AFP: Macron intends to offer Putin his own option for de-escalating the Ukrainian crisis",
     "outlet": "TASS",
     "date": "2022-01-24",
     "url": "https://tass.ru/mezhdunarodnaya-panorama/13512907",
@@ -7987,7 +10999,7 @@
   {
     "week": "2022-01-24",
     "title": "Lufthansa изменила расписание рейсов на Украину",
-    "english": null,
+    "english": "Lufthansa changed its flight schedule to Ukraine",
     "outlet": "RIA Novosti",
     "date": "2022-01-24",
     "url": "https://ria.ru/20220124/lufthansa-1769318715.html",
@@ -7999,7 +11011,7 @@
   {
     "week": "2022-01-24",
     "title": "Австрия заявила о планах эвакуировать персонал посольства с Украины",
-    "english": null,
+    "english": "Austria said it plans to evacuate embassy staff from Ukraine",
     "outlet": "Lenta",
     "date": "2022-01-24",
     "url": "https://lenta.ru/news/2022/01/24/austria_evacuation/",
@@ -8018,6 +11030,54 @@
     "hostile": true,
     "countries": [
       "EE"
+    ]
+  },
+  {
+    "week": "2022-01-24",
+    "title": "В ЕС приготовились помочь Украине в борьбе с кибератаками",
+    "english": null,
+    "outlet": "Lenta",
+    "date": "2022-01-24",
+    "url": "https://lenta.ru/news/2022/01/24/borrel_speaks/",
+    "hostile": false,
+    "countries": [
+      "UA"
+    ]
+  },
+  {
+    "week": "2022-01-24",
+    "title": "В Латвии досрочно завершен сезон охоты на волков",
+    "english": null,
+    "outlet": "Regnum",
+    "date": "2022-01-24",
+    "url": "https://regnum.ru/news/3486053.html",
+    "hostile": false,
+    "countries": [
+      "LV"
+    ]
+  },
+  {
+    "week": "2022-01-24",
+    "title": "В Латвии заявили о готовности эвакуировать сотрудников посольства в Киеве",
+    "english": null,
+    "outlet": "RIA Novosti",
+    "date": "2022-01-24",
+    "url": "https://ria.ru/20220124/latviya-1769243364.html",
+    "hostile": false,
+    "countries": [
+      "LV"
+    ]
+  },
+  {
+    "week": "2022-01-24",
+    "title": "В НАТО заявили о стремлении усилить сотрудничество с Финляндией и Швецией",
+    "english": null,
+    "outlet": "RIA Novosti",
+    "date": "2022-01-24",
+    "url": "https://ria.ru/20220124/nato-1769317804.html",
+    "hostile": false,
+    "countries": [
+      "FI"
     ]
   },
   {
@@ -8114,7 +11174,7 @@
   {
     "week": "2022-01-31",
     "title": "Байден заявил о готовности ко всем вариантам развития ситуации вокруг Украины",
-    "english": null,
+    "english": "Biden said he is ready for every possible course of events around Ukraine",
     "outlet": "Lenta",
     "date": "2022-01-31",
     "url": "https://lenta.ru/news/2022/01/31/washington/",
@@ -8126,7 +11186,7 @@
   {
     "week": "2022-01-31",
     "title": "В Минобороны ответили на заявление Эстонии о нарушении воздушного пространства",
-    "english": null,
+    "english": "The Defence Ministry replied to Estonia's statement about an airspace violation",
     "outlet": "Lenta",
     "date": "2022-01-31",
     "url": "https://lenta.ru/news/2022/01/31/prostranstvo/",
@@ -8138,13 +11198,49 @@
   {
     "week": "2022-01-31",
     "title": "В СФ оценили слова Зеленского о нагнетании напряженности вокруг Украины",
-    "english": null,
+    "english": "The Federation Council assessed Zelensky's words about raising tension around Ukraine",
     "outlet": "Izvestia",
     "date": "2022-01-31",
     "url": "https://iz.ru/1284908/2022-02-01/v-sf-otcenili-slova-zelenskogo-o-nagnetanii-napriazhennosti-vokrug-ukrainy",
     "hostile": false,
     "countries": [
       "UA"
+    ]
+  },
+  {
+    "week": "2022-01-31",
+    "title": "В ФРГ заявили, что дипломатия позволила снизить напряженность на границе РФ с Украиной",
+    "english": null,
+    "outlet": "TASS",
+    "date": "2022-01-31",
+    "url": "https://tass.ru/mezhdunarodnaya-panorama/13569579",
+    "hostile": false,
+    "countries": [
+      "UA"
+    ]
+  },
+  {
+    "week": "2022-01-31",
+    "title": "В украинском Днепре найдено тело еще одного погибшего нацгвардейца",
+    "english": null,
+    "outlet": "Zvezda",
+    "date": "2022-01-31",
+    "url": "https://tvzvezda.ru/news/20221311819-7qyHR.html",
+    "hostile": false,
+    "countries": [
+      "UA"
+    ]
+  },
+  {
+    "week": "2022-01-31",
+    "title": "В МИД Эстонии вызвали временного поверенного в делах России - Газета.Ru",
+    "english": null,
+    "outlet": "Gazeta.ru",
+    "date": "2022-01-31",
+    "url": "https://www.gazeta.ru/politics/news/2022/01/31/17220337.shtml",
+    "hostile": false,
+    "countries": [
+      "EE"
     ]
   },
   {
@@ -8218,7 +11314,7 @@
   {
     "week": "2022-02-07",
     "title": "\"Газпром\" нарастил транзит через Украину - РИА Новости, 07.02.2022",
-    "english": null,
+    "english": "Gazprom increased transit through Ukraine",
     "outlet": "RIA Novosti",
     "date": "2022-02-07",
     "url": "https://ria.ru/20220207/gazprom-1771408859.html",
@@ -8230,7 +11326,7 @@
   {
     "week": "2022-02-07",
     "title": "\"Газпром\" не заказал доптранзит через Украину и мощности \"Ямала - Европы\"",
-    "english": null,
+    "english": "Gazprom did not order extra transit through Ukraine or Yamal-Europe capacity",
     "outlet": "TASS",
     "date": "2022-02-07",
     "url": "https://tass.ru/ekonomika/13636281",
@@ -8242,7 +11338,7 @@
   {
     "week": "2022-02-07",
     "title": "\"Газпром\" не стал бронировать допмощности для транзита через Украину",
-    "english": null,
+    "english": "Gazprom did not book extra transit capacity through Ukraine",
     "outlet": "Rossiyskaya Gazeta",
     "date": "2022-02-07",
     "url": "https://rg.ru/2022/02/07/gazprom-ne-stal-bronirovat-dopmoshchnosti-dlia-tranzita-cherez-ukrainu.html",
@@ -8285,6 +11381,42 @@
     "hostile": false,
     "countries": [
       "UA"
+    ]
+  },
+  {
+    "week": "2022-02-07",
+    "title": "West to sacrifice Ukraine for political campaign — Russian Foreign Ministry",
+    "english": null,
+    "outlet": "TASS",
+    "date": "2022-02-07",
+    "url": "https://tass.com/economy/1399125",
+    "hostile": false,
+    "countries": [
+      "UA"
+    ]
+  },
+  {
+    "week": "2022-02-07",
+    "title": "Байден пообещал остановить «Северный поток — 2» в случае «вторжения России на Украину»",
+    "english": null,
+    "outlet": "RT",
+    "date": "2022-02-07",
+    "url": "https://russian.rt.com/business/news/959039-potok-baiden-rossiya",
+    "hostile": false,
+    "countries": [
+      "UA"
+    ]
+  },
+  {
+    "week": "2022-02-07",
+    "title": "Белоруссия приостановила железнодорожный транзит литовских грузов",
+    "english": null,
+    "outlet": "TASS",
+    "date": "2022-02-07",
+    "url": "https://tass.ru/mezhdunarodnaya-panorama/13633099",
+    "hostile": false,
+    "countries": [
+      "BY"
     ]
   },
   {
@@ -8362,7 +11494,7 @@
   {
     "week": "2022-02-14",
     "title": "\"Газпром\" не забронировал мощности для транзита через Украину и Польшу",
-    "english": null,
+    "english": "Gazprom did not book transit capacity through Ukraine and Poland",
     "outlet": "RIA Novosti",
     "date": "2022-02-14",
     "url": "https://ria.ru/20220214/gazprom-1772711383.html",
@@ -8375,7 +11507,7 @@
   {
     "week": "2022-02-14",
     "title": "\"Газпром\" не стал бронировать мощности для транзита газа через Украину и Польшу в марте 2022",
-    "english": null,
+    "english": "Gazprom did not book gas transit capacity through Ukraine and Poland for March 2022",
     "outlet": "Komsomolskaya Pravda",
     "date": "2022-02-14",
     "url": "https://pda.kp.ru/online/news/4628892/",
@@ -8388,7 +11520,7 @@
   {
     "week": "2022-02-14",
     "title": "84% жителей Польши экономят электричество — опрос",
-    "english": null,
+    "english": "84 percent of Poland's residents are saving electricity, a poll says",
     "outlet": "Regnum",
     "date": "2022-02-14",
     "url": "https://regnum.ru/news/3506646.html",
@@ -8436,6 +11568,18 @@
   },
   {
     "week": "2022-02-14",
+    "title": "No End of COVID Pandemic in Sight? Two New Sub-Variants of Omicron Tracked in Poland",
+    "english": null,
+    "outlet": "Sputnik",
+    "date": "2022-02-14",
+    "url": "https://sputniknews.com/20220214/no-end-of-covid-pandemic-in-sight-two-new-sub-variants-of-omicron-tracked-in-poland-1093022373.html",
+    "hostile": false,
+    "countries": [
+      "PL"
+    ]
+  },
+  {
+    "week": "2022-02-14",
     "title": "«Нате вам! Только воюйте с Россией!» — Вильнюс передал Киеву ПЗРК Stinger",
     "english": "\"Here you go! Just fight Russia!\" — Vilnius handed Kyiv Stinger missiles",
     "outlet": "Regnum",
@@ -8444,6 +11588,30 @@
     "hostile": true,
     "countries": [
       "LT"
+    ]
+  },
+  {
+    "week": "2022-02-14",
+    "title": "Австрия не будет отзывать своих наблюдателей из миссии ОБСЕ на Украине",
+    "english": null,
+    "outlet": "Regnum",
+    "date": "2022-02-14",
+    "url": "https://regnum.ru/news/3506704.html",
+    "hostile": false,
+    "countries": [
+      "UA"
+    ]
+  },
+  {
+    "week": "2022-02-14",
+    "title": "В Германии изучат запросы Украины по поставкам вооружений, сообщил Шольц",
+    "english": null,
+    "outlet": "RIA Novosti",
+    "date": "2022-02-14",
+    "url": "https://ria.ru/20220214/postavki-1772773031.html",
+    "hostile": false,
+    "countries": [
+      "UA"
     ]
   },
   {
@@ -8544,7 +11712,7 @@
   {
     "week": "2022-02-21",
     "title": "Байден подтвердил нежелание отправлять американских военных на Украину",
-    "english": null,
+    "english": "Biden confirmed he does not want to send American troops to Ukraine",
     "outlet": "Lenta",
     "date": "2022-02-21",
     "url": "https://lenta.ru/news/2022/02/22/refuse/",
@@ -8556,7 +11724,7 @@
   {
     "week": "2022-02-21",
     "title": "Белоруссия пригрозила Литве древесиной",
-    "english": null,
+    "english": "Belarus threatened Lithuania with timber",
     "outlet": "Lenta",
     "date": "2022-02-21",
     "url": "https://lenta.ru/news/2022/02/21/drevesina/",
@@ -8569,7 +11737,7 @@
   {
     "week": "2022-02-21",
     "title": "В NYT оценили шансы Зеленского защитить Украину от России",
-    "english": null,
+    "english": "The NYT assessed Zelensky's chances of defending Ukraine from Russia",
     "outlet": "Lenta",
     "date": "2022-02-21",
     "url": "https://lenta.ru/news/2022/02/21/showman/",
@@ -8588,6 +11756,43 @@
     "hostile": true,
     "countries": [
       "PL"
+    ]
+  },
+  {
+    "week": "2022-02-21",
+    "title": "В Госдепе прокомментировали учения с военными США в Польше около украинской границы",
+    "english": null,
+    "outlet": "RT",
+    "date": "2022-02-21",
+    "url": "https://russian.rt.com/world/news/965355-gosdep-ucheniya-polsha",
+    "hostile": false,
+    "countries": [
+      "PL",
+      "UA"
+    ]
+  },
+  {
+    "week": "2022-02-21",
+    "title": "В ЛНР заявили о росте числа обстрелов со стороны украинских силовиков",
+    "english": null,
+    "outlet": "RIA Novosti",
+    "date": "2022-02-21",
+    "url": "https://ria.ru/20220221/obstrel-1774041335.html",
+    "hostile": false,
+    "countries": [
+      "UA"
+    ]
+  },
+  {
+    "week": "2022-02-21",
+    "title": "В Латвии призвали ввести санкции против \"Северного потока — 2\"",
+    "english": null,
+    "outlet": "RIA Novosti",
+    "date": "2022-02-21",
+    "url": "https://ria.ru/20220221/sanktsii-1774092028.html",
+    "hostile": false,
+    "countries": [
+      "LV"
     ]
   },
   {

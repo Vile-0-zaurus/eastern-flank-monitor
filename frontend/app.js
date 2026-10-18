@@ -9,6 +9,7 @@ const state = {
   news: [],
   official: {},
   officials: {},
+  inside: { weeks: {} },
   countryHeadlines: {},
   why: null,
   index: 0,
@@ -566,11 +567,44 @@ function renderWeek() {
     openWhy(state.why.code, focus);
   }
   renderOfficials();
+  renderInside();
 }
 
 function officialCode() {
   if (state.why && COUNTRIES.includes(state.why.code)) return state.why.code;
   return "REGION";
+}
+
+function renderInside() {
+  const host = document.getElementById("inside-lines");
+  if (!host || !state.inside) return;
+  const block = (state.inside.weeks || {})[current().week] || {};
+  host.innerHTML = "";
+  (block.lines || []).forEach((line) => {
+    const item = document.createElement("li");
+    item.className = "inside-line";
+    const text = document.createElement("p");
+    text.className = "headline-en";
+    text.textContent = line.text;
+    item.append(text);
+    if (line.title && isCyrillic(line.title) && line.title !== line.english) {
+      const original = document.createElement("p");
+      original.className = "headline-ru";
+      original.textContent = line.title;
+      item.append(original);
+    }
+    if (line.url) {
+      const link = document.createElement("a");
+      link.href = line.url;
+      link.textContent = line.outlet ? line.outlet : state.text.source;
+      item.append(link);
+    }
+    host.append(item);
+  });
+  const background = document.getElementById("inside-background");
+  if (background) background.textContent = block.background || "";
+  const sources = document.getElementById("inside-sources");
+  if (sources) sources.textContent = state.inside.sources || "";
 }
 
 function renderOfficials() {
@@ -630,7 +664,7 @@ function togglePlayback() {
 }
 
 async function main() {
-  const [text, csv, events, map, news, official, countryHeadlines, officials] = await Promise.all([
+  const [text, csv, events, map, news, official, countryHeadlines, officials, inside] = await Promise.all([
     fetch("i18n/en.json").then((response) => response.json()),
     fetch("../docs/reports/2026-10-12-backtest-weeks.csv").then((response) => response.text()),
     fetch("events.json").then((response) => response.json()),
@@ -639,6 +673,7 @@ async function main() {
     fetch("official.json").then((response) => response.json()),
     fetch("country-headlines.json").then((response) => response.json()),
     fetch("officials.json").then((response) => response.json()),
+    fetch("inside-russia.json").then((response) => response.json()),
   ]);
   state.text = text;
   state.rows = parseCsv(csv).filter((row) => row.week >= START);
@@ -647,6 +682,7 @@ async function main() {
   state.news = news;
   state.official = official;
   state.officials = officials;
+  state.inside = inside;
   state.countryHeadlines = countryHeadlines;
   document.title = text.title;
   document.getElementById("title").textContent = text.title;

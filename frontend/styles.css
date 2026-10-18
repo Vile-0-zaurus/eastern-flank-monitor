@@ -411,6 +411,8 @@ body.main-screen .stage { grid-template-columns: 1.8fr 0.9fr; }
 .headline-en { font-size: 18px; font-weight: 650; margin: 0 0 4px; }
 .headline-ru { font-size: 13px; color: #71717a; margin: 0 0 8px; }
 #officials { height: 18rem; overflow: auto; margin-top: 16px; }
+#inside-russia { height: 18rem; overflow: auto; margin-top: 16px; }
+.inside-line { margin: 0 0 12px; }
 .official-columns { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
 @media (max-width: 700px) {
   .official-columns { grid-template-columns: 1fr; }
