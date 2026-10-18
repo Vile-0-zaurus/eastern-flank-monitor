@@ -462,9 +462,8 @@ PROTO_SWEEP = r"""
   }
   document.getElementById('country-PL').click();
   const why = document.getElementById('why');
-  const top = why.getBoundingClientRect().top;
   if (why.hidden) bad.push('why panel stayed closed');
-  if (top > 80) bad.push('why panel not at top ' + Math.round(top));
+  if (!document.getElementById('why-title').textContent.startsWith('This week in ')) bad.push('panel title ' + document.getElementById('why-title').textContent);
   return {
     bad,
     shown,
@@ -516,17 +515,35 @@ async def check_main(cdp, weeks: dict[str, list[dict]], events: list[dict]) -> l
     await cdp.call("Emulation.setEmulatedMedia", features=[{"name": "prefers-color-scheme", "value": "light"}])
     await cdp.js("document.getElementById('slider').value = '0'; document.getElementById('slider').dispatchEvent(new Event('input', {bubbles:true}))")
     before = await cdp.js("document.getElementById('week-label').textContent")
+    await cdp.js("window.scrollTo(0, 180)")
+    scroll_before = await cdp.js("window.scrollY")
     await cdp.js("document.getElementById('play').click()")
-    await asyncio.sleep(1.4)
+    await asyncio.sleep(1.2)
     during = await cdp.js("document.getElementById('week-label').textContent")
     if during == before:
         problems.append("play did not advance the week")
-    await cdp.js("document.getElementById('pause').click()")
+    if await cdp.js("document.getElementById('play').textContent") != "Pause":
+        problems.append("toggle did not show Pause while playing")
+    await cdp.js("document.getElementById('play').click()")
+    if await cdp.js("document.getElementById('play').textContent") != "Play":
+        problems.append("toggle did not show Play after pause")
     paused = await cdp.js("document.getElementById('week-label').textContent")
-    await asyncio.sleep(1.2)
+    await asyncio.sleep(1.6)
     after = await cdp.js("document.getElementById('week-label').textContent")
     if after != paused:
         problems.append("pause did not stop the replay")
+    scroll_after = await cdp.js("window.scrollY")
+    if abs(scroll_after - scroll_before) > 2:
+        problems.append(f"scroll moved during playback {scroll_before} -> {scroll_after}")
+    await cdp.js("document.getElementById('play').click()")
+    await asyncio.sleep(0.3)
+    await cdp.js("const slider = document.getElementById('slider'); slider.value = '4'; slider.dispatchEvent(new Event('input', {bubbles:true}))")
+    held = await cdp.js("document.getElementById('week-label').textContent")
+    await asyncio.sleep(1.6)
+    if await cdp.js("document.getElementById('week-label').textContent") != held:
+        problems.append("slider click did not stop playback")
+    if abs(await cdp.js("window.scrollY") - scroll_after) > 2:
+        problems.append("scroll moved when the week changed")
     await cdp.call("Emulation.setDeviceMetricsOverride", width=390, height=800, deviceScaleFactor=1, mobile=True)
     narrow = await cdp.js("document.documentElement.scrollWidth > document.documentElement.clientWidth + 8")
     if narrow:

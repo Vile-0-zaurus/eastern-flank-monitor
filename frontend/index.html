@@ -17,16 +17,19 @@
   <main>
     <aside id="why" hidden>
       <div class="why-head">
-        <h2 id="why-title">Why tense</h2>
+        <h2 id="why-title">This week</h2>
         <button id="why-close" type="button">Close</button>
       </div>
       <p id="why-subject"></p>
+      <p id="why-quiet" hidden>Quiet week — nothing notable.</p>
+      <div id="why-body">
       <h3>What happened</h3>
       <div id="why-events"></div>
       <h3>What official sources say</h3>
       <div id="why-official"></div>
       <h3>What Russian state media says</h3>
       <div id="why-media"></div>
+      </div>
     </aside>
     <section id="country-strip" aria-label="Finland, Estonia, Latvia, Lithuania, and Poland"></section>
     <p id="shared-reading" class="note"></p>
@@ -47,8 +50,7 @@
       </section>
     </div>
     <section id="timeline" aria-label="Week">
-      <button id="play" type="button">Play</button>
-      <button id="pause" type="button">Pause</button>
+      <button id="play" type="button" aria-pressed="false">Play</button>
       <label class="slider-label">
         <span id="week-label"></span>
         <input id="slider" type="range" min="0" value="0">

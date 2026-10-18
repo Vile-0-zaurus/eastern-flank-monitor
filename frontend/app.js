@@ -146,7 +146,10 @@ function renderStrip() {
       : "";
     reason.textContent = sign.reason + extra;
     button.append(name, word, reason);
-    button.addEventListener("click", () => openWhy(code));
+    button.addEventListener("click", () => {
+      stop();
+      openWhy(code);
+    });
     strip.appendChild(button);
   });
   const shared = document.getElementById("shared-reading");
@@ -235,7 +238,10 @@ function renderMap() {
     const label = state.text["country_" + country.id] || country.name;
     path.setAttribute("aria-label", label);
     if (["FI", "EE", "LV", "LT", "PL", "UA"].includes(country.id)) {
-      path.addEventListener("click", () => openWhy(country.id));
+      path.addEventListener("click", () => {
+        stop();
+        openWhy(country.id);
+      });
     }
     svg.appendChild(path);
     const at = labels[country.id];
@@ -273,6 +279,7 @@ function renderMap() {
       dot.appendChild(tip);
       dot.addEventListener("click", (click) => {
         click.stopPropagation();
+        stop();
         showEvent(event, place);
         const code = event.regions.includes("eastern_flank") ? null : "UA";
         openWhy(code, event);
@@ -407,10 +414,9 @@ function openWhy(code, focus) {
   const row = rowForCode(code);
   const sign = signFor(row);
   panel.hidden = false;
-  panel.scrollIntoView({ block: "start" });
-  document.getElementById("why-title").textContent = state.text.why_panel;
   document.getElementById("why-close").textContent = state.text.close;
-  const name = code ? state.text["country_" + code] : (focus && focus.places ? focus.places[0].name : "This report");
+  const name = code ? state.text["country_" + code] : (focus && focus.places ? focus.places[0].name : "this report");
+  document.getElementById("why-title").textContent = "This week in " + name;
   document.getElementById("why-subject").textContent = name + " — " + sign.word + " — " + weekWords(current().week);
   const eventsHost = document.getElementById("why-events");
   const officialHost = document.getElementById("why-official");
@@ -423,6 +429,16 @@ function openWhy(code, focus) {
   if (focus && !events.some((event) => event.date === focus.date && event.tag === focus.tag)) {
     events = [focus].concat(events);
   }
+  const official = (state.official[current().week] || []).filter((item) => {
+    if (!code || !item.countries || !item.countries.length) return true;
+    return item.countries.includes(code);
+  });
+  let media = weekNews();
+  if (code) media = media.filter((story) => (story.countries || []).includes(code));
+  const quiet = !events.length && !official.length && !media.length;
+  document.getElementById("why-quiet").hidden = !quiet;
+  document.getElementById("why-body").hidden = quiet;
+  if (quiet) return;
   if (!events.length) {
     eventsHost.textContent = "No events reported in our sources.";
   } else {
@@ -430,10 +446,6 @@ function openWhy(code, focus) {
     events.forEach((event) => appendEventLine(list, event));
     eventsHost.appendChild(list);
   }
-  const official = (state.official[current().week] || []).filter((item) => {
-    if (!code || !item.countries || !item.countries.length) return true;
-    return item.countries.includes(code);
-  });
   if (!official.length) {
     officialHost.textContent = state.text.no_source_found;
   } else {
@@ -453,8 +465,6 @@ function openWhy(code, focus) {
     });
     officialHost.appendChild(list);
   }
-  let media = weekNews();
-  if (code) media = media.filter((story) => (story.countries || []).includes(code));
   if (!media.length) {
     mediaHost.textContent = code
       ? "No headline in the stored sample names " + state.text["country_" + code] + " this week."
@@ -484,16 +494,28 @@ function renderWeek() {
   }
 }
 
+function setToggle() {
+  const button = document.getElementById("play");
+  if (!button) return;
+  const playing = Boolean(state.timer);
+  button.textContent = playing ? "Pause" : "Play";
+  button.setAttribute("aria-pressed", playing ? "true" : "false");
+}
+
 function stop() {
+  state.playToken = (state.playToken || 0) + 1;
   if (state.timer) {
     clearInterval(state.timer);
     state.timer = null;
   }
+  setToggle();
 }
 
 function play() {
   stop();
+  const token = state.playToken;
   state.timer = setInterval(() => {
+    if (token !== state.playToken || !state.timer) return;
     if (state.index >= flankWeeks().length - 1) {
       stop();
       return;
@@ -501,6 +523,12 @@ function play() {
     state.index += 1;
     renderWeek();
   }, 900);
+  setToggle();
+}
+
+function togglePlayback() {
+  if (state.timer) stop();
+  else play();
 }
 
 async function main() {
@@ -523,7 +551,6 @@ async function main() {
   document.getElementById("banner").textContent = "Prototype — replaying 2021–22. Not live.";
   document.getElementById("how-link").textContent = text.how_link;
   document.getElementById("play").textContent = text.play;
-  document.getElementById("pause").textContent = text.pause;
   document.getElementById("disclaimer-short").textContent = text.disclaimer_short;
   document.getElementById("disclaimer-more").textContent = text.more;
   document.getElementById("disclaimer-full").textContent = text.disclaimer_full;
@@ -533,13 +560,13 @@ async function main() {
     if (found >= 0) state.index = found;
   }
   renderWeek();
-  document.getElementById("play").addEventListener("click", play);
-  document.getElementById("pause").addEventListener("click", stop);
+  document.getElementById("play").addEventListener("click", togglePlayback);
   document.getElementById("slider").addEventListener("input", (event) => {
     stop();
     state.index = Number(event.target.value);
     renderWeek();
   });
+  document.getElementById("slider").addEventListener("change", stop);
   document.getElementById("why-close").addEventListener("click", () => {
     document.getElementById("why").hidden = true;
     state.why = null;
