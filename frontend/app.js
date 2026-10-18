@@ -4,6 +4,8 @@ const COUNTRIES = ["FI", "EE", "LV", "LT", "PL"];
 const state = {
   text: {},
   rows: [],
+  events: [],
+  map: null,
   index: 0,
   timer: null,
   filter: "all",
@@ -116,9 +118,138 @@ function renderStrip() {
   });
 }
 
+function project(lon, lat) {
+  const box = state.map.bounds;
+  const width = state.map.width;
+  const height = state.map.height;
+  const x = (lon - box.minLon) / (box.maxLon - box.minLon) * width;
+  const merc = (value) => Math.log(Math.tan(Math.PI / 4 + value * Math.PI / 360));
+  const y = (merc(box.maxLat) - merc(lat)) / (merc(box.maxLat) - merc(box.minLat)) * height;
+  return [x, y];
+}
+
+function activeEvents(week) {
+  return state.events.filter((event) => {
+    if (!event.places || !event.places.length) return false;
+    if (event.date > week) return false;
+    const age = (Date.parse(week) - Date.parse(event.date)) / 86400000 / 7;
+    return age <= 4;
+  });
+}
+
+function dotColor(level) {
+  return ["#6b7280", "#b0893e", "#c46b2c", "#7b5ea7", "#8c4a4a"][level] || "#6b7280";
+}
+
+function showEvent(event, place) {
+  const box = document.getElementById("map-detail");
+  box.hidden = false;
+  box.innerHTML = "";
+  const title = document.createElement("p");
+  title.textContent = place.name + " — " + (state.text[event.textKey] || "");
+  const when = document.createElement("p");
+  when.textContent = weekWords(event.date);
+  const note = document.createElement("p");
+  note.textContent = event.note || "";
+  if (place.area) {
+    const area = document.createElement("p");
+    area.className = "note";
+    area.textContent = "The report does not name a town. The dot marks that area.";
+    box.append(title, when, note, area);
+  } else {
+    box.append(title, when, note);
+  }
+  const link = document.createElement("a");
+  link.href = event.source;
+  link.textContent = state.text.source;
+  box.append(link);
+}
+
 function renderMap() {
   const title = document.getElementById("map-title");
   if (title) title.textContent = state.text.map_title;
+  const host = document.getElementById("map");
+  const detail = document.getElementById("map-detail");
+  if (detail) detail.hidden = true;
+  if (!state.map) {
+    host.textContent = "";
+    return;
+  }
+  const week = current().week;
+  const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+  svg.setAttribute("viewBox", "0 0 " + state.map.width + " " + state.map.height);
+  svg.setAttribute("role", "img");
+  svg.setAttribute("aria-label", "Map of the eastern flank and nearby countries");
+  svg.id = "flank-map";
+  const labels = {
+    FI: [64.8, 26.2],
+    EE: [58.7, 25.8],
+    LV: [56.9, 24.8],
+    LT: [55.35, 24.2],
+    PL: [52.0, 19.3],
+    BY: [53.7, 27.9],
+    UA: [49.2, 31.4],
+    RU: [58.2, 35.5],
+    KG: [54.55, 20.7],
+  };
+  state.map.countries.forEach((country) => {
+    const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+    path.setAttribute("d", country.d);
+    path.setAttribute("data-country", country.id);
+    path.setAttribute("class", "land land-" + country.id);
+    const label = state.text["country_" + country.id] || country.name;
+    path.setAttribute("aria-label", label);
+    if (["FI", "EE", "LV", "LT", "PL", "UA"].includes(country.id)) {
+      path.addEventListener("click", () => openWhy(country.id));
+    }
+    svg.appendChild(path);
+    const at = labels[country.id];
+    if (!at) return;
+    const [x, y] = project(at[1], at[0]);
+    const text = document.createElementNS("http://www.w3.org/2000/svg", "text");
+    text.setAttribute("x", x.toFixed(1));
+    text.setAttribute("y", y.toFixed(1));
+    text.setAttribute("class", "map-label");
+    text.textContent = label;
+    svg.appendChild(text);
+  });
+  const crimea = project(34.4, 45.15);
+  const crimeaLabel = document.createElementNS("http://www.w3.org/2000/svg", "text");
+  crimeaLabel.setAttribute("x", crimea[0].toFixed(1));
+  crimeaLabel.setAttribute("y", crimea[1].toFixed(1));
+  crimeaLabel.setAttribute("class", "map-label");
+  crimeaLabel.textContent = "Crimea";
+  svg.appendChild(crimeaLabel);
+  activeEvents(week).forEach((event) => {
+    event.places.forEach((place) => {
+      const [x, y] = project(place.lon, place.lat);
+      const dot = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+      dot.setAttribute("cx", x.toFixed(1));
+      dot.setAttribute("cy", y.toFixed(1));
+      dot.setAttribute("r", "7");
+      dot.setAttribute("class", "event-dot");
+      dot.setAttribute("data-place", place.name);
+      dot.setAttribute("data-date", event.date);
+      dot.setAttribute("fill", dotColor(event.level));
+      dot.setAttribute("stroke", "#fff");
+      dot.setAttribute("stroke-width", "1.5");
+      const tip = document.createElementNS("http://www.w3.org/2000/svg", "title");
+      tip.textContent = place.name;
+      dot.appendChild(tip);
+      dot.addEventListener("click", (click) => {
+        click.stopPropagation();
+        showEvent(event, place);
+      });
+      svg.appendChild(dot);
+    });
+  });
+  host.innerHTML = "";
+  host.appendChild(svg);
+  const credit = document.createElement("p");
+  credit.className = "note";
+  credit.id = "map-credit";
+  credit.textContent = "Country outlines are public-domain Natural Earth data, kept on this computer. No live map tiles. A dot stays for four weeks.";
+  host.appendChild(credit);
 }
 
 function renderNews() {
@@ -179,12 +310,16 @@ function play() {
 }
 
 async function main() {
-  const [text, csv] = await Promise.all([
+  const [text, csv, events, map] = await Promise.all([
     fetch("i18n/en.json").then((response) => response.json()),
     fetch("../docs/reports/2026-10-12-backtest-weeks.csv").then((response) => response.text()),
+    fetch("events.json").then((response) => response.json()),
+    fetch("vendor/flank-map.json").then((response) => response.json()),
   ]);
   state.text = text;
   state.rows = parseCsv(csv).filter((row) => row.week >= START);
+  state.events = events;
+  state.map = map;
   document.title = text.title;
   document.getElementById("title").textContent = text.title;
   document.getElementById("banner").textContent = text.banner;

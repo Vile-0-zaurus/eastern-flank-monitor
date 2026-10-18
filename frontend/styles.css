@@ -215,8 +215,39 @@ body.main-screen {
   padding: 0.6rem 0.7rem;
   min-width: 0;
 }
-#map {
-  min-height: 16rem;
+#map svg {
+  width: 100%;
+  max-height: 22rem;
+  height: auto;
+  display: block;
+  background: #e7eef2;
+}
+.land {
+  fill: #d6d3d1;
+  stroke: #fff;
+  stroke-width: 1;
+}
+.land-FI, .land-EE, .land-LV, .land-LT, .land-PL {
+  fill: #d5e2ea;
+  cursor: pointer;
+}
+.land-UA {
+  fill: #e7dfd2;
+  cursor: pointer;
+}
+.land-BY { fill: #e4e0d8; }
+.land-RU, .land-KG { fill: #ddd9d2; }
+.event-dot {
+  cursor: pointer;
+}
+.map-label {
+  font-size: 13px;
+  fill: #1c1917;
+  pointer-events: none;
+}
+#map-detail a {
+  display: inline-block;
+  margin-top: 0.3rem;
 }
 #timeline {
   display: flex;
