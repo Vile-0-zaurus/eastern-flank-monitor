@@ -397,9 +397,18 @@ button, select {
 .country-card {
   min-height: 8rem;
 }
-#shared-reading, #map-detail {
-  min-height: 3rem;
-}
+.region-state { font-size: 24px; font-weight: 650; margin: 16px 0; }
+.legend { display: flex; gap: 16px; margin: 8px 0 16px; }
+.swatch::before { content: ""; display: inline-block; width: 12px; height: 12px; margin-right: 8px; vertical-align: -1px; }
+.swatch.normal::before { background: #86efac; }
+.swatch.tense::before { background: #fde68a; }
+.swatch.danger::before { background: #fda4af; }
+.land.state-normal { fill: #bbf7d0; }
+.land.state-tense { fill: #fde68a; }
+.land.state-danger { fill: #fecdd3; }
+.map-event-label { font-size: 12px; font-weight: 650; fill: #18181b; pointer-events: none; }
+body.main-screen .stage { grid-template-columns: 1.8fr 0.9fr; }
+#map, #map svg { height: 26rem; }
 @media (prefers-color-scheme: dark) {
   body.main-screen .stage {
     grid-template-columns: 1.8fr 0.9fr;
@@ -431,4 +440,8 @@ button, select {
     stroke: #0f172a !important;
     stroke-width: 2px;
   }
+  .map-event-label { fill: #f8fafc; }
+  .land.state-normal { fill: #86efac; }
+  .land.state-tense { fill: #fde68a; }
+  .land.state-danger { fill: #fda4af; }
 }

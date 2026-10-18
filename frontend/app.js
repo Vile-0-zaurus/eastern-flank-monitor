@@ -8,6 +8,7 @@ const state = {
   map: null,
   news: [],
   official: {},
+  countryHeadlines: {},
   why: null,
   index: 0,
   timer: null,
@@ -118,34 +119,102 @@ function visibleStory(story) {
   return isEnglishTitle(title);
 }
 
-function countryMentioned(code) {
-  return weekNews().some((story) => (story.countries || []).includes(code));
+const SHORT = {
+  event_zapad: "Zapad-2021",
+  event_hospitals: "Field hospital",
+  event_buildup_apr: "Troop buildup",
+  event_vehicles_dec: "Armoured vehicles",
+  event_arriving: "Forces arriving",
+  event_logistics: "Medical supplies",
+  event_allied: "Allied Resolve",
+  event_warning: "Border massing",
+  event_mozyr: "Near Mozyr",
+  event_belgorod: "Field hospital",
+};
+
+function shortLabel(event) {
+  return SHORT[event.textKey] || "Stored report";
+}
+
+function placeText(event) {
+  return (event.places || []).map((place) => place.name.toLowerCase()).join(" ");
+}
+
+function ukraineFacing(event) {
+  const names = placeText(event);
+  return /mozyr|gomel|zyabrovka|ukrainian border|border with ukraine/.test(names)
+    || event.textKey === "event_allied"
+    || event.textKey === "event_mozyr"
+    || event.textKey === "event_hospitals";
+}
+
+function concerns(event, code) {
+  if (!COUNTRIES.includes(code) || ukraineFacing(event)) return false;
+  if (event.textKey === "event_zapad" || event.tag === "western_md") return true;
+  if (event.tag === "belarus") return code === "LV" || code === "LT" || code === "PL";
+  return false;
+}
+
+function panelHeadlines(code) {
+  return ((state.countryHeadlines[current().week] || {})[code] || []).slice(0, 3);
+}
+
+function dotOpacity(week, date) {
+  const age = (Date.parse(week) - Date.parse(date)) / 86400000 / 7;
+  if (age < 0 || age > 4) return 0;
+  if (age < 1) return 0.4 + 0.6 * age;
+  if (age > 3) return Math.max(0.35, 0.4 + 0.6 * (4 - age));
+  return 1;
+}
+
+function regionLine() {
+  const sign = signFor(current());
+  const week = current().week;
+  const concerned = [];
+  let label = "";
+  activeEvents(week).forEach((event) => {
+    const names = COUNTRIES.filter((code) => concerns(event, code)).map((code) => state.text["country_" + code]);
+    if (!names.length) return;
+    if (!label) label = shortLabel(event);
+    names.forEach((name) => {
+      if (!concerned.includes(name)) concerned.push(name);
+    });
+  });
+  if (label && concerned.length) {
+    return "Region: " + sign.word + " — " + label + " (" + concerned.join(", ") + ")";
+  }
+  const named = COUNTRIES.filter((code) => panelHeadlines(code).length).map((code) => state.text["country_" + code]);
+  if (sign.kind !== "normal" && named.length) {
+    return "Region: " + sign.word + " — headlines name " + named.join(", ");
+  }
+  return "Region: " + sign.word;
 }
 
 function renderStrip() {
-  const row = current();
-  const sign = signFor(row);
   const strip = document.getElementById("country-strip");
   strip.innerHTML = "";
+  const region = document.getElementById("region-state");
+  if (region) region.textContent = regionLine();
   COUNTRIES.forEach((code) => {
     const button = document.createElement("button");
     button.type = "button";
-    button.className = "country-card " + sign.kind;
+    button.className = "country-card";
     button.id = "country-" + code;
     button.dataset.country = code;
     const name = document.createElement("span");
     name.className = "country-name";
     name.textContent = state.text["country_" + code];
-    const word = document.createElement("span");
-    word.className = "sign";
-    word.textContent = sign.word;
     const reason = document.createElement("span");
     reason.className = "reason";
-    const extra = countryMentioned(code)
-      ? " A headline this week names " + state.text["country_" + code] + "."
-      : "";
-    reason.textContent = sign.reason + extra;
-    button.append(name, word, reason);
+    const facts = [];
+    const events = activeEvents(current().week).filter((event) => concerns(event, code));
+    if (events.length) facts.push(shortLabel(events[0]));
+    const headlines = panelHeadlines(code);
+    if (headlines.length) {
+      facts.push(headlines.length + " stored headline" + (headlines.length === 1 ? "" : "s") + " name " + state.text["country_" + code]);
+    }
+    reason.textContent = facts.join(". ");
+    button.append(name, reason);
     button.addEventListener("click", () => {
       stop();
       openWhy(code);
@@ -153,7 +222,7 @@ function renderStrip() {
     strip.appendChild(button);
   });
   const shared = document.getElementById("shared-reading");
-  if (shared) shared.textContent = state.text.same_reading;
+  if (shared) shared.textContent = "Cards list only facts about that country.";
 }
 
 function project(lon, lat) {
@@ -234,7 +303,7 @@ function renderMap() {
     const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
     path.setAttribute("d", country.d);
     path.setAttribute("data-country", country.id);
-    path.setAttribute("class", "land land-" + country.id);
+    path.setAttribute("class", "land land-" + country.id + (COUNTRIES.includes(country.id) ? " state-" + signFor(current()).kind : ""));
     const label = state.text["country_" + country.id] || country.name;
     path.setAttribute("aria-label", label);
     if (["FI", "EE", "LV", "LT", "PL", "UA"].includes(country.id)) {
@@ -274,17 +343,27 @@ function renderMap() {
       dot.setAttribute("fill", "#1d4ed8");
       dot.setAttribute("stroke", "#ffffff");
       dot.setAttribute("stroke-width", "2");
+      dot.setAttribute("opacity", dotOpacity(week, event.date).toFixed(2));
       const tip = document.createElementNS("http://www.w3.org/2000/svg", "title");
-      tip.textContent = place.name;
+      tip.textContent = shortLabel(event) + ". " + (state.text[event.textKey] || place.name);
       dot.appendChild(tip);
       dot.addEventListener("click", (click) => {
         click.stopPropagation();
         stop();
         showEvent(event, place);
-        const code = event.regions.includes("eastern_flank") ? null : "UA";
+        const code = COUNTRIES.find((item) => concerns(event, item)) || null;
         openWhy(code, event);
       });
       svg.appendChild(dot);
+      if (place === event.places[0]) {
+        const label = document.createElementNS("http://www.w3.org/2000/svg", "text");
+        label.setAttribute("x", (x + 12).toFixed(1));
+        label.setAttribute("y", (y - 8).toFixed(1));
+        label.setAttribute("class", "map-event-label");
+        label.setAttribute("opacity", dotOpacity(week, event.date).toFixed(2));
+        label.textContent = shortLabel(event);
+        svg.appendChild(label);
+      }
     });
   });
   host.innerHTML = "";
@@ -373,21 +452,30 @@ function rowForCode(code) {
 function appendStory(list, story) {
   const item = document.createElement("li");
   item.className = "story";
-  const original = document.createElement("p");
-  original.textContent = state.text.original_label + ": " + story.title;
+  const same = story.english && story.english === story.title;
+  if (!same) {
+    const original = document.createElement("p");
+    original.textContent = state.text.original_label + ": " + story.title;
+    item.append(original);
+  }
   const englishText = englishLine(story);
+  if (englishText && !same) {
+    const english = document.createElement("p");
+    english.textContent = englishText;
+    item.append(english);
+  }
+  if (same) {
+    const line = document.createElement("p");
+    line.textContent = story.english;
+    item.append(line);
+  }
   const meta = document.createElement("p");
   meta.className = "note";
   meta.textContent = story.outlet + ", " + dateWords(story.date);
   const link = document.createElement("a");
   link.href = story.url;
   link.textContent = state.text.source;
-  item.append(original, meta, link);
-  if (englishText) {
-    const english = document.createElement("p");
-    english.textContent = englishText;
-    item.insertBefore(english, meta);
-  }
+  item.append(meta, link);
   list.appendChild(item);
 }
 
@@ -425,7 +513,9 @@ function openWhy(code, focus) {
   officialHost.innerHTML = "";
   mediaHost.innerHTML = "";
   const region = code === "UA" ? "ukraine_test" : "eastern_flank";
-  let events = activeEvents(current().week).filter((event) => !code || event.regions.includes(region));
+  let events = code
+    ? activeEvents(current().week).filter((event) => concerns(event, code))
+    : [];
   if (focus && !events.some((event) => event.date === focus.date && event.tag === focus.tag)) {
     events = [focus].concat(events);
   }
@@ -433,8 +523,7 @@ function openWhy(code, focus) {
     if (!code || !item.countries || !item.countries.length) return true;
     return item.countries.includes(code);
   });
-  let media = weekNews();
-  if (code) media = media.filter((story) => (story.countries || []).includes(code));
+  let media = code ? panelHeadlines(code) : [];
   const quiet = !events.length && !official.length && !media.length;
   document.getElementById("why-quiet").hidden = !quiet;
   document.getElementById("why-body").hidden = quiet;
@@ -532,13 +621,14 @@ function togglePlayback() {
 }
 
 async function main() {
-  const [text, csv, events, map, news, official] = await Promise.all([
+  const [text, csv, events, map, news, official, countryHeadlines] = await Promise.all([
     fetch("i18n/en.json").then((response) => response.json()),
     fetch("../docs/reports/2026-10-12-backtest-weeks.csv").then((response) => response.text()),
     fetch("events.json").then((response) => response.json()),
     fetch("vendor/flank-map.json").then((response) => response.json()),
     fetch("news.json").then((response) => response.json()),
     fetch("official.json").then((response) => response.json()),
+    fetch("country-headlines.json").then((response) => response.json()),
   ]);
   state.text = text;
   state.rows = parseCsv(csv).filter((row) => row.week >= START);
@@ -546,6 +636,7 @@ async function main() {
   state.map = map;
   state.news = news;
   state.official = official;
+  state.countryHeadlines = countryHeadlines;
   document.title = text.title;
   document.getElementById("title").textContent = text.title;
   document.getElementById("banner").textContent = "Prototype — replaying 2021–22. Not live.";

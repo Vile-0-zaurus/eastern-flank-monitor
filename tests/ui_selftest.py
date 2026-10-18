@@ -444,14 +444,17 @@ PROTO_SWEEP = r"""
     if (text.includes('No English line')) bad.push(week + ' missing-translation line');
     if (text.includes('undefined') || text.includes('NaN')) bad.push(week + ' bad token');
     if (document.documentElement.scrollWidth > document.documentElement.clientWidth + 8) bad.push(week + ' overflows');
-    const signs = [...document.querySelectorAll('.sign')].map((node) => node.textContent.trim());
-    if (signs.length !== 5) bad.push(week + ' sign count ' + signs.length);
-    signs.forEach((sign) => { if (!allowed.has(sign)) bad.push(week + ' bad sign ' + sign); });
+    const region = document.getElementById('region-state').textContent.trim();
+    const match = region.match(/^Region: (Normal|Tense|Danger signs, unconfirmed)/);
+    if (!match) bad.push(week + ' region ' + region);
+    if (document.querySelector('.sign')) bad.push(week + ' inherited sign');
+    const cardText = document.getElementById('country-strip').innerText;
+    if (/\\bTense\\b|\\bNormal\\b|Danger signs/.test(cardText)) bad.push(week + ' card inherited a sign');
     const names = [...document.querySelectorAll('.country-name')].map((node) => node.textContent.trim()).join('|');
     if (names !== 'Finland|Estonia|Latvia|Lithuania|Poland') bad.push(week + ' names ' + names);
     shown.push({
       week,
-      sign: signs[0] || '',
+      sign: match ? match[1] : '',
       dots: [...document.querySelectorAll('.event-dot')].map((dot) => ({
         place: dot.getAttribute('data-place'),
         date: dot.getAttribute('data-date'),
@@ -464,6 +467,9 @@ PROTO_SWEEP = r"""
   const why = document.getElementById('why');
   if (why.hidden) bad.push('why panel stayed closed');
   if (!document.getElementById('why-title').textContent.startsWith('This week in ')) bad.push('panel title ' + document.getElementById('why-title').textContent);
+  document.getElementById('country-FI').click();
+  if (/Mozyr|Zyabrovka|Gomel/.test(document.getElementById('why').innerText)) bad.push('Finland panel shows a Ukraine-facing Belarus event');
+  if (!document.getElementById('map-legend')) bad.push('missing legend');
   return {
     bad,
     shown,
