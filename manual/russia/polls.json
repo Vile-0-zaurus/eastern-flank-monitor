@@ -1,0 +1,45 @@
+{
+  "note": "Published poll pages only. VTsIOM and FOM are labeled state-run. This is not legal advice. No result was invented.",
+  "levada": {
+    "verdict": "PARTLY",
+    "site": "https://www.levada.ru/",
+    "language": "Russian",
+    "history": "Month indexes for January 2021, June 2021, January 2022, and February 2022 opened. The tag page itself showed only 2026 posts.",
+    "terms": "Public pages. The site asks for a 10-second pause. That pause was kept. A separate legal review was not done.",
+    "items": [
+      {
+        "date": "2022-02-24",
+        "fieldwork": "2022-02-17 to 2022-02-21",
+        "question": "Attitude to Ukraine, who started the escalation in eastern Ukraine, and what status the Donetsk and Luhansk areas should have.",
+        "result": "In November 2021, 45 percent felt good about Ukraine and 43 percent felt bad. In February 2022, 35 percent felt good and 52 percent felt bad. 60 percent said the United States and NATO countries started the escalation in eastern Ukraine. Before the official status decision, 33 percent said the Donetsk and Luhansk areas should be independent states, 25 percent said they should join Russia, and 26 percent said they should stay part of Ukraine.",
+        "sample": "1,618 people aged 18 and older, in 137 places and 50 regions, interviewed at home.",
+        "url": "https://www.levada.ru/2022/02/24/ukraina-i-donbass-2/"
+      },
+      {
+        "date": "2022-02-09",
+        "fieldwork": "",
+        "question": "How Russians see Estonia. This page is an interview about a study, not a full results table.",
+        "result": "The page says slightly less than half of respondents called political relations between Russia and Estonia cool, tense, or hostile, and more than half personally feel good about Estonia. 74 percent of those surveyed did not know that an independent Estonian Republic existed before the Second World War. No sample size was printed in the text that was read.",
+        "sample": "",
+        "url": "https://www.levada.ru/2022/02/09/levada-tsentr-chem-molozhe-i-obrazovannee-rossiyane-tem-luchshe-oni-dumayut-ob-estonii/"
+      }
+    ]
+  },
+  "wciom": {
+    "label": "state-run",
+    "verdict": "PARTLY",
+    "site": "https://wciom.ru/",
+    "database": "https://bd.wciom.ru/baza_rezultatov_oprosa_s_1992_goda/",
+    "history": "The home page and the results database page opened. The database page did not show a 2021-22 result. News paths are disallowed by robots.txt, so they were not opened.",
+    "language": "Russian",
+    "items": []
+  },
+  "fom": {
+    "label": "state-run",
+    "verdict": "PARTLY",
+    "site": "https://fom.ru/",
+    "history": "The politics page opened. It did not list a 2021-22 poll on Ukraine, NATO, or the five countries. The site search path is disallowed, so it was not used.",
+    "language": "Russian",
+    "items": []
+  }
+}

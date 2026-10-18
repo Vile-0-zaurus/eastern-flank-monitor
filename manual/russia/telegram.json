@@ -1,0 +1,45 @@
+{
+  "verdict": "PARTLY",
+  "note": "Two verified channels. The public preview still has posts from 2017 and from inside 2021. The full January 2021 to February 2022 walk was not done. The posts below are excerpts from two pages, not the full set. English lines were written here. No translation service was called.",
+  "channels": [
+    {
+      "handle": "MID_Russia",
+      "verified_on": "https://mid.ru/",
+      "language": "Russian",
+      "preview": "https://t.me/s/MID_Russia",
+      "oldest_seen": "2017-01-16",
+      "window_page_seen": "2021-11-12"
+    },
+    {
+      "handle": "MFARussia",
+      "verified_on": "https://www.mid.ru/en/",
+      "language": "English",
+      "preview": "https://t.me/s/MFARussia",
+      "oldest_seen": "2017-01-24",
+      "window_page_seen": "2021-04-26"
+    }
+  ],
+  "not_verified": [
+    "The Defence Ministry site did not answer from this network, so no Defence channel was opened.",
+    "The Kremlin site did not answer from this network, so no Kremlin channel was opened.",
+    "The Foreign Ministry spokesperson page named the same MID_Russia channel. It did not name a separate spokesperson channel."
+  ],
+  "samples": [
+    {
+      "date": "2021-11-13",
+      "channel": "MID_Russia",
+      "url": "https://t.me/MID_Russia/17489",
+      "language": "Russian",
+      "excerpt": "Президент Российской Федерации Владимир Путин дал интервью телеканалу «Россия 24». Решение миграционной проблемы должно быть найдено и в интересах Белоруссии, и в интересах европейских стран. Нас все пытаются подвигнуть к исполнению Минских соглашений.",
+      "english": "President Vladimir Putin gave an interview to Rossiya 24. A solution to the migration problem should be found in the interests of Belarus and in the interests of the European countries. Everyone tries to push Russia to carry out the Minsk agreements. The post continues past this excerpt."
+    },
+    {
+      "date": "2021-04-26",
+      "channel": "MFARussia",
+      "url": "https://t.me/MFARussia/10480",
+      "language": "English",
+      "excerpt": "Vladimir Putin had a telephone conversation with French President Emmanuel Macron. Particular attention was paid to the internal Ukrainian conflict. Vladimir Putin drew attention to the provocative actions of Kiev, which is deliberately exacerbating the situation along the line of contact.",
+      "english": "Vladimir Putin spoke by phone with Emmanuel Macron. They paid particular attention to the conflict inside Ukraine. Putin pointed to actions by Kyiv along the line of contact. The post on the English channel continues past this excerpt."
+    }
+  ]
+}

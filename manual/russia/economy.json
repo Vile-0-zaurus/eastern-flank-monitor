@@ -1485,10 +1485,82 @@
     }
   },
   "oil": {
-    "status": "not collected in this file"
+    "source": "U.S. Energy Information Administration, Europe Brent spot price FOB",
+    "url": "https://www.eia.gov/dnav/pet/hist/LeafHandler.ashx?n=PET&s=RBRTE&f=M",
+    "unit": "dollars per barrel, monthly average",
+    "months": [
+      {
+        "month": "2021-01",
+        "brent": 54.77
+      },
+      {
+        "month": "2021-02",
+        "brent": 62.28
+      },
+      {
+        "month": "2021-03",
+        "brent": 65.41
+      },
+      {
+        "month": "2021-04",
+        "brent": 64.81
+      },
+      {
+        "month": "2021-05",
+        "brent": 68.53
+      },
+      {
+        "month": "2021-06",
+        "brent": 73.16
+      },
+      {
+        "month": "2021-07",
+        "brent": 75.17
+      },
+      {
+        "month": "2021-08",
+        "brent": 70.75
+      },
+      {
+        "month": "2021-09",
+        "brent": 74.49
+      },
+      {
+        "month": "2021-10",
+        "brent": 83.54
+      },
+      {
+        "month": "2021-11",
+        "brent": 81.05
+      },
+      {
+        "month": "2021-12",
+        "brent": 74.17
+      },
+      {
+        "month": "2022-01",
+        "brent": 86.51
+      },
+      {
+        "month": "2022-02",
+        "brent": 97.13
+      }
+    ]
   },
   "inflation": {
-    "status": "not collected in this file"
+    "source": "World Bank, inflation, consumer prices, annual percent. Monthly table was not extracted.",
+    "url": "https://api.worldbank.org/v2/country/RUS/indicator/FP.CPI.TOTL.ZG?format=json&date=2021:2022",
+    "unit": "percent per year",
+    "years": [
+      {
+        "year": "2021",
+        "value": 6.69445891957612
+      },
+      {
+        "year": "2022",
+        "value": 13.7436797398231
+      }
+    ]
   },
   "note": "Published rates only. Not an exchange. Not trading. Not legal advice."
 }
