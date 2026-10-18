@@ -408,6 +408,16 @@ button, select {
 .land.state-danger { fill: #fecdd3; }
 .map-event-label { font-size: 12px; font-weight: 650; fill: #18181b; pointer-events: none; }
 body.main-screen .stage { grid-template-columns: 1.8fr 0.9fr; }
+.headline-en { font-size: 18px; font-weight: 650; margin: 0 0 4px; }
+.headline-ru { font-size: 13px; color: #71717a; margin: 0 0 8px; }
+#officials { height: 18rem; overflow: auto; margin-top: 16px; }
+.official-columns { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+@media (max-width: 700px) {
+  .official-columns { grid-template-columns: 1fr; }
+}
+@media (prefers-color-scheme: dark) {
+  .headline-ru { color: #a1a1aa; }
+}
 #map, #map svg { height: 26rem; }
 @media (prefers-color-scheme: dark) {
   body.main-screen .stage {

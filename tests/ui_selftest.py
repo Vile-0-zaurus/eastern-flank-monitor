@@ -693,56 +693,20 @@ async def run() -> int:
                 print("Page did not finish loading.")
                 return 1
             problems.extend(await check_main(cdp, weeks, events))
-            await cdp.js("location.href = 'how-it-works.html'")
-            for _ in range(40):
-                ready = await cdp.js("!!document.getElementById('region') && document.getElementById('slider').max !== ''")
-                if ready:
-                    break
-                await asyncio.sleep(0.15)
-            else:
-                print("How it works did not finish loading.")
-                return 1
-            result = await cdp.js(SWEEP)
-            problems.extend(result["bad"])
-            problems.extend(compare_rows(result["shown"], weeks, intent, events, notes))
-            await cdp.js("document.getElementById('region').value = 'eastern_flank'; document.getElementById('region').dispatchEvent(new Event('change', {bubbles:true}))")
-            await cdp.js("document.getElementById('slider').value = '10'; document.getElementById('slider').dispatchEvent(new Event('input', {bubbles:true}))")
-            before = await cdp.js("document.getElementById('week-label').textContent")
-            await cdp.js("document.getElementById('play').click()")
-            await asyncio.sleep(1.4)
-            during = await cdp.js("document.getElementById('week-label').textContent")
-            if during == before:
-                problems.append("play did not advance the week")
-            await cdp.js("document.getElementById('pause').click()")
-            paused = await cdp.js("document.getElementById('week-label').textContent")
-            await asyncio.sleep(1.4)
-            after = await cdp.js("document.getElementById('week-label').textContent")
-            if after != paused:
-                problems.append("pause did not stop the replay")
-            await cdp.js("const slider = document.getElementById('slider'); slider.value = '20'; slider.dispatchEvent(new Event('input', {bubbles:true}));")
-            moved = await cdp.js("document.getElementById('week-label').textContent")
-            if moved != week_label(weeks["eastern_flank"][20]["week"]):
-                problems.append(f"slider did not move to week 20, got {moved!r}")
-            await cdp.js("document.getElementById('compare-toggle').click()")
-            compare = await cdp.js("document.getElementById('compare').innerText")
-            if "Eastern flank" not in compare or "Ukraine test" not in compare:
-                problems.append("compare view does not show both regions")
-            if "because" not in compare and "not enough data" not in compare:
-                problems.append("compare view has no reason line")
-            if "undefined" in compare or "NaN" in compare:
-                problems.append("compare view contains undefined or NaN")
-            await cdp.call("Emulation.setDeviceMetricsOverride", width=390, height=800, deviceScaleFactor=1, mobile=True)
-            narrow = await cdp.js(
-                "document.documentElement.scrollWidth > document.documentElement.clientWidth + 8"
-            )
-            if narrow:
-                problems.append("narrow compare view overflows")
-            await cdp.js("document.getElementById('compare-toggle').click(); document.querySelector('[data-depth=\"1\"]').click()")
-            narrow_summary = await cdp.js(
-                "document.documentElement.scrollWidth > document.documentElement.clientWidth + 8"
-            )
-            if narrow_summary:
-                problems.append("narrow summary overflows")
+            order = await cdp.js("""(() => {
+              const bad = [];
+              if (document.getElementById('how-link') || document.body.innerHTML.includes('how-it-works.html')) bad.push('How it works link still present');
+              document.querySelectorAll('.story').forEach((story) => {
+                const en = story.querySelector('.headline-en');
+                const ru = story.querySelector('.headline-ru');
+                if (!en || !en.textContent.trim()) bad.push('story missing English');
+                if (ru && en && en.compareDocumentPosition(ru) !== Node.DOCUMENT_POSITION_FOLLOWING) bad.push('Russian is not after English');
+              });
+              const note = document.getElementById('officials') ? document.getElementById('officials').innerText : '';
+              if (!note.includes('Russian officials: full coverage from Russian state media. Western officials: selected weeks.')) bad.push('officials note missing');
+              return bad;
+            })()""")
+            problems.extend(order or [])
             problems.extend(f"browser: {line}" for line in cdp.console)
     finally:
         chrome.terminate()
@@ -757,7 +721,7 @@ async def run() -> int:
         if len(problems) > 40:
             print(f"... {len(problems) - 40} more")
         return 1
-    print("PASS main screen and how-it-works: every week, map dots, links, play, pause, slider, compare")
+    print("PASS main screen: every week, map dots, links, play, pause, English first, no How it works")
     return 0
 
 

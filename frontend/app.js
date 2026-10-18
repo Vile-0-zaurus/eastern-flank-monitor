@@ -8,6 +8,7 @@ const state = {
   map: null,
   news: [],
   official: {},
+  officials: {},
   countryHeadlines: {},
   why: null,
   index: 0,
@@ -404,24 +405,7 @@ function renderNews() {
     heading.textContent = code === "other" ? "Not tied to one country" : state.text["country_" + code];
     section.appendChild(heading);
     const list = document.createElement("ul");
-    groups[code].forEach((story) => {
-      const item = document.createElement("li");
-      item.className = "story";
-      const original = document.createElement("p");
-      original.textContent = state.text.original_label + ": " + story.title;
-      const english = document.createElement("p");
-      const englishText = englishLine(story);
-      english.textContent = englishText;
-      const meta = document.createElement("p");
-      meta.className = "note";
-      meta.textContent = story.outlet + ", " + weekWords(story.date).replace("Week of ", "");
-      const link = document.createElement("a");
-      link.href = story.url;
-      link.textContent = state.text.source;
-      item.append(original, meta, link);
-      if (englishText) item.insertBefore(english, meta);
-      list.appendChild(item);
-    });
+    groups[code].forEach((story) => appendStory(list, story));
     section.appendChild(list);
     host.appendChild(section);
   });
@@ -449,25 +433,26 @@ function rowForCode(code) {
   return state.rows.find((row) => row.region === region && row.week === current().week) || current();
 }
 
+function englishText(story) {
+  if (story.english) return story.english;
+  if (isEnglishTitle(story.title)) return story.title;
+  return "";
+}
+
 function appendStory(list, story) {
+  const english = englishText(story);
+  if (!english) return;
   const item = document.createElement("li");
   item.className = "story";
-  const same = story.english && story.english === story.title;
-  if (!same) {
+  const line = document.createElement("p");
+  line.className = "headline-en";
+  line.textContent = english;
+  item.append(line);
+  if (isCyrillic(story.title) && story.title !== english) {
     const original = document.createElement("p");
-    original.textContent = state.text.original_label + ": " + story.title;
+    original.className = "headline-ru";
+    original.textContent = story.title;
     item.append(original);
-  }
-  const englishText = englishLine(story);
-  if (englishText && !same) {
-    const english = document.createElement("p");
-    english.textContent = englishText;
-    item.append(english);
-  }
-  if (same) {
-    const line = document.createElement("p");
-    line.textContent = story.english;
-    item.append(line);
   }
   const meta = document.createElement("p");
   meta.className = "note";
@@ -563,6 +548,7 @@ function openWhy(code, focus) {
     media.slice(0, 6).forEach((story) => appendStory(list, story));
     mediaHost.appendChild(list);
   }
+  renderOfficials();
 }
 
 function renderWeek() {
@@ -572,8 +558,6 @@ function renderWeek() {
   slider.max = String(rows.length - 1);
   slider.value = String(state.index);
   document.getElementById("week-label").textContent = weekWords(row.week);
-  const how = document.getElementById("how-link");
-  how.href = "how-it-works.html?week=" + encodeURIComponent(row.week);
   renderStrip();
   renderMap();
   renderNews();
@@ -581,6 +565,31 @@ function renderWeek() {
     const focus = state.events.find((event) => event.date === state.why.focusDate && event.tag === state.why.focusTag);
     openWhy(state.why.code, focus);
   }
+  renderOfficials();
+}
+
+function officialCode() {
+  if (state.why && COUNTRIES.includes(state.why.code)) return state.why.code;
+  return "REGION";
+}
+
+function renderOfficials() {
+  ["russian", "western"].forEach((side) => {
+    const host = document.getElementById(side === "russian" ? "officials-ru" : "officials-west");
+    if (!host) return;
+    host.innerHTML = "";
+    const week = (state.officials[current().week] || {})[side] || {};
+    const rows = (week[officialCode()] || []).filter((item) => englishText(item)).slice(0, 3);
+    if (!rows.length) {
+      const empty = document.createElement("p");
+      empty.textContent = "No official statements found this week.";
+      host.append(empty);
+      return;
+    }
+    const list = document.createElement("ul");
+    rows.forEach((story) => appendStory(list, story));
+    host.append(list);
+  });
 }
 
 function setToggle() {
@@ -621,7 +630,7 @@ function togglePlayback() {
 }
 
 async function main() {
-  const [text, csv, events, map, news, official, countryHeadlines] = await Promise.all([
+  const [text, csv, events, map, news, official, countryHeadlines, officials] = await Promise.all([
     fetch("i18n/en.json").then((response) => response.json()),
     fetch("../docs/reports/2026-10-12-backtest-weeks.csv").then((response) => response.text()),
     fetch("events.json").then((response) => response.json()),
@@ -629,6 +638,7 @@ async function main() {
     fetch("news.json").then((response) => response.json()),
     fetch("official.json").then((response) => response.json()),
     fetch("country-headlines.json").then((response) => response.json()),
+    fetch("officials.json").then((response) => response.json()),
   ]);
   state.text = text;
   state.rows = parseCsv(csv).filter((row) => row.week >= START);
@@ -636,11 +646,11 @@ async function main() {
   state.map = map;
   state.news = news;
   state.official = official;
+  state.officials = officials;
   state.countryHeadlines = countryHeadlines;
   document.title = text.title;
   document.getElementById("title").textContent = text.title;
   document.getElementById("banner").textContent = "Prototype — replaying 2021–22. Not live.";
-  document.getElementById("how-link").textContent = text.how_link;
   document.getElementById("play").textContent = text.play;
   document.getElementById("disclaimer-short").textContent = text.disclaimer_short;
   document.getElementById("disclaimer-more").textContent = text.more;
@@ -661,6 +671,7 @@ async function main() {
   document.getElementById("why-close").addEventListener("click", () => {
     document.getElementById("why").hidden = true;
     state.why = null;
+    renderOfficials();
   });
   document.getElementById("filter-all").addEventListener("click", () => {
     state.filter = "all";
