@@ -6,6 +6,7 @@ const state = {
   rows: [],
   events: [],
   map: null,
+  news: [],
   index: 0,
   timer: null,
   filter: "all",
@@ -92,6 +93,14 @@ function signFor(row) {
   return { word: state.text.level_none, kind: "nodata", reason: state.text.reason_none };
 }
 
+function weekNews() {
+  return state.news.filter((story) => story.week === current().week);
+}
+
+function countryMentioned(code) {
+  return weekNews().some((story) => (story.countries || []).includes(code));
+}
+
 function renderStrip() {
   const row = current();
   const sign = signFor(row);
@@ -111,7 +120,10 @@ function renderStrip() {
     word.textContent = sign.word;
     const reason = document.createElement("span");
     reason.className = "reason";
-    reason.textContent = sign.reason + " " + state.text.same_reading;
+    const extra = countryMentioned(code)
+      ? " A headline this week names " + state.text["country_" + code] + "."
+      : " " + state.text.same_reading;
+    reason.textContent = sign.reason + extra;
     button.append(name, word, reason);
     button.addEventListener("click", () => openWhy(code));
     strip.appendChild(button);
@@ -257,7 +269,54 @@ function renderNews() {
   if (title) title.textContent = state.text.news_title;
   document.getElementById("filter-all").textContent = state.text.filter_all;
   document.getElementById("filter-hostile").textContent = state.text.filter_hostile;
+  document.getElementById("filter-all").setAttribute("aria-pressed", state.filter === "all" ? "true" : "false");
+  document.getElementById("filter-hostile").setAttribute("aria-pressed", state.filter === "hostile" ? "true" : "false");
   document.getElementById("news-note").textContent = state.text.hostile_note;
+  const host = document.getElementById("news");
+  host.innerHTML = "";
+  let items = weekNews();
+  if (state.filter === "hostile") items = items.filter((story) => story.hostile);
+  if (!items.length) {
+    const empty = document.createElement("p");
+    empty.textContent = state.text.news_empty;
+    host.appendChild(empty);
+    return;
+  }
+  const order = ["FI", "EE", "LV", "LT", "PL", "UA", "BY", "other"];
+  const groups = {};
+  items.forEach((story) => {
+    const codes = story.countries && story.countries.length ? story.countries : ["other"];
+    codes.forEach((code) => {
+      if (!groups[code]) groups[code] = [];
+      groups[code].push(story);
+    });
+  });
+  order.filter((code) => groups[code]).forEach((code) => {
+    const section = document.createElement("section");
+    section.className = "news-group";
+    const heading = document.createElement("h3");
+    heading.textContent = code === "other" ? "No single country" : state.text["country_" + code];
+    section.appendChild(heading);
+    const list = document.createElement("ul");
+    groups[code].forEach((story) => {
+      const item = document.createElement("li");
+      item.className = "story";
+      const original = document.createElement("p");
+      original.textContent = state.text.original_label + ": " + story.title;
+      const english = document.createElement("p");
+      english.textContent = state.text.machine_translation + ": " + (story.english || "not stored.");
+      const meta = document.createElement("p");
+      meta.className = "note";
+      meta.textContent = story.outlet + ", " + weekWords(story.date).replace("Week of ", "");
+      const link = document.createElement("a");
+      link.href = story.url;
+      link.textContent = state.text.source;
+      item.append(original, english, meta, link);
+      list.appendChild(item);
+    });
+    section.appendChild(list);
+    host.appendChild(section);
+  });
 }
 
 function openWhy(code) {
@@ -310,16 +369,18 @@ function play() {
 }
 
 async function main() {
-  const [text, csv, events, map] = await Promise.all([
+  const [text, csv, events, map, news] = await Promise.all([
     fetch("i18n/en.json").then((response) => response.json()),
     fetch("../docs/reports/2026-10-12-backtest-weeks.csv").then((response) => response.text()),
     fetch("events.json").then((response) => response.json()),
     fetch("vendor/flank-map.json").then((response) => response.json()),
+    fetch("news.json").then((response) => response.json()),
   ]);
   state.text = text;
   state.rows = parseCsv(csv).filter((row) => row.week >= START);
   state.events = events;
   state.map = map;
+  state.news = news;
   document.title = text.title;
   document.getElementById("title").textContent = text.title;
   document.getElementById("banner").textContent = text.banner;
@@ -344,6 +405,14 @@ async function main() {
   });
   document.getElementById("why-close").addEventListener("click", () => {
     document.getElementById("why").hidden = true;
+  });
+  document.getElementById("filter-all").addEventListener("click", () => {
+    state.filter = "all";
+    renderNews();
+  });
+  document.getElementById("filter-hostile").addEventListener("click", () => {
+    state.filter = "hostile";
+    renderNews();
   });
 }
 
