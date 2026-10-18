@@ -157,7 +157,7 @@ def main() -> None:
         }
     display = {
         "note": "Inside Russia is display only. It does not affect the levels.",
-        "sources": "Military talk, defense plants, and conscription are keyword counts in stored headlines. The ruble is the Central Bank of Russia published dollar rate. GDP and reserves are World Bank yearly totals. No exchange was used.",
+        "sources": "Military talk, defense plants, and conscription are keyword counts in stored headlines. Counts measure news volume, not military preparation. The ruble is the Central Bank of Russia published dollar rate. GDP and reserves are World Bank yearly totals. No exchange was used.",
         "weeks": out_weeks,
     }
     OUT.write_text(json.dumps(display, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")

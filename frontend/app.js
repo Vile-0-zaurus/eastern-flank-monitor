@@ -116,10 +116,65 @@ function isEnglishTitle(text) {
   return hits >= 2 || (words.length >= 5 && hits >= 1);
 }
 
-function visibleStory(story) {
+function isRussianOriginal(text) {
+  if (!isCyrillic(text)) return false;
+  return !/[іїєґІЇЄҐјљњћђџЈЉЊЋЂЏ]/.test(text || "");
+}
+
+function isForeignService(story) {
+  const blob = ((story.title || "") + " " + (story.url || "") + " " + (story.outlet || "")).toLowerCase();
+  return /sputnik türkiye|sputnik turkiye|sputnik brasil|sputnik mundo|br\.sputnik|tr\.sputnik|mundo\.sputnik|pl\.sputnik|rs\.sputnik|arabic\.sputnik/.test(blob)
+    || /[ãõçñ¿¡ğşıİı]/.test(story.title || "");
+}
+
+function mentionsRegion(text) {
+  return /finland|finnish|estonia|estonian|latvia|latvian|lithuania|lithuanian|poland|polish|baltic|belarus|kaliningrad|ukraine|ukrainian|nato|финлянд|финск|эстон|латви|литв|польш|прибалт|балтий|беларус|белорус|калининград|украин|нато|border|military|troop|army|exercise|drill|sanction|deploy|границ|погранич|военн|войск|арми|учен|санкц|разв[её]ртыван/i.test(text || "");
+}
+
+function allowedOriginal(story) {
+  if (isForeignService(story)) return false;
   const title = story.title || "";
-  if (isCyrillic(title)) return Boolean(story.english);
-  return isEnglishTitle(title);
+  if (isRussianOriginal(title)) return true;
+  if (isEnglishTitle(title)) return true;
+  return story.kind === "official" && isEnglishTitle(story.english || story.summary || "");
+}
+
+function showNews(story) {
+  if (!allowedOriginal(story)) return false;
+  const title = story.title || "";
+  if (isCyrillic(title) && !story.english) return false;
+  return mentionsRegion((story.title || "") + " " + (story.english || "") + " " + (story.summary || ""));
+}
+
+function russianSpeaker(text) {
+  const value = text || "";
+  if (/миноборон\w* украин/i.test(value) && !/путин|кремл|песков|лавров|захаров|шоигу|госдум|совфед/i.test(value)) return false;
+  return /путин|кремл|песков|лавров|захаров|шоигу|миноборон|госдум|совфед|совет федерации|сенатор|putin|kremlin|peskov|lavrov|zakharova|shoigu|state duma|federation council/i.test(value);
+}
+
+function westernSpeaker(text) {
+  const value = text || "";
+  if (/nato|нато|столтенберг|stoltenberg|north atlantic council/i.test(value)) return true;
+  if (/biden|байден|blinken|блинкен|psaki|псаки|white house|белый дом|state department|department of state|pentagon|госдеп/i.test(value)) return true;
+  if (/european commission|еврокомисс|евросоюз|european council|borrell|боррел/i.test(value)) return true;
+  if (/президент\w* (финлянд|эстон|латви|литв|польш)|премьер\w*.{0,40}(финлянд|эстон|латви|литв|польш)|мид (литв|польш|латви|эстон|финлянд)/i.test(value)) return true;
+  if (/(president|prime minister|foreign minister|defence minister|defense minister|government|ministry) of (finland|estonia|latvia|lithuania|poland)/i.test(value)) return true;
+  if (/(finnish|estonian|latvian|lithuanian|polish) (president|prime minister|minister|government)/i.test(value)) return true;
+  if (/niinist|kallas|karis|nauseda|duda|morawiecki/i.test(value)) return true;
+  return false;
+}
+
+function speakerSide(story) {
+  const blob = (story.title || "") + " " + (story.english || "") + " " + (story.summary || "") + " " + (story.who || "") + " " + (story.outlet || "");
+  const russian = russianSpeaker(blob);
+  const western = westernSpeaker(blob);
+  if (russian && !western) return "russian";
+  if (western && !russian) return "western";
+  return "";
+}
+
+function visibleStory(story) {
+  return showNews(story);
 }
 
 const SHORT = {
@@ -159,7 +214,7 @@ function concerns(event, code) {
 }
 
 function panelHeadlines(code) {
-  return ((state.countryHeadlines[current().week] || {})[code] || []).slice(0, 3);
+  return ((state.countryHeadlines[current().week] || {})[code] || []).filter(showNews).slice(0, 3);
 }
 
 function dotOpacity(week, date) {
@@ -567,8 +622,9 @@ function openWhy(code, focus) {
     events = [focus].concat(events);
   }
   const official = (state.official[current().week] || []).filter((item) => {
-    if (!code || !item.countries || !item.countries.length) return true;
-    return item.countries.includes(code);
+    if (code && item.countries && item.countries.length && !item.countries.includes(code)) return false;
+    const story = { title: item.who || "", english: item.summary || "", summary: item.summary || "", who: item.who || "", kind: "official", url: item.url || "" };
+    return showNews(story) && speakerSide(story) === "western";
   });
   let media = code ? panelHeadlines(code) : [];
   const quiet = !events.length && !official.length && !media.length;
@@ -649,13 +705,13 @@ function renderInside() {
     text.className = "headline-en";
     text.textContent = line.text;
     item.append(text);
-    if (line.title && isCyrillic(line.title) && line.title !== line.english) {
+    if (line.title && line.english && isCyrillic(line.title) && line.title !== line.english) {
       const original = document.createElement("p");
       original.className = "headline-ru";
       original.textContent = line.title;
       item.append(original);
     }
-    if (line.url) {
+    if (line.url && line.english) {
       const link = document.createElement("a");
       link.href = line.url;
       link.textContent = line.outlet ? line.outlet : state.text.source;
@@ -675,7 +731,7 @@ function renderOfficials() {
     if (!host) return;
     host.innerHTML = "";
     const week = (state.officials[current().week] || {})[side] || {};
-    const rows = (week[officialCode()] || []).filter((item) => englishText(item)).slice(0, 3);
+    const rows = (week[officialCode()] || []).filter((item) => showNews(item) && speakerSide(item) === side).slice(0, 3);
     if (!rows.length) {
       const empty = document.createElement("p");
       empty.textContent = "No official statements found this week.";

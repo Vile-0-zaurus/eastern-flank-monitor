@@ -44,7 +44,22 @@ def russian_mod(title: str) -> bool:
     return bool(re.search(r"russian (defence|defense) ministry", title, re.IGNORECASE))
 
 
-def better(current: dict | None, item: dict) -> dict:
+def relevant_example(title: str) -> bool:
+    if re.search(r"мусор|сортировк|waste|wildfire|лесн\w+ пожар|игрушк", title, re.IGNORECASE):
+        return False
+    if re.search(r"[іїєґІЇЄҐјљњћђџãõçñ¿¡ğşı]", title):
+        return False
+    return bool(re.search(
+        r"учен|разв[её]ртыван|границ|беларус|белорус|украин|нато|финлянд|эстон|латви|литв|польш|прибалт|"
+        r"exercise|deployment|border|belarus|ukraine|nato|finland|estonia|latvia|lithuania|poland|baltic",
+        title,
+        re.IGNORECASE,
+    ))
+
+
+def better(current: dict | None, item: dict) -> dict | None:
+    if not relevant_example(item["title"]):
+        return current
     if current is None:
         return item
     if item["english"] and not current["english"]:

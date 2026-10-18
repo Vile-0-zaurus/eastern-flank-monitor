@@ -711,6 +711,23 @@ async def run() -> int:
                 slider.dispatchEvent(new Event('input', {bubbles: true}));
                 const lines = [...document.querySelectorAll('#inside-lines .inside-line')];
                 if (lines.length !== 5) bad.push('inside week ' + i + ' lines ' + lines.length);
+                const foreignLetters = /[ãõçñ¿¡ğşıİıіїєґјљњћђџ]/;
+                const regionWord = /finland|finnish|estonia|estonian|latvia|latvian|lithuania|lithuanian|poland|polish|baltic|belarus|kaliningrad|ukraine|ukrainian|nato|border|military|troop|army|exercise|drill|sanction|deploy|финлянд|эстон|латви|литв|польш|прибалт|балтий|беларус|белорус|калининград|украин|нато|границ|погранич|военн|войск|учен|санкц/i;
+                const ruSpeaker = /путин|кремл|песков|лавров|захаров|шоигу|миноборон|госдум|совфед|совет федерации|сенатор|putin|kremlin|peskov|lavrov|zakharova|shoigu|state duma|federation council/i;
+                const westSpeaker = /nato|нато|столтенберг|stoltenberg|biden|байден|blinken|блинкен|psaki|white house|state department|department of state|pentagon|european commission|еврокомисс|евросоюз|borrell|президент|премьер|мид |prime minister|president|ministry of|government of|finnish|estonian|latvian|lithuanian|polish|finland|estonia|latvia|lithuania|poland|niinist|kallas|karis|nauseda|duda|morawiecki/i;
+                document.querySelectorAll('#news .story, #country-news .story, #officials .story').forEach((story) => {
+                  const text = story.innerText;
+                  const original = story.querySelector('.headline-ru');
+                  if (original && (foreignLetters.test(original.textContent) || !/[А-Яа-яЁё]/.test(original.textContent))) bad.push('week ' + i + ' non-Russian original');
+                  if (!original && foreignLetters.test(text)) bad.push('week ' + i + ' foreign-language item');
+                  if (!regionWord.test(text)) bad.push('week ' + i + ' item fails relevance');
+                });
+                document.querySelectorAll('#officials-ru .story').forEach((story) => {
+                  if (!ruSpeaker.test(story.innerText)) bad.push('week ' + i + ' Russian column speaker');
+                });
+                document.querySelectorAll('#officials-west .story').forEach((story) => {
+                  if (!westSpeaker.test(story.innerText)) bad.push('week ' + i + ' Western column speaker');
+                });
                 lines.forEach((line) => {
                   const en = line.querySelector('.headline-en');
                   const ru = line.querySelector('.headline-ru');
@@ -720,6 +737,7 @@ async def run() -> int:
                 const panel = document.getElementById('inside-russia').innerText;
                 if (!panel.includes('does not affect the levels')) bad.push('inside note missing');
                 if (!panel.includes('No exchange was used')) bad.push('inside sources missing');
+                if (!panel.includes('Counts measure news volume, not military preparation.')) bad.push('volume note missing');
               }
               document.getElementById('show-all').click();
               if (document.querySelector('.picked')) bad.push('focus remained after show all');

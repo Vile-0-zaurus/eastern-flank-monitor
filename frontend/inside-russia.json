@@ -1,6 +1,6 @@
 {
   "note": "Inside Russia is display only. It does not affect the levels.",
-  "sources": "Military talk, defense plants, and conscription are keyword counts in stored headlines. The ruble is the Central Bank of Russia published dollar rate. GDP and reserves are World Bank yearly totals. No exchange was used.",
+  "sources": "Military talk, defense plants, and conscription are keyword counts in stored headlines. Counts measure news volume, not military preparation. The ruble is the Central Bank of Russia published dollar rate. GDP and reserves are World Bank yearly totals. No exchange was used.",
   "weeks": {
     "2021-01-04": {
       "lines": [
@@ -8,10 +8,10 @@
           "kind": "mod",
           "text": "Military talk: 17 stored headlines, below the usual 75 ↓.",
           "english": "",
-          "title": "Минобороны опубликовало кадры загрузки баллистической ракеты «Ярс»",
-          "url": "https://iz.ru/1107989/2021-01-04/minoborony-opublikovalo-kadry-zagruzki-ballisticheskoi-rakety-iars",
-          "outlet": "iz.ru",
-          "date": "2021-01-04"
+          "title": "",
+          "url": "",
+          "outlet": "",
+          "date": ""
         },
         {
           "kind": "plant",
@@ -56,30 +56,30 @@
       "lines": [
         {
           "kind": "mod",
-          "text": "Military talk: 43 stored headlines, below the usual 75 ↓. More than 48,500 refugees returned from Armenia to Karabakh, the Russian Defence Ministry said",
-          "english": "More than 48,500 refugees returned from Armenia to Karabakh, the Russian Defence Ministry said",
-          "title": "Из Армении в Карабах вернулись свыше 48,5 тыс. беженцев – Минобороны РФ",
-          "url": "https://regnum.ru/news/society/3159561.html",
+          "text": "Military talk: 43 stored headlines, below the usual 75 ↓.",
+          "english": "",
+          "title": "На Камчатке военнослужащий сбежал за границу с миллионами Минобороны РФ",
+          "url": "https://regnum.ru/news/accidents/3163675.html",
           "outlet": "regnum.ru",
-          "date": "2021-01-11"
+          "date": "2021-01-15"
         },
         {
           "kind": "plant",
-          "text": "Defense industry: 2 stored headlines, below the usual 3 ↓. Putin assessed the work of defence plants in Udmurtia on civilian products",
-          "english": "Putin assessed the work of defence plants in Udmurtia on civilian products",
-          "title": "Путин оценил работу оборонных заводов в Удмуртии с гражданской продукцией",
-          "url": "https://ria.ru/20210114/udmurtiya-1593016499.html",
-          "outlet": "ria.ru",
-          "date": "2021-01-14"
+          "text": "Defense industry: 2 stored headlines, below the usual 3 ↓.",
+          "english": "",
+          "title": "",
+          "url": "",
+          "outlet": "",
+          "date": ""
         },
         {
           "kind": "call",
-          "text": "Conscription: 4 stored headlines, below the usual 7 ↓. A Novosibirsk court ruled illegal a site where conscripts bought fake medical certificates",
-          "english": "A Novosibirsk court ruled illegal a site where conscripts bought fake medical certificates",
-          "title": "Новосибирский суд признал незаконным сайт, где призывники покупали липовые медсправки",
-          "url": "https://pda.nsk.kp.ru/online/news/4147345/",
-          "outlet": "kp.ru",
-          "date": "2021-01-12"
+          "text": "Conscription: 4 stored headlines, below the usual 7 ↓.",
+          "english": "",
+          "title": "",
+          "url": "",
+          "outlet": "",
+          "date": ""
         },
         {
           "kind": "ruble",
@@ -106,12 +106,12 @@
       "lines": [
         {
           "kind": "mod",
-          "text": "Military talk: 31 stored headlines, below the usual 75 ↓. Over 50,600 refugees return to Nagorno-Karabakh - Russian defense ministry",
-          "english": "Over 50,600 refugees return to Nagorno-Karabakh - Russian defense ministry",
-          "title": "Over 50,600 refugees return to Nagorno-Karabakh - Russian defense ministry",
-          "url": "https://tass.com/society/1248253",
-          "outlet": "tass.com",
-          "date": "2021-01-24"
+          "text": "Military talk: 31 stored headlines, below the usual 75 ↓.",
+          "english": "",
+          "title": "Запад ищет подступ к «белорусскому выступу» — Минобороны Белоруссии",
+          "url": "https://regnum.ru/news/polit/3165894.html",
+          "outlet": "regnum.ru",
+          "date": "2021-01-18"
         },
         {
           "kind": "plant",
@@ -124,12 +124,12 @@
         },
         {
           "kind": "call",
-          "text": "Conscription: 6 stored headlines, below the usual 7 ↓. Hit within 70 seconds: conscripts near Moscow fired a T-80 for the first time",
-          "english": "Hit within 70 seconds: conscripts near Moscow fired a T-80 for the first time",
-          "title": "Попасть за 70 секунд: под Москвой призывники впервые провели стрельбы из Т-80",
-          "url": "https://tvzvezda.ru/news/forces/content/2021118544-xaY5p.html",
-          "outlet": "tvzvezda.ru",
-          "date": "2021-01-18"
+          "text": "Conscription: 6 stored headlines, below the usual 7 ↓.",
+          "english": "",
+          "title": "Готовятся к войне или не хватает солдат: Зачем страны НАТО возвращают призыв в армию",
+          "url": "https://pda.kp.ru/daily/27228/4354577/",
+          "outlet": "kp.ru",
+          "date": "2021-01-19"
         },
         {
           "kind": "ruble",
@@ -156,30 +156,30 @@
       "lines": [
         {
           "kind": "mod",
-          "text": "Military talk: 48 stored headlines, below the usual 75 ↓. Izvestia: the Defence Ministry changed the requirements for a close air-support aircraft",
-          "english": "Izvestia: the Defence Ministry changed the requirements for a close air-support aircraft",
-          "title": "\"Известия\": Минобороны изменило требования к самолету непосредственной огневой поддержки",
-          "url": "https://tass.ru/armiya-i-opk/10536591",
-          "outlet": "tass.ru",
-          "date": "2021-01-25"
-        },
-        {
-          "kind": "plant",
-          "text": "Defense industry: 1 stored headlines, below the usual 3 ↓. In Volgograd a deputy director of a defence plant was sent to a penal colony for stealing 117 million rubles",
-          "english": "In Volgograd a deputy director of a defence plant was sent to a penal colony for stealing 117 million rubles",
-          "title": "В Волгограде замгендиректора оборонного завода отправили в колонию за хищение 117 миллионов рублей",
-          "url": "https://pda.volgograd.kp.ru/online/news/4167830/",
-          "outlet": "kp.ru",
+          "text": "Military talk: 48 stored headlines, below the usual 75 ↓.",
+          "english": "",
+          "title": "В Минобороны рассказали о разведактивности у границ России за неделю",
+          "url": "https://russian.rt.com/russia/news/826865-minoborony-razvedaktivnost-granicy-rossiya",
+          "outlet": "rt.com",
           "date": "2021-01-29"
         },
         {
+          "kind": "plant",
+          "text": "Defense industry: 1 stored headlines, below the usual 3 ↓.",
+          "english": "",
+          "title": "",
+          "url": "",
+          "outlet": "",
+          "date": ""
+        },
+        {
           "kind": "call",
-          "text": "Conscription: 3 stored headlines, below the usual 7 ↓. 'It's Bloody Serious': Swedish Armed Forces Launch Free Period Products for Conscripts",
-          "english": "'It's Bloody Serious': Swedish Armed Forces Launch Free Period Products for Conscripts",
-          "title": "'It's Bloody Serious': Swedish Armed Forces Launch Free Period Products for Conscripts",
-          "url": "https://sputniknews.com/europe/202101261081880486-its-bloody-serious-swedish-armed-forces-launch-free-period-products-for-conscripts/",
-          "outlet": "sputniknews.com",
-          "date": "2021-01-26"
+          "text": "Conscription: 3 stored headlines, below the usual 7 ↓.",
+          "english": "",
+          "title": "В ВС Белоруссии началась внезапная проверка боевой и мобилизационной готовности",
+          "url": "https://tvzvezda.ru/news/vstrane_i_mire/content/20211251348-ovXYd.html",
+          "outlet": "tvzvezda.ru",
+          "date": "2021-01-25"
         },
         {
           "kind": "ruble",
@@ -208,28 +208,28 @@
           "kind": "mod",
           "text": "Military talk: 48 stored headlines, below the usual 75 ↓.",
           "english": "",
-          "title": "Аэродром в Забайкалье: рассмотрен иск Минобороны РФ на 1,7 млрд рублей",
-          "url": "https://regnum.ru/news/economy/3178014.html",
+          "title": "В НАТО решили не комментировать назначения в минобороны Черногории",
+          "url": "https://regnum.ru/news/polit/3179037.html",
           "outlet": "regnum.ru",
           "date": "2021-02-01"
         },
         {
           "kind": "plant",
-          "text": "Defense industry: 5 stored headlines, above the usual 3 ↑. Almaz-Antey will show the S-400 Triumph and the Viking air-defence system at Aero India 2021",
-          "english": "Almaz-Antey will show the S-400 Triumph and the Viking air-defence system at Aero India 2021",
-          "title": "\"Алмаз-Антей\" представит на Aero India 2021 систему С-400 \"Триумф\" и ЗРК \"Викинг\"",
-          "url": "https://tass.ru/armiya-i-opk/10592989",
-          "outlet": "tass.ru",
-          "date": "2021-02-01"
+          "text": "Defense industry: 5 stored headlines, above the usual 3 ↑.",
+          "english": "",
+          "title": "",
+          "url": "",
+          "outlet": "",
+          "date": ""
         },
         {
           "kind": "call",
-          "text": "Conscription: 1 stored headlines, below the usual 7 ↓. The State Duma expects growing pressure from the United States and proposes mobilization",
-          "english": "The State Duma expects growing pressure from the United States and proposes mobilization",
-          "title": "В Госдуме ожидают роста давления со стороны США и предлагают мобилизацию",
-          "url": "https://regnum.ru/news/polit/3183132.html",
-          "outlet": "regnum.ru",
-          "date": "2021-02-05"
+          "text": "Conscription: 1 stored headlines, below the usual 7 ↓.",
+          "english": "",
+          "title": "",
+          "url": "",
+          "outlet": "",
+          "date": ""
         },
         {
           "kind": "ruble",
@@ -258,19 +258,19 @@
           "kind": "mod",
           "text": "Military talk: 35 stored headlines, below the usual 75 ↓.",
           "english": "",
-          "title": "Минобороны РФ безвозмездно передало ВС Таджикистана инженерную технику",
-          "url": "https://tvzvezda.ru/news/forces/content/20212856-AYRel.html",
-          "outlet": "tvzvezda.ru",
+          "title": "В сети обсудили предложение Минобороны «гарантированной защиты» РФ от НАТО",
+          "url": "https://regnum.ru/news/innovatio/3185515.html",
+          "outlet": "regnum.ru",
           "date": "2021-02-08"
         },
         {
           "kind": "plant",
-          "text": "Defense industry: 2 stored headlines, below the usual 3 ↓. Three residents of Saratov region were convicted of stealing products from a defence enterprise",
-          "english": "Three residents of Saratov region were convicted of stealing products from a defence enterprise",
-          "title": "Трое жителей Саратовской области осуждены за хищение продукции с оборонного предприятия",
-          "url": "https://tass.ru/proisshestviya/10660197",
-          "outlet": "tass.ru",
-          "date": "2021-02-09"
+          "text": "Defense industry: 2 stored headlines, below the usual 3 ↓.",
+          "english": "",
+          "title": "",
+          "url": "",
+          "outlet": "",
+          "date": ""
         },
         {
           "kind": "call",
@@ -306,30 +306,30 @@
       "lines": [
         {
           "kind": "mod",
-          "text": "Military talk: 60 stored headlines, below the usual 75 ↓. Russian Defense Ministry Warns White Helmets Plotting New 'Provocation' in Syria's Idlib",
-          "english": "Russian Defense Ministry Warns White Helmets Plotting New 'Provocation' in Syria's Idlib",
-          "title": "Russian Defense Ministry Warns White Helmets Plotting New 'Provocation' in Syria's Idlib",
-          "url": "https://sputniknews.com/middleeast/202102151082078290-russian-defense-ministry-warns-white-helmets-plotting-new-provocation-in-syrias-idlib/",
-          "outlet": "sputniknews.com",
+          "text": "Military talk: 60 stored headlines, below the usual 75 ↓.",
+          "english": "",
+          "title": "Минобороны примет решение о закупке БМПТ «Терминатор-2» после испытаний",
+          "url": "https://aif.ru/society/army/minoborony_primer_reshenie_o_zakupke_bmpt_terminator-2_posle_ispytaniy",
+          "outlet": "aif.ru",
           "date": "2021-02-15"
         },
         {
           "kind": "plant",
-          "text": "Defense industry: 14 stored headlines, above the usual 3 ↑. Putin congratulated Kamaz on the 45th anniversary of its first vehicle",
-          "english": "Putin congratulated Kamaz on the 45th anniversary of its first vehicle",
-          "title": "Путин поздравил \"Камаз\" с 45-летием выпуска первого автомобиля",
-          "url": "https://ria.ru/20210216/avtomobil-1597636210.html",
-          "outlet": "ria.ru",
-          "date": "2021-02-16"
+          "text": "Defense industry: 14 stored headlines, above the usual 3 ↑.",
+          "english": "",
+          "title": "",
+          "url": "",
+          "outlet": "",
+          "date": ""
         },
         {
           "kind": "call",
-          "text": "Conscription: 9 stored headlines, above the usual 7 ↑. In Novouralsk conscripts reported a psychiatrist who was getting them out of the army",
-          "english": "In Novouralsk conscripts reported a psychiatrist who was getting them out of the army",
-          "title": "В Новоуральске призывники «сдали» психиатра, которая «отмазывала» их от армии",
-          "url": "https://pda.ural.kp.ru/online/news/4188351/",
-          "outlet": "kp.ru",
-          "date": "2021-02-15"
+          "text": "Conscription: 9 stored headlines, above the usual 7 ↑.",
+          "english": "",
+          "title": "",
+          "url": "",
+          "outlet": "",
+          "date": ""
         },
         {
           "kind": "ruble",
@@ -358,28 +358,28 @@
           "kind": "mod",
           "text": "Military talk: 79 stored headlines, above the usual 75 ↑.",
           "english": "",
-          "title": "На сайте Минобороны к 23 февраля появился раздел о героях военных лет",
-          "url": "https://iz.ru/1128148/2021-02-22/na-saite-minoborony-k-23-fevralia-poiavilsia-razdel-o-geroiakh-voennykh-let",
-          "outlet": "iz.ru",
+          "title": "Минобороны Белоруссии допустило новые шаги по защите нацбезопасности",
+          "url": "https://pda.kp.ru/online/news/4197414/",
+          "outlet": "kp.ru",
           "date": "2021-02-22"
         },
         {
           "kind": "plant",
-          "text": "Defense industry: 1 stored headlines, below the usual 3 ↓. World premiere of the Armata in the Middle East. Uralvagonzavod on the superiority of the T-14",
-          "english": "World premiere of the Armata in the Middle East. Uralvagonzavod on the superiority of the T-14",
-          "title": "Мировая премьера \"Арматы\" на Ближнем Востоке. \"Уралвагонзавод\" — о превосходстве Т-14",
-          "url": "https://tass.ru/armiya-i-opk/10756947",
-          "outlet": "tass.ru",
-          "date": "2021-02-22"
+          "text": "Defense industry: 1 stored headlines, below the usual 3 ↓.",
+          "english": "",
+          "title": "",
+          "url": "",
+          "outlet": "",
+          "date": ""
         },
         {
           "kind": "call",
-          "text": "Conscription: 5 stored headlines, below the usual 7 ↓. Tyumen released a video with the head of a pre-conscription training centre",
-          "english": "Tyumen released a video with the head of a pre-conscription training centre",
-          "title": "В Тюмени выпустили видео с руководителем Центра допризывной подготовки",
-          "url": "https://pda.tumen.kp.ru/online/news/4197266/",
-          "outlet": "kp.ru",
-          "date": "2021-02-22"
+          "text": "Conscription: 5 stored headlines, below the usual 7 ↓.",
+          "english": "",
+          "title": "",
+          "url": "",
+          "outlet": "",
+          "date": ""
         },
         {
           "kind": "ruble",
@@ -406,21 +406,21 @@
       "lines": [
         {
           "kind": "mod",
-          "text": "Military talk: 82 stored headlines, above the usual 75 ↑. Bộ trưởng Shoigu: năm 2022 sẽ có lô xe tăng và xe chiến đấu bộ binh đầu tiên trên nền tảng Armata",
-          "english": "Bộ trưởng Shoigu: năm 2022 sẽ có lô xe tăng và xe chiến đấu bộ binh đầu tiên trên nền tảng Armata",
-          "title": "Bộ trưởng Shoigu: năm 2022 sẽ có lô xe tăng và xe chiến đấu bộ binh đầu tiên trên nền tảng Armata",
-          "url": "https://vn.sputniknews.com/military/2021030410171025-nam-2021-se-co-lo-xe-tang-va-xe-chien-dau-bo-binh-dau-tien-tren-nen-tang-armata/",
-          "outlet": "sputniknews.com",
-          "date": "2021-03-04"
+          "text": "Military talk: 82 stored headlines, above the usual 75 ↑.",
+          "english": "",
+          "title": "Минобороны проведет в 2021 году крупнейшие океанские учения",
+          "url": "https://iz.ru/1131214/2021-03-02/minoborony-provedet-v-2021-godu-krupneishie-okeanskie-ucheniia",
+          "outlet": "iz.ru",
+          "date": "2021-03-01"
         },
         {
           "kind": "plant",
-          "text": "Defense industry: 3 stored headlines, about the usual 3 →. Uralvagonzavod sent a batch of modernized T-90M tanks to the troops",
-          "english": "Uralvagonzavod sent a batch of modernized T-90M tanks to the troops",
-          "title": "Уралвагонзавод отправил партию модернизированных танков Т-90М в войска",
-          "url": "https://tvzvezda.ru/news/opk/content/2021311616-Vj7Nq.html",
-          "outlet": "tvzvezda.ru",
-          "date": "2021-03-01"
+          "text": "Defense industry: 3 stored headlines, about the usual 3 →.",
+          "english": "",
+          "title": "",
+          "url": "",
+          "outlet": "",
+          "date": ""
         },
         {
           "kind": "call",
@@ -456,21 +456,21 @@
       "lines": [
         {
           "kind": "mod",
-          "text": "Military talk: 29 stored headlines, below the usual 75 ↓. Strength and beauty: the Russian Defence Ministry published a congratulatory video for 8 March",
-          "english": "Strength and beauty: the Russian Defence Ministry published a congratulatory video for 8 March",
-          "title": "Сила и красота: Минобороны РФ опубликовало поздравительное видео к 8 марта",
-          "url": "https://tvzvezda.ru/news/forces/content/202138414-OGfvi.html",
-          "outlet": "tvzvezda.ru",
-          "date": "2021-03-08"
+          "text": "Military talk: 29 stored headlines, below the usual 75 ↓.",
+          "english": "",
+          "title": "ВМС Украины получат ракетные комплексы «Нептун» в марте — минобороны",
+          "url": "https://regnum.ru/news/3212467.html",
+          "outlet": "regnum.ru",
+          "date": "2021-03-11"
         },
         {
           "kind": "plant",
-          "text": "Defense industry: 4 stored headlines, above the usual 3 ↑. The tax service tried to speed up the bankruptcy of the Radiopribor defence plant",
-          "english": "The tax service tried to speed up the bankruptcy of the Radiopribor defence plant",
-          "title": "ФНС пыталась ускорить банкротство оборонного завода «Радиоприбор»?",
-          "url": "https://regnum.ru/news/3211951.html",
-          "outlet": "regnum.ru",
-          "date": "2021-03-11"
+          "text": "Defense industry: 4 stored headlines, above the usual 3 ↑.",
+          "english": "",
+          "title": "",
+          "url": "",
+          "outlet": "",
+          "date": ""
         },
         {
           "kind": "call",
@@ -506,30 +506,30 @@
       "lines": [
         {
           "kind": "mod",
-          "text": "Military talk: 65 stored headlines, below the usual 75 ↓. Putin, Shoigu take a ride in off-road vehicle, walk in Siberian taiga",
-          "english": "Putin, Shoigu take a ride in off-road vehicle, walk in Siberian taiga",
-          "title": "Putin, Shoigu take a ride in off-road vehicle, walk in Siberian taiga",
-          "url": "https://tass.com/russia/1268475",
-          "outlet": "tass.com",
-          "date": "2021-03-21"
+          "text": "Military talk: 65 stored headlines, below the usual 75 ↓.",
+          "english": "",
+          "title": "Минобороны РФ: Украина и НАТО планируют восемь крупных учений вблизи Крыма",
+          "url": "https://rg.ru/2021/03/18/reg-ufo/minoborony-rf-ukraina-i-nato-planiruiut-vosem-krupnyh-uchenij-vblizi-kryma.html",
+          "outlet": "rg.ru",
+          "date": "2021-03-18"
         },
         {
           "kind": "plant",
-          "text": "Defense industry: 1 stored headlines, below the usual 3 ↓. 16 people were evacuated after a fire at a defence plant in Kaluga",
-          "english": "16 people were evacuated after a fire at a defence plant in Kaluga",
-          "title": "На калужском оборонном заводе из-за пожара эвакуировали 16 человек",
-          "url": "https://regnum.ru/news/3216723.html",
-          "outlet": "regnum.ru",
-          "date": "2021-03-16"
+          "text": "Defense industry: 1 stored headlines, below the usual 3 ↓.",
+          "english": "",
+          "title": "",
+          "url": "",
+          "outlet": "",
+          "date": ""
         },
         {
           "kind": "call",
-          "text": "Conscription: 6 stored headlines, below the usual 7 ↓. Conscripts' share in Russian Army declines to 30%, says lawmaker - Military & Defense",
-          "english": "Conscripts' share in Russian Army declines to 30%, says lawmaker - Military & Defense",
-          "title": "Conscripts' share in Russian Army declines to 30%, says lawmaker - Military & Defense",
-          "url": "https://tass.com/defense/1265975",
-          "outlet": "tass.com",
-          "date": "2021-03-15"
+          "text": "Conscription: 6 stored headlines, below the usual 7 ↓.",
+          "english": "",
+          "title": "",
+          "url": "",
+          "outlet": "",
+          "date": ""
         },
         {
           "kind": "ruble",
@@ -556,12 +556,12 @@
       "lines": [
         {
           "kind": "mod",
-          "text": "Military talk: 95 stored headlines, above the usual 75 ↑. Shoigu discusses developments in Syria in phone call with Turkish counterpart: ministry",
-          "english": "Shoigu discusses developments in Syria in phone call with Turkish counterpart: ministry",
-          "title": "Shoigu discusses developments in Syria in phone call with Turkish counterpart: ministry",
-          "url": "https://tass.com/defense/1270401",
-          "outlet": "tass.com",
-          "date": "2021-03-25"
+          "text": "Military talk: 95 stored headlines, above the usual 75 ↑.",
+          "english": "",
+          "title": "Минобороны Латвии: армия не станет заменять государство при вакцинации",
+          "url": "https://regnum.ru/news/3223918.html",
+          "outlet": "regnum.ru",
+          "date": "2021-03-24"
         },
         {
           "kind": "plant",
@@ -574,12 +574,12 @@
         },
         {
           "kind": "call",
-          "text": "Conscription: 10 stored headlines, above the usual 7 ↑. Oryol region, Bashkortostan and Stavropol are competing for the best preparation of conscripts for military service",
-          "english": "Oryol region, Bashkortostan and Stavropol are competing for the best preparation of conscripts for military service",
-          "title": "Орловская область, Башкортостан и Ставрополье соревнуются за лучшую подготовку призывников к военной службе",
-          "url": "https://tvzvezda.ru/news/20213221851-WwwJk.html",
-          "outlet": "tvzvezda.ru",
-          "date": "2021-03-22"
+          "text": "Conscription: 10 stored headlines, above the usual 7 ↑.",
+          "english": "",
+          "title": "Призывники Эстонии проходят базовый курс моряка",
+          "url": "https://regnum.ru/news/3224949.html",
+          "outlet": "regnum.ru",
+          "date": "2021-03-25"
         },
         {
           "kind": "ruble",
@@ -608,10 +608,10 @@
           "kind": "mod",
           "text": "Military talk: 61 stored headlines, below the usual 75 ↓.",
           "english": "",
-          "title": "В Минобороны сообщили о начале подготовки к Параду Победы 9 мая - Газета.Ru",
-          "url": "https://www.gazeta.ru/army/news/2021/03/29/15795164.shtml",
-          "outlet": "gazeta.ru",
-          "date": "2021-03-29"
+          "title": "В Минобороны показали впечатляющие кадры совместных учений военных России и Белоруссии в Нижегородской области. Новости. Первый канал",
+          "url": "https://www.1tv.ru/news/2021-04-02/404166-v_minoborony_pokazali_vpechatlyayuschie_kadry_sovmestnyh_ucheniy_voennyh_rossii_i_belorussii_v_nizhegorodskoy_oblasti",
+          "outlet": "1tv.ru",
+          "date": "2021-04-02"
         },
         {
           "kind": "plant",
@@ -624,12 +624,12 @@
         },
         {
           "kind": "call",
-          "text": "Conscription: 60 stored headlines, above the usual 7 ↑. Putin signs decree to draft over 130,000 conscripts into Russian Army in spring",
-          "english": "Putin signs decree to draft over 130,000 conscripts into Russian Army in spring",
-          "title": "Putin signs decree to draft over 130,000 conscripts into Russian Army in spring",
-          "url": "https://tass.com/defense/1271501",
-          "outlet": "tass.com",
-          "date": "2021-03-29"
+          "text": "Conscription: 60 stored headlines, above the usual 7 ↑.",
+          "english": "",
+          "title": "На Украине ужесточили армейский призыв и упростили мобилизацию",
+          "url": "https://regnum.ru/news/3229327.html",
+          "outlet": "regnum.ru",
+          "date": "2021-03-30"
         },
         {
           "kind": "ruble",
@@ -658,28 +658,28 @@
           "kind": "mod",
           "text": "Military talk: 89 stored headlines, above the usual 75 ↑.",
           "english": "",
-          "title": "В Минобороны оценили шанс освобождения от призыва из-за коронавируса - Газета.Ru",
-          "url": "https://www.gazeta.ru/army/news/2021/04/05/15823292.shtml",
-          "outlet": "gazeta.ru",
-          "date": "2021-04-05"
+          "title": "Минобороны России и Белоруссии обсуждают вопросы контроля над вооружениями",
+          "url": "https://russian.rt.com/ussr/news/850321-minoborony-belorussii-i-rossii",
+          "outlet": "rt.com",
+          "date": "2021-04-07"
         },
         {
           "kind": "plant",
-          "text": "Defense industry: 6 stored headlines, above the usual 3 ↑. Property of a defence plant in Novosibirsk was put up for auction",
-          "english": "Property of a defence plant in Novosibirsk was put up for auction",
-          "title": "В Новосибирске имущество оборонного завода выставили на торги",
-          "url": "https://tass.ru/sibir-news/11067659",
-          "outlet": "tass.ru",
-          "date": "2021-04-05"
+          "text": "Defense industry: 6 stored headlines, above the usual 3 ↑.",
+          "english": "",
+          "title": "",
+          "url": "",
+          "outlet": "",
+          "date": ""
         },
         {
           "kind": "call",
-          "text": "Conscription: 15 stored headlines, above the usual 7 ↑. The share of conscripts fit for military service rose in Russia",
-          "english": "The share of conscripts fit for military service rose in Russia",
-          "title": "В России увеличился показатель годности к военной службе среди призывников",
-          "url": "https://regnum.ru/news/3233779.html",
-          "outlet": "regnum.ru",
-          "date": "2021-04-05"
+          "text": "Conscription: 15 stored headlines, above the usual 7 ↑.",
+          "english": "",
+          "title": "",
+          "url": "",
+          "outlet": "",
+          "date": ""
         },
         {
           "kind": "ruble",
@@ -706,21 +706,21 @@
       "lines": [
         {
           "kind": "mod",
-          "text": "Military talk: 81 stored headlines, above the usual 75 ↑. The Russian Defence Ministry filed a multimillion-ruble lawsuit against the Almaz-Antey concern",
-          "english": "The Russian Defence Ministry filed a multimillion-ruble lawsuit against the Almaz-Antey concern",
-          "title": "Минобороны России подало многомиллионный иск к концерну «Алмаз-Антей»",
-          "url": "https://regnum.ru/news/3241053.html",
-          "outlet": "regnum.ru",
+          "text": "Military talk: 81 stored headlines, above the usual 75 ↑. Ông Shoigu nói về đội quân Mỹ và NATO bố trí ở gần biên giới Nga",
+          "english": "Ông Shoigu nói về đội quân Mỹ và NATO bố trí ở gần biên giới Nga",
+          "title": "Ông Shoigu nói về đội quân Mỹ và NATO bố trí ở gần biên giới Nga",
+          "url": "https://vn.sputniknews.com/russia/2021041310367342-ong-shoigu-noi-ve-doi-quan-my-va-nato-bo-tri-o-gan-bien-gioi-nga/",
+          "outlet": "sputniknews.com",
           "date": "2021-04-13"
         },
         {
           "kind": "plant",
-          "text": "Defense industry: 9 stored headlines, above the usual 3 ↑. The Russian Defence Ministry filed a multimillion-ruble lawsuit against the Almaz-Antey concern",
-          "english": "The Russian Defence Ministry filed a multimillion-ruble lawsuit against the Almaz-Antey concern",
-          "title": "Минобороны России подало многомиллионный иск к концерну «Алмаз-Антей»",
-          "url": "https://regnum.ru/news/3241053.html",
-          "outlet": "regnum.ru",
-          "date": "2021-04-13"
+          "text": "Defense industry: 9 stored headlines, above the usual 3 ↑.",
+          "english": "",
+          "title": "",
+          "url": "",
+          "outlet": "",
+          "date": ""
         },
         {
           "kind": "call",
@@ -765,21 +765,21 @@
         },
         {
           "kind": "plant",
-          "text": "Defense industry: 2 stored headlines, below the usual 3 ↓. The Almaz-Antey concern lost a multimillion-ruble dispute over a penalty",
-          "english": "The Almaz-Antey concern lost a multimillion-ruble dispute over a penalty",
-          "title": "Концерн «Алмаз-Антей» проиграл многомиллионный спор за неустойку",
-          "url": "https://regnum.ru/news/economy/3246136.html",
-          "outlet": "regnum.ru",
-          "date": "2021-04-19"
+          "text": "Defense industry: 2 stored headlines, below the usual 3 ↓.",
+          "english": "",
+          "title": "",
+          "url": "",
+          "outlet": "",
+          "date": ""
         },
         {
           "kind": "call",
-          "text": "Conscription: 28 stored headlines, above the usual 7 ↑. The office of Tajikistan's leader noted roundups of conscripts",
-          "english": "The office of Tajikistan's leader noted roundups of conscripts",
-          "title": "Аппарат главы Таджикистана обратил внимание на «облавы» на призывников",
-          "url": "https://regnum.ru/news/3246542.html",
-          "outlet": "regnum.ru",
-          "date": "2021-04-19"
+          "text": "Conscription: 28 stored headlines, above the usual 7 ↑.",
+          "english": "",
+          "title": "На Украине подписан закон, позволяющий провести мобилизацию за сутки",
+          "url": "https://www.vesti.ru/article/2553348",
+          "outlet": "vesti.ru",
+          "date": "2021-04-21"
         },
         {
           "kind": "ruble",
@@ -806,30 +806,30 @@
       "lines": [
         {
           "kind": "mod",
-          "text": "Military talk: 80 stored headlines, above the usual 75 ↑. Tướng Shoigu nhận định tình hình Afghanistan đang xuống cấp",
-          "english": "Tướng Shoigu nhận định tình hình Afghanistan đang xuống cấp",
-          "title": "Tướng Shoigu nhận định tình hình Afghanistan đang xuống cấp",
-          "url": "https://vn.sputniknews.com/asia/2021042710433460-tuong-shoigu-nhan-dinh-tinh-hinh-afghanistan-dang-xuong-cap/",
-          "outlet": "sputniknews.com",
-          "date": "2021-04-27"
+          "text": "Military talk: 80 stored headlines, above the usual 75 ↑.",
+          "english": "",
+          "title": "В Минобороны объявили о возвращении военных в пункты дислокации после учений",
+          "url": "https://iz.ru/1156649/2021-04-26/v-minoborony-obiavili-o-vozvrashchenii-voennykh-v-punkty-dislokatcii-posle-uchenii",
+          "outlet": "iz.ru",
+          "date": "2021-04-26"
         },
         {
           "kind": "plant",
-          "text": "Defense industry: 3 stored headlines, about the usual 3 →. Searches were carried out at a defence enterprise in Tatarstan",
-          "english": "Searches were carried out at a defence enterprise in Tatarstan",
-          "title": "В Татарии на оборонном предприятии прошли обыски",
-          "url": "https://regnum.ru/news/3254707.html",
-          "outlet": "regnum.ru",
-          "date": "2021-04-27"
+          "text": "Defense industry: 3 stored headlines, about the usual 3 →.",
+          "english": "",
+          "title": "",
+          "url": "",
+          "outlet": "",
+          "date": ""
         },
         {
           "kind": "call",
-          "text": "Conscription: 11 stored headlines, above the usual 7 ↑. The first team of conscripts left for their place of service in Tatarstan",
-          "english": "The first team of conscripts left for their place of service in Tatarstan",
-          "title": "Первая команда призывников отправилась на место службы в Татарстане",
-          "url": "https://tvzvezda.ru/news/2021426241-P2J47.html",
-          "outlet": "tvzvezda.ru",
-          "date": "2021-04-26"
+          "text": "Conscription: 11 stored headlines, above the usual 7 ↑.",
+          "english": "",
+          "title": "",
+          "url": "",
+          "outlet": "",
+          "date": ""
         },
         {
           "kind": "ruble",
@@ -856,12 +856,12 @@
       "lines": [
         {
           "kind": "mod",
-          "text": "Military talk: 31 stored headlines, below the usual 75 ↓. Forcibly nice. Why is the Defence Ministry raising fines for people liable for service?",
-          "english": "Forcibly nice. Why is the Defence Ministry raising fines for people liable for service?",
-          "title": "Насильно мил. Зачем Минобороны увеличивает штрафы для военнообязанных?",
-          "url": "https://aif.ru/society/army/nasilno_mil_zachem_minoborony_uvelichivaet_shtrafy_dlya_voennoobyazannyh",
-          "outlet": "aif.ru",
-          "date": "2021-05-03"
+          "text": "Military talk: 31 stored headlines, below the usual 75 ↓.",
+          "english": "",
+          "title": "Главы минобороны Турции и Латвии обсудили вопросы сотрудничества",
+          "url": "https://regnum.ru/news/3262471.html",
+          "outlet": "regnum.ru",
+          "date": "2021-05-06"
         },
         {
           "kind": "plant",
@@ -874,12 +874,12 @@
         },
         {
           "kind": "call",
-          "text": "Conscription: 3 stored headlines, below the usual 7 ↓. Forcibly nice. Why is the Defence Ministry raising fines for people liable for service?",
-          "english": "Forcibly nice. Why is the Defence Ministry raising fines for people liable for service?",
-          "title": "Насильно мил. Зачем Минобороны увеличивает штрафы для военнообязанных?",
-          "url": "https://aif.ru/society/army/nasilno_mil_zachem_minoborony_uvelichivaet_shtrafy_dlya_voennoobyazannyh",
-          "outlet": "aif.ru",
-          "date": "2021-05-03"
+          "text": "Conscription: 3 stored headlines, below the usual 7 ↓.",
+          "english": "",
+          "title": "",
+          "url": "",
+          "outlet": "",
+          "date": ""
         },
         {
           "kind": "ruble",
@@ -908,28 +908,28 @@
           "kind": "mod",
           "text": "Military talk: 49 stored headlines, below the usual 75 ↓.",
           "english": "",
-          "title": "Минобороны Узбекистана отрицает возможность размещения в стране военных баз США",
-          "url": "https://pda.kp.ru/online/news/4286610/",
-          "outlet": "kp.ru",
-          "date": "2021-05-10"
+          "title": "Глава Минобороны Армении и командующий ЮВО обсудили ситуацию на границе с Азербайджаном",
+          "url": "https://tass.ru/mezhdunarodnaya-panorama/11375585",
+          "outlet": "tass.ru",
+          "date": "2021-05-14"
         },
         {
           "kind": "plant",
-          "text": "Defense industry: 2 stored headlines, below the usual 3 ↓. Kamaz will double production of premium trucks because of high demand",
-          "english": "Kamaz will double production of premium trucks because of high demand",
-          "title": "КамАЗ удвоит производство премиальных грузовиков из-за высокого спроса",
-          "url": "https://rg.ru/2021/05/12/kamaz-udvoit-proizvodstvo-premialnyh-gruzovikov-iz-za-vysokogo-sprosa.html",
-          "outlet": "rg.ru",
-          "date": "2021-05-12"
+          "text": "Defense industry: 2 stored headlines, below the usual 3 ↓.",
+          "english": "",
+          "title": "",
+          "url": "",
+          "outlet": "",
+          "date": ""
         },
         {
           "kind": "call",
-          "text": "Conscription: 16 stored headlines, above the usual 7 ↑. Russia is a military adversary. Why Kyiv is preparing army mobilization",
-          "english": "Russia is a military adversary. Why Kyiv is preparing army mobilization",
-          "title": "\"Россия — военный противник\". Для чего Киев готовит мобилизацию в армию",
-          "url": "https://ria.ru/20210510/ukraina-1730369685.html",
-          "outlet": "ria.ru",
-          "date": "2021-05-10"
+          "text": "Conscription: 16 stored headlines, above the usual 7 ↑.",
+          "english": "",
+          "title": "",
+          "url": "",
+          "outlet": "",
+          "date": ""
         },
         {
           "kind": "ruble",
@@ -956,30 +956,30 @@
       "lines": [
         {
           "kind": "mod",
-          "text": "Military talk: 119 stored headlines, above the usual 75 ↑. Russia's Shoigu discusses situation in Karabakh with Armenia's Harutiunyan - Military & Defense",
-          "english": "Russia's Shoigu discusses situation in Karabakh with Armenia's Harutiunyan - Military & Defense",
-          "title": "Russia's Shoigu discusses situation in Karabakh with Armenia's Harutiunyan - Military & Defense",
-          "url": "https://tass.com/defense/1292091",
-          "outlet": "tass.com",
-          "date": "2021-05-20"
+          "text": "Military talk: 119 stored headlines, above the usual 75 ↑.",
+          "english": "",
+          "title": "Минобороны Армении оценило ситуацию на границе с Азербайджаном",
+          "url": "https://ria.ru/20210517/armeniya-1732724654.html",
+          "outlet": "ria.ru",
+          "date": "2021-05-17"
         },
         {
           "kind": "plant",
-          "text": "Defense industry: 6 stored headlines, above the usual 3 ↑. A representative of the Almaz-Antey concern was questioned again in the MH17 case",
-          "english": "A representative of the Almaz-Antey concern was questioned again in the MH17 case",
-          "title": "Представителя концерна \"Алмаз-Антей\" повторно опросили по делу MH17",
-          "url": "https://tass.ru/proisshestviya/11434419",
-          "outlet": "tass.ru",
-          "date": "2021-05-21"
+          "text": "Defense industry: 6 stored headlines, above the usual 3 ↑.",
+          "english": "",
+          "title": "",
+          "url": "",
+          "outlet": "",
+          "date": ""
         },
         {
           "kind": "call",
-          "text": "Conscription: 8 stored headlines, above the usual 7 ↑. Reservist training gatherings began in the DPR and LPR",
-          "english": "Reservist training gatherings began in the DPR and LPR",
-          "title": "В ДНР и ЛНР начались сборы резервистов",
-          "url": "https://lenta.ru/news/2021/05/17/sbory/",
-          "outlet": "lenta.ru",
-          "date": "2021-05-17"
+          "text": "Conscription: 8 stored headlines, above the usual 7 ↑.",
+          "english": "",
+          "title": "",
+          "url": "",
+          "outlet": "",
+          "date": ""
         },
         {
           "kind": "ruble",
@@ -1006,30 +1006,30 @@
       "lines": [
         {
           "kind": "mod",
-          "text": "Military talk: 75 stored headlines, about the usual 75 →. Meeting with Defence Minister Sergei Shoigu",
-          "english": "Meeting with Defence Minister Sergei Shoigu",
-          "title": "Meeting with Defence Minister Sergei Shoigu",
-          "url": "http://en.kremlin.ru/events/president/news/65686",
-          "outlet": "kremlin.ru",
-          "date": "2021-05-27"
-        },
-        {
-          "kind": "plant",
-          "text": "Defense industry: 6 stored headlines, above the usual 3 ↑. A verdict was issued in a multimillion-ruble lawsuit against an Almaz-Antey institute",
-          "english": "A verdict was issued in a multimillion-ruble lawsuit against an Almaz-Antey institute",
-          "title": "Многомиллионный иск к институту концерна «Алмаз-Антей»: вынесен вердикт",
-          "url": "https://regnum.ru/news/economy/3278206.html",
+          "text": "Military talk: 75 stored headlines, about the usual 75 →.",
+          "english": "",
+          "title": "Президент и глава минобороны Польши отправились с визитом в Турцию",
+          "url": "https://regnum.ru/news/3277626.html",
           "outlet": "regnum.ru",
           "date": "2021-05-24"
         },
         {
+          "kind": "plant",
+          "text": "Defense industry: 6 stored headlines, above the usual 3 ↑.",
+          "english": "",
+          "title": "",
+          "url": "",
+          "outlet": "",
+          "date": ""
+        },
+        {
           "kind": "call",
-          "text": "Conscription: 7 stored headlines, about the usual 7 →. Guards of mobilization sites in Russia will be allowed to shoot down drones",
-          "english": "Guards of mobilization sites in Russia will be allowed to shoot down drones",
-          "title": "В России охране объектов мобилизационного назначения разрешат сбивать беспилотники",
-          "url": "https://tass.ru/obschestvo/11469465",
-          "outlet": "tass.ru",
-          "date": "2021-05-25"
+          "text": "Conscription: 7 stored headlines, about the usual 7 →.",
+          "english": "",
+          "title": "",
+          "url": "",
+          "outlet": "",
+          "date": ""
         },
         {
           "kind": "ruble",
@@ -1056,30 +1056,30 @@
       "lines": [
         {
           "kind": "mod",
-          "text": "Military talk: 101 stored headlines, above the usual 75 ↑. Russia, Iran to develop contacts in defense sector — Russian defense ministry",
-          "english": "Russia, Iran to develop contacts in defense sector — Russian defense ministry",
-          "title": "Russia, Iran to develop contacts in defense sector — Russian defense ministry",
-          "url": "https://tass.com/world/1296931",
-          "outlet": "tass.com",
-          "date": "2021-06-01"
+          "text": "Military talk: 101 stored headlines, above the usual 75 ↑. Bộ trưởng Quốc phòng Shoigu cho biết về các bước đi của Nga nhằm đáp trả hành động của NATO",
+          "english": "Bộ trưởng Quốc phòng Shoigu cho biết về các bước đi của Nga nhằm đáp trả hành động của NATO",
+          "title": "Bộ trưởng Quốc phòng Shoigu cho biết về các bước đi của Nga nhằm đáp trả hành động của NATO",
+          "url": "https://vn.sputniknews.com/russia/2021053110577506-bo-truong-quoc-phong-shoigu-cho-biet-ve-cac-buoc-di-cua-nga-nham-dap-tra-hanh-dong-cua-nato/",
+          "outlet": "sputniknews.com",
+          "date": "2021-05-31"
         },
         {
           "kind": "plant",
-          "text": "Defense industry: 13 stored headlines, above the usual 3 ↑. From Armata to a polite roly-poly. What toys for children Russian defence plants make",
-          "english": "From Armata to a polite roly-poly. What toys for children Russian defence plants make",
-          "title": "От \"Арматы\" до \"вежливой\" неваляшки. Какие игрушки для детей делают оборонные заводы РФ",
-          "url": "https://tass.ru/armiya-i-opk/11517235",
-          "outlet": "tass.ru",
-          "date": "2021-06-01"
+          "text": "Defense industry: 13 stored headlines, above the usual 3 ↑.",
+          "english": "",
+          "title": "",
+          "url": "",
+          "outlet": "",
+          "date": ""
         },
         {
           "kind": "call",
-          "text": "Conscription: 6 stored headlines, below the usual 7 ↓. An expert: electronic voting will raise mobilization of United Russia supporters",
-          "english": "An expert: electronic voting will raise mobilization of United Russia supporters",
-          "title": "Эксперт: Электронная система голосования повысит мобилизацию сторонников ЕР",
-          "url": "https://regnum.ru/news/3284031.html",
-          "outlet": "regnum.ru",
-          "date": "2021-05-31"
+          "text": "Conscription: 6 stored headlines, below the usual 7 ↓.",
+          "english": "",
+          "title": "",
+          "url": "",
+          "outlet": "",
+          "date": ""
         },
         {
           "kind": "ruble",
@@ -1106,30 +1106,30 @@
       "lines": [
         {
           "kind": "mod",
-          "text": "Military talk: 57 stored headlines, below the usual 75 ↓. Larisa Shoigu, lawmaker and sister of Russia's defense minister, passes away aged 68 - Society & Culture",
-          "english": "Larisa Shoigu, lawmaker and sister of Russia's defense minister, passes away aged 68 - Society & Culture",
-          "title": "Larisa Shoigu, lawmaker and sister of Russia's defense minister, passes away aged 68 - Society & Culture",
-          "url": "https://tass.com/society/1301427",
-          "outlet": "tass.com",
-          "date": "2021-06-10"
+          "text": "Military talk: 57 stored headlines, below the usual 75 ↓.",
+          "english": "",
+          "title": "Минобороны Великобритании расследует инцидент с пьяными солдатами в Эстонии",
+          "url": "https://www.gazeta.ru/social/2021/06/07/13624250.shtml",
+          "outlet": "gazeta.ru",
+          "date": "2021-06-07"
         },
         {
           "kind": "plant",
-          "text": "Defense industry: 12 stored headlines, above the usual 3 ↑. A fire resumed at a defence plant in Serbia",
-          "english": "A fire resumed at a defence plant in Serbia",
-          "title": "На оборонном заводе в Сербии возобновился пожар",
-          "url": "https://pda.kp.ru/online/news/4319955/",
-          "outlet": "kp.ru",
-          "date": "2021-06-07"
+          "text": "Defense industry: 12 stored headlines, above the usual 3 ↑.",
+          "english": "",
+          "title": "",
+          "url": "",
+          "outlet": "",
+          "date": ""
         },
         {
           "kind": "call",
-          "text": "Conscription: 2 stored headlines, below the usual 7 ↓. Taming armour: Voronezh conscripts will become driver-mechanics",
-          "english": "Taming armour: Voronezh conscripts will become driver-mechanics",
-          "title": "Укротить бронетехнику: воронежские призывники станут механиками-водителями",
-          "url": "https://tvzvezda.ru/news/2021671049-H5xQw.html",
-          "outlet": "tvzvezda.ru",
-          "date": "2021-06-07"
+          "text": "Conscription: 2 stored headlines, below the usual 7 ↓.",
+          "english": "",
+          "title": "Документы о мобилизационной работе в Белорусской ССР в первые дни войны",
+          "url": "https://rg.ru/2021/06/09/dokumenty-o-mobilizacionnoj-rabote-v-belorusskoj-ssr-v-pervye-dni-vojny.html",
+          "outlet": "rg.ru",
+          "date": "2021-06-09"
         },
         {
           "kind": "ruble",
@@ -1156,30 +1156,30 @@
       "lines": [
         {
           "kind": "mod",
-          "text": "Military talk: 66 stored headlines, below the usual 75 ↓. Russian Defence Ministry Developing COVID-19 Medication in Form of Chewing Gum, Source Says",
-          "english": "Russian Defence Ministry Developing COVID-19 Medication in Form of Chewing Gum, Source Says",
-          "title": "Russian Defence Ministry Developing COVID-19 Medication in Form of Chewing Gum, Source Says",
-          "url": "https://sputniknews.com/russia/202106181083179443-russian-defence-ministry-developing-covid-19-medication-in-form-of-chewing-gum-source-says/",
-          "outlet": "sputniknews.com",
-          "date": "2021-06-18"
+          "text": "Military talk: 66 stored headlines, below the usual 75 ↓.",
+          "english": "",
+          "title": "Глава Минобороны Чехии поблагодарил НАТО за поддержку Праги по инциденту во Врбетице",
+          "url": "https://tass.ru/mezhdunarodnaya-panorama/11647157",
+          "outlet": "tass.ru",
+          "date": "2021-06-14"
         },
         {
           "kind": "plant",
-          "text": "Defense industry: 7 stored headlines, above the usual 3 ↑. Rostec urged employees of defence enterprises in Moscow and the Moscow region to get vaccinated",
-          "english": "Rostec urged employees of defence enterprises in Moscow and the Moscow region to get vaccinated",
-          "title": "«Ростех» призвал сотрудников оборонных предприятий в Москве и Подмосковье пройти вакцинацию",
-          "url": "https://russian.rt.com/russia/news/874872-rosteh-covid-19-vakcinaciya",
-          "outlet": "rt.com",
-          "date": "2021-06-18"
+          "text": "Defense industry: 7 stored headlines, above the usual 3 ↑.",
+          "english": "",
+          "title": "",
+          "url": "",
+          "outlet": "",
+          "date": ""
         },
         {
           "kind": "call",
-          "text": "Conscription: 6 stored headlines, below the usual 7 ↓. The head of the LPR ordered military training for reservists",
-          "english": "The head of the LPR ordered military training for reservists",
-          "title": "Глава ЛНР поручил провести военные сборы резервистов",
-          "url": "https://tass.ru/mezhdunarodnaya-panorama/11646973",
-          "outlet": "tass.ru",
-          "date": "2021-06-14"
+          "text": "Conscription: 6 stored headlines, below the usual 7 ↓.",
+          "english": "",
+          "title": "Лукашенко призвал регионы Белоруссии быть готовыми к мобилизации",
+          "url": "https://iz.ru/1179314/2021-06-16/lukashenko-prizval-regiony-belorussii-byt-gotovymi-k-mobilizatcii",
+          "outlet": "iz.ru",
+          "date": "2021-06-16"
         },
         {
           "kind": "ruble",
@@ -1206,12 +1206,12 @@
       "lines": [
         {
           "kind": "mod",
-          "text": "Military talk: 119 stored headlines, above the usual 75 ↑. Military cooperation plays important role in relations between Russia, Myanmar — Shoigu",
-          "english": "Military cooperation plays important role in relations between Russia, Myanmar — Shoigu",
-          "title": "Military cooperation plays important role in relations between Russia, Myanmar — Shoigu",
-          "url": "https://tass.com/defense/1305899",
+          "text": "Military talk: 119 stored headlines, above the usual 75 ↑. Deployment of intermediate range missiles in APR threatens Russia's East — Shoigu",
+          "english": "Deployment of intermediate range missiles in APR threatens Russia's East — Shoigu",
+          "title": "Deployment of intermediate range missiles in APR threatens Russia's East — Shoigu",
+          "url": "https://tass.com/defense/1306167",
           "outlet": "tass.com",
-          "date": "2021-06-22"
+          "date": "2021-06-23"
         },
         {
           "kind": "plant",
@@ -1224,12 +1224,12 @@
         },
         {
           "kind": "call",
-          "text": "Conscription: 11 stored headlines, above the usual 7 ↑. A troop train with more than 200 conscripts left Sverdlovsk region for the Far East",
-          "english": "A troop train with more than 200 conscripts left Sverdlovsk region for the Far East",
-          "title": "Воинский эшелон с более 200 призывниками отправился из Свердловской области на Дальний Восток",
-          "url": "https://tvzvezda.ru/news/2021621752-2a2rb.html",
-          "outlet": "tvzvezda.ru",
-          "date": "2021-06-21"
+          "text": "Conscription: 11 stored headlines, above the usual 7 ↑.",
+          "english": "",
+          "title": "",
+          "url": "",
+          "outlet": "",
+          "date": ""
         },
         {
           "kind": "ruble",
@@ -1258,8 +1258,8 @@
           "kind": "mod",
           "text": "Military talk: 60 stored headlines, below the usual 75 ↓.",
           "english": "",
-          "title": "Агитпоезд Минобороны привлек внимание более полумиллиона человек",
-          "url": "https://pda.kp.ru/online/news/4344448/",
+          "title": "Видео из кабины пилота с учений российской авиации в Средиземном море показало Минобороны",
+          "url": "https://pda.kp.ru/online/news/4345243/",
           "outlet": "kp.ru",
           "date": "2021-06-28"
         },
@@ -1274,12 +1274,12 @@
         },
         {
           "kind": "call",
-          "text": "Conscription: 6 stored headlines, below the usual 7 ↓. Innovative Nanjing: mobilizing knowledge from around the world to build a shared future",
-          "english": "Innovative Nanjing: mobilizing knowledge from around the world to build a shared future",
-          "title": "Инновационный Нанкин: мобилизация знаний со всего мира для создания общего будущего",
-          "url": "https://tass.ru/press-relizy/11766871",
-          "outlet": "tass.ru",
-          "date": "2021-06-28"
+          "text": "Conscription: 6 stored headlines, below the usual 7 ↓.",
+          "english": "",
+          "title": "",
+          "url": "",
+          "outlet": "",
+          "date": ""
         },
         {
           "kind": "ruble",
@@ -1306,21 +1306,21 @@
       "lines": [
         {
           "kind": "mod",
-          "text": "Military talk: 73 stored headlines, below the usual 75 ↓. Ceasefire in Nagorno-Karabakh being observed — Russian defense ministry",
-          "english": "Ceasefire in Nagorno-Karabakh being observed — Russian defense ministry",
-          "title": "Ceasefire in Nagorno-Karabakh being observed — Russian defense ministry",
-          "url": "https://tass.com/politics/1311219",
-          "outlet": "tass.com",
-          "date": "2021-07-06"
+          "text": "Military talk: 73 stored headlines, below the usual 75 ↓.",
+          "english": "",
+          "title": "В Минобороны РФ заявили о поставках Киеву оружия под прикрытием учений НАТО",
+          "url": "https://regnum.ru/news/polit/3286379.html",
+          "outlet": "regnum.ru",
+          "date": "2021-07-05"
         },
         {
           "kind": "plant",
-          "text": "Defense industry: 4 stored headlines, above the usual 3 ↑. Almaz-Antey took up automatic waste sorting",
-          "english": "Almaz-Antey took up automatic waste sorting",
-          "title": "\"Алмаз-Антей\" занялся автоматической сортировкой мусора",
-          "url": "https://tass.ru/ekonomika/11837557",
-          "outlet": "tass.ru",
-          "date": "2021-07-06"
+          "text": "Defense industry: 4 stored headlines, above the usual 3 ↑.",
+          "english": "",
+          "title": "«Уралвагонзавод» начал серийные поставки БМПТ «Терминатор-2»",
+          "url": "https://iz.ru/1189811/2021-07-07/uralvagonzavod-nachal-seriinye-postavki-bmpt-terminator-2",
+          "outlet": "iz.ru",
+          "date": "2021-07-07"
         },
         {
           "kind": "call",
@@ -1356,30 +1356,30 @@
       "lines": [
         {
           "kind": "mod",
-          "text": "Military talk: 105 stored headlines, above the usual 75 ↑. Russia boasts highest level of new military hardware among world's armies — Shoigu - Military & Defense",
-          "english": "Russia boasts highest level of new military hardware among world's armies — Shoigu - Military & Defense",
-          "title": "Russia boasts highest level of new military hardware among world's armies — Shoigu - Military & Defense",
-          "url": "https://tass.com/defense/1314043",
-          "outlet": "tass.com",
-          "date": "2021-07-14"
+          "text": "Military talk: 105 stored headlines, above the usual 75 ↑.",
+          "english": "",
+          "title": "Росгвардия начинает масштабные тренировки для подготовки к учениям Минобороны «Запад-2021»",
+          "url": "https://tvzvezda.ru/news/20217121649-fEipr.html",
+          "outlet": "tvzvezda.ru",
+          "date": "2021-07-12"
         },
         {
           "kind": "plant",
-          "text": "Defense industry: 4 stored headlines, above the usual 3 ↑. Almaz-Antey entered the top twenty largest arms producers in the world",
-          "english": "Almaz-Antey entered the top twenty largest arms producers in the world",
-          "title": "\"Алмаз-Антей\" вошел в двадцатку крупнейших производителей оружия в мире",
-          "url": "https://ria.ru/20210712/reyting-1740954400.html",
-          "outlet": "ria.ru",
-          "date": "2021-07-12"
+          "text": "Defense industry: 4 stored headlines, above the usual 3 ↑.",
+          "english": "",
+          "title": "",
+          "url": "",
+          "outlet": "",
+          "date": ""
         },
         {
           "kind": "call",
-          "text": "Conscription: 13 stored headlines, above the usual 7 ↑. Kazakhstan will adopt a law on calling up reservists during mobilization",
-          "english": "Kazakhstan will adopt a law on calling up reservists during mobilization",
-          "title": "В Казахстане примут закон о привлечении резервистов в период мобилизации",
-          "url": "https://regnum.ru/news/3319291.html",
-          "outlet": "regnum.ru",
-          "date": "2021-07-12"
+          "text": "Conscription: 13 stored headlines, above the usual 7 ↑.",
+          "english": "",
+          "title": "",
+          "url": "",
+          "outlet": "",
+          "date": ""
         },
         {
           "kind": "ruble",
@@ -1406,30 +1406,30 @@
       "lines": [
         {
           "kind": "mod",
-          "text": "Military talk: 76 stored headlines, above the usual 75 ↑. Russian defense ministry's aircraft to be used to extinguish wildfires in Yakutia - Emergencies",
-          "english": "Russian defense ministry's aircraft to be used to extinguish wildfires in Yakutia - Emergencies",
-          "title": "Russian defense ministry's aircraft to be used to extinguish wildfires in Yakutia - Emergencies",
-          "url": "https://tass.com/emergencies/1315725",
-          "outlet": "tass.com",
-          "date": "2021-07-20"
+          "text": "Military talk: 76 stored headlines, above the usual 75 ↑.",
+          "english": "",
+          "title": "Минобороны опубликовало кадры российских ракетоносцев на фоне истребителей НАТО",
+          "url": "https://pda.kp.ru/daily/28307/4447730/",
+          "outlet": "kp.ru",
+          "date": "2021-07-21"
         },
         {
           "kind": "plant",
-          "text": "Defense industry: 2 stored headlines, below the usual 3 ↓. Almaz-Antey will discuss modernization of the republic's air-traffic system with a Kazakh delegation",
-          "english": "Almaz-Antey will discuss modernization of the republic's air-traffic system with a Kazakh delegation",
-          "title": "\"Алмаз-Антей\" обсудит с делегацией Казахстана модернизацию республиканской системы ОрВД",
-          "url": "https://tass.ru/armiya-i-opk/11931211",
-          "outlet": "tass.ru",
-          "date": "2021-07-19"
+          "text": "Defense industry: 2 stored headlines, below the usual 3 ↓.",
+          "english": "",
+          "title": "",
+          "url": "",
+          "outlet": "",
+          "date": ""
         },
         {
           "kind": "call",
-          "text": "Conscription: 2 stored headlines, below the usual 7 ↓. The autumn call-up into the People's Liberation Army is beginning in China",
-          "english": "The autumn call-up into the People's Liberation Army is beginning in China",
-          "title": "В Китае начинается осенний призыв в НОАК",
-          "url": "https://regnum.ru/news/3326961.html",
-          "outlet": "regnum.ru",
-          "date": "2021-07-20"
+          "text": "Conscription: 2 stored headlines, below the usual 7 ↓.",
+          "english": "",
+          "title": "",
+          "url": "",
+          "outlet": "",
+          "date": ""
         },
         {
           "kind": "ruble",
@@ -1456,30 +1456,30 @@
       "lines": [
         {
           "kind": "mod",
-          "text": "Military talk: 71 stored headlines, below the usual 75 ↓. More than 2 mln refugees return to Syria — Russian defense ministry",
-          "english": "More than 2 mln refugees return to Syria — Russian defense ministry",
-          "title": "More than 2 mln refugees return to Syria — Russian defense ministry",
-          "url": "https://tass.com/defense/1317847",
+          "text": "Military talk: 71 stored headlines, below the usual 75 ↓. NATO's growing combat potential near Russia, Belarus cause serious concern — Shoigu - Military & Defense",
+          "english": "NATO's growing combat potential near Russia, Belarus cause serious concern — Shoigu - Military & Defense",
+          "title": "NATO's growing combat potential near Russia, Belarus cause serious concern — Shoigu - Military & Defense",
+          "url": "https://tass.com/defense/1318557",
           "outlet": "tass.com",
-          "date": "2021-07-26"
+          "date": "2021-07-28"
         },
         {
           "kind": "plant",
-          "text": "Defense industry: 3 stored headlines, about the usual 3 →. A Nizhny Novgorod defence enterprise was fined 1.1 million rubles",
-          "english": "A Nizhny Novgorod defence enterprise was fined 1.1 million rubles",
-          "title": "Нижегородское оборонное предприятие оштрафовали на 1,1 млн рублей",
-          "url": "https://ria.ru/20210726/ekologiya-1743004444.html",
-          "outlet": "ria.ru",
-          "date": "2021-07-26"
+          "text": "Defense industry: 3 stored headlines, about the usual 3 →.",
+          "english": "",
+          "title": "",
+          "url": "",
+          "outlet": "",
+          "date": ""
         },
         {
           "kind": "call",
-          "text": "Conscription: 3 stored headlines, below the usual 7 ↓. The submarine Ufa will be launched in November. Bashkiria's best conscripts will serve on it",
-          "english": "The submarine Ufa will be launched in November. Bashkiria's best conscripts will serve on it",
-          "title": "В ноябре на воду спустят подлодку «Уфа» – там будут служить лучшие призывники Башкирии",
-          "url": "https://pda.ufa.kp.ru/online/news/4378607/",
-          "outlet": "kp.ru",
-          "date": "2021-07-27"
+          "text": "Conscription: 3 stored headlines, below the usual 7 ↓.",
+          "english": "",
+          "title": "Эстония отправит Украине вакцину от коронавируса для резервистов",
+          "url": "https://lenta.ru/news/2021/07/28/help_vaccines/",
+          "outlet": "lenta.ru",
+          "date": "2021-07-28"
         },
         {
           "kind": "ruble",
@@ -1506,30 +1506,30 @@
       "lines": [
         {
           "kind": "mod",
-          "text": "Military talk: 83 stored headlines, above the usual 75 ↑. Russian Defense Ministry dispatches engineering company to combat Yakutia wildfires",
-          "english": "Russian Defense Ministry dispatches engineering company to combat Yakutia wildfires",
-          "title": "Russian Defense Ministry dispatches engineering company to combat Yakutia wildfires",
-          "url": "https://tass.com/emergencies/1322119",
-          "outlet": "tass.com",
-          "date": "2021-08-03"
+          "text": "Military talk: 83 stored headlines, above the usual 75 ↑.",
+          "english": "",
+          "title": "В Минобороны рассказали о разведактивности у границ России за неделю",
+          "url": "https://russian.rt.com/russia/news/891512-granica-rossiya-minoborony",
+          "outlet": "rt.com",
+          "date": "2021-08-02"
         },
         {
           "kind": "plant",
-          "text": "Defense industry: 1 stored headlines, below the usual 3 ↓. Kamaz began producing key parts for Aurus engines",
-          "english": "Kamaz began producing key parts for Aurus engines",
-          "title": "КамАЗ начал производство ключевых деталей двигателей Aurus",
-          "url": "https://rg.ru/2021/08/06/kamaz-nachal-proizvodstvo-kliuchevyh-detalej-dvigatelej-aurus.html",
-          "outlet": "rg.ru",
-          "date": "2021-08-06"
+          "text": "Defense industry: 1 stored headlines, below the usual 3 ↓.",
+          "english": "",
+          "title": "",
+          "url": "",
+          "outlet": "",
+          "date": ""
         },
         {
           "kind": "call",
-          "text": "Conscription: 3 stored headlines, below the usual 7 ↓. Ukrainian airborne units and reservists are training near Crimea",
-          "english": "Ukrainian airborne units and reservists are training near Crimea",
-          "title": "Украјинске десантне јединице и резервисти вежбају надомак Крима",
-          "url": "https://rs.sputniknews.com/20210804/ukrajinske-desantne-jedinice-i-rezervisti-vezbaju-nadomak-krima-1128141849.html",
-          "outlet": "sputniknews.com",
-          "date": "2021-08-04"
+          "text": "Conscription: 3 stored headlines, below the usual 7 ↓.",
+          "english": "",
+          "title": "",
+          "url": "",
+          "outlet": "",
+          "date": ""
         },
         {
           "kind": "ruble",
@@ -1556,30 +1556,30 @@
       "lines": [
         {
           "kind": "mod",
-          "text": "Military talk: 77 stored headlines, above the usual 75 ↑. Trust towards Russian army in society is as high as 86% — Shoigu",
-          "english": "Trust towards Russian army in society is as high as 86% — Shoigu",
-          "title": "Trust towards Russian army in society is as high as 86% — Shoigu",
-          "url": "https://tass.com/defense/1324445",
-          "outlet": "tass.com",
+          "text": "Military talk: 77 stored headlines, above the usual 75 ↑.",
+          "english": "",
+          "title": "Минобороны продолжит проводить совместные учения с союзниками у границ Афганистана",
+          "url": "https://tass.ru/armiya-i-opk/12100731",
+          "outlet": "tass.ru",
           "date": "2021-08-10"
         },
         {
           "kind": "plant",
-          "text": "Defense industry: 5 stored headlines, above the usual 3 ↑. A Novosibirsk defence enterprise will increase output by 10 percent in 2021",
-          "english": "A Novosibirsk defence enterprise will increase output by 10 percent in 2021",
-          "title": "Новосибирское оборонное предприятие увеличит выпуск продукции на 10% в 2021 году",
-          "url": "https://tass.ru/ekonomika/12086711",
-          "outlet": "tass.ru",
-          "date": "2021-08-09"
+          "text": "Defense industry: 5 stored headlines, above the usual 3 ↑.",
+          "english": "",
+          "title": "",
+          "url": "",
+          "outlet": "",
+          "date": ""
         },
         {
           "kind": "call",
-          "text": "Conscription: 3 stored headlines, below the usual 7 ↓. More than 800 people are planned to be recruited into the mobilization reserve in Sverdlovsk region",
-          "english": "More than 800 people are planned to be recruited into the mobilization reserve in Sverdlovsk region",
-          "title": "Более 800 человек планируют набрать в мобилизационный резерв в Свердловской области",
-          "url": "https://tass.ru/armiya-i-opk/12105905",
-          "outlet": "tass.ru",
-          "date": "2021-08-11"
+          "text": "Conscription: 3 stored headlines, below the usual 7 ↓.",
+          "english": "",
+          "title": "",
+          "url": "",
+          "outlet": "",
+          "date": ""
         },
         {
           "kind": "ruble",
@@ -1615,21 +1615,21 @@
         },
         {
           "kind": "plant",
-          "text": "Defense industry: 6 stored headlines, above the usual 3 ↑. Uralvagonzavod will show the modernization potential of its vehicles at the Army-2021 forum",
-          "english": "Uralvagonzavod will show the modernization potential of its vehicles at the Army-2021 forum",
-          "title": "\"Уралвагонзавод\" покажет потенциал модернизации своих машин на форуме \"Армия-2021\"",
-          "url": "https://tass.ru/armiya-i-opk/12151797",
-          "outlet": "tass.ru",
-          "date": "2021-08-17"
+          "text": "Defense industry: 6 stored headlines, above the usual 3 ↑.",
+          "english": "",
+          "title": "",
+          "url": "",
+          "outlet": "",
+          "date": ""
         },
         {
           "kind": "call",
-          "text": "Conscription: 6 stored headlines, below the usual 7 ↓. Kazakhstan will adopt a law on calling up reservists during mobilization",
-          "english": "Kazakhstan will adopt a law on calling up reservists during mobilization",
-          "title": "В Казахстане примут закон о привлечении резервистов в период мобилизации",
-          "url": "https://regnum.ru/news/polit/3319291.html",
-          "outlet": "regnum.ru",
-          "date": "2021-08-16"
+          "text": "Conscription: 6 stored headlines, below the usual 7 ↓.",
+          "english": "",
+          "title": "",
+          "url": "",
+          "outlet": "",
+          "date": ""
         },
         {
           "kind": "ruble",
@@ -1656,30 +1656,30 @@
       "lines": [
         {
           "kind": "mod",
-          "text": "Military talk: 177 stored headlines, above the usual 75 ↑. Live Updates: Russian Defence Ministry Organises Evacuation of Over 500 Citizens from Afghanistan",
-          "english": "Live Updates: Russian Defence Ministry Organises Evacuation of Over 500 Citizens from Afghanistan",
-          "title": "Live Updates: Russian Defence Ministry Organises Evacuation of Over 500 Citizens from Afghanistan",
-          "url": "https://sputniknews.com/asia/202108251083705704-live-updates-russian-defence-ministry-organises-evacuation-of-over-500-citizens-from-afghanistan/",
-          "outlet": "sputniknews.com",
+          "text": "Military talk: 177 stored headlines, above the usual 75 ↑. Russian Defense Ministry reveals plan to evacuate more than 500 people from Afghanistan, including citizens of Ukraine & Belarus",
+          "english": "Russian Defense Ministry reveals plan to evacuate more than 500 people from Afghanistan, including citizens of Ukraine & Belarus",
+          "title": "Russian Defense Ministry reveals plan to evacuate more than 500 people from Afghanistan, including citizens of Ukraine & Belarus",
+          "url": "https://www.rt.com/russia/532999-russia-evacuate-people-afghanistan/",
+          "outlet": "rt.com",
           "date": "2021-08-25"
         },
         {
           "kind": "plant",
-          "text": "Defense industry: 17 stored headlines, above the usual 3 ↑. Almaz-Antey created a new production cluster",
-          "english": "Almaz-Antey created a new production cluster",
-          "title": "ВКО \"Алмаз-Антей\" создал новый производственный кластер - РИА Новости, 23.08.2021",
-          "url": "https://ria.ru/20210823/klaster-1746800772.html",
-          "outlet": "ria.ru",
-          "date": "2021-08-23"
+          "text": "Defense industry: 17 stored headlines, above the usual 3 ↑.",
+          "english": "",
+          "title": "",
+          "url": "",
+          "outlet": "",
+          "date": ""
         },
         {
           "kind": "call",
-          "text": "Conscription: 1 stored headlines, below the usual 7 ↓. Media: the head of the LPR increased the number of reservists in training 3.5 times",
-          "english": "Media: the head of the LPR increased the number of reservists in training 3.5 times",
-          "title": "СМИ: глава ЛНР в 3,5 раза увеличил число резервистов, участвующих в сборах",
-          "url": "https://tass.ru/mezhdunarodnaya-panorama/12201423",
-          "outlet": "tass.ru",
-          "date": "2021-08-23"
+          "text": "Conscription: 1 stored headlines, below the usual 7 ↓.",
+          "english": "",
+          "title": "",
+          "url": "",
+          "outlet": "",
+          "date": ""
         },
         {
           "kind": "ruble",
@@ -1706,29 +1706,29 @@
       "lines": [
         {
           "kind": "mod",
-          "text": "Military talk: 53 stored headlines, below the usual 75 ↓. Russian team wins 2021 International Army Games - Russian Defense Ministry",
-          "english": "Russian team wins 2021 International Army Games - Russian Defense Ministry",
-          "title": "Russian team wins 2021 International Army Games - Russian Defense Ministry",
-          "url": "https://tass.com/defense/1334089",
-          "outlet": "tass.com",
-          "date": "2021-09-04"
-        },
-        {
-          "kind": "plant",
-          "text": "Defense industry: 4 stored headlines, above the usual 3 ↑. A prosecutor filed a multimillion-ruble lawsuit against a Volga defence plant",
-          "english": "A prosecutor filed a multimillion-ruble lawsuit against a Volga defence plant",
-          "title": "Прокурор подал многомиллионный иск к оборонному заводу Поволжья",
-          "url": "https://regnum.ru/news/economy/3356538.html",
+          "text": "Military talk: 53 stored headlines, below the usual 75 ↓.",
+          "english": "",
+          "title": "Посол России обсудил в минобороны Белоруссии «взаимный интерес»",
+          "url": "https://regnum.ru/news/3356853.html",
           "outlet": "regnum.ru",
           "date": "2021-08-30"
         },
         {
+          "kind": "plant",
+          "text": "Defense industry: 4 stored headlines, above the usual 3 ↑.",
+          "english": "",
+          "title": "",
+          "url": "",
+          "outlet": "",
+          "date": ""
+        },
+        {
           "kind": "call",
-          "text": "Conscription: 2 stored headlines, below the usual 7 ↓. In Kaliningrad region a conscript sailor beat a fellow serviceman for falling asleep on duty",
-          "english": "In Kaliningrad region a conscript sailor beat a fellow serviceman for falling asleep on duty",
-          "title": "В Калининградской области матрос-призывник избил сослуживца за то, что тот уснул на посту",
-          "url": "https://pda.kaliningrad.kp.ru/online/news/4423578/",
-          "outlet": "kp.ru",
+          "text": "Conscription: 2 stored headlines, below the usual 7 ↓.",
+          "english": "",
+          "title": "В Киргизии начались мобилизационные учения «Юг-2021»",
+          "url": "https://russian.rt.com/ussr/news/902567-kirgiziya-ucheniya-yug",
+          "outlet": "rt.com",
           "date": "2021-09-02"
         },
         {
@@ -1765,12 +1765,12 @@
         },
         {
           "kind": "plant",
-          "text": "Defense industry: 2 stored headlines, below the usual 3 ↓. Kamaz is starting production of hydrogen buses and trucks",
-          "english": "Kamaz is starting production of hydrogen buses and trucks",
-          "title": "\"КамАЗ\" начинает выпуск автобусов и грузовиков на водороде",
-          "url": "https://www.vesti.ru/auto/article/2609947",
-          "outlet": "vesti.ru",
-          "date": "2021-09-06"
+          "text": "Defense industry: 2 stored headlines, below the usual 3 ↓.",
+          "english": "",
+          "title": "",
+          "url": "",
+          "outlet": "",
+          "date": ""
         },
         {
           "kind": "call",
@@ -1806,30 +1806,30 @@
       "lines": [
         {
           "kind": "mod",
-          "text": "Military talk: 72 stored headlines, below the usual 75 ↓. Russian defense chief Shoigu casts ballot in State Duma elections",
-          "english": "Russian defense chief Shoigu casts ballot in State Duma elections",
-          "title": "Russian defense chief Shoigu casts ballot in State Duma elections",
-          "url": "https://tass.com/politics/1338895",
-          "outlet": "tass.com",
-          "date": "2021-09-17"
-        },
-        {
-          "kind": "plant",
-          "text": "Defense industry: 8 stored headlines, above the usual 3 ↑. Uralvagonzavod became the first enterprise to receive the badge For Success in Labour",
-          "english": "Uralvagonzavod became the first enterprise to receive the badge For Success in Labour",
-          "title": "\"Уралвагонзавод\" стал первым предприятием, получившим почетный знак \"За успехи в труде\"",
-          "url": "https://tass.ru/ekonomika/12370071",
+          "text": "Military talk: 72 stored headlines, below the usual 75 ↓.",
+          "english": "",
+          "title": "Глава Минобороны Армении отправился в Россию для наблюдения за учениями \"Запад-2021\"",
+          "url": "https://tass.ru/mezhdunarodnaya-panorama/12369269",
           "outlet": "tass.ru",
           "date": "2021-09-13"
         },
         {
+          "kind": "plant",
+          "text": "Defense industry: 8 stored headlines, above the usual 3 ↑.",
+          "english": "",
+          "title": "Работников оборонных предприятий с Днем оружейника поздравил губернатор Тульской области",
+          "url": "https://pda.tula.kp.ru/online/news/4445368/",
+          "outlet": "kp.ru",
+          "date": "2021-09-19"
+        },
+        {
           "kind": "call",
-          "text": "Conscription: 2 stored headlines, below the usual 7 ↓. In southern Russia reservists will be moved onto missile and machine-gun carts",
-          "english": "In southern Russia reservists will be moved onto missile and machine-gun carts",
-          "title": "На юге России резервистов пересадят на ракетные и пулеметные \"тачанки\"",
-          "url": "https://rg.ru/2021/09/15/reg-ufo/na-iuge-rossii-rezervistov-peresadiat-na-raketnye-i-pulemetnye-tachanki.html",
-          "outlet": "rg.ru",
-          "date": "2021-09-15"
+          "text": "Conscription: 2 stored headlines, below the usual 7 ↓.",
+          "english": "",
+          "title": "",
+          "url": "",
+          "outlet": "",
+          "date": ""
         },
         {
           "kind": "ruble",
@@ -1856,30 +1856,30 @@
       "lines": [
         {
           "kind": "mod",
-          "text": "Military talk: 38 stored headlines, below the usual 75 ↓. Russia's Lavrov, Shoigu will themselves reveal next steps after winning MP seats — Kremlin - Russian Politics & Diplomacy",
-          "english": "Russia's Lavrov, Shoigu will themselves reveal next steps after winning MP seats — Kremlin - Russian Politics & Diplomacy",
-          "title": "Russia's Lavrov, Shoigu will themselves reveal next steps after winning MP seats — Kremlin - Russian Politics & Diplomacy",
-          "url": "https://tass.com/politics/1340109",
-          "outlet": "tass.com",
+          "text": "Military talk: 38 stored headlines, below the usual 75 ↓.",
+          "english": "",
+          "title": "В Минобороны рассказали о ходе учений стран ШОС «Мирная миссия — 2021»",
+          "url": "https://russian.rt.com/russia/news/908700-ucheniya-shos-mirnaya-missiya",
+          "outlet": "rt.com",
           "date": "2021-09-20"
         },
         {
           "kind": "plant",
-          "text": "Defense industry: 2 stored headlines, below the usual 3 ↓. RBC: Almaz-Antey is developing a hybrid car for civilian use",
-          "english": "RBC: Almaz-Antey is developing a hybrid car for civilian use",
-          "title": "РБК: \"Алмаз-Антей\" разрабатывает гибридный автомобиль для гражданского пользования",
-          "url": "https://tass.ru/ekonomika/12462655",
-          "outlet": "tass.ru",
-          "date": "2021-09-21"
+          "text": "Defense industry: 2 stored headlines, below the usual 3 ↓.",
+          "english": "",
+          "title": "",
+          "url": "",
+          "outlet": "",
+          "date": ""
         },
         {
           "kind": "call",
-          "text": "Conscription: 8 stored headlines, above the usual 7 ↑. Russia plans to increase the mobilization-reserve budget by 15.4 billion rubles",
-          "english": "Russia plans to increase the mobilization-reserve budget by 15.4 billion rubles",
-          "title": "В России планируют увеличить бюджет на мобилизационный резерв на 15,4 млрд рублей",
-          "url": "https://tass.ru/ekonomika/12468749",
-          "outlet": "tass.ru",
-          "date": "2021-09-21"
+          "text": "Conscription: 8 stored headlines, above the usual 7 ↑.",
+          "english": "",
+          "title": "В Ростовской области начались учения с участием резервистов",
+          "url": "https://tvzvezda.ru/news/20219221425-owKgt.html",
+          "outlet": "tvzvezda.ru",
+          "date": "2021-09-22"
         },
         {
           "kind": "ruble",
@@ -1906,30 +1906,30 @@
       "lines": [
         {
           "kind": "mod",
-          "text": "Military talk: 66 stored headlines, below the usual 75 ↓. Lavrov, Shoigu give up their Duma mandates — CEC draft resolution",
-          "english": "Lavrov, Shoigu give up their Duma mandates — CEC draft resolution",
-          "title": "Lavrov, Shoigu give up their Duma mandates — CEC draft resolution",
-          "url": "https://tass.com/politics/1343733",
-          "outlet": "tass.com",
-          "date": "2021-09-29"
+          "text": "Military talk: 66 stored headlines, below the usual 75 ↓.",
+          "english": "",
+          "title": "Минобороны показало учения боевой авиации на Камчатке",
+          "url": "https://lenta.ru/news/2021/09/28/minobr/",
+          "outlet": "lenta.ru",
+          "date": "2021-09-28"
         },
         {
           "kind": "plant",
-          "text": "Defense industry: 2 stored headlines, below the usual 3 ↓. The Russian Defence Ministry filed a multimillion-ruble lawsuit against the Almaz-Antey concern",
-          "english": "The Russian Defence Ministry filed a multimillion-ruble lawsuit against the Almaz-Antey concern",
-          "title": "Минобороны РФ подало многомиллионный иск к концерну «Алмаз-Антей»",
-          "url": "https://regnum.ru/news/economy/3381464.html",
-          "outlet": "regnum.ru",
-          "date": "2021-09-27"
+          "text": "Defense industry: 2 stored headlines, below the usual 3 ↓.",
+          "english": "",
+          "title": "",
+          "url": "",
+          "outlet": "",
+          "date": ""
         },
         {
           "kind": "call",
-          "text": "Conscription: 32 stored headlines, above the usual 7 ↑. 2,500 conscripts from Irkutsk region will join the army in the autumn",
-          "english": "2,500 conscripts from Irkutsk region will join the army in the autumn",
-          "title": "2,5 тысячи призывников из Иркутской области пойдут в армию осенью",
-          "url": "https://pda.irk.kp.ru/online/news/4455481/",
-          "outlet": "kp.ru",
-          "date": "2021-09-27"
+          "text": "Conscription: 32 stored headlines, above the usual 7 ↑.",
+          "english": "",
+          "title": "",
+          "url": "",
+          "outlet": "",
+          "date": ""
         },
         {
           "kind": "ruble",
@@ -1965,12 +1965,12 @@
         },
         {
           "kind": "plant",
-          "text": "Defense industry: 2 stored headlines, below the usual 3 ↓. The Russian Defence Ministry could not challenge the sale of a Perm defence enterprise",
-          "english": "The Russian Defence Ministry could not challenge the sale of a Perm defence enterprise",
-          "title": "Миноброны РФ не смогло оспорить продажу пермского оборонного предприятия",
-          "url": "https://regnum.ru/news/economy/3388390.html",
-          "outlet": "regnum.ru",
-          "date": "2021-10-04"
+          "text": "Defense industry: 2 stored headlines, below the usual 3 ↓.",
+          "english": "",
+          "title": "",
+          "url": "",
+          "outlet": "",
+          "date": ""
         },
         {
           "kind": "call",
@@ -2006,30 +2006,30 @@
       "lines": [
         {
           "kind": "mod",
-          "text": "Military talk: 53 stored headlines, below the usual 75 ↓. Israeli F-16s attacked target in Syria's Homs on October 13 - Russian Defense Ministry - World",
-          "english": "Israeli F-16s attacked target in Syria's Homs on October 13 - Russian Defense Ministry - World",
-          "title": "Israeli F-16s attacked target in Syria's Homs on October 13 - Russian Defense Ministry - World",
-          "url": "https://tass.com/world/1349887",
-          "outlet": "tass.com",
-          "date": "2021-10-15"
+          "text": "Military talk: 53 stored headlines, below the usual 75 ↓.",
+          "english": "",
+          "title": "Главы Минобороны Армении и России обсудили ситуацию на армяно-азербайджанской границе",
+          "url": "https://tass.ru/mezhdunarodnaya-panorama/12634947",
+          "outlet": "tass.ru",
+          "date": "2021-10-12"
         },
         {
           "kind": "plant",
-          "text": "Defense industry: 1 stored headlines, below the usual 3 ↓. Kamaz increased production by 10.6 percent in September",
-          "english": "Kamaz increased production by 10.6 percent in September",
-          "title": "\"Камаз\" увеличил производство в сентябре на 10,6%",
-          "url": "https://tass.ru/ekonomika/12627795",
-          "outlet": "tass.ru",
-          "date": "2021-10-11"
+          "text": "Defense industry: 1 stored headlines, below the usual 3 ↓.",
+          "english": "",
+          "title": "",
+          "url": "",
+          "outlet": "",
+          "date": ""
         },
         {
           "kind": "call",
-          "text": "Conscription: 11 stored headlines, above the usual 7 ↑. A modern draft-office building in Tver region will be built by the spring 2022 call-up",
-          "english": "A modern draft-office building in Tver region will be built by the spring 2022 call-up",
-          "title": "Современное здание военкомата в Тверской области построят к весеннему призыву 2022 года",
-          "url": "https://pda.tver.kp.ru/online/news/4476597/",
-          "outlet": "kp.ru",
-          "date": "2021-10-13"
+          "text": "Conscription: 11 stored headlines, above the usual 7 ↑.",
+          "english": "",
+          "title": "",
+          "url": "",
+          "outlet": "",
+          "date": ""
         },
         {
           "kind": "ruble",
@@ -2065,21 +2065,21 @@
         },
         {
           "kind": "plant",
-          "text": "Defense industry: 2 stored headlines, below the usual 3 ↓. A worker killed himself at Uralvagonzavod",
-          "english": "A worker killed himself at Uralvagonzavod",
-          "title": "На Уралвагонзаводе покончил с собой рабочий",
-          "url": "https://pda.ural.kp.ru/online/news/4483789/",
-          "outlet": "kp.ru",
-          "date": "2021-10-19"
+          "text": "Defense industry: 2 stored headlines, below the usual 3 ↓.",
+          "english": "",
+          "title": "",
+          "url": "",
+          "outlet": "",
+          "date": ""
         },
         {
           "kind": "call",
-          "text": "Conscription: 8 stored headlines, above the usual 7 ↑. A Russian delegation discussed mobilization of humanitarian aid with Assad",
-          "english": "A Russian delegation discussed mobilization of humanitarian aid with Assad",
-          "title": "Российская делегация обсудила с Асадом мобилизацию гуманитарного содействия",
-          "url": "https://tass.ru/politika/12688487",
-          "outlet": "tass.ru",
-          "date": "2021-10-18"
+          "text": "Conscription: 8 stored headlines, above the usual 7 ↑.",
+          "english": "",
+          "title": "В Бурятии стартовали мобилизационные учения",
+          "url": "https://ria.ru/20211019/ucheniya-1755133792.html",
+          "outlet": "ria.ru",
+          "date": "2021-10-19"
         },
         {
           "kind": "ruble",
@@ -2106,30 +2106,30 @@
       "lines": [
         {
           "kind": "mod",
-          "text": "Military talk: 85 stored headlines, above the usual 75 ↑. Bomb attack on Russian military convoy attempted in Syria - Russian defense ministry",
-          "english": "Bomb attack on Russian military convoy attempted in Syria - Russian defense ministry",
-          "title": "Bomb attack on Russian military convoy attempted in Syria - Russian defense ministry",
-          "url": "https://tass.com/emergencies/1353955",
-          "outlet": "tass.com",
-          "date": "2021-10-26"
+          "text": "Military talk: 85 stored headlines, above the usual 75 ↑.",
+          "english": "",
+          "title": "Глава Минобороны Азербайджана обсудил с представителем НАТО ситуацию на границе",
+          "url": "https://tass.ru/mezhdunarodnaya-panorama/12759541",
+          "outlet": "tass.ru",
+          "date": "2021-10-25"
         },
         {
           "kind": "plant",
-          "text": "Defense industry: 2 stored headlines, below the usual 3 ↓. Kaluga region signed an agreement with the Almaz-Antey concern",
-          "english": "Kaluga region signed an agreement with the Almaz-Antey concern",
-          "title": "Калужская область подписала соглашение с концерном «Алмаз-Антей»",
-          "url": "https://regnum.ru/news/3408528.html",
-          "outlet": "regnum.ru",
-          "date": "2021-10-27"
+          "text": "Defense industry: 2 stored headlines, below the usual 3 ↓.",
+          "english": "",
+          "title": "",
+          "url": "",
+          "outlet": "",
+          "date": ""
         },
         {
           "kind": "call",
-          "text": "Conscription: 12 stored headlines, above the usual 7 ↑. Military training involving people liable for reserve service began in Azerbaijan",
-          "english": "Military training involving people liable for reserve service began in Azerbaijan",
-          "title": "В Азербайджане начались военные сборы с участием военнообязанных в запасе",
-          "url": "https://regnum.ru/news/3406271.html",
-          "outlet": "regnum.ru",
-          "date": "2021-10-25"
+          "text": "Conscription: 12 stored headlines, above the usual 7 ↑.",
+          "english": "",
+          "title": "Глава Минздрава Латвии отложил мобилизацию медиков после требования о его отставке",
+          "url": "https://tass.ru/obschestvo/12783131",
+          "outlet": "tass.ru",
+          "date": "2021-10-27"
         },
         {
           "kind": "ruble",
@@ -2156,21 +2156,21 @@
       "lines": [
         {
           "kind": "mod",
-          "text": "Military talk: 61 stored headlines, below the usual 75 ↓. Người Trung Quốc lo ngại trước phản ứng của Shoigu trước những lời đe dọa chống lại đất nước",
-          "english": "Người Trung Quốc lo ngại trước phản ứng của Shoigu trước những lời đe dọa chống lại đất nước",
-          "title": "Người Trung Quốc lo ngại trước phản ứng của Shoigu trước những lời đe dọa chống lại đất nước",
-          "url": "https://vn.sputniknews.com/20211101/nguoi-trung-quoc-lo-ngai-truoc-phan-ung-cua-shoigu-truoc-nhung-loi-de-doa-chong-lai-dat-nuoc-12332416.html",
-          "outlet": "sputniknews.com",
-          "date": "2021-11-01"
+          "text": "Military talk: 61 stored headlines, below the usual 75 ↓.",
+          "english": "",
+          "title": "Минобороны Литвы сообщило, что ВВС НАТО в октябре два раза сопровождали самолеты РФ",
+          "url": "https://tass.ru/armiya-i-opk/12834525",
+          "outlet": "tass.ru",
+          "date": "2021-11-03"
         },
         {
           "kind": "plant",
-          "text": "Defense industry: 2 stored headlines, below the usual 3 ↓. Almaz-Antey provided answers in the MH17 crash case",
-          "english": "Almaz-Antey provided answers in the MH17 crash case",
-          "title": "«Алмаз-Антей» предоставил ответы по делу о крушении MH17",
-          "url": "https://lenta.ru/news/2021/11/01/almaz/",
-          "outlet": "lenta.ru",
-          "date": "2021-11-01"
+          "text": "Defense industry: 2 stored headlines, below the usual 3 ↓.",
+          "english": "",
+          "title": "",
+          "url": "",
+          "outlet": "",
+          "date": ""
         },
         {
           "kind": "call",
@@ -2208,27 +2208,27 @@
           "kind": "mod",
           "text": "Military talk: 136 stored headlines, above the usual 75 ↑.",
           "english": "",
-          "title": "Минобороны развернуло в Подмосковье временный центр для лечения больных ковидом",
-          "url": "https://tass.ru/obschestvo/12858501",
-          "outlet": "tass.ru",
+          "title": "Минобороны Польши сняло с вертолета лагерь мигрантов на границе с Белоруссией",
+          "url": "https://lenta.ru/news/2021/11/08/palatki/",
+          "outlet": "lenta.ru",
           "date": "2021-11-08"
         },
         {
           "kind": "plant",
-          "text": "Defense industry: 1 stored headlines, below the usual 3 ↓. Kamaz increased truck production by 10.3 percent in October",
-          "english": "Kamaz increased truck production by 10.3 percent in October",
-          "title": "\"Камаз\" увеличил производство грузовиков в октябре на 10,3%",
-          "url": "https://tass.ru/ekonomika/12859455",
-          "outlet": "tass.ru",
-          "date": "2021-11-08"
+          "text": "Defense industry: 1 stored headlines, below the usual 3 ↓.",
+          "english": "",
+          "title": "",
+          "url": "",
+          "outlet": "",
+          "date": ""
         },
         {
           "kind": "call",
-          "text": "Conscription: 4 stored headlines, below the usual 7 ↓. The Sverdlovsk region budget received 8.8 billion rubles from mobilizing revenue",
-          "english": "The Sverdlovsk region budget received 8.8 billion rubles from mobilizing revenue",
-          "title": "Бюджет Свердловской области получил 8,8 млрд рублей за счет мобилизации доходов",
-          "url": "https://tass.ru/ekonomika/12864591",
-          "outlet": "tass.ru",
+          "text": "Conscription: 4 stored headlines, below the usual 7 ↓.",
+          "english": "",
+          "title": "Два батальона польских резервистов срочно сформируют на границе с Белоруссией",
+          "url": "https://tvzvezda.ru/news/20211181942-xxCel.html",
+          "outlet": "tvzvezda.ru",
           "date": "2021-11-08"
         },
         {
@@ -2256,30 +2256,30 @@
       "lines": [
         {
           "kind": "mod",
-          "text": "Military talk: 150 stored headlines, above the usual 75 ↑. Rostec, Russian Defense Ministry start discussing Checkmate contract — Chemezov",
-          "english": "Rostec, Russian Defense Ministry start discussing Checkmate contract — Chemezov",
-          "title": "Rostec, Russian Defense Ministry start discussing Checkmate contract — Chemezov",
-          "url": "https://tass.com/defense/1361501",
-          "outlet": "tass.com",
+          "text": "Military talk: 150 stored headlines, above the usual 75 ↑.",
+          "english": "",
+          "title": "Глава Минобороны Британии посетит Польшу из-за миграционного кризиса",
+          "url": "https://ria.ru/20211115/migranty-1759175444.html",
+          "outlet": "ria.ru",
           "date": "2021-11-15"
         },
         {
           "kind": "plant",
-          "text": "Defense industry: 3 stored headlines, about the usual 3 →. Three people died in an explosion at a defence plant in Romania",
-          "english": "Three people died in an explosion at a defence plant in Romania",
-          "title": "Три человека погибли в результате взрыва на оборонном заводе в Румынии",
-          "url": "https://tass.ru/proisshestviya/12964503",
-          "outlet": "tass.ru",
-          "date": "2021-11-18"
+          "text": "Defense industry: 3 stored headlines, about the usual 3 →.",
+          "english": "",
+          "title": "",
+          "url": "",
+          "outlet": "",
+          "date": ""
         },
         {
           "kind": "call",
-          "text": "Conscription: 8 stored headlines, above the usual 7 ↑. Igor Rudenya congratulated residents of Tver region on All-Russian Conscript Day",
-          "english": "Igor Rudenya congratulated residents of Tver region on All-Russian Conscript Day",
-          "title": "Игорь Руденя поздравил жителей Тверской области с Всероссийским днём призывника",
-          "url": "https://pda.tver.kp.ru/online/news/4516321/",
-          "outlet": "kp.ru",
-          "date": "2021-11-15"
+          "text": "Conscription: 8 stored headlines, above the usual 7 ↑.",
+          "english": "",
+          "title": "Эстония призвала резервистов для укрепления границы с Россией",
+          "url": "https://regnum.ru/news/3425522.html",
+          "outlet": "regnum.ru",
+          "date": "2021-11-17"
         },
         {
           "kind": "ruble",
@@ -2306,30 +2306,30 @@
       "lines": [
         {
           "kind": "mod",
-          "text": "Military talk: 59 stored headlines, below the usual 75 ↓. Shoigu: 10 bombardeiros estratégicos dos EUA ensaiaram ataque com armas nucleares contra Rússia",
-          "english": "Shoigu: 10 bombardeiros estratégicos dos EUA ensaiaram ataque com armas nucleares contra Rússia",
-          "title": "Shoigu: 10 bombardeiros estratégicos dos EUA ensaiaram ataque com armas nucleares contra Rússia",
-          "url": "https://br.sputniknews.com/20211123/shoigu-10-bombardeiros-estrategicos-dos-eua-ensaiaram-ataque-com-armas-nucleares-contra-russia-20247607.html",
+          "text": "Military talk: 59 stored headlines, below the usual 75 ↓. NATO's Increased Activities Forces Moscow to Build Up Non-Nuclear Deterrence, Shoigu Says",
+          "english": "NATO's Increased Activities Forces Moscow to Build Up Non-Nuclear Deterrence, Shoigu Says",
+          "title": "NATO's Increased Activities Forces Moscow to Build Up Non-Nuclear Deterrence, Shoigu Says",
+          "url": "https://sputniknews.com/20211124/natos-increased-activities-forces-moscow-to-build-up-non-nuclear-deterrence-shoigu-says-1090983546.html",
           "outlet": "sputniknews.com",
           "date": "2021-11-24"
         },
         {
           "kind": "plant",
-          "text": "Defense industry: 9 stored headlines, above the usual 3 ↑. An offended defence-plant employee poisoned colleagues with thallium salts and received eight years in a penal colony",
-          "english": "An offended defence-plant employee poisoned colleagues with thallium salts and received eight years in a penal colony",
-          "title": "«Не платишь премию? Выпей яда!»: Обиженный сотрудник оборонного завода напоил коллег водой с солями таллия, за что получил 8 лет колонии",
-          "url": "https://pda.rostov.kp.ru/daily/28364/4508151/",
-          "outlet": "kp.ru",
-          "date": "2021-11-23"
+          "text": "Defense industry: 9 stored headlines, above the usual 3 ↑.",
+          "english": "",
+          "title": "",
+          "url": "",
+          "outlet": "",
+          "date": ""
         },
         {
           "kind": "call",
-          "text": "Conscription: 14 stored headlines, above the usual 7 ↑. Conscripts from remote settlements in Buryatia are being vaccinated against COVID-19 at local clinics",
-          "english": "Conscripts from remote settlements in Buryatia are being vaccinated against COVID-19 at local clinics",
-          "title": "Призывников из отдаленных населенных пунктов Бурятии вакцинируют от COVID-19 в местных медучреждениях",
-          "url": "https://tvzvezda.ru/news/2021112258-6DN02.html",
-          "outlet": "tvzvezda.ru",
-          "date": "2021-11-22"
+          "text": "Conscription: 14 stored headlines, above the usual 7 ↑.",
+          "english": "",
+          "title": "Украина заявила о готовности мобилизовать 200 тысяч резервистов",
+          "url": "https://lenta.ru/news/2021/11/23/reznikov/",
+          "outlet": "lenta.ru",
+          "date": "2021-11-23"
         },
         {
           "kind": "ruble",
@@ -2356,21 +2356,21 @@
       "lines": [
         {
           "kind": "mod",
-          "text": "Military talk: 99 stored headlines, above the usual 75 ↑. Russia airlifted a group of people from Kabul — Russian Defense Ministry",
-          "english": "Russia airlifted a group of people from Kabul — Russian Defense Ministry",
-          "title": "Russia airlifted a group of people from Kabul — Russian Defense Ministry",
-          "url": "https://tass.com/world/1369213",
-          "outlet": "tass.com",
-          "date": "2021-12-01"
+          "text": "Military talk: 99 stored headlines, above the usual 75 ↑.",
+          "english": "",
+          "title": "Глава Минобороны Белоруссии заявил, что НАТО наращивает войска вблизи границ республики",
+          "url": "https://tass.ru/mezhdunarodnaya-panorama/13052495",
+          "outlet": "tass.ru",
+          "date": "2021-11-29"
         },
         {
           "kind": "plant",
-          "text": "Defense industry: 6 stored headlines, above the usual 3 ↑. Uralvagonzavod will show the latest T-90MS battle tank in Cairo at EDEX-2021",
-          "english": "Uralvagonzavod will show the latest T-90MS battle tank in Cairo at EDEX-2021",
-          "title": "\"Уралвагонзавод\" покажет в Каире на EDEX-2021 новейший боевой танк Т-90МС",
-          "url": "https://tass.ru/armiya-i-opk/13050653",
-          "outlet": "tass.ru",
-          "date": "2021-11-29"
+          "text": "Defense industry: 6 stored headlines, above the usual 3 ↑.",
+          "english": "",
+          "title": "",
+          "url": "",
+          "outlet": "",
+          "date": ""
         },
         {
           "kind": "call",
@@ -2406,30 +2406,30 @@
       "lines": [
         {
           "kind": "mod",
-          "text": "Military talk: 66 stored headlines, below the usual 75 ↓. Shoigu praises Russian-Indian ties as unequalled",
-          "english": "Shoigu praises Russian-Indian ties as unequalled",
-          "title": "Shoigu praises Russian-Indian ties as unequalled",
-          "url": "https://tass.com/politics/1371155",
-          "outlet": "tass.com",
+          "text": "Military talk: 66 stored headlines, below the usual 75 ↓.",
+          "english": "",
+          "title": "Минобороны Польши обвинило Белоруссию в спаивании мигрантов",
+          "url": "https://regnum.ru/news/3443073.html",
+          "outlet": "regnum.ru",
           "date": "2021-12-06"
         },
         {
           "kind": "plant",
-          "text": "Defense industry: 2 stored headlines, below the usual 3 ↓. Uralvagonzavod could not sell the Demidov Plaza hotel in Nizhny Tagil",
-          "english": "Uralvagonzavod could not sell the Demidov Plaza hotel in Nizhny Tagil",
-          "title": "«Уралвагонзавод» не смог продать отель Demidov Plaza в Нижнем Тагиле",
-          "url": "https://pda.ural.kp.ru/online/news/4544171/",
-          "outlet": "kp.ru",
-          "date": "2021-12-06"
+          "text": "Defense industry: 2 stored headlines, below the usual 3 ↓.",
+          "english": "",
+          "title": "",
+          "url": "",
+          "outlet": "",
+          "date": ""
         },
         {
           "kind": "call",
-          "text": "Conscription: 4 stored headlines, below the usual 7 ↓. More than 90 percent of the Southern Military District's autumn 2021 conscripts are vaccinated against COVID-19",
-          "english": "More than 90 percent of the Southern Military District's autumn 2021 conscripts are vaccinated against COVID-19",
-          "title": "Свыше 90% новобранцев осеннего призыва 2021 года в ЮВО вакцинированы от COVID-19",
-          "url": "https://tvzvezda.ru/news/2021126546-jBfC0.html",
-          "outlet": "tvzvezda.ru",
-          "date": "2021-12-06"
+          "text": "Conscription: 4 stored headlines, below the usual 7 ↓.",
+          "english": "",
+          "title": "При обращении с оружием погиб призывник сил обороны Эстонии",
+          "url": "https://regnum.ru/news/3446691.html",
+          "outlet": "regnum.ru",
+          "date": "2021-12-09"
         },
         {
           "kind": "ruble",
@@ -2456,30 +2456,30 @@
       "lines": [
         {
           "kind": "mod",
-          "text": "Military talk: 95 stored headlines, above the usual 75 ↑. Two more planes of Russian Defense Ministry delivered humanitarian aid to Kabul",
-          "english": "Two more planes of Russian Defense Ministry delivered humanitarian aid to Kabul",
-          "title": "Two more planes of Russian Defense Ministry delivered humanitarian aid to Kabul",
-          "url": "https://tass.com/society/1377519",
-          "outlet": "tass.com",
-          "date": "2021-12-18"
+          "text": "Military talk: 95 stored headlines, above the usual 75 ↑.",
+          "english": "",
+          "title": "Минобороны Белоруссии проверяет свою боеготовность",
+          "url": "https://regnum.ru/news/polit/3444497.html",
+          "outlet": "regnum.ru",
+          "date": "2021-12-14"
         },
         {
           "kind": "plant",
-          "text": "Defense industry: 11 stored headlines, above the usual 3 ↑. A Volga defence plant lost a multimillion-ruble lawsuit to a prosecutor",
-          "english": "A Volga defence plant lost a multimillion-ruble lawsuit to a prosecutor",
-          "title": "Оборонный завод Поволжья проиграл многомиллионный иск прокурору",
-          "url": "https://regnum.ru/news/3449010.html",
-          "outlet": "regnum.ru",
-          "date": "2021-12-13"
+          "text": "Defense industry: 11 stored headlines, above the usual 3 ↑.",
+          "english": "",
+          "title": "",
+          "url": "",
+          "outlet": "",
+          "date": ""
         },
         {
           "kind": "call",
-          "text": "Conscription: 6 stored headlines, below the usual 7 ↓. 500 Swedish Conscripts Sent Home After 'Serious Violations', Abusive Behaviour",
-          "english": "500 Swedish Conscripts Sent Home After 'Serious Violations', Abusive Behaviour",
-          "title": "500 Swedish Conscripts Sent Home After 'Serious Violations', Abusive Behaviour",
-          "url": "https://sputniknews.com/20211215/500-swedish-conscripts-sent-home-after-serious-violations-abusive-behaviour-1091532889.html",
-          "outlet": "sputniknews.com",
-          "date": "2021-12-15"
+          "text": "Conscription: 6 stored headlines, below the usual 7 ↓.",
+          "english": "",
+          "title": "",
+          "url": "",
+          "outlet": "",
+          "date": ""
         },
         {
           "kind": "ruble",
@@ -2506,30 +2506,30 @@
       "lines": [
         {
           "kind": "mod",
-          "text": "Military talk: 73 stored headlines, below the usual 75 ↓. President Putin Attends Russian Defence Ministry Board Meeting",
-          "english": "President Putin Attends Russian Defence Ministry Board Meeting",
-          "title": "President Putin Attends Russian Defence Ministry Board Meeting",
-          "url": "https://sputniknews.com/20211221/president-putin-attends-russian-defence-ministry-board-meeting-1091689562.html",
+          "text": "Military talk: 73 stored headlines, below the usual 75 ↓. Shoigu: Private US Military Firms Plan Provocations in Eastern Ukraine",
+          "english": "Shoigu: Private US Military Firms Plan Provocations in Eastern Ukraine",
+          "title": "Shoigu: Private US Military Firms Plan Provocations in Eastern Ukraine",
+          "url": "https://sputniknews.com/20211221/shoigu-private-us-military-firms-preparing-provocations-with-chemical-components-in-eastern-ukraine-1091693740.html",
           "outlet": "sputniknews.com",
           "date": "2021-12-21"
         },
         {
           "kind": "plant",
-          "text": "Defense industry: 6 stored headlines, above the usual 3 ↑. Putin urged the head of Promsvyazbank to help defence enterprises diversify",
-          "english": "Putin urged the head of Promsvyazbank to help defence enterprises diversify",
-          "title": "Путин призвал главу Промсвязьбанка помогать оборонным предприятиям в диверсификации",
-          "url": "https://iz.ru/1266887/2021-12-20/putin-prizval-glavu-promsviazbanka-pomogat-oboronnym-predpriiatiiam-v-diversifikatcii",
-          "outlet": "iz.ru",
-          "date": "2021-12-20"
+          "text": "Defense industry: 6 stored headlines, above the usual 3 ↑.",
+          "english": "",
+          "title": "",
+          "url": "",
+          "outlet": "",
+          "date": ""
         },
         {
           "kind": "call",
-          "text": "Conscription: 13 stored headlines, above the usual 7 ↑. Six regions in eastern Russia finished the autumn army call-up early",
-          "english": "Six regions in eastern Russia finished the autumn army call-up early",
-          "title": "На востоке России шесть регионов досрочно завершили осенний призыв в армию",
-          "url": "https://regnum.ru/news/3457084.html",
-          "outlet": "regnum.ru",
-          "date": "2021-12-21"
+          "text": "Conscription: 13 stored headlines, above the usual 7 ↑.",
+          "english": "",
+          "title": "Гендерное равенство на Украине. Зеленский сделал сотни тысяч женщин военнообязанными",
+          "url": "https://pda.kp.ru/daily/28374.5/4524012/",
+          "outlet": "kp.ru",
+          "date": "2021-12-24"
         },
         {
           "kind": "ruble",
@@ -2565,12 +2565,12 @@
         },
         {
           "kind": "plant",
-          "text": "Defense industry: 2 stored headlines, below the usual 3 ↓. Kamaz began preparing to produce a new truck model",
-          "english": "Kamaz began preparing to produce a new truck model",
-          "title": "КамАЗ начал подготовку к выпуску новой модели грузовика",
-          "url": "https://iz.ru/1271308/2021-12-29/kamaz-nachal-podgotovku-k-vypusku-novoi-modeli-gruzovika",
-          "outlet": "iz.ru",
-          "date": "2021-12-29"
+          "text": "Defense industry: 2 stored headlines, below the usual 3 ↓.",
+          "english": "",
+          "title": "",
+          "url": "",
+          "outlet": "",
+          "date": ""
         },
         {
           "kind": "call",
@@ -2606,21 +2606,21 @@
       "lines": [
         {
           "kind": "mod",
-          "text": "Military talk: 77 stored headlines, above the usual 75 ↑. Peacekeepers take control over Almaty airport - Russian Defense Ministry",
-          "english": "Peacekeepers take control over Almaty airport - Russian Defense Ministry",
-          "title": "Peacekeepers take control over Almaty airport - Russian Defense Ministry",
-          "url": "https://tass.com/defense/1384737",
-          "outlet": "tass.com",
-          "date": "2022-01-07"
+          "text": "Military talk: 77 stored headlines, above the usual 75 ↑.",
+          "english": "",
+          "title": "Глава Минобороны Эстонии заявил, что Россия представляет реальную угрозу для Европы",
+          "url": "https://russian.rt.com/ussr/news/945409-estoniya-rossiya-ugroza-evropa",
+          "outlet": "rt.com",
+          "date": "2022-01-03"
         },
         {
           "kind": "plant",
-          "text": "Defense industry: 14 stored headlines, above the usual 3 ↑. Putin met the chief designer of the Almaz-Antey concern",
-          "english": "Putin met the chief designer of the Almaz-Antey concern",
-          "title": "Путин провел встречу с генконструктором бюро Концерна \"Алмаз-Антей\"",
-          "url": "https://ria.ru/20220105/putin-1766628327.html",
-          "outlet": "ria.ru",
-          "date": "2022-01-05"
+          "text": "Defense industry: 14 stored headlines, above the usual 3 ↑.",
+          "english": "",
+          "title": "",
+          "url": "",
+          "outlet": "",
+          "date": ""
         },
         {
           "kind": "call",
@@ -2656,30 +2656,30 @@
       "lines": [
         {
           "kind": "mod",
-          "text": "Military talk: 124 stored headlines, above the usual 75 ↑. Russian Defense Ministry planes deliver 2,095 Russian, foreign citizens from Kazakhstan",
-          "english": "Russian Defense Ministry planes deliver 2,095 Russian, foreign citizens from Kazakhstan",
-          "title": "Russian Defense Ministry planes deliver 2,095 Russian, foreign citizens from Kazakhstan",
-          "url": "https://tass.com/world/1386613",
+          "text": "Military talk: 124 stored headlines, above the usual 75 ↑. Ten aircraft with Belarusian peacekeepers left Kazakhstan - Russian Defense Ministry",
+          "english": "Ten aircraft with Belarusian peacekeepers left Kazakhstan - Russian Defense Ministry",
+          "title": "Ten aircraft with Belarusian peacekeepers left Kazakhstan - Russian Defense Ministry",
+          "url": "https://tass.com/world/1387965",
           "outlet": "tass.com",
-          "date": "2022-01-12"
+          "date": "2022-01-14"
         },
         {
           "kind": "plant",
-          "text": "Defense industry: 6 stored headlines, above the usual 3 ↑. The head of a Russian defence plant was accused of a half-billion-ruble fraud",
-          "english": "The head of a Russian defence plant was accused of a half-billion-ruble fraud",
-          "title": "Главу российского оборонного завода обвинили в афере на полмиллиарда рублей",
-          "url": "https://lenta.ru/news/2022/01/10/zavod/",
-          "outlet": "lenta.ru",
-          "date": "2022-01-10"
+          "text": "Defense industry: 6 stored headlines, above the usual 3 ↑.",
+          "english": "",
+          "title": "",
+          "url": "",
+          "outlet": "",
+          "date": ""
         },
         {
           "kind": "call",
-          "text": "Conscription: 7 stored headlines, about the usual 7 →. Residents of Khabarovsk region are offered a chance to join the mobilization reserve",
-          "english": "Residents of Khabarovsk region are offered a chance to join the mobilization reserve",
-          "title": "Жителям Хабаровского края предлагают вступить в мобилизационный резерв",
-          "url": "https://pda.hab.kp.ru/online/news/4582718/",
-          "outlet": "kp.ru",
-          "date": "2022-01-10"
+          "text": "Conscription: 7 stored headlines, about the usual 7 →.",
+          "english": "",
+          "title": "",
+          "url": "",
+          "outlet": "",
+          "date": ""
         },
         {
           "kind": "ruble",
@@ -2706,30 +2706,30 @@
       "lines": [
         {
           "kind": "mod",
-          "text": "Military talk: 126 stored headlines, above the usual 75 ↑. Reino Unido convida Sergei Shoigu para diálogo, mas informa que ajudará Ucrânia militarmente",
-          "english": "Reino Unido convida Sergei Shoigu para diálogo, mas informa que ajudará Ucrânia militarmente",
-          "title": "Reino Unido convida Sergei Shoigu para diálogo, mas informa que ajudará Ucrânia militarmente",
-          "url": "https://br.sputniknews.com/20220117/reino-unido-convida-sergei-shoigu-para-dialogo-mas-informa-que-ajudara-ucrania-militarmente-21057603.html",
-          "outlet": "sputniknews.com",
+          "text": "Military talk: 126 stored headlines, above the usual 75 ↑.",
+          "english": "",
+          "title": "Минобороны Эстонии сообщило о готовности разместить до 5 тысяч солдат НАТО",
+          "url": "https://pda.kp.ru/online/news/4591783/",
+          "outlet": "kp.ru",
           "date": "2022-01-17"
         },
         {
           "kind": "plant",
-          "text": "Defense industry: 2 stored headlines, below the usual 3 ↓. Workers of a defence enterprise are protesting in Bulgaria",
-          "english": "Workers of a defence enterprise are protesting in Bulgaria",
-          "title": "В Болгарии проходит акция протеста работников оборонного предприятия",
-          "url": "https://regnum.ru/news/3481347.html",
-          "outlet": "regnum.ru",
-          "date": "2022-01-19"
+          "text": "Defense industry: 2 stored headlines, below the usual 3 ↓.",
+          "english": "",
+          "title": "",
+          "url": "",
+          "outlet": "",
+          "date": ""
         },
         {
           "kind": "call",
-          "text": "Conscription: 10 stored headlines, above the usual 7 ↑. Smolny described the mobilization of forces ahead of the Omicron wave",
-          "english": "Smolny described the mobilization of forces ahead of the Omicron wave",
-          "title": "В Смольном рассказали подробности мобилизации сил перед волной «омикрона»",
-          "url": "https://pda.spb.kp.ru/online/news/4592775/",
-          "outlet": "kp.ru",
-          "date": "2022-01-17"
+          "text": "Conscription: 10 stored headlines, above the usual 7 ↑.",
+          "english": "",
+          "title": "Названы условия мобилизации войск России и Белоруссии",
+          "url": "https://lenta.ru/news/2022/01/18/mobil/",
+          "outlet": "lenta.ru",
+          "date": "2022-01-18"
         },
         {
           "kind": "ruble",
@@ -2756,21 +2756,21 @@
       "lines": [
         {
           "kind": "mod",
-          "text": "Military talk: 85 stored headlines, above the usual 75 ↑. British defense chief confirms plans to meet with Russian counterpart Shoigu",
-          "english": "British defense chief confirms plans to meet with Russian counterpart Shoigu",
-          "title": "British defense chief confirms plans to meet with Russian counterpart Shoigu",
-          "url": "https://tass.com/world/1393687",
-          "outlet": "tass.com",
-          "date": "2022-01-27"
+          "text": "Military talk: 85 stored headlines, above the usual 75 ↑.",
+          "english": "",
+          "title": "Минобороны сообщило о продолжающейся переброске войск ВВО в Белоруссию",
+          "url": "https://iz.ru/1281257/2022-01-24/minoborony-soobshchilo-o-prodolzhaiushcheisia-perebroske-voisk-vvo-v-belorussiiu",
+          "outlet": "iz.ru",
+          "date": "2022-01-24"
         },
         {
           "kind": "plant",
-          "text": "Defense industry: 7 stored headlines, above the usual 3 ↑. Kamaz increased production by 18 percent in 2021, to 44,100 trucks",
-          "english": "Kamaz increased production by 18 percent in 2021, to 44,100 trucks",
-          "title": "\"Камаз\" в 2021 году увеличил производство на 18%, до 44,1 тыс. грузовиков",
-          "url": "https://tass.ru/ekonomika/13505507",
-          "outlet": "tass.ru",
-          "date": "2022-01-24"
+          "text": "Defense industry: 7 stored headlines, above the usual 3 ↑.",
+          "english": "",
+          "title": "",
+          "url": "",
+          "outlet": "",
+          "date": ""
         },
         {
           "kind": "call",
@@ -2815,21 +2815,21 @@
         },
         {
           "kind": "plant",
-          "text": "Defense industry: 6 stored headlines, above the usual 3 ↑. An employee of a defence enterprise in the Urals was suspected of taking a bribe",
-          "english": "An employee of a defence enterprise in the Urals was suspected of taking a bribe",
-          "title": "На Урале сотрудницу оборонного предприятия заподозрили во взятке",
-          "url": "https://rg.ru/2022/02/01/reg-urfo/na-urale-zaveli-delo-o-vziatke-sotrudnice-oboronnogo-predpriiatiia.html",
-          "outlet": "rg.ru",
-          "date": "2022-02-01"
+          "text": "Defense industry: 6 stored headlines, above the usual 3 ↑.",
+          "english": "",
+          "title": "Боец Нацгвардии Украины устроил стрельбу на территории оборонного завода. Пять человек убиты, пять ранены, стрелок сдался",
+          "url": "https://lenta.ru/brief/2022/01/27/dnepr_shooting/",
+          "outlet": "lenta.ru",
+          "date": "2022-02-02"
         },
         {
           "kind": "call",
-          "text": "Conscription: 31 stored headlines, above the usual 7 ↑. Kiev to abolish conscription for military service from early 2024 — decree",
-          "english": "Kiev to abolish conscription for military service from early 2024 — decree",
-          "title": "Kiev to abolish conscription for military service from early 2024 — decree",
-          "url": "https://tass.com/defense/1395989",
-          "outlet": "tass.com",
-          "date": "2022-02-01"
+          "text": "Conscription: 31 stored headlines, above the usual 7 ↑.",
+          "english": "",
+          "title": "Минобороны Украины заявило, что сейчас нет смысла в мобилизации в стране",
+          "url": "https://pda.kp.ru/online/news/4610532/",
+          "outlet": "kp.ru",
+          "date": "2022-01-31"
         },
         {
           "kind": "ruble",
@@ -2856,30 +2856,30 @@
       "lines": [
         {
           "kind": "mod",
-          "text": "Military talk: 116 stored headlines, above the usual 75 ↑. Situation in Europe becomes increasingly tense, and Russia not to blame — Shoigu",
-          "english": "Situation in Europe becomes increasingly tense, and Russia not to blame — Shoigu",
-          "title": "Situation in Europe becomes increasingly tense, and Russia not to blame — Shoigu",
-          "url": "https://tass.com/world/1401813",
+          "text": "Military talk: 116 stored headlines, above the usual 75 ↑. Situation in Europe aggravates over tension escalation around Ukraine — Shoigu",
+          "english": "Situation in Europe aggravates over tension escalation around Ukraine — Shoigu",
+          "title": "Situation in Europe aggravates over tension escalation around Ukraine — Shoigu",
+          "url": "https://tass.com/world/1401941",
           "outlet": "tass.com",
           "date": "2022-02-11"
         },
         {
           "kind": "plant",
-          "text": "Defense industry: 5 stored headlines, above the usual 3 ↑. A Defence Ministry representative was convicted of bribes from Nizhny Novgorod defence plants",
-          "english": "A Defence Ministry representative was convicted of bribes from Nizhny Novgorod defence plants",
-          "title": "Военпреда Минобороны осудили за взятки от нижегородских оборонных заводов",
-          "url": "https://regnum.ru/news/polit/3497537.html",
-          "outlet": "regnum.ru",
-          "date": "2022-02-07"
+          "text": "Defense industry: 5 stored headlines, above the usual 3 ↑.",
+          "english": "",
+          "title": "",
+          "url": "",
+          "outlet": "",
+          "date": ""
         },
         {
           "kind": "call",
-          "text": "Conscription: 7 stored headlines, about the usual 7 →. Russia's General Staff signed an agreement with the Cossack society on drawing Cossacks into the mobilization reserve",
-          "english": "Russia's General Staff signed an agreement with the Cossack society on drawing Cossacks into the mobilization reserve",
-          "title": "Генштаб России подписал соглашение с ВсКО о привлечении казаков в мобилизационный резерв - Газета.Ru",
-          "url": "https://www.gazeta.ru/army/news/2022/02/07/17255083.shtml",
-          "outlet": "gazeta.ru",
-          "date": "2022-02-07"
+          "text": "Conscription: 7 stored headlines, about the usual 7 →.",
+          "english": "",
+          "title": "Украина с марта начнет военную подготовку резервистов",
+          "url": "https://tass.ru/mezhdunarodnaya-panorama/13684671",
+          "outlet": "tass.ru",
+          "date": "2022-02-11"
         },
         {
           "kind": "ruble",
@@ -2906,21 +2906,21 @@
       "lines": [
         {
           "kind": "mod",
-          "text": "Military talk: 132 stored headlines, above the usual 75 ↑. Shoigu says US submarine went more than 4 km into Russian waters",
-          "english": "Shoigu says US submarine went more than 4 km into Russian waters",
-          "title": "Shoigu says US submarine went more than 4 km into Russian waters",
-          "url": "https://tass.com/defense/1403043",
-          "outlet": "tass.com",
-          "date": "2022-02-14"
+          "text": "Military talk: 132 stored headlines, above the usual 75 ↑. Watch Russian Defence Minister Shoigu Inspect Naval Exercises in Mediterranean",
+          "english": "Watch Russian Defence Minister Shoigu Inspect Naval Exercises in Mediterranean",
+          "title": "Watch Russian Defence Minister Shoigu Inspect Naval Exercises in Mediterranean",
+          "url": "https://sputniknews.com/20220215/watch-russian-defence-minister-shoigu-inspect-naval-exercises-in-mediterranean-1093062177.html",
+          "outlet": "sputniknews.com",
+          "date": "2022-02-15"
         },
         {
           "kind": "plant",
-          "text": "Defense industry: 1 stored headlines, below the usual 3 ↓. Bulgaria's largest defence enterprise is closed until 4 March",
-          "english": "Bulgaria's largest defence enterprise is closed until 4 March",
-          "title": "Крупнейшее оборонное предприятие Болгарии закрыто до 4 марта",
-          "url": "https://regnum.ru/news/economy/3503549.html",
-          "outlet": "regnum.ru",
-          "date": "2022-02-14"
+          "text": "Defense industry: 1 stored headlines, below the usual 3 ↓.",
+          "english": "",
+          "title": "",
+          "url": "",
+          "outlet": "",
+          "date": ""
         },
         {
           "kind": "call",
@@ -2965,21 +2965,21 @@
         },
         {
           "kind": "plant",
-          "text": "Defense industry: 1 stored headlines, below the usual 3 ↓. Kamaz began producing a new generation of mining dump trucks",
-          "english": "Kamaz began producing a new generation of mining dump trucks",
-          "title": "КамАЗ начал выпуск карьерных самосвалов нового поколения",
-          "url": "https://iz.ru/1296015/2022-02-24/kamaz-nachal-vypusk-karernykh-samosvalov-novogo-pokoleniia",
-          "outlet": "iz.ru",
-          "date": "2022-02-24"
+          "text": "Defense industry: 1 stored headlines, below the usual 3 ↓.",
+          "english": "",
+          "title": "",
+          "url": "",
+          "outlet": "",
+          "date": ""
         },
         {
           "kind": "call",
-          "text": "Conscription: 52 stored headlines, above the usual 7 ↑. Live: an uneasy night in Donbas, a soldier died, mobilization of people over 55 was declared",
-          "english": "Live: an uneasy night in Donbas, a soldier died, mobilization of people over 55 was declared",
-          "title": "Уживо: Немирна ноћ у Донбасу, погинуо војник, проглашена мобилизација старијих од 55 година",
-          "url": "https://rs.sputniknews.com/20220221/uzivo-nemirna-noc-u-donbasu-poginuo-vojnik-i-dva-civila-1134565302.html",
-          "outlet": "sputniknews.com",
-          "date": "2022-02-21"
+          "text": "Conscription: 52 stored headlines, above the usual 7 ↑.",
+          "english": "",
+          "title": "«Сегодня»: Зеленский объявит о призыве резервистов на Украине в особый период",
+          "url": "https://russian.rt.com/ussr/news/966570-zelenskii-ukraina-rezervisty",
+          "outlet": "rt.com",
+          "date": "2022-02-22"
         },
         {
           "kind": "ruble",
