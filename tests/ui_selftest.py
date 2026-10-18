@@ -447,9 +447,10 @@ PROTO_SWEEP = r"""
     const region = document.getElementById('region-state').textContent.trim();
     const match = region.match(/^Region: (Normal|Tense|Danger signs, unconfirmed)/);
     if (!match) bad.push(week + ' region ' + region);
-    if (document.querySelector('.sign')) bad.push(week + ' inherited sign');
-    const cardText = document.getElementById('country-strip').innerText;
-    if (/\\bTense\\b|\\bNormal\\b|Danger signs/.test(cardText)) bad.push(week + ' card inherited a sign');
+    if (!document.querySelector('.country-card .sign')) bad.push(week + ' chip missing state word');
+        const cardText = document.getElementById('country-strip').innerText;
+        if (!/→|↑|↓/.test(cardText)) bad.push(week + ' chip missing arrow');
+        if (/stored headline|Cards list/.test(cardText)) bad.push(week + ' chip jargon');
     const names = [...document.querySelectorAll('.country-name')].map((node) => node.textContent.trim()).join('|');
     if (names !== 'Finland|Estonia|Latvia|Lithuania|Poland') bad.push(week + ' names ' + names);
     shown.push({
@@ -749,11 +750,22 @@ async def run() -> int:
               if (!card.classList.contains('picked') || !shape.classList.contains('picked') || !section.classList.contains('picked')) bad.push('selection did not highlight card, map, and news together');
               if (document.querySelectorAll('.country-card.dimmed').length !== 4) bad.push('other cards were not dimmed');
               const title = document.getElementById('country-news-title').textContent;
-              if (title !== 'News about Poland') bad.push('country news title ' + title);
+              if (title !== 'Russian media about Poland') bad.push('country news title ' + title);
               const stories = [...section.querySelectorAll('.story')];
               const foreign = stories.filter((story) => !(story.dataset.countries || '').split(',').includes('PL'));
               if (foreign.length) bad.push('country news included another country');
               if (!stories.length && !section.innerText.includes('No news about Poland this week.')) bad.push('empty country news has no sentence');
+              const scrollers = [...document.querySelectorAll('*')].filter((el) => {
+                const style = getComputedStyle(el);
+                return (style.overflowY === 'auto' || style.overflowY === 'scroll') && el.scrollHeight > el.clientHeight + 2;
+              });
+              if (scrollers.length !== 1 || !scrollers[0].classList.contains('drawer')) bad.push('scrollers ' + scrollers.map((el) => el.id || el.className).join(','));
+              if (document.documentElement.scrollHeight > document.documentElement.clientHeight + 4) bad.push('page scrolls');
+              const quiet = document.getElementById('why-quiet');
+              if (quiet && !quiet.hidden && stories.length) bad.push('quiet while news exists');
+              const playBox = document.getElementById('play').getBoundingClientRect();
+              const foot = document.querySelector('.rail-foot').getBoundingClientRect();
+              if (playBox.bottom > foot.top + 2) bad.push('footer overlaps play');
               document.getElementById('country-PL').click();
               if (!document.getElementById('country-news').hidden) bad.push('second click did not clear the country');
               return bad;

@@ -114,7 +114,7 @@ def main() -> None:
                 continue
             titles.add(norm)
             unique.append(item)
-            if len(unique) == 3:
+            if len(unique) == 12:
                 break
         out.setdefault(week, {})[code] = unique
     OUT.write_text(json.dumps(out, ensure_ascii=False, indent=2), encoding="utf-8")

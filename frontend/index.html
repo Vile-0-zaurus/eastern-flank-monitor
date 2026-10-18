@@ -30,6 +30,13 @@
       <label class="slider-label">
         <input id="slider" type="range" min="0" value="0">
       </label>
+      <div class="disclaimer-bar rail-foot">
+        <p id="disclaimer-short"></p>
+        <details>
+          <summary id="disclaimer-more"></summary>
+          <p id="disclaimer-full"></p>
+        </details>
+      </div>
     </section>
     <div class="stage">
       <section id="map-panel" aria-label="Map">
@@ -67,12 +74,10 @@
         <p id="why-subject"></p>
         <p id="why-quiet" hidden>Quiet week — nothing notable.</p>
         <div id="why-body">
-          <h3>What happened</h3>
+          <h3 class="section-label">What happened</h3>
           <div id="why-events"></div>
-          <h3>What official sources say</h3>
+          <h3 class="section-label">What official sources say</h3>
           <div id="why-official"></div>
-          <h3>What Russian state media says</h3>
-          <div id="why-media"></div>
         </div>
       </aside>
       <p id="shared-reading" class="note"></p>
@@ -103,13 +108,6 @@
       </section>
     </aside>
   </main>
-  <div class="disclaimer-bar">
-    <p id="disclaimer-short"></p>
-    <details>
-      <summary id="disclaimer-more"></summary>
-      <p id="disclaimer-full"></p>
-    </details>
-  </div>
   <script src="app.js"></script>
 </body>
 </html>

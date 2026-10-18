@@ -213,8 +213,34 @@ function concerns(event, code) {
   return false;
 }
 
-function panelHeadlines(code) {
-  return ((state.countryHeadlines[current().week] || {})[code] || []).filter(showNews).slice(0, 3);
+function trendArrow() {
+  const rows = flankWeeks();
+  const now = Number(rows[state.index] && rows[state.index].shown);
+  const prev = state.index > 0 ? Number(rows[state.index - 1].shown) : now;
+  if (Number.isNaN(now) || Number.isNaN(prev) || now === prev) return "→";
+  return now > prev ? "↑" : "↓";
+}
+
+function storyKey(story) {
+  return (story.title || story.english || "").toLowerCase().replace(/[^a-zа-яё0-9]+/gi, " ").replace(/\s+/g, " ").trim();
+}
+
+function dedupeStories(items) {
+  const kept = [];
+  items.forEach((story) => {
+    const key = storyKey(story);
+    if (!key) return;
+    const dup = kept.some((prior) => {
+      const other = storyKey(prior);
+      return other === key || (key.length > 28 && other.length > 28 && (other.includes(key) || key.includes(other)));
+    });
+    if (!dup) kept.push(story);
+  });
+  return kept;
+}
+
+function countryMedia(code) {
+  return dedupeStories(((state.countryHeadlines[current().week] || {})[code] || []).filter(showNews));
 }
 
 function dotOpacity(week, date) {
@@ -241,7 +267,7 @@ function regionLine() {
   if (label && concerned.length) {
     return "Region: " + sign.word + " — " + label + " (" + concerned.join(", ") + ")";
   }
-  const named = COUNTRIES.filter((code) => panelHeadlines(code).length).map((code) => state.text["country_" + code]);
+  const named = COUNTRIES.filter((code) => countryMedia(code).length).map((code) => state.text["country_" + code]);
   if (sign.kind !== "normal" && named.length) {
     return "Region: " + sign.word + " — headlines name " + named.join(", ");
   }
@@ -263,17 +289,13 @@ function renderStrip() {
     const name = document.createElement("span");
     name.className = "country-name";
     name.textContent = state.text["country_" + code];
-    const reason = document.createElement("span");
-    reason.className = "reason";
-    const facts = [];
-    const events = activeEvents(current().week).filter((event) => concerns(event, code));
-    if (events.length) facts.push(shortLabel(events[0]));
-    const headlines = panelHeadlines(code);
-    if (headlines.length) {
-      facts.push(headlines.length + " stored headline" + (headlines.length === 1 ? "" : "s") + " name " + state.text["country_" + code]);
-    }
-    reason.textContent = facts.join(". ");
-    button.append(name, reason);
+    const word = document.createElement("span");
+    word.className = "sign";
+    word.textContent = signFor(current()).word;
+    const arrow = document.createElement("span");
+    arrow.className = "chip-arrow";
+    arrow.textContent = trendArrow();
+    button.append(name, word, arrow);
     button.addEventListener("click", () => {
       stop();
       pickCountry(code);
@@ -281,7 +303,7 @@ function renderStrip() {
     strip.appendChild(button);
   });
   const shared = document.getElementById("shared-reading");
-  if (shared) shared.textContent = "Cards list only facts about that country.";
+  if (shared) shared.textContent = "";
 }
 
 function syncDrawer() {
@@ -349,10 +371,10 @@ function renderCountryNews() {
   const name = state.text["country_" + code];
   section.hidden = false;
   section.classList.add("picked");
-  document.getElementById("country-news-title").textContent = "News about " + name;
+  document.getElementById("country-news-title").textContent = "Russian media about " + name;
   const host = document.getElementById("country-news-list");
   host.innerHTML = "";
-  let items = weekNews().filter((story) => (story.countries || []).includes(code));
+  let items = countryMedia(code);
   if (state.filter === "hostile") items = items.filter((story) => story.hostile);
   if (!items.length) {
     const empty = document.createElement("p");
@@ -360,9 +382,24 @@ function renderCountryNews() {
     host.append(empty);
     return;
   }
+  const shown = state.moreNews ? items : items.slice(0, 3);
   const list = document.createElement("ul");
-  items.forEach((story) => appendStory(list, story));
+  shown.forEach((story) => {
+    if (!story.countries || !story.countries.length) story.countries = [code];
+    appendStory(list, story);
+  });
   host.append(list);
+  if (items.length > 3) {
+    const more = document.createElement("button");
+    more.type = "button";
+    more.className = "show-more";
+    more.textContent = state.moreNews ? "Show less" : "Show more";
+    more.addEventListener("click", () => {
+      state.moreNews = !state.moreNews;
+      renderCountryNews();
+    });
+    host.append(more);
+  }
 }
 
 function project(lon, lat) {
@@ -424,7 +461,14 @@ function renderMap() {
   }
   const week = current().week;
   const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-  svg.setAttribute("viewBox", "0 0 " + state.map.width + " " + state.map.height);
+  const box = host.getBoundingClientRect();
+  const viewH = 1100;
+  const aspect = box.width > 40 && box.height > 40 ? box.width / box.height : 2.4;
+  const viewW = Math.round(viewH * aspect);
+  svg.setAttribute("viewBox", "-40 -20 " + (viewW + 40) + " " + viewH);
+  svg.setAttribute("preserveAspectRatio", "xMidYMid meet");
+  svg.setAttribute("width", "100%");
+  svg.setAttribute("height", "100%");
   svg.setAttribute("role", "img");
   svg.setAttribute("aria-label", "Map of the eastern flank and nearby countries");
   svg.id = "flank-map";
@@ -527,7 +571,7 @@ function renderNews() {
   document.getElementById("news-note").textContent = state.text.hostile_note;
   const host = document.getElementById("news");
   host.innerHTML = "";
-  let items = weekNews();
+  let items = dedupeStories(weekNews());
   if (state.filter === "hostile") items = items.filter((story) => story.hostile);
   if (!items.length) {
     const empty = document.createElement("p");
@@ -551,7 +595,7 @@ function renderNews() {
     heading.textContent = code === "other" ? "Not tied to one country" : state.text["country_" + code];
     section.appendChild(heading);
     const list = document.createElement("ul");
-    groups[code].forEach((story) => appendStory(list, story));
+    groups[code].slice(0, 3).forEach((story) => appendStory(list, story));
     section.appendChild(list);
     host.appendChild(section);
   });
@@ -640,10 +684,8 @@ function openWhy(code, focus) {
   document.getElementById("why-subject").textContent = name + " — " + sign.word + " — " + weekWords(current().week);
   const eventsHost = document.getElementById("why-events");
   const officialHost = document.getElementById("why-official");
-  const mediaHost = document.getElementById("why-media");
   eventsHost.innerHTML = "";
   officialHost.innerHTML = "";
-  mediaHost.innerHTML = "";
   const region = code === "UA" ? "ukraine_test" : "eastern_flank";
   let events = code
     ? activeEvents(current().week).filter((event) => concerns(event, code))
@@ -656,13 +698,15 @@ function openWhy(code, focus) {
     const story = { title: item.who || "", english: item.summary || "", summary: item.summary || "", who: item.who || "", kind: "official", url: item.url || "" };
     return showNews(story) && speakerSide(story) === "western";
   });
-  let media = code ? panelHeadlines(code) : [];
+  let media = code ? countryMedia(code) : [];
   const quiet = !events.length && !official.length && !media.length;
   document.getElementById("why-quiet").hidden = !quiet;
   document.getElementById("why-body").hidden = quiet;
   if (quiet) return;
   if (!events.length) {
-    eventsHost.textContent = "No events reported in our sources.";
+    eventsHost.textContent = media.length
+      ? (englishText(media[0]).english || ("Headlines name " + name + " this week."))
+      : "No events reported in our sources.";
   } else {
     const list = document.createElement("ul");
     events.forEach((event) => appendEventLine(list, event));
@@ -686,15 +730,6 @@ function openWhy(code, focus) {
       list.appendChild(line);
     });
     officialHost.appendChild(list);
-  }
-  if (!media.length) {
-    mediaHost.textContent = code
-      ? "No headline in the stored sample names " + state.text["country_" + code] + " this week."
-      : state.text.news_empty;
-  } else {
-    const list = document.createElement("ul");
-    media.slice(0, 6).forEach((story) => appendStory(list, story));
-    mediaHost.appendChild(list);
   }
   renderOfficials();
 }
@@ -734,7 +769,7 @@ function renderInside() {
     item.className = "inside-line";
     const text = document.createElement("p");
     text.className = "headline-en";
-    text.textContent = line.text;
+    text.textContent = line.text.replaceAll("stored headlines", "headlines");
     if (!reducedMotion() && /\d/.test(line.text)) {
       const token = (state.countToken = (state.countToken || 0) + 1);
       const target = Number((line.text.match(/\d+/) || ["0"])[0]);
@@ -854,7 +889,7 @@ async function main() {
   document.getElementById("title").textContent = text.title;
   document.getElementById("banner").textContent = "Prototype — replaying 2021–22. Not live.";
   document.getElementById("play").textContent = text.play;
-  document.getElementById("disclaimer-short").textContent = text.disclaimer_short;
+  document.getElementById("disclaimer-short").textContent = "Not an official warning.";
   document.getElementById("disclaimer-more").textContent = text.more;
   document.getElementById("disclaimer-full").textContent = text.disclaimer_full;
   const params = new URLSearchParams(location.search);
