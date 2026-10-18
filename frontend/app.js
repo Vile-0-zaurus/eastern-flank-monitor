@@ -89,14 +89,33 @@ function signFor(row) {
     return { word: state.text.sign_danger, kind: "danger", reason: state.text.reason_danger };
   }
   const shown = Number(row.shown);
-  if (shown === 0) return { word: state.text.sign_normal, kind: "normal", reason: state.text.reason_normal };
-  if (shown === 1 || shown === 2) return { word: state.text.sign_tense, kind: "tense", reason: state.text.reason_tense };
+  if (shown === 0 || shown === 1) return { word: state.text.sign_normal, kind: "normal", reason: state.text.reason_normal };
+  if (shown === 2) return { word: state.text.sign_tense, kind: "tense", reason: state.text.reason_tense };
   if (shown >= 3) return { word: state.text.sign_danger, kind: "danger", reason: state.text.reason_danger };
   return { word: state.text.level_none, kind: "nodata", reason: state.text.reason_none };
 }
 
 function weekNews() {
-  return state.news.filter((story) => story.week === current().week);
+  return state.news.filter((story) => story.week === current().week && visibleStory(story));
+}
+
+function isCyrillic(text) {
+  return /[А-Яа-яЁё]/.test(text || "");
+}
+
+function isEnglishTitle(text) {
+  if (isCyrillic(text)) return false;
+  if (/[ąęćłńśźżĀāĒēĪīŪūĢģĶķĻļŅņČčĖėĮįŠšŲųŽž]/.test(text || "")) return false;
+  const words = (text || "").toLowerCase().match(/[a-z']+/g) || [];
+  const common = new Set(["the", "a", "of", "and", "to", "in", "for", "on", "with", "from", "by", "is", "are", "was", "were", "that", "this", "as", "at", "an", "after", "over", "into", "about", "its"]);
+  const hits = words.filter((word) => common.has(word)).length;
+  return hits >= 2 || (words.length >= 5 && hits >= 1);
+}
+
+function visibleStory(story) {
+  const title = story.title || "";
+  if (isCyrillic(title)) return Boolean(story.english);
+  return isEnglishTitle(title);
 }
 
 function countryMentioned(code) {
@@ -242,13 +261,13 @@ function renderMap() {
       const dot = document.createElementNS("http://www.w3.org/2000/svg", "circle");
       dot.setAttribute("cx", x.toFixed(1));
       dot.setAttribute("cy", y.toFixed(1));
-      dot.setAttribute("r", "7");
+      dot.setAttribute("r", "9");
       dot.setAttribute("class", "event-dot");
       dot.setAttribute("data-place", place.name);
       dot.setAttribute("data-date", event.date);
-      dot.setAttribute("fill", dotColor(event.level));
-      dot.setAttribute("stroke", "#fff");
-      dot.setAttribute("stroke-width", "1.5");
+      dot.setAttribute("fill", "#1d4ed8");
+      dot.setAttribute("stroke", "#ffffff");
+      dot.setAttribute("stroke-width", "2");
       const tip = document.createElementNS("http://www.w3.org/2000/svg", "title");
       tip.textContent = place.name;
       dot.appendChild(tip);
@@ -305,14 +324,16 @@ function renderNews() {
       const original = document.createElement("p");
       original.textContent = state.text.original_label + ": " + story.title;
       const english = document.createElement("p");
-      english.textContent = englishLine(story);
+      const englishText = englishLine(story);
+      english.textContent = englishText;
       const meta = document.createElement("p");
       meta.className = "note";
       meta.textContent = story.outlet + ", " + weekWords(story.date).replace("Week of ", "");
       const link = document.createElement("a");
       link.href = story.url;
       link.textContent = state.text.source;
-      item.append(original, english, meta, link);
+      item.append(original, meta, link);
+      if (englishText) item.insertBefore(english, meta);
       list.appendChild(item);
     });
     section.appendChild(list);
@@ -321,7 +342,7 @@ function renderNews() {
 }
 
 function englishLine(story) {
-  if (!story.english) return state.text.english_missing;
+  if (!story.english) return "";
   return state.text.machine_translation + ": " + story.english;
 }
 
@@ -347,15 +368,19 @@ function appendStory(list, story) {
   item.className = "story";
   const original = document.createElement("p");
   original.textContent = state.text.original_label + ": " + story.title;
-  const english = document.createElement("p");
-  english.textContent = englishLine(story);
+  const englishText = englishLine(story);
   const meta = document.createElement("p");
   meta.className = "note";
   meta.textContent = story.outlet + ", " + dateWords(story.date);
   const link = document.createElement("a");
   link.href = story.url;
   link.textContent = state.text.source;
-  item.append(original, english, meta, link);
+  item.append(original, meta, link);
+  if (englishText) {
+    const english = document.createElement("p");
+    english.textContent = englishText;
+    item.insertBefore(english, meta);
+  }
   list.appendChild(item);
 }
 
@@ -382,6 +407,7 @@ function openWhy(code, focus) {
   const row = rowForCode(code);
   const sign = signFor(row);
   panel.hidden = false;
+  panel.scrollIntoView({ block: "start" });
   document.getElementById("why-title").textContent = state.text.why_panel;
   document.getElementById("why-close").textContent = state.text.close;
   const name = code ? state.text["country_" + code] : (focus && focus.places ? focus.places[0].name : "This report");
@@ -494,7 +520,7 @@ async function main() {
   state.official = official;
   document.title = text.title;
   document.getElementById("title").textContent = text.title;
-  document.getElementById("banner").textContent = text.banner;
+  document.getElementById("banner").textContent = "Prototype — replaying 2021–22. Not live.";
   document.getElementById("how-link").textContent = text.how_link;
   document.getElementById("play").textContent = text.play;
   document.getElementById("pause").textContent = text.pause;

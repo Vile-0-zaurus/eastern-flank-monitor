@@ -1,14 +1,23 @@
 :root {
-  color: #1c1917;
-  background: #f7f6f3;
-  font-family: Georgia, "Iowan Old Style", serif;
-  line-height: 1.45;
-  --calm: #5c7a99;
-  --watchful: #b0893e;
-  --elevated: #c46b2c;
-  --serious: #7b5ea7;
-  --critical: #8c4a4a;
-  --nodata: #6b7280;
+  color: #18181b;
+  background: #f4f4f5;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  line-height: 1.5;
+  --bg: #f4f4f5;
+  --surface: #ffffff;
+  --text: #18181b;
+  --muted: #52525b;
+  --line: #e4e4e7;
+  --accent: #1d4ed8;
+  --calm: #3f6212;
+  --watchful: #a16207;
+  --elevated: #a16207;
+  --serious: #9f1239;
+  --critical: #9f1239;
+  --nodata: #71717a;
+  --map-water: #e4e4e7;
+  --land: #d4d4d8;
+  --land-flank: #dbe4ee;
 }
 body {
   margin: 0 auto;
@@ -315,40 +324,60 @@ body.main-screen {
     height: 260px;
   }
 }
-.week-top {
-  font-size: 1.25rem;
-  margin: 0.4rem 0 0.8rem;
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  padding: 16px 16px 32px;
 }
-#country-select, #meter {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.4rem;
-  align-items: center;
+h1 { font-size: 32px; font-weight: 650; letter-spacing: -0.02em; margin: 16px 0 8px; }
+h2, h3 { font-size: 16px; font-weight: 650; margin: 16px 0 8px; }
+p, li, button { font-size: 16px; }
+.note, .reason, caption { font-size: 13px; color: var(--muted); }
+a { color: var(--accent); }
+.banner, .country-card, #map-panel, #news-panel, #why, .card, .badge, .disclaimer-bar {
+  background: var(--surface);
+  color: var(--text);
+  border: 1px solid var(--line);
+  box-shadow: none;
 }
-.country-pick {
-  background: #fff;
-  border: 1px solid #d6d3d1;
-  color: #1c1917;
-}
-.country-pick[aria-pressed="true"] {
-  background: #e7eef2;
-  border-color: #5c7a99;
-}
-#meter [data-zone] {
-  background: #e7e5e4;
-  color: #44403c;
-  padding: 0.25rem 0.6rem;
-}
-#meter [data-zone].on {
-  background: #d5e2ea;
-}
-.sides {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0.8rem;
+.country-card { border-top-width: 4px; padding: 8px; }
+#map-panel, #news-panel, #why { padding: 16px; }
+#map svg { background: var(--map-water); }
+.land { fill: var(--land); stroke: var(--surface); }
+.land-FI, .land-EE, .land-LV, .land-LT, .land-PL { fill: var(--land-flank); }
+.map-label { font-size: 16px; font-weight: 650; fill: var(--text); }
+.event-dot { stroke: #fff; }
+button, select {
+  border: 1px solid var(--line);
+  background: var(--surface);
+  color: var(--text);
+  padding: 8px 16px;
 }
 @media (max-width: 700px) {
-  .sides {
+  #country-strip, .stage, .cards, .compare, .sides {
     grid-template-columns: 1fr;
   }
+  h1 { font-size: 24px; }
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #18181b;
+    --surface: #27272a;
+    --text: #f4f4f5;
+    --muted: #a1a1aa;
+    --line: #3f3f46;
+    --accent: #93c5fd;
+    --calm: #86efac;
+    --watchful: #fcd34d;
+    --elevated: #fcd34d;
+    --serious: #fda4af;
+    --critical: #fda4af;
+    --nodata: #a1a1aa;
+    --map-water: #1e293b;
+    --land: #3f3f46;
+    --land-flank: #334155;
+  }
+  .map-label { fill: var(--text); }
+  .event-dot { stroke: #18181b; }
 }

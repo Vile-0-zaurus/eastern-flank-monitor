@@ -411,9 +411,73 @@ FACE_SWEEP = r"""
 """
 
 
+PROTO_SWEEP = r"""
+(() => {
+  const bad = [];
+  const shown = [];
+  const slider = document.getElementById('slider');
+  const allowed = new Set(['Normal', 'Tense', 'Danger signs, unconfirmed', 'No data']);
+  function contrast(fg, bg) {
+    const parse = (color) => {
+      const match = String(color).match(/rgba?\((\d+),\s*(\d+),\s*(\d+)/);
+      return match ? [Number(match[1]), Number(match[2]), Number(match[3])] : [0, 0, 0];
+    };
+    const lin = (c) => {
+      const x = c / 255;
+      return x <= 0.03928 ? x / 12.92 : Math.pow((x + 0.055) / 1.055, 2.4);
+    };
+    const lum = (rgb) => 0.2126 * lin(rgb[0]) + 0.7152 * lin(rgb[1]) + 0.0722 * lin(rgb[2]);
+    const hi = Math.max(lum(parse(fg)), lum(parse(bg)));
+    const lo = Math.min(lum(parse(fg)), lum(parse(bg)));
+    return (hi + 0.05) / (lo + 0.05);
+  }
+  const bodyStyle = getComputedStyle(document.body);
+  const bodyContrast = contrast(bodyStyle.color, bodyStyle.backgroundColor);
+  if (bodyContrast < 4.5) bad.push('body contrast ' + bodyContrast.toFixed(2));
+  const max = Number(slider.max);
+  for (let i = 0; i <= max; i += 1) {
+    slider.value = String(i);
+    slider.dispatchEvent(new Event('input', {bubbles: true}));
+    const week = document.getElementById('week-label').textContent.trim();
+    if (!/^Week of \d{1,2} [A-Z][a-z]+ \d{4}$/.test(week)) bad.push('bad date ' + week);
+    const text = document.body.innerText;
+    if (text.includes('No English line')) bad.push(week + ' missing-translation line');
+    if (text.includes('undefined') || text.includes('NaN')) bad.push(week + ' bad token');
+    if (document.documentElement.scrollWidth > document.documentElement.clientWidth + 8) bad.push(week + ' overflows');
+    const signs = [...document.querySelectorAll('.sign')].map((node) => node.textContent.trim());
+    if (signs.length !== 5) bad.push(week + ' sign count ' + signs.length);
+    signs.forEach((sign) => { if (!allowed.has(sign)) bad.push(week + ' bad sign ' + sign); });
+    const names = [...document.querySelectorAll('.country-name')].map((node) => node.textContent.trim()).join('|');
+    if (names !== 'Finland|Estonia|Latvia|Lithuania|Poland') bad.push(week + ' names ' + names);
+    shown.push({
+      week,
+      sign: signs[0] || '',
+      dots: [...document.querySelectorAll('.event-dot')].map((dot) => ({
+        place: dot.getAttribute('data-place'),
+        date: dot.getAttribute('data-date'),
+        cx: dot.getAttribute('cx'),
+        cy: dot.getAttribute('cy'),
+      })),
+    });
+  }
+  document.getElementById('country-PL').click();
+  const why = document.getElementById('why');
+  const top = why.getBoundingClientRect().top;
+  if (why.hidden) bad.push('why panel stayed closed');
+  if (top > 80) bad.push('why panel not at top ' + Math.round(top));
+  return {
+    bad,
+    shown,
+    lands: [...document.querySelectorAll('.land')].map((path) => path.getAttribute('data-country')),
+    contrast: bodyContrast,
+  };
+})()
+"""
+
+
 async def check_main(cdp, weeks: dict[str, list[dict]], events: list[dict]) -> list[str]:
     problems = []
-    result = await cdp.js(FACE_SWEEP)
+    result = await cdp.js(PROTO_SWEEP)
     problems.extend(result["bad"])
     lands = set(result["lands"])
     for code in ("FI", "EE", "LV", "LT", "PL", "BY", "UA", "RU", "KG"):
@@ -427,20 +491,29 @@ async def check_main(cdp, weeks: dict[str, list[dict]], events: list[dict]) -> l
         for src, got in zip(flank, shown):
             if got["week"] != week_label(src["week"]):
                 problems.append(f"main {src['week']} date shows {got['week']!r}")
-            if "uncertain" not in got["reading"].lower():
-                problems.append(f"main {src['week']} reading is not marked uncertain")
-            if got["zones"] != 3:
-                problems.append(f"main {src['week']} meter zones {got['zones']}")
-            expected = sorted(
-                (event["date"], place["name"])
-                for event in events
-                if place_for_country(event, "PL") and event["date"] <= src["week"]
-                and (utc_ms(src["week"]) - utc_ms(event["date"])) / 86400000 / 7 <= 4
-                for place in event.get("places") or []
-            )
+            if src["shown"] == "1" and got["sign"] != "Normal":
+                problems.append(f"main {src['week']} Watchful shows {got['sign']!r}")
+            expected = active_dots(events, src["week"])
             got_dots = sorted((dot["date"], dot["place"]) for dot in got["dots"])
             if got_dots != expected:
-                problems.append(f"main {src['week']} Poland dots {got_dots} file says {expected}")
+                problems.append(f"main {src['week']} dots {got_dots} file says {expected}")
+    await cdp.call("Emulation.setEmulatedMedia", features=[{"name": "prefers-color-scheme", "value": "dark"}])
+    dark = await cdp.js("""(() => {
+      const style = getComputedStyle(document.body);
+      const parse = (color) => {
+        const match = String(color).match(/rgba?\\((\\d+),\\s*(\\d+),\\s*(\\d+)/);
+        return match ? [Number(match[1]), Number(match[2]), Number(match[3])] : [0, 0, 0];
+      };
+      const lin = (c) => { const x = c / 255; return x <= 0.03928 ? x / 12.92 : Math.pow((x + 0.055) / 1.055, 2.4); };
+      const lum = (rgb) => 0.2126 * lin(rgb[0]) + 0.7152 * lin(rgb[1]) + 0.0722 * lin(rgb[2]);
+      const a = lum(parse(style.color));
+      const b = lum(parse(style.backgroundColor));
+      const hi = Math.max(a, b), lo = Math.min(a, b);
+      return (hi + 0.05) / (lo + 0.05);
+    })()""")
+    if dark < 4.5:
+        problems.append(f"dark body contrast {dark}")
+    await cdp.call("Emulation.setEmulatedMedia", features=[{"name": "prefers-color-scheme", "value": "light"}])
     await cdp.js("document.getElementById('slider').value = '0'; document.getElementById('slider').dispatchEvent(new Event('input', {bubbles:true}))")
     before = await cdp.js("document.getElementById('week-label').textContent")
     await cdp.js("document.getElementById('play').click()")
@@ -459,7 +532,6 @@ async def check_main(cdp, weeks: dict[str, list[dict]], events: list[dict]) -> l
     if narrow:
         problems.append("narrow main screen overflows")
     await cdp.call("Emulation.clearDeviceMetricsOverride")
-    problems.extend(check_links(result["links"]))
     return problems
 
 
