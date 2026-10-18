@@ -124,12 +124,14 @@ function renderStrip() {
     reason.className = "reason";
     const extra = countryMentioned(code)
       ? " A headline this week names " + state.text["country_" + code] + "."
-      : " " + state.text.same_reading;
+      : "";
     reason.textContent = sign.reason + extra;
     button.append(name, word, reason);
     button.addEventListener("click", () => openWhy(code));
     strip.appendChild(button);
   });
+  const shared = document.getElementById("shared-reading");
+  if (shared) shared.textContent = state.text.same_reading;
 }
 
 function project(lon, lat) {
@@ -164,7 +166,7 @@ function showEvent(event, place) {
   const when = document.createElement("p");
   when.textContent = weekWords(event.date);
   const note = document.createElement("p");
-  note.textContent = event.note || "";
+  note.textContent = plainNote(event.note);
   if (place.area) {
     const area = document.createElement("p");
     area.className = "note";
@@ -261,11 +263,6 @@ function renderMap() {
   });
   host.innerHTML = "";
   host.appendChild(svg);
-  const credit = document.createElement("p");
-  credit.className = "note";
-  credit.id = "map-credit";
-  credit.textContent = "Country outlines are public-domain Natural Earth data, kept on this computer. No live map tiles. A dot stays for four weeks.";
-  host.appendChild(credit);
 }
 
 function renderNews() {
@@ -299,7 +296,7 @@ function renderNews() {
     const section = document.createElement("section");
     section.className = "news-group";
     const heading = document.createElement("h3");
-    heading.textContent = code === "other" ? "No single country" : state.text["country_" + code];
+    heading.textContent = code === "other" ? "Not tied to one country" : state.text["country_" + code];
     section.appendChild(heading);
     const list = document.createElement("ul");
     groups[code].forEach((story) => {
@@ -308,7 +305,7 @@ function renderNews() {
       const original = document.createElement("p");
       original.textContent = state.text.original_label + ": " + story.title;
       const english = document.createElement("p");
-      english.textContent = state.text.machine_translation + ": " + (story.english || "not stored.");
+      english.textContent = englishLine(story);
       const meta = document.createElement("p");
       meta.className = "note";
       meta.textContent = story.outlet + ", " + weekWords(story.date).replace("Week of ", "");
@@ -321,6 +318,19 @@ function renderNews() {
     section.appendChild(list);
     host.appendChild(section);
   });
+}
+
+function englishLine(story) {
+  if (!story.english) return state.text.english_missing;
+  return state.text.machine_translation + ": " + story.english;
+}
+
+function plainNote(note) {
+  if (!note) return "";
+  return note
+    .split(/(?<=\.)\s+/)
+    .filter((sentence) => !/^(Stays \d|Changed from \d)/.test(sentence))
+    .join(" ");
 }
 
 function dateWords(iso) {
@@ -338,7 +348,7 @@ function appendStory(list, story) {
   const original = document.createElement("p");
   original.textContent = state.text.original_label + ": " + story.title;
   const english = document.createElement("p");
-  english.textContent = state.text.machine_translation + ": " + (story.english || "not stored.");
+  english.textContent = englishLine(story);
   const meta = document.createElement("p");
   meta.className = "note";
   meta.textContent = story.outlet + ", " + dateWords(story.date);
@@ -358,7 +368,7 @@ function appendEventLine(list, event) {
   when.className = "note";
   when.textContent = dateWords(event.date);
   const note = document.createElement("p");
-  note.textContent = event.note || "";
+  note.textContent = plainNote(event.note);
   const link = document.createElement("a");
   link.href = event.source;
   link.textContent = state.text.source;
