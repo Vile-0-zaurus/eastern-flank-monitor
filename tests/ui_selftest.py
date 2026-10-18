@@ -17,7 +17,10 @@ import subprocess
 import sys
 import threading
 import time
+import urllib.error
 import urllib.request
+from concurrent.futures import ThreadPoolExecutor
+from datetime import datetime, timezone
 from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 
@@ -218,6 +221,180 @@ SWEEP = r"""
 """
 
 
+MAIN_SWEEP = r"""
+(() => {
+  const bad = [];
+  const shown = [];
+  const slider = document.getElementById('slider');
+  const allowedSigns = new Set(['Normal', 'Tense', 'Danger signs, unconfirmed', 'No data']);
+  const raw = /\b(FI|EE|LV|LT|PL|UA|BY|RU|KG|eastern_flank|ukraine_test)\b/;
+  function textOf(id) {
+    const node = document.getElementById(id);
+    return node ? node.textContent.replace(/\s+/g, ' ').trim() : '';
+  }
+  function chromeText() {
+    const bits = [textOf('week-label'), textOf('map-title'), textOf('news-title')];
+    document.querySelectorAll('.country-card, .map-label').forEach((node) => bits.push(node.textContent));
+    return bits.join(' ');
+  }
+  const max = Number(slider.max);
+  for (let i = 0; i <= max; i += 1) {
+    slider.value = String(i);
+    slider.dispatchEvent(new Event('input', {bubbles: true}));
+    const label = textOf('week-label');
+    if (!/^Week of \d{1,2} [A-Z][a-z]+ \d{4}$/.test(label)) bad.push('main week ' + i + ' bad date ' + label);
+    const face = chromeText();
+    if (face.includes('undefined')) bad.push('main week ' + i + ' contains undefined');
+    if (face.includes('NaN')) bad.push('main week ' + i + ' contains NaN');
+    const code = face.match(raw);
+    if (code) bad.push('main week ' + i + ' raw code ' + code[0]);
+    if (document.documentElement.scrollWidth > document.documentElement.clientWidth + 8) {
+      bad.push('main week ' + i + ' overflows');
+    }
+    const signs = [...document.querySelectorAll('.sign')].map((node) => node.textContent.trim());
+    if (signs.length !== 5) bad.push('main week ' + i + ' sign count ' + signs.length);
+    signs.forEach((sign) => {
+      if (!allowedSigns.has(sign)) bad.push('main week ' + i + ' bad sign ' + sign);
+    });
+    const names = [...document.querySelectorAll('.country-name')].map((node) => node.textContent.trim());
+    if (names.join('|') !== 'Finland|Estonia|Latvia|Lithuania|Poland') {
+      bad.push('main week ' + i + ' names ' + names.join(','));
+    }
+    const dots = [...document.querySelectorAll('.event-dot')].map((dot) => ({
+      place: dot.getAttribute('data-place'),
+      date: dot.getAttribute('data-date'),
+      cx: dot.getAttribute('cx'),
+      cy: dot.getAttribute('cy'),
+    }));
+    dots.forEach((dot) => {
+      if (!dot.place || !dot.date || dot.cx === 'NaN' || dot.cy === 'NaN') {
+        bad.push('main week ' + i + ' bad dot');
+      }
+    });
+    [...document.querySelectorAll('a')].forEach((link) => {
+      const href = link.getAttribute('href') || '';
+      if (!href || href === '#' || href.includes('undefined') || href.includes('NaN') || !/^https?:\/\//.test(href)) {
+        if (link.id === 'how-link') return;
+        bad.push('main week ' + i + ' bad link ' + href);
+      }
+    });
+    document.getElementById('country-PL').click();
+    const polandWhy = document.getElementById('why').innerText;
+    if (polandWhy.includes('undefined') || polandWhy.includes('NaN')) bad.push('main week ' + i + ' poland why bad');
+    const polandLinks = [...document.querySelectorAll('#why-official a, #why-events a, #why-media a')].map((link) => link.href);
+    document.querySelector('[data-country="UA"]').dispatchEvent(new MouseEvent('click', {bubbles: true}));
+    const ukraineLinks = [...document.querySelectorAll('#why-official a')].map((link) => link.href);
+    document.getElementById('why-close').click();
+    shown.push({i, week: label, dots, polandLinks, ukraineLinks, sign: signs[0] || ''});
+  }
+  return {
+    bad,
+    shown,
+    lands: [...document.querySelectorAll('.land')].map((path) => path.getAttribute('data-country')),
+  };
+})()
+"""
+
+
+def utc_ms(iso: str) -> float:
+    year, month, day = (int(part) for part in iso.split("-"))
+    return datetime(year, month, day, tzinfo=timezone.utc).timestamp() * 1000
+
+
+def active_dots(events: list[dict], week: str) -> list[tuple[str, str]]:
+    found = []
+    for event in events:
+        places = event.get("places") or []
+        if not places or event["date"] > week:
+            continue
+        age = (utc_ms(week) - utc_ms(event["date"])) / 86400000 / 7
+        if age <= 4:
+            found.extend((event["date"], place["name"]) for place in places)
+    return sorted(found)
+
+
+def link_status(url: str) -> str:
+    request = urllib.request.Request(url, method="HEAD", headers={"User-Agent": "eastern-flank-monitor/1.0"})
+    try:
+        with urllib.request.urlopen(request, timeout=12) as response:
+            return str(response.status)
+    except urllib.error.HTTPError as exc:
+        if exc.code in (405, 501):
+            get = urllib.request.Request(url, headers={"User-Agent": "eastern-flank-monitor/1.0"})
+            try:
+                with urllib.request.urlopen(get, timeout=12) as response:
+                    return str(response.status)
+            except urllib.error.HTTPError as again:
+                return str(again.code)
+            except Exception as again:
+                return again.__class__.__name__
+        return str(exc.code)
+    except Exception as exc:
+        return exc.__class__.__name__
+
+
+def check_links(urls: list[str]) -> list[str]:
+    problems = []
+    unique = sorted(set(urls))
+    with ThreadPoolExecutor(max_workers=6) as pool:
+        for url, status in zip(unique, pool.map(link_status, unique)):
+            if status in {"404", "410"} or status.endswith("Error") or status in {"URLError", "TimeoutError", "HTTPError"}:
+                problems.append(f"link {status} {url}")
+    return problems
+
+
+async def check_main(cdp, weeks: dict[str, list[dict]], events: list[dict]) -> list[str]:
+    problems = []
+    result = await cdp.js(MAIN_SWEEP)
+    problems.extend(result["bad"])
+    lands = set(result["lands"])
+    for code in ("FI", "EE", "LV", "LT", "PL", "BY", "UA", "RU", "KG"):
+        if code not in lands:
+            problems.append(f"map missing {code}")
+    flank = weeks["eastern_flank"]
+    shown = result["shown"]
+    official = json.loads((ROOT / "frontend" / "official.json").read_text(encoding="utf-8"))
+    urls = []
+    if len(shown) != len(flank):
+        problems.append(f"main screen showed {len(shown)} weeks, file has {len(flank)}")
+    else:
+        for src, got in zip(flank, shown):
+            label = week_label(src["week"])
+            if got["week"] != label:
+                problems.append(f"main {src['week']} date shows {got['week']!r}")
+            expected = active_dots(events, src["week"])
+            got_dots = sorted((dot["date"], dot["place"]) for dot in got["dots"])
+            if got_dots != expected:
+                problems.append(f"main {src['week']} dots {got_dots} file says {expected}")
+            for item in official.get(src["week"], []):
+                urls.append(item["url"])
+                if "PL" in item["countries"] and item["url"] not in got["polandLinks"]:
+                    problems.append(f"main {src['week']} Poland panel missing {item['url']}")
+                if "UA" in item["countries"] and item["url"] not in got["ukraineLinks"]:
+                    problems.append(f"main {src['week']} Ukraine panel missing {item['url']}")
+    await cdp.js("document.getElementById('why-close').click()")
+    await cdp.js("document.getElementById('slider').value = '0'; document.getElementById('slider').dispatchEvent(new Event('input', {bubbles:true}))")
+    before = await cdp.js("document.getElementById('week-label').textContent")
+    await cdp.js("document.getElementById('play').click()")
+    await asyncio.sleep(1.4)
+    during = await cdp.js("document.getElementById('week-label').textContent")
+    if during == before:
+        problems.append("play did not advance the week")
+    await cdp.js("document.getElementById('pause').click()")
+    paused = await cdp.js("document.getElementById('week-label').textContent")
+    await asyncio.sleep(1.2)
+    after = await cdp.js("document.getElementById('week-label').textContent")
+    if after != paused:
+        problems.append("pause did not stop the replay")
+    await cdp.call("Emulation.setDeviceMetricsOverride", width=390, height=800, deviceScaleFactor=1, mobile=True)
+    narrow = await cdp.js("document.documentElement.scrollWidth > document.documentElement.clientWidth + 8")
+    if narrow:
+        problems.append("narrow main screen overflows")
+    await cdp.call("Emulation.clearDeviceMetricsOverride")
+    problems.extend(check_links(urls))
+    return problems
+
+
 def compare_rows(shown: list[dict], weeks: dict[str, list[dict]], intent: dict, events: list[dict], notes: dict) -> list[str]:
     problems = []
     by_region: dict[str, list[dict]] = {}
@@ -352,6 +529,16 @@ async def run() -> int:
             else:
                 print("Page did not finish loading.")
                 return 1
+            problems.extend(await check_main(cdp, weeks, events))
+            await cdp.js("location.href = 'how-it-works.html'")
+            for _ in range(40):
+                ready = await cdp.js("!!document.getElementById('region') && document.getElementById('slider').max !== ''")
+                if ready:
+                    break
+                await asyncio.sleep(0.15)
+            else:
+                print("How it works did not finish loading.")
+                return 1
             result = await cdp.js(SWEEP)
             problems.extend(result["bad"])
             problems.extend(compare_rows(result["shown"], weeks, intent, events, notes))
@@ -407,7 +594,7 @@ async def run() -> int:
         if len(problems) > 40:
             print(f"... {len(problems) - 40} more")
         return 1
-    print("PASS every week, both regions, all tabs, play, pause, slider, compare")
+    print("PASS main screen and how-it-works: every week, map dots, links, play, pause, slider, compare")
     return 0
 
 
