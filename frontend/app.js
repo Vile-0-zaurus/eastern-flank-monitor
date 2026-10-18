@@ -10,6 +10,7 @@ const state = {
   official: {},
   officials: {},
   inside: { weeks: {} },
+  focus: null,
   countryHeadlines: {},
   why: null,
   index: 0,
@@ -200,7 +201,8 @@ function renderStrip() {
   COUNTRIES.forEach((code) => {
     const button = document.createElement("button");
     button.type = "button";
-    button.className = "country-card";
+    button.className = "country-card" + (state.focus === code ? " picked" : state.focus ? " dimmed" : "");
+    button.setAttribute("aria-pressed", state.focus === code ? "true" : "false");
     button.id = "country-" + code;
     button.dataset.country = code;
     const name = document.createElement("span");
@@ -219,12 +221,63 @@ function renderStrip() {
     button.append(name, reason);
     button.addEventListener("click", () => {
       stop();
-      openWhy(code);
+      pickCountry(code);
     });
     strip.appendChild(button);
   });
   const shared = document.getElementById("shared-reading");
   if (shared) shared.textContent = "Cards list only facts about that country.";
+}
+
+function pickCountry(code) {
+  if (state.focus === code) {
+    clearFocus();
+    return;
+  }
+  state.focus = code;
+  openWhy(code);
+  renderStrip();
+  renderMap();
+  renderCountryNews();
+}
+
+function clearFocus() {
+  state.focus = null;
+  state.why = null;
+  const panel = document.getElementById("why");
+  if (panel) panel.hidden = true;
+  renderStrip();
+  renderMap();
+  renderCountryNews();
+  renderOfficials();
+}
+
+function renderCountryNews() {
+  const section = document.getElementById("country-news");
+  if (!section) return;
+  const code = state.focus;
+  if (!code) {
+    section.hidden = true;
+    section.classList.remove("picked");
+    return;
+  }
+  const name = state.text["country_" + code];
+  section.hidden = false;
+  section.classList.add("picked");
+  document.getElementById("country-news-title").textContent = "News about " + name;
+  const host = document.getElementById("country-news-list");
+  host.innerHTML = "";
+  let items = weekNews().filter((story) => (story.countries || []).includes(code));
+  if (state.filter === "hostile") items = items.filter((story) => story.hostile);
+  if (!items.length) {
+    const empty = document.createElement("p");
+    empty.textContent = "No news about " + name + " this week.";
+    host.append(empty);
+    return;
+  }
+  const list = document.createElement("ul");
+  items.forEach((story) => appendStory(list, story));
+  host.append(list);
 }
 
 function project(lon, lat) {
@@ -305,10 +358,17 @@ function renderMap() {
     const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
     path.setAttribute("d", country.d);
     path.setAttribute("data-country", country.id);
-    path.setAttribute("class", "land land-" + country.id + (COUNTRIES.includes(country.id) ? " state-" + signFor(current()).kind : ""));
+    const picked = state.focus === country.id;
+    const dimmed = state.focus && state.focus !== country.id;
+    path.setAttribute("class", "land land-" + country.id + (COUNTRIES.includes(country.id) ? " state-" + signFor(current()).kind : "") + (picked ? " picked" : "") + (dimmed ? " dimmed" : ""));
     const label = state.text["country_" + country.id] || country.name;
     path.setAttribute("aria-label", label);
-    if (["FI", "EE", "LV", "LT", "PL", "UA"].includes(country.id)) {
+    if (COUNTRIES.includes(country.id)) {
+      path.addEventListener("click", () => {
+        stop();
+        pickCountry(country.id);
+      });
+    } else if (country.id === "UA") {
       path.addEventListener("click", () => {
         stop();
         openWhy(country.id);
@@ -445,6 +505,7 @@ function appendStory(list, story) {
   if (!english) return;
   const item = document.createElement("li");
   item.className = "story";
+  item.dataset.countries = (story.countries || []).join(",");
   const line = document.createElement("p");
   line.className = "headline-en";
   line.textContent = english;
@@ -568,6 +629,7 @@ function renderWeek() {
   }
   renderOfficials();
   renderInside();
+  renderCountryNews();
 }
 
 function officialCode() {
@@ -712,10 +774,16 @@ async function main() {
   document.getElementById("filter-all").addEventListener("click", () => {
     state.filter = "all";
     renderNews();
+    renderCountryNews();
   });
   document.getElementById("filter-hostile").addEventListener("click", () => {
     state.filter = "hostile";
     renderNews();
+    renderCountryNews();
+  });
+  document.getElementById("show-all").addEventListener("click", () => {
+    stop();
+    clearFocus();
   });
 }
 

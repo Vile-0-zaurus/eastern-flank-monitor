@@ -721,6 +721,23 @@ async def run() -> int:
                 if (!panel.includes('does not affect the levels')) bad.push('inside note missing');
                 if (!panel.includes('No exchange was used')) bad.push('inside sources missing');
               }
+              document.getElementById('show-all').click();
+              if (document.querySelector('.picked')) bad.push('focus remained after show all');
+              if (!document.getElementById('country-news').hidden) bad.push('country news stayed open');
+              document.getElementById('country-PL').click();
+              const card = document.getElementById('country-PL');
+              const shape = document.querySelector('.land[data-country="PL"]');
+              const section = document.getElementById('country-news');
+              if (!card.classList.contains('picked') || !shape.classList.contains('picked') || !section.classList.contains('picked')) bad.push('selection did not highlight card, map, and news together');
+              if (document.querySelectorAll('.country-card.dimmed').length !== 4) bad.push('other cards were not dimmed');
+              const title = document.getElementById('country-news-title').textContent;
+              if (title !== 'News about Poland') bad.push('country news title ' + title);
+              const stories = [...section.querySelectorAll('.story')];
+              const foreign = stories.filter((story) => !(story.dataset.countries || '').split(',').includes('PL'));
+              if (foreign.length) bad.push('country news included another country');
+              if (!stories.length && !section.innerText.includes('No news about Poland this week.')) bad.push('empty country news has no sentence');
+              document.getElementById('country-PL').click();
+              if (!document.getElementById('country-news').hidden) bad.push('second click did not clear the country');
               return bad;
             })()""")
             problems.extend(order or [])
