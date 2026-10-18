@@ -315,3 +315,40 @@ body.main-screen {
     height: 260px;
   }
 }
+.week-top {
+  font-size: 1.25rem;
+  margin: 0.4rem 0 0.8rem;
+}
+#country-select, #meter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  align-items: center;
+}
+.country-pick {
+  background: #fff;
+  border: 1px solid #d6d3d1;
+  color: #1c1917;
+}
+.country-pick[aria-pressed="true"] {
+  background: #e7eef2;
+  border-color: #5c7a99;
+}
+#meter [data-zone] {
+  background: #e7e5e4;
+  color: #44403c;
+  padding: 0.25rem 0.6rem;
+}
+#meter [data-zone].on {
+  background: #d5e2ea;
+}
+.sides {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.8rem;
+}
+@media (max-width: 700px) {
+  .sides {
+    grid-template-columns: 1fr;
+  }
+}

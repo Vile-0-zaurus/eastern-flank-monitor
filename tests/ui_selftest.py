@@ -343,9 +343,77 @@ def check_links(urls: list[str]) -> list[str]:
     return problems
 
 
+def place_for_country(event: dict, code: str) -> bool:
+    names = " ".join(place.get("name", "") for place in event.get("places") or []).lower()
+    if "kaliningrad" in names and code in {"LT", "PL"}:
+        return True
+    if (event.get("tag") == "belarus" or any(word in names for word in ("belarus", "gomel", "zyabrovka", "mozyr"))) and code in {"LT", "LV", "PL"}:
+        return True
+    if any(word in names for word in ("northwest russia", "karelia", "pskov", "leningrad oblast")) and code in {"FI", "EE"}:
+        return True
+    return False
+
+
+FACE_SWEEP = r"""
+(() => {
+  const bad = [];
+  const shown = [];
+  const banned = /\b(attack|attacks|invasion|invade|war|warfare|crisis|danger|dangerous|critical|urgent|imminent|panic|threat|threats|emergency|alarm|terror|terrorist|bomb|missile|kill|killed|death|deaths|blood|hostile|escalat\w*)\b/i;
+  const raw = /\b(FI|EE|LV|LT|PL|UA|BY|RU|KG|eastern_flank|ukraine_test)\b/;
+  const slider = document.getElementById('slider');
+  function faceText() {
+    const clone = document.getElementById('face').cloneNode(true);
+    clone.querySelectorAll('details, [data-source]').forEach((node) => node.remove());
+    return clone.innerText.replace(/\s+/g, ' ');
+  }
+  const max = Number(slider.max);
+  for (let i = 0; i <= max; i += 1) {
+    slider.value = String(i);
+    slider.dispatchEvent(new Event('input', {bubbles: true}));
+    const week = document.getElementById('week-label').textContent.trim();
+    if (!/^Week of \d{1,2} [A-Z][a-z]+ \d{4}$/.test(week)) bad.push('bad date ' + week);
+    document.getElementById('country-PL').click();
+    const face = faceText();
+    const hit = face.match(banned);
+    if (hit) bad.push(week + ' alarm word ' + hit[0]);
+    if (face.includes('undefined') || face.includes('NaN')) bad.push(week + ' bad token');
+    const code = face.match(raw);
+    if (code) bad.push(week + ' raw code ' + code[0]);
+    const reading = document.getElementById('reading-line').textContent;
+    if (!/headline/.test(reading)) bad.push(week + ' reading has no count');
+    shown.push({
+      week,
+      reading,
+      zones: document.querySelectorAll('#meter [data-zone]').length,
+      dots: [...document.querySelectorAll('.event-dot')].map((dot) => ({
+        place: dot.getAttribute('data-place'),
+        date: dot.getAttribute('data-date'),
+        cx: dot.getAttribute('cx'),
+        cy: dot.getAttribute('cy'),
+      })),
+    });
+    shown[shown.length - 1].dots.forEach((dot) => {
+      if (dot.cx === 'NaN' || dot.cy === 'NaN') bad.push(week + ' bad dot');
+    });
+  }
+  const links = [...document.querySelectorAll('#check-links a')].map((link) => link.href);
+  if (!links.length) bad.push('no check-it-yourself links');
+  links.forEach((href) => {
+    if (!/^https:\/\//.test(href)) bad.push('bad check link ' + href);
+  });
+  return {
+    bad,
+    shown,
+    links,
+    lands: [...document.querySelectorAll('.land')].map((path) => path.getAttribute('data-country')),
+  };
+})()
+"""
+
+
 async def check_main(cdp, weeks: dict[str, list[dict]], events: list[dict]) -> list[str]:
     problems = []
-    result = await cdp.js(MAIN_SWEEP)
+    result = await cdp.js(FACE_SWEEP)
     problems.extend(result["bad"])
     lands = set(result["lands"])
     for code in ("FI", "EE", "LV", "LT", "PL", "BY", "UA", "RU", "KG"):
@@ -353,26 +421,26 @@ async def check_main(cdp, weeks: dict[str, list[dict]], events: list[dict]) -> l
             problems.append(f"map missing {code}")
     flank = weeks["eastern_flank"]
     shown = result["shown"]
-    official = json.loads((ROOT / "frontend" / "official.json").read_text(encoding="utf-8"))
-    urls = []
     if len(shown) != len(flank):
         problems.append(f"main screen showed {len(shown)} weeks, file has {len(flank)}")
     else:
         for src, got in zip(flank, shown):
-            label = week_label(src["week"])
-            if got["week"] != label:
+            if got["week"] != week_label(src["week"]):
                 problems.append(f"main {src['week']} date shows {got['week']!r}")
-            expected = active_dots(events, src["week"])
+            if "uncertain" not in got["reading"].lower():
+                problems.append(f"main {src['week']} reading is not marked uncertain")
+            if got["zones"] != 3:
+                problems.append(f"main {src['week']} meter zones {got['zones']}")
+            expected = sorted(
+                (event["date"], place["name"])
+                for event in events
+                if place_for_country(event, "PL") and event["date"] <= src["week"]
+                and (utc_ms(src["week"]) - utc_ms(event["date"])) / 86400000 / 7 <= 4
+                for place in event.get("places") or []
+            )
             got_dots = sorted((dot["date"], dot["place"]) for dot in got["dots"])
             if got_dots != expected:
-                problems.append(f"main {src['week']} dots {got_dots} file says {expected}")
-            for item in official.get(src["week"], []):
-                urls.append(item["url"])
-                if "PL" in item["countries"] and item["url"] not in got["polandLinks"]:
-                    problems.append(f"main {src['week']} Poland panel missing {item['url']}")
-                if "UA" in item["countries"] and item["url"] not in got["ukraineLinks"]:
-                    problems.append(f"main {src['week']} Ukraine panel missing {item['url']}")
-    await cdp.js("document.getElementById('why-close').click()")
+                problems.append(f"main {src['week']} Poland dots {got_dots} file says {expected}")
     await cdp.js("document.getElementById('slider').value = '0'; document.getElementById('slider').dispatchEvent(new Event('input', {bubbles:true}))")
     before = await cdp.js("document.getElementById('week-label').textContent")
     await cdp.js("document.getElementById('play').click()")
@@ -391,7 +459,7 @@ async def check_main(cdp, weeks: dict[str, list[dict]], events: list[dict]) -> l
     if narrow:
         problems.append("narrow main screen overflows")
     await cdp.call("Emulation.clearDeviceMetricsOverride")
-    problems.extend(check_links(urls))
+    problems.extend(check_links(result["links"]))
     return problems
 
 
