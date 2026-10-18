@@ -6,46 +6,41 @@
   <title>Eastern Flank Monitor</title>
   <link rel="stylesheet" href="styles.css">
 </head>
-<body class="main-screen">
-  <header>
+<body class="main-screen briefing">
+  <div id="doors" class="doors" hidden>
+    <div class="door door-a"></div>
+    <div class="door door-b"></div>
+    <button id="skip-doors" type="button">Skip</button>
+  </div>
+  <header class="top-bar">
     <p id="banner" class="banner"></p>
     <div class="title-row">
       <h1 id="title"></h1>
     </div>
+    <div class="top-strip">
+      <p id="region-state" class="region-state"></p>
+      <section id="country-strip" aria-label="Finland, Estonia, Latvia, Lithuania, and Poland"></section>
+      <button id="show-all" type="button">Show all</button>
+    </div>
   </header>
-  <main>
-    <aside id="why" hidden>
-      <div class="why-head">
-        <h2 id="why-title">This week</h2>
-        <button id="why-close" type="button">Close</button>
-      </div>
-      <p id="why-subject"></p>
-      <p id="why-quiet" hidden>Quiet week — nothing notable.</p>
-      <div id="why-body">
-      <h3>What happened</h3>
-      <div id="why-events"></div>
-      <h3>What official sources say</h3>
-      <div id="why-official"></div>
-      <h3>What Russian state media says</h3>
-      <div id="why-media"></div>
-      </div>
-    </aside>
-    <p id="region-state" class="region-state"></p>
-    <section id="country-strip" aria-label="Finland, Estonia, Latvia, Lithuania, and Poland"></section>
-    <p class="focus-row"><button id="show-all" type="button">Show all</button></p>
-    <section id="country-news" hidden>
-      <h2 id="country-news-title">News about</h2>
-      <div id="country-news-list"></div>
+  <main class="room">
+    <section id="timeline" class="rail" aria-label="Week">
+      <button id="play" type="button" aria-pressed="false">Play</button>
+      <p id="week-label" class="mono"></p>
+      <label class="slider-label">
+        <input id="slider" type="range" min="0" value="0">
+      </label>
     </section>
-    <p id="shared-reading" class="note"></p>
     <div class="stage">
       <section id="map-panel" aria-label="Map">
-        <h2 id="map-title">Map</h2>
-        <p id="map-legend" class="legend">
-          <span class="swatch normal">Normal</span>
-          <span class="swatch tense">Tense</span>
-          <span class="swatch danger">Danger signs</span>
-        </p>
+        <div class="map-head">
+          <h2 id="map-title">Map</h2>
+          <p id="map-legend" class="legend">
+            <span class="swatch normal">Normal</span>
+            <span class="swatch tense">Tense</span>
+            <span class="swatch danger">Danger signs</span>
+          </p>
+        </div>
         <div id="map"></div>
         <p id="map-detail" class="note" hidden></p>
       </section>
@@ -59,34 +54,54 @@
         <div id="news"></div>
       </section>
     </div>
-    <section id="officials" aria-label="Officials say">
-      <h2>Officials say</h2>
-      <div class="official-columns">
-        <div>
-          <h3>Russian officials</h3>
-          <div id="officials-ru"></div>
-        </div>
-        <div>
-          <h3>Regional and Western officials</h3>
-          <div id="officials-west"></div>
-        </div>
+    <aside id="drawer" class="drawer" aria-label="Country dossier">
+      <div class="drawer-head">
+        <p class="section-label">Dossier</p>
+        <button id="drawer-close" type="button">Close</button>
       </div>
-      <p class="note">Russian officials: full coverage from Russian state media. Western officials: selected weeks.</p>
-    </section>
-    <section id="inside-russia" aria-label="Inside Russia">
-      <h2>Inside Russia</h2>
-      <p id="inside-note" class="note">Inside Russia is display only. It does not affect the levels. Counts measure news volume, not military preparation.</p>
-      <ul id="inside-lines"></ul>
-      <p id="inside-background" class="note"></p>
-      <p id="inside-sources" class="note"></p>
-    </section>
-    <section id="timeline" aria-label="Week">
-      <button id="play" type="button" aria-pressed="false">Play</button>
-      <label class="slider-label">
-        <span id="week-label"></span>
-        <input id="slider" type="range" min="0" value="0">
-      </label>
-    </section>
+      <aside id="why" hidden>
+        <div class="why-head">
+          <h2 id="why-title">This week</h2>
+          <button id="why-close" type="button">Close</button>
+        </div>
+        <p id="why-subject"></p>
+        <p id="why-quiet" hidden>Quiet week — nothing notable.</p>
+        <div id="why-body">
+          <h3>What happened</h3>
+          <div id="why-events"></div>
+          <h3>What official sources say</h3>
+          <div id="why-official"></div>
+          <h3>What Russian state media says</h3>
+          <div id="why-media"></div>
+        </div>
+      </aside>
+      <p id="shared-reading" class="note"></p>
+      <section id="country-news" hidden>
+        <h2 id="country-news-title">News about</h2>
+        <div id="country-news-list"></div>
+      </section>
+      <section id="officials" aria-label="Officials say">
+        <h2>Officials say</h2>
+        <div class="official-columns">
+          <div>
+            <h3>Russian officials</h3>
+            <div id="officials-ru"></div>
+          </div>
+          <div>
+            <h3>Regional and Western officials</h3>
+            <div id="officials-west"></div>
+          </div>
+        </div>
+        <p class="note">Russian officials: full coverage from Russian state media. Western officials: selected weeks.</p>
+      </section>
+      <section id="inside-russia" aria-label="Inside Russia">
+        <h2>Inside Russia</h2>
+        <p id="inside-note" class="note">Inside Russia is display only. It does not affect the levels. Counts measure news volume, not military preparation.</p>
+        <ul id="inside-lines"></ul>
+        <p id="inside-background" class="note"></p>
+        <p id="inside-sources" class="note"></p>
+      </section>
+    </aside>
   </main>
   <div class="disclaimer-bar">
     <p id="disclaimer-short"></p>

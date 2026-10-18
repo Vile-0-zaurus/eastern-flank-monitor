@@ -759,6 +759,31 @@ async def run() -> int:
               return bad;
             })()""")
             problems.extend(order or [])
+            reach = await cdp.js("""(() => {
+              const play = document.getElementById('play');
+              const box = play.getBoundingClientRect();
+              play.click();
+              const again = play.getBoundingClientRect();
+              return box.width > 20 && box.top >= 0 && box.bottom <= window.innerHeight && again.width > 20;
+            })()""")
+            if not reach:
+                problems.append("play control is not reachable")
+            await cdp.call("Emulation.setEmulatedMedia", features=[{"name": "prefers-reduced-motion", "value": "reduce"}])
+            await cdp.js("sessionStorage.removeItem('efm-doors'); location.reload()")
+            for _ in range(40):
+                ready = await cdp.js("!!document.getElementById('slider') && document.getElementById('slider').max !== ''")
+                if ready:
+                    break
+                await asyncio.sleep(0.15)
+            else:
+                problems.append("reduced-motion page did not load")
+            reduced = await cdp.js("""(() => {
+              const doors = document.getElementById('doors');
+              if (!doors) return true;
+              return getComputedStyle(doors).display === 'none' || doors.hidden;
+            })()""")
+            if not reduced:
+                problems.append("reduced-motion still shows the entrance")
             problems.extend(f"browser: {line}" for line in cdp.console)
     finally:
         chrome.terminate()

@@ -284,6 +284,34 @@ function renderStrip() {
   if (shared) shared.textContent = "Cards list only facts about that country.";
 }
 
+function syncDrawer() {
+  document.body.classList.toggle("dossier-open", Boolean(state.focus));
+}
+
+function reducedMotion() {
+  return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+}
+
+function setupDoors() {
+  const doors = document.getElementById("doors");
+  if (!doors) return;
+  if (reducedMotion() || sessionStorage.getItem("efm-doors")) {
+    doors.remove();
+    return;
+  }
+  doors.hidden = false;
+  const finish = () => {
+    if (!doors.isConnected || doors.dataset.done) return;
+    doors.dataset.done = "1";
+    sessionStorage.setItem("efm-doors", "1");
+    doors.classList.add("open");
+    window.setTimeout(() => doors.remove(), 1100);
+  };
+  const skip = document.getElementById("skip-doors");
+  if (skip) skip.addEventListener("click", finish);
+  window.setTimeout(finish, 80);
+}
+
 function pickCountry(code) {
   if (state.focus === code) {
     clearFocus();
@@ -294,6 +322,7 @@ function pickCountry(code) {
   renderStrip();
   renderMap();
   renderCountryNews();
+  syncDrawer();
 }
 
 function clearFocus() {
@@ -305,6 +334,7 @@ function clearFocus() {
   renderMap();
   renderCountryNews();
   renderOfficials();
+  syncDrawer();
 }
 
 function renderCountryNews() {
@@ -686,6 +716,7 @@ function renderWeek() {
   renderOfficials();
   renderInside();
   renderCountryNews();
+  syncDrawer();
 }
 
 function officialCode() {
@@ -704,6 +735,22 @@ function renderInside() {
     const text = document.createElement("p");
     text.className = "headline-en";
     text.textContent = line.text;
+    if (!reducedMotion() && /\d/.test(line.text)) {
+      const token = (state.countToken = (state.countToken || 0) + 1);
+      const target = Number((line.text.match(/\d+/) || ["0"])[0]);
+      let step = 0;
+      const tick = () => {
+        if (token !== state.countToken || !text.isConnected) return;
+        step += 1;
+        if (step >= 5) {
+          text.textContent = line.text;
+          return;
+        }
+        text.textContent = line.text.replace(String(target), String(Math.round(target * step / 5)));
+        window.requestAnimationFrame(tick);
+      };
+      window.requestAnimationFrame(tick);
+    }
     item.append(text);
     if (line.title && line.english && isCyrillic(line.title) && line.title !== line.english) {
       const original = document.createElement("p");
@@ -782,6 +829,7 @@ function togglePlayback() {
 }
 
 async function main() {
+  setupDoors();
   const [text, csv, events, map, news, official, countryHeadlines, officials, inside] = await Promise.all([
     fetch("i18n/en.json").then((response) => response.json()),
     fetch("../docs/reports/2026-10-12-backtest-weeks.csv").then((response) => response.text()),
@@ -823,9 +871,11 @@ async function main() {
   });
   document.getElementById("slider").addEventListener("change", stop);
   document.getElementById("why-close").addEventListener("click", () => {
-    document.getElementById("why").hidden = true;
-    state.why = null;
-    renderOfficials();
+    clearFocus();
+  });
+  document.getElementById("drawer-close").addEventListener("click", () => {
+    stop();
+    clearFocus();
   });
   document.getElementById("filter-all").addEventListener("click", () => {
     state.filter = "all";
