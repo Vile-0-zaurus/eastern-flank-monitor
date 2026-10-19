@@ -1,0 +1,14 @@
+[Unit]
+Description=Eastern flank Now-download of the last 12 full weeks
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+WorkingDirectory=/home/supra/Projects/eastern-flank-monitor
+ExecStart=/home/supra/Projects/eastern-flank-monitor/.venv/bin/python -u /home/supra/Projects/eastern-flank-monitor/pipeline/fetch/now_download.py
+Restart=on-failure
+RestartSec=30
+
+[Install]
+WantedBy=default.target

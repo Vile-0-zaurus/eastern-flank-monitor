@@ -259,7 +259,7 @@ The report must still say that the Intent baseline was amended to `scoring-prere
 
 - **Intent source:** GKG is the primary Intent source for both the backtest and live running. RSS (TASS English, RIA) is a supplement for the current day only, not a backtest source.
 - **Language:** Python 3.11+
-- **Storage:** SQLite (one local file)
+- **Storage:** SQLite (one local file). Keep rules are in `docs/tasks/2026-10-19-storage-rules.md`, Section 1. Live retention is §14.6 and is not built.
 - **Pipeline:** Python scripts that fetch → store → score → write JSON output
 - **AI:** provider set in config, chosen by validation results. Key in `.env`.
 - **Frontend:** a static site (HTML + JavaScript + a chart library such as Chart.js) that reads the JSON output. Runs locally with a simple local web server. In Stage 2 the same site can be published as-is.
@@ -424,6 +424,16 @@ Estimates depend on real headline volumes (to be confirmed in M0/M1).
 The xAI $10 top-up on 2026-10-09 is the final funding for this project. It is not a monthly refill. Hermes does not use this key. The project key is `XAI_API_KEY` in the local `.env` only.
 
 Spend since that top-up is shown by `efm-status`: xAI, Anthropic, and what remains of the $10. The clock starts at 2026-10-09 00:00 UTC, because no hour was given. Anthropic spend is shown separately. It does not come out of the xAI $10. When the xAI remainder is used up, paid calls stop. Demo mode continues.
+
+### 14.6 Live retention (planned, not built)
+
+Do not build this until a later assignment says so. Do not roll, delete, or rescore `data/backtest/gkg.sqlite`. That file is the 2021–22 backtest archive.
+
+When live collection exists, keep the last 12 months in full. Full means one `kept` row as stored now: stream, stamp, day, domain, seen date, article URL, page title, locations, themes, and tone, plus that day's outlet total in `daily_totals`.
+
+A row older than 12 months is replaced by a weekly summary, then the row is dropped. The summary is one line per week, stream, and domain. It keeps the story count and the title-relevant count used for I1. It does not keep titles, URLs, locations, themes, or tone. The week is the Monday of the row's day. The roll runs after that day's store has been measured. It does not run during a download.
+
+The 50 MB/day stop in Section 1 of `docs/tasks/2026-10-19-storage-rules.md` is a collection gate. A day over 50 MB is reported and collection stops. It is not summarized away to get under the cap.
 
 ---
 

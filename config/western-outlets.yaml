@@ -1,0 +1,9 @@
+# Regional and Western outlets for the Now download.
+# Verified in GKG files from this window on 2026-10-19.
+# Seen: yle.fi, bbc.com, bbc.co.uk.
+# Not seen in that sample, so not listed: lrt.lt, err.ee, lsm.lv, pap.pl, reuters.com, apnews.com.
+# A miss in the sample is not proof they never appear. Do not add them until a file shows the domain.
+outlets:
+  - yle.fi
+  - bbc.com
+  - bbc.co.uk

@@ -471,6 +471,98 @@ elif priority_chunk_done:
 else:
     say("Batch 2 is waiting. The translation priority download is not finished, so there is nothing for you to audit yet.")
 
+def now_download_status():
+    """Read-only. Does not start or stop the download."""
+    unit = "efm-now-download.service"
+    say("Now-download pauses while the machine is off.")
+    try:
+        active = subprocess.check_output(
+            ["systemctl", "--user", "is-active", unit],
+            text=True, stderr=subprocess.DEVNULL,
+        ).strip()
+    except subprocess.CalledProcessError as exc:
+        active = (exc.output or "").strip() or "inactive"
+    try:
+        enabled = subprocess.check_output(
+            ["systemctl", "--user", "is-enabled", unit],
+            text=True, stderr=subprocess.DEVNULL,
+        ).strip()
+    except subprocess.CalledProcessError:
+        enabled = "disabled"
+    cap = root / "data" / "now" / "size-cap.txt"
+    if cap.exists():
+        say("Now-download stopped because a day exceeded 50 MB. " + cap.read_text(encoding="utf-8").strip())
+        actions.append("Now-download stopped because a stored day exceeded 50 MB")
+        return
+    db = root / "data" / "now" / "gkg-now.sqlite"
+    index_path = root / "data" / "now" / "index-count.txt"
+    index_total = 0
+    if index_path.exists():
+        for line in index_path.read_text(encoding="utf-8").splitlines():
+            if "=" in line:
+                try:
+                    index_total += int(line.split("=", 1)[1])
+                except ValueError:
+                    pass
+    done = 0
+    if db.exists():
+        con = sqlite3.connect(f"file:{db}?mode=ro", uri=True, timeout=5)
+        try:
+            con.execute("PRAGMA query_only=ON")
+            row = con.execute("SELECT COUNT(*) FROM files WHERE status='done'").fetchone()
+            done = int(row[0] if row else 0)
+        except sqlite3.Error:
+            done = 0
+        finally:
+            con.close()
+    if active == "active":
+        say("Now-download is running.")
+    elif enabled != "enabled":
+        say("Now-download has not been started.")
+        return
+    elif index_total and done >= index_total:
+        say(f"Now-download complete ({done:,} files).")
+        return
+    else:
+        say(f"Now-download is not running. Its status is {active}.")
+        actions.append("Now-download is not running")
+    if not index_total:
+        say("Now-download has not finished counting the file list.")
+        return
+    left = max(index_total - done, 0)
+    pct = 100 * done / index_total
+    say(f"Now-download is {pct:.1f} percent done, {done:,} of {index_total:,} files.")
+    try:
+        out = subprocess.check_output(
+            ["journalctl", "--user", "-u", unit, "--no-pager", "-o", "cat"],
+            text=True, stderr=subprocess.DEVNULL,
+        )
+    except subprocess.CalledProcessError:
+        out = ""
+    progress = parse_progress([line.strip() for line in out.splitlines() if line.strip()])
+    hour_ago = datetime.now(timezone.utc) - timedelta(hours=1)
+    recent = [(t, d, n) for t, d, n in progress if t >= hour_ago]
+    rate = None
+    if len(recent) >= 2:
+        gained = 0
+        span = 0
+        prev_t, prev_d, _prev_n = recent[0]
+        for t, d, _n in recent[1:]:
+            delta = (t - prev_t).total_seconds()
+            if d >= prev_d and delta > 0:
+                gained += d - prev_d
+                span += delta
+            prev_t, prev_d = t, d
+        if span > 0 and gained > 0:
+            rate = gained / (span / 60)
+    if rate and left:
+        say(f"Now-download has about {hours(left / rate)} left.")
+    elif left:
+        say("Now-download does not have enough finished files in the last hour for an arrival time.")
+
+
+now_download_status()
+
 if priority_chunk_done and not m1_done:
     if actions:
         say("ACTION NEEDED: " + "; ".join(actions) + ".")
