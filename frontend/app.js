@@ -901,6 +901,135 @@ function renderMoodCard(article, item) {
   article.append(sentence, axis, chart, meta, link, details);
 }
 
+function cardStory(item) {
+  return (item.english || "").trim();
+}
+
+function isEmptyCard(item) {
+  const line = (item.line || "").trim();
+  return !cardStory(item) && (!line || line === "No new data this week");
+}
+
+function isCountLine(line) {
+  return /\d/.test(line || "") && /headline|post|event/i.test(line || "");
+}
+
+function inCallUp(week) {
+  const start = new Date(week + "T00:00:00Z");
+  const end = new Date(start);
+  end.setUTCDate(end.getUTCDate() + 6);
+  const year = start.getUTCFullYear();
+  const seasons = [
+    [new Date(Date.UTC(year, 3, 1)), new Date(Date.UTC(year, 6, 15))],
+    [new Date(Date.UTC(year, 9, 1)), new Date(Date.UTC(year, 11, 31))],
+  ];
+  return seasons.some(([open, close]) => start <= close && end >= open);
+}
+
+function conscriptionNews(item) {
+  return Boolean(cardStory(item) || /\d+\s+conscription/i.test(item.line || ""));
+}
+
+function weekHasEvent(week) {
+  return (state.events || []).some((event) => {
+    const age = (Date.parse(week) - Date.parse(event.date)) / 86400000;
+    return age >= 0 && age < 7;
+  });
+}
+
+function weekNotable(week) {
+  return weekHasEvent(week);
+}
+
+function eventLine(event) {
+  return state.text[event.textKey] || (event.note || "").split(". ")[0];
+}
+
+function lastNotable(week) {
+  const prior = (state.events || []).filter((event) => event.date <= week && event.source);
+  if (!prior.length) return null;
+  prior.sort((a, b) => (a.date < b.date ? 1 : -1));
+  const event = prior[0];
+  const weeks = Math.max(0, Math.round((Date.parse(week) - Date.parse(event.date)) / 86400000 / 7));
+  return { weeks, line: eventLine(event), url: event.source };
+}
+
+function renderQuiet(week) {
+  const quiet = document.getElementById("inside-quiet");
+  if (!quiet) return;
+  quiet.innerHTML = "";
+  if (weekNotable(week)) {
+    quiet.hidden = true;
+    return;
+  }
+  const last = lastNotable(week);
+  if (!last) {
+    quiet.hidden = true;
+    return;
+  }
+  quiet.hidden = false;
+  const text = document.createElement("span");
+  text.textContent = "Last notable: " + last.weeks + " weeks ago — " + last.line + " ";
+  const link = document.createElement("a");
+  link.href = last.url;
+  link.textContent = "Source";
+  quiet.append(text, link);
+}
+
+function latestMood(week) {
+  const weeks = Object.keys((state.insideMain && state.insideMain.weeks) || {}).filter((key) => key <= week).sort();
+  let found = null;
+  weeks.forEach((key) => {
+    const mood = ((state.insideMain.weeks[key] || {}).cards || []).find((item) => item.title === "Public mood" && item.bars && item.bars.length);
+    if (mood) found = mood;
+  });
+  return found;
+}
+
+function renderBackground(week) {
+  const box = document.getElementById("inside-background");
+  if (!box) return;
+  box.innerHTML = "";
+  const mood = latestMood(week);
+  if (!mood) {
+    box.hidden = true;
+    return;
+  }
+  box.hidden = false;
+  const label = document.createElement("h3");
+  label.textContent = "Background";
+  const line = document.createElement("p");
+  line.textContent = mood.line;
+  const when = document.createElement("p");
+  when.className = "note";
+  when.textContent = "Poll date: " + (mood.poll_date || "") + ", published " + dateWords(mood.published) + ".";
+  const details = document.createElement("details");
+  details.className = "full-poll";
+  const summary = document.createElement("summary");
+  summary.textContent = "Full poll";
+  const chartHost = document.createElement("div");
+  details.append(summary, chartHost);
+  box.append(label, line, when, details);
+  renderMoodCard(chartHost, mood);
+}
+
+function renderTicks() {
+  const host = document.getElementById("week-ticks");
+  if (!host) return;
+  const rows = flankWeeks();
+  if (host.childElementCount !== rows.length) {
+    host.innerHTML = "";
+    rows.forEach(() => {
+      const tick = document.createElement("span");
+      tick.className = "tick";
+      host.append(tick);
+    });
+  }
+  [...host.children].forEach((tick, index) => {
+    tick.classList.toggle("notable", weekNotable(rows[index].week));
+  });
+}
+
 function renderInsideMain() {
   const host = document.getElementById("inside-cards");
   if (!host || !state.insideMain) return;
@@ -911,28 +1040,36 @@ function renderInsideMain() {
   if (coverage) coverage.textContent = state.insideMain.coverage || "";
   if (volume) volume.textContent = state.insideMain.volume_note || "";
   host.innerHTML = "";
-  const week = (state.insideMain.weeks || {})[current().week];
-  const cards = week ? week.cards : [];
+  const week = current().week;
+  const block = (state.insideMain.weeks || {})[week];
+  const cards = block ? block.cards : [];
+  renderQuiet(week);
   cards.forEach((item) => {
+    if (item.title === "Public mood" || (item.bars && item.bars.length)) return;
+    if (item.title === "Conscription" && !(inCallUp(week) || conscriptionNews(item))) return;
+    if (isEmptyCard(item)) return;
     const article = document.createElement("article");
     article.className = "russia-card";
     const title = document.createElement("h3");
     title.textContent = item.title;
+    const story = cardStory(item);
     const line = document.createElement("p");
     line.className = "russia-line";
-    line.textContent = item.line + (item.arrow ? " " + item.arrow : "");
-    article.append(title, line);
-    if (item.bars && item.bars.length) {
-      host.append(article);
-      article.removeChild(line);
-      renderMoodCard(article, item);
-      return;
+    if (story) {
+      line.textContent = story;
+    } else if (isCountLine(item.line)) {
+      article.classList.add("compact");
+      line.className = "card-count";
+      line.textContent = item.line + (item.arrow ? " " + item.arrow : "");
+    } else {
+      line.textContent = item.line + (item.arrow ? " " + item.arrow : "");
     }
-    if (item.english) {
-      const english = document.createElement("p");
-      english.className = "headline-en";
-      english.textContent = item.english;
-      article.append(english);
+    article.append(title, line);
+    if (story && isCountLine(item.line)) {
+      const count = document.createElement("p");
+      count.className = "card-count";
+      count.textContent = item.line + (item.arrow ? " " + item.arrow : "");
+      article.append(count);
     }
     if (item.russian) {
       const russian = document.createElement("p");
@@ -948,6 +1085,8 @@ function renderInsideMain() {
     }
     host.append(article);
   });
+  renderBackground(week);
+  renderTicks();
 }
 
 function renderWeek() {
@@ -1068,16 +1207,26 @@ function stop() {
   setToggle();
 }
 
+function nextIndex(from) {
+  const rows = flankWeeks();
+  const skip = document.getElementById("skip-quiet") && document.getElementById("skip-quiet").checked;
+  let index = from + 1;
+  if (!skip) return index;
+  while (index < rows.length && !weekNotable(rows[index].week)) index += 1;
+  return index;
+}
+
 function play() {
   stop();
   const token = state.playToken;
   state.timer = setInterval(() => {
     if (token !== state.playToken || !state.timer) return;
-    if (state.index >= flankWeeks().length - 1) {
+    const next = nextIndex(state.index);
+    if (next >= flankWeeks().length) {
       stop();
       return;
     }
-    state.index += 1;
+    state.index = next;
     renderWeek();
   }, 900);
   setToggle();

@@ -1020,9 +1020,29 @@ body.briefing .russia-card {
   border: 1px solid var(--line);
   padding: 12px;
   margin: 0 0 12px;
-  min-height: 7.5rem;
   overflow: visible;
 }
+body.briefing .russia-card.compact {
+  min-height: 0;
+  padding: 6px 10px;
+  margin: 0 0 6px;
+}
+body.briefing .card-count {
+  margin: 0;
+  color: var(--muted, #8b93a7);
+  font-size: 12px;
+}
+body.briefing .background-box {
+  border: 1px solid var(--line);
+  padding: 8px 10px;
+  margin: 8px 0 0;
+}
+body.briefing .background-box h3 { margin: 0 0 4px; font-size: 13px; letter-spacing: 0.04em; text-transform: uppercase; }
+body.briefing .background-box p { margin: 0 0 4px; }
+body.briefing .week-ticks { display: flex; gap: 1px; height: 6px; }
+body.briefing .week-ticks .tick { flex: 1; height: 3px; background: transparent; }
+body.briefing .week-ticks .tick.notable { background: var(--accent, #5eead4); }
+body.briefing .skip-quiet { font-size: 12px; }
 body.briefing .russia-card h3 { margin: 0 0 6px; font-size: 18px; }
 body.briefing .russia-line { margin: 0 0 8px; }
 body.briefing #inside-russia { display: none; }

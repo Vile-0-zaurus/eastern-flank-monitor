@@ -724,12 +724,18 @@ async def run() -> int:
                 slider.value = String(i);
                 slider.dispatchEvent(new Event('input', {bubbles: true}));
                 const cards = [...document.querySelectorAll('#inside-cards .russia-card')];
-                if (cards.length !== 5) bad.push('inside cards ' + cards.length);
                 cards.forEach((card) => {
                   const en = card.querySelector('.headline-en');
                   const ru = card.querySelector('.headline-ru');
                   if (ru && en && !(en.compareDocumentPosition(ru) & Node.DOCUMENT_POSITION_FOLLOWING)) bad.push('inside Russian before English');
+                  if (card.querySelector('h3') && card.querySelector('h3').textContent === 'Public mood') bad.push('week ' + i + ' mood is still a card');
+                  const box = card.getBoundingClientRect();
+                  if (card.classList.contains('compact') && box.height > 72) bad.push('week ' + i + ' empty box');
+                  if (card.innerText.trim() === 'No new data this week' || card.innerText.includes('No new data this week') && box.height > 72) bad.push('week ' + i + ' big empty card');
                 });
+                const outside = /January|February|March|August|September/.test(document.getElementById('week-label').textContent);
+                const conscriptionNow = cards.find((card) => card.querySelector('h3') && card.querySelector('h3').textContent === 'Conscription');
+                if (outside && conscriptionNow && !/\\d+\\s+conscription/i.test(conscriptionNow.innerText) && !conscriptionNow.querySelector('a')) bad.push('week ' + i + ' conscription shown with no news');
                 if (document.getElementById('inside-main').hidden) bad.push('week ' + i + ' Russia closed while moving weeks');
                 const mainPanel = document.getElementById('inside-main').innerText;
                 if (!mainPanel.includes('Inside Russia informs; it does not change the tension levels.')) bad.push('inside note missing');
@@ -809,25 +815,38 @@ async def run() -> int:
               document.getElementById('russia-square').click();
               if (!goWeek('Week of 7 June 2021')) bad.push('missing week before the poll');
               const before = document.getElementById('inside-main').innerText;
-              if (!before.includes('No new data this week')) bad.push('poll shown before publication');
               if (before.includes('In May 2021, Russians often named')) bad.push('mood sentence before publication');
               if (!goWeek('Week of 14 June 2021')) bad.push('missing poll week');
               if (document.getElementById('inside-main').hidden) bad.push('Russia closed while moving to the poll week');
-              const mood = [...document.querySelectorAll('#inside-cards .russia-card')].find((card) => card.querySelector('h3') && card.querySelector('h3').textContent === 'Public mood');
+              const mood = document.getElementById('inside-background');
               const moodText = mood ? mood.innerText : '';
+              if (!mood || mood.hidden) bad.push('background box missing');
               if (!moodText.includes('In May 2021, Russians often named the Baltic states and Poland as unfriendly (Levada).')) bad.push('mood sentence missing');
-              if (!moodText.includes('% of Russians naming this country unfriendly')) bad.push('mood axis missing');
-              const names = mood ? [...mood.querySelectorAll('.mood-name')].map((node) => node.textContent) : [];
-              if (names.join('|') !== 'Lithuania|Latvia|Estonia|Poland|Finland|USA (reference)|Ukraine (reference)') bad.push('mood bars ' + names.join('|'));
-              const finland = mood ? mood.querySelectorAll('.mood-value')[4] : null;
-              if (!finland || finland.textContent !== 'not listed') bad.push('Finland number was invented');
-              if (!moodText.includes('Polls in Russia may not reflect honest opinion')) bad.push('mood caution missing');
-              if (!moodText.includes('Levada Center')) bad.push('pollster missing');
+              if (!moodText.includes('Poll date:')) bad.push('poll date missing');
               const full = mood ? mood.querySelector('.full-poll') : null;
               if (!full || full.open) bad.push('full poll is not behind a toggle');
+              const finland = mood ? mood.querySelectorAll('.mood-value')[4] : null;
+              if (!finland || finland.textContent !== 'not listed') bad.push('Finland number was invented');
               if (moodText.includes('83 percent said Russia has enemies')) bad.push('full poll is visible without the toggle');
               const conscription = [...document.querySelectorAll('#inside-cards .russia-card')].find((card) => card.querySelector('h3') && card.querySelector('h3').textContent === 'Conscription');
-              if (!conscription || conscription.querySelector('.mood-chart')) bad.push('conscription card changed');
+              if (conscription && conscription.querySelector('.mood-chart')) bad.push('conscription card changed');
+              if (!document.getElementById('skip-quiet')) bad.push('skip quiet weeks missing');
+              if (!document.querySelector('#week-ticks .tick.notable')) bad.push('notable ticks missing');
+              let foundQuiet = false;
+              const tickSlider = document.getElementById('slider');
+              const tickMax = Number(tickSlider.max);
+              for (let i = 0; i <= tickMax; i += 1) {
+                const tick = document.querySelectorAll('#week-ticks .tick')[i];
+                if (!tick || tick.classList.contains('notable')) continue;
+                tickSlider.value = String(i);
+                tickSlider.dispatchEvent(new Event('input', {bubbles: true}));
+                const quiet = document.getElementById('inside-quiet');
+                if (quiet && !quiet.hidden && quiet.innerText.includes('Last notable:')) {
+                  foundQuiet = true;
+                  break;
+                }
+              }
+              if (!foundQuiet) bad.push('quiet week has no last notable line');
               document.querySelector('.land[data-country="RU"]').dispatchEvent(new MouseEvent('click', {bubbles: true}));
               if (!document.getElementById('inside-main').hidden) bad.push('map click did not close Russia');
               document.querySelector('.land[data-country="RU"]').dispatchEvent(new MouseEvent('click', {bubbles: true}));
