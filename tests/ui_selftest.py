@@ -257,7 +257,7 @@ MAIN_SWEEP = r"""
       if (!allowedSigns.has(sign)) bad.push('main week ' + i + ' bad sign ' + sign);
     });
     const names = [...document.querySelectorAll('.country-name')].map((node) => node.textContent.trim());
-    if (names.join('|') !== 'Finland|Estonia|Latvia|Lithuania|Poland') {
+    if (names.join('|') !== 'Finland|Estonia|Latvia|Lithuania|Poland|Russia') {
       bad.push('main week ' + i + ' names ' + names.join(','));
     }
     const dots = [...document.querySelectorAll('.event-dot')].map((dot) => ({
@@ -452,7 +452,7 @@ PROTO_SWEEP = r"""
         if (!/→|↑|↓/.test(cardText)) bad.push(week + ' chip missing arrow');
         if (/stored headline|Cards list/.test(cardText)) bad.push(week + ' chip jargon');
     const names = [...document.querySelectorAll('.country-name')].map((node) => node.textContent.trim()).join('|');
-    if (names !== 'Finland|Estonia|Latvia|Lithuania|Poland') bad.push(week + ' names ' + names);
+    if (names !== 'Finland|Estonia|Latvia|Lithuania|Poland|Russia') bad.push(week + ' names ' + names);
     shown.push({
       week,
       sign: match ? match[1] : '',
@@ -705,6 +705,19 @@ async def run() -> int:
               });
               const note = document.getElementById('officials') ? document.getElementById('officials').innerText : '';
               if (!note.includes('Russian officials: full coverage from Russian state media. Western officials: selected weeks.')) bad.push('officials note missing');
+              const square = document.getElementById('russia-square');
+              const poland = document.getElementById('country-PL');
+              if (!square) bad.push('russia square missing');
+              if (square && poland && poland.compareDocumentPosition(square) !== Node.DOCUMENT_POSITION_FOLLOWING) bad.push('Russia square is not after Poland');
+              if (square) {
+                const box = square.getBoundingClientRect();
+                const all = document.getElementById('show-all').getBoundingClientRect();
+                if (box.left < 0 || box.right > window.innerWidth + 1 || box.width < 40) bad.push('russia square clipped');
+                if (all.right > window.innerWidth + 1) bad.push('show all clipped');
+                if (getComputedStyle(square).borderTopColor === getComputedStyle(poland).borderTopColor) bad.push('Russia square border is not distinct');
+                square.click();
+              }
+              if (document.getElementById('inside-main').hidden) bad.push('russia square did not open');
               const slider = document.getElementById('slider');
               const max = Number(slider.max);
               for (let i = 0; i <= max; i += 1) {
@@ -717,27 +730,40 @@ async def run() -> int:
                   const ru = card.querySelector('.headline-ru');
                   if (ru && en && !(en.compareDocumentPosition(ru) & Node.DOCUMENT_POSITION_FOLLOWING)) bad.push('inside Russian before English');
                 });
+                if (document.getElementById('inside-main').hidden) bad.push('week ' + i + ' Russia closed while moving weeks');
                 const mainPanel = document.getElementById('inside-main').innerText;
                 if (!mainPanel.includes('Inside Russia informs; it does not change the tension levels.')) bad.push('inside note missing');
                 if (!mainPanel.includes('Telegram coverage: 1 January 2021 through 28 February 2022.')) bad.push('coverage missing');
                 if (/imminent|war is coming|alarming|shocking/i.test(mainPanel)) bad.push('scare wording');
                 const foreignLetters = /[ãõçñ¿¡ğşıİıіїєґјљњћђџ]/;
-                const regionWord = /finland|finnish|estonia|estonian|latvia|latvian|lithuania|lithuanian|poland|polish|baltic|belarus|kaliningrad|ukraine|ukrainian|nato|border|military|troop|army|exercise|drill|sanction|deploy|финлянд|эстон|латви|литв|польш|прибалт|балтий|беларус|белорус|калининград|украин|нато|границ|погранич|военн|войск|учен|санкц/i;
-                const ruSpeaker = /путин|кремл|песков|лавров|захаров|шоигу|миноборон|госдум|совфед|совет федерации|сенатор|putin|kremlin|peskov|lavrov|zakharova|shoigu|state duma|federation council/i;
-                const westSpeaker = /nato|нато|столтенберг|stoltenberg|biden|байден|blinken|блинкен|psaki|white house|state department|department of state|pentagon|european commission|еврокомисс|евросоюз|borrell|президент|премьер|мид |prime minister|president|ministry of|government of|finnish|estonian|latvian|lithuanian|polish|finland|estonia|latvia|lithuania|poland|niinist|kallas|karis|nauseda|duda|morawiecki/i;
+                function storyText(story) {
+                  return [...story.children].map((node) => node.textContent).join(' ');
+                }
+                function hasNato(text) {
+                  return /(^|[^A-Za-z])nato([^A-Za-z]|$)/i.test(text);
+                }
+                const regionWord = /finland|finnish|estonia|estonian|latvia|latvian|lithuania|lithuanian|poland|polish|baltic|belarus|kaliningrad|ukraine|ukrainian|border|military|troop|army|exercise|drill|sanction|deploy|финлянд|финск|эстон|латви|литв|польш|прибалт|балтий|беларус|белорус|калининград|украин|границ|погранич|военн|войск|арми|учен|санкц|разв|нато/i;
+                const ruSpeaker = /путин|кремл|песков|лавров|захаров|шоигу|миноборон|госдум|совфед|совет федерации|сенатор|putin|kremlin|peskov|lavrov|zakharova|shoigu|state duma|federation council|russian senator|russian diplomat|senator/i;
+                const westSpeaker = /столтенберг|stoltenberg|north atlantic council|biden|байден|blinken|блинкен|psaki|псаки|white house|state department|department of state|pentagon|госдеп|european commission|еврокомисс|евросоюз|european council|borrell|боррел|президент|премьер|мид |prime minister|president|ministry of|government of|finnish|estonian|latvian|lithuanian|polish|finland|estonia|latvia|lithuania|poland|niinist|kallas|karis|nauseda|duda|morawiecki|us senator|american senator|нато/i;
+                const russianOffice = /federation council|совфед|совет федерации|сенатор|russian senator|russian diplomat|state duma|госдум/i;
                 document.querySelectorAll('#news .story, #country-news .story, #officials .story').forEach((story) => {
-                  const text = story.innerText;
+                  const text = storyText(story);
                   const original = story.querySelector('.headline-ru');
                   if (original && (foreignLetters.test(original.textContent) || !/[А-Яа-яЁё]/.test(original.textContent))) bad.push('week ' + i + ' non-Russian original');
                   if (!original && foreignLetters.test(text)) bad.push('week ' + i + ' foreign-language item');
-                  if (!regionWord.test(text)) bad.push('week ' + i + ' item fails relevance');
+                  if (!hasNato(text) && !regionWord.test(text)) bad.push('week ' + i + ' item fails relevance: ' + text.replace(/\s+/g, ' ').trim().slice(0, 90));
                 });
                 document.querySelectorAll('#officials-ru .story').forEach((story) => {
-                  if (!ruSpeaker.test(story.innerText)) bad.push('week ' + i + ' Russian column speaker');
+                  if (!ruSpeaker.test(story.textContent)) bad.push('week ' + i + ' Russian column speaker');
                 });
                 document.querySelectorAll('#officials-west .story').forEach((story) => {
-                  if (!westSpeaker.test(story.innerText)) bad.push('week ' + i + ' Western column speaker');
+                  const text = storyText(story);
+                  if (!hasNato(text) && !westSpeaker.test(text)) bad.push('week ' + i + ' Western column speaker: ' + text.replace(/\s+/g, ' ').trim().slice(0, 90));
+                  if (russianOffice.test(text) || (/(^|[^A-Za-z])senator([^A-Za-z]|$)/i.test(text) && !/(us|u\.s\.|american|french|dutch|german|british)\s+senators?/i.test(text))) bad.push('week ' + i + ' Russian speaker in western column');
                 });
+                if (i === 0 && document.getElementById('drawer').textContent.includes('Assange')) bad.push('Assange item was not dropped');
+                const regionStories = document.querySelectorAll('#region-news .story').length;
+                if (regionStories > 3) bad.push('week ' + i + ' region news over 3');
                 if (!mainPanel.includes('Counts measure news volume, not military preparation.')) bad.push('volume note missing');
               }
               document.getElementById('show-all').click();
@@ -768,6 +794,49 @@ async def run() -> int:
               if (playBox.bottom > foot.top + 2) bad.push('footer overlaps play');
               document.getElementById('country-PL').click();
               if (!document.getElementById('country-news').hidden) bad.push('second click did not clear the country');
+              const countryStories = document.querySelectorAll('#country-news .story').length;
+              if (countryStories > 3) bad.push('country news over 3');
+              function goWeek(label) {
+                const slider = document.getElementById('slider');
+                const max = Number(slider.max);
+                for (let i = 0; i <= max; i += 1) {
+                  slider.value = String(i);
+                  slider.dispatchEvent(new Event('input', {bubbles: true}));
+                  if (document.getElementById('week-label').textContent === label) return true;
+                }
+                return false;
+              }
+              document.getElementById('russia-square').click();
+              if (!goWeek('Week of 7 June 2021')) bad.push('missing week before the poll');
+              const before = document.getElementById('inside-main').innerText;
+              if (!before.includes('No new data this week')) bad.push('poll shown before publication');
+              if (before.includes('In May 2021, Russians often named')) bad.push('mood sentence before publication');
+              if (!goWeek('Week of 14 June 2021')) bad.push('missing poll week');
+              if (document.getElementById('inside-main').hidden) bad.push('Russia closed while moving to the poll week');
+              const mood = [...document.querySelectorAll('#inside-cards .russia-card')].find((card) => card.querySelector('h3') && card.querySelector('h3').textContent === 'Public mood');
+              const moodText = mood ? mood.innerText : '';
+              if (!moodText.includes('In May 2021, Russians often named the Baltic states and Poland as unfriendly (Levada).')) bad.push('mood sentence missing');
+              if (!moodText.includes('% of Russians naming this country unfriendly')) bad.push('mood axis missing');
+              const names = mood ? [...mood.querySelectorAll('.mood-name')].map((node) => node.textContent) : [];
+              if (names.join('|') !== 'Lithuania|Latvia|Estonia|Poland|Finland|USA (reference)|Ukraine (reference)') bad.push('mood bars ' + names.join('|'));
+              const finland = mood ? mood.querySelectorAll('.mood-value')[4] : null;
+              if (!finland || finland.textContent !== 'not listed') bad.push('Finland number was invented');
+              if (!moodText.includes('Polls in Russia may not reflect honest opinion')) bad.push('mood caution missing');
+              if (!moodText.includes('Levada Center')) bad.push('pollster missing');
+              const full = mood ? mood.querySelector('.full-poll') : null;
+              if (!full || full.open) bad.push('full poll is not behind a toggle');
+              if (moodText.includes('83 percent said Russia has enemies')) bad.push('full poll is visible without the toggle');
+              const conscription = [...document.querySelectorAll('#inside-cards .russia-card')].find((card) => card.querySelector('h3') && card.querySelector('h3').textContent === 'Conscription');
+              if (!conscription || conscription.querySelector('.mood-chart')) bad.push('conscription card changed');
+              document.querySelector('.land[data-country="RU"]').dispatchEvent(new MouseEvent('click', {bubbles: true}));
+              if (!document.getElementById('inside-main').hidden) bad.push('map click did not close Russia');
+              document.querySelector('.land[data-country="RU"]').dispatchEvent(new MouseEvent('click', {bubbles: true}));
+              if (document.getElementById('inside-main').hidden) bad.push('map click did not open Russia');
+              document.getElementById('drawer-close').click();
+              if (!document.getElementById('inside-main').hidden || document.getElementById('region-overview').hidden) bad.push('Close did not return to the region');
+              const left = document.getElementById('russia-square').getBoundingClientRect().x;
+              document.getElementById('slider').dispatchEvent(new Event('input', {bubbles: true}));
+              if (Math.abs(document.getElementById('russia-square').getBoundingClientRect().x - left) > 1) bad.push('Russia square jumped');
               return bad;
             })()""")
             problems.extend(order or [])

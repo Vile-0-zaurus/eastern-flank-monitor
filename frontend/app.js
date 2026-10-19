@@ -16,6 +16,8 @@ const state = {
   index: 0,
   timer: null,
   filter: "all",
+  russiaOpen: false,
+  moreFeed: {},
 };
 
 function fill(template, values) {
@@ -128,7 +130,14 @@ function isForeignService(story) {
 }
 
 function mentionsRegion(text) {
-  return /finland|finnish|estonia|estonian|latvia|latvian|lithuania|lithuanian|poland|polish|baltic|belarus|kaliningrad|ukraine|ukrainian|nato|финлянд|финск|эстон|латви|литв|польш|прибалт|балтий|беларус|белорус|калининград|украин|нато|border|military|troop|army|exercise|drill|sanction|deploy|границ|погранич|военн|войск|арми|учен|санкц|разв[её]ртыван/i.test(text || "");
+  const value = text || "";
+  if (/\bnato\b/i.test(value)) return true;
+  if (/(?<![а-яё])нато(?![а-яё])/i.test(value)) return true;
+  return /finland|finnish|estonia|estonian|latvia|latvian|lithuania|lithuanian|poland|polish|baltic|belarus|kaliningrad|ukraine|ukrainian|border|military|troop|army|exercise|drill|sanction|deploy|финлянд|финск|эстон|латви|литв|польш|прибалт|балтий|беларус|белорус|калининград|украин|границ|погранич|военн|войск|арми|учен|санкц|разв[её]ртыван/i.test(value);
+}
+
+function foreignSenator(text) {
+  return /\b(us|u\.s\.|american|french|dutch|german|british|italian|european)\s+senators?\b/i.test(text || "");
 }
 
 function allowedOriginal(story) {
@@ -148,13 +157,16 @@ function showNews(story) {
 
 function russianSpeaker(text) {
   const value = text || "";
-  if (/миноборон\w* украин/i.test(value) && !/путин|кремл|песков|лавров|захаров|шоигу|госдум|совфед/i.test(value)) return false;
-  return /путин|кремл|песков|лавров|захаров|шоигу|миноборон|госдум|совфед|совет федерации|сенатор|putin|kremlin|peskov|lavrov|zakharova|shoigu|state duma|federation council/i.test(value);
+  if (/миноборон\w* украин/i.test(value) && !/путин|кремл|песков|лавров|захаров|шоигу|госдум|совфед|совет федерации|сенатор|federation council|russian senator/i.test(value)) return false;
+  if (/путин|кремл|песков|лавров|захаров|шоигу|миноборон|госдум|совфед|совет федерации|сенатор|putin|kremlin|peskov|lavrov|zakharova|shoigu|state duma|federation council|russian senator|russian diplomat/i.test(value)) return true;
+  if (/\bsenator\b/i.test(value) && !foreignSenator(value) && /russian politics|says senator|senator says|senator insists|— senator|– senator|- senator/i.test(value)) return true;
+  return false;
 }
 
 function westernSpeaker(text) {
   const value = text || "";
-  if (/nato|нато|столтенберг|stoltenberg|north atlantic council/i.test(value)) return true;
+  if (/\bnato\b/i.test(value) || /(?<![а-яё])нато(?![а-яё])/i.test(value) || /столтенберг|stoltenberg|north atlantic council/i.test(value)) return true;
+  if (/\b(us|u\.s\.|american)\s+senators?\b/i.test(value)) return true;
   if (/biden|байден|blinken|блинкен|psaki|псаки|white house|белый дом|state department|department of state|pentagon|госдеп/i.test(value)) return true;
   if (/european commission|еврокомисс|евросоюз|european council|borrell|боррел/i.test(value)) return true;
   if (/президент\w* (финлянд|эстон|латви|литв|польш)|премьер\w*.{0,40}(финлянд|эстон|латви|литв|польш)|мид (литв|польш|латви|эстон|финлянд)/i.test(value)) return true;
@@ -166,10 +178,8 @@ function westernSpeaker(text) {
 
 function speakerSide(story) {
   const blob = (story.title || "") + " " + (story.english || "") + " " + (story.summary || "") + " " + (story.who || "") + " " + (story.outlet || "");
-  const russian = russianSpeaker(blob);
-  const western = westernSpeaker(blob);
-  if (russian && !western) return "russian";
-  if (western && !russian) return "western";
+  if (russianSpeaker(blob)) return "russian";
+  if (westernSpeaker(blob)) return "western";
   return "";
 }
 
@@ -314,19 +324,42 @@ function renderStrip() {
     });
     strip.appendChild(button);
   });
+  const russia = document.createElement("button");
+  russia.type = "button";
+  russia.id = "russia-square";
+  russia.className = "russia-square" + (state.russiaOpen ? " picked" : "");
+  russia.setAttribute("aria-pressed", state.russiaOpen ? "true" : "false");
+  const russiaName = document.createElement("span");
+  russiaName.className = "country-name";
+  russiaName.textContent = "Russia";
+  const russiaMark = document.createElement("span");
+  russiaMark.className = "russia-mark";
+  russiaMark.textContent = "Inside";
+  russia.append(russiaName, russiaMark);
+  russia.addEventListener("click", () => {
+    stop();
+    toggleRussia();
+  });
+  strip.appendChild(russia);
   const shared = document.getElementById("shared-reading");
   if (shared) shared.textContent = "";
 }
 
 function syncDrawer() {
   document.body.classList.add("dossier-open");
+  const inside = document.getElementById("inside-main");
+  if (inside) inside.hidden = !state.russiaOpen;
+  const officials = document.getElementById("officials");
+  if (officials) officials.hidden = Boolean(state.russiaOpen);
+  const why = document.getElementById("why");
+  if (why && state.russiaOpen) why.hidden = true;
   renderRegionOverview();
 }
 
 function renderRegionOverview() {
   const section = document.getElementById("region-overview");
   if (!section) return;
-  const open = !state.focus;
+  const open = !state.focus && !state.russiaOpen;
   section.hidden = !open;
   const close = document.getElementById("drawer-close");
   if (close) close.hidden = open;
@@ -393,7 +426,23 @@ function setupDoors() {
   window.setTimeout(finish, 80);
 }
 
+function toggleRussia() {
+  state.russiaOpen = !state.russiaOpen;
+  if (state.russiaOpen) {
+    state.focus = null;
+    state.why = null;
+    const panel = document.getElementById("why");
+    if (panel) panel.hidden = true;
+  }
+  renderStrip();
+  renderMap();
+  renderCountryNews();
+  renderOfficials();
+  syncDrawer();
+}
+
 function pickCountry(code) {
+  state.russiaOpen = false;
   if (state.focus === code) {
     clearFocus();
     return;
@@ -409,6 +458,7 @@ function pickCountry(code) {
 function clearFocus() {
   state.focus = null;
   state.why = null;
+  state.russiaOpen = false;
   const panel = document.getElementById("why");
   if (panel) panel.hidden = true;
   renderStrip();
@@ -542,8 +592,8 @@ function renderMap() {
     const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
     path.setAttribute("d", country.d);
     path.setAttribute("data-country", country.id);
-    const picked = state.focus === country.id;
-    const dimmed = state.focus && state.focus !== country.id;
+    const picked = state.focus === country.id || (state.russiaOpen && country.id === "RU");
+    const dimmed = (state.focus && state.focus !== country.id) || (state.russiaOpen && country.id !== "RU");
     path.setAttribute("class", "land land-" + country.id + (COUNTRIES.includes(country.id) ? " state-" + signFor(current()).kind : "") + (picked ? " picked" : "") + (dimmed ? " dimmed" : ""));
     const label = state.text["country_" + country.id] || country.name;
     path.setAttribute("aria-label", label);
@@ -556,6 +606,11 @@ function renderMap() {
       path.addEventListener("click", () => {
         stop();
         openWhy(country.id);
+      });
+    } else if (country.id === "RU") {
+      path.addEventListener("click", () => {
+        stop();
+        toggleRussia();
       });
     }
     svg.appendChild(path);
@@ -650,8 +705,21 @@ function renderNews() {
     heading.textContent = code === "other" ? "Not tied to one country" : state.text["country_" + code];
     section.appendChild(heading);
     const list = document.createElement("ul");
-    groups[code].slice(0, 3).forEach((story) => appendStory(list, story));
+    const expanded = Boolean(state.moreFeed[code]);
+    const shown = expanded ? groups[code] : groups[code].slice(0, 3);
+    shown.forEach((story) => appendStory(list, story));
     section.appendChild(list);
+    if (groups[code].length > 3) {
+      const more = document.createElement("button");
+      more.type = "button";
+      more.className = "show-more";
+      more.textContent = expanded ? "Show less" : "Show more";
+      more.addEventListener("click", () => {
+        state.moreFeed[code] = !state.moreFeed[code];
+        renderNews();
+      });
+      section.appendChild(more);
+    }
     host.appendChild(section);
   });
 }
@@ -789,6 +857,50 @@ function openWhy(code, focus) {
   renderOfficials();
 }
 
+function renderMoodCard(article, item) {
+  const sentence = document.createElement("p");
+  sentence.className = "russia-line";
+  sentence.textContent = item.line;
+  const axis = document.createElement("p");
+  axis.className = "note";
+  axis.textContent = item.axis || "% of Russians naming this country unfriendly";
+  const chart = document.createElement("div");
+  chart.className = "mood-chart";
+  const max = Math.max(...item.bars.map((bar) => Number(bar.pct) || 0), 1);
+  item.bars.forEach((bar) => {
+    const row = document.createElement("div");
+    row.className = "mood-row" + (bar.reference ? " reference" : "");
+    const name = document.createElement("span");
+    name.className = "mood-name";
+    name.textContent = bar.name;
+    const track = document.createElement("span");
+    track.className = "mood-track";
+    const fill = document.createElement("span");
+    fill.className = "mood-fill";
+    fill.style.width = bar.pct == null ? "0" : Math.round((Number(bar.pct) / max) * 100) + "%";
+    track.append(fill);
+    const value = document.createElement("span");
+    value.className = "mood-value";
+    value.textContent = bar.pct == null ? "not listed" : bar.pct + "%";
+    row.append(name, track, value);
+    chart.append(row);
+  });
+  const meta = document.createElement("p");
+  meta.className = "note mood-meta";
+  meta.textContent = "Poll date: " + item.poll_date + ", published " + dateWords(item.published) + ". " + item.pollster + ". " + item.caution;
+  const link = document.createElement("a");
+  link.href = item.url;
+  link.textContent = "Source";
+  const details = document.createElement("details");
+  details.className = "full-poll";
+  const summary = document.createElement("summary");
+  summary.textContent = "Full poll";
+  const full = document.createElement("p");
+  full.textContent = item.full || "";
+  details.append(summary, full);
+  article.append(sentence, axis, chart, meta, link, details);
+}
+
 function renderInsideMain() {
   const host = document.getElementById("inside-cards");
   if (!host || !state.insideMain) return;
@@ -810,6 +922,12 @@ function renderInsideMain() {
     line.className = "russia-line";
     line.textContent = item.line + (item.arrow ? " " + item.arrow : "");
     article.append(title, line);
+    if (item.bars && item.bars.length) {
+      host.append(article);
+      article.removeChild(line);
+      renderMoodCard(article, item);
+      return;
+    }
     if (item.english) {
       const english = document.createElement("p");
       english.className = "headline-en";
@@ -906,13 +1024,21 @@ function renderInside() {
   if (sources) sources.textContent = state.inside.sources || "";
 }
 
+function officialRows(side) {
+  const week = state.officials[current().week] || {};
+  const code = officialCode();
+  const own = ((week[side] || {})[code] || []);
+  const other = side === "russian" ? "western" : "russian";
+  const moved = ((week[other] || {})[code] || []).filter((item) => speakerSide(item) === side);
+  return dedupeStories(own.concat(moved)).filter((item) => showNews(item) && speakerSide(item) === side).slice(0, 3);
+}
+
 function renderOfficials() {
   ["russian", "western"].forEach((side) => {
     const host = document.getElementById(side === "russian" ? "officials-ru" : "officials-west");
     if (!host) return;
     host.innerHTML = "";
-    const week = (state.officials[current().week] || {})[side] || {};
-    const rows = (week[officialCode()] || []).filter((item) => showNews(item) && speakerSide(item) === side).slice(0, 3);
+    const rows = officialRows(side);
     if (!rows.length) {
       const empty = document.createElement("p");
       empty.textContent = "No official statements found this week.";

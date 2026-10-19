@@ -64,6 +64,59 @@ def count_in(text: str) -> int:
     return int(match.group(1)) if match else 0
 
 
+def unfriendly_bars(result: str) -> list[dict]:
+    section = result.split("Unfriendly:", 1)[1].split(".", 1)[0]
+    found = {}
+    for part in section.split(","):
+        match = re.search(r"(\d+)\s+percent", part)
+        if not match:
+            continue
+        name = part[: match.start()].strip()
+        if name.lower().startswith("the "):
+            name = name[4:]
+        found[name] = int(match.group(1))
+    order = (
+        ("Lithuania", "Lithuania", False),
+        ("Latvia", "Latvia", False),
+        ("Estonia", "Estonia", False),
+        ("Poland", "Poland", False),
+        ("Finland", "Finland", False),
+        ("United States", "USA", True),
+        ("Ukraine", "Ukraine", True),
+    )
+    bars = []
+    for source_name, label, reference in order:
+        pct = found.get(source_name)
+        bars.append({
+            "name": label + (" (reference)" if reference else ""),
+            "pct": pct,
+            "reference": reference,
+        })
+    return bars
+
+
+def mood_card(week: str, poll_items: list[dict]) -> dict:
+    survey = next((item for item in poll_items if item.get("date") == "2021-06-15" and "Unfriendly:" in item.get("result", "")), None)
+    if not survey or monday(survey["date"]) > week:
+        return card("Public mood", "No new data this week", "", "", "", "")
+    built = card(
+        "Public mood",
+        "In May 2021, Russians often named the Baltic states and Poland as unfriendly (Levada).",
+        "",
+        "",
+        "",
+        survey["url"],
+    )
+    built["poll_date"] = "May 2021"
+    built["published"] = survey["date"]
+    built["pollster"] = "Levada Center"
+    built["caution"] = "Polls in Russia may not reflect honest opinion"
+    built["axis"] = "% of Russians naming this country unfriendly"
+    built["full"] = survey["question"] + " " + survey["result"]
+    built["bars"] = unfriendly_bars(survey["result"])
+    return built
+
+
 def card(title: str, line: str, mark: str, english: str, russian: str, url: str) -> dict:
     return {
         "title": title,
@@ -207,19 +260,7 @@ def main() -> None:
             )
         else:
             economy_card = card("Economy", "No new data this week", "", "", "", "")
-        published = [item for item in poll_items if monday(item["date"]) <= week]
-        if published:
-            latest = published[-1]
-            mood = card(
-                "Public mood",
-                f"{latest['result']} Levada Center. Polls in Russia may not reflect honest opinion.",
-                "→",
-                latest["question"],
-                "",
-                latest["url"],
-            )
-        else:
-            mood = card("Public mood", "No new data this week", "", "", "", "")
+        mood = mood_card(week, poll_items)
         built[week] = {
             "cards": [officials, military, conscription, economy_card, mood],
         }

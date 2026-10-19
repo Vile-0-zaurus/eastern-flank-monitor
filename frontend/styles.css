@@ -785,9 +785,9 @@ body.briefing #country-strip {
   display: flex;
   flex-wrap: nowrap;
   gap: 8px;
-  width: 46rem;
+  width: 54.5rem;
   height: 3.4rem;
-  flex: 0 0 46rem;
+  flex: 0 0 54.5rem;
 }
 body.briefing .country-card {
   width: 8.8rem;
@@ -823,11 +823,64 @@ body.briefing .chip-arrow {
   text-align: center;
 }
 body.briefing #show-all {
-  width: 6rem;
+  width: 5.5rem;
   height: 2.4rem;
-  flex: 0 0 6rem;
+  flex: 0 0 5.5rem;
   box-sizing: border-box;
+  white-space: nowrap;
+  font-size: 13px;
+  padding: 0 4px;
 }
+body.briefing .russia-square {
+  width: 8rem;
+  height: 3.4rem;
+  flex: 0 0 8rem;
+  display: grid;
+  grid-template-rows: 1.2rem 1.8rem;
+  align-items: center;
+  padding: 2px 6px;
+  box-sizing: border-box;
+  overflow: hidden;
+  border: 2px solid #c4a574;
+  background: rgba(196, 165, 116, 0.1);
+  color: inherit;
+  cursor: pointer;
+}
+body.briefing .russia-square.picked {
+  border-color: #e7c98a;
+  box-shadow: inset 0 0 0 1px #c4a574;
+}
+body.briefing .russia-square .country-name,
+body.briefing .russia-square .russia-mark {
+  height: auto;
+  margin: 0;
+  overflow: hidden;
+  white-space: nowrap;
+}
+body.briefing .mood-chart { margin: 6px 0 8px; }
+body.briefing .mood-row {
+  display: grid;
+  grid-template-columns: 8.4rem minmax(0, 1fr) 4.4rem;
+  gap: 6px;
+  align-items: center;
+  margin: 0 0 4px;
+  font-size: 12px;
+}
+body.briefing .mood-row.reference { color: var(--muted); }
+body.briefing .mood-track {
+  display: block;
+  height: 8px;
+  background: rgba(231, 229, 228, 0.12);
+}
+body.briefing .mood-fill {
+  display: block;
+  height: 8px;
+  background: #c4a574;
+}
+body.briefing .mood-row.reference .mood-fill { background: #71717a; }
+body.briefing .mood-value { text-align: right; white-space: nowrap; }
+body.briefing .full-poll { margin-top: 6px; }
+body.briefing .land-RU { cursor: pointer; }
 body.briefing .room {
   display: grid;
   grid-template-columns: minmax(0, 38%) minmax(0, 62%);

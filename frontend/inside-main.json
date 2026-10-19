@@ -1051,11 +1051,54 @@
         },
         {
           "title": "Public mood",
-          "line": "Friends, May 2021: Belarus 58 percent, Ukraine 2 percent, Poland 2 percent. Unfriendly: the United States 66 percent, Ukraine 40 percent, Latvia 21 percent, Poland 21 percent, Lithuania 20 percent, Estonia 9 percent. The printed tables did not list Finland or NATO. 83 percent said Russia has enemies. Levada Center. Polls in Russia may not reflect honest opinion.",
-          "arrow": "→",
-          "english": "Name five countries you could call Russia's closest friends and allies. And name five countries you would call the most unfriendly or hostile toward Russia.",
+          "line": "In May 2021, Russians often named the Baltic states and Poland as unfriendly (Levada).",
+          "arrow": "",
+          "english": "",
           "russian": "",
-          "url": "https://www.levada.ru/2021/06/15/glavnye-druzhestvennye-i-nedruzhestvennye-strany/"
+          "url": "https://www.levada.ru/2021/06/15/glavnye-druzhestvennye-i-nedruzhestvennye-strany/",
+          "poll_date": "May 2021",
+          "published": "2021-06-15",
+          "pollster": "Levada Center",
+          "caution": "Polls in Russia may not reflect honest opinion",
+          "axis": "% of Russians naming this country unfriendly",
+          "full": "Name five countries you could call Russia's closest friends and allies. And name five countries you would call the most unfriendly or hostile toward Russia. Friends, May 2021: Belarus 58 percent, Ukraine 2 percent, Poland 2 percent. Unfriendly: the United States 66 percent, Ukraine 40 percent, Latvia 21 percent, Poland 21 percent, Lithuania 20 percent, Estonia 9 percent. The printed tables did not list Finland or NATO. 83 percent said Russia has enemies.",
+          "bars": [
+            {
+              "name": "Lithuania",
+              "pct": 20,
+              "reference": false
+            },
+            {
+              "name": "Latvia",
+              "pct": 21,
+              "reference": false
+            },
+            {
+              "name": "Estonia",
+              "pct": 9,
+              "reference": false
+            },
+            {
+              "name": "Poland",
+              "pct": 21,
+              "reference": false
+            },
+            {
+              "name": "Finland",
+              "pct": null,
+              "reference": false
+            },
+            {
+              "name": "USA (reference)",
+              "pct": 66,
+              "reference": true
+            },
+            {
+              "name": "Ukraine (reference)",
+              "pct": 40,
+              "reference": true
+            }
+          ]
         }
       ]
     },
@@ -1095,11 +1138,54 @@
         },
         {
           "title": "Public mood",
-          "line": "Friends, May 2021: Belarus 58 percent, Ukraine 2 percent, Poland 2 percent. Unfriendly: the United States 66 percent, Ukraine 40 percent, Latvia 21 percent, Poland 21 percent, Lithuania 20 percent, Estonia 9 percent. The printed tables did not list Finland or NATO. 83 percent said Russia has enemies. Levada Center. Polls in Russia may not reflect honest opinion.",
-          "arrow": "→",
-          "english": "Name five countries you could call Russia's closest friends and allies. And name five countries you would call the most unfriendly or hostile toward Russia.",
+          "line": "In May 2021, Russians often named the Baltic states and Poland as unfriendly (Levada).",
+          "arrow": "",
+          "english": "",
           "russian": "",
-          "url": "https://www.levada.ru/2021/06/15/glavnye-druzhestvennye-i-nedruzhestvennye-strany/"
+          "url": "https://www.levada.ru/2021/06/15/glavnye-druzhestvennye-i-nedruzhestvennye-strany/",
+          "poll_date": "May 2021",
+          "published": "2021-06-15",
+          "pollster": "Levada Center",
+          "caution": "Polls in Russia may not reflect honest opinion",
+          "axis": "% of Russians naming this country unfriendly",
+          "full": "Name five countries you could call Russia's closest friends and allies. And name five countries you would call the most unfriendly or hostile toward Russia. Friends, May 2021: Belarus 58 percent, Ukraine 2 percent, Poland 2 percent. Unfriendly: the United States 66 percent, Ukraine 40 percent, Latvia 21 percent, Poland 21 percent, Lithuania 20 percent, Estonia 9 percent. The printed tables did not list Finland or NATO. 83 percent said Russia has enemies.",
+          "bars": [
+            {
+              "name": "Lithuania",
+              "pct": 20,
+              "reference": false
+            },
+            {
+              "name": "Latvia",
+              "pct": 21,
+              "reference": false
+            },
+            {
+              "name": "Estonia",
+              "pct": 9,
+              "reference": false
+            },
+            {
+              "name": "Poland",
+              "pct": 21,
+              "reference": false
+            },
+            {
+              "name": "Finland",
+              "pct": null,
+              "reference": false
+            },
+            {
+              "name": "USA (reference)",
+              "pct": 66,
+              "reference": true
+            },
+            {
+              "name": "Ukraine (reference)",
+              "pct": 40,
+              "reference": true
+            }
+          ]
         }
       ]
     },
@@ -1139,11 +1225,54 @@
         },
         {
           "title": "Public mood",
-          "line": "Friends, May 2021: Belarus 58 percent, Ukraine 2 percent, Poland 2 percent. Unfriendly: the United States 66 percent, Ukraine 40 percent, Latvia 21 percent, Poland 21 percent, Lithuania 20 percent, Estonia 9 percent. The printed tables did not list Finland or NATO. 83 percent said Russia has enemies. Levada Center. Polls in Russia may not reflect honest opinion.",
-          "arrow": "→",
-          "english": "Name five countries you could call Russia's closest friends and allies. And name five countries you would call the most unfriendly or hostile toward Russia.",
+          "line": "In May 2021, Russians often named the Baltic states and Poland as unfriendly (Levada).",
+          "arrow": "",
+          "english": "",
           "russian": "",
-          "url": "https://www.levada.ru/2021/06/15/glavnye-druzhestvennye-i-nedruzhestvennye-strany/"
+          "url": "https://www.levada.ru/2021/06/15/glavnye-druzhestvennye-i-nedruzhestvennye-strany/",
+          "poll_date": "May 2021",
+          "published": "2021-06-15",
+          "pollster": "Levada Center",
+          "caution": "Polls in Russia may not reflect honest opinion",
+          "axis": "% of Russians naming this country unfriendly",
+          "full": "Name five countries you could call Russia's closest friends and allies. And name five countries you would call the most unfriendly or hostile toward Russia. Friends, May 2021: Belarus 58 percent, Ukraine 2 percent, Poland 2 percent. Unfriendly: the United States 66 percent, Ukraine 40 percent, Latvia 21 percent, Poland 21 percent, Lithuania 20 percent, Estonia 9 percent. The printed tables did not list Finland or NATO. 83 percent said Russia has enemies.",
+          "bars": [
+            {
+              "name": "Lithuania",
+              "pct": 20,
+              "reference": false
+            },
+            {
+              "name": "Latvia",
+              "pct": 21,
+              "reference": false
+            },
+            {
+              "name": "Estonia",
+              "pct": 9,
+              "reference": false
+            },
+            {
+              "name": "Poland",
+              "pct": 21,
+              "reference": false
+            },
+            {
+              "name": "Finland",
+              "pct": null,
+              "reference": false
+            },
+            {
+              "name": "USA (reference)",
+              "pct": 66,
+              "reference": true
+            },
+            {
+              "name": "Ukraine (reference)",
+              "pct": 40,
+              "reference": true
+            }
+          ]
         }
       ]
     },
@@ -1183,11 +1312,54 @@
         },
         {
           "title": "Public mood",
-          "line": "Friends, May 2021: Belarus 58 percent, Ukraine 2 percent, Poland 2 percent. Unfriendly: the United States 66 percent, Ukraine 40 percent, Latvia 21 percent, Poland 21 percent, Lithuania 20 percent, Estonia 9 percent. The printed tables did not list Finland or NATO. 83 percent said Russia has enemies. Levada Center. Polls in Russia may not reflect honest opinion.",
-          "arrow": "→",
-          "english": "Name five countries you could call Russia's closest friends and allies. And name five countries you would call the most unfriendly or hostile toward Russia.",
+          "line": "In May 2021, Russians often named the Baltic states and Poland as unfriendly (Levada).",
+          "arrow": "",
+          "english": "",
           "russian": "",
-          "url": "https://www.levada.ru/2021/06/15/glavnye-druzhestvennye-i-nedruzhestvennye-strany/"
+          "url": "https://www.levada.ru/2021/06/15/glavnye-druzhestvennye-i-nedruzhestvennye-strany/",
+          "poll_date": "May 2021",
+          "published": "2021-06-15",
+          "pollster": "Levada Center",
+          "caution": "Polls in Russia may not reflect honest opinion",
+          "axis": "% of Russians naming this country unfriendly",
+          "full": "Name five countries you could call Russia's closest friends and allies. And name five countries you would call the most unfriendly or hostile toward Russia. Friends, May 2021: Belarus 58 percent, Ukraine 2 percent, Poland 2 percent. Unfriendly: the United States 66 percent, Ukraine 40 percent, Latvia 21 percent, Poland 21 percent, Lithuania 20 percent, Estonia 9 percent. The printed tables did not list Finland or NATO. 83 percent said Russia has enemies.",
+          "bars": [
+            {
+              "name": "Lithuania",
+              "pct": 20,
+              "reference": false
+            },
+            {
+              "name": "Latvia",
+              "pct": 21,
+              "reference": false
+            },
+            {
+              "name": "Estonia",
+              "pct": 9,
+              "reference": false
+            },
+            {
+              "name": "Poland",
+              "pct": 21,
+              "reference": false
+            },
+            {
+              "name": "Finland",
+              "pct": null,
+              "reference": false
+            },
+            {
+              "name": "USA (reference)",
+              "pct": 66,
+              "reference": true
+            },
+            {
+              "name": "Ukraine (reference)",
+              "pct": 40,
+              "reference": true
+            }
+          ]
         }
       ]
     },
@@ -1227,11 +1399,54 @@
         },
         {
           "title": "Public mood",
-          "line": "Friends, May 2021: Belarus 58 percent, Ukraine 2 percent, Poland 2 percent. Unfriendly: the United States 66 percent, Ukraine 40 percent, Latvia 21 percent, Poland 21 percent, Lithuania 20 percent, Estonia 9 percent. The printed tables did not list Finland or NATO. 83 percent said Russia has enemies. Levada Center. Polls in Russia may not reflect honest opinion.",
-          "arrow": "→",
-          "english": "Name five countries you could call Russia's closest friends and allies. And name five countries you would call the most unfriendly or hostile toward Russia.",
+          "line": "In May 2021, Russians often named the Baltic states and Poland as unfriendly (Levada).",
+          "arrow": "",
+          "english": "",
           "russian": "",
-          "url": "https://www.levada.ru/2021/06/15/glavnye-druzhestvennye-i-nedruzhestvennye-strany/"
+          "url": "https://www.levada.ru/2021/06/15/glavnye-druzhestvennye-i-nedruzhestvennye-strany/",
+          "poll_date": "May 2021",
+          "published": "2021-06-15",
+          "pollster": "Levada Center",
+          "caution": "Polls in Russia may not reflect honest opinion",
+          "axis": "% of Russians naming this country unfriendly",
+          "full": "Name five countries you could call Russia's closest friends and allies. And name five countries you would call the most unfriendly or hostile toward Russia. Friends, May 2021: Belarus 58 percent, Ukraine 2 percent, Poland 2 percent. Unfriendly: the United States 66 percent, Ukraine 40 percent, Latvia 21 percent, Poland 21 percent, Lithuania 20 percent, Estonia 9 percent. The printed tables did not list Finland or NATO. 83 percent said Russia has enemies.",
+          "bars": [
+            {
+              "name": "Lithuania",
+              "pct": 20,
+              "reference": false
+            },
+            {
+              "name": "Latvia",
+              "pct": 21,
+              "reference": false
+            },
+            {
+              "name": "Estonia",
+              "pct": 9,
+              "reference": false
+            },
+            {
+              "name": "Poland",
+              "pct": 21,
+              "reference": false
+            },
+            {
+              "name": "Finland",
+              "pct": null,
+              "reference": false
+            },
+            {
+              "name": "USA (reference)",
+              "pct": 66,
+              "reference": true
+            },
+            {
+              "name": "Ukraine (reference)",
+              "pct": 40,
+              "reference": true
+            }
+          ]
         }
       ]
     },
@@ -1271,11 +1486,54 @@
         },
         {
           "title": "Public mood",
-          "line": "Friends, May 2021: Belarus 58 percent, Ukraine 2 percent, Poland 2 percent. Unfriendly: the United States 66 percent, Ukraine 40 percent, Latvia 21 percent, Poland 21 percent, Lithuania 20 percent, Estonia 9 percent. The printed tables did not list Finland or NATO. 83 percent said Russia has enemies. Levada Center. Polls in Russia may not reflect honest opinion.",
-          "arrow": "→",
-          "english": "Name five countries you could call Russia's closest friends and allies. And name five countries you would call the most unfriendly or hostile toward Russia.",
+          "line": "In May 2021, Russians often named the Baltic states and Poland as unfriendly (Levada).",
+          "arrow": "",
+          "english": "",
           "russian": "",
-          "url": "https://www.levada.ru/2021/06/15/glavnye-druzhestvennye-i-nedruzhestvennye-strany/"
+          "url": "https://www.levada.ru/2021/06/15/glavnye-druzhestvennye-i-nedruzhestvennye-strany/",
+          "poll_date": "May 2021",
+          "published": "2021-06-15",
+          "pollster": "Levada Center",
+          "caution": "Polls in Russia may not reflect honest opinion",
+          "axis": "% of Russians naming this country unfriendly",
+          "full": "Name five countries you could call Russia's closest friends and allies. And name five countries you would call the most unfriendly or hostile toward Russia. Friends, May 2021: Belarus 58 percent, Ukraine 2 percent, Poland 2 percent. Unfriendly: the United States 66 percent, Ukraine 40 percent, Latvia 21 percent, Poland 21 percent, Lithuania 20 percent, Estonia 9 percent. The printed tables did not list Finland or NATO. 83 percent said Russia has enemies.",
+          "bars": [
+            {
+              "name": "Lithuania",
+              "pct": 20,
+              "reference": false
+            },
+            {
+              "name": "Latvia",
+              "pct": 21,
+              "reference": false
+            },
+            {
+              "name": "Estonia",
+              "pct": 9,
+              "reference": false
+            },
+            {
+              "name": "Poland",
+              "pct": 21,
+              "reference": false
+            },
+            {
+              "name": "Finland",
+              "pct": null,
+              "reference": false
+            },
+            {
+              "name": "USA (reference)",
+              "pct": 66,
+              "reference": true
+            },
+            {
+              "name": "Ukraine (reference)",
+              "pct": 40,
+              "reference": true
+            }
+          ]
         }
       ]
     },
@@ -1315,11 +1573,54 @@
         },
         {
           "title": "Public mood",
-          "line": "Friends, May 2021: Belarus 58 percent, Ukraine 2 percent, Poland 2 percent. Unfriendly: the United States 66 percent, Ukraine 40 percent, Latvia 21 percent, Poland 21 percent, Lithuania 20 percent, Estonia 9 percent. The printed tables did not list Finland or NATO. 83 percent said Russia has enemies. Levada Center. Polls in Russia may not reflect honest opinion.",
-          "arrow": "→",
-          "english": "Name five countries you could call Russia's closest friends and allies. And name five countries you would call the most unfriendly or hostile toward Russia.",
+          "line": "In May 2021, Russians often named the Baltic states and Poland as unfriendly (Levada).",
+          "arrow": "",
+          "english": "",
           "russian": "",
-          "url": "https://www.levada.ru/2021/06/15/glavnye-druzhestvennye-i-nedruzhestvennye-strany/"
+          "url": "https://www.levada.ru/2021/06/15/glavnye-druzhestvennye-i-nedruzhestvennye-strany/",
+          "poll_date": "May 2021",
+          "published": "2021-06-15",
+          "pollster": "Levada Center",
+          "caution": "Polls in Russia may not reflect honest opinion",
+          "axis": "% of Russians naming this country unfriendly",
+          "full": "Name five countries you could call Russia's closest friends and allies. And name five countries you would call the most unfriendly or hostile toward Russia. Friends, May 2021: Belarus 58 percent, Ukraine 2 percent, Poland 2 percent. Unfriendly: the United States 66 percent, Ukraine 40 percent, Latvia 21 percent, Poland 21 percent, Lithuania 20 percent, Estonia 9 percent. The printed tables did not list Finland or NATO. 83 percent said Russia has enemies.",
+          "bars": [
+            {
+              "name": "Lithuania",
+              "pct": 20,
+              "reference": false
+            },
+            {
+              "name": "Latvia",
+              "pct": 21,
+              "reference": false
+            },
+            {
+              "name": "Estonia",
+              "pct": 9,
+              "reference": false
+            },
+            {
+              "name": "Poland",
+              "pct": 21,
+              "reference": false
+            },
+            {
+              "name": "Finland",
+              "pct": null,
+              "reference": false
+            },
+            {
+              "name": "USA (reference)",
+              "pct": 66,
+              "reference": true
+            },
+            {
+              "name": "Ukraine (reference)",
+              "pct": 40,
+              "reference": true
+            }
+          ]
         }
       ]
     },
@@ -1359,11 +1660,54 @@
         },
         {
           "title": "Public mood",
-          "line": "Friends, May 2021: Belarus 58 percent, Ukraine 2 percent, Poland 2 percent. Unfriendly: the United States 66 percent, Ukraine 40 percent, Latvia 21 percent, Poland 21 percent, Lithuania 20 percent, Estonia 9 percent. The printed tables did not list Finland or NATO. 83 percent said Russia has enemies. Levada Center. Polls in Russia may not reflect honest opinion.",
-          "arrow": "→",
-          "english": "Name five countries you could call Russia's closest friends and allies. And name five countries you would call the most unfriendly or hostile toward Russia.",
+          "line": "In May 2021, Russians often named the Baltic states and Poland as unfriendly (Levada).",
+          "arrow": "",
+          "english": "",
           "russian": "",
-          "url": "https://www.levada.ru/2021/06/15/glavnye-druzhestvennye-i-nedruzhestvennye-strany/"
+          "url": "https://www.levada.ru/2021/06/15/glavnye-druzhestvennye-i-nedruzhestvennye-strany/",
+          "poll_date": "May 2021",
+          "published": "2021-06-15",
+          "pollster": "Levada Center",
+          "caution": "Polls in Russia may not reflect honest opinion",
+          "axis": "% of Russians naming this country unfriendly",
+          "full": "Name five countries you could call Russia's closest friends and allies. And name five countries you would call the most unfriendly or hostile toward Russia. Friends, May 2021: Belarus 58 percent, Ukraine 2 percent, Poland 2 percent. Unfriendly: the United States 66 percent, Ukraine 40 percent, Latvia 21 percent, Poland 21 percent, Lithuania 20 percent, Estonia 9 percent. The printed tables did not list Finland or NATO. 83 percent said Russia has enemies.",
+          "bars": [
+            {
+              "name": "Lithuania",
+              "pct": 20,
+              "reference": false
+            },
+            {
+              "name": "Latvia",
+              "pct": 21,
+              "reference": false
+            },
+            {
+              "name": "Estonia",
+              "pct": 9,
+              "reference": false
+            },
+            {
+              "name": "Poland",
+              "pct": 21,
+              "reference": false
+            },
+            {
+              "name": "Finland",
+              "pct": null,
+              "reference": false
+            },
+            {
+              "name": "USA (reference)",
+              "pct": 66,
+              "reference": true
+            },
+            {
+              "name": "Ukraine (reference)",
+              "pct": 40,
+              "reference": true
+            }
+          ]
         }
       ]
     },
@@ -1403,11 +1747,54 @@
         },
         {
           "title": "Public mood",
-          "line": "Friends, May 2021: Belarus 58 percent, Ukraine 2 percent, Poland 2 percent. Unfriendly: the United States 66 percent, Ukraine 40 percent, Latvia 21 percent, Poland 21 percent, Lithuania 20 percent, Estonia 9 percent. The printed tables did not list Finland or NATO. 83 percent said Russia has enemies. Levada Center. Polls in Russia may not reflect honest opinion.",
-          "arrow": "→",
-          "english": "Name five countries you could call Russia's closest friends and allies. And name five countries you would call the most unfriendly or hostile toward Russia.",
+          "line": "In May 2021, Russians often named the Baltic states and Poland as unfriendly (Levada).",
+          "arrow": "",
+          "english": "",
           "russian": "",
-          "url": "https://www.levada.ru/2021/06/15/glavnye-druzhestvennye-i-nedruzhestvennye-strany/"
+          "url": "https://www.levada.ru/2021/06/15/glavnye-druzhestvennye-i-nedruzhestvennye-strany/",
+          "poll_date": "May 2021",
+          "published": "2021-06-15",
+          "pollster": "Levada Center",
+          "caution": "Polls in Russia may not reflect honest opinion",
+          "axis": "% of Russians naming this country unfriendly",
+          "full": "Name five countries you could call Russia's closest friends and allies. And name five countries you would call the most unfriendly or hostile toward Russia. Friends, May 2021: Belarus 58 percent, Ukraine 2 percent, Poland 2 percent. Unfriendly: the United States 66 percent, Ukraine 40 percent, Latvia 21 percent, Poland 21 percent, Lithuania 20 percent, Estonia 9 percent. The printed tables did not list Finland or NATO. 83 percent said Russia has enemies.",
+          "bars": [
+            {
+              "name": "Lithuania",
+              "pct": 20,
+              "reference": false
+            },
+            {
+              "name": "Latvia",
+              "pct": 21,
+              "reference": false
+            },
+            {
+              "name": "Estonia",
+              "pct": 9,
+              "reference": false
+            },
+            {
+              "name": "Poland",
+              "pct": 21,
+              "reference": false
+            },
+            {
+              "name": "Finland",
+              "pct": null,
+              "reference": false
+            },
+            {
+              "name": "USA (reference)",
+              "pct": 66,
+              "reference": true
+            },
+            {
+              "name": "Ukraine (reference)",
+              "pct": 40,
+              "reference": true
+            }
+          ]
         }
       ]
     },
@@ -1447,11 +1834,54 @@
         },
         {
           "title": "Public mood",
-          "line": "Friends, May 2021: Belarus 58 percent, Ukraine 2 percent, Poland 2 percent. Unfriendly: the United States 66 percent, Ukraine 40 percent, Latvia 21 percent, Poland 21 percent, Lithuania 20 percent, Estonia 9 percent. The printed tables did not list Finland or NATO. 83 percent said Russia has enemies. Levada Center. Polls in Russia may not reflect honest opinion.",
-          "arrow": "→",
-          "english": "Name five countries you could call Russia's closest friends and allies. And name five countries you would call the most unfriendly or hostile toward Russia.",
+          "line": "In May 2021, Russians often named the Baltic states and Poland as unfriendly (Levada).",
+          "arrow": "",
+          "english": "",
           "russian": "",
-          "url": "https://www.levada.ru/2021/06/15/glavnye-druzhestvennye-i-nedruzhestvennye-strany/"
+          "url": "https://www.levada.ru/2021/06/15/glavnye-druzhestvennye-i-nedruzhestvennye-strany/",
+          "poll_date": "May 2021",
+          "published": "2021-06-15",
+          "pollster": "Levada Center",
+          "caution": "Polls in Russia may not reflect honest opinion",
+          "axis": "% of Russians naming this country unfriendly",
+          "full": "Name five countries you could call Russia's closest friends and allies. And name five countries you would call the most unfriendly or hostile toward Russia. Friends, May 2021: Belarus 58 percent, Ukraine 2 percent, Poland 2 percent. Unfriendly: the United States 66 percent, Ukraine 40 percent, Latvia 21 percent, Poland 21 percent, Lithuania 20 percent, Estonia 9 percent. The printed tables did not list Finland or NATO. 83 percent said Russia has enemies.",
+          "bars": [
+            {
+              "name": "Lithuania",
+              "pct": 20,
+              "reference": false
+            },
+            {
+              "name": "Latvia",
+              "pct": 21,
+              "reference": false
+            },
+            {
+              "name": "Estonia",
+              "pct": 9,
+              "reference": false
+            },
+            {
+              "name": "Poland",
+              "pct": 21,
+              "reference": false
+            },
+            {
+              "name": "Finland",
+              "pct": null,
+              "reference": false
+            },
+            {
+              "name": "USA (reference)",
+              "pct": 66,
+              "reference": true
+            },
+            {
+              "name": "Ukraine (reference)",
+              "pct": 40,
+              "reference": true
+            }
+          ]
         }
       ]
     },
@@ -1491,11 +1921,54 @@
         },
         {
           "title": "Public mood",
-          "line": "Friends, May 2021: Belarus 58 percent, Ukraine 2 percent, Poland 2 percent. Unfriendly: the United States 66 percent, Ukraine 40 percent, Latvia 21 percent, Poland 21 percent, Lithuania 20 percent, Estonia 9 percent. The printed tables did not list Finland or NATO. 83 percent said Russia has enemies. Levada Center. Polls in Russia may not reflect honest opinion.",
-          "arrow": "→",
-          "english": "Name five countries you could call Russia's closest friends and allies. And name five countries you would call the most unfriendly or hostile toward Russia.",
+          "line": "In May 2021, Russians often named the Baltic states and Poland as unfriendly (Levada).",
+          "arrow": "",
+          "english": "",
           "russian": "",
-          "url": "https://www.levada.ru/2021/06/15/glavnye-druzhestvennye-i-nedruzhestvennye-strany/"
+          "url": "https://www.levada.ru/2021/06/15/glavnye-druzhestvennye-i-nedruzhestvennye-strany/",
+          "poll_date": "May 2021",
+          "published": "2021-06-15",
+          "pollster": "Levada Center",
+          "caution": "Polls in Russia may not reflect honest opinion",
+          "axis": "% of Russians naming this country unfriendly",
+          "full": "Name five countries you could call Russia's closest friends and allies. And name five countries you would call the most unfriendly or hostile toward Russia. Friends, May 2021: Belarus 58 percent, Ukraine 2 percent, Poland 2 percent. Unfriendly: the United States 66 percent, Ukraine 40 percent, Latvia 21 percent, Poland 21 percent, Lithuania 20 percent, Estonia 9 percent. The printed tables did not list Finland or NATO. 83 percent said Russia has enemies.",
+          "bars": [
+            {
+              "name": "Lithuania",
+              "pct": 20,
+              "reference": false
+            },
+            {
+              "name": "Latvia",
+              "pct": 21,
+              "reference": false
+            },
+            {
+              "name": "Estonia",
+              "pct": 9,
+              "reference": false
+            },
+            {
+              "name": "Poland",
+              "pct": 21,
+              "reference": false
+            },
+            {
+              "name": "Finland",
+              "pct": null,
+              "reference": false
+            },
+            {
+              "name": "USA (reference)",
+              "pct": 66,
+              "reference": true
+            },
+            {
+              "name": "Ukraine (reference)",
+              "pct": 40,
+              "reference": true
+            }
+          ]
         }
       ]
     },
@@ -1535,11 +2008,54 @@
         },
         {
           "title": "Public mood",
-          "line": "Friends, May 2021: Belarus 58 percent, Ukraine 2 percent, Poland 2 percent. Unfriendly: the United States 66 percent, Ukraine 40 percent, Latvia 21 percent, Poland 21 percent, Lithuania 20 percent, Estonia 9 percent. The printed tables did not list Finland or NATO. 83 percent said Russia has enemies. Levada Center. Polls in Russia may not reflect honest opinion.",
-          "arrow": "→",
-          "english": "Name five countries you could call Russia's closest friends and allies. And name five countries you would call the most unfriendly or hostile toward Russia.",
+          "line": "In May 2021, Russians often named the Baltic states and Poland as unfriendly (Levada).",
+          "arrow": "",
+          "english": "",
           "russian": "",
-          "url": "https://www.levada.ru/2021/06/15/glavnye-druzhestvennye-i-nedruzhestvennye-strany/"
+          "url": "https://www.levada.ru/2021/06/15/glavnye-druzhestvennye-i-nedruzhestvennye-strany/",
+          "poll_date": "May 2021",
+          "published": "2021-06-15",
+          "pollster": "Levada Center",
+          "caution": "Polls in Russia may not reflect honest opinion",
+          "axis": "% of Russians naming this country unfriendly",
+          "full": "Name five countries you could call Russia's closest friends and allies. And name five countries you would call the most unfriendly or hostile toward Russia. Friends, May 2021: Belarus 58 percent, Ukraine 2 percent, Poland 2 percent. Unfriendly: the United States 66 percent, Ukraine 40 percent, Latvia 21 percent, Poland 21 percent, Lithuania 20 percent, Estonia 9 percent. The printed tables did not list Finland or NATO. 83 percent said Russia has enemies.",
+          "bars": [
+            {
+              "name": "Lithuania",
+              "pct": 20,
+              "reference": false
+            },
+            {
+              "name": "Latvia",
+              "pct": 21,
+              "reference": false
+            },
+            {
+              "name": "Estonia",
+              "pct": 9,
+              "reference": false
+            },
+            {
+              "name": "Poland",
+              "pct": 21,
+              "reference": false
+            },
+            {
+              "name": "Finland",
+              "pct": null,
+              "reference": false
+            },
+            {
+              "name": "USA (reference)",
+              "pct": 66,
+              "reference": true
+            },
+            {
+              "name": "Ukraine (reference)",
+              "pct": 40,
+              "reference": true
+            }
+          ]
         }
       ]
     },
@@ -1579,11 +2095,54 @@
         },
         {
           "title": "Public mood",
-          "line": "Friends, May 2021: Belarus 58 percent, Ukraine 2 percent, Poland 2 percent. Unfriendly: the United States 66 percent, Ukraine 40 percent, Latvia 21 percent, Poland 21 percent, Lithuania 20 percent, Estonia 9 percent. The printed tables did not list Finland or NATO. 83 percent said Russia has enemies. Levada Center. Polls in Russia may not reflect honest opinion.",
-          "arrow": "→",
-          "english": "Name five countries you could call Russia's closest friends and allies. And name five countries you would call the most unfriendly or hostile toward Russia.",
+          "line": "In May 2021, Russians often named the Baltic states and Poland as unfriendly (Levada).",
+          "arrow": "",
+          "english": "",
           "russian": "",
-          "url": "https://www.levada.ru/2021/06/15/glavnye-druzhestvennye-i-nedruzhestvennye-strany/"
+          "url": "https://www.levada.ru/2021/06/15/glavnye-druzhestvennye-i-nedruzhestvennye-strany/",
+          "poll_date": "May 2021",
+          "published": "2021-06-15",
+          "pollster": "Levada Center",
+          "caution": "Polls in Russia may not reflect honest opinion",
+          "axis": "% of Russians naming this country unfriendly",
+          "full": "Name five countries you could call Russia's closest friends and allies. And name five countries you would call the most unfriendly or hostile toward Russia. Friends, May 2021: Belarus 58 percent, Ukraine 2 percent, Poland 2 percent. Unfriendly: the United States 66 percent, Ukraine 40 percent, Latvia 21 percent, Poland 21 percent, Lithuania 20 percent, Estonia 9 percent. The printed tables did not list Finland or NATO. 83 percent said Russia has enemies.",
+          "bars": [
+            {
+              "name": "Lithuania",
+              "pct": 20,
+              "reference": false
+            },
+            {
+              "name": "Latvia",
+              "pct": 21,
+              "reference": false
+            },
+            {
+              "name": "Estonia",
+              "pct": 9,
+              "reference": false
+            },
+            {
+              "name": "Poland",
+              "pct": 21,
+              "reference": false
+            },
+            {
+              "name": "Finland",
+              "pct": null,
+              "reference": false
+            },
+            {
+              "name": "USA (reference)",
+              "pct": 66,
+              "reference": true
+            },
+            {
+              "name": "Ukraine (reference)",
+              "pct": 40,
+              "reference": true
+            }
+          ]
         }
       ]
     },
@@ -1623,11 +2182,54 @@
         },
         {
           "title": "Public mood",
-          "line": "Friends, May 2021: Belarus 58 percent, Ukraine 2 percent, Poland 2 percent. Unfriendly: the United States 66 percent, Ukraine 40 percent, Latvia 21 percent, Poland 21 percent, Lithuania 20 percent, Estonia 9 percent. The printed tables did not list Finland or NATO. 83 percent said Russia has enemies. Levada Center. Polls in Russia may not reflect honest opinion.",
-          "arrow": "→",
-          "english": "Name five countries you could call Russia's closest friends and allies. And name five countries you would call the most unfriendly or hostile toward Russia.",
+          "line": "In May 2021, Russians often named the Baltic states and Poland as unfriendly (Levada).",
+          "arrow": "",
+          "english": "",
           "russian": "",
-          "url": "https://www.levada.ru/2021/06/15/glavnye-druzhestvennye-i-nedruzhestvennye-strany/"
+          "url": "https://www.levada.ru/2021/06/15/glavnye-druzhestvennye-i-nedruzhestvennye-strany/",
+          "poll_date": "May 2021",
+          "published": "2021-06-15",
+          "pollster": "Levada Center",
+          "caution": "Polls in Russia may not reflect honest opinion",
+          "axis": "% of Russians naming this country unfriendly",
+          "full": "Name five countries you could call Russia's closest friends and allies. And name five countries you would call the most unfriendly or hostile toward Russia. Friends, May 2021: Belarus 58 percent, Ukraine 2 percent, Poland 2 percent. Unfriendly: the United States 66 percent, Ukraine 40 percent, Latvia 21 percent, Poland 21 percent, Lithuania 20 percent, Estonia 9 percent. The printed tables did not list Finland or NATO. 83 percent said Russia has enemies.",
+          "bars": [
+            {
+              "name": "Lithuania",
+              "pct": 20,
+              "reference": false
+            },
+            {
+              "name": "Latvia",
+              "pct": 21,
+              "reference": false
+            },
+            {
+              "name": "Estonia",
+              "pct": 9,
+              "reference": false
+            },
+            {
+              "name": "Poland",
+              "pct": 21,
+              "reference": false
+            },
+            {
+              "name": "Finland",
+              "pct": null,
+              "reference": false
+            },
+            {
+              "name": "USA (reference)",
+              "pct": 66,
+              "reference": true
+            },
+            {
+              "name": "Ukraine (reference)",
+              "pct": 40,
+              "reference": true
+            }
+          ]
         }
       ]
     },
@@ -1667,11 +2269,54 @@
         },
         {
           "title": "Public mood",
-          "line": "Friends, May 2021: Belarus 58 percent, Ukraine 2 percent, Poland 2 percent. Unfriendly: the United States 66 percent, Ukraine 40 percent, Latvia 21 percent, Poland 21 percent, Lithuania 20 percent, Estonia 9 percent. The printed tables did not list Finland or NATO. 83 percent said Russia has enemies. Levada Center. Polls in Russia may not reflect honest opinion.",
-          "arrow": "→",
-          "english": "Name five countries you could call Russia's closest friends and allies. And name five countries you would call the most unfriendly or hostile toward Russia.",
+          "line": "In May 2021, Russians often named the Baltic states and Poland as unfriendly (Levada).",
+          "arrow": "",
+          "english": "",
           "russian": "",
-          "url": "https://www.levada.ru/2021/06/15/glavnye-druzhestvennye-i-nedruzhestvennye-strany/"
+          "url": "https://www.levada.ru/2021/06/15/glavnye-druzhestvennye-i-nedruzhestvennye-strany/",
+          "poll_date": "May 2021",
+          "published": "2021-06-15",
+          "pollster": "Levada Center",
+          "caution": "Polls in Russia may not reflect honest opinion",
+          "axis": "% of Russians naming this country unfriendly",
+          "full": "Name five countries you could call Russia's closest friends and allies. And name five countries you would call the most unfriendly or hostile toward Russia. Friends, May 2021: Belarus 58 percent, Ukraine 2 percent, Poland 2 percent. Unfriendly: the United States 66 percent, Ukraine 40 percent, Latvia 21 percent, Poland 21 percent, Lithuania 20 percent, Estonia 9 percent. The printed tables did not list Finland or NATO. 83 percent said Russia has enemies.",
+          "bars": [
+            {
+              "name": "Lithuania",
+              "pct": 20,
+              "reference": false
+            },
+            {
+              "name": "Latvia",
+              "pct": 21,
+              "reference": false
+            },
+            {
+              "name": "Estonia",
+              "pct": 9,
+              "reference": false
+            },
+            {
+              "name": "Poland",
+              "pct": 21,
+              "reference": false
+            },
+            {
+              "name": "Finland",
+              "pct": null,
+              "reference": false
+            },
+            {
+              "name": "USA (reference)",
+              "pct": 66,
+              "reference": true
+            },
+            {
+              "name": "Ukraine (reference)",
+              "pct": 40,
+              "reference": true
+            }
+          ]
         }
       ]
     },
@@ -1711,11 +2356,54 @@
         },
         {
           "title": "Public mood",
-          "line": "Friends, May 2021: Belarus 58 percent, Ukraine 2 percent, Poland 2 percent. Unfriendly: the United States 66 percent, Ukraine 40 percent, Latvia 21 percent, Poland 21 percent, Lithuania 20 percent, Estonia 9 percent. The printed tables did not list Finland or NATO. 83 percent said Russia has enemies. Levada Center. Polls in Russia may not reflect honest opinion.",
-          "arrow": "→",
-          "english": "Name five countries you could call Russia's closest friends and allies. And name five countries you would call the most unfriendly or hostile toward Russia.",
+          "line": "In May 2021, Russians often named the Baltic states and Poland as unfriendly (Levada).",
+          "arrow": "",
+          "english": "",
           "russian": "",
-          "url": "https://www.levada.ru/2021/06/15/glavnye-druzhestvennye-i-nedruzhestvennye-strany/"
+          "url": "https://www.levada.ru/2021/06/15/glavnye-druzhestvennye-i-nedruzhestvennye-strany/",
+          "poll_date": "May 2021",
+          "published": "2021-06-15",
+          "pollster": "Levada Center",
+          "caution": "Polls in Russia may not reflect honest opinion",
+          "axis": "% of Russians naming this country unfriendly",
+          "full": "Name five countries you could call Russia's closest friends and allies. And name five countries you would call the most unfriendly or hostile toward Russia. Friends, May 2021: Belarus 58 percent, Ukraine 2 percent, Poland 2 percent. Unfriendly: the United States 66 percent, Ukraine 40 percent, Latvia 21 percent, Poland 21 percent, Lithuania 20 percent, Estonia 9 percent. The printed tables did not list Finland or NATO. 83 percent said Russia has enemies.",
+          "bars": [
+            {
+              "name": "Lithuania",
+              "pct": 20,
+              "reference": false
+            },
+            {
+              "name": "Latvia",
+              "pct": 21,
+              "reference": false
+            },
+            {
+              "name": "Estonia",
+              "pct": 9,
+              "reference": false
+            },
+            {
+              "name": "Poland",
+              "pct": 21,
+              "reference": false
+            },
+            {
+              "name": "Finland",
+              "pct": null,
+              "reference": false
+            },
+            {
+              "name": "USA (reference)",
+              "pct": 66,
+              "reference": true
+            },
+            {
+              "name": "Ukraine (reference)",
+              "pct": 40,
+              "reference": true
+            }
+          ]
         }
       ]
     },
@@ -1755,11 +2443,54 @@
         },
         {
           "title": "Public mood",
-          "line": "Friends, May 2021: Belarus 58 percent, Ukraine 2 percent, Poland 2 percent. Unfriendly: the United States 66 percent, Ukraine 40 percent, Latvia 21 percent, Poland 21 percent, Lithuania 20 percent, Estonia 9 percent. The printed tables did not list Finland or NATO. 83 percent said Russia has enemies. Levada Center. Polls in Russia may not reflect honest opinion.",
-          "arrow": "→",
-          "english": "Name five countries you could call Russia's closest friends and allies. And name five countries you would call the most unfriendly or hostile toward Russia.",
+          "line": "In May 2021, Russians often named the Baltic states and Poland as unfriendly (Levada).",
+          "arrow": "",
+          "english": "",
           "russian": "",
-          "url": "https://www.levada.ru/2021/06/15/glavnye-druzhestvennye-i-nedruzhestvennye-strany/"
+          "url": "https://www.levada.ru/2021/06/15/glavnye-druzhestvennye-i-nedruzhestvennye-strany/",
+          "poll_date": "May 2021",
+          "published": "2021-06-15",
+          "pollster": "Levada Center",
+          "caution": "Polls in Russia may not reflect honest opinion",
+          "axis": "% of Russians naming this country unfriendly",
+          "full": "Name five countries you could call Russia's closest friends and allies. And name five countries you would call the most unfriendly or hostile toward Russia. Friends, May 2021: Belarus 58 percent, Ukraine 2 percent, Poland 2 percent. Unfriendly: the United States 66 percent, Ukraine 40 percent, Latvia 21 percent, Poland 21 percent, Lithuania 20 percent, Estonia 9 percent. The printed tables did not list Finland or NATO. 83 percent said Russia has enemies.",
+          "bars": [
+            {
+              "name": "Lithuania",
+              "pct": 20,
+              "reference": false
+            },
+            {
+              "name": "Latvia",
+              "pct": 21,
+              "reference": false
+            },
+            {
+              "name": "Estonia",
+              "pct": 9,
+              "reference": false
+            },
+            {
+              "name": "Poland",
+              "pct": 21,
+              "reference": false
+            },
+            {
+              "name": "Finland",
+              "pct": null,
+              "reference": false
+            },
+            {
+              "name": "USA (reference)",
+              "pct": 66,
+              "reference": true
+            },
+            {
+              "name": "Ukraine (reference)",
+              "pct": 40,
+              "reference": true
+            }
+          ]
         }
       ]
     },
@@ -1799,11 +2530,54 @@
         },
         {
           "title": "Public mood",
-          "line": "Friends, May 2021: Belarus 58 percent, Ukraine 2 percent, Poland 2 percent. Unfriendly: the United States 66 percent, Ukraine 40 percent, Latvia 21 percent, Poland 21 percent, Lithuania 20 percent, Estonia 9 percent. The printed tables did not list Finland or NATO. 83 percent said Russia has enemies. Levada Center. Polls in Russia may not reflect honest opinion.",
-          "arrow": "→",
-          "english": "Name five countries you could call Russia's closest friends and allies. And name five countries you would call the most unfriendly or hostile toward Russia.",
+          "line": "In May 2021, Russians often named the Baltic states and Poland as unfriendly (Levada).",
+          "arrow": "",
+          "english": "",
           "russian": "",
-          "url": "https://www.levada.ru/2021/06/15/glavnye-druzhestvennye-i-nedruzhestvennye-strany/"
+          "url": "https://www.levada.ru/2021/06/15/glavnye-druzhestvennye-i-nedruzhestvennye-strany/",
+          "poll_date": "May 2021",
+          "published": "2021-06-15",
+          "pollster": "Levada Center",
+          "caution": "Polls in Russia may not reflect honest opinion",
+          "axis": "% of Russians naming this country unfriendly",
+          "full": "Name five countries you could call Russia's closest friends and allies. And name five countries you would call the most unfriendly or hostile toward Russia. Friends, May 2021: Belarus 58 percent, Ukraine 2 percent, Poland 2 percent. Unfriendly: the United States 66 percent, Ukraine 40 percent, Latvia 21 percent, Poland 21 percent, Lithuania 20 percent, Estonia 9 percent. The printed tables did not list Finland or NATO. 83 percent said Russia has enemies.",
+          "bars": [
+            {
+              "name": "Lithuania",
+              "pct": 20,
+              "reference": false
+            },
+            {
+              "name": "Latvia",
+              "pct": 21,
+              "reference": false
+            },
+            {
+              "name": "Estonia",
+              "pct": 9,
+              "reference": false
+            },
+            {
+              "name": "Poland",
+              "pct": 21,
+              "reference": false
+            },
+            {
+              "name": "Finland",
+              "pct": null,
+              "reference": false
+            },
+            {
+              "name": "USA (reference)",
+              "pct": 66,
+              "reference": true
+            },
+            {
+              "name": "Ukraine (reference)",
+              "pct": 40,
+              "reference": true
+            }
+          ]
         }
       ]
     },
@@ -1843,11 +2617,54 @@
         },
         {
           "title": "Public mood",
-          "line": "Friends, May 2021: Belarus 58 percent, Ukraine 2 percent, Poland 2 percent. Unfriendly: the United States 66 percent, Ukraine 40 percent, Latvia 21 percent, Poland 21 percent, Lithuania 20 percent, Estonia 9 percent. The printed tables did not list Finland or NATO. 83 percent said Russia has enemies. Levada Center. Polls in Russia may not reflect honest opinion.",
-          "arrow": "→",
-          "english": "Name five countries you could call Russia's closest friends and allies. And name five countries you would call the most unfriendly or hostile toward Russia.",
+          "line": "In May 2021, Russians often named the Baltic states and Poland as unfriendly (Levada).",
+          "arrow": "",
+          "english": "",
           "russian": "",
-          "url": "https://www.levada.ru/2021/06/15/glavnye-druzhestvennye-i-nedruzhestvennye-strany/"
+          "url": "https://www.levada.ru/2021/06/15/glavnye-druzhestvennye-i-nedruzhestvennye-strany/",
+          "poll_date": "May 2021",
+          "published": "2021-06-15",
+          "pollster": "Levada Center",
+          "caution": "Polls in Russia may not reflect honest opinion",
+          "axis": "% of Russians naming this country unfriendly",
+          "full": "Name five countries you could call Russia's closest friends and allies. And name five countries you would call the most unfriendly or hostile toward Russia. Friends, May 2021: Belarus 58 percent, Ukraine 2 percent, Poland 2 percent. Unfriendly: the United States 66 percent, Ukraine 40 percent, Latvia 21 percent, Poland 21 percent, Lithuania 20 percent, Estonia 9 percent. The printed tables did not list Finland or NATO. 83 percent said Russia has enemies.",
+          "bars": [
+            {
+              "name": "Lithuania",
+              "pct": 20,
+              "reference": false
+            },
+            {
+              "name": "Latvia",
+              "pct": 21,
+              "reference": false
+            },
+            {
+              "name": "Estonia",
+              "pct": 9,
+              "reference": false
+            },
+            {
+              "name": "Poland",
+              "pct": 21,
+              "reference": false
+            },
+            {
+              "name": "Finland",
+              "pct": null,
+              "reference": false
+            },
+            {
+              "name": "USA (reference)",
+              "pct": 66,
+              "reference": true
+            },
+            {
+              "name": "Ukraine (reference)",
+              "pct": 40,
+              "reference": true
+            }
+          ]
         }
       ]
     },
@@ -1887,11 +2704,54 @@
         },
         {
           "title": "Public mood",
-          "line": "Friends, May 2021: Belarus 58 percent, Ukraine 2 percent, Poland 2 percent. Unfriendly: the United States 66 percent, Ukraine 40 percent, Latvia 21 percent, Poland 21 percent, Lithuania 20 percent, Estonia 9 percent. The printed tables did not list Finland or NATO. 83 percent said Russia has enemies. Levada Center. Polls in Russia may not reflect honest opinion.",
-          "arrow": "→",
-          "english": "Name five countries you could call Russia's closest friends and allies. And name five countries you would call the most unfriendly or hostile toward Russia.",
+          "line": "In May 2021, Russians often named the Baltic states and Poland as unfriendly (Levada).",
+          "arrow": "",
+          "english": "",
           "russian": "",
-          "url": "https://www.levada.ru/2021/06/15/glavnye-druzhestvennye-i-nedruzhestvennye-strany/"
+          "url": "https://www.levada.ru/2021/06/15/glavnye-druzhestvennye-i-nedruzhestvennye-strany/",
+          "poll_date": "May 2021",
+          "published": "2021-06-15",
+          "pollster": "Levada Center",
+          "caution": "Polls in Russia may not reflect honest opinion",
+          "axis": "% of Russians naming this country unfriendly",
+          "full": "Name five countries you could call Russia's closest friends and allies. And name five countries you would call the most unfriendly or hostile toward Russia. Friends, May 2021: Belarus 58 percent, Ukraine 2 percent, Poland 2 percent. Unfriendly: the United States 66 percent, Ukraine 40 percent, Latvia 21 percent, Poland 21 percent, Lithuania 20 percent, Estonia 9 percent. The printed tables did not list Finland or NATO. 83 percent said Russia has enemies.",
+          "bars": [
+            {
+              "name": "Lithuania",
+              "pct": 20,
+              "reference": false
+            },
+            {
+              "name": "Latvia",
+              "pct": 21,
+              "reference": false
+            },
+            {
+              "name": "Estonia",
+              "pct": 9,
+              "reference": false
+            },
+            {
+              "name": "Poland",
+              "pct": 21,
+              "reference": false
+            },
+            {
+              "name": "Finland",
+              "pct": null,
+              "reference": false
+            },
+            {
+              "name": "USA (reference)",
+              "pct": 66,
+              "reference": true
+            },
+            {
+              "name": "Ukraine (reference)",
+              "pct": 40,
+              "reference": true
+            }
+          ]
         }
       ]
     },
@@ -1931,11 +2791,54 @@
         },
         {
           "title": "Public mood",
-          "line": "Friends, May 2021: Belarus 58 percent, Ukraine 2 percent, Poland 2 percent. Unfriendly: the United States 66 percent, Ukraine 40 percent, Latvia 21 percent, Poland 21 percent, Lithuania 20 percent, Estonia 9 percent. The printed tables did not list Finland or NATO. 83 percent said Russia has enemies. Levada Center. Polls in Russia may not reflect honest opinion.",
-          "arrow": "→",
-          "english": "Name five countries you could call Russia's closest friends and allies. And name five countries you would call the most unfriendly or hostile toward Russia.",
+          "line": "In May 2021, Russians often named the Baltic states and Poland as unfriendly (Levada).",
+          "arrow": "",
+          "english": "",
           "russian": "",
-          "url": "https://www.levada.ru/2021/06/15/glavnye-druzhestvennye-i-nedruzhestvennye-strany/"
+          "url": "https://www.levada.ru/2021/06/15/glavnye-druzhestvennye-i-nedruzhestvennye-strany/",
+          "poll_date": "May 2021",
+          "published": "2021-06-15",
+          "pollster": "Levada Center",
+          "caution": "Polls in Russia may not reflect honest opinion",
+          "axis": "% of Russians naming this country unfriendly",
+          "full": "Name five countries you could call Russia's closest friends and allies. And name five countries you would call the most unfriendly or hostile toward Russia. Friends, May 2021: Belarus 58 percent, Ukraine 2 percent, Poland 2 percent. Unfriendly: the United States 66 percent, Ukraine 40 percent, Latvia 21 percent, Poland 21 percent, Lithuania 20 percent, Estonia 9 percent. The printed tables did not list Finland or NATO. 83 percent said Russia has enemies.",
+          "bars": [
+            {
+              "name": "Lithuania",
+              "pct": 20,
+              "reference": false
+            },
+            {
+              "name": "Latvia",
+              "pct": 21,
+              "reference": false
+            },
+            {
+              "name": "Estonia",
+              "pct": 9,
+              "reference": false
+            },
+            {
+              "name": "Poland",
+              "pct": 21,
+              "reference": false
+            },
+            {
+              "name": "Finland",
+              "pct": null,
+              "reference": false
+            },
+            {
+              "name": "USA (reference)",
+              "pct": 66,
+              "reference": true
+            },
+            {
+              "name": "Ukraine (reference)",
+              "pct": 40,
+              "reference": true
+            }
+          ]
         }
       ]
     },
@@ -1975,11 +2878,54 @@
         },
         {
           "title": "Public mood",
-          "line": "Friends, May 2021: Belarus 58 percent, Ukraine 2 percent, Poland 2 percent. Unfriendly: the United States 66 percent, Ukraine 40 percent, Latvia 21 percent, Poland 21 percent, Lithuania 20 percent, Estonia 9 percent. The printed tables did not list Finland or NATO. 83 percent said Russia has enemies. Levada Center. Polls in Russia may not reflect honest opinion.",
-          "arrow": "→",
-          "english": "Name five countries you could call Russia's closest friends and allies. And name five countries you would call the most unfriendly or hostile toward Russia.",
+          "line": "In May 2021, Russians often named the Baltic states and Poland as unfriendly (Levada).",
+          "arrow": "",
+          "english": "",
           "russian": "",
-          "url": "https://www.levada.ru/2021/06/15/glavnye-druzhestvennye-i-nedruzhestvennye-strany/"
+          "url": "https://www.levada.ru/2021/06/15/glavnye-druzhestvennye-i-nedruzhestvennye-strany/",
+          "poll_date": "May 2021",
+          "published": "2021-06-15",
+          "pollster": "Levada Center",
+          "caution": "Polls in Russia may not reflect honest opinion",
+          "axis": "% of Russians naming this country unfriendly",
+          "full": "Name five countries you could call Russia's closest friends and allies. And name five countries you would call the most unfriendly or hostile toward Russia. Friends, May 2021: Belarus 58 percent, Ukraine 2 percent, Poland 2 percent. Unfriendly: the United States 66 percent, Ukraine 40 percent, Latvia 21 percent, Poland 21 percent, Lithuania 20 percent, Estonia 9 percent. The printed tables did not list Finland or NATO. 83 percent said Russia has enemies.",
+          "bars": [
+            {
+              "name": "Lithuania",
+              "pct": 20,
+              "reference": false
+            },
+            {
+              "name": "Latvia",
+              "pct": 21,
+              "reference": false
+            },
+            {
+              "name": "Estonia",
+              "pct": 9,
+              "reference": false
+            },
+            {
+              "name": "Poland",
+              "pct": 21,
+              "reference": false
+            },
+            {
+              "name": "Finland",
+              "pct": null,
+              "reference": false
+            },
+            {
+              "name": "USA (reference)",
+              "pct": 66,
+              "reference": true
+            },
+            {
+              "name": "Ukraine (reference)",
+              "pct": 40,
+              "reference": true
+            }
+          ]
         }
       ]
     },
@@ -2019,11 +2965,54 @@
         },
         {
           "title": "Public mood",
-          "line": "Friends, May 2021: Belarus 58 percent, Ukraine 2 percent, Poland 2 percent. Unfriendly: the United States 66 percent, Ukraine 40 percent, Latvia 21 percent, Poland 21 percent, Lithuania 20 percent, Estonia 9 percent. The printed tables did not list Finland or NATO. 83 percent said Russia has enemies. Levada Center. Polls in Russia may not reflect honest opinion.",
-          "arrow": "→",
-          "english": "Name five countries you could call Russia's closest friends and allies. And name five countries you would call the most unfriendly or hostile toward Russia.",
+          "line": "In May 2021, Russians often named the Baltic states and Poland as unfriendly (Levada).",
+          "arrow": "",
+          "english": "",
           "russian": "",
-          "url": "https://www.levada.ru/2021/06/15/glavnye-druzhestvennye-i-nedruzhestvennye-strany/"
+          "url": "https://www.levada.ru/2021/06/15/glavnye-druzhestvennye-i-nedruzhestvennye-strany/",
+          "poll_date": "May 2021",
+          "published": "2021-06-15",
+          "pollster": "Levada Center",
+          "caution": "Polls in Russia may not reflect honest opinion",
+          "axis": "% of Russians naming this country unfriendly",
+          "full": "Name five countries you could call Russia's closest friends and allies. And name five countries you would call the most unfriendly or hostile toward Russia. Friends, May 2021: Belarus 58 percent, Ukraine 2 percent, Poland 2 percent. Unfriendly: the United States 66 percent, Ukraine 40 percent, Latvia 21 percent, Poland 21 percent, Lithuania 20 percent, Estonia 9 percent. The printed tables did not list Finland or NATO. 83 percent said Russia has enemies.",
+          "bars": [
+            {
+              "name": "Lithuania",
+              "pct": 20,
+              "reference": false
+            },
+            {
+              "name": "Latvia",
+              "pct": 21,
+              "reference": false
+            },
+            {
+              "name": "Estonia",
+              "pct": 9,
+              "reference": false
+            },
+            {
+              "name": "Poland",
+              "pct": 21,
+              "reference": false
+            },
+            {
+              "name": "Finland",
+              "pct": null,
+              "reference": false
+            },
+            {
+              "name": "USA (reference)",
+              "pct": 66,
+              "reference": true
+            },
+            {
+              "name": "Ukraine (reference)",
+              "pct": 40,
+              "reference": true
+            }
+          ]
         }
       ]
     },
@@ -2063,11 +3052,54 @@
         },
         {
           "title": "Public mood",
-          "line": "Friends, May 2021: Belarus 58 percent, Ukraine 2 percent, Poland 2 percent. Unfriendly: the United States 66 percent, Ukraine 40 percent, Latvia 21 percent, Poland 21 percent, Lithuania 20 percent, Estonia 9 percent. The printed tables did not list Finland or NATO. 83 percent said Russia has enemies. Levada Center. Polls in Russia may not reflect honest opinion.",
-          "arrow": "→",
-          "english": "Name five countries you could call Russia's closest friends and allies. And name five countries you would call the most unfriendly or hostile toward Russia.",
+          "line": "In May 2021, Russians often named the Baltic states and Poland as unfriendly (Levada).",
+          "arrow": "",
+          "english": "",
           "russian": "",
-          "url": "https://www.levada.ru/2021/06/15/glavnye-druzhestvennye-i-nedruzhestvennye-strany/"
+          "url": "https://www.levada.ru/2021/06/15/glavnye-druzhestvennye-i-nedruzhestvennye-strany/",
+          "poll_date": "May 2021",
+          "published": "2021-06-15",
+          "pollster": "Levada Center",
+          "caution": "Polls in Russia may not reflect honest opinion",
+          "axis": "% of Russians naming this country unfriendly",
+          "full": "Name five countries you could call Russia's closest friends and allies. And name five countries you would call the most unfriendly or hostile toward Russia. Friends, May 2021: Belarus 58 percent, Ukraine 2 percent, Poland 2 percent. Unfriendly: the United States 66 percent, Ukraine 40 percent, Latvia 21 percent, Poland 21 percent, Lithuania 20 percent, Estonia 9 percent. The printed tables did not list Finland or NATO. 83 percent said Russia has enemies.",
+          "bars": [
+            {
+              "name": "Lithuania",
+              "pct": 20,
+              "reference": false
+            },
+            {
+              "name": "Latvia",
+              "pct": 21,
+              "reference": false
+            },
+            {
+              "name": "Estonia",
+              "pct": 9,
+              "reference": false
+            },
+            {
+              "name": "Poland",
+              "pct": 21,
+              "reference": false
+            },
+            {
+              "name": "Finland",
+              "pct": null,
+              "reference": false
+            },
+            {
+              "name": "USA (reference)",
+              "pct": 66,
+              "reference": true
+            },
+            {
+              "name": "Ukraine (reference)",
+              "pct": 40,
+              "reference": true
+            }
+          ]
         }
       ]
     },
@@ -2107,11 +3139,54 @@
         },
         {
           "title": "Public mood",
-          "line": "Friends, May 2021: Belarus 58 percent, Ukraine 2 percent, Poland 2 percent. Unfriendly: the United States 66 percent, Ukraine 40 percent, Latvia 21 percent, Poland 21 percent, Lithuania 20 percent, Estonia 9 percent. The printed tables did not list Finland or NATO. 83 percent said Russia has enemies. Levada Center. Polls in Russia may not reflect honest opinion.",
-          "arrow": "→",
-          "english": "Name five countries you could call Russia's closest friends and allies. And name five countries you would call the most unfriendly or hostile toward Russia.",
+          "line": "In May 2021, Russians often named the Baltic states and Poland as unfriendly (Levada).",
+          "arrow": "",
+          "english": "",
           "russian": "",
-          "url": "https://www.levada.ru/2021/06/15/glavnye-druzhestvennye-i-nedruzhestvennye-strany/"
+          "url": "https://www.levada.ru/2021/06/15/glavnye-druzhestvennye-i-nedruzhestvennye-strany/",
+          "poll_date": "May 2021",
+          "published": "2021-06-15",
+          "pollster": "Levada Center",
+          "caution": "Polls in Russia may not reflect honest opinion",
+          "axis": "% of Russians naming this country unfriendly",
+          "full": "Name five countries you could call Russia's closest friends and allies. And name five countries you would call the most unfriendly or hostile toward Russia. Friends, May 2021: Belarus 58 percent, Ukraine 2 percent, Poland 2 percent. Unfriendly: the United States 66 percent, Ukraine 40 percent, Latvia 21 percent, Poland 21 percent, Lithuania 20 percent, Estonia 9 percent. The printed tables did not list Finland or NATO. 83 percent said Russia has enemies.",
+          "bars": [
+            {
+              "name": "Lithuania",
+              "pct": 20,
+              "reference": false
+            },
+            {
+              "name": "Latvia",
+              "pct": 21,
+              "reference": false
+            },
+            {
+              "name": "Estonia",
+              "pct": 9,
+              "reference": false
+            },
+            {
+              "name": "Poland",
+              "pct": 21,
+              "reference": false
+            },
+            {
+              "name": "Finland",
+              "pct": null,
+              "reference": false
+            },
+            {
+              "name": "USA (reference)",
+              "pct": 66,
+              "reference": true
+            },
+            {
+              "name": "Ukraine (reference)",
+              "pct": 40,
+              "reference": true
+            }
+          ]
         }
       ]
     },
@@ -2151,11 +3226,54 @@
         },
         {
           "title": "Public mood",
-          "line": "Friends, May 2021: Belarus 58 percent, Ukraine 2 percent, Poland 2 percent. Unfriendly: the United States 66 percent, Ukraine 40 percent, Latvia 21 percent, Poland 21 percent, Lithuania 20 percent, Estonia 9 percent. The printed tables did not list Finland or NATO. 83 percent said Russia has enemies. Levada Center. Polls in Russia may not reflect honest opinion.",
-          "arrow": "→",
-          "english": "Name five countries you could call Russia's closest friends and allies. And name five countries you would call the most unfriendly or hostile toward Russia.",
+          "line": "In May 2021, Russians often named the Baltic states and Poland as unfriendly (Levada).",
+          "arrow": "",
+          "english": "",
           "russian": "",
-          "url": "https://www.levada.ru/2021/06/15/glavnye-druzhestvennye-i-nedruzhestvennye-strany/"
+          "url": "https://www.levada.ru/2021/06/15/glavnye-druzhestvennye-i-nedruzhestvennye-strany/",
+          "poll_date": "May 2021",
+          "published": "2021-06-15",
+          "pollster": "Levada Center",
+          "caution": "Polls in Russia may not reflect honest opinion",
+          "axis": "% of Russians naming this country unfriendly",
+          "full": "Name five countries you could call Russia's closest friends and allies. And name five countries you would call the most unfriendly or hostile toward Russia. Friends, May 2021: Belarus 58 percent, Ukraine 2 percent, Poland 2 percent. Unfriendly: the United States 66 percent, Ukraine 40 percent, Latvia 21 percent, Poland 21 percent, Lithuania 20 percent, Estonia 9 percent. The printed tables did not list Finland or NATO. 83 percent said Russia has enemies.",
+          "bars": [
+            {
+              "name": "Lithuania",
+              "pct": 20,
+              "reference": false
+            },
+            {
+              "name": "Latvia",
+              "pct": 21,
+              "reference": false
+            },
+            {
+              "name": "Estonia",
+              "pct": 9,
+              "reference": false
+            },
+            {
+              "name": "Poland",
+              "pct": 21,
+              "reference": false
+            },
+            {
+              "name": "Finland",
+              "pct": null,
+              "reference": false
+            },
+            {
+              "name": "USA (reference)",
+              "pct": 66,
+              "reference": true
+            },
+            {
+              "name": "Ukraine (reference)",
+              "pct": 40,
+              "reference": true
+            }
+          ]
         }
       ]
     },
@@ -2195,11 +3313,54 @@
         },
         {
           "title": "Public mood",
-          "line": "Friends, May 2021: Belarus 58 percent, Ukraine 2 percent, Poland 2 percent. Unfriendly: the United States 66 percent, Ukraine 40 percent, Latvia 21 percent, Poland 21 percent, Lithuania 20 percent, Estonia 9 percent. The printed tables did not list Finland or NATO. 83 percent said Russia has enemies. Levada Center. Polls in Russia may not reflect honest opinion.",
-          "arrow": "→",
-          "english": "Name five countries you could call Russia's closest friends and allies. And name five countries you would call the most unfriendly or hostile toward Russia.",
+          "line": "In May 2021, Russians often named the Baltic states and Poland as unfriendly (Levada).",
+          "arrow": "",
+          "english": "",
           "russian": "",
-          "url": "https://www.levada.ru/2021/06/15/glavnye-druzhestvennye-i-nedruzhestvennye-strany/"
+          "url": "https://www.levada.ru/2021/06/15/glavnye-druzhestvennye-i-nedruzhestvennye-strany/",
+          "poll_date": "May 2021",
+          "published": "2021-06-15",
+          "pollster": "Levada Center",
+          "caution": "Polls in Russia may not reflect honest opinion",
+          "axis": "% of Russians naming this country unfriendly",
+          "full": "Name five countries you could call Russia's closest friends and allies. And name five countries you would call the most unfriendly or hostile toward Russia. Friends, May 2021: Belarus 58 percent, Ukraine 2 percent, Poland 2 percent. Unfriendly: the United States 66 percent, Ukraine 40 percent, Latvia 21 percent, Poland 21 percent, Lithuania 20 percent, Estonia 9 percent. The printed tables did not list Finland or NATO. 83 percent said Russia has enemies.",
+          "bars": [
+            {
+              "name": "Lithuania",
+              "pct": 20,
+              "reference": false
+            },
+            {
+              "name": "Latvia",
+              "pct": 21,
+              "reference": false
+            },
+            {
+              "name": "Estonia",
+              "pct": 9,
+              "reference": false
+            },
+            {
+              "name": "Poland",
+              "pct": 21,
+              "reference": false
+            },
+            {
+              "name": "Finland",
+              "pct": null,
+              "reference": false
+            },
+            {
+              "name": "USA (reference)",
+              "pct": 66,
+              "reference": true
+            },
+            {
+              "name": "Ukraine (reference)",
+              "pct": 40,
+              "reference": true
+            }
+          ]
         }
       ]
     },
@@ -2239,11 +3400,54 @@
         },
         {
           "title": "Public mood",
-          "line": "Friends, May 2021: Belarus 58 percent, Ukraine 2 percent, Poland 2 percent. Unfriendly: the United States 66 percent, Ukraine 40 percent, Latvia 21 percent, Poland 21 percent, Lithuania 20 percent, Estonia 9 percent. The printed tables did not list Finland or NATO. 83 percent said Russia has enemies. Levada Center. Polls in Russia may not reflect honest opinion.",
-          "arrow": "→",
-          "english": "Name five countries you could call Russia's closest friends and allies. And name five countries you would call the most unfriendly or hostile toward Russia.",
+          "line": "In May 2021, Russians often named the Baltic states and Poland as unfriendly (Levada).",
+          "arrow": "",
+          "english": "",
           "russian": "",
-          "url": "https://www.levada.ru/2021/06/15/glavnye-druzhestvennye-i-nedruzhestvennye-strany/"
+          "url": "https://www.levada.ru/2021/06/15/glavnye-druzhestvennye-i-nedruzhestvennye-strany/",
+          "poll_date": "May 2021",
+          "published": "2021-06-15",
+          "pollster": "Levada Center",
+          "caution": "Polls in Russia may not reflect honest opinion",
+          "axis": "% of Russians naming this country unfriendly",
+          "full": "Name five countries you could call Russia's closest friends and allies. And name five countries you would call the most unfriendly or hostile toward Russia. Friends, May 2021: Belarus 58 percent, Ukraine 2 percent, Poland 2 percent. Unfriendly: the United States 66 percent, Ukraine 40 percent, Latvia 21 percent, Poland 21 percent, Lithuania 20 percent, Estonia 9 percent. The printed tables did not list Finland or NATO. 83 percent said Russia has enemies.",
+          "bars": [
+            {
+              "name": "Lithuania",
+              "pct": 20,
+              "reference": false
+            },
+            {
+              "name": "Latvia",
+              "pct": 21,
+              "reference": false
+            },
+            {
+              "name": "Estonia",
+              "pct": 9,
+              "reference": false
+            },
+            {
+              "name": "Poland",
+              "pct": 21,
+              "reference": false
+            },
+            {
+              "name": "Finland",
+              "pct": null,
+              "reference": false
+            },
+            {
+              "name": "USA (reference)",
+              "pct": 66,
+              "reference": true
+            },
+            {
+              "name": "Ukraine (reference)",
+              "pct": 40,
+              "reference": true
+            }
+          ]
         }
       ]
     },
@@ -2283,11 +3487,54 @@
         },
         {
           "title": "Public mood",
-          "line": "Friends, May 2021: Belarus 58 percent, Ukraine 2 percent, Poland 2 percent. Unfriendly: the United States 66 percent, Ukraine 40 percent, Latvia 21 percent, Poland 21 percent, Lithuania 20 percent, Estonia 9 percent. The printed tables did not list Finland or NATO. 83 percent said Russia has enemies. Levada Center. Polls in Russia may not reflect honest opinion.",
-          "arrow": "→",
-          "english": "Name five countries you could call Russia's closest friends and allies. And name five countries you would call the most unfriendly or hostile toward Russia.",
+          "line": "In May 2021, Russians often named the Baltic states and Poland as unfriendly (Levada).",
+          "arrow": "",
+          "english": "",
           "russian": "",
-          "url": "https://www.levada.ru/2021/06/15/glavnye-druzhestvennye-i-nedruzhestvennye-strany/"
+          "url": "https://www.levada.ru/2021/06/15/glavnye-druzhestvennye-i-nedruzhestvennye-strany/",
+          "poll_date": "May 2021",
+          "published": "2021-06-15",
+          "pollster": "Levada Center",
+          "caution": "Polls in Russia may not reflect honest opinion",
+          "axis": "% of Russians naming this country unfriendly",
+          "full": "Name five countries you could call Russia's closest friends and allies. And name five countries you would call the most unfriendly or hostile toward Russia. Friends, May 2021: Belarus 58 percent, Ukraine 2 percent, Poland 2 percent. Unfriendly: the United States 66 percent, Ukraine 40 percent, Latvia 21 percent, Poland 21 percent, Lithuania 20 percent, Estonia 9 percent. The printed tables did not list Finland or NATO. 83 percent said Russia has enemies.",
+          "bars": [
+            {
+              "name": "Lithuania",
+              "pct": 20,
+              "reference": false
+            },
+            {
+              "name": "Latvia",
+              "pct": 21,
+              "reference": false
+            },
+            {
+              "name": "Estonia",
+              "pct": 9,
+              "reference": false
+            },
+            {
+              "name": "Poland",
+              "pct": 21,
+              "reference": false
+            },
+            {
+              "name": "Finland",
+              "pct": null,
+              "reference": false
+            },
+            {
+              "name": "USA (reference)",
+              "pct": 66,
+              "reference": true
+            },
+            {
+              "name": "Ukraine (reference)",
+              "pct": 40,
+              "reference": true
+            }
+          ]
         }
       ]
     },
@@ -2327,11 +3574,54 @@
         },
         {
           "title": "Public mood",
-          "line": "Friends, May 2021: Belarus 58 percent, Ukraine 2 percent, Poland 2 percent. Unfriendly: the United States 66 percent, Ukraine 40 percent, Latvia 21 percent, Poland 21 percent, Lithuania 20 percent, Estonia 9 percent. The printed tables did not list Finland or NATO. 83 percent said Russia has enemies. Levada Center. Polls in Russia may not reflect honest opinion.",
-          "arrow": "→",
-          "english": "Name five countries you could call Russia's closest friends and allies. And name five countries you would call the most unfriendly or hostile toward Russia.",
+          "line": "In May 2021, Russians often named the Baltic states and Poland as unfriendly (Levada).",
+          "arrow": "",
+          "english": "",
           "russian": "",
-          "url": "https://www.levada.ru/2021/06/15/glavnye-druzhestvennye-i-nedruzhestvennye-strany/"
+          "url": "https://www.levada.ru/2021/06/15/glavnye-druzhestvennye-i-nedruzhestvennye-strany/",
+          "poll_date": "May 2021",
+          "published": "2021-06-15",
+          "pollster": "Levada Center",
+          "caution": "Polls in Russia may not reflect honest opinion",
+          "axis": "% of Russians naming this country unfriendly",
+          "full": "Name five countries you could call Russia's closest friends and allies. And name five countries you would call the most unfriendly or hostile toward Russia. Friends, May 2021: Belarus 58 percent, Ukraine 2 percent, Poland 2 percent. Unfriendly: the United States 66 percent, Ukraine 40 percent, Latvia 21 percent, Poland 21 percent, Lithuania 20 percent, Estonia 9 percent. The printed tables did not list Finland or NATO. 83 percent said Russia has enemies.",
+          "bars": [
+            {
+              "name": "Lithuania",
+              "pct": 20,
+              "reference": false
+            },
+            {
+              "name": "Latvia",
+              "pct": 21,
+              "reference": false
+            },
+            {
+              "name": "Estonia",
+              "pct": 9,
+              "reference": false
+            },
+            {
+              "name": "Poland",
+              "pct": 21,
+              "reference": false
+            },
+            {
+              "name": "Finland",
+              "pct": null,
+              "reference": false
+            },
+            {
+              "name": "USA (reference)",
+              "pct": 66,
+              "reference": true
+            },
+            {
+              "name": "Ukraine (reference)",
+              "pct": 40,
+              "reference": true
+            }
+          ]
         }
       ]
     },
@@ -2371,11 +3661,54 @@
         },
         {
           "title": "Public mood",
-          "line": "Friends, May 2021: Belarus 58 percent, Ukraine 2 percent, Poland 2 percent. Unfriendly: the United States 66 percent, Ukraine 40 percent, Latvia 21 percent, Poland 21 percent, Lithuania 20 percent, Estonia 9 percent. The printed tables did not list Finland or NATO. 83 percent said Russia has enemies. Levada Center. Polls in Russia may not reflect honest opinion.",
-          "arrow": "→",
-          "english": "Name five countries you could call Russia's closest friends and allies. And name five countries you would call the most unfriendly or hostile toward Russia.",
+          "line": "In May 2021, Russians often named the Baltic states and Poland as unfriendly (Levada).",
+          "arrow": "",
+          "english": "",
           "russian": "",
-          "url": "https://www.levada.ru/2021/06/15/glavnye-druzhestvennye-i-nedruzhestvennye-strany/"
+          "url": "https://www.levada.ru/2021/06/15/glavnye-druzhestvennye-i-nedruzhestvennye-strany/",
+          "poll_date": "May 2021",
+          "published": "2021-06-15",
+          "pollster": "Levada Center",
+          "caution": "Polls in Russia may not reflect honest opinion",
+          "axis": "% of Russians naming this country unfriendly",
+          "full": "Name five countries you could call Russia's closest friends and allies. And name five countries you would call the most unfriendly or hostile toward Russia. Friends, May 2021: Belarus 58 percent, Ukraine 2 percent, Poland 2 percent. Unfriendly: the United States 66 percent, Ukraine 40 percent, Latvia 21 percent, Poland 21 percent, Lithuania 20 percent, Estonia 9 percent. The printed tables did not list Finland or NATO. 83 percent said Russia has enemies.",
+          "bars": [
+            {
+              "name": "Lithuania",
+              "pct": 20,
+              "reference": false
+            },
+            {
+              "name": "Latvia",
+              "pct": 21,
+              "reference": false
+            },
+            {
+              "name": "Estonia",
+              "pct": 9,
+              "reference": false
+            },
+            {
+              "name": "Poland",
+              "pct": 21,
+              "reference": false
+            },
+            {
+              "name": "Finland",
+              "pct": null,
+              "reference": false
+            },
+            {
+              "name": "USA (reference)",
+              "pct": 66,
+              "reference": true
+            },
+            {
+              "name": "Ukraine (reference)",
+              "pct": 40,
+              "reference": true
+            }
+          ]
         }
       ]
     },
@@ -2415,11 +3748,54 @@
         },
         {
           "title": "Public mood",
-          "line": "Friends, May 2021: Belarus 58 percent, Ukraine 2 percent, Poland 2 percent. Unfriendly: the United States 66 percent, Ukraine 40 percent, Latvia 21 percent, Poland 21 percent, Lithuania 20 percent, Estonia 9 percent. The printed tables did not list Finland or NATO. 83 percent said Russia has enemies. Levada Center. Polls in Russia may not reflect honest opinion.",
-          "arrow": "→",
-          "english": "Name five countries you could call Russia's closest friends and allies. And name five countries you would call the most unfriendly or hostile toward Russia.",
+          "line": "In May 2021, Russians often named the Baltic states and Poland as unfriendly (Levada).",
+          "arrow": "",
+          "english": "",
           "russian": "",
-          "url": "https://www.levada.ru/2021/06/15/glavnye-druzhestvennye-i-nedruzhestvennye-strany/"
+          "url": "https://www.levada.ru/2021/06/15/glavnye-druzhestvennye-i-nedruzhestvennye-strany/",
+          "poll_date": "May 2021",
+          "published": "2021-06-15",
+          "pollster": "Levada Center",
+          "caution": "Polls in Russia may not reflect honest opinion",
+          "axis": "% of Russians naming this country unfriendly",
+          "full": "Name five countries you could call Russia's closest friends and allies. And name five countries you would call the most unfriendly or hostile toward Russia. Friends, May 2021: Belarus 58 percent, Ukraine 2 percent, Poland 2 percent. Unfriendly: the United States 66 percent, Ukraine 40 percent, Latvia 21 percent, Poland 21 percent, Lithuania 20 percent, Estonia 9 percent. The printed tables did not list Finland or NATO. 83 percent said Russia has enemies.",
+          "bars": [
+            {
+              "name": "Lithuania",
+              "pct": 20,
+              "reference": false
+            },
+            {
+              "name": "Latvia",
+              "pct": 21,
+              "reference": false
+            },
+            {
+              "name": "Estonia",
+              "pct": 9,
+              "reference": false
+            },
+            {
+              "name": "Poland",
+              "pct": 21,
+              "reference": false
+            },
+            {
+              "name": "Finland",
+              "pct": null,
+              "reference": false
+            },
+            {
+              "name": "USA (reference)",
+              "pct": 66,
+              "reference": true
+            },
+            {
+              "name": "Ukraine (reference)",
+              "pct": 40,
+              "reference": true
+            }
+          ]
         }
       ]
     },
@@ -2459,11 +3835,54 @@
         },
         {
           "title": "Public mood",
-          "line": "Friends, May 2021: Belarus 58 percent, Ukraine 2 percent, Poland 2 percent. Unfriendly: the United States 66 percent, Ukraine 40 percent, Latvia 21 percent, Poland 21 percent, Lithuania 20 percent, Estonia 9 percent. The printed tables did not list Finland or NATO. 83 percent said Russia has enemies. Levada Center. Polls in Russia may not reflect honest opinion.",
-          "arrow": "→",
-          "english": "Name five countries you could call Russia's closest friends and allies. And name five countries you would call the most unfriendly or hostile toward Russia.",
+          "line": "In May 2021, Russians often named the Baltic states and Poland as unfriendly (Levada).",
+          "arrow": "",
+          "english": "",
           "russian": "",
-          "url": "https://www.levada.ru/2021/06/15/glavnye-druzhestvennye-i-nedruzhestvennye-strany/"
+          "url": "https://www.levada.ru/2021/06/15/glavnye-druzhestvennye-i-nedruzhestvennye-strany/",
+          "poll_date": "May 2021",
+          "published": "2021-06-15",
+          "pollster": "Levada Center",
+          "caution": "Polls in Russia may not reflect honest opinion",
+          "axis": "% of Russians naming this country unfriendly",
+          "full": "Name five countries you could call Russia's closest friends and allies. And name five countries you would call the most unfriendly or hostile toward Russia. Friends, May 2021: Belarus 58 percent, Ukraine 2 percent, Poland 2 percent. Unfriendly: the United States 66 percent, Ukraine 40 percent, Latvia 21 percent, Poland 21 percent, Lithuania 20 percent, Estonia 9 percent. The printed tables did not list Finland or NATO. 83 percent said Russia has enemies.",
+          "bars": [
+            {
+              "name": "Lithuania",
+              "pct": 20,
+              "reference": false
+            },
+            {
+              "name": "Latvia",
+              "pct": 21,
+              "reference": false
+            },
+            {
+              "name": "Estonia",
+              "pct": 9,
+              "reference": false
+            },
+            {
+              "name": "Poland",
+              "pct": 21,
+              "reference": false
+            },
+            {
+              "name": "Finland",
+              "pct": null,
+              "reference": false
+            },
+            {
+              "name": "USA (reference)",
+              "pct": 66,
+              "reference": true
+            },
+            {
+              "name": "Ukraine (reference)",
+              "pct": 40,
+              "reference": true
+            }
+          ]
         }
       ]
     },
@@ -2503,11 +3922,54 @@
         },
         {
           "title": "Public mood",
-          "line": "Friends, May 2021: Belarus 58 percent, Ukraine 2 percent, Poland 2 percent. Unfriendly: the United States 66 percent, Ukraine 40 percent, Latvia 21 percent, Poland 21 percent, Lithuania 20 percent, Estonia 9 percent. The printed tables did not list Finland or NATO. 83 percent said Russia has enemies. Levada Center. Polls in Russia may not reflect honest opinion.",
-          "arrow": "→",
-          "english": "Name five countries you could call Russia's closest friends and allies. And name five countries you would call the most unfriendly or hostile toward Russia.",
+          "line": "In May 2021, Russians often named the Baltic states and Poland as unfriendly (Levada).",
+          "arrow": "",
+          "english": "",
           "russian": "",
-          "url": "https://www.levada.ru/2021/06/15/glavnye-druzhestvennye-i-nedruzhestvennye-strany/"
+          "url": "https://www.levada.ru/2021/06/15/glavnye-druzhestvennye-i-nedruzhestvennye-strany/",
+          "poll_date": "May 2021",
+          "published": "2021-06-15",
+          "pollster": "Levada Center",
+          "caution": "Polls in Russia may not reflect honest opinion",
+          "axis": "% of Russians naming this country unfriendly",
+          "full": "Name five countries you could call Russia's closest friends and allies. And name five countries you would call the most unfriendly or hostile toward Russia. Friends, May 2021: Belarus 58 percent, Ukraine 2 percent, Poland 2 percent. Unfriendly: the United States 66 percent, Ukraine 40 percent, Latvia 21 percent, Poland 21 percent, Lithuania 20 percent, Estonia 9 percent. The printed tables did not list Finland or NATO. 83 percent said Russia has enemies.",
+          "bars": [
+            {
+              "name": "Lithuania",
+              "pct": 20,
+              "reference": false
+            },
+            {
+              "name": "Latvia",
+              "pct": 21,
+              "reference": false
+            },
+            {
+              "name": "Estonia",
+              "pct": 9,
+              "reference": false
+            },
+            {
+              "name": "Poland",
+              "pct": 21,
+              "reference": false
+            },
+            {
+              "name": "Finland",
+              "pct": null,
+              "reference": false
+            },
+            {
+              "name": "USA (reference)",
+              "pct": 66,
+              "reference": true
+            },
+            {
+              "name": "Ukraine (reference)",
+              "pct": 40,
+              "reference": true
+            }
+          ]
         }
       ]
     },
@@ -2547,11 +4009,54 @@
         },
         {
           "title": "Public mood",
-          "line": "The page says slightly less than half of respondents called political relations between Russia and Estonia cool, tense, or hostile, and more than half personally feel good about Estonia. 74 percent of those surveyed did not know that an independent Estonian Republic existed before the Second World War. No sample size was printed in the text that was read. Levada Center. Polls in Russia may not reflect honest opinion.",
-          "arrow": "→",
-          "english": "How Russians see Estonia. This page is an interview about a study, not a full results table.",
+          "line": "In May 2021, Russians often named the Baltic states and Poland as unfriendly (Levada).",
+          "arrow": "",
+          "english": "",
           "russian": "",
-          "url": "https://www.levada.ru/2022/02/09/levada-tsentr-chem-molozhe-i-obrazovannee-rossiyane-tem-luchshe-oni-dumayut-ob-estonii/"
+          "url": "https://www.levada.ru/2021/06/15/glavnye-druzhestvennye-i-nedruzhestvennye-strany/",
+          "poll_date": "May 2021",
+          "published": "2021-06-15",
+          "pollster": "Levada Center",
+          "caution": "Polls in Russia may not reflect honest opinion",
+          "axis": "% of Russians naming this country unfriendly",
+          "full": "Name five countries you could call Russia's closest friends and allies. And name five countries you would call the most unfriendly or hostile toward Russia. Friends, May 2021: Belarus 58 percent, Ukraine 2 percent, Poland 2 percent. Unfriendly: the United States 66 percent, Ukraine 40 percent, Latvia 21 percent, Poland 21 percent, Lithuania 20 percent, Estonia 9 percent. The printed tables did not list Finland or NATO. 83 percent said Russia has enemies.",
+          "bars": [
+            {
+              "name": "Lithuania",
+              "pct": 20,
+              "reference": false
+            },
+            {
+              "name": "Latvia",
+              "pct": 21,
+              "reference": false
+            },
+            {
+              "name": "Estonia",
+              "pct": 9,
+              "reference": false
+            },
+            {
+              "name": "Poland",
+              "pct": 21,
+              "reference": false
+            },
+            {
+              "name": "Finland",
+              "pct": null,
+              "reference": false
+            },
+            {
+              "name": "USA (reference)",
+              "pct": 66,
+              "reference": true
+            },
+            {
+              "name": "Ukraine (reference)",
+              "pct": 40,
+              "reference": true
+            }
+          ]
         }
       ]
     },
@@ -2591,11 +4096,54 @@
         },
         {
           "title": "Public mood",
-          "line": "The page says slightly less than half of respondents called political relations between Russia and Estonia cool, tense, or hostile, and more than half personally feel good about Estonia. 74 percent of those surveyed did not know that an independent Estonian Republic existed before the Second World War. No sample size was printed in the text that was read. Levada Center. Polls in Russia may not reflect honest opinion.",
-          "arrow": "→",
-          "english": "How Russians see Estonia. This page is an interview about a study, not a full results table.",
+          "line": "In May 2021, Russians often named the Baltic states and Poland as unfriendly (Levada).",
+          "arrow": "",
+          "english": "",
           "russian": "",
-          "url": "https://www.levada.ru/2022/02/09/levada-tsentr-chem-molozhe-i-obrazovannee-rossiyane-tem-luchshe-oni-dumayut-ob-estonii/"
+          "url": "https://www.levada.ru/2021/06/15/glavnye-druzhestvennye-i-nedruzhestvennye-strany/",
+          "poll_date": "May 2021",
+          "published": "2021-06-15",
+          "pollster": "Levada Center",
+          "caution": "Polls in Russia may not reflect honest opinion",
+          "axis": "% of Russians naming this country unfriendly",
+          "full": "Name five countries you could call Russia's closest friends and allies. And name five countries you would call the most unfriendly or hostile toward Russia. Friends, May 2021: Belarus 58 percent, Ukraine 2 percent, Poland 2 percent. Unfriendly: the United States 66 percent, Ukraine 40 percent, Latvia 21 percent, Poland 21 percent, Lithuania 20 percent, Estonia 9 percent. The printed tables did not list Finland or NATO. 83 percent said Russia has enemies.",
+          "bars": [
+            {
+              "name": "Lithuania",
+              "pct": 20,
+              "reference": false
+            },
+            {
+              "name": "Latvia",
+              "pct": 21,
+              "reference": false
+            },
+            {
+              "name": "Estonia",
+              "pct": 9,
+              "reference": false
+            },
+            {
+              "name": "Poland",
+              "pct": 21,
+              "reference": false
+            },
+            {
+              "name": "Finland",
+              "pct": null,
+              "reference": false
+            },
+            {
+              "name": "USA (reference)",
+              "pct": 66,
+              "reference": true
+            },
+            {
+              "name": "Ukraine (reference)",
+              "pct": 40,
+              "reference": true
+            }
+          ]
         }
       ]
     },
@@ -2635,11 +4183,54 @@
         },
         {
           "title": "Public mood",
-          "line": "In November 2021, 45 percent felt good about Ukraine and 43 percent felt bad. In February 2022, 35 percent felt good and 52 percent felt bad. 60 percent said the United States and NATO countries started the escalation in eastern Ukraine. Before the official status decision, 33 percent said the Donetsk and Luhansk areas should be independent states, 25 percent said they should join Russia, and 26 percent said they should stay part of Ukraine. Levada Center. Polls in Russia may not reflect honest opinion.",
-          "arrow": "→",
-          "english": "Attitude to Ukraine, who started the escalation in eastern Ukraine, and what status the Donetsk and Luhansk areas should have.",
+          "line": "In May 2021, Russians often named the Baltic states and Poland as unfriendly (Levada).",
+          "arrow": "",
+          "english": "",
           "russian": "",
-          "url": "https://www.levada.ru/2022/02/24/ukraina-i-donbass-2/"
+          "url": "https://www.levada.ru/2021/06/15/glavnye-druzhestvennye-i-nedruzhestvennye-strany/",
+          "poll_date": "May 2021",
+          "published": "2021-06-15",
+          "pollster": "Levada Center",
+          "caution": "Polls in Russia may not reflect honest opinion",
+          "axis": "% of Russians naming this country unfriendly",
+          "full": "Name five countries you could call Russia's closest friends and allies. And name five countries you would call the most unfriendly or hostile toward Russia. Friends, May 2021: Belarus 58 percent, Ukraine 2 percent, Poland 2 percent. Unfriendly: the United States 66 percent, Ukraine 40 percent, Latvia 21 percent, Poland 21 percent, Lithuania 20 percent, Estonia 9 percent. The printed tables did not list Finland or NATO. 83 percent said Russia has enemies.",
+          "bars": [
+            {
+              "name": "Lithuania",
+              "pct": 20,
+              "reference": false
+            },
+            {
+              "name": "Latvia",
+              "pct": 21,
+              "reference": false
+            },
+            {
+              "name": "Estonia",
+              "pct": 9,
+              "reference": false
+            },
+            {
+              "name": "Poland",
+              "pct": 21,
+              "reference": false
+            },
+            {
+              "name": "Finland",
+              "pct": null,
+              "reference": false
+            },
+            {
+              "name": "USA (reference)",
+              "pct": 66,
+              "reference": true
+            },
+            {
+              "name": "Ukraine (reference)",
+              "pct": 40,
+              "reference": true
+            }
+          ]
         }
       ]
     }
