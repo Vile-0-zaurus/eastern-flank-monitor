@@ -556,7 +556,7 @@ def now_download_status():
         if span > 0 and gained > 0:
             rate = gained / (span / 60)
     if rate and left:
-        say(f"Now-download has about {hours(left / rate)} left.")
+        say(f"Now-download has {hours(left / rate)} left.")
     elif left:
         say("Now-download does not have enough finished files in the last hour for an arrival time.")
 
