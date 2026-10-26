@@ -11,6 +11,8 @@ No API calls. Never bypass blocks: no VPN, no DNS changes, no user-agent spoofin
 
 Window: 27 July 2026 through 18 October 2026.
 
+Section 1 result, 2026-10-26: four files scanned, none of the asked domains present, no domain recommended, no second pass. See `docs/reports/2026-10-26-outlet-sample.md`. Section 2 stays closed until the now-download is 100% done.
+
 ## Section 2 — Phase 3
 
 Gate: efm-now-download is 100% done. Do not start this section before that gate.
