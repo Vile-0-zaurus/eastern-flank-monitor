@@ -21,3 +21,5 @@ Gate: efm-now-download is 100% done. Do not start this section before that gate.
 4. "Now" tab next to the 2021–22 replay: same layout (Inside Russia main panel, small map with incident + event dots, country dossier, news English-first). Map dots get a type icon (drone, jamming, cable, border). Week slider over the 12 weeks.
 5. Levels in Now mode: show only what is computable without analyst inputs — per-country Russian media attention vs usual + incident count; label clearly "Now: attention and incidents only; full tension level not computed".
 6. Self-test (one scroll, no jumping, every incident has a source), video ~/Desktop/efm-now.mp4 (30 s). Commit, push, stop.
+
+Section 2 result, 2026-10-27: the download had exited. The window used is the frozen 3 August–25 October window, not the older 27 July–18 October note above. See `docs/reports/2026-10-27-now-phase3.md`.

@@ -1,5 +1,5 @@
 [Unit]
-Description=Eastern flank Now-download of the last 12 full weeks
+Description=Eastern flank Now-download (disabled; window frozen in config/now.yaml)
 After=network-online.target
 Wants=network-online.target
 

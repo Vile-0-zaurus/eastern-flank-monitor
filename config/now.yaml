@@ -1,0 +1,6 @@
+# Frozen Now window. Not a rolling date.
+# The download service stays disabled. These dates do not move forward.
+# Rows stored outside this window stay in the database and are left off the Now tab.
+rolling: false
+window_start: 2026-08-03
+window_end: 2026-10-25

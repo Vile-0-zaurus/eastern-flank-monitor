@@ -2,6 +2,7 @@ import unittest
 from datetime import date
 
 from pipeline.fetch.now_download import (
+    configured_window,
     day_exceeds,
     disk_allows,
     full_weeks,
@@ -20,6 +21,14 @@ class WindowTest(unittest.TestCase):
         start, end = full_weeks(date(2026, 10, 18))
         self.assertEqual(end, "20261011")
         self.assertEqual(start, "20260720")
+
+    def test_config_freezes_the_now_window(self):
+        window = configured_window()
+        if window is None:
+            self.fail("frozen window missing")
+        start, end = window
+        self.assertEqual(start, "20260803")
+        self.assertEqual(end, "20261025")
 
 
 class KeepTest(unittest.TestCase):

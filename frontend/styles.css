@@ -1046,5 +1046,11 @@ body.briefing .skip-quiet { font-size: 12px; }
 body.briefing .russia-card h3 { margin: 0 0 6px; font-size: 18px; }
 body.briefing .russia-line { margin: 0 0 8px; }
 body.briefing #inside-russia { display: none; }
+.mode-tabs { display: flex; gap: 8px; }
+.mode-tabs button { background: transparent; color: inherit; border: 1px solid var(--line); padding: 4px 10px; }
+.mode-tabs button[aria-pressed="true"] { border-color: #5eead4; }
+.now-label { margin: 0 16px 8px; font-size: 13px; }
+.incident-mark { font-size: 11px; font-weight: 700; fill: #f8fafc; }
+
 
 

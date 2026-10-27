@@ -26,6 +26,7 @@ import gkg_filter_v2 as filt  # noqa: E402
 
 NOW_DIR = ROOT / "data" / "now"
 DB = NOW_DIR / "gkg-now.sqlite"
+NOW_CONFIG = ROOT / "config" / "now.yaml"
 WESTERN_PATH = ROOT / "config" / "western-outlets.yaml"
 SIZE_CAP = NOW_DIR / "size-cap.txt"
 INDEX_COUNT = NOW_DIR / "index-count.txt"
@@ -59,6 +60,35 @@ def full_weeks(today: date, weeks: int = 12) -> tuple[str, str]:
     last_sunday = today - timedelta(days=today.weekday() + 1)
     start = last_sunday - timedelta(days=weeks * 7 - 1)
     return start.strftime("%Y%m%d"), last_sunday.strftime("%Y%m%d")
+
+
+def configured_window(path: Path = NOW_CONFIG) -> tuple[str, str] | None:
+    """Fixed dates from config. None when the file is missing or still rolling."""
+    if not path.exists():
+        return None
+    rolling = True
+    start = end = ""
+    for line in path.read_text(encoding="utf-8").splitlines():
+        line = line.split("#", 1)[0].strip()
+        if not line or ":" not in line:
+            continue
+        key, value = [part.strip() for part in line.split(":", 1)]
+        if key == "rolling":
+            rolling = value.lower() == "true"
+        elif key == "window_start":
+            start = value.replace("-", "")
+        elif key == "window_end":
+            end = value.replace("-", "")
+    if rolling or len(start) != 8 or len(end) != 8:
+        return None
+    return start, end
+
+
+def active_window(today: date | None = None) -> tuple[str, str]:
+    frozen = configured_window()
+    if frozen:
+        return frozen
+    return full_weeks(today or datetime.now(timezone.utc).date())
 
 
 def disk_allows(free_bytes: int, floor: int = DISK_FLOOR) -> bool:
@@ -357,7 +387,7 @@ def run(today: date | None = None) -> None:
         print("SIZE_CAP already set", SIZE_CAP.read_text(encoding="utf-8").strip(), flush=True)
         return
     today = today or datetime.now(timezone.utc).date()
-    start, end = full_weeks(today)
+    start, end = active_window(today)
     print(f"WINDOW {start} {end}", flush=True)
     russian = set(bf.load_outlets())
     western = set(load_western())
@@ -399,7 +429,7 @@ def count_probe(content: bytes, domains: set[str]) -> dict[str, int]:
 def probe(today: date | None = None) -> int:
     """Count example domains in a few files. Does not write the database."""
     today = today or datetime.now(timezone.utc).date()
-    start, end = full_weeks(today)
+    start, end = active_window(today)
     domains: set[str] = set(PROBE_DOMAINS)
     totals = {d: 0 for d in domains}
     sample_days = {end, start, "20260914"}

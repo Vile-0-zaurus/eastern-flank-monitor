@@ -18,6 +18,8 @@ const state = {
   filter: "all",
   russiaOpen: false,
   moreFeed: {},
+  mode: "replay",
+  nowPack: null,
 };
 
 function fill(template, values) {
@@ -70,7 +72,19 @@ function parseCsv(text) {
   });
 }
 
+function inNow() {
+  return state.mode === "now" && state.nowPack;
+}
+
 function flankWeeks() {
+  if (inNow()) {
+    return state.nowPack.weeks.map((week) => ({
+      week,
+      region: "eastern_flank",
+      shown: "",
+      shown_label: "",
+    }));
+  }
   return state.rows.filter((row) => row.region === "eastern_flank");
 }
 
@@ -284,7 +298,94 @@ function regionLine() {
   return "Region: " + sign.word;
 }
 
+function weekEnd(week) {
+  const start = new Date(week + "T00:00:00Z");
+  start.setUTCDate(start.getUTCDate() + 6);
+  return start.toISOString().slice(0, 10);
+}
+
+function nowAttention(code) {
+  const pack = state.nowPack;
+  const week = current().week;
+  const count = ((pack.attention || {})[week] || {})[code] || 0;
+  const usual = (pack.usual || {})[code];
+  return { count, usual };
+}
+
+function nowIncidents(code) {
+  const week = current().week;
+  const end = weekEnd(week);
+  return (state.nowPack.incidents || []).filter((item) => {
+    if (item.date < week || item.date > end) return false;
+    return !code || item.country === code;
+  });
+}
+
+function attentionWords(code) {
+  const reading = nowAttention(code);
+  const incidents = nowIncidents(code).length;
+  const usual = reading.usual == null ? "no usual" : "usual " + reading.usual;
+  const arrow = reading.usual == null ? "" : reading.count > reading.usual ? " ↑" : reading.count < reading.usual ? " ↓" : " →";
+  return reading.count + " stories, " + usual + arrow + " · " + incidents + (incidents === 1 ? " incident" : " incidents");
+}
+
+function renderNowStrip() {
+  const strip = document.getElementById("country-strip");
+  strip.innerHTML = "";
+  const region = document.getElementById("region-state");
+  if (region) {
+    region.replaceChildren();
+    const label = document.createElement("span");
+    label.className = "region-label";
+    label.textContent = "Now";
+    region.append(label);
+  }
+  const note = document.getElementById("now-label");
+  if (note) {
+    note.hidden = false;
+    note.textContent = state.nowPack.label;
+  }
+  COUNTRIES.forEach((code) => {
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = "country-card" + (state.focus === code ? " picked" : state.focus ? " dimmed" : "");
+    button.setAttribute("aria-pressed", state.focus === code ? "true" : "false");
+    button.id = "country-" + code;
+    button.dataset.country = code;
+    const name = document.createElement("span");
+    name.className = "country-name";
+    name.textContent = state.text["country_" + code];
+    const word = document.createElement("span");
+    word.className = "sign";
+    word.textContent = attentionWords(code);
+    button.append(name, word);
+    button.addEventListener("click", () => {
+      stop();
+      pickCountry(code);
+    });
+    strip.appendChild(button);
+  });
+  const russia = document.createElement("button");
+  russia.type = "button";
+  russia.id = "russia-square";
+  russia.className = "russia-square" + (state.russiaOpen ? " picked" : "");
+  russia.setAttribute("aria-pressed", state.russiaOpen ? "true" : "false");
+  const russiaName = document.createElement("span");
+  russiaName.className = "country-name";
+  russiaName.textContent = "Russia";
+  russia.append(russiaName);
+  russia.addEventListener("click", () => {
+    stop();
+    toggleRussia();
+  });
+  strip.appendChild(russia);
+}
+
 function renderStrip() {
+  if (inNow()) {
+    renderNowStrip();
+    return;
+  }
   const strip = document.getElementById("country-strip");
   strip.innerHTML = "";
   const region = document.getElementById("region-state");
@@ -364,6 +465,32 @@ function renderRegionOverview() {
   const close = document.getElementById("drawer-close");
   if (close) close.hidden = open;
   if (!open) return;
+  if (inNow()) {
+    const line = document.getElementById("region-overview-line");
+    if (line) line.textContent = state.nowPack.label;
+    const eventsHost = document.getElementById("region-events");
+    eventsHost.innerHTML = "";
+    const incidents = nowIncidents();
+    if (!incidents.length) {
+      eventsHost.textContent = "No incident in this week from the checked sources.";
+    } else {
+      const list = document.createElement("ul");
+      incidents.forEach((incident) => {
+        const item = document.createElement("li");
+        const title = document.createElement("p");
+        title.textContent = incident.place + ". " + incident.summary;
+        const link = document.createElement("a");
+        link.href = incident.source;
+        link.textContent = "Source";
+        item.append(title, link);
+        list.appendChild(item);
+      });
+      eventsHost.appendChild(list);
+    }
+    const newsHost = document.getElementById("region-news");
+    if (newsHost) newsHost.innerHTML = "";
+    return;
+  }
   const line = document.getElementById("region-overview-line");
   if (line) line.textContent = regionLine();
   const eventsHost = document.getElementById("region-events");
@@ -409,7 +536,7 @@ function reducedMotion() {
 function setupDoors() {
   const doors = document.getElementById("doors");
   if (!doors) return;
-  if (reducedMotion() || sessionStorage.getItem("efm-doors")) {
+  if (reducedMotion() || sessionStorage.getItem("efm-doors") || new URLSearchParams(location.search).get("mode") === "now") {
     doors.remove();
     return;
   }
@@ -594,7 +721,8 @@ function renderMap() {
     path.setAttribute("data-country", country.id);
     const picked = state.focus === country.id || (state.russiaOpen && country.id === "RU");
     const dimmed = (state.focus && state.focus !== country.id) || (state.russiaOpen && country.id !== "RU");
-    path.setAttribute("class", "land land-" + country.id + (COUNTRIES.includes(country.id) ? " state-" + signFor(current()).kind : "") + (picked ? " picked" : "") + (dimmed ? " dimmed" : ""));
+    const kind = inNow() ? "now" : signFor(current()).kind;
+    path.setAttribute("class", "land land-" + country.id + (COUNTRIES.includes(country.id) ? " state-" + kind : "") + (picked ? " picked" : "") + (dimmed ? " dimmed" : ""));
     const label = state.text["country_" + country.id] || country.name;
     path.setAttribute("aria-label", label);
     if (COUNTRIES.includes(country.id)) {
@@ -667,11 +795,77 @@ function renderMap() {
       }
     });
   });
+  if (inNow()) drawIncidents(svg, week);
   host.innerHTML = "";
   host.appendChild(svg);
 }
 
+function drawIncidents(svg, week) {
+  const marks = { drone: "drone", jamming: "jam", cable: "cable", border: "border", sabotage: "sabotage" };
+  nowIncidents().forEach((incident) => {
+    const [x, y] = project(incident.lon, incident.lat);
+    const dot = document.createElementNS("http://www.w3.org/2000/svg", "g");
+    dot.setAttribute("class", "incident-dot");
+    dot.setAttribute("data-type", incident.type);
+    dot.setAttribute("data-date", incident.date);
+    dot.setAttribute("transform", "translate(" + x.toFixed(1) + " " + y.toFixed(1) + ")");
+    const shape = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+    shape.setAttribute("r", "11");
+    shape.setAttribute("fill", "#0f766e");
+    shape.setAttribute("stroke", "#ffffff");
+    shape.setAttribute("stroke-width", "2");
+    const mark = document.createElementNS("http://www.w3.org/2000/svg", "text");
+    mark.setAttribute("text-anchor", "middle");
+    mark.setAttribute("y", "4");
+    mark.setAttribute("class", "incident-mark");
+    mark.textContent = (marks[incident.type] || incident.type).slice(0, 1).toUpperCase();
+    const tip = document.createElementNS("http://www.w3.org/2000/svg", "title");
+    tip.textContent = incident.type + ". " + incident.summary;
+    dot.append(shape, mark, tip);
+    dot.addEventListener("click", (click) => {
+      click.stopPropagation();
+      stop();
+      openIncident(incident);
+    });
+    svg.appendChild(dot);
+    const label = document.createElementNS("http://www.w3.org/2000/svg", "text");
+    label.setAttribute("x", (x + 14).toFixed(1));
+    label.setAttribute("y", (y - 8).toFixed(1));
+    label.setAttribute("class", "map-event-label");
+    label.textContent = marks[incident.type] || incident.type;
+    svg.appendChild(label);
+  });
+}
+
+function openIncident(incident) {
+  const panel = document.getElementById("why");
+  panel.hidden = false;
+  document.getElementById("why-title").textContent = incident.place;
+  document.getElementById("why-subject").textContent = incident.type + " — " + dateWords(incident.date);
+  const eventsHost = document.getElementById("why-events");
+  const officialHost = document.getElementById("why-official");
+  eventsHost.innerHTML = "";
+  officialHost.innerHTML = "";
+  const item = document.createElement("article");
+  item.className = "incident-card";
+  const line = document.createElement("p");
+  line.textContent = incident.summary;
+  const when = document.createElement("p");
+  when.className = "note";
+  when.textContent = "Incident date " + dateWords(incident.date) + ". Source date " + dateWords(incident.source_date) + ".";
+  const link = document.createElement("a");
+  link.href = incident.source;
+  link.textContent = "Source";
+  item.append(line, when, link);
+  eventsHost.append(item);
+  document.getElementById("why-quiet").hidden = true;
+}
+
 function renderNews() {
+  if (inNow()) {
+    renderNowNews();
+    return;
+  }
   const title = document.getElementById("news-title");
   if (title) title.textContent = state.text.news_title;
   document.getElementById("filter-all").textContent = state.text.filter_all;
@@ -1030,18 +1224,35 @@ function renderTicks() {
   });
 }
 
+function renderNowNews() {
+  const host = document.getElementById("news");
+  host.innerHTML = "";
+  const week = current().week;
+  const items = (state.nowPack.news || []).filter((story) => story.week === week);
+  if (!items.length) {
+    const empty = document.createElement("p");
+    empty.textContent = "No English Yle or BBC stories naming a flank country this week.";
+    host.appendChild(empty);
+    return;
+  }
+  const list = document.createElement("ul");
+  items.slice(0, 8).forEach((story) => appendStory(list, story));
+  host.appendChild(list);
+}
+
 function renderInsideMain() {
+  const source = inNow() ? state.nowPack.inside : state.insideMain;
   const host = document.getElementById("inside-cards");
-  if (!host || !state.insideMain) return;
+  if (!host || !source) return;
   const note = document.getElementById("inside-main-note");
   const coverage = document.getElementById("inside-coverage");
   const volume = document.getElementById("inside-volume");
-  if (note) note.textContent = state.insideMain.note || "";
-  if (coverage) coverage.textContent = state.insideMain.coverage || "";
-  if (volume) volume.textContent = state.insideMain.volume_note || "";
+  if (note) note.textContent = source.note || "";
+  if (coverage) coverage.textContent = source.coverage || "";
+  if (volume) volume.textContent = source.volume_note || "";
   host.innerHTML = "";
   const week = current().week;
-  const block = (state.insideMain.weeks || {})[week];
+  const block = (source.weeks || {})[week];
   const cards = block ? block.cards : [];
   renderQuiet(week);
   cards.forEach((item) => {
@@ -1173,6 +1384,19 @@ function officialRows(side) {
 }
 
 function renderOfficials() {
+  if (inNow()) {
+    ["russian", "western"].forEach((side) => {
+      const host = document.getElementById(side === "russian" ? "officials-ru" : "officials-west");
+      if (!host) return;
+      host.innerHTML = "";
+      const note = document.createElement("p");
+      note.textContent = side === "western"
+        ? "Incident sources for this week are listed under the map and the region overview."
+        : "Russian official statements for this window are not in a separate file.";
+      host.append(note);
+    });
+    return;
+  }
   ["russian", "western"].forEach((side) => {
     const host = document.getElementById(side === "russian" ? "officials-ru" : "officials-west");
     if (!host) return;
@@ -1239,7 +1463,7 @@ function togglePlayback() {
 
 async function main() {
   setupDoors();
-  const [text, csv, events, map, news, official, countryHeadlines, officials, inside, insideMain] = await Promise.all([
+  const [text, csv, events, map, news, official, countryHeadlines, officials, inside, insideMain, nowPack] = await Promise.all([
     fetch("i18n/en.json").then((response) => response.json()),
     fetch("../docs/reports/2026-10-12-backtest-weeks.csv").then((response) => response.text()),
     fetch("events.json").then((response) => response.json()),
@@ -1250,6 +1474,7 @@ async function main() {
     fetch("officials.json").then((response) => response.json()),
     fetch("inside-russia.json").then((response) => response.json()),
     fetch("inside-main.json").then((response) => response.json()),
+    fetch("now-view.json").then((response) => response.json()),
   ]);
   state.text = text;
   state.rows = parseCsv(csv).filter((row) => row.week >= START);
@@ -1260,6 +1485,7 @@ async function main() {
   state.officials = officials;
   state.inside = inside;
   state.insideMain = insideMain;
+  state.nowPack = nowPack;
   state.countryHeadlines = countryHeadlines;
   document.title = text.title;
   document.getElementById("title").textContent = text.title;
@@ -1302,6 +1528,26 @@ async function main() {
     stop();
     clearFocus();
   });
+  document.getElementById("mode-replay").addEventListener("click", () => setMode("replay"));
+  document.getElementById("mode-now").addEventListener("click", () => setMode("now"));
+  if (params.get("mode") === "now") setMode("now");
+}
+
+function setMode(mode) {
+  stop();
+  state.mode = mode;
+  state.index = 0;
+  state.focus = null;
+  state.why = null;
+  state.russiaOpen = false;
+  document.getElementById("mode-replay").setAttribute("aria-pressed", mode === "replay" ? "true" : "false");
+  document.getElementById("mode-now").setAttribute("aria-pressed", mode === "now" ? "true" : "false");
+  const note = document.getElementById("now-label");
+  if (note) note.hidden = mode !== "now";
+  document.getElementById("banner").textContent = mode === "now"
+    ? "Now — frozen window, 3 August to 25 October 2026. Not a tension score."
+    : "Prototype — replaying 2021–22. Not live.";
+  renderWeek();
 }
 
 main();

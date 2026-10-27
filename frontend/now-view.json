@@ -1,0 +1,1465 @@
+{
+  "window_start": "2026-08-03",
+  "window_end": "2026-10-25",
+  "label": "Now: attention and incidents only; full tension level not computed",
+  "weeks": [
+    "2026-08-03",
+    "2026-08-10",
+    "2026-08-17",
+    "2026-08-24",
+    "2026-08-31",
+    "2026-09-07",
+    "2026-09-14",
+    "2026-09-21",
+    "2026-09-28",
+    "2026-10-05",
+    "2026-10-12",
+    "2026-10-19"
+  ],
+  "usual": {
+    "FI": 40,
+    "EE": 23,
+    "LV": 34,
+    "LT": 46,
+    "PL": 102
+  },
+  "attention": {
+    "2026-08-03": {
+      "FI": 58,
+      "EE": 18,
+      "LV": 58,
+      "LT": 48,
+      "PL": 111
+    },
+    "2026-08-10": {
+      "FI": 30,
+      "EE": 7,
+      "LV": 40,
+      "LT": 32,
+      "PL": 110
+    },
+    "2026-08-17": {
+      "FI": 48,
+      "EE": 23,
+      "LV": 36,
+      "LT": 21,
+      "PL": 78
+    },
+    "2026-08-24": {
+      "FI": 76,
+      "EE": 17,
+      "LV": 23,
+      "LT": 25,
+      "PL": 60
+    },
+    "2026-08-31": {
+      "FI": 62,
+      "EE": 31,
+      "LV": 18,
+      "LT": 23,
+      "PL": 78
+    },
+    "2026-09-07": {
+      "FI": 42,
+      "EE": 27,
+      "LV": 38,
+      "LT": 63,
+      "PL": 90
+    },
+    "2026-09-14": {
+      "FI": 53,
+      "EE": 13,
+      "LV": 36,
+      "LT": 59,
+      "PL": 136
+    },
+    "2026-09-21": {
+      "FI": 24,
+      "EE": 18,
+      "LV": 31,
+      "LT": 45,
+      "PL": 155
+    },
+    "2026-09-28": {
+      "FI": 24,
+      "EE": 32,
+      "LV": 33,
+      "LT": 37,
+      "PL": 106
+    },
+    "2026-10-05": {
+      "FI": 39,
+      "EE": 73,
+      "LV": 25,
+      "LT": 68,
+      "PL": 98
+    },
+    "2026-10-12": {
+      "FI": 25,
+      "EE": 36,
+      "LV": 65,
+      "LT": 48,
+      "PL": 90
+    },
+    "2026-10-19": {
+      "FI": 38,
+      "EE": 24,
+      "LV": 22,
+      "LT": 63,
+      "PL": 136
+    }
+  },
+  "outside_rows_excluded": 18891,
+  "gaps": [
+    "No dated GPS-jamming incident in this window had an official page or a stored Yle/BBC row that named a specific event.",
+    "No new cable or pipeline damage in this window. The Eagle S court item is about an earlier case.",
+    "No balloon incident in this window had a fetched official page."
+  ],
+  "incidents": [
+    {
+      "date": "2026-08-14",
+      "type": "drone",
+      "country": "FI",
+      "place": "Eastern Gulf of Finland",
+      "lat": 59.8737,
+      "lon": 26.323,
+      "summary": "Finland closed the eastern Gulf of Finland airspace overnight and reopened it that morning.",
+      "source": "https://yle.fi/a/74-20241014",
+      "source_date": "2026-08-14",
+      "source_note": "Stored Yle row. The page prints 14.8."
+    },
+    {
+      "date": "2026-08-20",
+      "type": "drone",
+      "country": "FI",
+      "place": "South of Utö",
+      "lat": 59.7806,
+      "lon": 21.3741,
+      "summary": "A Russian IL-20 is suspected of entering Finnish airspace south of Utö for about three minutes.",
+      "source": "https://yle.fi/a/74-20242226",
+      "source_date": "2026-08-21",
+      "source_note": "Stored Yle row. The page prints 21.8 and says Thursday afternoon."
+    },
+    {
+      "date": "2026-09-01",
+      "type": "drone",
+      "country": "FI",
+      "place": "Pellinge, Porvoo",
+      "lat": 60.2139,
+      "lon": 25.8526,
+      "summary": "A surveying drone was found on the Pellinge coast. The Border Guard opened a border-violation investigation.",
+      "source": "https://raja.fi/en/-/border-guard-starts-investigating-the-discovered-drone-as-a-border-violation",
+      "source_date": "2026-09-04",
+      "source_note": "Finnish Border Guard page, publication date 4.9.2026. The find is dated 1 September."
+    },
+    {
+      "date": "2026-08-15",
+      "type": "sabotage",
+      "country": "EE",
+      "place": "Tallinn",
+      "lat": 59.4372,
+      "lon": 24.7573,
+      "summary": "Estonia's foreign minister said the 14–15 August arson at Milrem Robotics was sabotage ordered by Russian special services. The city is named in a stored Yle headline, not on the ministry page.",
+      "source": "https://www.vm.ee/en/news/foreign-minister-tsahkna-estonia-challenging-target-russias-hybrid-attacks",
+      "source_date": "2026-09-29",
+      "source_note": "Estonian Foreign Ministry page prints 29.09.2026."
+    },
+    {
+      "date": "2026-09-15",
+      "type": "drone",
+      "country": "LT",
+      "place": "Near Kaunas",
+      "lat": 54.8982,
+      "lon": 23.9045,
+      "summary": "NATO jets shot down a drone that entered Lithuanian airspace near Kaunas shortly after midnight.",
+      "source": "https://www.bbc.co.uk/news/articles/cjx2zgk7edlzo",
+      "source_date": "2026-09-15",
+      "source_note": "Stored BBC row. The live page did not print a calendar date."
+    },
+    {
+      "date": "2026-09-23",
+      "type": "drone",
+      "country": "PL",
+      "place": "North of Braniewo",
+      "lat": 54.3791,
+      "lon": 19.8222,
+      "summary": "Poland said a Russian Mi-8 crossed from Kaliningrad about 300 metres into Polish airspace for 42 seconds.",
+      "source": "https://www.bbc.co.uk/news/articles/c699d2dn9z0mo",
+      "source_date": "2026-09-23",
+      "source_note": "Stored BBC row. The live page did not print a calendar date."
+    },
+    {
+      "date": "2026-09-27",
+      "type": "border",
+      "country": "LT",
+      "place": "Tausiūnai and Eišiškės",
+      "lat": 54.1524,
+      "lon": 25.0582,
+      "summary": "Border guards brought down two cigarette drones that entered from Belarus near Tausiūnai and Eišiškės.",
+      "source": "https://vsat.lrv.lt/lt/naujienos/per-kelias-valandas-purvenu-pasienieciai-nukove-du-is-baltarusijos-skridusius-dronus-su-cigareciu-kroviniu-foto-xjM/",
+      "source_date": "2026-09-28",
+      "source_note": "Lithuanian State Border Guard page prints 2026-09-28. English line written from that page, not a full translation."
+    }
+  ],
+  "news": [
+    {
+      "week": "2026-08-03",
+      "date": "2026-08-03",
+      "title": "'One of the Third Reich's most fearsome weapons': The daring mission to smuggle a V2 rocket out of Nazi-occupied Poland",
+      "english": "'One of the Third Reich's most fearsome weapons': The daring mission to smuggle a V2 rocket out of Nazi-occupied Poland",
+      "url": "https://www.bbc.com/culture/article/20260731-the-daring-mission-to-smuggle-a-v2-rocket-out-of-nazi-occupied-poland",
+      "outlet": "bbc.com",
+      "countries": [
+        "PL"
+      ]
+    },
+    {
+      "week": "2026-08-03",
+      "date": "2026-08-03",
+      "title": "\"I wouldn't do it again\"— Finnish graduate feels the weight of student debt",
+      "english": "\"I wouldn't do it again\"— Finnish graduate feels the weight of student debt",
+      "url": "https://yle.fi/a/74-20239153",
+      "outlet": "yle.fi",
+      "countries": [
+        "FI"
+      ]
+    },
+    {
+      "week": "2026-08-03",
+      "date": "2026-08-04",
+      "title": "Military restricts air and maritime traffic in Gulf of Finland",
+      "english": "Military restricts air and maritime traffic in Gulf of Finland",
+      "url": "https://yle.fi/a/74-20239254",
+      "outlet": "yle.fi",
+      "countries": [
+        "FI"
+      ]
+    },
+    {
+      "week": "2026-08-03",
+      "date": "2026-08-04",
+      "title": "Video: Water buffalos draw crowds as they clean up a Finnish lake",
+      "english": "Video: Water buffalos draw crowds as they clean up a Finnish lake",
+      "url": "https://yle.fi/a/74-20239364",
+      "outlet": "yle.fi",
+      "countries": [
+        "FI"
+      ]
+    },
+    {
+      "week": "2026-08-03",
+      "date": "2026-08-05",
+      "title": "Missed out on a university place? Finland has a solution",
+      "english": "Missed out on a university place? Finland has a solution",
+      "url": "https://yle.fi/a/74-20239535",
+      "outlet": "yle.fi",
+      "countries": [
+        "FI"
+      ]
+    },
+    {
+      "week": "2026-08-03",
+      "date": "2026-08-06",
+      "title": "Sunny skies in south, rainy in other parts of Finland",
+      "english": "Sunny skies in south, rainy in other parts of Finland",
+      "url": "https://yle.fi/a/74-20239601",
+      "outlet": "yle.fi",
+      "countries": [
+        "FI"
+      ]
+    },
+    {
+      "week": "2026-08-03",
+      "date": "2026-08-06",
+      "title": "Video: Is Finland ready to let go of the wheel?",
+      "english": "Video: Is Finland ready to let go of the wheel?",
+      "url": "https://yle.fi/a/74-20239748",
+      "outlet": "yle.fi",
+      "countries": [
+        "FI"
+      ]
+    },
+    {
+      "week": "2026-08-03",
+      "date": "2026-08-09",
+      "title": "Poland's Tatras: The affordable alternative to the Alps",
+      "english": "Poland's Tatras: The affordable alternative to the Alps",
+      "url": "https://www.bbc.com/travel/article/20260807-polands-tatras-the-affordable-alternative-to-the-alps",
+      "outlet": "bbc.com",
+      "countries": [
+        "PL"
+      ]
+    },
+    {
+      "week": "2026-08-10",
+      "date": "2026-08-10",
+      "title": "New train service connects Finland and Sweden for first time in decades",
+      "english": "New train service connects Finland and Sweden for first time in decades",
+      "url": "https://www.bbc.co.uk/news/articles/cx2lwpzz6qjo",
+      "outlet": "bbc.co.uk",
+      "countries": [
+        "FI"
+      ]
+    },
+    {
+      "week": "2026-08-10",
+      "date": "2026-08-10",
+      "title": "New train service connects Finland and Sweden for first time in decades",
+      "english": "New train service connects Finland and Sweden for first time in decades",
+      "url": "https://www.bbc.com/news/articles/cx2lwpzz6qjo",
+      "outlet": "bbc.com",
+      "countries": [
+        "FI"
+      ]
+    },
+    {
+      "week": "2026-08-10",
+      "date": "2026-08-12",
+      "title": "More moving and less screens — Finland's school year starts with active plans for kids",
+      "english": "More moving and less screens — Finland's school year starts with active plans for kids",
+      "url": "https://yle.fi/a/74-20240535",
+      "outlet": "yle.fi",
+      "countries": [
+        "FI"
+      ]
+    },
+    {
+      "week": "2026-08-10",
+      "date": "2026-08-12",
+      "title": "High-speed delivery as baby born on Finnish train",
+      "english": "High-speed delivery as baby born on Finnish train",
+      "url": "https://yle.fi/a/74-20240672",
+      "outlet": "yle.fi",
+      "countries": [
+        "FI"
+      ]
+    },
+    {
+      "week": "2026-08-10",
+      "date": "2026-08-12",
+      "title": "Finland sees dramatic drop in student applications from abroad",
+      "english": "Finland sees dramatic drop in student applications from abroad",
+      "url": "https://yle.fi/a/74-20240590",
+      "outlet": "yle.fi",
+      "countries": [
+        "FI"
+      ]
+    },
+    {
+      "week": "2026-08-10",
+      "date": "2026-08-12",
+      "title": "Estonia rejects proposals to take prisoners from UK jails",
+      "english": "Estonia rejects proposals to take prisoners from UK jails",
+      "url": "https://www.bbc.co.uk/news/articles/cly5pj0qyd4o",
+      "outlet": "bbc.co.uk",
+      "countries": [
+        "EE"
+      ]
+    },
+    {
+      "week": "2026-08-10",
+      "date": "2026-08-13",
+      "title": "Finnish summer makes a comeback as temperatures climb above 20C",
+      "english": "Finnish summer makes a comeback as temperatures climb above 20C",
+      "url": "https://yle.fi/a/74-20240761",
+      "outlet": "yle.fi",
+      "countries": [
+        "FI"
+      ]
+    },
+    {
+      "week": "2026-08-10",
+      "date": "2026-08-14",
+      "title": "Video: This week in Finland",
+      "english": "Video: This week in Finland",
+      "url": "https://yle.fi/a/74-20241078",
+      "outlet": "yle.fi",
+      "countries": [
+        "FI"
+      ]
+    },
+    {
+      "week": "2026-08-17",
+      "date": "2026-08-17",
+      "title": "Italian mother Valeria Quintodei wants to adopt the same routines as Finnish families",
+      "english": "Italian mother Valeria Quintodei wants to adopt the same routines as Finnish families",
+      "url": "https://yle.fi/a/74-20241439",
+      "outlet": "yle.fi",
+      "countries": [
+        "FI"
+      ]
+    },
+    {
+      "week": "2026-08-17",
+      "date": "2026-08-18",
+      "title": "Broad support in Finland for banning social media for under-15s",
+      "english": "Broad support in Finland for banning social media for under-15s",
+      "url": "https://yle.fi/a/74-20241545",
+      "outlet": "yle.fi",
+      "countries": [
+        "FI"
+      ]
+    },
+    {
+      "week": "2026-08-17",
+      "date": "2026-08-18",
+      "title": "Video: Why are all of Finland's major athletics championship medals going to women? | Yle News",
+      "english": "Video: Why are all of Finland's major athletics championship medals going to women? | Yle News",
+      "url": "https://yle.fi/a/74-20241658",
+      "outlet": "yle.fi",
+      "countries": [
+        "FI"
+      ]
+    },
+    {
+      "week": "2026-08-17",
+      "date": "2026-08-19",
+      "title": "Finnish airports in July were busiest in years",
+      "english": "Finnish airports in July were busiest in years",
+      "url": "https://yle.fi/a/74-20241862",
+      "outlet": "yle.fi",
+      "countries": [
+        "FI"
+      ]
+    },
+    {
+      "week": "2026-08-17",
+      "date": "2026-08-20",
+      "title": "Open job vacancies in Finland rise for first time since 2022, but recovery remains uncertain",
+      "english": "Open job vacancies in Finland rise for first time since 2022, but recovery remains uncertain",
+      "url": "https://yle.fi/a/74-20241992",
+      "outlet": "yle.fi",
+      "countries": [
+        "FI"
+      ]
+    },
+    {
+      "week": "2026-08-17",
+      "date": "2026-08-20",
+      "title": "Finnish mother faces human trafficking charges for taking children to ISIS-controlled Syria",
+      "english": "Finnish mother faces human trafficking charges for taking children to ISIS-controlled Syria",
+      "url": "https://yle.fi/a/74-20242113",
+      "outlet": "yle.fi",
+      "countries": [
+        "FI"
+      ]
+    },
+    {
+      "week": "2026-08-17",
+      "date": "2026-08-21",
+      "title": "Finland set for a damp weekend",
+      "english": "Finland set for a damp weekend",
+      "url": "https://yle.fi/a/74-20242243",
+      "outlet": "yle.fi",
+      "countries": [
+        "FI"
+      ]
+    },
+    {
+      "week": "2026-08-24",
+      "date": "2026-08-25",
+      "title": "SME survey finds Finns Party leader Riikka Purra as favourite for Finland's next PM",
+      "english": "SME survey finds Finns Party leader Riikka Purra as favourite for Finland's next PM",
+      "url": "https://yle.fi/a/74-20242759",
+      "outlet": "yle.fi",
+      "countries": [
+        "FI"
+      ]
+    },
+    {
+      "week": "2026-08-24",
+      "date": "2026-08-26",
+      "title": "Video: Is there light at the end of Finland's unemployment tunnel?",
+      "english": "Video: Is there light at the end of Finland's unemployment tunnel?",
+      "url": "https://yle.fi/a/74-20243072",
+      "outlet": "yle.fi",
+      "countries": [
+        "FI"
+      ]
+    },
+    {
+      "week": "2026-08-24",
+      "date": "2026-08-27",
+      "title": "Finnish citizen among hundreds missing in Nepal after catastrophic flash flood",
+      "english": "Finnish citizen among hundreds missing in Nepal after catastrophic flash flood",
+      "url": "https://yle.fi/a/74-20243170",
+      "outlet": "yle.fi",
+      "countries": [
+        "FI"
+      ]
+    },
+    {
+      "week": "2026-08-24",
+      "date": "2026-08-27",
+      "title": "Finland ends support of UNRWA for Palestinian refugees",
+      "english": "Finland ends support of UNRWA for Palestinian refugees",
+      "url": "https://yle.fi/a/74-20243252",
+      "outlet": "yle.fi",
+      "countries": [
+        "FI"
+      ]
+    },
+    {
+      "week": "2026-08-24",
+      "date": "2026-08-27",
+      "title": "Video: Finland's delivery robots roll with the rules, too",
+      "english": "Video: Finland's delivery robots roll with the rules, too",
+      "url": "https://yle.fi/a/74-20243281",
+      "outlet": "yle.fi",
+      "countries": [
+        "FI"
+      ]
+    },
+    {
+      "week": "2026-08-24",
+      "date": "2026-08-27",
+      "title": "A dozen Russians suspected of buying Finnish citizenship",
+      "english": "A dozen Russians suspected of buying Finnish citizenship",
+      "url": "https://yle.fi/a/74-20243293",
+      "outlet": "yle.fi",
+      "countries": [
+        "FI"
+      ]
+    },
+    {
+      "week": "2026-08-24",
+      "date": "2026-08-28",
+      "title": "Video: This week in Finland, 28.8.2026",
+      "english": "Video: This week in Finland, 28.8.2026",
+      "url": "https://yle.fi/a/74-20243473",
+      "outlet": "yle.fi",
+      "countries": [
+        "FI"
+      ]
+    },
+    {
+      "week": "2026-08-31",
+      "date": "2026-09-02",
+      "title": "Two suspects in Leipzig attack plot identified as trail also leads to Finland",
+      "english": "Two suspects in Leipzig attack plot identified as trail also leads to Finland",
+      "url": "https://yle.fi/a/74-20244275",
+      "outlet": "yle.fi",
+      "countries": [
+        "FI"
+      ]
+    },
+    {
+      "week": "2026-08-31",
+      "date": "2026-09-03",
+      "title": "Yle finds products in Finnish shops that look just like cheap ones from Temu — expert says there's a difference",
+      "english": "Yle finds products in Finnish shops that look just like cheap ones from Temu — expert says there's a difference",
+      "url": "https://yle.fi/a/74-20244421",
+      "outlet": "yle.fi",
+      "countries": [
+        "FI"
+      ]
+    },
+    {
+      "week": "2026-08-31",
+      "date": "2026-09-04",
+      "title": "Finland sending €1m in humanitarian aid for Nepal flash flood victims",
+      "english": "Finland sending €1m in humanitarian aid for Nepal flash flood victims",
+      "url": "https://yle.fi/a/74-20244651",
+      "outlet": "yle.fi",
+      "countries": [
+        "FI"
+      ]
+    },
+    {
+      "week": "2026-08-31",
+      "date": "2026-09-04",
+      "title": "Video: This week in Finland, 4.9.2026",
+      "english": "Video: This week in Finland, 4.9.2026",
+      "url": "https://yle.fi/a/74-20244666",
+      "outlet": "yle.fi",
+      "countries": [
+        "FI"
+      ]
+    },
+    {
+      "week": "2026-09-07",
+      "date": "2026-09-07",
+      "title": "Finland's largest sex crimes case opens with teacher accused of luring victims on Snapchat",
+      "english": "Finland's largest sex crimes case opens with teacher accused of luring victims on Snapchat",
+      "url": "https://yle.fi/a/74-20244932",
+      "outlet": "yle.fi",
+      "countries": [
+        "FI"
+      ]
+    },
+    {
+      "week": "2026-09-07",
+      "date": "2026-09-09",
+      "title": "Passenger killed after train hits truck at Poland level crossing",
+      "english": "Passenger killed after train hits truck at Poland level crossing",
+      "url": "https://www.bbc.co.uk/news/articles/cp30el2dkdlo",
+      "outlet": "bbc.co.uk",
+      "countries": [
+        "PL"
+      ]
+    },
+    {
+      "week": "2026-09-07",
+      "date": "2026-09-09",
+      "title": "Google to fund Finnish AI with €13bn investment and nuclear power pact",
+      "english": "Google to fund Finnish AI with €13bn investment and nuclear power pact",
+      "url": "https://www.bbc.co.uk/news/articles/c8r6y4me2g6o",
+      "outlet": "bbc.co.uk",
+      "countries": [
+        "FI"
+      ]
+    },
+    {
+      "week": "2026-09-07",
+      "date": "2026-09-09",
+      "title": "Google to fund Finnish AI with €13bn investment and nuclear power pact",
+      "english": "Google to fund Finnish AI with €13bn investment and nuclear power pact",
+      "url": "https://www.bbc.com/news/articles/c8r6y4me2g6o",
+      "outlet": "bbc.com",
+      "countries": [
+        "FI"
+      ]
+    },
+    {
+      "week": "2026-09-07",
+      "date": "2026-09-09",
+      "title": "Passenger killed after train hits truck at Poland level crossing",
+      "english": "Passenger killed after train hits truck at Poland level crossing",
+      "url": "https://www.bbc.com/news/articles/cp30el2dkdlo",
+      "outlet": "bbc.com",
+      "countries": [
+        "PL"
+      ]
+    },
+    {
+      "week": "2026-09-07",
+      "date": "2026-09-10",
+      "title": "Is Finland to blame for the world's falling Pisa scores? Some think so",
+      "english": "Is Finland to blame for the world's falling Pisa scores? Some think so",
+      "url": "https://yle.fi/a/74-20245640",
+      "outlet": "yle.fi",
+      "countries": [
+        "FI"
+      ]
+    },
+    {
+      "week": "2026-09-07",
+      "date": "2026-09-11",
+      "title": "Man gives racist sticker to young girl on Finnish train, passenger intervenes",
+      "english": "Man gives racist sticker to young girl on Finnish train, passenger intervenes",
+      "url": "https://yle.fi/a/74-20245766",
+      "outlet": "yle.fi",
+      "countries": [
+        "FI"
+      ]
+    },
+    {
+      "week": "2026-09-07",
+      "date": "2026-09-11",
+      "title": "Video: Is Google's €13bn investment good news for Finland?",
+      "english": "Video: Is Google's €13bn investment good news for Finland?",
+      "url": "https://yle.fi/a/74-20245722",
+      "outlet": "yle.fi",
+      "countries": [
+        "FI"
+      ]
+    },
+    {
+      "week": "2026-09-07",
+      "date": "2026-09-11",
+      "title": "Video: This week in Finland, 11.9.2026",
+      "english": "Video: This week in Finland, 11.9.2026",
+      "url": "https://yle.fi/a/74-20245893",
+      "outlet": "yle.fi",
+      "countries": [
+        "FI"
+      ]
+    },
+    {
+      "week": "2026-09-07",
+      "date": "2026-09-13",
+      "title": "Russia struck train near Poland border shortly after Boris Johnson and top European officials passed through",
+      "english": "Russia struck train near Poland border shortly after Boris Johnson and top European officials passed through",
+      "url": "https://www.bbc.co.uk/news/articles/cy5zg41dkqwo",
+      "outlet": "bbc.co.uk",
+      "countries": [
+        "PL"
+      ]
+    },
+    {
+      "week": "2026-09-14",
+      "date": "2026-09-14",
+      "title": "Russia's hybrid attacks in focus as European leaders meet in Finnish Lapland",
+      "english": "Russia's hybrid attacks in focus as European leaders meet in Finnish Lapland",
+      "url": "https://yle.fi/a/74-20246189",
+      "outlet": "yle.fi",
+      "countries": [
+        "FI"
+      ]
+    },
+    {
+      "week": "2026-09-14",
+      "date": "2026-09-16",
+      "title": "Finland aims to launch direct-to-phone emergency alert system by end of year",
+      "english": "Finland aims to launch direct-to-phone emergency alert system by end of year",
+      "url": "https://yle.fi/a/74-20246624",
+      "outlet": "yle.fi",
+      "countries": [
+        "FI"
+      ]
+    },
+    {
+      "week": "2026-09-14",
+      "date": "2026-09-17",
+      "title": "Finland and Sweden plan joint maritime drone surveillance operation in Baltic Sea",
+      "english": "Finland and Sweden plan joint maritime drone surveillance operation in Baltic Sea",
+      "url": "https://yle.fi/a/74-20246764",
+      "outlet": "yle.fi",
+      "countries": [
+        "FI"
+      ]
+    },
+    {
+      "week": "2026-09-14",
+      "date": "2026-09-18",
+      "title": "Finland set for weekend of sunny spells and scattered showers",
+      "english": "Finland set for weekend of sunny spells and scattered showers",
+      "url": "https://yle.fi/a/74-20246934",
+      "outlet": "yle.fi",
+      "countries": [
+        "FI"
+      ]
+    },
+    {
+      "week": "2026-09-14",
+      "date": "2026-09-18",
+      "title": "Finland has second-highest rate of work-related stress, depression in EU",
+      "english": "Finland has second-highest rate of work-related stress, depression in EU",
+      "url": "https://yle.fi/a/74-20246835",
+      "outlet": "yle.fi",
+      "countries": [
+        "FI"
+      ]
+    },
+    {
+      "week": "2026-09-14",
+      "date": "2026-09-18",
+      "title": "Oprah Winfrey packs out business event on first ever visit to Finland",
+      "english": "Oprah Winfrey packs out business event on first ever visit to Finland",
+      "url": "https://yle.fi/a/74-20246972",
+      "outlet": "yle.fi",
+      "countries": [
+        "FI"
+      ]
+    },
+    {
+      "week": "2026-09-14",
+      "date": "2026-09-18",
+      "title": "Video: This week in Finland, 18.9.2026",
+      "english": "Video: This week in Finland, 18.9.2026",
+      "url": "https://yle.fi/a/74-20247097",
+      "outlet": "yle.fi",
+      "countries": [
+        "FI"
+      ]
+    },
+    {
+      "week": "2026-09-21",
+      "date": "2026-09-21",
+      "title": "Finland sees sunny start to the week as rain clouds clear",
+      "english": "Finland sees sunny start to the week as rain clouds clear",
+      "url": "https://yle.fi/a/74-20247296",
+      "outlet": "yle.fi",
+      "countries": [
+        "FI"
+      ]
+    },
+    {
+      "week": "2026-09-21",
+      "date": "2026-09-22",
+      "title": "Lithuania has evacuation plans in face of Russia threats, PM says",
+      "english": "Lithuania has evacuation plans in face of Russia threats, PM says",
+      "url": "https://www.bbc.com/news/articles/ck5yw8npxzrlo",
+      "outlet": "bbc.com",
+      "countries": [
+        "LT"
+      ]
+    },
+    {
+      "week": "2026-09-21",
+      "date": "2026-09-22",
+      "title": "Lithuania has evacuation plans in face of Russia threats, PM says",
+      "english": "Lithuania has evacuation plans in face of Russia threats, PM says",
+      "url": "https://www.bbc.co.uk/news/articles/ck5yw8npxzrlo",
+      "outlet": "bbc.co.uk",
+      "countries": [
+        "LT"
+      ]
+    },
+    {
+      "week": "2026-09-21",
+      "date": "2026-09-22",
+      "title": "Mental health problems affect a third of women born in Finland in 1997",
+      "english": "Mental health problems affect a third of women born in Finland in 1997",
+      "url": "https://yle.fi/a/74-20247516",
+      "outlet": "yle.fi",
+      "countries": [
+        "FI"
+      ]
+    },
+    {
+      "week": "2026-09-21",
+      "date": "2026-09-23",
+      "title": "Supreme Court: Finnish police's forcible removals of hijabs from women was lawful",
+      "english": "Supreme Court: Finnish police's forcible removals of hijabs from women was lawful",
+      "url": "https://yle.fi/a/74-20247831",
+      "outlet": "yle.fi",
+      "countries": [
+        "FI"
+      ]
+    },
+    {
+      "week": "2026-09-21",
+      "date": "2026-09-24",
+      "title": "Poland says fire at Starlink station is sabotage as Denmark warns of rising Russian threat",
+      "english": "Poland says fire at Starlink station is sabotage as Denmark warns of rising Russian threat",
+      "url": "https://www.bbc.co.uk/news/articles/cmp30r1klk37o",
+      "outlet": "bbc.co.uk",
+      "countries": [
+        "PL"
+      ]
+    },
+    {
+      "week": "2026-09-21",
+      "date": "2026-09-24",
+      "title": "Priest killed and four injured in knife attack at Polish abbey",
+      "english": "Priest killed and four injured in knife attack at Polish abbey",
+      "url": "https://www.bbc.com/news/articles/c607lrvm41l3o",
+      "outlet": "bbc.com",
+      "countries": [
+        "PL"
+      ]
+    },
+    {
+      "week": "2026-09-21",
+      "date": "2026-09-24",
+      "title": "Priest killed and four injured in knife attack at Polish abbey",
+      "english": "Priest killed and four injured in knife attack at Polish abbey",
+      "url": "https://www.bbc.co.uk/news/articles/c607lrvm41l3o",
+      "outlet": "bbc.co.uk",
+      "countries": [
+        "PL"
+      ]
+    },
+    {
+      "week": "2026-09-21",
+      "date": "2026-09-25",
+      "title": "End of the road for Finland's travelling Tivoli carnival after 138 years",
+      "english": "End of the road for Finland's travelling Tivoli carnival after 138 years",
+      "url": "https://yle.fi/a/74-20248181",
+      "outlet": "yle.fi",
+      "countries": [
+        "FI"
+      ]
+    },
+    {
+      "week": "2026-09-21",
+      "date": "2026-09-25",
+      "title": "Video: This week in Finland, 25 September 2026",
+      "english": "Video: This week in Finland, 25 September 2026",
+      "url": "https://yle.fi/a/74-20248328",
+      "outlet": "yle.fi",
+      "countries": [
+        "FI"
+      ]
+    },
+    {
+      "week": "2026-09-21",
+      "date": "2026-09-25",
+      "title": "Finnish ministry wants to hear about kids' social media habits from parents, guardians",
+      "english": "Finnish ministry wants to hear about kids' social media habits from parents, guardians",
+      "url": "https://yle.fi/a/74-20248282",
+      "outlet": "yle.fi",
+      "countries": [
+        "FI"
+      ]
+    },
+    {
+      "week": "2026-09-28",
+      "date": "2026-09-28",
+      "title": "Threat of Russian sabotage in Europe has grown, says Finnish intelligence official",
+      "english": "Threat of Russian sabotage in Europe has grown, says Finnish intelligence official",
+      "url": "https://yle.fi/a/74-20248687",
+      "outlet": "yle.fi",
+      "countries": [
+        "FI"
+      ]
+    },
+    {
+      "week": "2026-09-28",
+      "date": "2026-09-29",
+      "title": "Estonia blames Russia for arson at defence company supplying Ukraine",
+      "english": "Estonia blames Russia for arson at defence company supplying Ukraine",
+      "url": "https://www.bbc.co.uk/news/articles/c6m27l4er4jxo",
+      "outlet": "bbc.co.uk",
+      "countries": [
+        "EE"
+      ]
+    },
+    {
+      "week": "2026-09-28",
+      "date": "2026-09-29",
+      "title": "Estonia blames Russia for arson at defence company supplying Ukraine",
+      "english": "Estonia blames Russia for arson at defence company supplying Ukraine",
+      "url": "https://www.bbc.com/news/articles/c6m27l4er4jxo",
+      "outlet": "bbc.com",
+      "countries": [
+        "EE"
+      ]
+    },
+    {
+      "week": "2026-09-28",
+      "date": "2026-09-30",
+      "title": "Finland pledges millions of euros for Gaza reconstruction",
+      "english": "Finland pledges millions of euros for Gaza reconstruction",
+      "url": "https://yle.fi/a/74-20249166",
+      "outlet": "yle.fi",
+      "countries": [
+        "FI"
+      ]
+    },
+    {
+      "week": "2026-09-28",
+      "date": "2026-10-01",
+      "title": "Belarusian state TV censors Finnish football's opposition to war in Ukraine, media reports say",
+      "english": "Belarusian state TV censors Finnish football's opposition to war in Ukraine, media reports say",
+      "url": "https://yle.fi/a/74-20249284",
+      "outlet": "yle.fi",
+      "countries": [
+        "FI"
+      ]
+    },
+    {
+      "week": "2026-09-28",
+      "date": "2026-10-01",
+      "title": "APN Podcast on Video: \"Estonia is hungry and we're not\"",
+      "english": "APN Podcast on Video: \"Estonia is hungry and we're not\"",
+      "url": "https://yle.fi/a/74-20249367",
+      "outlet": "yle.fi",
+      "countries": [
+        "EE"
+      ]
+    },
+    {
+      "week": "2026-09-28",
+      "date": "2026-10-02",
+      "title": "Finland's weather shifts from mostly dry Friday to wetter Saturday",
+      "english": "Finland's weather shifts from mostly dry Friday to wetter Saturday",
+      "url": "https://yle.fi/a/74-20249449",
+      "outlet": "yle.fi",
+      "countries": [
+        "FI"
+      ]
+    },
+    {
+      "week": "2026-09-28",
+      "date": "2026-10-02",
+      "title": "Appeal court lengthens British man's sentence for attempted murder of Finnish woman",
+      "english": "Appeal court lengthens British man's sentence for attempted murder of Finnish woman",
+      "url": "https://yle.fi/a/74-20249556",
+      "outlet": "yle.fi",
+      "countries": [
+        "FI"
+      ]
+    },
+    {
+      "week": "2026-09-28",
+      "date": "2026-10-02",
+      "title": "Video: This week in Finland, 2 October 2026",
+      "english": "Video: This week in Finland, 2 October 2026",
+      "url": "https://yle.fi/a/74-20249592",
+      "outlet": "yle.fi",
+      "countries": [
+        "FI"
+      ]
+    },
+    {
+      "week": "2026-10-05",
+      "date": "2026-10-05",
+      "title": "\"Define core work and cut unnecessary tasks\" — Burnout risk remains high for workers in Finland",
+      "english": "\"Define core work and cut unnecessary tasks\" — Burnout risk remains high for workers in Finland",
+      "url": "https://yle.fi/a/74-20249781",
+      "outlet": "yle.fi",
+      "countries": [
+        "FI"
+      ]
+    },
+    {
+      "week": "2026-10-05",
+      "date": "2026-10-05",
+      "title": "Parents in Finland turn to AI for free school pictures",
+      "english": "Parents in Finland turn to AI for free school pictures",
+      "url": "https://yle.fi/a/74-20249883",
+      "outlet": "yle.fi",
+      "countries": [
+        "FI"
+      ]
+    },
+    {
+      "week": "2026-10-05",
+      "date": "2026-10-06",
+      "title": "Over 15% of kids in Finland take neurological medication",
+      "english": "Over 15% of kids in Finland take neurological medication",
+      "url": "https://yle.fi/a/74-20250063",
+      "outlet": "yle.fi",
+      "countries": [
+        "FI"
+      ]
+    },
+    {
+      "week": "2026-10-05",
+      "date": "2026-10-06",
+      "title": "Finland orders halt to work on two Google data centres",
+      "english": "Finland orders halt to work on two Google data centres",
+      "url": "https://www.bbc.co.uk/news/articles/cvj6jkx6g1r0o",
+      "outlet": "bbc.co.uk",
+      "countries": [
+        "FI"
+      ]
+    },
+    {
+      "week": "2026-10-05",
+      "date": "2026-10-06",
+      "title": "Finland orders halt to work on two Google data centres",
+      "english": "Finland orders halt to work on two Google data centres",
+      "url": "https://www.bbc.com/news/articles/cvj6jkx6g1r0o",
+      "outlet": "bbc.com",
+      "countries": [
+        "FI"
+      ]
+    },
+    {
+      "week": "2026-10-05",
+      "date": "2026-10-08",
+      "title": "Google halts work on data centres as Finnish police probe suspected illegal logging",
+      "english": "Google halts work on data centres as Finnish police probe suspected illegal logging",
+      "url": "https://yle.fi/a/74-20250446",
+      "outlet": "yle.fi",
+      "countries": [
+        "FI"
+      ]
+    },
+    {
+      "week": "2026-10-05",
+      "date": "2026-10-08",
+      "title": "Caretaker killed and two teachers injured in knife attack at Poland school",
+      "english": "Caretaker killed and two teachers injured in knife attack at Poland school",
+      "url": "https://www.bbc.co.uk/news/articles/cq2e9xjv0jm2o",
+      "outlet": "bbc.co.uk",
+      "countries": [
+        "PL"
+      ]
+    },
+    {
+      "week": "2026-10-05",
+      "date": "2026-10-08",
+      "title": "Caretaker killed and two teachers injured in knife attack at Poland school",
+      "english": "Caretaker killed and two teachers injured in knife attack at Poland school",
+      "url": "https://www.bbc.com/news/articles/cq2e9xjv0jm2o",
+      "outlet": "bbc.com",
+      "countries": [
+        "PL"
+      ]
+    },
+    {
+      "week": "2026-10-05",
+      "date": "2026-10-09",
+      "title": "\"It's a waste of talent\" — Finland needs skilled international workers, but struggles to keep them",
+      "english": "\"It's a waste of talent\" — Finland needs skilled international workers, but struggles to keep them",
+      "url": "https://yle.fi/a/74-20250510",
+      "outlet": "yle.fi",
+      "countries": [
+        "FI"
+      ]
+    },
+    {
+      "week": "2026-10-05",
+      "date": "2026-10-09",
+      "title": "Finland to roll out citizenship test from March 2027",
+      "english": "Finland to roll out citizenship test from March 2027",
+      "url": "https://yle.fi/a/74-20250687",
+      "outlet": "yle.fi",
+      "countries": [
+        "FI"
+      ]
+    },
+    {
+      "week": "2026-10-05",
+      "date": "2026-10-09",
+      "title": "Video: This week in Finland, 9 October 2026",
+      "english": "Video: This week in Finland, 9 October 2026",
+      "url": "https://yle.fi/a/74-20250769",
+      "outlet": "yle.fi",
+      "countries": [
+        "FI"
+      ]
+    },
+    {
+      "week": "2026-10-05",
+      "date": "2026-10-10",
+      "title": "Woman injures three people in third Poland school knife attack in a week",
+      "english": "Woman injures three people in third Poland school knife attack in a week",
+      "url": "https://www.bbc.co.uk/news/articles/cv8ezd246z1wo",
+      "outlet": "bbc.co.uk",
+      "countries": [
+        "PL"
+      ]
+    },
+    {
+      "week": "2026-10-05",
+      "date": "2026-10-10",
+      "title": "Woman injures three people in third Poland school knife attack in a week",
+      "english": "Woman injures three people in third Poland school knife attack in a week",
+      "url": "https://www.bbc.com/news/articles/cv8ezd246z1wo",
+      "outlet": "bbc.com",
+      "countries": [
+        "PL"
+      ]
+    },
+    {
+      "week": "2026-10-05",
+      "date": "2026-10-11",
+      "title": "Poland stabbings driven by online glorification of violence, Tusk says",
+      "english": "Poland stabbings driven by online glorification of violence, Tusk says",
+      "url": "https://www.bbc.co.uk/news/articles/ckp8gyd65z2go",
+      "outlet": "bbc.co.uk",
+      "countries": [
+        "PL"
+      ]
+    },
+    {
+      "week": "2026-10-05",
+      "date": "2026-10-11",
+      "title": "Poland stabbings driven by online glorification of violence, Tusk says",
+      "english": "Poland stabbings driven by online glorification of violence, Tusk says",
+      "url": "https://www.bbc.com/news/articles/ckp8gyd65z2go",
+      "outlet": "bbc.com",
+      "countries": [
+        "PL"
+      ]
+    },
+    {
+      "week": "2026-10-05",
+      "date": "2026-10-11",
+      "title": "Poland detains man suspected of planning assassination of PM Donald Tusk",
+      "english": "Poland detains man suspected of planning assassination of PM Donald Tusk",
+      "url": "https://www.bbc.com/news/articles/c6n9rvynl5p5o",
+      "outlet": "bbc.com",
+      "countries": [
+        "PL"
+      ]
+    },
+    {
+      "week": "2026-10-05",
+      "date": "2026-10-11",
+      "title": "Poland detains man suspected of planning assassination of PM Donald Tusk",
+      "english": "Poland detains man suspected of planning assassination of PM Donald Tusk",
+      "url": "https://www.bbc.co.uk/news/articles/c6n9rvynl5p5o",
+      "outlet": "bbc.co.uk",
+      "countries": [
+        "PL"
+      ]
+    },
+    {
+      "week": "2026-10-12",
+      "date": "2026-10-12",
+      "title": "Telia plans 900 job cuts, more than a third of them in Finland",
+      "english": "Telia plans 900 job cuts, more than a third of them in Finland",
+      "url": "https://yle.fi/a/74-20251080",
+      "outlet": "yle.fi",
+      "countries": [
+        "FI"
+      ]
+    },
+    {
+      "week": "2026-10-12",
+      "date": "2026-10-12",
+      "title": "MOT: Cancer treatment delays in Finland lead to poorer outcomes than in Nordics",
+      "english": "MOT: Cancer treatment delays in Finland lead to poorer outcomes than in Nordics",
+      "url": "https://yle.fi/a/74-20251023",
+      "outlet": "yle.fi",
+      "countries": [
+        "FI"
+      ]
+    },
+    {
+      "week": "2026-10-12",
+      "date": "2026-10-13",
+      "title": "Finnish foreign minister calls on EU to ban Russian tourist visas, slams Trump lifting sanctions on diesel from Russia",
+      "english": "Finnish foreign minister calls on EU to ban Russian tourist visas, slams Trump lifting sanctions on diesel from Russia",
+      "url": "https://yle.fi/a/74-20251219",
+      "outlet": "yle.fi",
+      "countries": [
+        "FI"
+      ]
+    },
+    {
+      "week": "2026-10-12",
+      "date": "2026-10-14",
+      "title": "Google Finland head apologises for forest clearances at data centre sites",
+      "english": "Google Finland head apologises for forest clearances at data centre sites",
+      "url": "https://yle.fi/a/74-20251367",
+      "outlet": "yle.fi",
+      "countries": [
+        "FI"
+      ]
+    },
+    {
+      "week": "2026-10-12",
+      "date": "2026-10-14",
+      "title": "Population office wants to know status of nearly 2,000 centenarian Finnish emigrés",
+      "english": "Population office wants to know status of nearly 2,000 centenarian Finnish emigrés",
+      "url": "https://yle.fi/a/74-20251471",
+      "outlet": "yle.fi",
+      "countries": [
+        "FI"
+      ]
+    },
+    {
+      "week": "2026-10-12",
+      "date": "2026-10-15",
+      "title": "Finnish households to receive printed emergency preparedness guide in January",
+      "english": "Finnish households to receive printed emergency preparedness guide in January",
+      "url": "https://yle.fi/a/74-20251555",
+      "outlet": "yle.fi",
+      "countries": [
+        "FI"
+      ]
+    },
+    {
+      "week": "2026-10-12",
+      "date": "2026-10-15",
+      "title": "\"Six hours is absurd\" — Patients describe long night-time waits on Finland's A&E wards",
+      "english": "\"Six hours is absurd\" — Patients describe long night-time waits on Finland's A&E wards",
+      "url": "https://yle.fi/a/74-20251623",
+      "outlet": "yle.fi",
+      "countries": [
+        "FI"
+      ]
+    },
+    {
+      "week": "2026-10-12",
+      "date": "2026-10-15",
+      "title": "Video: Bright light could be the secret to surviving Finland's darkest months",
+      "english": "Video: Bright light could be the secret to surviving Finland's darkest months",
+      "url": "https://yle.fi/a/74-20251671",
+      "outlet": "yle.fi",
+      "countries": [
+        "FI"
+      ]
+    },
+    {
+      "week": "2026-10-12",
+      "date": "2026-10-16",
+      "title": "Finland to introduce mobile phone emergency alert system in November",
+      "english": "Finland to introduce mobile phone emergency alert system in November",
+      "url": "https://yle.fi/a/74-20251682",
+      "outlet": "yle.fi",
+      "countries": [
+        "FI"
+      ]
+    },
+    {
+      "week": "2026-10-12",
+      "date": "2026-10-16",
+      "title": "Video: This week in Finland, 16 October 2026",
+      "english": "Video: This week in Finland, 16 October 2026",
+      "url": "https://yle.fi/a/74-20251850",
+      "outlet": "yle.fi",
+      "countries": [
+        "FI"
+      ]
+    },
+    {
+      "week": "2026-10-19",
+      "date": "2026-10-20",
+      "title": "Unemployment climbs again as Finland's economic recovery fails to affect jobs market",
+      "english": "Unemployment climbs again as Finland's economic recovery fails to affect jobs market",
+      "url": "https://yle.fi/a/74-20252281",
+      "outlet": "yle.fi",
+      "countries": [
+        "FI"
+      ]
+    },
+    {
+      "week": "2026-10-19",
+      "date": "2026-10-21",
+      "title": "Finland temporarily shuts down government websites as a precaution for critical vulnerabilities",
+      "english": "Finland temporarily shuts down government websites as a precaution for critical vulnerabilities",
+      "url": "https://yle.fi/a/74-20252600",
+      "outlet": "yle.fi",
+      "countries": [
+        "FI"
+      ]
+    },
+    {
+      "week": "2026-10-19",
+      "date": "2026-10-22",
+      "title": "Nearly half of youths in Finland use AI every day, survey finds",
+      "english": "Nearly half of youths in Finland use AI every day, survey finds",
+      "url": "https://yle.fi/a/74-20252697",
+      "outlet": "yle.fi",
+      "countries": [
+        "FI"
+      ]
+    },
+    {
+      "week": "2026-10-19",
+      "date": "2026-10-22",
+      "title": "PM Petteri Orpo in Ukraine to show Finland's 'strong support'",
+      "english": "PM Petteri Orpo in Ukraine to show Finland's 'strong support'",
+      "url": "https://yle.fi/a/74-20252732",
+      "outlet": "yle.fi",
+      "countries": [
+        "FI"
+      ]
+    },
+    {
+      "week": "2026-10-19",
+      "date": "2026-10-23",
+      "title": "Video: Millions fall in puppy love with Finland's slow-TV livestream",
+      "english": "Video: Millions fall in puppy love with Finland's slow-TV livestream",
+      "url": "https://yle.fi/a/74-20252890",
+      "outlet": "yle.fi",
+      "countries": [
+        "FI"
+      ]
+    },
+    {
+      "week": "2026-10-19",
+      "date": "2026-10-23",
+      "title": "Video: This week in Finland, 23 October 2026",
+      "english": "Video: This week in Finland, 23 October 2026",
+      "url": "https://yle.fi/a/74-20252995",
+      "outlet": "yle.fi",
+      "countries": [
+        "FI"
+      ]
+    }
+  ],
+  "inside": {
+    "note": "Inside Russia informs; it does not change the tension levels. Counts measure news volume, not military preparation.",
+    "coverage": "Now window only, 3 August through 25 October 2026. Older stored rows are excluded.",
+    "volume_note": "Usual is the median weekly count inside this frozen window. It is not the registered scoring baseline.",
+    "weeks": {
+      "2026-08-03": {
+        "cards": [
+          {
+            "title": "Russian media",
+            "line": "293 flank stories, usual 245",
+            "arrow": "↑"
+          }
+        ]
+      },
+      "2026-08-10": {
+        "cards": [
+          {
+            "title": "Russian media",
+            "line": "219 flank stories, usual 245",
+            "arrow": "↓"
+          }
+        ]
+      },
+      "2026-08-17": {
+        "cards": [
+          {
+            "title": "Russian media",
+            "line": "206 flank stories, usual 245",
+            "arrow": "↓"
+          }
+        ]
+      },
+      "2026-08-24": {
+        "cards": [
+          {
+            "title": "Russian media",
+            "line": "201 flank stories, usual 245",
+            "arrow": "↓"
+          }
+        ]
+      },
+      "2026-08-31": {
+        "cards": [
+          {
+            "title": "Russian media",
+            "line": "212 flank stories, usual 245",
+            "arrow": "↓"
+          }
+        ]
+      },
+      "2026-09-07": {
+        "cards": [
+          {
+            "title": "Russian media",
+            "line": "260 flank stories, usual 245",
+            "arrow": "↑"
+          }
+        ]
+      },
+      "2026-09-14": {
+        "cards": [
+          {
+            "title": "Russian media",
+            "line": "297 flank stories, usual 245",
+            "arrow": "↑"
+          }
+        ]
+      },
+      "2026-09-21": {
+        "cards": [
+          {
+            "title": "Russian media",
+            "line": "273 flank stories, usual 245",
+            "arrow": "↑"
+          }
+        ]
+      },
+      "2026-09-28": {
+        "cards": [
+          {
+            "title": "Russian media",
+            "line": "232 flank stories, usual 245",
+            "arrow": "↓"
+          }
+        ]
+      },
+      "2026-10-05": {
+        "cards": [
+          {
+            "title": "Russian media",
+            "line": "303 flank stories, usual 245",
+            "arrow": "↑"
+          }
+        ]
+      },
+      "2026-10-12": {
+        "cards": [
+          {
+            "title": "Russian media",
+            "line": "264 flank stories, usual 245",
+            "arrow": "↑"
+          }
+        ]
+      },
+      "2026-10-19": {
+        "cards": [
+          {
+            "title": "Russian media",
+            "line": "283 flank stories, usual 245",
+            "arrow": "↑"
+          }
+        ]
+      }
+    }
+  }
+}
