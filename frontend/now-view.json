@@ -113,7 +113,7 @@
   "gaps": [
     "No dated GPS-jamming incident in this window had an official page or a stored Yle/BBC row that named a specific event.",
     "No new cable or pipeline damage in this window. The Eagle S court item is about an earlier case.",
-    "No balloon incident in this window had a fetched official page."
+    "No Vilnius airport closure caused by Belarus balloons in this window had a fetched page dated 2026. Airport notices that describe a closure are dated 2025. A border-guard page dated 2026-10-08 reports a cigarette seizure in Vilnius with balloon remnants; that is not an airport closure and was not mapped."
   ],
   "incidents": [
     {
@@ -199,6 +199,58 @@
       "source": "https://vsat.lrv.lt/lt/naujienos/per-kelias-valandas-purvenu-pasienieciai-nukove-du-is-baltarusijos-skridusius-dronus-su-cigareciu-kroviniu-foto-xjM/",
       "source_date": "2026-09-28",
       "source_note": "Lithuanian State Border Guard page prints 2026-09-28. English line written from that page, not a full translation."
+    },
+    {
+      "date": "2026-08-14",
+      "type": "drone",
+      "country": "LV",
+      "place": "Balvi Municipality",
+      "lat": 57.073622,
+      "lon": 27.464738,
+      "status": "Officially confirmed",
+      "summary": "Officially confirmed. NATO jets shot down a foreign drone in Balvi Municipality after it entered Latvian airspace. The ministry said Russian electronic warfare was the cause.",
+      "source": "https://www.mod.gov.lv/en/news/foreign-drone-shot-down-allied-fighter-jets-latvian-airspace",
+      "source_date": "2026-08-14",
+      "source_note": "Latvian defence ministry page prints 14.08.2026. Map pin is the discovery page's approximate marker for Balvi Municipality, not a surveyed point."
+    },
+    {
+      "date": "2026-09-01",
+      "type": "drone",
+      "country": "LV",
+      "place": "Alūksne Municipality",
+      "lat": 57.383077,
+      "lon": 27.188973,
+      "status": "Officially confirmed",
+      "summary": "Officially confirmed. Latvia declared an airspace threat in Alūksne Municipality at 03:37 and activated NATO fighters. The ministry page does not say an object entered Estonia.",
+      "source": "https://www.mod.gov.lv/lv/zinas/izsludinats-apdraudejums-latvijas-gaisa-telpa-aluksnes-novada",
+      "source_date": "2026-09-01",
+      "source_note": "Latvian defence ministry page prints 01.09.2026. English line written from that page. Map pin is the discovery page's approximate marker."
+    },
+    {
+      "date": "2026-10-18",
+      "type": "drone",
+      "country": "LT",
+      "place": "Juodžionys, Pasvalys",
+      "lat": 56.153141,
+      "lon": 24.537617,
+      "status": "Reported",
+      "summary": "Reported. A discovery page says a drone exploded near Juodžionys. Lithuania's defence ministry confirms only that NATO jets scrambled that day for an unidentified target and could not identify it.",
+      "source": "https://www.globalmilitary.net/conflicts/european-airspace/incidents/202610-167/",
+      "source_date": "2026-10-18",
+      "source_note": "Place and explosion are on the discovery page, which prints 18 Oct 2026. Ministry page dated 2026-10-19 confirms the scramble only. Pin is the discovery page's approximate marker."
+    },
+    {
+      "date": "2026-10-18",
+      "type": "drone",
+      "country": "LV",
+      "place": "Liepna Parish",
+      "lat": 57.32734,
+      "lon": 27.530341,
+      "status": "Reported",
+      "summary": "Reported. A discovery page places a crashed foreign drone in Liepna Parish on 18 October. No official page naming that place was fetched.",
+      "source": "https://www.globalmilitary.net/conflicts/european-airspace/incidents/202610-169/",
+      "source_date": "2026-10-18",
+      "source_note": "Discovery page prints 18 Oct 2026. No defence-ministry page naming Liepna was fetched. Pin is that page's approximate marker."
     }
   ],
   "news": [

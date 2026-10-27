@@ -600,6 +600,8 @@ body.briefing.dossier-open .drawer { transform: translateX(0); }
 body.briefing .drawer-head { display: flex; justify-content: space-between; align-items: center; }
 html, body.briefing {
   height: 100vh;
+  height: 100dvh;
+  max-height: 100dvh;
   overflow: hidden;
 }
 body.briefing {
@@ -1051,6 +1053,28 @@ body.briefing #inside-russia { display: none; }
 .mode-tabs button[aria-pressed="true"] { border-color: #5eead4; }
 .now-label { margin: 0 16px 8px; font-size: 13px; }
 .incident-mark { font-size: 11px; font-weight: 700; fill: #f8fafc; }
+@media (min-width: 701px) {
+  html, body.briefing {
+    height: 100dvh;
+    max-height: 100dvh;
+    overflow: hidden;
+  }
+  body.briefing .room,
+  body.briefing .rail,
+  body.briefing .stage,
+  body.briefing #map,
+  body.briefing #map-panel,
+  body.briefing #news-panel,
+  body.briefing #officials,
+  body.briefing #inside-russia,
+  body.briefing #country-news-list {
+    overflow: hidden;
+  }
+  body.briefing .drawer {
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+}
 
 
 

@@ -151,6 +151,27 @@ async def run(record: bool) -> int:
             tension = await cdp.js("document.getElementById('region-state').textContent")
             if tension and any(word in tension for word in ("Calm", "Tense", "Elevated", "Serious", "Critical")):
                 problems.append(f"tension word on the Now strip: {tension}")
+            scroll = await cdp.js("""(() => {
+              const page = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+              const wide = document.documentElement.scrollWidth - document.documentElement.clientWidth;
+              const bars = [];
+              for (const el of document.querySelectorAll('body *')) {
+                const style = getComputedStyle(el);
+                if (style.display === 'none' || style.visibility === 'hidden') continue;
+                const down = el.scrollHeight - el.clientHeight;
+                const across = el.scrollWidth - el.clientWidth;
+                const scrollsY = down > 1 && (style.overflowY === 'auto' || style.overflowY === 'scroll');
+                const scrollsX = across > 1 && (style.overflowX === 'auto' || style.overflowX === 'scroll');
+                if (scrollsY || scrollsX) bars.push((el.id || el.className || el.tagName) + ':' + down);
+              }
+              return {page, wide, bars, h: window.innerHeight, w: window.innerWidth};
+            })()""")
+            if not scroll or scroll.get("h") < 700:
+                problems.append(f"viewport not 1280x800: {scroll}")
+            elif scroll.get("page", 0) > 1 or scroll.get("wide", 0) > 1:
+                problems.append(f"page scrollbar at 1280x800: {scroll}")
+            elif len(scroll.get("bars") or []) > 1:
+                problems.append(f"more than one scroller: {scroll}")
             if record and not problems:
                 frames = Path("/tmp/efm-now-frames")
                 frames.mkdir(exist_ok=True)
