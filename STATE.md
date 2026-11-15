@@ -1,6 +1,6 @@
 # State
 
-Updated: 15 November 2026. The page server on 127.0.0.1:8080 serves this repo. The Now banner is the snapshot line. Cache-busting is ?v= plus a commit hash.
+Updated: 15 November 2026. The page uses country tabs and a fixed briefing. Default tab is Lithuania.
 
 ## Where we stopped
 
@@ -16,7 +16,7 @@ Test B, corrected rules, post-hoc, not pre-registered: not one result. The Belar
 
 ## Next step
 
-None. The page stabilize assignment is done. Do not open the next task until a new written assignment says so.
+None. The UX restructure is done. Do not open the next task until a new written assignment says so.
 
 ## Open decisions
 

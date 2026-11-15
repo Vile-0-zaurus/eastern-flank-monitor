@@ -757,6 +757,7 @@ async def run() -> int:
                   const original = story.querySelector('.headline-ru');
                   if (original && (foreignLetters.test(original.textContent) || !/[А-Яа-яЁё]/.test(original.textContent))) bad.push('week ' + i + ' non-Russian original');
                   if (!original && foreignLetters.test(text)) bad.push('week ' + i + ' foreign-language item');
+                  if (text.includes("Jaruzelski") || text.includes("how Poland rebelled")) bad.push("history piece was not dropped");
                   if (!hasNato(text) && !regionWord.test(text)) bad.push('week ' + i + ' item fails relevance: ' + text.replace(/\s+/g, ' ').trim().slice(0, 90));
                 });
                 document.querySelectorAll('#officials-ru .story').forEach((story) => {
@@ -774,9 +775,10 @@ async def run() -> int:
                 if (regionStories > 3) bad.push('week ' + i + ' region news over 3');
                 if (!mainPanel.includes('Counts measure news volume, not military preparation.')) bad.push('volume note missing');
               }
-              document.getElementById('show-all').click();
-              if (document.querySelector('.picked')) bad.push('focus remained after show all');
-              if (!document.getElementById('country-news').hidden) bad.push('country news stayed open');
+              const showAll = document.getElementById('show-all');
+              if (showAll) showAll.click();
+              else document.getElementById('country-LT').click();
+              if (!document.querySelector('#country-strip .picked')) bad.push('no tab selected');
               document.getElementById('country-PL').click();
               const card = document.getElementById('country-PL');
               const shape = document.querySelector('.land[data-country="PL"]');

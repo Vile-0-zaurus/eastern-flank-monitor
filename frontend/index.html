@@ -24,8 +24,7 @@
     <p id="now-label" class="now-label" hidden></p>
     <div class="top-strip">
       <p id="region-state" class="region-state"></p>
-      <section id="country-strip" aria-label="Finland, Estonia, Latvia, Lithuania, and Poland"></section>
-      <button id="show-all" type="button">Show all</button>
+      <section id="country-strip" aria-label="Finland, Estonia, Latvia, Lithuania, Poland, and Russia"></section>
     </div>
   </header>
   <main class="room">
@@ -68,10 +67,31 @@
         <div id="news"></div>
       </section>
     </div>
-    <aside id="drawer" class="drawer" aria-label="Country dossier">
-      <div class="drawer-head">
-        <p class="section-label">Dossier</p>
-        <button id="drawer-close" type="button">Close</button>
+    <aside id="drawer" class="drawer" aria-label="Briefing">
+      <h2 id="briefing-title">Lithuania</h2>
+      <section id="bottom-line">
+        <h3>Bottom line</h3>
+        <p id="bottom-line-text"></p>
+      </section>
+      <div id="country-brief">
+        <section id="brief-happened">
+          <h3>What happened</h3>
+          <div id="region-events"></div>
+        </section>
+        <section id="officials" aria-label="What officials said">
+          <h3>What officials said</h3>
+          <div id="officials-ru"></div>
+          <div id="officials-west"></div>
+        </section>
+        <section id="country-news">
+          <h3>What Russian media says</h3>
+          <h2 id="country-news-title" class="visually-hidden">Lithuania</h2>
+          <div id="country-news-list"></div>
+        </section>
+        <section id="brief-regional">
+          <h3>What regional media says</h3>
+          <div id="brief-regional-body"></div>
+        </section>
       </div>
       <section id="inside-main" aria-label="Inside Russia" hidden>
         <h2>Inside Russia</h2>
@@ -79,56 +99,8 @@
         <p id="inside-coverage" class="note"></p>
         <p id="inside-volume" class="note"></p>
         <div id="inside-cards"></div>
-       <p id="inside-quiet" class="note" hidden></p>
-       <section id="inside-background" class="background-box" hidden></section>
-      </section>
-      <section id="region-overview" aria-label="Region overview">
-        <h2>Region overview</h2>
-        <p id="region-overview-line"></p>
-        <h3 class="section-label">What happened</h3>
-        <div id="region-events"></div>
-        <h3 class="section-label">Russian media</h3>
-        <div id="region-news"></div>
-      </section>
-      <aside id="why" hidden>
-        <div class="why-head">
-          <h2 id="why-title">This week</h2>
-          <button id="why-close" type="button">Close</button>
-        </div>
-        <p id="why-subject"></p>
-        <p id="why-quiet" hidden>Quiet week — nothing notable.</p>
-        <div id="why-body">
-          <h3 class="section-label">What happened</h3>
-          <div id="why-events"></div>
-          <h3 class="section-label">What official sources say</h3>
-          <div id="why-official"></div>
-        </div>
-      </aside>
-      <p id="shared-reading" class="note"></p>
-      <section id="country-news" hidden>
-        <h2 id="country-news-title">News about</h2>
-        <div id="country-news-list"></div>
-      </section>
-      <section id="officials" aria-label="Officials say">
-        <h2>Officials say</h2>
-        <div class="official-columns">
-          <div>
-            <h3>Russian officials</h3>
-            <div id="officials-ru"></div>
-          </div>
-          <div>
-            <h3>Regional and Western officials</h3>
-            <div id="officials-west"></div>
-          </div>
-        </div>
-        <p id="officials-note" class="note">Russian officials: full coverage from Russian state media. Western officials: selected weeks.</p>
-      </section>
-      <section id="inside-russia" aria-label="Inside Russia">
-        <h2>Inside Russia</h2>
-        <p id="inside-note" class="note">Inside Russia is display only. It does not affect the levels. Counts measure news volume, not military preparation.</p>
-        <ul id="inside-lines"></ul>
-        <p id="inside-background" class="note"></p>
-        <p id="inside-sources" class="note"></p>
+        <p id="inside-quiet" class="note" hidden></p>
+        <section id="inside-background" class="background-box" hidden></section>
       </section>
     </aside>
   </main>

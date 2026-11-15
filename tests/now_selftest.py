@@ -168,11 +168,12 @@ async def run(record: bool) -> int:
                 if (chip > 0 && shown < 1) bad.push(code + " chip " + chip + " shows " + shown);
                 if (text.includes("2021") || text.includes("2022-02")) bad.push(code + " replay date");
               });
-              document.getElementById("show-all").click();
+              const showAll = document.getElementById("show-all");
+              if (showAll) showAll.click();
               state.index = state.nowPack.weeks.length - 1;
               renderWeek();
               const dots = document.querySelectorAll("#flank-map .incident-dot").length;
-              const lines = document.querySelectorAll("#region-events .incident-line").length;
+              const lines = document.querySelectorAll("#region-events .incident-line, #region-events .empty-line").length;
               if (dots !== (state.nowPack.incidents || []).length) bad.push("map dots " + dots);
               if (lines < 1) bad.push("dossier incidents " + lines);
               return bad;
