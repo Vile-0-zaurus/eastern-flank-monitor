@@ -1,0 +1,3362 @@
+{
+  "source": "data/now/gkg-now.sqlite",
+  "window_start": "2026-08-03",
+  "window_end": "2026-10-25",
+  "rule": "Top 5 Russian-outlet titles per country per week. Hostile keyword first, then a title that names only that country, then a border, drone, military, NATO, or sanctions word. English lines are written by hand. No model call.",
+  "weeks": {
+    "2026-08-03": {
+      "FI": [
+        {
+          "title": "Новые правила получения гражданства Финляндии: что известно",
+          "url": "https://iz.ru/2145989/finliandiia-s-2027-goda-vvedet-ekzamen-dlia-zhelaiushchikh-poluchit-grazhdanstvo-izi",
+          "outlet": "iz.ru",
+          "date": "2026-08-08",
+          "hostile": false,
+          "english": "What is known about Finland's new citizenship rules"
+        },
+        {
+          "title": "В Финляндии хотят восстановить болота на границе из-за страха перед Россией",
+          "url": "https://rg.ru/2026/08/07/v-finliandii-hotiat-vosstanovit-bolota-na-granice-iz-za-straha-pered-rossiej.html",
+          "outlet": "rg.ru",
+          "date": "2026-08-07",
+          "hostile": false,
+          "english": "Finland wants to restore border marshes out of fear of Russia"
+        },
+        {
+          "title": "Ситуация на границе Финляндии и России: последние новости",
+          "url": "https://iz.ru/2145607/yle-soobshchila-o-planakh-finliandii-ispolzovat-bolota-dlia-oborony-granitc-izi",
+          "outlet": "iz.ru",
+          "date": "2026-08-07",
+          "hostile": false,
+          "english": "The latest news on the Finland-Russia border"
+        },
+        {
+          "title": "Финляндия закрыла проходы для зверей на границе с Россией",
+          "url": "https://ria.ru/20260807/finljandija-2109602700.html",
+          "outlet": "ria.ru",
+          "date": "2026-08-07",
+          "hostile": false,
+          "english": "Finland closed animal crossings on the border with Russia"
+        },
+        {
+          "title": "В Финляндии закрыли проходы для зверей на границе с Россией",
+          "url": "https://russian.rt.com/world/news/1667006-finlyandiya-prohod-zveri",
+          "outlet": "rt.com",
+          "date": "2026-08-07",
+          "hostile": false,
+          "english": "Animal crossings on Finland's border with Russia have been closed"
+        }
+      ],
+      "EE": [
+        {
+          "title": "Крах Каллас: эстонке предсказали отставку из-за русофобии",
+          "url": "https://aif.ru/politics/krah-kallas-estonke-predskazali-otstavku-iz-za-rusofobii",
+          "outlet": "aif.ru",
+          "date": "2026-08-08",
+          "hostile": true,
+          "english": "Kallas's fall: the Estonian was predicted to resign over Russophobia"
+        },
+        {
+          "title": "В Эстонии оценили вероятность нападения России на НАТО",
+          "url": "https://lenta.ru/news/2026/08/08/v-estonii-otsenili-veroyatnost-napadeniya-rossii-na-nato/",
+          "outlet": "lenta.ru",
+          "date": "2026-08-08",
+          "hostile": false,
+          "english": "Estonia assessed the chance of a Russian attack on NATO"
+        },
+        {
+          "title": "В Эстонии предложили закрыть границу с Россией",
+          "url": "https://ria.ru/20260808/estonija-2109741866.html",
+          "outlet": "ria.ru",
+          "date": "2026-08-08",
+          "hostile": false,
+          "english": "A proposal in Estonia to close the border with Russia"
+        },
+        {
+          "title": "В Эстонии призвали закрыть границу с Россией",
+          "url": "https://lenta.ru/news/2026/08/08/v-estonii-predlozhili-zakryt-granitsu-s-rossiey/",
+          "outlet": "lenta.ru",
+          "date": "2026-08-08",
+          "hostile": false,
+          "english": "A call in Estonia to close the border with Russia"
+        },
+        {
+          "title": "В школах эстонского города введут курс управления дронами для старшеклассников",
+          "url": "https://rg.ru/2026/08/06/v-shkolah-estonskogo-goroda-vvedut-kurs-upravleniia-dronami-dlia-starsheklassnikov.html",
+          "outlet": "rg.ru",
+          "date": "2026-08-06",
+          "hostile": false,
+          "english": "Schools in an Estonian city will teach older pupils to fly drones"
+        }
+      ],
+      "LV": [
+        {
+          "title": "В Латвии с почестями похоронили 102-летнего пособника нацистов",
+          "url": "https://ria.ru/20260804/latvija-2108837708.html",
+          "outlet": "ria.ru",
+          "date": "2026-08-04",
+          "hostile": true,
+          "english": "A 102-year-old Nazi collaborator was buried with honours in Latvia"
+        },
+        {
+          "title": "В Латвии с почестями похоронили 102-летнего пособника нацистов",
+          "url": "https://aif.ru/society/v-latvii-s-pochestyami-pohoronili-102-letnego-posobnika-nacistov",
+          "outlet": "aif.ru",
+          "date": "2026-08-04",
+          "hostile": true,
+          "english": "A 102-year-old Nazi collaborator was buried with honours in Latvia"
+        },
+        {
+          "title": "В Латвии с почестями похоронили 102-летнего пособника нацистов",
+          "url": "https://lenta.ru/news/2026/08/04/v-latvii-s-pochestyami-pohoronili-102-letnego-posobnika-natsistov/",
+          "outlet": "lenta.ru",
+          "date": "2026-08-04",
+          "hostile": true,
+          "english": "A 102-year-old Nazi collaborator was buried with honours in Latvia"
+        },
+        {
+          "title": "В Израиле осудили торжественные похороны пособника нацистов в Латвии",
+          "url": "https://ria.ru/20260804/antifashisty-2108946151.html",
+          "outlet": "ria.ru",
+          "date": "2026-08-04",
+          "hostile": true,
+          "english": "Israel condemned the ceremonial funeral of a Nazi collaborator in Latvia"
+        },
+        {
+          "title": "В Израиле осудили торжественные похороны пособника нацистов в Латвии",
+          "url": "https://russian.rt.com/world/news/1665592-pohorony-posobnik-nacist",
+          "outlet": "rt.com",
+          "date": "2026-08-04",
+          "hostile": true,
+          "english": "Israel condemned the ceremonial funeral of a Nazi collaborator in Latvia"
+        }
+      ],
+      "LT": [
+        {
+          "title": "В Литве заявили о возможном ударе украинских дронов по Прибалтике",
+          "url": "https://www.vesti.ru/ns/v-litve-zayavili-o-vozmozhnom-udare-ukrainskikh-dronov-po-pribaltike",
+          "outlet": "vesti.ru",
+          "date": "2026-08-06",
+          "hostile": false,
+          "english": "Lithuania said Ukrainian drones might strike the Baltic states"
+        },
+        {
+          "title": "Министр обороны Литвы считает, что Прибалтику могут атаковать БПЛА ВСУ",
+          "url": "https://russian.rt.com/ussr/news/1666515-ministr-oborona-litva-pribaltika",
+          "outlet": "rt.com",
+          "date": "2026-08-06",
+          "hostile": false,
+          "english": "Lithuania's defence minister thinks Ukrainian drones could attack the Baltic states"
+        },
+        {
+          "title": "Прибалтику могут атаковать дроны из Украины: предупреждение главы минобороны Литвы",
+          "url": "https://iz.ru/2144897/glava-minoborony-litvy-predupredil-o-vozmozhnoi-atake-dronov-vsu-na-pribaltiku-izi",
+          "outlet": "iz.ru",
+          "date": "2026-08-06",
+          "hostile": false,
+          "english": "Lithuania's defence minister warned that drones from Ukraine could attack the Baltic states"
+        },
+        {
+          "title": "В Минобороны Литвы предрекли атаку дронов ВСУ на Прибалтику",
+          "url": "https://tvzvezda.ru/news/2026861739-QS1zB.html",
+          "outlet": "tvzvezda.ru",
+          "date": "2026-08-06",
+          "hostile": false,
+          "english": "Lithuania's defence ministry predicted a Ukrainian drone attack on the Baltic states"
+        },
+        {
+          "title": "В России отреагировали на заявление о производстве украинских дронов Литвой",
+          "url": "https://lenta.ru/news/2026/08/05/v-rossii-otreagirovali-na-zayavlenie-o-proizvodstve-ukrainskih-dronov-litvoy/",
+          "outlet": "lenta.ru",
+          "date": "2026-08-05",
+          "hostile": false,
+          "english": "Russia reacted to a claim that Lithuania is producing Ukrainian drones"
+        }
+      ],
+      "PL": [
+        {
+          "title": "Польша в своей одержимости русофобией снова пробила дно. Новости. Первый канал",
+          "url": "https://www.1tv.ru/news/2026-08-09/549880",
+          "outlet": "1tv.ru",
+          "date": "2026-08-09",
+          "hostile": true,
+          "english": "Channel One said Poland had hit a new low in its obsession with Russophobia"
+        },
+        {
+          "title": "Захарова раскритиковала президента Польша из-за «клинической русофобии»",
+          "url": "https://aif.ru/politics/zaharova-raskritikovala-prezidenta-polsha-iz-za-klinicheskoy-rusofobii",
+          "outlet": "aif.ru",
+          "date": "2026-08-07",
+          "hostile": true,
+          "english": "Zakharova criticised Poland's president over what she called clinical Russophobia"
+        },
+        {
+          "title": "На границе Украины с Польшей возникли огромные очереди из грузовиков",
+          "url": "https://www.vesti.ru/ns/na-granice-ukrainy-s-polshej-voznik-kollaps-iz-za-prostoya-morskikh-sudov",
+          "outlet": "vesti.ru",
+          "date": "2026-08-08",
+          "hostile": false,
+          "english": "Huge truck queues formed on the Ukraine-Poland border"
+        },
+        {
+          "title": "На калининградской таможне рассказали о ситуации на границе с Польшей",
+          "url": "https://ria.ru/20260807/rossija-2109567147.html",
+          "outlet": "ria.ru",
+          "date": "2026-08-07",
+          "hostile": false,
+          "english": "Kaliningrad customs described the situation on the border with Poland"
+        },
+        {
+          "title": "Польша не откажется от предоставления военной помощи Украине. Новости. Первый канал",
+          "url": "https://www.1tv.ru/news/2026-08-07/549703",
+          "outlet": "1tv.ru",
+          "date": "2026-08-07",
+          "hostile": false,
+          "english": "Channel One said Poland will not stop military aid to Ukraine"
+        }
+      ]
+    },
+    "2026-08-10": {
+      "FI": [
+        {
+          "title": "Финляндия должна выйти из НАТО для диалога с Россией: заявление Мемы",
+          "url": "https://iz.ru/2149919/2026-08-16/finliandiiu-prizvali-k-vykhodu-iz-nato-radi-vosstanovleniia-dialoga-s-rossiei",
+          "outlet": "iz.ru",
+          "date": "2026-08-16",
+          "hostile": false,
+          "english": "Mema said Finland should leave NATO to talk with Russia"
+        },
+        {
+          "title": "Финляндия проведет военные учения рядом с российской границей",
+          "url": "https://aif.ru/politics/finlyandiya-provedet-voennye-ucheniya-ryadom-s-rossiyskoy-granicey",
+          "outlet": "aif.ru",
+          "date": "2026-08-15",
+          "hostile": false,
+          "english": "Finland will hold military exercises near the Russian border"
+        },
+        {
+          "title": "В Финляндии вводили ограничения в воздушном пространстве из-за угрозы БПЛА",
+          "url": "https://russian.rt.com/world/news/1669607-finlyandiya-ogranicheniya-polyoty",
+          "outlet": "rt.com",
+          "date": "2026-08-14",
+          "hostile": false,
+          "english": "Finland restricted its airspace because of a drone threat"
+        },
+        {
+          "title": "В Финляндии недалеко от российской границы пройдут военные учения",
+          "url": "https://ria.ru/20260814/finljandija-2111009135.html",
+          "outlet": "ria.ru",
+          "date": "2026-08-14",
+          "hostile": false,
+          "english": "Military exercises will be held in Finland near the Russian border"
+        },
+        {
+          "title": "У границы РФ над Финляндией два дня кружит самолет-заправщик США",
+          "url": "https://www.vesti.ru/ns/u-granicy-rf-nad-finlyandiej-dva-dnya-kruzhit-samolet-zapravshchik-ssha",
+          "outlet": "vesti.ru",
+          "date": "2026-08-12",
+          "hostile": false,
+          "english": "A US tanker aircraft has circled over Finland near the Russian border for two days"
+        }
+      ],
+      "EE": [
+        {
+          "title": "БПЛА на границе Эстонии: последние новости",
+          "url": "https://iz.ru/2149560/2026-08-15/v-estonii-na-granitce-s-rf-zarabotali-pervye-radary-dlia-obnaruzheniia-bpla",
+          "outlet": "iz.ru",
+          "date": "2026-08-15",
+          "hostile": false,
+          "english": "The latest news on drones at Estonia's border"
+        },
+        {
+          "title": "Эстония продлила ограничения в работе КПП на границе с Россией",
+          "url": "https://www.vesti.ru/ns/ehstoniya-prodlila-ogranicheniya-v-rabote-kpp-na-granice-s-rossiej",
+          "outlet": "vesti.ru",
+          "date": "2026-08-15",
+          "hostile": false,
+          "english": "Estonia extended limits on checkpoints on the border with Russia"
+        },
+        {
+          "title": "СМИ: КПП на эстонско-российской границе больше не будут круглосуточными",
+          "url": "https://ria.ru/20260813/estonija-2110710867.html",
+          "outlet": "ria.ru",
+          "date": "2026-08-13",
+          "hostile": false,
+          "english": "Media said checkpoints on the Estonia-Russia border will no longer be open around the clock"
+        },
+        {
+          "title": "КПП на эстонско-российской границе: последние новости",
+          "url": "https://iz.ru/2148780/estoniia-bessrochno-prodlila-ogranichennyi-rezhim-raboty-granitcy-s-rossiei-izi",
+          "outlet": "iz.ru",
+          "date": "2026-08-13",
+          "hostile": false,
+          "english": "The latest news on checkpoints on the Estonia-Russia border"
+        },
+        {
+          "title": "Учения ВВС стран НАТО начались в воздушном пространстве Эстонии",
+          "url": "https://rg.ru/2026/08/10/ucheniia-vvs-stran-nato-nachalis-v-vozdushnom-prostranstve-estonii.html",
+          "outlet": "rg.ru",
+          "date": "2026-08-10",
+          "hostile": false,
+          "english": "NATO air-force exercises began in Estonian airspace"
+        }
+      ],
+      "LV": [
+        {
+          "title": "Внук узницы нацистского концлагеря рассказал, как сбежал из Латвии",
+          "url": "https://ria.ru/20260811/latvija-2110126957.html",
+          "outlet": "ria.ru",
+          "date": "2026-08-11",
+          "hostile": true,
+          "english": "The grandson of a Nazi camp prisoner told how he fled Latvia"
+        },
+        {
+          "title": "СМИ: БПЛА, из-за которого в Латвии объявили тревогу, сбит истребителями",
+          "url": "https://ria.ru/20260814/bpla-2110813414.html",
+          "outlet": "ria.ru",
+          "date": "2026-08-14",
+          "hostile": false,
+          "english": "Media said fighters shot down the drone that triggered an alert in Latvia"
+        },
+        {
+          "title": "Истребители сбили дрон в воздушном пространстве Латвии",
+          "url": "https://www.vesti.ru/ns/istrebili-sbili-dron-v-vozdushnom-prostranstve-latvii",
+          "outlet": "vesti.ru",
+          "date": "2026-08-14",
+          "hostile": false,
+          "english": "Fighters shot down a drone in Latvian airspace"
+        },
+        {
+          "title": "Истребители сбили беспилотник, из-за которого в Латвии объявили тревогу",
+          "url": "https://russian.rt.com/ussr/news/1669565-latviya-sbit-bpla-trevoga",
+          "outlet": "rt.com",
+          "date": "2026-08-14",
+          "hostile": false,
+          "english": "Fighters shot down the drone that triggered an alert in Latvia"
+        },
+        {
+          "title": "В Латвии объявили воздушную тревогу и сбили один дрон",
+          "url": "https://tvzvezda.ru/news/202681487-i4Rj7.html",
+          "outlet": "tvzvezda.ru",
+          "date": "2026-08-14",
+          "hostile": false,
+          "english": "Latvia declared an air alert and shot down one drone"
+        }
+      ],
+      "LT": [
+        {
+          "title": "Владельцы 100 фур бросили их на границе с Белоруссий и Литвой: подробности",
+          "url": "https://iz.ru/2149071/vladeltcy-100-zaderzhannykh-litovskikh-fur-brosili-ikh-v-belorussii-izi",
+          "outlet": "iz.ru",
+          "date": "2026-08-14",
+          "hostile": false,
+          "english": "Owners abandoned 100 trucks on the Belarus-Lithuania border"
+        },
+        {
+          "title": "Украина построит в Литве завод боеприпасов по стандартам НАТО",
+          "url": "https://ria.ru/20260814/litva-2110952066.html",
+          "outlet": "ria.ru",
+          "date": "2026-08-14",
+          "hostile": false,
+          "english": "Ukraine will build a NATO-standard ammunition plant in Lithuania"
+        },
+        {
+          "title": "Украина построит в Литве завод по производству боеприпасов НАТО",
+          "url": "https://russian.rt.com/world/news/1669287-ukraina-litva-zavod-boepripasy",
+          "outlet": "rt.com",
+          "date": "2026-08-13",
+          "hostile": false,
+          "english": "Ukraine will build a plant in Lithuania to make NATO ammunition"
+        },
+        {
+          "title": "Украина наладит в Литве производство боеприпасов по стандартам НАТО",
+          "url": "https://lenta.ru/news/2026/08/13/ukraina-postroit-v-litve-zavod-boepripasov-po-standartam-nato/",
+          "outlet": "lenta.ru",
+          "date": "2026-08-13",
+          "hostile": false,
+          "english": "Ukraine will set up NATO-standard ammunition production in Lithuania"
+        },
+        {
+          "title": "Эксперт назвал планы Литвы копать рвы на границе с Белоруссией пиаром",
+          "url": "https://ria.ru/20260813/ekspert-2110696494.html",
+          "outlet": "ria.ru",
+          "date": "2026-08-13",
+          "hostile": false,
+          "english": "An expert called Lithuania's plan to dig ditches on the Belarus border a publicity move"
+        }
+      ],
+      "PL": [
+        {
+          "title": "В Польше рассказали о положительном отношении граждан к милитаризации Запада",
+          "url": "https://www.vesti.ru/ns/v-polshe-rasskazali-o-polozhitelnom-otnoshenii-grazhdan-k-militarizacii-zapada",
+          "outlet": "vesti.ru",
+          "date": "2026-08-16",
+          "hostile": true,
+          "english": "Poland reported that citizens favour the militarisation of the West"
+        },
+        {
+          "title": "В Польше готовят геноцид украинцев: чем обернутся нападения на беженцев",
+          "url": "https://www.vesti.ru/ns/v-polshe-gotovyat-genocid-ukraincev-chem-obernutsya-napadeniya-na-bezhencev",
+          "outlet": "vesti.ru",
+          "date": "2026-08-15",
+          "hostile": true,
+          "english": "A claim that attacks on refugees in Poland are leading toward a genocide of Ukrainians"
+        },
+        {
+          "title": "В Польше сообщили о массовом оттоке украинцев из-за агрессии к ним",
+          "url": "https://aif.ru/society/v-polshe-soobshchili-o-massovom-ottoke-ukraincev-iz-za-agressii-k-nim",
+          "outlet": "aif.ru",
+          "date": "2026-08-14",
+          "hostile": true,
+          "english": "Poland reported a mass departure of Ukrainians because of hostility toward them"
+        },
+        {
+          "title": "В Госдуме назвали слова президента Польши о русских актом русофобии",
+          "url": "https://ria.ru/20260812/gosduma-2110509869.html",
+          "outlet": "ria.ru",
+          "date": "2026-08-12",
+          "hostile": true,
+          "english": "The State Duma called the Polish president's words about Russians an act of Russophobia"
+        },
+        {
+          "title": "Слуцкий сравнил власти Польши с бандеровцами",
+          "url": "https://ria.ru/20260810/slutskij-2110078194.html",
+          "outlet": "ria.ru",
+          "date": "2026-08-10",
+          "hostile": true,
+          "english": "Slutsky compared Poland's authorities to Banderites"
+        }
+      ]
+    },
+    "2026-08-17": {
+      "FI": [
+        {
+          "title": "\"Самый мощный удар\". В Финляндии встревожились после возмездия России",
+          "url": "https://ria.ru/20260822/rossiya-2112455374.html",
+          "outlet": "ria.ru",
+          "date": "2026-08-22",
+          "hostile": true,
+          "english": "Finland was alarmed after what the headline calls Russia's retaliation"
+        },
+        {
+          "title": "Зеленский заявил о планах производить беспилотники в Финляндии",
+          "url": "https://russian.rt.com/world/news/1673224-finlyandiya-ukraina-bpla-proizvodstvo",
+          "outlet": "rt.com",
+          "date": "2026-08-23",
+          "hostile": false,
+          "english": "Zelensky said there are plans to produce drones in Finland"
+        },
+        {
+          "title": "Украина и Финляндия подписали еще одно соглашение по дронам",
+          "url": "https://ria.ru/20260823/ukraina-2112675787.html",
+          "outlet": "ria.ru",
+          "date": "2026-08-23",
+          "hostile": false,
+          "english": "Ukraine and Finland signed another drone agreement"
+        },
+        {
+          "title": "Поставки оружия Украине: Финляндия будет производить БПЛА для Киева",
+          "url": "https://iz.ru/2153717/ukraina-dogovorilas-o-proizvodstve-bespilotnikov-v-finliandii-izi",
+          "outlet": "iz.ru",
+          "date": "2026-08-23",
+          "hostile": false,
+          "english": "Finland will produce drones for Kyiv as part of arms supplies to Ukraine"
+        },
+        {
+          "title": "Военкор Хейсканен рассказал, почему Финляндия закрыла границу с РФ",
+          "url": "https://www.vesti.ru/ns/voenkor-khejskanen-rasskazal-pochemu-finlyandiya-zakryla-granicu-s-rf",
+          "outlet": "vesti.ru",
+          "date": "2026-08-22",
+          "hostile": false,
+          "english": "War correspondent Heiskanen said why Finland closed the border with Russia"
+        }
+      ],
+      "EE": [
+        {
+          "title": "Эстония включилась в войну дронов против России: кто стоит за БПЛА для Украины",
+          "url": "https://www.vesti.ru/ns/ehstoniya-vklyuchilas-v-vojnu-dronov-protiv-rossii-kto-stoit-za-bpla-dlya-ukrainy",
+          "outlet": "vesti.ru",
+          "date": "2026-08-21",
+          "hostile": false,
+          "english": "A claim that Estonia has joined a drone war against Russia by backing drones for Ukraine"
+        },
+        {
+          "title": "Эстония включилась в войну дронов против России, заявил Медведчук",
+          "url": "https://ria.ru/20260821/estoniya-2112226942.html",
+          "outlet": "ria.ru",
+          "date": "2026-08-21",
+          "hostile": false,
+          "english": "Medvedchuk said Estonia has joined a drone war against Russia"
+        },
+        {
+          "title": "Медведчук назвал Эстонию хабом для производителей БПЛА с Украины и Запада",
+          "url": "https://russian.rt.com/world/news/1672461-estoniya-bespilotniki-hab",
+          "outlet": "rt.com",
+          "date": "2026-08-21",
+          "hostile": false,
+          "english": "Medvedchuk called Estonia a hub for drone makers from Ukraine and the West"
+        },
+        {
+          "title": "В России ответили на создание в Эстонии хаба для разработки украинских ударных дронов",
+          "url": "https://lenta.ru/news/2026/08/21/v-rossii-otvetili-na-sozdanie-v-estonii-haba-dlya-razrabotki-ukrainskih-udarnyh-dronov/",
+          "outlet": "lenta.ru",
+          "date": "2026-08-21",
+          "hostile": false,
+          "english": "Russia responded to an Estonian hub for developing Ukrainian strike drones"
+        },
+        {
+          "title": "Эскалация растет. Медведчук: Эстония – участник войны дронов против РФ",
+          "url": "https://aif.ru/politics/world/eskalaciya-rastet-medvedchuk-estoniya-uchastnik-voyny-dronov-protiv-rf",
+          "outlet": "aif.ru",
+          "date": "2026-08-21",
+          "hostile": false,
+          "english": "Medvedchuk said Estonia is taking part in a drone war against Russia"
+        }
+      ],
+      "LV": [
+        {
+          "title": "МИД осудил проявления русофобии в Латвии",
+          "url": "https://ria.ru/20260820/mid-2112125193.html",
+          "outlet": "ria.ru",
+          "date": "2026-08-20",
+          "hostile": true,
+          "english": "The Foreign Ministry condemned signs of Russophobia in Latvia"
+        },
+        {
+          "title": "Житель Латвии рассказал, как медики-русофобы бросили мужчину с инсультом",
+          "url": "https://ria.ru/20260818/latviya-2111469612.html",
+          "outlet": "ria.ru",
+          "date": "2026-08-18",
+          "hostile": true,
+          "english": "A Latvia resident said Russophobic medics abandoned a man who had a stroke"
+        },
+        {
+          "title": "Латвийские пограничники обнаружили новый туннель нелегальных мигрантов",
+          "url": "https://www.vesti.ru/ns/latvijskie-pogranichniki-obnaruzhili-novyj-tunnel-nelegalnykh-migrantov",
+          "outlet": "vesti.ru",
+          "date": "2026-08-21",
+          "hostile": false,
+          "english": "Latvian border guards found a new tunnel used by illegal migrants"
+        },
+        {
+          "title": "В Латвии сообщили, что упавший на территории республики БПЛА был украинским",
+          "url": "https://www.vesti.ru/ns/v-latvii-soobshchili-chto-upavshij-na-territorii-respubliki-bpla-byl-ukrainskim",
+          "outlet": "vesti.ru",
+          "date": "2026-08-20",
+          "hostile": false,
+          "english": "Latvia said the drone that fell on its territory was Ukrainian"
+        },
+        {
+          "title": "Минобороны Латвии признало сбитый 14 августа беспилотник украинским",
+          "url": "https://russian.rt.com/world/news/1672011-latviya-ukrainskiy-bespilotnik-nato",
+          "outlet": "rt.com",
+          "date": "2026-08-20",
+          "hostile": false,
+          "english": "Latvia's defence ministry said the drone shot down on 14 August was Ukrainian"
+        }
+      ],
+      "LT": [
+        {
+          "title": "Литва выделит более 56 млн евро на школы для детей немецких военных",
+          "url": "https://www.vesti.ru/ns/litva-vydelit-bolee-56-mln-evro-na-shkoly-dlya-detej-nemeckikh-voennykh",
+          "outlet": "vesti.ru",
+          "date": "2026-08-22",
+          "hostile": false,
+          "english": "Lithuania will spend more than 56 million euros on schools for children of German soldiers"
+        },
+        {
+          "title": "В Литве пограничники опасаются применять оружие - Новости на Вести.ru",
+          "url": "https://www.vesti.ru/ns/v-litve-pogranichniki-opasayutsya-primenyat-oruzhie",
+          "outlet": "vesti.ru",
+          "date": "2026-08-19",
+          "hostile": false,
+          "english": "Lithuanian border guards are afraid to use their weapons"
+        },
+        {
+          "title": "Начальник погранслужбы Литвы подал в отставку после инцидента на границе",
+          "url": "https://www.vesti.ru/ns/nachalnik-pogransluzhby-litvy-podal-v-otstavku-posle-incidenta-na-granice",
+          "outlet": "vesti.ru",
+          "date": "2026-08-17",
+          "hostile": false,
+          "english": "The head of Lithuania's border service resigned after a border incident"
+        },
+        {
+          "title": "В Литве из-за бури погиб мужчина",
+          "url": "https://aif.ru/incidents/v_litve_iz-za_buri_pogib_muzhchina",
+          "outlet": "aif.ru",
+          "date": "2026-08-23",
+          "hostile": false,
+          "english": "A man died in a storm in Lithuania"
+        },
+        {
+          "title": "Армия Литвы разместила системы ПВО рядом с Вильнюсом",
+          "url": "https://www.vesti.ru/ns/armiya-litvy-razmestila-sistemy-pvo-ryadom-s-vilnyusom",
+          "outlet": "vesti.ru",
+          "date": "2026-08-23",
+          "hostile": false,
+          "english": "The Lithuanian army placed air-defence systems near Vilnius"
+        }
+      ],
+      "PL": [
+        {
+          "title": "Польша расставила бетонные ежи на границе с Россией",
+          "url": "https://aif.ru/society/polsha-rasstavila-betonnye-ezhi-na-granice-s-rossiey",
+          "outlet": "aif.ru",
+          "date": "2026-08-23",
+          "hostile": false,
+          "english": "Poland placed concrete dragon's teeth on the border with Russia"
+        },
+        {
+          "title": "Польша заявила о готовности полностью закрыть границу с Россией и Белоруссией",
+          "url": "https://russian.rt.com/world/news/1672424-polsha-granitsa-rossiya-belorussiya-blokirovka",
+          "outlet": "rt.com",
+          "date": "2026-08-21",
+          "hostile": false,
+          "english": "Poland said it is ready to close the border with Russia and Belarus completely"
+        },
+        {
+          "title": "Польша приготовилась ввести одну меру на границе с Россией и Белоруссией",
+          "url": "https://lenta.ru/news/2026/08/21/polsha-prigotovilas-vvesti-odnu-meru-na-granitse-s-rossiey-i-belorussiey/",
+          "outlet": "lenta.ru",
+          "date": "2026-08-21",
+          "hostile": false,
+          "english": "Poland prepared one measure on the border with Russia and Belarus"
+        },
+        {
+          "title": "Польша увеличила расходы на закупку дронов за три года в 260 раз",
+          "url": "https://ria.ru/20260821/polsha-2112285534.html",
+          "outlet": "ria.ru",
+          "date": "2026-08-21",
+          "hostile": false,
+          "english": "Poland increased drone-buying spending 260 times in three years"
+        },
+        {
+          "title": "МО Польши заявило об увеличении расходов на закупку БПЛА в 260 раз за три года",
+          "url": "https://www.vesti.ru/ns/mo-polshi-zayavilo-ob-uvelichenii-raskhodov-na-zakupku-bpla-v-260-raz-za-tri-goda",
+          "outlet": "vesti.ru",
+          "date": "2026-08-21",
+          "hostile": false,
+          "english": "Poland's defence ministry said drone-buying spending rose 260 times in three years"
+        }
+      ]
+    },
+    "2026-08-24": {
+      "FI": [
+        {
+          "title": "Стубб хочет уничтожить Питер? Реваншизм главы Финляндии все откровеннее",
+          "url": "https://aif.ru/politics/world/stubb-hochet-unichtozhit-piter-revanshizm-glavy-finlyandii-vse-otkrovennee",
+          "outlet": "aif.ru",
+          "date": "2026-08-28",
+          "hostile": true,
+          "english": "A claim that Finland's leader Stubb wants to destroy St Petersburg, called revanchism"
+        },
+        {
+          "title": "Президент Финляндии исключил сценарий нападения России на страны НАТО",
+          "url": "https://tvzvezda.ru/news/2026830836-CpJJc.html",
+          "outlet": "tvzvezda.ru",
+          "date": "2026-08-30",
+          "hostile": false,
+          "english": "Finland's president ruled out a Russian attack on NATO countries"
+        },
+        {
+          "title": "В Финляндии рассказали о последствиях закрытия границы с Россией",
+          "url": "https://ria.ru/20260829/finljandija-2113959832.html",
+          "outlet": "ria.ru",
+          "date": "2026-08-29",
+          "hostile": false,
+          "english": "Finland described the effects of closing the border with Russia"
+        },
+        {
+          "title": "В Финляндии подвели неутешительные итоги закрытия границы с Россией",
+          "url": "https://lenta.ru/news/2026/08/29/v-finlyandii-podveli-neuteshitelnye-itogi-zakrytiya-granitsy-s-rossiey/",
+          "outlet": "lenta.ru",
+          "date": "2026-08-29",
+          "hostile": false,
+          "english": "Finland summed up the bleak results of closing the border with Russia"
+        },
+        {
+          "title": "Риски закрытия границы Финляндии с Россией: мнение Варвикко",
+          "url": "https://iz.ru/2157244/v-finliandii-zaiavili-o-riske-ottoka-naseleniia-iz-za-zakrytiia-granitcy-s-rossiei-izi",
+          "outlet": "iz.ru",
+          "date": "2026-08-29",
+          "hostile": false,
+          "english": "Varvikko on the risks of Finland closing the border with Russia"
+        }
+      ],
+      "EE": [
+        {
+          "title": "Глава эстонской разведки пролил свет на переданное директором ЦРУ послание США Москве",
+          "url": "https://lenta.ru/news/2026/08/30/glava-estonskoy-razvedki-prolil-svet-na-peredannoe-direktorom-tsru-poslanie-ssha-moskve/",
+          "outlet": "lenta.ru",
+          "date": "2026-08-30",
+          "hostile": false,
+          "english": "Estonia's intelligence chief described a message the CIA director passed from the US to Moscow"
+        },
+        {
+          "title": "Эстония оказалась на последнем месте среди спонсоров Украины с начала СВО",
+          "url": "https://ria.ru/20260830/estonija-2114100266.html",
+          "outlet": "ria.ru",
+          "date": "2026-08-30",
+          "hostile": false,
+          "english": "Estonia ranked last among Ukraine's donors since the start of the special operation"
+        },
+        {
+          "title": "Эстония не выделила Украине ни доллара с февраля 2022 года",
+          "url": "https://www.vesti.ru/ns/ehstoniya-ne-vydelila-ukraine-ni-dollara-s-fevralya-2022-goda",
+          "outlet": "vesti.ru",
+          "date": "2026-08-30",
+          "hostile": false,
+          "english": "Estonia has given Ukraine no dollars since February 2022"
+        },
+        {
+          "title": "РИА Новости: Эстония с начала СВО не выделила Украине ни одного доллара",
+          "url": "https://russian.rt.com/world/news/1676025-estoniya-dengi-ukraina",
+          "outlet": "rt.com",
+          "date": "2026-08-30",
+          "hostile": false,
+          "english": "RIA Novosti said Estonia has given Ukraine no dollars since the start of the special operation"
+        },
+        {
+          "title": "Бросок на Кронштадт. Почему Балтийский флот пришлось вывести из Эстонии",
+          "url": "https://ria.ru/20260828/kronshtadt-2113325598.html",
+          "outlet": "ria.ru",
+          "date": "2026-08-28",
+          "hostile": false,
+          "english": "Why the Baltic Fleet had to be withdrawn from Estonia, in a piece titled Dash to Kronstadt"
+        }
+      ],
+      "LV": [
+        {
+          "title": "Заземлили Волка. Законченного русофоба из Латвии уничтожили под Харьковом",
+          "url": "https://aif.ru/politics/russia/zazemlili-volka-zakonchennogo-rusofoba-iz-latvii-unichtozhili-pod-harkovom",
+          "outlet": "aif.ru",
+          "date": "2026-08-26",
+          "hostile": true,
+          "english": "A claim that a Latvian Russophobe nicknamed Volk was killed near Kharkiv"
+        },
+        {
+          "title": "Галузин прокомментировал действия Латвии на границе с Белоруссией",
+          "url": "https://ria.ru/20260829/galuzin-2114017674.html",
+          "outlet": "ria.ru",
+          "date": "2026-08-29",
+          "hostile": false,
+          "english": "Galuzin commented on Latvia's actions on the border with Belarus"
+        },
+        {
+          "title": "Противоречивые действия Латвии на границе с Белоруссией назвали популизмом",
+          "url": "https://lenta.ru/news/2026/08/29/protivorechivye-deystviya-latvii-na-granitse-s-belorussiey-nazvali-populizmom/",
+          "outlet": "lenta.ru",
+          "date": "2026-08-29",
+          "hostile": false,
+          "english": "Latvia's contradictory actions on the Belarus border were called populism"
+        },
+        {
+          "title": "Латвийские пограничники задержали семерых нарушителей границы",
+          "url": "https://ria.ru/20260827/latviya-2113423965.html",
+          "outlet": "ria.ru",
+          "date": "2026-08-27",
+          "hostile": false,
+          "english": "Latvian border guards detained seven border crossers"
+        },
+        {
+          "title": "Завод боеприпасов в Латвии у границ России: реакция депутата Госдумы",
+          "url": "https://iz.ru/2156077/2026-08-27/v-gd-otcenili-plany-po-stroitelstvu-zavoda-boepripasov-v-latvii",
+          "outlet": "iz.ru",
+          "date": "2026-08-27",
+          "hostile": false,
+          "english": "A State Duma deputy reacted to an ammunition plant in Latvia near Russia"
+        }
+      ],
+      "LT": [
+        {
+          "title": "Бывший министр Литвы пригрозил захватить Калининград: реакция России, действия НАТО, шаги Запада",
+          "url": "https://lenta.ru/news/2026/08/26/v-litve-prigrozili-zahvatit-kaliningrad/",
+          "outlet": "lenta.ru",
+          "date": "2026-08-26",
+          "hostile": false,
+          "english": "A former Lithuanian minister threatened to seize Kaliningrad, and the headline lists Russia's reaction and NATO's steps"
+        },
+        {
+          "title": "Литва пригрозила ударами НАТО по Калининграду: спецоперация НАТО, ответ России",
+          "url": "https://lenta.ru/news/2026/08/27/long-budet-unichtozhena-v-litve-prigrozili-preventivnymi-udarami-nato-po-kaliningradskoy-oblasti/",
+          "outlet": "lenta.ru",
+          "date": "2026-08-26",
+          "hostile": false,
+          "english": "Lithuania threatened NATO strikes on Kaliningrad, and the headline lists a NATO operation and Russia's answer"
+        },
+        {
+          "title": "Большая часть жителей Литвы поддерживает всеобщий призыв на срочную службу",
+          "url": "https://www.vesti.ru/ns/bolshaya-chast-zhitelej-litvy-podderzhivaet-vseobshchij-prizyv-na-srochnuyu-sluzhbu",
+          "outlet": "vesti.ru",
+          "date": "2026-08-28",
+          "hostile": false,
+          "english": "Most people in Lithuania support universal conscription"
+        },
+        {
+          "title": "Визит главы ЦРУ в Москву: детали, реакция Литвы",
+          "url": "https://lenta.ru/news/2026/08/27/long-nastraivaet-pozitivno-prezident-litvy-nazval-vozmozhnuyu-tsel-vizita-glavy-tsru-v-moskvu-chto-on-skazal/",
+          "outlet": "lenta.ru",
+          "date": "2026-08-27",
+          "hostile": false,
+          "english": "Details of the CIA chief's visit to Moscow, and Lithuania's reaction"
+        },
+        {
+          "title": "Москва ответила на угрозу экс-главы МИД Литвы стереть Калининград с карты",
+          "url": "https://www.vesti.ru/ns/moskva-otvetila-na-ugrozu-ehks-glavy-mid-litvy-steret-kaliningrad-s-karty",
+          "outlet": "vesti.ru",
+          "date": "2026-08-27",
+          "hostile": false,
+          "english": "Moscow answered a former Lithuanian foreign minister's threat to wipe Kaliningrad off the map"
+        }
+      ],
+      "PL": [
+        {
+          "title": "Мишени для БПЛА. Польша размещает танки у границ с Калининградской областью",
+          "url": "https://aif.ru/politics/world/misheni-dlya-bpla-polsha-razmeshchaet-tanki-u-granic-s-kaliningradskoy-oblastyu",
+          "outlet": "aif.ru",
+          "date": "2026-08-27",
+          "hostile": false,
+          "english": "Poland is placing tanks near the Kaliningrad border, called targets for drones"
+        },
+        {
+          "title": "Польша ведет переговоры с США о создании нескольких военных баз",
+          "url": "https://ria.ru/20260827/polsha-2113680352.html",
+          "outlet": "ria.ru",
+          "date": "2026-08-27",
+          "hostile": false,
+          "english": "Poland is talking with the United States about several military bases"
+        },
+        {
+          "title": "Польша усилила границу с Россией южнокорейскими танками",
+          "url": "https://www.vesti.ru/ns/polsha-usilila-granicu-s-rossiej-yuzhnokorejskimi-tankami",
+          "outlet": "vesti.ru",
+          "date": "2026-08-25",
+          "hostile": false,
+          "english": "Poland reinforced the border with Russia with South Korean tanks"
+        },
+        {
+          "title": "Польша усилила восточную границу танками K2 из Южной Кореи: сообщение Косиняка-Камыша",
+          "url": "https://iz.ru/2154618/2026-08-25/polsha-usilila-granitcu-s-kaliningradskoi-oblastiu-28-tankami-k2",
+          "outlet": "iz.ru",
+          "date": "2026-08-25",
+          "hostile": false,
+          "english": "Kosiniak-Kamysz said Poland reinforced the eastern border with South Korean K2 tanks"
+        },
+        {
+          "title": "Польша направила танки к границе с Россией",
+          "url": "https://lenta.ru/news/2026/08/25/polsha-napravila-tanki-k-granitse-s-rossiey/",
+          "outlet": "lenta.ru",
+          "date": "2026-08-25",
+          "hostile": false,
+          "english": "Poland sent tanks to the border with Russia"
+        }
+      ]
+    },
+    "2026-08-31": {
+      "FI": [
+        {
+          "title": "В Финляндии раскрыли, что люди начали понимать про присоединение к НАТО",
+          "url": "https://ria.ru/20260906/finljandija-2115803525.html",
+          "outlet": "ria.ru",
+          "date": "2026-09-06",
+          "hostile": false,
+          "english": "Finland revealed what people have started to understand about joining NATO"
+        },
+        {
+          "title": "Финляндия ограничила доступ к полученным из России документам до 9999 года",
+          "url": "https://lenta.ru/news/2026/09/06/finlyandiya-ogranichila-dostup-k-poluchennym-iz-rossii-dokumentam-do-9999-goda/",
+          "outlet": "lenta.ru",
+          "date": "2026-09-06",
+          "hostile": false,
+          "english": "Finland limited access to documents received from Russia until the year 9999"
+        },
+        {
+          "title": "В Финляндии заявили о безработице из-за закрытия границы с Россией",
+          "url": "https://ria.ru/20260905/finljandija-2115599300.html",
+          "outlet": "ria.ru",
+          "date": "2026-09-05",
+          "hostile": false,
+          "english": "Finland said unemployment rose because the border with Russia was closed"
+        },
+        {
+          "title": "В Финляндии рассказали о массовой безработице из-за закрытия границы с РФ",
+          "url": "https://tvzvezda.ru/news/202695639-ZbWhB.html",
+          "outlet": "tvzvezda.ru",
+          "date": "2026-09-05",
+          "hostile": false,
+          "english": "Finland reported mass unemployment because the border with Russia was closed"
+        },
+        {
+          "title": "Варвикко: закрытие границы с Россией привело к росту безработицы в приграничных регионах Финляндии",
+          "url": "https://iz.ru/2161600/v-finliandii-zaiavili-o-problemakh-s-bezrabotitcei-iz-za-zakrytiia-granitcy-s-rf-izi",
+          "outlet": "iz.ru",
+          "date": "2026-09-05",
+          "hostile": false,
+          "english": "Varvikko said closing the border with Russia raised unemployment in Finland's border regions"
+        }
+      ],
+      "EE": [
+        {
+          "title": "Стало известно о давнем преследовании ветеранов в Эстонии",
+          "url": "https://lenta.ru/news/2026/09/05/stalo-izvestno-o-davnem-presledovanii-veteranov-v-estonii/",
+          "outlet": "lenta.ru",
+          "date": "2026-09-05",
+          "hostile": true,
+          "english": "A report of long-running persecution of veterans in Estonia"
+        },
+        {
+          "title": "В Эстонии полиция возбудила дело за плакат СССР \"Смерть фашистской гадине\"",
+          "url": "https://www.vesti.ru/ns/v-ehstonii-policiya-vozbudila-delo-za-plakat-sssr-smert-fashistskoj-gadine",
+          "outlet": "vesti.ru",
+          "date": "2026-09-01",
+          "hostile": true,
+          "english": "Estonian police opened a case over a Soviet poster reading Death to the fascist vermin"
+        },
+        {
+          "title": "Военно-транспортный самолет ВСУ прилетел на эстонскую авиабазу Эмари",
+          "url": "https://ria.ru/20260905/an-26-2115635464.html",
+          "outlet": "ria.ru",
+          "date": "2026-09-05",
+          "hostile": false,
+          "english": "A Ukrainian military transport plane landed at Estonia's Ämari air base"
+        },
+        {
+          "title": "Глава МО Эстонии Певкур подал в отставку на фоне скандала с военными закупками",
+          "url": "https://russian.rt.com/ussr/news/1677477-ministr-oborony-estonii-pevkur-otstavka",
+          "outlet": "rt.com",
+          "date": "2026-09-02",
+          "hostile": false,
+          "english": "Estonia's defence minister Pevkur resigned amid a military-procurement scandal"
+        },
+        {
+          "title": "Эстония подняла в воздух истребители из-за якобы залетевших в страну БПЛА",
+          "url": "https://ria.ru/20260901/bpla-2114512606.html",
+          "outlet": "ria.ru",
+          "date": "2026-09-01",
+          "hostile": false,
+          "english": "Estonia scrambled fighters over drones that allegedly entered the country"
+        }
+      ],
+      "LV": [
+        {
+          "title": "Латвия запустила разведывательный БПЛА вдоль границы с Белоруссией",
+          "url": "https://www.vesti.ru/ns/latviya-zapustila-razvedyvatelnyj-bpla-vdol-granicy-s-belorussiej",
+          "outlet": "vesti.ru",
+          "date": "2026-08-31",
+          "hostile": false,
+          "english": "Latvia launched a reconnaissance drone along the border with Belarus"
+        },
+        {
+          "title": "БПЛА латвийских ВВС курсирует неподалеку от границы с Белоруссией",
+          "url": "https://ria.ru/20260831/bpla-2114480651.html",
+          "outlet": "ria.ru",
+          "date": "2026-08-31",
+          "hostile": false,
+          "english": "A Latvian air-force drone is flying near the border with Belarus"
+        },
+        {
+          "title": "Число депутатов сейма Латвии хотят урезать",
+          "url": "https://ria.ru/20260906/es-2115867917.html",
+          "outlet": "ria.ru",
+          "date": "2026-09-06",
+          "hostile": false,
+          "english": "There is a plan to cut the number of deputies in Latvia's Saeima"
+        },
+        {
+          "title": "Число депутатов сейма Латвии хотят сократить из-за оттока населения",
+          "url": "https://www.vesti.ru/ns/chislo-deputatov-sejma-latvii-khotyat-sokratit-iz-za-ottoka-naseleniya",
+          "outlet": "vesti.ru",
+          "date": "2026-09-06",
+          "hostile": false,
+          "english": "Latvia's Saeima may be cut because the population is leaving"
+        },
+        {
+          "title": "Экс-депутат Рижской думы рассказал о попытках Латвии запугать россиян",
+          "url": "https://ria.ru/20260905/latviya-2115596377.html",
+          "outlet": "ria.ru",
+          "date": "2026-09-05",
+          "hostile": false,
+          "english": "A former Riga council member described Latvia's attempts to intimidate Russians"
+        }
+      ],
+      "LT": [
+        {
+          "title": "Власти Литвы хотят отмывать деньги, копая рвы на границе, заявил Азаров",
+          "url": "https://ria.ru/20260904/litva-2115345044.html",
+          "outlet": "ria.ru",
+          "date": "2026-09-04",
+          "hostile": false,
+          "english": "Azarov said Lithuania's leaders want to launder money by digging border ditches"
+        },
+        {
+          "title": "Азаров пояснил, зачем власти Литвы хотят копать рвы на границе с Россией",
+          "url": "https://www.vesti.ru/ns/azarov-poyasnil-zachem-vlasti-litvy-khotyat-kopat-rvy-na-granice-s-rossiej",
+          "outlet": "vesti.ru",
+          "date": "2026-09-04",
+          "hostile": false,
+          "english": "Azarov explained why Lithuania's leaders want to dig ditches on the border with Russia"
+        },
+        {
+          "title": "Константинов сравнил призыв Литвы сократить выдачу виз россиянам с лаем",
+          "url": "https://ria.ru/20260905/konstantinov--2115624508.html",
+          "outlet": "ria.ru",
+          "date": "2026-09-05",
+          "hostile": false,
+          "english": "Konstantinov compared Lithuania's call to cut visas for Russians to barking"
+        },
+        {
+          "title": "В Крыму сравнили призыв главы МИД Литвы по визам россиянам с лаем Моськи",
+          "url": "https://russian.rt.com/world/news/1678488-konstantinov-litva-shengenskie-vizy",
+          "outlet": "rt.com",
+          "date": "2026-09-05",
+          "hostile": false,
+          "english": "In Crimea, Lithuania's foreign minister's visa call was compared to a lapdog's bark"
+        },
+        {
+          "title": "Ограничение виз для россиян: Константинов сравнил призыв Литвы с лаем Моськи",
+          "url": "https://iz.ru/2161654/konstantinov-sravnil-prizyv-litvy-po-vizam-dlia-rossiian-s-laem-moski-izi",
+          "outlet": "iz.ru",
+          "date": "2026-09-05",
+          "hostile": false,
+          "english": "Konstantinov compared Lithuania's call to limit visas for Russians to a lapdog's bark"
+        }
+      ],
+      "PL": [
+        {
+          "title": "Польша рискует пролететь мимо Олимпиады. Неужели русофобов накажут?",
+          "url": "https://ria.ru/20260831/mok-2114325902.html",
+          "outlet": "ria.ru",
+          "date": "2026-08-31",
+          "hostile": true,
+          "english": "A claim that Poland may miss the Olympics, and a question whether Russophobes will be punished"
+        },
+        {
+          "title": "В Польше военнообязанным и гражданским начали выдавать мобилизационные карты",
+          "url": "https://russian.rt.com/world/news/1678217-polsha-mobilizaciya-kartochki-armiya",
+          "outlet": "rt.com",
+          "date": "2026-09-04",
+          "hostile": false,
+          "english": "Poland started issuing mobilisation cards to conscripts and civilians"
+        },
+        {
+          "title": "Вблизи границы с Польшей организуют избирательные участки для россиян",
+          "url": "https://ria.ru/20260904/uchastki-2115570300.html",
+          "outlet": "ria.ru",
+          "date": "2026-09-04",
+          "hostile": false,
+          "english": "Polling stations for Russians will be set up near the border with Poland"
+        },
+        {
+          "title": "Украинские военнослужащие массово дезертируют во время обучения в Польше",
+          "url": "https://ria.ru/20260903/vsu-2115063441.html",
+          "outlet": "ria.ru",
+          "date": "2026-09-03",
+          "hostile": false,
+          "english": "Ukrainian soldiers are deserting in large numbers during training in Poland"
+        },
+        {
+          "title": "Посол России в Польше назвал абсурдными обвинения в инциденте с БПЛА",
+          "url": "https://ria.ru/20260903/polsha-2115300136.html",
+          "outlet": "ria.ru",
+          "date": "2026-09-03",
+          "hostile": false,
+          "english": "Russia's ambassador in Poland called the drone-incident accusations absurd"
+        }
+      ]
+    },
+    "2026-09-07": {
+      "FI": [
+        {
+          "title": "Милитаризация границ Финляндии и России: новые оборонные планы НАТО",
+          "url": "https://iz.ru/2164656/vladislav-petrov/v-rf-otreagirovali-na-militarizaciyu-severnyh-stran-evropy",
+          "outlet": "iz.ru",
+          "date": "2026-09-10",
+          "hostile": true,
+          "english": "Militarisation of the Finland-Russia border, and new NATO defence plans"
+        },
+        {
+          "title": "Финляндия проводит форсированную милитаризацию, заявили в посольстве России",
+          "url": "https://ria.ru/20260911/finljandija-2116937428.html",
+          "outlet": "ria.ru",
+          "date": "2026-09-10",
+          "hostile": true,
+          "english": "Russia's embassy said Finland is rushing militarisation"
+        },
+        {
+          "title": "В Финляндии оценили возможность открытия границы с Россией в 2027 году",
+          "url": "https://ria.ru/20260913/finljandija-2117372289.html",
+          "outlet": "ria.ru",
+          "date": "2026-09-13",
+          "hostile": false,
+          "english": "Finland assessed whether the border with Russia could open in 2027"
+        },
+        {
+          "title": "Ядерное оружие НАТО: в Финляндии оценили последствия изменений закона",
+          "url": "https://iz.ru/2165791/v-finliandii-zaiavili-o-sniatii-otvetstvennosti-za-tranzit-iadernogo-oruzhiia-nato-izi",
+          "outlet": "iz.ru",
+          "date": "2026-09-12",
+          "hostile": false,
+          "english": "Finland assessed the effects of a law change on NATO nuclear weapons"
+        },
+        {
+          "title": "В Финляндии оценили последствия закрытия границы с Россией",
+          "url": "https://ria.ru/20260911/finljandija-2116958509.html",
+          "outlet": "ria.ru",
+          "date": "2026-09-11",
+          "hostile": false,
+          "english": "Finland assessed the effects of closing the border with Russia"
+        }
+      ],
+      "EE": [
+        {
+          "title": "Задержанный за покушение на военного въехал в Россию через Эстонию",
+          "url": "https://ria.ru/20260908/rossija-2116207069.html",
+          "outlet": "ria.ru",
+          "date": "2026-09-08",
+          "hostile": false,
+          "english": "A man detained over an attempt on a soldier entered Russia through Estonia"
+        },
+        {
+          "title": "Гражданин Молдавии признал, что для покушения на военного въехал через Эстонию",
+          "url": "https://russian.rt.com/russia/news/1679566-grazhdanin-moldaviya-pokushenie",
+          "outlet": "rt.com",
+          "date": "2026-09-08",
+          "hostile": false,
+          "english": "A Moldovan citizen admitted he entered through Estonia to attack a soldier"
+        },
+        {
+          "title": "ERR: пять военных пострадали при испытательных стрельбах в Эстонии",
+          "url": "https://russian.rt.com/world/news/1679333-estoniya-voennye-minomyot-poligon",
+          "outlet": "rt.com",
+          "date": "2026-09-07",
+          "hostile": false,
+          "english": "ERR said five soldiers were hurt in test firing in Estonia"
+        },
+        {
+          "title": "«Прямая речь» в Эстонии: кто организует выступления иноагентов",
+          "url": "https://iz.ru/2165720/vladislav-daniilov/osnovateli-proekta-priamaia-rech-kormiat-inoagentov-i-ekstremistov",
+          "outlet": "iz.ru",
+          "date": "2026-09-13",
+          "hostile": false,
+          "english": "Who organises speeches by people listed as foreign agents at Direct Speech in Estonia"
+        },
+        {
+          "title": "«Прямая речь» за рубежом: как лекторий связали с иноагентами и эстонским бизнесом",
+          "url": "https://iz.ru/2166443/2026-09-14/krupnyi-tcentr-begloi-oppozitcii-v-evrope-okazalsia-sviazan-s-lektoriem-v-moskve",
+          "outlet": "iz.ru",
+          "date": "2026-09-13",
+          "hostile": false,
+          "english": "How a lecture series abroad was linked to foreign agents and an Estonian business"
+        }
+      ],
+      "LV": [
+        {
+          "title": "Песков — о запрете на книги из России: бацилла русофобии пожирает Латвию",
+          "url": "https://russian.rt.com/ussr/news/1680327-peskov-zapret-knigi-latvia",
+          "outlet": "rt.com",
+          "date": "2026-09-09",
+          "hostile": true,
+          "english": "Peskov on a ban on books from Russia: the bacillus of Russophobia is consuming Latvia"
+        },
+        {
+          "title": "\"Бацилла русофобии\": в Кремле отреагировали на запрет Латвии на ввоз книг",
+          "url": "https://www.vesti.ru/ns/bacilla-rusofobii-v-kremle-otreagirovali-na-zapret-latvii-na-vvoz-knig",
+          "outlet": "vesti.ru",
+          "date": "2026-09-09",
+          "hostile": true,
+          "english": "The Kremlin reacted to Latvia's ban on importing books, calling it a bacillus of Russophobia"
+        },
+        {
+          "title": "Латвия запросила у ЕС миллиарды евро на укрепление границы с Россией",
+          "url": "https://lenta.ru/news/2026/09/10/latviya-zaprosila-u-es-milliardy-na-ukreplenie-granitsy-s-rossiey/",
+          "outlet": "lenta.ru",
+          "date": "2026-09-10",
+          "hostile": false,
+          "english": "Latvia asked the EU for billions of euros to strengthen the border with Russia"
+        },
+        {
+          "title": "Министра благосостояния Латвии лишили должности из-за пьяной езды",
+          "url": "https://ria.ru/20260913/latvija-2117461023.html",
+          "outlet": "ria.ru",
+          "date": "2026-09-13",
+          "hostile": false,
+          "english": "Latvia's welfare minister lost the job over drunk driving"
+        },
+        {
+          "title": "Пьяная езда стоила министру благосостояния Латвии Узулниексу должности",
+          "url": "https://www.vesti.ru/ns/pyanaya-ezda-stoila-ministru-blagosostoyaniya-latvii-uzulnieksu-dolzhnosti",
+          "outlet": "vesti.ru",
+          "date": "2026-09-13",
+          "hostile": false,
+          "english": "Drunk driving cost Latvia's welfare minister Uzulnieks his job"
+        }
+      ],
+      "LT": [
+        {
+          "title": "В Литве объявили тревогу из-за возможной атаки БПЛА",
+          "url": "https://lenta.ru/news/2026/09/13/v-litve-ob-yavili-trevogu-iz-za-vozmozhnoy-ataki-bpla/",
+          "outlet": "lenta.ru",
+          "date": "2026-09-13",
+          "hostile": false,
+          "english": "Lithuania declared an alert over a possible drone attack"
+        },
+        {
+          "title": "В Литве закрыли аэропорт из-за возможного появления дрона, пишет Reuters",
+          "url": "https://ria.ru/20260913/dron-2117421073.html",
+          "outlet": "ria.ru",
+          "date": "2026-09-13",
+          "hostile": false,
+          "english": "Reuters wrote that Lithuania closed an airport over a possible drone"
+        },
+        {
+          "title": "Литва приняла птиц за дроны и закрыла аэропорт Вильнюса",
+          "url": "https://www.vesti.ru/ns/litva-prinyala-ptic-za-drony-i-zakryla-aehroport-vilnyusa",
+          "outlet": "vesti.ru",
+          "date": "2026-09-13",
+          "hostile": false,
+          "english": "Lithuania mistook birds for drones and closed Vilnius airport"
+        },
+        {
+          "title": "СМИ: в Литве закрыли аэропорт из-за стаи птиц, которую приняли за дрон",
+          "url": "https://ria.ru/20260913/litva-2117434880.html",
+          "outlet": "ria.ru",
+          "date": "2026-09-13",
+          "hostile": false,
+          "english": "Media said Lithuania closed an airport because a flock of birds was taken for a drone"
+        },
+        {
+          "title": "Стая птиц стала причиной тревоги из-за «дрона» в Литве",
+          "url": "https://aif.ru/politics/staya-ptic-stala-prichinoy-trevogi-iz-za-drona-v-litve",
+          "outlet": "aif.ru",
+          "date": "2026-09-13",
+          "hostile": false,
+          "english": "A flock of birds caused a drone alert in Lithuania"
+        }
+      ],
+      "PL": [
+        {
+          "title": "Содрогнётся половина Польши: дан жёсткий ответ на агрессию НАТО у границ РФ",
+          "url": "https://aif.ru/politics/sodrognyotsya-polovina-polshi-dan-zhyostkiy-otvet-na-agressiyu-nato-u-granic-rf",
+          "outlet": "aif.ru",
+          "date": "2026-09-13",
+          "hostile": true,
+          "english": "A hard answer to NATO activity near Russia's borders, with a claim that half of Poland would shake"
+        },
+        {
+          "title": "Глава МИД Польши призвал НАТО к «агрессивным учениям» против Калининграда",
+          "url": "https://lenta.ru/news/2026/09/12/glava-mid-polshi-prizval-nato-k-agressivnym-ucheniyam-protiv-kaliningrada/",
+          "outlet": "lenta.ru",
+          "date": "2026-09-12",
+          "hostile": true,
+          "english": "Poland's foreign minister called on NATO for aggressive exercises against Kaliningrad"
+        },
+        {
+          "title": "Захарова указала главе МИД Польши на «русофобию головного мозга»",
+          "url": "https://russian.rt.com/world/news/1681980-zaharova-mid-polshi",
+          "outlet": "rt.com",
+          "date": "2026-09-13",
+          "hostile": true,
+          "english": "Zakharova told Poland's foreign minister he had Russophobia of the brain"
+        },
+        {
+          "title": "Главу МИД Польши обвинили в «русофобии головного мозга»",
+          "url": "https://lenta.ru/news/2026/09/13/glavu-mid-polshi-obvinili-v-rusofobii-golovnogo-mozga/",
+          "outlet": "lenta.ru",
+          "date": "2026-09-13",
+          "hostile": true,
+          "english": "Poland's foreign minister was accused of Russophobia of the brain"
+        },
+        {
+          "title": "Раскрыты права полиции Польши на преследование украинских дезертиров",
+          "url": "https://lenta.ru/news/2026/09/07/raskryty-prava-politsii-polshi-na-presledovanie-ukrainskih-dezertirov/",
+          "outlet": "lenta.ru",
+          "date": "2026-09-07",
+          "hostile": true,
+          "english": "Poland's police powers to pursue Ukrainian deserters were set out"
+        }
+      ]
+    },
+    "2026-09-14": {
+      "FI": [
+        {
+          "title": "Финляндия провела учения по захвату судов в Балтийском море",
+          "url": "https://www.vesti.ru/ns/finlyandiya-provela-ucheniya-po-zakhvatu-sudov-v-baltijskom-more",
+          "outlet": "vesti.ru",
+          "date": "2026-09-18",
+          "hostile": false,
+          "english": "Finland held exercises on seizing ships in the Baltic Sea"
+        },
+        {
+          "title": "«Выводы сделаны». В Финляндии испугались российского военного корабля",
+          "url": "https://aif.ru/politics/world/-vyvody-sdelany-v-finlyandii-ispugalis-rossiyskogo-voennogo-korablya",
+          "outlet": "aif.ru",
+          "date": "2026-09-18",
+          "hostile": false,
+          "english": "Finland was frightened by a Russian warship, the headline says conclusions were drawn"
+        },
+        {
+          "title": "Россия учтет ядерные планы Финляндии в военном планировании: заявление Грушко",
+          "url": "https://iz.ru/2167106/2026-09-15/rossiia-uchtet-prisoedinenie-finliandii-k-iadernoi-initciative-v-voennom-planirovanii",
+          "outlet": "iz.ru",
+          "date": "2026-09-15",
+          "hostile": false,
+          "english": "Grushko said Russia will take Finland's nuclear plans into its military planning"
+        },
+        {
+          "title": "Французский самолет кружит недалеко от границы Финляндии с Россией",
+          "url": "https://ria.ru/20260915/finljandija-2117725917.html",
+          "outlet": "ria.ru",
+          "date": "2026-09-15",
+          "hostile": false,
+          "english": "A French aircraft is circling near Finland's border with Russia"
+        },
+        {
+          "title": "Самолет ВВС Франции кружит у границы Финляндии и России",
+          "url": "https://aif.ru/society/samolet-vvs-francii-kruzhit-u-granicy-finlyandii-i-rossii",
+          "outlet": "aif.ru",
+          "date": "2026-09-15",
+          "hostile": false,
+          "english": "A French air-force aircraft is circling near the Finland-Russia border"
+        }
+      ],
+      "EE": [
+        {
+          "title": "В Эстонии назвали сценарий закрытия границы с Россией",
+          "url": "https://lenta.ru/news/2026/09/18/v-estonii-nazvali-stsenariy-zakrytiya-granitsy-s-rossiey/",
+          "outlet": "lenta.ru",
+          "date": "2026-09-18",
+          "hostile": false,
+          "english": "Estonia named a scenario for closing the border with Russia"
+        },
+        {
+          "title": "Россиянин, прибывший из Эстонии, проголосовал на участке у границы",
+          "url": "https://www.vesti.ru/ns/rossiyanin-pribyvshij-iz-ehstonii-progolosoval-na-uchastke-u-granicy",
+          "outlet": "vesti.ru",
+          "date": "2026-09-18",
+          "hostile": false,
+          "english": "A Russian who arrived from Estonia voted at a polling station by the border"
+        },
+        {
+          "title": "Посольство России осудило отказ эстонских СМИ удалить фейк о выборах",
+          "url": "https://ria.ru/20260920/estoniya-2118834683.html",
+          "outlet": "ria.ru",
+          "date": "2026-09-19",
+          "hostile": false,
+          "english": "Russia's embassy condemned Estonian media for refusing to remove a fake story about the election"
+        },
+        {
+          "title": "Россияне, живущие в Эстонии, смогут проголосовать на участке в Ивангороде",
+          "url": "https://ria.ru/20260918/ivangorod-2118415367.html",
+          "outlet": "ria.ru",
+          "date": "2026-09-18",
+          "hostile": false,
+          "english": "Russians living in Estonia will be able to vote at a station in Ivangorod"
+        },
+        {
+          "title": "Для россиян из Эстонии организовали трансфер до избирательного участка",
+          "url": "https://ria.ru/20260918/ivangorod-2118521774.html",
+          "outlet": "ria.ru",
+          "date": "2026-09-18",
+          "hostile": false,
+          "english": "A transfer to a polling station was arranged for Russians from Estonia"
+        }
+      ],
+      "LV": [
+        {
+          "title": "Президент Латвии заявил, что Европа отстает в войне дронов",
+          "url": "https://aif.ru/politics/prezident-latvii-zayavil-chto-evropa-otstaet-v-voyne-dronov",
+          "outlet": "aif.ru",
+          "date": "2026-09-19",
+          "hostile": false,
+          "english": "Latvia's president said Europe is behind in the drone war"
+        },
+        {
+          "title": "Президент Латвии заявил об отставании Европы в технологиях защиты от БПЛА",
+          "url": "https://www.vesti.ru/ns/prezident-latvii-zayavil-ob-otstavanii-evropy-v-tekhnologiyakh-zashchity-ot-bpla",
+          "outlet": "vesti.ru",
+          "date": "2026-09-19",
+          "hostile": false,
+          "english": "Latvia's president said Europe lags in technology for defence against drones"
+        },
+        {
+          "title": "БПЛА латвийских ВВС заметили неподалеку от границы с Белоруссией",
+          "url": "https://ria.ru/20260915/bpl-2117839396.html",
+          "outlet": "ria.ru",
+          "date": "2026-09-15",
+          "hostile": false,
+          "english": "A Latvian air-force drone was seen near the border with Belarus"
+        },
+        {
+          "title": "В Латвии ликвидируют завод Rebir из-за санкций против России",
+          "url": "https://russian.rt.com/ussr/news/1682012-latviya-zavod-rebir-likvidaciya",
+          "outlet": "rt.com",
+          "date": "2026-09-14",
+          "hostile": false,
+          "english": "The Rebir plant in Latvia will be closed because of sanctions against Russia"
+        },
+        {
+          "title": "В Латвии из-за санкций против РФ закроют предприятие Rebir",
+          "url": "https://www.vesti.ru/ns/v-latvii-iz-za-sankcij-protiv-rf-zakroyut-predpriyatie-rebir",
+          "outlet": "vesti.ru",
+          "date": "2026-09-14",
+          "hostile": false,
+          "english": "The Rebir company in Latvia will close because of sanctions against Russia"
+        }
+      ],
+      "LT": [
+        {
+          "title": "Литва ждет возвращения американских военных уже в этом году",
+          "url": "https://www.vesti.ru/ns/litva-zhdet-vozvrashcheniya-amerikanskikh-voennykh-uzhe-v-ehtom-godu",
+          "outlet": "vesti.ru",
+          "date": "2026-09-18",
+          "hostile": false,
+          "english": "Lithuania expects American troops to return this year"
+        },
+        {
+          "title": "В Литве начались учения по переходу от мира к военному времени",
+          "url": "https://www.vesti.ru/ns/v-litve-nachalis-ucheniya-po-perekhodu-ot-mira-k-voennomu-vremeni",
+          "outlet": "vesti.ru",
+          "date": "2026-09-17",
+          "hostile": false,
+          "english": "Exercises on the shift from peace to wartime began in Lithuania"
+        },
+        {
+          "title": "Литва проведёт учения по национальной обороне совместно с силами НАТО",
+          "url": "https://russian.rt.com/ussr/news/1683522-litva-nato-ucheniya-oborona",
+          "outlet": "rt.com",
+          "date": "2026-09-17",
+          "hostile": false,
+          "english": "Lithuania will hold national-defence exercises with NATO forces"
+        },
+        {
+          "title": "Президент Литвы высказал предположение о российских дронах в Европе",
+          "url": "https://lenta.ru/news/2026/09/17/prezident-litvy-vyskazal-predpolozhenie-o-rossiyskih-dronah-v-evrope/",
+          "outlet": "lenta.ru",
+          "date": "2026-09-16",
+          "hostile": false,
+          "english": "Lithuania's president offered a guess about Russian drones in Europe"
+        },
+        {
+          "title": "Reuters: истребитель НАТО сбил неизвестный беспилотник в небе Литвы",
+          "url": "https://tvzvezda.ru/news/202691513-4oiIi.html",
+          "outlet": "tvzvezda.ru",
+          "date": "2026-09-15",
+          "hostile": false,
+          "english": "Reuters said a NATO fighter shot down an unidentified drone over Lithuania"
+        }
+      ],
+      "PL": [
+        {
+          "title": "Содрогнётся половина Польши: дан жёсткий ответ на агрессию НАТО у границ РФ",
+          "url": "https://aif.ru/politics/6326645",
+          "outlet": "aif.ru",
+          "date": "2026-09-15",
+          "hostile": true,
+          "english": "A hard answer to NATO activity near Russia's borders, with a claim that half of Poland would shake"
+        },
+        {
+          "title": "В России объяснили цель милитаризации Польши",
+          "url": "https://lenta.ru/news/2026/09/18/v-rossii-ob-yasnili-tsel-militarizatsii-polshi/",
+          "outlet": "lenta.ru",
+          "date": "2026-09-18",
+          "hostile": true,
+          "english": "Russia explained what it sees as the aim of Poland's militarisation"
+        },
+        {
+          "title": "Стали известны последствия для Польши в случае агрессии против России",
+          "url": "https://lenta.ru/news/2026/09/16/stali-izvestny-posledstviya-dlya-polshi-v-sluchae-agressii-protiv-rossii/",
+          "outlet": "lenta.ru",
+          "date": "2026-09-16",
+          "hostile": true,
+          "english": "Consequences for Poland in case of aggression against Russia were set out"
+        },
+        {
+          "title": "Сикорский назвал фашистом повредившего памятник УПА в Польше политика Брауна",
+          "url": "https://iz.ru/2167986/2026-09-16/sikorskii-nazval-fashistom-povredivshego-pamiatnik-upa-v-polshe-politika-brauna",
+          "outlet": "iz.ru",
+          "date": "2026-09-16",
+          "hostile": true,
+          "english": "Sikorski called Braun, who damaged a UPA monument in Poland, a fascist"
+        },
+        {
+          "title": "В Польше предложили ввести наказание за пропаганду бандеровской идеологии",
+          "url": "https://ria.ru/20260916/varshava-2118111274.html",
+          "outlet": "ria.ru",
+          "date": "2026-09-16",
+          "hostile": true,
+          "english": "Poland proposed punishing propaganda of Banderite ideology"
+        }
+      ]
+    },
+    "2026-09-21": {
+      "FI": [
+        {
+          "title": "Самолет пограничной охраны Финляндии летает недалеко от границы с Россией",
+          "url": "https://ria.ru/20260925/samolet-2120264262.html",
+          "outlet": "ria.ru",
+          "date": "2026-09-25",
+          "hostile": false,
+          "english": "A Finnish border-guard aircraft is flying near the border with Russia"
+        },
+        {
+          "title": "«Попытка эскалации»: зачем Финляндия и Украина подписали соглашение по сотрудничеству в области беспилотников",
+          "url": "https://russian.rt.com/world/article/1686714-finlyandiya-ukraina-soglashenie-bespilotniki",
+          "outlet": "rt.com",
+          "date": "2026-09-24",
+          "hostile": false,
+          "english": "Why Finland and Ukraine signed a drone-cooperation agreement, called an attempt at escalation"
+        },
+        {
+          "title": "Финляндия и Украина подписали соглашение по беспилотникам",
+          "url": "https://ria.ru/20260923/finljandija-2119880103.html",
+          "outlet": "ria.ru",
+          "date": "2026-09-23",
+          "hostile": false,
+          "english": "Finland and Ukraine signed a drone agreement"
+        },
+        {
+          "title": "В Финляндии выступили с необычным предложением в отношении Зеленского",
+          "url": "https://ria.ru/20260927/zelenskiy-2120522960.html",
+          "outlet": "ria.ru",
+          "date": "2026-09-27",
+          "hostile": false,
+          "english": "An unusual proposal about Zelensky was made in Finland"
+        },
+        {
+          "title": "Жители Финляндии бьют тревогу из-за строительства дата-центров Google",
+          "url": "https://iz.ru/2173945/nikita-eliseev/troianskie-koni-finny-biut-trevogu-iz-za-stroitelstva-data-tcentrov-google",
+          "outlet": "iz.ru",
+          "date": "2026-09-27",
+          "hostile": false,
+          "english": "People in Finland are alarmed by the building of Google data centres"
+        }
+      ],
+      "EE": [
+        {
+          "title": "Захарова призвала ЮНЕСКО и ЮНИСЕФ проверить агрессию эстонской молодежи",
+          "url": "https://www.vesti.ru/ns/zakharova-prizvala-yunesko-i-yunisef-proverit-agressiyu-ehstonskoj-molodezhi",
+          "outlet": "vesti.ru",
+          "date": "2026-09-24",
+          "hostile": true,
+          "english": "Zakharova asked UNESCO and UNICEF to check aggression among Estonian youth"
+        },
+        {
+          "title": "В Эстонии отвергли домыслы о мнимом желании России напасть на НАТО",
+          "url": "https://lenta.ru/news/2026/09/23/v-estonii-otvergli-domysly-o-mnimom-zhelanii-rossii-napast-na-nato/",
+          "outlet": "lenta.ru",
+          "date": "2026-09-23",
+          "hostile": false,
+          "english": "Estonia rejected speculation that Russia wants to attack NATO"
+        },
+        {
+          "title": "Мария Захарова об Эстонии: дипломат предложила ЮНЕСКО проверить воспитание молодежи",
+          "url": "https://iz.ru/2173181/zakharova-prizvala-iunesko-i-iunisef-proverit-obrazovanie-molodezhi-v-estonii-izi",
+          "outlet": "iz.ru",
+          "date": "2026-09-25",
+          "hostile": false,
+          "english": "Zakharova suggested UNESCO check how young people are taught in Estonia"
+        },
+        {
+          "title": "Доломали все, что можно. Эстония осталась без четверти патрульного флота",
+          "url": "https://aif.ru/politics/world/dolomali-vse-chto-mozhno-estoniya-ostalas-bez-chetverti-patrulnogo-flota",
+          "outlet": "aif.ru",
+          "date": "2026-09-25",
+          "hostile": false,
+          "english": "Estonia has lost a quarter of its patrol fleet, the headline says everything that could break has broken"
+        },
+        {
+          "title": "Захарова прокомментировала слова эстонских подростков об уничтожении России",
+          "url": "https://lenta.ru/news/2026/09/25/zaharova-prokommentirovala-slova-podrostkov-ob-unichtozhenii-rossii/",
+          "outlet": "lenta.ru",
+          "date": "2026-09-25",
+          "hostile": false,
+          "english": "Zakharova commented on Estonian teenagers' words about destroying Russia"
+        }
+      ],
+      "LV": [
+        {
+          "title": "Инцидент со стрельбой произошел на военных учениях в Латвии",
+          "url": "https://lenta.ru/news/2026/09/26/intsident-so-strelboy-proizoshel-v-latvii/",
+          "outlet": "lenta.ru",
+          "date": "2026-09-26",
+          "hostile": false,
+          "english": "A shooting incident happened at military exercises in Latvia"
+        },
+        {
+          "title": "Военные Италии получили ранения на учениях НАТО в Латвии",
+          "url": "https://www.vesti.ru/ns/voennye-italii-poluchili-raneniya-na-ucheniyakh-nato-v-latvii",
+          "outlet": "vesti.ru",
+          "date": "2026-09-26",
+          "hostile": false,
+          "english": "Italian soldiers were wounded at NATO exercises in Latvia"
+        },
+        {
+          "title": "В Латвии произошло ЧП с итальянскими военными",
+          "url": "https://ria.ru/20260926/latviya-2120386168.html",
+          "outlet": "ria.ru",
+          "date": "2026-09-26",
+          "hostile": false,
+          "english": "An emergency involving Italian soldiers happened in Latvia"
+        },
+        {
+          "title": "Инцидент на учениях НАТО в Латвии: пострадали четверо итальянских военных",
+          "url": "https://iz.ru/2173849/2026-09-26/neskolko-voennykh-italii-postradali-ot-ognia-sosluzhivtcev-na-ucheniiakh-nato-v-latvii",
+          "outlet": "iz.ru",
+          "date": "2026-09-26",
+          "hostile": false,
+          "english": "Four Italian soldiers were hurt in an incident at NATO exercises in Latvia"
+        },
+        {
+          "title": "Итальянские военные пострадали от огня сослуживцев на учениях в Латвии",
+          "url": "https://aif.ru/incidents/italyanskie-voennye-postradali-ot-ognya-sosluzhivcev-na-ucheniyah-v-latvii",
+          "outlet": "aif.ru",
+          "date": "2026-09-26",
+          "hostile": false,
+          "english": "Italian soldiers were hit by friendly fire at exercises in Latvia"
+        }
+      ],
+      "LT": [
+        {
+          "title": "RT раскрыл, как отмена одной статьи конституции Литвы меняет расклад у границ РФ",
+          "url": "https://www.vesti.ru/ns/litva-otmenyaet-zakon-zapreshchayushchij-razmeshchat-yao-na-ee-territorii",
+          "outlet": "vesti.ru",
+          "date": "2026-09-24",
+          "hostile": false,
+          "english": "RT said scrapping one article of Lithuania's constitution changes the picture on Russia's borders"
+        },
+        {
+          "title": "Литва начнет производство дронов с США",
+          "url": "https://lenta.ru/news/2026/09/23/litva-nachnet-proizvodstvo-dronov-s-ssha/",
+          "outlet": "lenta.ru",
+          "date": "2026-09-23",
+          "hostile": false,
+          "english": "Lithuania will start producing drones with the United States"
+        },
+        {
+          "title": "Ядерный разворот Литвы: как отмена одной статьи Конституции меняет расклад у границ России",
+          "url": "https://russian.rt.com/ussr/article/1686199-yadernoe-oruzhie-litva-konstituciya",
+          "outlet": "rt.com",
+          "date": "2026-09-23",
+          "hostile": false,
+          "english": "How scrapping one article of Lithuania's constitution changes the picture on Russia's borders"
+        },
+        {
+          "title": "RT: Москва будет считать Литву частью ядерной инфраструктуры НАТО в случае отмены запрета на ОМП",
+          "url": "https://russian.rt.com/ussr/news/1686371-rt-moskva-litva",
+          "outlet": "rt.com",
+          "date": "2026-09-23",
+          "hostile": false,
+          "english": "RT said Moscow would treat Lithuania as part of NATO's nuclear infrastructure if the weapons ban is lifted"
+        },
+        {
+          "title": "Новый пакет санкций: приостановка ограничений из-за протеста Литвы",
+          "url": "https://iz.ru/2171347/smi-soobshchili-o-vozmozhnoi-priostanovke-antirossiiskikh-sanktcii-iz-za-pozitcii-latvii-izi",
+          "outlet": "iz.ru",
+          "date": "2026-09-22",
+          "hostile": false,
+          "english": "A new sanctions package may be paused because of Lithuania's objection"
+        }
+      ],
+      "PL": [
+        {
+          "title": "Украинские беженцы в Польше рисуют нацистские символы в общественных местах",
+          "url": "https://ria.ru/20260926/polsha-2120397274.html",
+          "outlet": "ria.ru",
+          "date": "2026-09-26",
+          "hostile": true,
+          "english": "Ukrainian refugees in Poland are drawing Nazi symbols in public places"
+        },
+        {
+          "title": "В Польше украинские беженцы рисуют нацистскую символику в общественных местах",
+          "url": "https://www.vesti.ru/ns/v-polshe-ukrainskie-bezhency-risuyut-nacistskuyu-simvoliku-v-obshchestvennykh-mestakh",
+          "outlet": "vesti.ru",
+          "date": "2026-09-26",
+          "hostile": true,
+          "english": "Ukrainian refugees in Poland are drawing Nazi symbols in public places"
+        },
+        {
+          "title": "Украинские беженцы в Польше начали рисовать нацистские символы в общественных местах",
+          "url": "https://lenta.ru/news/2026/09/26/ukrainskie-bezhentsy-v-polshe-risuyut-natsistskie-simvoly-v-obschestvennyh-mestah/",
+          "outlet": "lenta.ru",
+          "date": "2026-09-26",
+          "hostile": true,
+          "english": "Ukrainian refugees in Poland have started drawing Nazi symbols in public places"
+        },
+        {
+          "title": "РИА Новости: в Польше беженцы с Украины рисуют на улицах нацистскую символику",
+          "url": "https://russian.rt.com/world/news/1687394-polsha-ukraina-nacisty",
+          "outlet": "rt.com",
+          "date": "2026-09-26",
+          "hostile": true,
+          "english": "RIA Novosti said refugees from Ukraine are drawing Nazi symbols on streets in Poland"
+        },
+        {
+          "title": "Украинские беженцы наносят нацистские граффити в Польше: заявление Stop Grave",
+          "url": "https://iz.ru/2173911/2026-09-26/ukrainskie-migranty-nanesli-natcistskie-graffiti-na-ulitcy-varshavy-i-liublina",
+          "outlet": "iz.ru",
+          "date": "2026-09-26",
+          "hostile": true,
+          "english": "Stop Grave said Ukrainian refugees are painting Nazi graffiti in Poland"
+        }
+      ]
+    },
+    "2026-09-28": {
+      "FI": [
+        {
+          "title": "Политик Мема: последнее слово в вопросе размещения ЯО в Финляндии за НАТО",
+          "url": "https://www.vesti.ru/ns/politik-mema-poslednee-slovo-v-voprose-razmeshcheniya-yao-v-finlyandii-za-nato",
+          "outlet": "vesti.ru",
+          "date": "2026-10-02",
+          "hostile": false,
+          "english": "Politician Mema said NATO has the last word on placing nuclear weapons in Finland"
+        },
+        {
+          "title": "США направят морпехов в Финляндию для участия в миссии НАТО: что известно",
+          "url": "https://iz.ru/2177631/2026-10-02/pentagon-napravit-pekhotintcev-v-finliandiiu-dlia-podderzhki-missii-nato-na-baltike",
+          "outlet": "iz.ru",
+          "date": "2026-10-02",
+          "hostile": false,
+          "english": "What is known about the US sending marines to Finland for a NATO mission"
+        },
+        {
+          "title": "Финляндия превращается в плацдарм НАТО, заявил финский политик",
+          "url": "https://ria.ru/20260930/finljandija-2121118063.html",
+          "outlet": "ria.ru",
+          "date": "2026-09-30",
+          "hostile": false,
+          "english": "A Finnish politician said Finland is becoming a NATO bridgehead"
+        },
+        {
+          "title": "\"Плацдарм НАТО\": в Финляндии рассказали, во что превращается страна",
+          "url": "https://www.vesti.ru/ns/placdarm-nato-v-finlyandii-rasskazali-vo-chto-prevrashchaetsya-strana",
+          "outlet": "vesti.ru",
+          "date": "2026-09-30",
+          "hostile": false,
+          "english": "In Finland they said the country is turning into a NATO bridgehead"
+        },
+        {
+          "title": "Политик Мема: Финляндия становится плацдармом НАТО",
+          "url": "https://aif.ru/politics/politik-mema-finlyandiya-stanovitsya-placdarmom-nato",
+          "outlet": "aif.ru",
+          "date": "2026-09-30",
+          "hostile": false,
+          "english": "Politician Mema said Finland is becoming a NATO bridgehead"
+        }
+      ],
+      "EE": [
+        {
+          "title": "Таможня назвала причину очередей на российско-эстонской границе",
+          "url": "https://rg.ru/2026/10/02/tamozhnia-nazvala-prichinu-ocheredej-na-rossijsko-estonskoj-granice.html",
+          "outlet": "rg.ru",
+          "date": "2026-10-02",
+          "hostile": false,
+          "english": "Customs named the cause of queues on the Russia-Estonia border"
+        },
+        {
+          "title": "Российские пограничники задержали судно в Финском заливе, следовавшее в Эстонию",
+          "url": "https://www.vesti.ru/ns/rossijskie-pogranichniki-zaderzhali-sudno-v-finskom-zalive-sledovavshee-v-ehstoniyu",
+          "outlet": "vesti.ru",
+          "date": "2026-10-01",
+          "hostile": false,
+          "english": "Russian border guards detained a ship in the Gulf of Finland that was heading to Estonia"
+        },
+        {
+          "title": "В Эстонии организовали продажу мест в очереди к границе с Россией",
+          "url": "https://www.vesti.ru/ns/v-ehstonii-organizovali-prodazhu-mest-v-ocheredi-k-granice-s-rossiej",
+          "outlet": "vesti.ru",
+          "date": "2026-10-01",
+          "hostile": false,
+          "english": "A sale of places in the queue to the Russian border was organised in Estonia"
+        },
+        {
+          "title": "Спецслужбы Эстонии запустили разведывательный дрон над Балтийским морем",
+          "url": "https://lenta.ru/news/2026/09/29/spetssluzhby-estonii-zapustili-razvedyvatelnyy-dron-nad-baltiyskim-morem/",
+          "outlet": "lenta.ru",
+          "date": "2026-09-28",
+          "hostile": false,
+          "english": "Estonian security services launched a reconnaissance drone over the Baltic Sea"
+        },
+        {
+          "title": "Запущенный спецслужбами Эстонии дрон проводит разведку над водами Балтики",
+          "url": "https://www.vesti.ru/ns/zapushchennyj-specsluzhbami-ehstonii-dron-provodit-razvedku-nad-vodami-baltiki",
+          "outlet": "vesti.ru",
+          "date": "2026-09-28",
+          "hostile": false,
+          "english": "A drone launched by Estonian security services is scouting over the Baltic"
+        }
+      ],
+      "LV": [
+        {
+          "title": "Политики жестких санкций одержали верх в Латвии, заявил экс-депутат сейма",
+          "url": "https://ria.ru/20261004/latviya-2122096831.html",
+          "outlet": "ria.ru",
+          "date": "2026-10-04",
+          "hostile": false,
+          "english": "A former Saeima member said hard-sanctions politicians won in Latvia"
+        },
+        {
+          "title": "В Госдуме сравнили Латвию с мухой из-за готовности разместить ядерное оружие НАТО",
+          "url": "https://lenta.ru/news/2026/10/01/v-gosdume-sravnili-latviyu-s-muhoy-iz-za-gotovnosti-razmestit-yadernoe-oruzhie-nato/",
+          "outlet": "lenta.ru",
+          "date": "2026-10-01",
+          "hostile": false,
+          "english": "The State Duma compared Latvia to a fly over its readiness to host NATO nuclear weapons"
+        },
+        {
+          "title": "Латвия может разместить ядерное оружие НАТО, заявил Ринкевич",
+          "url": "https://ria.ru/20260930/latvija-2121215724.html",
+          "outlet": "ria.ru",
+          "date": "2026-09-30",
+          "hostile": false,
+          "english": "Rinkevics said Latvia may host NATO nuclear weapons"
+        },
+        {
+          "title": "Как власти Латвии искореняют память о мучениках Саласпилса",
+          "url": "https://iz.ru/2174620/nikita-eliseev/zakhlebnulsia-detskii-krik-kak-vlasti-latvii-iskoreniaiut-pamiat-o-muchenikakh-salaspilsa",
+          "outlet": "iz.ru",
+          "date": "2026-09-28",
+          "hostile": false,
+          "english": "How Latvia's authorities are erasing the memory of the Salaspils martyrs"
+        },
+        {
+          "title": "Сторонники партии латвийского премьера лидируют на парламентских выборах в Сейм",
+          "url": "https://www.vesti.ru/ns/storonniki-partii-latvijskogo-premera-lidiruyut-na-parlamentskikh-vyborakh-v-sejm",
+          "outlet": "vesti.ru",
+          "date": "2026-10-04",
+          "hostile": false,
+          "english": "Supporters of the Latvian prime minister's party lead the Saeima election"
+        }
+      ],
+      "LT": [
+        {
+          "title": "В Литве сообщили о возможном обнаружении беспилотника",
+          "url": "https://lenta.ru/news/2026/10/03/v-litve-soobschili-o-vozmozhnom-obnaruzhenii-bespilotnika/",
+          "outlet": "lenta.ru",
+          "date": "2026-10-03",
+          "hostile": false,
+          "english": "Lithuania reported a possible drone find"
+        },
+        {
+          "title": "Мирошник заявил, что Литва возмутилась его присутствием в СПЧ ООН",
+          "url": "https://russian.rt.com/world/news/1690154-miroshnik-litva-prisutstvie",
+          "outlet": "rt.com",
+          "date": "2026-10-03",
+          "hostile": false,
+          "english": "Miroshnik said Lithuania was outraged by his presence on the UN Human Rights Council"
+        },
+        {
+          "title": "\"Был крайне возмущен моим присутствием\": Мирошник о после Литвы в СПЧ ООН",
+          "url": "https://www.vesti.ru/ns/byl-krajne-vozmushchen-moim-prisutstviem-miroshnik-o-posle-litvy-v-spch-oon",
+          "outlet": "vesti.ru",
+          "date": "2026-10-03",
+          "hostile": false,
+          "english": "Miroshnik said Lithuania's envoy to the UN Human Rights Council was outraged by his presence"
+        },
+        {
+          "title": "Представителей Литвы в СПЧ ООН возмутило присутствие Мирошника",
+          "url": "https://iz.ru/2177939/2026-10-03/predstavitelei-litvy-v-spch-oon-vozmutilo-prisutstvie-miroshnika-izi",
+          "outlet": "iz.ru",
+          "date": "2026-10-03",
+          "hostile": false,
+          "english": "Lithuania's representatives on the UN Human Rights Council were outraged by Miroshnik's presence"
+        },
+        {
+          "title": "Столица Литвы оказалась на грани ЧП государственного уровня из-за мусора",
+          "url": "https://lenta.ru/news/2026/10/03/stolitsa-litvy-okazalas-na-grani-chp-gosudarstvennogo-urovnya-iz-za-musora/",
+          "outlet": "lenta.ru",
+          "date": "2026-10-03",
+          "hostile": false,
+          "english": "Lithuania's capital was close to a national emergency over rubbish"
+        }
+      ],
+      "PL": [
+        {
+          "title": "Самолет-разведчик США был замечен вблизи границы Польши с Россией",
+          "url": "https://aif.ru/society/safety/samolet-razvedchik-ssha-byl-zamechen-vblizi-granicy-polshi-s-rossiey",
+          "outlet": "aif.ru",
+          "date": "2026-10-04",
+          "hostile": false,
+          "english": "A US reconnaissance aircraft was seen near Poland's border with Russia"
+        },
+        {
+          "title": "Летавший у Калининградской области самолет НАТО сел в Польше",
+          "url": "https://ria.ru/20261003/polsha-2122023357.html",
+          "outlet": "ria.ru",
+          "date": "2026-10-03",
+          "hostile": false,
+          "english": "A NATO aircraft that flew near Kaliningrad region landed in Poland"
+        },
+        {
+          "title": "Летавший у Калининградской области разведчик НАТО сел в Польше",
+          "url": "https://www.vesti.ru/ns/letavshij-u-kaliningradskoj-oblasti-razvedchik-nato-sel-v-polshe",
+          "outlet": "vesti.ru",
+          "date": "2026-10-03",
+          "hostile": false,
+          "english": "A NATO reconnaissance aircraft that flew near Kaliningrad region landed in Poland"
+        },
+        {
+          "title": "Летавший вблизи Калининградской области самолет НАТО приземлился в Польше",
+          "url": "https://aif.ru/society/safety/letavshiy-vblizi-kaliningradskoy-oblasti-samolet-nato-prizemlilsya-v-polshe",
+          "outlet": "aif.ru",
+          "date": "2026-10-03",
+          "hostile": false,
+          "english": "A NATO aircraft that flew near Kaliningrad region landed in Poland"
+        },
+        {
+          "title": "Самолеты FA-50GF начали охранять восточную границу Польши: что известно",
+          "url": "https://iz.ru/2178130/istrebiteli-fa-50gf-nachali-patrulirovat-vostochnuiu-granitcu-polshi-s-1-oktiabria-izi",
+          "outlet": "iz.ru",
+          "date": "2026-10-03",
+          "hostile": false,
+          "english": "What is known about FA-50GF aircraft starting to guard Poland's eastern border"
+        }
+      ]
+    },
+    "2026-10-05": {
+      "FI": [
+        {
+          "title": "«Дискриминация по национальному признаку»: почему премьер Финляндии призвал не пускать российских туристов в Европу",
+          "url": "https://russian.rt.com/world/article/1693168-orpo-zapret-turisty-rossiya",
+          "outlet": "rt.com",
+          "date": "2026-10-10",
+          "hostile": true,
+          "english": "Why Finland's prime minister urged Europe not to admit Russian tourists, called ethnic discrimination"
+        },
+        {
+          "title": "Финляндия поможет Украине бороться с российскими реактивными дронами",
+          "url": "https://lenta.ru/news/2026/10/10/help/",
+          "outlet": "lenta.ru",
+          "date": "2026-10-10",
+          "hostile": false,
+          "english": "Finland will help Ukraine fight Russian jet drones"
+        },
+        {
+          "title": "Finland to Take Part in NATO's Nuclear Deterrence Exercise in October",
+          "url": "https://sputnikglobe.com/20261009/finland-to-take-part-in-natos-nuclear-deterrence-exercise-in-october---defense-ministry-1124855777.html",
+          "outlet": "sputnikglobe.com",
+          "date": "2026-10-09",
+          "hostile": false,
+          "english": "Finland to Take Part in NATO's Nuclear Deterrence Exercise in October"
+        },
+        {
+          "title": "Финляндия направила Украине самый маленький пакет военной помощи",
+          "url": "https://ria.ru/20261009/finljandija-2123455112.html",
+          "outlet": "ria.ru",
+          "date": "2026-10-09",
+          "hostile": false,
+          "english": "Finland sent Ukraine the smallest package of military aid"
+        },
+        {
+          "title": "Финляндия введёт тестирование для получения гражданства",
+          "url": "https://russian.rt.com/world/news/1692740-testirovanie-finlyandiya-grazhdanstvo",
+          "outlet": "rt.com",
+          "date": "2026-10-09",
+          "hostile": false,
+          "english": "Finland will introduce a test for citizenship"
+        }
+      ],
+      "EE": [
+        {
+          "title": "Британия разместила в Эстонии использовавшиеся для ударов по России дроны",
+          "url": "https://lenta.ru/news/2026/10/09/britaniya-razmestila-v-estonii-ispolzovavshiesya-dlya-udarov-po-rossii-drony/",
+          "outlet": "lenta.ru",
+          "date": "2026-10-09",
+          "hostile": false,
+          "english": "Britain placed drones used for strikes on Russia in Estonia"
+        },
+        {
+          "title": "Британия разместила в Эстонии дроны-камикадзе с радиусом действия более 250 км",
+          "url": "https://rg.ru/2026/10/09/velikobritaniia-razmestila-v-estonii-drony-s-radiusom-dejstviia-bolee-250-km.html",
+          "outlet": "rg.ru",
+          "date": "2026-10-09",
+          "hostile": false,
+          "english": "Britain placed kamikaze drones with a range of more than 250 km in Estonia"
+        },
+        {
+          "title": "Эстония попросила ЕС исключить одну российскую компанию из 22-го пакета санкций",
+          "url": "https://rg.ru/2026/10/08/estoniia-poprosila-es-iskliuchit-rossijskuiu-kompaniiu-iz-22-go-paketa-sankcij.html",
+          "outlet": "rg.ru",
+          "date": "2026-10-08",
+          "hostile": false,
+          "english": "Estonia asked the EU to remove one Russian company from the 22nd sanctions package"
+        },
+        {
+          "title": "Российскую компанию исключили из 22-го пакета санкций по запросу Эстонии",
+          "url": "https://iz.ru/2180752/2026-10-08/rossiiskuiu-kompaniiu-iskliuchili-iz-22-go-paketa-sanktcii-po-zaprosu-estonii",
+          "outlet": "iz.ru",
+          "date": "2026-10-08",
+          "hostile": false,
+          "english": "A Russian company was removed from the 22nd sanctions package at Estonia's request"
+        },
+        {
+          "title": "Эстония просит ЕС вывести российскую компанию из-под санкций",
+          "url": "https://www.vesti.ru/ns/ehstoniya-prosit-es-vyvesti-rossijskuyu-kompaniyu-iz-pod-sankcij",
+          "outlet": "vesti.ru",
+          "date": "2026-10-08",
+          "hostile": false,
+          "english": "Estonia is asking the EU to take a Russian company out of sanctions"
+        }
+      ],
+      "LV": [
+        {
+          "title": "Латвийцев арестовали за проникновение на британскую военную базу",
+          "url": "https://lenta.ru/news/2026/10/08/latviytsev-arestovali-za-proniknovenie-na-britanskuyu-voennuyu-bazu/",
+          "outlet": "lenta.ru",
+          "date": "2026-10-08",
+          "hostile": false,
+          "english": "Latvians were arrested for entering a British military base"
+        },
+        {
+          "title": "В Британии двух граждан Латвии задержали за проникновение на военную базу",
+          "url": "https://aif.ru/incidents/v-britanii-dvuh-grazhdan-latvii-zaderzhali-za-proniknovenie-na-voennuyu-bazu",
+          "outlet": "aif.ru",
+          "date": "2026-10-08",
+          "hostile": false,
+          "english": "Two Latvian citizens were detained in Britain for entering a military base"
+        },
+        {
+          "title": "Учения Namejs 2026 в Латвии: НАТО отрабатывает защиту от дронов",
+          "url": "https://iz.ru/2180850/iuliia-leonova/zachem-nato-ispytyvaet-bespilotniki-u-rossiyskih-rubezhey",
+          "outlet": "iz.ru",
+          "date": "2026-10-08",
+          "hostile": false,
+          "english": "NATO is practising defence against drones at Namejs 2026 exercises in Latvia"
+        },
+        {
+          "title": "Инцидент на границе: Латвия заявила о проникновении людей из Белоруссии",
+          "url": "https://iz.ru/2179848/2026-10-07/v-latvii-soobshchili-o-proniknovenii-v-stranu-liudei-v-maskakh-iz-belorussii",
+          "outlet": "iz.ru",
+          "date": "2026-10-06",
+          "hostile": false,
+          "english": "Latvia said people from Belarus crossed the border"
+        },
+        {
+          "title": "Двух граждан Латвии арестовали из-за проникновения на британскую авиабазу",
+          "url": "https://www.vesti.ru/ns/dvukh-grazhdan-latvii-arestovali-iz-za-proniknoveniya-na-britanskuyu-aviabazu",
+          "outlet": "vesti.ru",
+          "date": "2026-10-09",
+          "hostile": false,
+          "english": "Two Latvian citizens were arrested for entering a British air base"
+        }
+      ],
+      "LT": [
+        {
+          "title": "Жители Литвы возмутились переброской войск к границе",
+          "url": "https://russian.rt.com/ussr/news/1692446-litva-voyska-granica",
+          "outlet": "rt.com",
+          "date": "2026-10-09",
+          "hostile": false,
+          "english": "People in Lithuania were outraged by troops being moved to the border"
+        },
+        {
+          "title": "В Литве возмутились переброской войск к границе России",
+          "url": "https://lenta.ru/news/2026/10/09/v-litve-vozmutilis-perebroskoy-voysk-k-granitse-rossii/",
+          "outlet": "lenta.ru",
+          "date": "2026-10-09",
+          "hostile": false,
+          "english": "Lithuania was outraged by troops being moved to the Russian border"
+        },
+        {
+          "title": "Президент Литвы назвал цель отправки военных к Калининградской области",
+          "url": "https://ria.ru/20261009/litva-2123480956.html",
+          "outlet": "ria.ru",
+          "date": "2026-10-09",
+          "hostile": false,
+          "english": "Lithuania's president named the aim of sending troops toward Kaliningrad region"
+        },
+        {
+          "title": "Армия Литвы останется на границе с Калининградской областью",
+          "url": "https://lenta.ru/news/2026/10/08/armiya-litvy-ostanetsya-na-granitse-s-kaliningradskoy-oblastyu/",
+          "outlet": "lenta.ru",
+          "date": "2026-10-08",
+          "hostile": false,
+          "english": "Lithuania's army will stay on the border with Kaliningrad region"
+        },
+        {
+          "title": "В Литве военнообязанным украинцам ограничили получение временной защиты",
+          "url": "https://ria.ru/20261007/litva-2122926622.html",
+          "outlet": "ria.ru",
+          "date": "2026-10-07",
+          "hostile": false,
+          "english": "Lithuania limited temporary protection for Ukrainians who are liable for military service"
+        }
+      ],
+      "PL": [
+        {
+          "title": "Польша испугалась России и подняла военную авиацию",
+          "url": "https://lenta.ru/news/2026/10/11/polsha-podnyala-voennuyu-aviatsiyu-yakoby-iz-za-rossii/",
+          "outlet": "lenta.ru",
+          "date": "2026-10-11",
+          "hostile": false,
+          "english": "Poland was frightened of Russia and scrambled military aircraft"
+        },
+        {
+          "title": "Польша подняла военную авиацию якобы из-за \"активности России на Украине\"",
+          "url": "https://www.vesti.ru/ns/polsha-podnyala-voennuyu-aviaciyu-yakoby-iz-za-aktivnosti-rossii-na-ukraine",
+          "outlet": "vesti.ru",
+          "date": "2026-10-11",
+          "hostile": false,
+          "english": "Poland scrambled military aircraft, allegedly because of Russian activity in Ukraine"
+        },
+        {
+          "title": "Польша подняла военные самолеты: сообщения о возможной активности России",
+          "url": "https://iz.ru/2182206/polsha-podnyala-v-vozdukh-voennye-samolety-iz-za-yakoby-aktivnosti-rossii",
+          "outlet": "iz.ru",
+          "date": "2026-10-10",
+          "hostile": false,
+          "english": "Poland scrambled military aircraft over reports of possible Russian activity"
+        },
+        {
+          "title": "Польша в панике: удары трясут Украину на границе с ЕС, горит оружие НАТО",
+          "url": "https://aif.ru/society/polsha-v-panike-udary-tryasut-ukrainu-na-granice-s-es-gorit-oruzhie-nato",
+          "outlet": "aif.ru",
+          "date": "2026-10-09",
+          "hostile": false,
+          "english": "Poland in a panic as strikes shake Ukraine on the EU border and NATO weapons burn"
+        },
+        {
+          "title": "Ученик напал с ножом на людей в одной из школ Польши",
+          "url": "https://aif.ru/incidents/uchenik-napal-s-nozhom-na-lyudey-v-odnoy-iz-shkol-polshi",
+          "outlet": "aif.ru",
+          "date": "2026-10-07",
+          "hostile": false,
+          "english": "A pupil attacked people with a knife at a school in Poland"
+        }
+      ]
+    },
+    "2026-10-12": {
+      "FI": [
+        {
+          "title": "Агрессивный сосед. Финляндия культивирует ненависть к России",
+          "url": "https://aif.ru/politics/world/agressivnyy-sosed-finlyandiya-kultiviruet-nenavist-k-rossii",
+          "outlet": "aif.ru",
+          "date": "2026-10-16",
+          "hostile": true,
+          "english": "An aggressive neighbour: Finland is cultivating hatred of Russia"
+        },
+        {
+          "title": "Финляндия снова ограничивала полеты над заливом из-за угрозы БПЛА",
+          "url": "https://ria.ru/20261018/finlyandiya-2125212787.html",
+          "outlet": "ria.ru",
+          "date": "2026-10-18",
+          "hostile": false,
+          "english": "Finland again restricted flights over the gulf because of a drone threat"
+        },
+        {
+          "title": "Страны НАТО провели командно-штабные учения в Финляндии",
+          "url": "https://ria.ru/20261015/nato-2124727957.html",
+          "outlet": "ria.ru",
+          "date": "2026-10-15",
+          "hostile": false,
+          "english": "NATO countries held command-post exercises in Finland"
+        },
+        {
+          "title": "В Финляндии прошли командно-штабные учения стран НАТО",
+          "url": "https://aif.ru/politics/v-finlyandii-proshli-komandno-shtabnye-ucheniya-stran-nato",
+          "outlet": "aif.ru",
+          "date": "2026-10-15",
+          "hostile": false,
+          "english": "NATO command-post exercises were held in Finland"
+        },
+        {
+          "title": "ЕС выделил Финляндии деньги на дроны",
+          "url": "https://lenta.ru/news/2026/10/15/es-vydelil-finlyandii-dengi-na-drony/",
+          "outlet": "lenta.ru",
+          "date": "2026-10-15",
+          "hostile": false,
+          "english": "The EU gave Finland money for drones"
+        }
+      ],
+      "EE": [
+        {
+          "title": "Губернатор Калининградской области ответил на угрозы Эстонии",
+          "url": "https://lenta.ru/news/2026/10/18/gubernator-kaliningradskoy-oblasti-otvetil-na-ugrozy-estonii/",
+          "outlet": "lenta.ru",
+          "date": "2026-10-18",
+          "hostile": false,
+          "english": "The governor of Kaliningrad region answered Estonia's threats"
+        },
+        {
+          "title": "Военная помощь Украине: Эстония выделила €10 млн на американское оружие",
+          "url": "https://iz.ru/2185922/2026-10-17/premer-estonii-soobshchil-o-vydelenii-ukraine-eu10-mln-na-oruzhie-iz-ssha",
+          "outlet": "iz.ru",
+          "date": "2026-10-17",
+          "hostile": false,
+          "english": "Estonia allocated 10 million euros for American weapons as military aid to Ukraine"
+        },
+        {
+          "title": "В Эстонии сообщили о присутствии военных НАТО на Украине с 2022 года",
+          "url": "https://ria.ru/20261014/estoniya-2124418337.html",
+          "outlet": "ria.ru",
+          "date": "2026-10-14",
+          "hostile": false,
+          "english": "Estonia said NATO troops have been in Ukraine since 2022"
+        },
+        {
+          "title": "НАТО на Украине: комментарий министра обороны Эстонии",
+          "url": "https://iz.ru/2183995/v-estonii-zaiavili-o-prisutstvii-voennykh-nato-na-ukraine-s-2022-goda-izi",
+          "outlet": "iz.ru",
+          "date": "2026-10-14",
+          "hostile": false,
+          "english": "Estonia's defence minister commented on NATO in Ukraine"
+        },
+        {
+          "title": "Шведы недовольны эстонской тюрьмой - Новости на Вести.ru",
+          "url": "https://www.vesti.ru/ns/shvedy-nedovolny-ehstonskoj-tyurmoj",
+          "outlet": "vesti.ru",
+          "date": "2026-10-17",
+          "hostile": false,
+          "english": "Swedes are unhappy with an Estonian prison"
+        }
+      ],
+      "LV": [
+        {
+          "title": "LSM: Латвийские фермеры недовольны милитаризацией границы с РФ",
+          "url": "https://rg.ru/2026/10/12/lsm-latvijskie-fermery-vozmushcheny-militarizaciej-granicy-s-rossiej.html",
+          "outlet": "rg.ru",
+          "date": "2026-10-12",
+          "hostile": true,
+          "english": "LSM said Latvian farmers are unhappy with militarisation of the border with Russia"
+        },
+        {
+          "title": "Фермеры Латвии раскритиковали милитаризацию приграничных территорий",
+          "url": "https://aif.ru/society/fermery-latvii-raskritikovali-militarizaciyu-prigranichnyh-territoriy",
+          "outlet": "aif.ru",
+          "date": "2026-10-12",
+          "hostile": true,
+          "english": "Latvian farmers criticised the militarisation of border areas"
+        },
+        {
+          "title": "Фермеры Латвии возмутились милитаризацией приграничных с Россией районов",
+          "url": "https://www.vesti.ru/ns/fermery-latvii-vozmutilis-militarizaciej-prigranichnykh-s-rossiej-rajonov",
+          "outlet": "vesti.ru",
+          "date": "2026-10-12",
+          "hostile": true,
+          "english": "Latvian farmers were outraged by militarisation of districts bordering Russia"
+        },
+        {
+          "title": "Фермеры Латвии раскритиковали милитаризацию приграничных территорий",
+          "url": "https://iz.ru/2182623/lsm-uznal-o-nedovolstve-fermerov-latvii-ukrepleniem-granitcy-s-rossiei-izi",
+          "outlet": "iz.ru",
+          "date": "2026-10-12",
+          "hostile": true,
+          "english": "Latvian farmers criticised the militarisation of border areas"
+        },
+        {
+          "title": "Эксперт прокомментировал возмущения фермеров в Латвии из-за милитаризации",
+          "url": "https://ria.ru/20261012/latviya-2124025495.html",
+          "outlet": "ria.ru",
+          "date": "2026-10-12",
+          "hostile": true,
+          "english": "An expert commented on Latvian farmers' anger over militarisation"
+        }
+      ],
+      "LT": [
+        {
+          "title": "Гражданина Литвы оштрафовали за нацистское приветствие на территории Освенцима",
+          "url": "https://www.vesti.ru/ns/grazhdanina-litvy-oshtrafovali-za-nacistskoe-privetstvie-na-territorii-osvencima",
+          "outlet": "vesti.ru",
+          "date": "2026-10-12",
+          "hostile": true,
+          "english": "A Lithuanian citizen was fined for a Nazi salute at Auschwitz"
+        },
+        {
+          "title": "В Польше оштрафовали гражданина Литвы за нацистское приветствие в Освенциме",
+          "url": "https://ria.ru/20261013/polsha-2124090638.html",
+          "outlet": "ria.ru",
+          "date": "2026-10-12",
+          "hostile": true,
+          "english": "A Lithuanian citizen was fined in Poland for a Nazi salute at Auschwitz"
+        },
+        {
+          "title": "Литва объявила красный уровень опасности и подняла авиацию НАТО в воздух",
+          "url": "https://www.vesti.ru/ns/litva-obyavila-krasnyj-uroven-opasnosti-i-podnyala-aviaciyu-nato-v-vozdukh",
+          "outlet": "vesti.ru",
+          "date": "2026-10-18",
+          "hostile": false,
+          "english": "Lithuania declared a red alert and scrambled NATO aircraft"
+        },
+        {
+          "title": "В Литве нашли предполагаемые обломки беспилотника",
+          "url": "https://ria.ru/20261018/litva-2125212060.html",
+          "outlet": "ria.ru",
+          "date": "2026-10-18",
+          "hostile": false,
+          "english": "Possible drone wreckage was found in Lithuania"
+        },
+        {
+          "title": "Власти Литвы заявили о БПЛА в воздушном пространстве страны",
+          "url": "https://www.vesti.ru/ns/vlasti-litvy-zayavili-o-bpla-v-vozdushnom-prostranstve-strany",
+          "outlet": "vesti.ru",
+          "date": "2026-10-18",
+          "hostile": false,
+          "english": "Lithuania's authorities said a drone was in the country's airspace"
+        }
+      ],
+      "PL": [
+        {
+          "title": "В Польше оштрафовали гражданина Литвы за нацистское приветствие в Освенциме",
+          "url": "https://ria.ru/20261013/polsha-2124090638.html",
+          "outlet": "ria.ru",
+          "date": "2026-10-12",
+          "hostile": true,
+          "english": "A Lithuanian citizen was fined in Poland for a Nazi salute at Auschwitz"
+        },
+        {
+          "title": "Польша подняла военную авиацию якобы из-за активности РФ",
+          "url": "https://www.vesti.ru/ns/polsha-podnyala-voennuyu-aviaciyu-yakoby-iz-za-aktivnosti-rf",
+          "outlet": "vesti.ru",
+          "date": "2026-10-18",
+          "hostile": false,
+          "english": "Poland scrambled military aircraft, allegedly because of Russian activity"
+        },
+        {
+          "title": "Очередь фур на границе Украины и Польши растянулась на десятки километров",
+          "url": "https://ria.ru/20261018/ochered-2125230448.html",
+          "outlet": "ria.ru",
+          "date": "2026-10-18",
+          "hostile": false,
+          "english": "The truck queue on the Ukraine-Poland border stretched for tens of kilometres"
+        },
+        {
+          "title": "Очередь на границе Польши и Украины 18 октября: что известно",
+          "url": "https://iz.ru/2186294/2026-10-18/ochered-gruzovikov-na-granitce-polshi-i-ukrainy-vyrosla-do-desiatkov-kilometrov",
+          "outlet": "iz.ru",
+          "date": "2026-10-18",
+          "hostile": false,
+          "english": "What is known about the queue on the Poland-Ukraine border on 18 October"
+        },
+        {
+          "title": "Очередь фур на границе Польши и Украины растянулась на десятки километров",
+          "url": "https://rg.ru/2026/10/18/ochered-fur-na-granice-polshi-i-ukrainy-rastianulas-na-desiatki-kilometrov.html",
+          "outlet": "rg.ru",
+          "date": "2026-10-18",
+          "hostile": false,
+          "english": "The truck queue on the Poland-Ukraine border stretched for tens of kilometres"
+        }
+      ]
+    },
+    "2026-10-19": {
+      "FI": [
+        {
+          "title": "Россия внимательно наблюдает за милитаризацией Финляндии, заявила Захарова",
+          "url": "https://ria.ru/20261021/mid-2125909790.html",
+          "outlet": "ria.ru",
+          "date": "2026-10-21",
+          "hostile": true,
+          "english": "Zakharova said Russia is watching Finland's militarisation closely"
+        },
+        {
+          "title": "Внук советского военнопленного потребовал от Финляндии и Германии 215 тысяч евро",
+          "url": "https://tvzvezda.ru/news/20261025751-wPWDT.html",
+          "outlet": "tvzvezda.ru",
+          "date": "2026-10-25",
+          "hostile": false,
+          "english": "A grandson of a Soviet prisoner of war demanded 215,000 euros from Finland and Germany"
+        },
+        {
+          "title": "Натовский самолет кружит над Финляндией близ российской границы",
+          "url": "https://rg.ru/2026/10/24/reg-szfo/natovskij-samolet-kruzhit-nad-finliandiej-bliz-rossijskoj-granicy.html",
+          "outlet": "rg.ru",
+          "date": "2026-10-24",
+          "hostile": false,
+          "english": "A NATO aircraft is circling over Finland near the Russian border"
+        },
+        {
+          "title": "Шведский самолет ведет разведку над Финляндией у российских границ",
+          "url": "https://ria.ru/20261022/samolet-2126171283.html",
+          "outlet": "ria.ru",
+          "date": "2026-10-22",
+          "hostile": false,
+          "english": "A Swedish aircraft is scouting over Finland near the Russian border"
+        },
+        {
+          "title": "Финляндия открывает серию учений с другими странами НАТО",
+          "url": "https://ria.ru/20261023/finljandija-2126392235.html",
+          "outlet": "ria.ru",
+          "date": "2026-10-22",
+          "hostile": false,
+          "english": "Finland is opening a series of exercises with other NATO countries"
+        }
+      ],
+      "EE": [
+        {
+          "title": "Эстония рассматривает покупку чешских истребителей для защиты от БПЛА",
+          "url": "https://www.vesti.ru/ns/ehstoniya-rassmatrivaet-pokupku-cheshskikh-istrebitelej-dlya-zashchity-ot-bpla",
+          "outlet": "vesti.ru",
+          "date": "2026-10-25",
+          "hostile": false,
+          "english": "Estonia is considering buying Czech fighters to defend against drones"
+        },
+        {
+          "title": "СМИ: страховщики в Эстонии предлагают клиентам защиту от военных рисков",
+          "url": "https://ria.ru/20261026/estoniya-2126950206.html",
+          "outlet": "ria.ru",
+          "date": "2026-10-25",
+          "hostile": false,
+          "english": "Media said insurers in Estonia are offering clients cover against war risks"
+        },
+        {
+          "title": "Глава разведки Эстонии сделал дерзкое заявление о России",
+          "url": "https://ria.ru/20261025/estoniya-2126875319.html",
+          "outlet": "ria.ru",
+          "date": "2026-10-25",
+          "hostile": false,
+          "english": "Estonia's intelligence chief made a blunt statement about Russia"
+        },
+        {
+          "title": "Призыв главы разведки Эстонии ограничить дипломатов РФ и визы россиянам: подробности",
+          "url": "https://iz.ru/2190353/glava-razvedki-estonii-prizval-ogranichit-peredvizhenie-diplomatov-rf-v-es-izi",
+          "outlet": "iz.ru",
+          "date": "2026-10-25",
+          "hostile": false,
+          "english": "Estonia's intelligence chief called for limits on Russian diplomats and visas for Russians"
+        },
+        {
+          "title": "Глава разведки Эстонии пожаловался, что русские не прошли \"десталинизацию\"",
+          "url": "https://www.vesti.ru/ns/glava-razvedki-ehstonii-pozhalovalsya-chto-russkie-ne-proshli-destalinizaciyu",
+          "outlet": "vesti.ru",
+          "date": "2026-10-25",
+          "hostile": false,
+          "english": "Estonia's intelligence chief complained that Russians had not been de-Stalinised"
+        }
+      ],
+      "LV": [
+        {
+          "title": "Макаревич опоздал на концерт в Латвии из-за угрозы БПЛА и пел в полупустом зале",
+          "url": "https://rg.ru/2026/10/19/makarevich-opozdal-na-koncert-v-latvii-iz-za-ugrozy-bpla-i-pel-v-polupustom-zale.html",
+          "outlet": "rg.ru",
+          "date": "2026-10-19",
+          "hostile": false,
+          "english": "Makarevich was late for a concert in Latvia because of a drone threat and sang to a half-empty hall"
+        },
+        {
+          "title": "В Латвии заявили о необходимости проявить инициативу в переговорах с РФ",
+          "url": "https://iz.ru/2190385/2026-10-25/v-latvii-zaiavili-o-neobkhodimosti-proiavit-initciativu-v-peregovorakh-s-rf",
+          "outlet": "iz.ru",
+          "date": "2026-10-25",
+          "hostile": false,
+          "english": "Latvia said someone must take the initiative in talks with Russia"
+        },
+        {
+          "title": "Экс-глава МИД Латвии считает, что переговоры с Москвой от ЕС должна вести Рига",
+          "url": "https://www.vesti.ru/ns/ehks-glava-mid-latvii-schitaet-chto-peregovory-s-moskvoj-ot-es-dolzhna-vesti-riga",
+          "outlet": "vesti.ru",
+          "date": "2026-10-25",
+          "hostile": false,
+          "english": "Latvia's former foreign minister thinks Riga should lead EU talks with Moscow"
+        },
+        {
+          "title": "СМИ раскрыли размер госдолга Латвии в расчете на одного человека",
+          "url": "https://www.vesti.ru/ns/smi-raskryli-razmer-gosdolga-latvii-v-raschete-na-odnogo-cheloveka",
+          "outlet": "vesti.ru",
+          "date": "2026-10-24",
+          "hostile": false,
+          "english": "Media revealed the size of Latvia's public debt per person"
+        },
+        {
+          "title": "В Латвии устроили скандал из-за русского языка",
+          "url": "https://ria.ru/20261024/russkiy-2126735789.html",
+          "outlet": "ria.ru",
+          "date": "2026-10-24",
+          "hostile": false,
+          "english": "A scandal over the Russian language broke out in Latvia"
+        }
+      ],
+      "LT": [
+        {
+          "title": "В Литве стартовали учения \"Бастион Перкунаса\" у границ России",
+          "url": "https://rg.ru/2026/10/22/litva-provodit-ucheniia-bastion-perkunasa-u-granic-kaliningradskoj-oblasti.html",
+          "outlet": "rg.ru",
+          "date": "2026-10-22",
+          "hostile": false,
+          "english": "The Bastion of Perkunas exercises began in Lithuania near Russia's borders"
+        },
+        {
+          "title": "В Литве начались военные учения с имитацией диверсий вблизи границы с Россией",
+          "url": "https://www.vesti.ru/ns/v-litve-nachalis-voennye-ucheniya-s-imitaciej-diversij-vblizi-granicy-s-rossiej",
+          "outlet": "vesti.ru",
+          "date": "2026-10-22",
+          "hostile": false,
+          "english": "Military exercises simulating sabotage near the Russian border began in Lithuania"
+        },
+        {
+          "title": "СМИ: в Литве у границ с Россией стартовали учения \"Черный ястреб 2026\"",
+          "url": "https://ria.ru/20261022/litva-2126257312.html",
+          "outlet": "ria.ru",
+          "date": "2026-10-22",
+          "hostile": false,
+          "english": "Media said Black Hawk 2026 exercises began in Lithuania near the Russian border"
+        },
+        {
+          "title": "В Литве у границ с Россией стартовали учения «Черный ястреб 2026»",
+          "url": "https://aif.ru/politics/v-litve-u-granic-s-rossiey-startovali-ucheniya-chernyy-yastreb-2026",
+          "outlet": "aif.ru",
+          "date": "2026-10-22",
+          "hostile": false,
+          "english": "Black Hawk 2026 exercises began in Lithuania near the Russian border"
+        },
+        {
+          "title": "Захарова прокомментировала ситуацию вокруг найденного в Литве дрона",
+          "url": "https://ria.ru/20261021/zaharova-2125824959.html",
+          "outlet": "ria.ru",
+          "date": "2026-10-21",
+          "hostile": false,
+          "english": "Zakharova commented on the drone found in Lithuania"
+        }
+      ],
+      "PL": [
+        {
+          "title": "Захарова осудила насаждение Польшей оголтелой русофобии",
+          "url": "https://iz.ru/2187868/2026-10-21/zakharova-zaiavila-ob-osuzhdenii-rossiei-nasazhdeniia-polshei-ogolteloi-rusofobii",
+          "outlet": "iz.ru",
+          "date": "2026-10-21",
+          "hostile": true,
+          "english": "Zakharova condemned Poland for planting rampant Russophobia"
+        },
+        {
+          "title": "Захарова объяснила русофобией вандализм на воинских мемориалах в Польше",
+          "url": "https://aif.ru/politics/zaharova-obyasnila-rusofobiey-vandalizm-na-voinskih-memorialah-v-polshe",
+          "outlet": "aif.ru",
+          "date": "2026-10-21",
+          "hostile": true,
+          "english": "Zakharova blamed Russophobia for vandalism at war memorials in Poland"
+        },
+        {
+          "title": "В Польше возмутились решением посвятить 2027 год украинским нацистам",
+          "url": "https://www.vesti.ru/ns/v-polshe-vozmutilis-resheniem-posvyatit-2027-god-ukrainskim-nacistam",
+          "outlet": "vesti.ru",
+          "date": "2026-10-21",
+          "hostile": true,
+          "english": "Poland was outraged by a decision to dedicate 2027 to Ukrainian Nazis"
+        },
+        {
+          "title": "В сейм Польши внесут законопроект о криминализации бандеровской идеологии",
+          "url": "https://ria.ru/20261021/polsha-2126085103.html",
+          "outlet": "ria.ru",
+          "date": "2026-10-21",
+          "hostile": true,
+          "english": "A bill to criminalise Banderite ideology will be submitted to Poland's Sejm"
+        },
+        {
+          "title": "\"Осталось два месяца\": в Польше готовят оккупацию Украины - РИА Новости, 19.10.2026",
+          "url": "https://ria.ru/20261019/okkupatsiya-2125275499.html",
+          "outlet": "ria.ru",
+          "date": "2026-10-19",
+          "hostile": true,
+          "english": "RIA Novosti said Poland is preparing an occupation of Ukraine, with two months left"
+        }
+      ]
+    }
+  },
+  "officials": {
+    "2026-08-03": {
+      "FI": [],
+      "EE": [],
+      "LV": [
+        {
+          "title": "В ЕС возрождают неонацизм: Захарова о героизации СС в Латвии",
+          "url": "https://iz.ru/2143921/zakharova-nazvala-geroizatciiu-legionerov-ss-priznakom-neonatcizma-v-es-izi",
+          "outlet": "iz.ru",
+          "date": "2026-08-04",
+          "english": "Zakharova said the EU is reviving neo-Nazism by glorifying the SS in Latvia"
+        },
+        {
+          "title": "Захарова прокомментировала торжественные похороны бывшего легионера СС в Латвии",
+          "url": "https://rg.ru/2026/08/04/zaharova-prokommentirovala-torzhestvennye-pohorony-byvshego-legionera-ss-v-latvii.html",
+          "outlet": "rg.ru",
+          "date": "2026-08-04",
+          "english": "Zakharova commented on the ceremonial funeral of a former SS legionnaire in Latvia"
+        },
+        {
+          "title": "Захарова прокомментировала похороны в Латвии 102-летнего легионера СС",
+          "url": "https://www.vesti.ru/ns/zakharova-prokommentirovala-pokhorony-v-latvii-102-letnego-legionera-ss",
+          "outlet": "vesti.ru",
+          "date": "2026-08-04",
+          "english": "Zakharova commented on the funeral in Latvia of a 102-year-old SS legionnaire"
+        }
+      ],
+      "LT": [
+        {
+          "title": "Прибалтику могут атаковать дроны из Украины: предупреждение главы минобороны Литвы",
+          "url": "https://iz.ru/2144897/glava-minoborony-litvy-predupredil-o-vozmozhnoi-atake-dronov-vsu-na-pribaltiku-izi",
+          "outlet": "iz.ru",
+          "date": "2026-08-06",
+          "english": "Lithuania's defence minister warned that drones from Ukraine could attack the Baltic states"
+        },
+        {
+          "title": "В Минобороны Литвы предрекли атаку дронов ВСУ на Прибалтику",
+          "url": "https://tvzvezda.ru/news/2026861739-QS1zB.html",
+          "outlet": "tvzvezda.ru",
+          "date": "2026-08-06",
+          "english": "Lithuania's defence ministry predicted a Ukrainian drone attack on the Baltic states"
+        },
+        {
+          "title": "LRT: Премьер Литвы Синкявичюс опроверг слова главы минобороны о России",
+          "url": "https://rg.ru/2026/08/07/lrt-premer-litvy-sinkiavichius-oproverg-slova-glavy-minoborony-o-rossii.html",
+          "outlet": "rg.ru",
+          "date": "2026-08-07",
+          "english": "LRT said Lithuania's prime minister Sinkevicius denied the defence minister's words about Russia"
+        }
+      ],
+      "PL": [
+        {
+          "title": "Захарова раскритиковала президента Польша из-за «клинической русофобии»",
+          "url": "https://aif.ru/politics/zaharova-raskritikovala-prezidenta-polsha-iz-za-klinicheskoy-rusofobii",
+          "outlet": "aif.ru",
+          "date": "2026-08-07",
+          "english": "Zakharova criticised Poland's president over what she called clinical Russophobia"
+        },
+        {
+          "title": "«От Штеттина до Данцига». Депутат Госдумы назвал президента Польши дураком и призвал вернуть освобожденные Красной армией земли",
+          "url": "https://lenta.ru/news/2026/08/09/long-ot-shtettina-do-dantsiga-deputat-gosdumy-nazval-prezidenta-polshi-durakom-i-prizval-vernut-osvobozhdennye-krasnoy-armiey-zemli/",
+          "outlet": "lenta.ru",
+          "date": "2026-08-09",
+          "english": "A State Duma deputy called Poland's president a fool and urged the return of lands the Red Army liberated"
+        },
+        {
+          "title": "В Госдуме предложили Польше вернуть территории, отвоеванные Красной армией",
+          "url": "https://ria.ru/20260808/gosduma-2109719200.html",
+          "outlet": "ria.ru",
+          "date": "2026-08-08",
+          "english": "The State Duma suggested Poland return territories the Red Army won back"
+        }
+      ]
+    },
+    "2026-08-10": {
+      "FI": [],
+      "EE": [],
+      "LV": [],
+      "LT": [],
+      "PL": [
+        {
+          "title": "В Госдуме назвали слова президента Польши о русских актом русофобии",
+          "url": "https://ria.ru/20260812/gosduma-2110509869.html",
+          "outlet": "ria.ru",
+          "date": "2026-08-12",
+          "english": "The State Duma called the Polish president's words about Russians an act of Russophobia"
+        },
+        {
+          "title": "Минобороны Польши не пригласило Украину на военный парад, пишут СМИ",
+          "url": "https://ria.ru/20260813/polsha-2110657162.html",
+          "outlet": "ria.ru",
+          "date": "2026-08-13",
+          "english": "Media wrote that Poland's defence ministry did not invite Ukraine to a military parade"
+        },
+        {
+          "title": "В Госдуме назвали недальновидной политику Польши в отношении России",
+          "url": "https://ria.ru/20260813/polsha-2110587520.html",
+          "outlet": "ria.ru",
+          "date": "2026-08-13",
+          "english": "The State Duma called Poland's policy toward Russia short-sighted"
+        }
+      ]
+    },
+    "2026-08-17": {
+      "FI": [
+        {
+          "title": "Раскрыт связанный с выборами в Госдуму запрос России к Финляндии",
+          "url": "https://lenta.ru/news/2026/08/23/raskryt-svyazannyy-s-vyborami-v-gosdumu-zapros-rossii-k-finlyandii/",
+          "outlet": "lenta.ru",
+          "date": "2026-08-23",
+          "english": "A Russian request to Finland linked to the State Duma election was revealed"
+        },
+        {
+          "title": "Выборы в Госдуму 2026: Финляндия получила ноту от России",
+          "url": "https://iz.ru/2153614/mid-finliandii-poluchil-notu-rossii-o-zaprete-demonstratcii-u-posolstva-izi",
+          "outlet": "iz.ru",
+          "date": "2026-08-23",
+          "english": "Finland received a note from Russia about the 2026 State Duma election"
+        },
+        {
+          "title": "Захарова заявила об ответе России на поставки Финляндией вооружения ВСУ",
+          "url": "https://www.vesti.ru/ns/zakharova-zayavila-ob-otvete-rossii-na-postavki-finlyandiej-vooruzheniya-vsu",
+          "outlet": "vesti.ru",
+          "date": "2026-08-20",
+          "english": "Zakharova said Russia will answer Finland's arms supplies to the Ukrainian forces"
+        }
+      ],
+      "EE": [],
+      "LV": [
+        {
+          "title": "Минобороны Латвии признало сбитый 14 августа беспилотник украинским",
+          "url": "https://russian.rt.com/world/news/1672011-latviya-ukrainskiy-bespilotnik-nato",
+          "outlet": "rt.com",
+          "date": "2026-08-20",
+          "english": "Latvia's defence ministry said the drone shot down on 14 August was Ukrainian"
+        }
+      ],
+      "LT": [],
+      "PL": [
+        {
+          "title": "В Госдуме дали характеристику премьеру Польши после его слов о «Северных потоках»",
+          "url": "https://lenta.ru/news/2026/08/23/v-gosdume-dali-harakteristiku-premieru-polshi-posle-ego-slov-o-severnyh-potokah/",
+          "outlet": "lenta.ru",
+          "date": "2026-08-23",
+          "english": "The State Duma characterised Poland's prime minister after his words about Nord Stream"
+        },
+        {
+          "title": "Путин обратил внимание на позицию Польши по Украине - Новости на Вести.ru",
+          "url": "https://www.vesti.ru/ns/putin-obratil-vnimanie-na-poziciyu-polshi-po-ukraine",
+          "outlet": "vesti.ru",
+          "date": "2026-08-23",
+          "english": "Putin noted Poland's position on Ukraine"
+        },
+        {
+          "title": "Путин: вторая ветка «Северного потока» могла пройти через Польшу",
+          "url": "https://aif.ru/politics/putin-vtoraya-vetka-severnogo-potoka-mogla-proyti-cherez-polshu",
+          "outlet": "aif.ru",
+          "date": "2026-08-23",
+          "english": "Putin said the second Nord Stream line could have passed through Poland"
+        }
+      ]
+    },
+    "2026-08-24": {
+      "FI": [
+        {
+          "title": "Захарова обвинила президента Финляндии в унижении финнов",
+          "url": "https://lenta.ru/news/2026/08/27/zaharova-obvinila-prezidenta-finlyandii-v-unizhenii-finnov/",
+          "outlet": "lenta.ru",
+          "date": "2026-08-27",
+          "english": "Zakharova accused Finland's president of humiliating Finns"
+        },
+        {
+          "title": "Стала известна реакция Кремля на слова президента Финляндии об атаках ВСУ на Россию",
+          "url": "https://lenta.ru/news/2026/08/25/stala-izvestna-reaktsiya-kremlya-na-slova-prezidenta-finlyandii-ob-atakah-vsu-na-rossiyu/",
+          "outlet": "lenta.ru",
+          "date": "2026-08-25",
+          "english": "The Kremlin's reaction to Finland's president's words about Ukrainian strikes on Russia became known"
+        },
+        {
+          "title": "В Госдуме ответили оправдавшему удары ВСУ по России президенту Финляндии",
+          "url": "https://lenta.ru/news/2026/08/25/v-gosdume-otvetili-opravdavshemu-udary-vsu-po-rossii-prezidentu-finlyandii/",
+          "outlet": "lenta.ru",
+          "date": "2026-08-25",
+          "english": "The State Duma answered Finland's president, who justified Ukrainian strikes on Russia"
+        }
+      ],
+      "EE": [],
+      "LV": [
+        {
+          "title": "Завод боеприпасов в Латвии у границ России: реакция депутата Госдумы",
+          "url": "https://iz.ru/2156077/2026-08-27/v-gd-otcenili-plany-po-stroitelstvu-zavoda-boepripasov-v-latvii",
+          "outlet": "iz.ru",
+          "date": "2026-08-27",
+          "english": "A State Duma deputy reacted to an ammunition plant in Latvia near Russia"
+        }
+      ],
+      "LT": [],
+      "PL": []
+    },
+    "2026-08-31": {
+      "FI": [
+        {
+          "title": "Отношения России и Финляндии: условия для улучшения, открытие границ, что говорят в Госдуме",
+          "url": "https://lenta.ru/news/2026/09/04/v-rossii-nazvali-uslovie-potepleniya-v-otnosheniyah-s-finlyandiey/",
+          "outlet": "lenta.ru",
+          "date": "2026-09-04",
+          "english": "Russia-Finland relations, conditions for improvement, and opening the borders, as the State Duma sees it"
+        }
+      ],
+      "EE": [
+        {
+          "title": "Глава Минобороны Эстонии уходит в отставку после скандала с закупками снарядов",
+          "url": "https://www.vesti.ru/ns/glava-minoborony-ehstonii-ukhodit-v-otstavku-posle-skandala-s-zakupkami-snaryadov",
+          "outlet": "vesti.ru",
+          "date": "2026-09-02",
+          "english": "Estonia's defence minister is resigning after a scandal over shell purchases"
+        },
+        {
+          "title": "Аудит Минобороны Эстонии выявил пропажу имущества на €1,2 млрд",
+          "url": "https://iz.ru/2158089/nikita-eliseev/pilorama-v-armii-estonii-protcvetaiut-kumovstvo-i-khishcheniia",
+          "outlet": "iz.ru",
+          "date": "2026-09-01",
+          "english": "An audit of Estonia's defence ministry found 1.2 billion euros of property missing"
+        }
+      ],
+      "LV": [],
+      "LT": [],
+      "PL": [
+        {
+          "title": "Уиткофф и Кушнер после переговоров с Путиным отправились в Польшу",
+          "url": "https://aif.ru/politics/uitkoff-i-kushner-posle-peregovorov-s-putinym-otpravilis-v-polshu",
+          "outlet": "aif.ru",
+          "date": "2026-09-06",
+          "english": "Witkoff and Kushner went to Poland after talks with Putin"
+        },
+        {
+          "title": "Захарова высказалась о возможном отстранении Польши от Олимпиады",
+          "url": "https://lenta.ru/news/2026/09/01/zaharova-vyskazalas-o-vozmozhnom-otstranenii-polshi-ot-olimpiady/",
+          "outlet": "lenta.ru",
+          "date": "2026-09-01",
+          "english": "Zakharova spoke about a possible ban on Poland at the Olympics"
+        },
+        {
+          "title": "Захарова высказались о возможном отстранении Польши от Олимпиады",
+          "url": "https://aif.ru/politics/zaharova-vyskazalis-o-vozmozhnom-otstranenii-polshi-ot-olimpiady",
+          "outlet": "aif.ru",
+          "date": "2026-09-01",
+          "english": "Zakharova spoke about a possible ban on Poland at the Olympics"
+        }
+      ]
+    },
+    "2026-09-07": {
+      "FI": [],
+      "EE": [
+        {
+          "title": "Проживающие в Эстонии россияне смогут проголосовать на выборах в Госдуму",
+          "url": "https://www.vesti.ru/ns/prozhivayushchie-v-ehstonii-rossiyane-smogut-progolosovat-na-vyborakh-v-gosdumu",
+          "outlet": "vesti.ru",
+          "date": "2026-09-09",
+          "english": "Russians living in Estonia will be able to vote in the State Duma election"
+        }
+      ],
+      "LV": [
+        {
+          "title": "Песков — о запрете на книги из России: бацилла русофобии пожирает Латвию",
+          "url": "https://russian.rt.com/ussr/news/1680327-peskov-zapret-knigi-latvia",
+          "outlet": "rt.com",
+          "date": "2026-09-09",
+          "english": "Peskov on a ban on books from Russia: the bacillus of Russophobia is consuming Latvia"
+        },
+        {
+          "title": "\"Бацилла русофобии\": в Кремле отреагировали на запрет Латвии на ввоз книг",
+          "url": "https://www.vesti.ru/ns/bacilla-rusofobii-v-kremle-otreagirovali-na-zapret-latvii-na-vvoz-knig",
+          "outlet": "vesti.ru",
+          "date": "2026-09-09",
+          "english": "The Kremlin reacted to Latvia's ban on importing books, calling it a bacillus of Russophobia"
+        },
+        {
+          "title": "Россия попросила Латвию обезопасить посольство в день выборов в Госдуму",
+          "url": "https://ria.ru/20260910/rossija-2116725061.html",
+          "outlet": "ria.ru",
+          "date": "2026-09-10",
+          "english": "Russia asked Latvia to protect the embassy on State Duma election day"
+        }
+      ],
+      "LT": [
+        {
+          "title": "Песков прокомментировал попытки Литвы обезопасить себя ядерным оружием",
+          "url": "https://www.vesti.ru/ns/peskov-prokommentiroval-popytki-litvy-obezopasit-sebya-yadernym-oruzhiem",
+          "outlet": "vesti.ru",
+          "date": "2026-09-13",
+          "english": "Peskov commented on Lithuania's attempts to protect itself with nuclear weapons"
+        },
+        {
+          "title": "В Кремле прокомментировали заявление Литвы о ядерном оружии",
+          "url": "https://ria.ru/20260913/kreml-2117413472.html",
+          "outlet": "ria.ru",
+          "date": "2026-09-13",
+          "english": "The Kremlin commented on Lithuania's statement about nuclear weapons"
+        },
+        {
+          "title": "Песков: Литва считает, что ЯО станет её страховкой, но будет наоборот",
+          "url": "https://russian.rt.com/ussr/news/1681821-litva-yadernoe-oruzhie",
+          "outlet": "rt.com",
+          "date": "2026-09-13",
+          "english": "Peskov said Lithuania thinks nuclear weapons will insure it, but the opposite will happen"
+        }
+      ],
+      "PL": [
+        {
+          "title": "Захарова указала главе МИД Польши на «русофобию головного мозга»",
+          "url": "https://russian.rt.com/world/news/1681980-zaharova-mid-polshi",
+          "outlet": "rt.com",
+          "date": "2026-09-13",
+          "english": "Zakharova told Poland's foreign minister he had Russophobia of the brain"
+        },
+        {
+          "title": "Минобороны Польши опровергло слухи о призыве в армию из-за карт мобилизации",
+          "url": "https://iz.ru/2166098/minoborony-polshi-oproverglo-slukhi-o-prizyve-v-armiiu-iz-za-kart-mobilizatcii-izi",
+          "outlet": "iz.ru",
+          "date": "2026-09-12",
+          "english": "Poland's defence ministry denied rumours of a call-up over mobilisation cards"
+        },
+        {
+          "title": "Захарова ответила на заявление главы МИД Польши о дипломатах и гражданах России",
+          "url": "https://lenta.ru/news/2026/09/09/zaharova-otvetila-na-zayavlenie-glavy-mid-polshi-o-diplomatah-i-grazhdanah-rossii/",
+          "outlet": "lenta.ru",
+          "date": "2026-09-09",
+          "english": "Zakharova answered Poland's foreign minister on Russian diplomats and citizens"
+        }
+      ]
+    },
+    "2026-09-14": {
+      "FI": [
+        {
+          "title": "Российский посол в Финляндии проголосовал на выборах в Госдуму",
+          "url": "https://ria.ru/20260920/vybory-2118876895.html",
+          "outlet": "ria.ru",
+          "date": "2026-09-20",
+          "english": "Russia's ambassador in Finland voted in the State Duma election"
+        },
+        {
+          "title": "В Финляндии более 400 человек проголосовали на выборах в Госдуму",
+          "url": "https://ria.ru/20260920/vybory-2118931426.html",
+          "outlet": "ria.ru",
+          "date": "2026-09-20",
+          "english": "More than 400 people voted in the State Duma election in Finland"
+        },
+        {
+          "title": "В Финляндии призвали Мелони убрать Федорова из Минобороны Италии",
+          "url": "https://www.vesti.ru/ns/v-finlyandii-prizvali-meloni-ubrat-fedorova-iz-minoborony-italii",
+          "outlet": "vesti.ru",
+          "date": "2026-09-18",
+          "english": "Finland urged Meloni to remove Fedorov from Italy's defence ministry"
+        }
+      ],
+      "EE": [
+        {
+          "title": "Эстония усилила меры безопасности на выборах в Госдуму",
+          "url": "https://russian.rt.com/russia/news/1684392-estonia-vybory-gosduma-bezopasnost",
+          "outlet": "rt.com",
+          "date": "2026-09-18",
+          "english": "Estonia tightened security for the State Duma election"
+        },
+        {
+          "title": "Захарова: в Латвии и Эстонии запугивают россиян, желающих проголосовать",
+          "url": "https://www.vesti.ru/ns/zakharova-v-latvii-i-ehstonii-zapugivayut-rossiyan-zhelayushchikh-progolosovat",
+          "outlet": "vesti.ru",
+          "date": "2026-09-19",
+          "english": "Zakharova said Russians who want to vote are being intimidated in Latvia and Estonia"
+        },
+        {
+          "title": "Захарова заявила о запугивании российских избирателей в Латвии и Эстонии",
+          "url": "https://iz.ru/2170133/2026-09-20/zakharova-zaiavila-o-zapugivanii-rossiiskikh-izbiratelei-v-latvii-i-estonii",
+          "outlet": "iz.ru",
+          "date": "2026-09-19",
+          "english": "Zakharova said Russian voters are being intimidated in Latvia and Estonia"
+        }
+      ],
+      "LV": [
+        {
+          "title": "Захарова прокомментировала закрытие завода в Латвии из-за санкций",
+          "url": "https://ria.ru/20260914/zakharova-2117513762.html",
+          "outlet": "ria.ru",
+          "date": "2026-09-14",
+          "english": "Zakharova commented on a plant closing in Latvia because of sanctions"
+        },
+        {
+          "title": "Захарова отреагировала на закрытие завода в Латвии из-за санкций против РФ",
+          "url": "https://aif.ru/politics/zaharova-otreagirovala-na-zakrytie-zavoda-v-latvii-iz-za-sankciy-protiv-rf",
+          "outlet": "aif.ru",
+          "date": "2026-09-14",
+          "english": "Zakharova reacted to a plant closing in Latvia because of sanctions against Russia"
+        },
+        {
+          "title": "Захарова прокомментировала закрытие завода в Латвии из-за санкций",
+          "url": "https://www.vesti.ru/ns/zakharova-prokommentirovala-zakrytie-zavoda-v-latvii-iz-za-sankcij",
+          "outlet": "vesti.ru",
+          "date": "2026-09-14",
+          "english": "Zakharova commented on a plant closing in Latvia because of sanctions"
+        }
+      ],
+      "LT": [
+        {
+          "title": "В Минобороны Литвы призвали армию отличать дроны от птиц",
+          "url": "https://ria.ru/20260914/litva-2117531515.html",
+          "outlet": "ria.ru",
+          "date": "2026-09-14",
+          "english": "Lithuania's defence ministry urged the army to tell drones from birds"
+        },
+        {
+          "title": "Минобороны ФРГ приняло решение принудительно набрать военных для бригады в Литве",
+          "url": "https://lenta.ru/news/2026/09/14/minoborony-frg-prinuditelno-naberet-1000-voennyh-dlya-brigady-v-litve/",
+          "outlet": "lenta.ru",
+          "date": "2026-09-14",
+          "english": "Germany's defence ministry decided to conscript soldiers for a brigade in Lithuania"
+        },
+        {
+          "title": "В Госдуме высмеяли принявших стаю птиц за дрон властей Литвы",
+          "url": "https://lenta.ru/news/2026/09/14/v-gosdume-vysmeyali-prinyavshih-stayu-ptits-za-dron-vlastey-litvy/",
+          "outlet": "lenta.ru",
+          "date": "2026-09-14",
+          "english": "The State Duma mocked Lithuanian authorities who took a flock of birds for a drone"
+        }
+      ],
+      "PL": [
+        {
+          "title": "Мария Захарова назвала заявление Сикорского о быстрой победе Польши над Россией русофобией головного мозга. Новости. Первый канал",
+          "url": "https://www.1tv.ru/news/2026-09-14/553143",
+          "outlet": "1tv.ru",
+          "date": "2026-09-14",
+          "english": "Zakharova called Sikorski's claim of a quick Polish victory over Russia Russophobia of the brain"
+        },
+        {
+          "title": "Минобороны Польши заявило об обнаружении беспилотника у пляжа на Балтике",
+          "url": "https://lenta.ru/news/2026/09/14/minoborony-polshi-zayavilo-ob-obnaruzhenii-bespilotnika-u-plyazha-na-baltike/",
+          "outlet": "lenta.ru",
+          "date": "2026-09-14",
+          "english": "Poland's defence ministry said a drone was found by a Baltic beach"
+        },
+        {
+          "title": "Глава минобороны Польши сообщил об обнаружении БПЛА на пляже на западе страны",
+          "url": "https://www.vesti.ru/ns/glava-minoborony-polshi-soobshchil-ob-obnaruzhenii-bpla-na-plyazhe-na-zapade-strany",
+          "outlet": "vesti.ru",
+          "date": "2026-09-14",
+          "english": "Poland's defence minister said a drone was found on a beach in the west of the country"
+        }
+      ]
+    },
+    "2026-09-21": {
+      "FI": [],
+      "EE": [
+        {
+          "title": "Захарова призвала ЮНЕСКО и ЮНИСЕФ проверить агрессию эстонской молодежи",
+          "url": "https://www.vesti.ru/ns/zakharova-prizvala-yunesko-i-yunisef-proverit-agressiyu-ehstonskoj-molodezhi",
+          "outlet": "vesti.ru",
+          "date": "2026-09-24",
+          "english": "Zakharova asked UNESCO and UNICEF to check aggression among Estonian youth"
+        },
+        {
+          "title": "Мария Захарова об Эстонии: дипломат предложила ЮНЕСКО проверить воспитание молодежи",
+          "url": "https://iz.ru/2173181/zakharova-prizvala-iunesko-i-iunisef-proverit-obrazovanie-molodezhi-v-estonii-izi",
+          "outlet": "iz.ru",
+          "date": "2026-09-25",
+          "english": "Zakharova suggested UNESCO check how young people are taught in Estonia"
+        },
+        {
+          "title": "Захарова прокомментировала слова эстонских подростков об уничтожении России",
+          "url": "https://lenta.ru/news/2026/09/25/zaharova-prokommentirovala-slova-podrostkov-ob-unichtozhenii-rossii/",
+          "outlet": "lenta.ru",
+          "date": "2026-09-25",
+          "english": "Zakharova commented on Estonian teenagers' words about destroying Russia"
+        }
+      ],
+      "LV": [],
+      "LT": [
+        {
+          "title": "Минобороны Литвы попросили объяснить корпоратив за 48 тысяч евро",
+          "url": "https://www.vesti.ru/ns/minoborony-litvy-poprosili-obyasnit-korporativ-za-48-tysyach-evro",
+          "outlet": "vesti.ru",
+          "date": "2026-09-23",
+          "english": "Lithuania's defence ministry was asked to explain a 48,000-euro staff party"
+        },
+        {
+          "title": "В Госдуме порассуждали о будущем Литвы из-за ядерного оружия",
+          "url": "https://lenta.ru/news/2026/09/22/v-gosdume-porassuzhdali-o-buduschem-litvy-iz-za-yadernogo-oruzhiya/",
+          "outlet": "lenta.ru",
+          "date": "2026-09-22",
+          "english": "The State Duma discussed Lithuania's future because of nuclear weapons"
+        }
+      ],
+      "PL": [
+        {
+          "title": "Захарова высмеяла слова главы МИД Польши о запасах на случай войны",
+          "url": "https://aif.ru/politics/zaharova-vysmeyala-slova-glavy-mid-polshi-o-zapasah-na-sluchay-voyny",
+          "outlet": "aif.ru",
+          "date": "2026-09-23",
+          "english": "Zakharova mocked Poland's foreign minister's words about stockpiles in case of war"
+        },
+        {
+          "title": "Захарова: Сикорский продолжает дискредитировать Польшу и дипломатию Варшавы",
+          "url": "https://russian.rt.com/world/news/1686365-zaharova-sikorskii-diskreditirovat-polsha",
+          "outlet": "rt.com",
+          "date": "2026-09-23",
+          "english": "Zakharova said Sikorski keeps discrediting Poland and Warsaw's diplomacy"
+        },
+        {
+          "title": "Глава МИД Польши продолжает дискредитировать свою страну, заявила Захарова",
+          "url": "https://ria.ru/20260923/politika-2119869271.html",
+          "outlet": "ria.ru",
+          "date": "2026-09-23",
+          "english": "Zakharova said Poland's foreign minister keeps discrediting his country"
+        }
+      ]
+    },
+    "2026-09-28": {
+      "FI": [],
+      "EE": [
+        {
+          "title": "В Кремле прокомментировали отказ Эстонии от транзита российского зерна",
+          "url": "https://lenta.ru/news/2026/10/01/v-kremle-prokommentirovali-otkaz-estonii-ot-tranzita-rossiyskogo-zerna/",
+          "outlet": "lenta.ru",
+          "date": "2026-10-01",
+          "english": "The Kremlin commented on Estonia's refusal to transit Russian grain"
+        },
+        {
+          "title": "Песков отверг обвинения в адрес России в поджоге завода в Эстонии",
+          "url": "https://ria.ru/20260929/peskov--2120936432.html",
+          "outlet": "ria.ru",
+          "date": "2026-09-29",
+          "english": "Peskov rejected accusations that Russia set fire to a plant in Estonia"
+        },
+        {
+          "title": "В Кремле назвали необдуманными обвинения в поджоге оборонного завода в Эстонии",
+          "url": "https://iz.ru/2175328/2026-09-29/v-kremle-nazvali-neobdumannymi-obvineniia-v-podzhoge-oboronnogo-zavoda-v-estonii",
+          "outlet": "iz.ru",
+          "date": "2026-09-29",
+          "english": "The Kremlin called accusations over a fire at a defence plant in Estonia ill-considered"
+        }
+      ],
+      "LV": [
+        {
+          "title": "В Госдуме сравнили Латвию с мухой из-за готовности разместить ядерное оружие НАТО",
+          "url": "https://lenta.ru/news/2026/10/01/v-gosdume-sravnili-latviyu-s-muhoy-iz-za-gotovnosti-razmestit-yadernoe-oruzhie-nato/",
+          "outlet": "lenta.ru",
+          "date": "2026-10-01",
+          "english": "The State Duma compared Latvia to a fly over its readiness to host NATO nuclear weapons"
+        }
+      ],
+      "LT": [],
+      "PL": [
+        {
+          "title": "Минобороны Польши разрабатывает новый закон для военного времени",
+          "url": "https://ria.ru/20261002/polsha-2121826520.html",
+          "outlet": "ria.ru",
+          "date": "2026-10-02",
+          "english": "Poland's defence ministry is drafting a new wartime law"
+        },
+        {
+          "title": "Lavrov on Poland's Proposal on Patriot Missiles: Study Russia's Military Doctrine",
+          "url": "https://sputnikglobe.com/20260929/lavrov-on-polands-proposal-on-patriot-missiles-study-russias-military-doctrine-1124807559.html",
+          "outlet": "sputnikglobe.com",
+          "date": "2026-09-29",
+          "english": "Lavrov on Poland's Proposal on Patriot Missiles: Study Russia's Military Doctrine"
+        },
+        {
+          "title": "Лавров призвал изучить военную доктрину России после заявлений Польши о Patriot",
+          "url": "https://russian.rt.com/world/news/1688574-lavrov-voennuyu-doktrinu-rossii",
+          "outlet": "rt.com",
+          "date": "2026-09-29",
+          "english": "Lavrov urged a study of Russia's military doctrine after Poland's statements on Patriot"
+        }
+      ]
+    },
+    "2026-10-05": {
+      "FI": [],
+      "EE": [
+        {
+          "title": "Захарова иронично отреагировала на данные о переброске Эстонией войск к границе",
+          "url": "https://russian.rt.com/ussr/news/1690778-zaharova-estoniya-perebroska-voiska",
+          "outlet": "rt.com",
+          "date": "2026-10-05",
+          "english": "Zakharova reacted ironically to reports that Estonia moved troops to the border"
+        },
+        {
+          "title": "Захарова прокомментировала новость о переброске войск Эстонии к границам РФ",
+          "url": "https://www.vesti.ru/ns/zakharova-prokommentirovala-novost-o-perebroske-vojsk-ehstonii-k-granicam-rf",
+          "outlet": "vesti.ru",
+          "date": "2026-10-05",
+          "english": "Zakharova commented on news that Estonia moved troops to Russia's borders"
+        },
+        {
+          "title": "В Кремле сообщили о контроле ситуации у границ России на фоне действий Эстонии",
+          "url": "https://iz.ru/2178728/2026-10-05/v-kremle-soobshchilm-o-kontrole-situatcii-u-granitc-rossii-na-fone-deistvii-estonii",
+          "outlet": "iz.ru",
+          "date": "2026-10-05",
+          "english": "The Kremlin said it is watching the situation on Russia's borders amid Estonia's actions"
+        }
+      ],
+      "LV": [],
+      "LT": [
+        {
+          "title": "Песков: размещение базы НАТО и ЯО в Литве станет новым витком напряжённости",
+          "url": "https://russian.rt.com/ussr/news/1691247-peskov-yadernoe-oruzhie-litva-napryazhyonnost",
+          "outlet": "rt.com",
+          "date": "2026-10-06",
+          "english": "Peskov said a NATO base and nuclear weapons in Lithuania would be a new turn of tension"
+        },
+        {
+          "title": "Daily Express назвала предупреждение Пескова о ядерном оружии в Литве ужасающим",
+          "url": "https://rg.ru/2026/10/08/daily-express-nazvala-preduprezhdenie-peskova-o-iadernom-oruzhii-v-litve-uzhasaiushchim.html",
+          "outlet": "rg.ru",
+          "date": "2026-10-08",
+          "english": "The Daily Express called Peskov's warning about nuclear weapons in Lithuania terrifying"
+        },
+        {
+          "title": "В Кремле прокомментировали планы Литвы снять запрет на размещение ЯО",
+          "url": "https://ria.ru/20261006/kreml-2122574632.html",
+          "outlet": "ria.ru",
+          "date": "2026-10-06",
+          "english": "The Kremlin commented on Lithuania's plans to lift the ban on hosting nuclear weapons"
+        }
+      ],
+      "PL": [
+        {
+          "title": "В Польше разоблачили игру Зеленского после соглашения Путина с Трампом",
+          "url": "https://lenta.ru/news/2026/10/11/v-polshe-razoblachili-zelenskogo-posle-soglasheniya-putina-s-trampom/",
+          "outlet": "lenta.ru",
+          "date": "2026-10-11",
+          "english": "Poland exposed Zelensky's game after an agreement between Putin and Trump"
+        },
+        {
+          "title": "В Польше разоблачили Зеленского после соглашения Путина с Трампом",
+          "url": "https://aif.ru/politics/world/v-polshe-razoblachili-zelenskogo-posle-soglasheniya-putina-s-trampom",
+          "outlet": "aif.ru",
+          "date": "2026-10-11",
+          "english": "Poland exposed Zelensky after an agreement between Putin and Trump"
+        }
+      ]
+    },
+    "2026-10-12": {
+      "FI": [],
+      "EE": [
+        {
+          "title": "В Госдуме заявили об ответе на планы Эстонии перекрыть газопровод в Калининград",
+          "url": "https://lenta.ru/news/2026/10/14/v-gosdume-zayavili-ob-otvete-na/",
+          "outlet": "lenta.ru",
+          "date": "2026-10-14",
+          "english": "The State Duma said there would be an answer to Estonia's plans to shut a gas pipeline to Kaliningrad"
+        },
+        {
+          "title": "Минобороны Эстонии выделит сотни тысяч евро на мультфильмы на тему обороны",
+          "url": "https://www.vesti.ru/ns/minoborony-ehstonii-vydelit-sotni-tysyach-evro-na-multfilmy-na-temu-oborony",
+          "outlet": "vesti.ru",
+          "date": "2026-10-13",
+          "english": "Estonia's defence ministry will spend hundreds of thousands of euros on defence cartoons"
+        }
+      ],
+      "LV": [
+        {
+          "title": "Захарова о беспорядках в ЕС: предложение премьеру Латвии включить телевизор",
+          "url": "https://iz.ru/2186274/2026-10-18/zakharova-predlozhila-kulbergsu-vkliuchit-televizor-i-uvidet-realnye-ugrozy-es",
+          "outlet": "iz.ru",
+          "date": "2026-10-18",
+          "english": "Zakharova suggested Latvia's prime minister turn on the television, speaking about unrest in the EU"
+        },
+        {
+          "title": "Захарова высмеяла призыв премьера Латвии запретить визы россиянам",
+          "url": "https://aif.ru/politics/zaharova-vysmeyala-prizyv-premera-latvii-zapretit-vizy-rossiyanam",
+          "outlet": "aif.ru",
+          "date": "2026-10-18",
+          "english": "Zakharova mocked Latvia's prime minister's call to ban visas for Russians"
+        },
+        {
+          "title": "Захарова посоветовала премьеру Латвии включить телевизор",
+          "url": "https://www.vesti.ru/ns/zakharova-posovetovala-premeru-latvii-vklyuchit-televizor",
+          "outlet": "vesti.ru",
+          "date": "2026-10-18",
+          "english": "Zakharova advised Latvia's prime minister to turn on the television"
+        }
+      ],
+      "LT": [
+        {
+          "title": "Захарова прокомментировала слова депутата сейма Литвы об убийстве русских",
+          "url": "https://ria.ru/20261016/zaharova-2125040284.html",
+          "outlet": "ria.ru",
+          "date": "2026-10-16",
+          "english": "Zakharova commented on a Lithuanian Saeima deputy's words about killing Russians"
+        },
+        {
+          "title": "Захарова отреагировала на слова депутата Литвы об убийствах русских",
+          "url": "https://rg.ru/2026/10/16/zaharova-otreagirovala-na-slova-deputata-litvy-ob-ubijstvah-russkih.html",
+          "outlet": "rg.ru",
+          "date": "2026-10-16",
+          "english": "Zakharova reacted to a Lithuanian deputy's words about killing Russians"
+        },
+        {
+          "title": "Захарова назвала депутата сейма Литвы «упырем» за слова об убийстве русских",
+          "url": "https://iz.ru/2185639/zakharova-otreagirovala-na-slova-deputata-litvy-ob-ubiistvakh-russkikh-izi",
+          "outlet": "iz.ru",
+          "date": "2026-10-16",
+          "english": "Zakharova called a Lithuanian Saeima deputy a ghoul for words about killing Russians"
+        }
+      ],
+      "PL": [
+        {
+          "title": "Захарова предложила психиатрам оценить высказывания главы МИД Польши",
+          "url": "https://www.vesti.ru/ns/zakharova-predlozhila-psikhiatram-ocenit-vyskazyvaniya-glavy-mid-polshi",
+          "outlet": "vesti.ru",
+          "date": "2026-10-16",
+          "english": "Zakharova suggested psychiatrists assess the Polish foreign minister's remarks"
+        },
+        {
+          "title": "В Минобороны Польши выступили за обязательный призыв для всех граждан",
+          "url": "https://rg.ru/2026/10/14/v-minoborony-polshi-vystupili-za-obiazatelnyj-prizyv-dlia-vseh-grazhdan.html",
+          "outlet": "rg.ru",
+          "date": "2026-10-14",
+          "english": "Poland's defence ministry spoke in favour of compulsory service for all citizens"
+        },
+        {
+          "title": "Замглавы Минобороны Польши поддержала введение срочной службы для женщин",
+          "url": "https://aif.ru/society/zamglavy-minoborony-polshi-podderzhala-vvedenie-srochnoy-sluzhby-dlya-zhenshchin",
+          "outlet": "aif.ru",
+          "date": "2026-10-14",
+          "english": "Poland's deputy defence minister backed conscription for women"
+        }
+      ]
+    },
+    "2026-10-19": {
+      "FI": [
+        {
+          "title": "Россия внимательно наблюдает за милитаризацией Финляндии, заявила Захарова",
+          "url": "https://ria.ru/20261021/mid-2125909790.html",
+          "outlet": "ria.ru",
+          "date": "2026-10-21",
+          "english": "Zakharova said Russia is watching Finland's militarisation closely"
+        },
+        {
+          "title": "В Кремле оценили участие президента Финляндии в контактах по Украине",
+          "url": "https://ria.ru/20261021/stubb-2125811504.html",
+          "outlet": "ria.ru",
+          "date": "2026-10-21",
+          "english": "The Kremlin assessed Finland's president's part in contacts on Ukraine"
+        },
+        {
+          "title": "Песков оценил участие президента Финляндии в контактах по Украине",
+          "url": "https://aif.ru/politics/peskov-ocenil-uchastie-prezidenta-finlyandii-v-kontaktah-po-ukraine",
+          "outlet": "aif.ru",
+          "date": "2026-10-21",
+          "english": "Peskov assessed Finland's president's part in contacts on Ukraine"
+        }
+      ],
+      "EE": [
+        {
+          "title": "В Эстонии требуют лишить Шредера ордена из-за дня рождения Путина",
+          "url": "https://aif.ru/politics/world/v-estonii-trebuyut-lishit-shredera-ordena-iz-za-dnya-rozhdeniya-putina",
+          "outlet": "aif.ru",
+          "date": "2026-10-20",
+          "english": "Estonia is demanding Schroeder be stripped of an order because of Putin's birthday"
+        }
+      ],
+      "LV": [],
+      "LT": [
+        {
+          "title": "Захарова прокомментировала ситуацию вокруг найденного в Литве дрона",
+          "url": "https://ria.ru/20261021/zaharova-2125824959.html",
+          "outlet": "ria.ru",
+          "date": "2026-10-21",
+          "english": "Zakharova commented on the drone found in Lithuania"
+        },
+        {
+          "title": "Захарова цитатой из Гоголя прокомментировала инцидент с дроном ВСУ в Литве",
+          "url": "https://ria.ru/20261021/dron-2125904062.html",
+          "outlet": "ria.ru",
+          "date": "2026-10-21",
+          "english": "Zakharova used a Gogol quote to comment on a Ukrainian drone incident in Lithuania"
+        },
+        {
+          "title": "Ужасные тайны. Минобороны Литвы выступило против рассекречивания агентов КГБ",
+          "url": "https://aif.ru/politics/world/uzhasnye-tayny-minoborony-litvy-vystupilo-protiv-rassekrechivaniya-agentov-kgb",
+          "outlet": "aif.ru",
+          "date": "2026-10-20",
+          "english": "Lithuania's defence ministry opposed declassifying KGB agents"
+        }
+      ],
+      "PL": [
+        {
+          "title": "Захарова осудила насаждение Польшей оголтелой русофобии",
+          "url": "https://iz.ru/2187868/2026-10-21/zakharova-zaiavila-ob-osuzhdenii-rossiei-nasazhdeniia-polshei-ogolteloi-rusofobii",
+          "outlet": "iz.ru",
+          "date": "2026-10-21",
+          "english": "Zakharova condemned Poland for planting rampant Russophobia"
+        },
+        {
+          "title": "Захарова объяснила русофобией вандализм на воинских мемориалах в Польше",
+          "url": "https://aif.ru/politics/zaharova-obyasnila-rusofobiey-vandalizm-na-voinskih-memorialah-v-polshe",
+          "outlet": "aif.ru",
+          "date": "2026-10-21",
+          "english": "Zakharova blamed Russophobia for vandalism at war memorials in Poland"
+        },
+        {
+          "title": "Песков связал слова Зеленского о деде-фронтовике с конфликтом с Польшей",
+          "url": "https://aif.ru/politics/peskov-svyazal-slova-zelenskogo-o-dede-frontovike-s-konfliktom-s-polshey",
+          "outlet": "aif.ru",
+          "date": "2026-10-22",
+          "english": "Peskov linked Zelensky's words about a front-line grandfather to the conflict with Poland"
+        }
+      ]
+    }
+  }
+}

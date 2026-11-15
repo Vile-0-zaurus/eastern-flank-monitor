@@ -264,6 +264,10 @@ function dedupeStories(items) {
 }
 
 function countryMedia(code) {
+  if (inNow() && state.nowHeadlines) {
+    const week = ((state.nowHeadlines.weeks || {})[current().week] || {})[code] || [];
+    return dedupeStories(week.filter(showNews));
+  }
   return dedupeStories(((state.countryHeadlines[current().week] || {})[code] || []).filter(showNews));
 }
 
@@ -312,13 +316,60 @@ function nowAttention(code) {
   return { count, usual };
 }
 
-function nowIncidents(code) {
-  const week = current().week;
-  const end = weekEnd(week);
+function nowIncidents(code, week) {
+  const start = week || current().week;
+  const end = weekEnd(start);
   return (state.nowPack.incidents || []).filter((item) => {
-    if (item.date < week || item.date > end) return false;
+    if (item.date < start || item.date > end) return false;
     return !code || item.country === code;
   });
+}
+
+function activeIncidents(code) {
+  const end = weekEnd(current().week);
+  const floor = state.nowPack.window_start || "2026-08-03";
+  return (state.nowPack.incidents || []).filter((item) => {
+    if (item.date > end || item.date < floor) return false;
+    return !code || item.country === code;
+  });
+}
+
+function recentIncidents(code) {
+  const start = new Date(current().week + "T00:00:00Z");
+  start.setUTCDate(start.getUTCDate() - 56);
+  const floor = start.toISOString().slice(0, 10);
+  return activeIncidents(code).filter((item) => item.date < current().week && item.date >= floor);
+}
+
+function incidentLabel(item) {
+  if (item.status) return item.status;
+  if (/^Officially confirmed/i.test(item.summary || "")) return "Officially confirmed";
+  if (/^Reported/i.test(item.summary || "")) return "Reported";
+  return "Reported";
+}
+
+function appendIncidentLine(list, incident) {
+  const item = document.createElement("li");
+  item.className = "incident-line";
+  item.dataset.date = incident.date;
+  item.dataset.country = incident.country;
+  const title = document.createElement("p");
+  title.textContent = incidentLabel(incident) + ". " + incident.place + ". " + incident.summary;
+  const link = document.createElement("a");
+  link.href = incident.source;
+  link.textContent = "Source";
+  item.append(title, link);
+  list.appendChild(item);
+}
+
+function appendIncidentBlock(host, title, items) {
+  if (!items.length) return;
+  const heading = document.createElement("h3");
+  heading.className = "section-label";
+  heading.textContent = title;
+  const list = document.createElement("ul");
+  items.forEach((incident) => appendIncidentLine(list, incident));
+  host.append(heading, list);
 }
 
 function attentionWords(code) {
@@ -467,28 +518,27 @@ function renderRegionOverview() {
   if (!open) return;
   if (inNow()) {
     const line = document.getElementById("region-overview-line");
-    if (line) line.textContent = state.nowPack.label;
+    if (line) line.textContent = "Incidents first. " + (state.nowPack.label || "");
     const eventsHost = document.getElementById("region-events");
     eventsHost.innerHTML = "";
-    const incidents = nowIncidents();
-    if (!incidents.length) {
-      eventsHost.textContent = "No incident in this week from the checked sources.";
-    } else {
-      const list = document.createElement("ul");
-      incidents.forEach((incident) => {
-        const item = document.createElement("li");
-        const title = document.createElement("p");
-        title.textContent = incident.place + ". " + incident.summary;
-        const link = document.createElement("a");
-        link.href = incident.source;
-        link.textContent = "Source";
-        item.append(title, link);
-        list.appendChild(item);
-      });
-      eventsHost.appendChild(list);
+    appendIncidentBlock(eventsHost, "Incidents this week", nowIncidents());
+    appendIncidentBlock(eventsHost, "Recent incidents", recentIncidents());
+    if (!eventsHost.childElementCount) {
+      eventsHost.textContent = "Quiet week.";
     }
     const newsHost = document.getElementById("region-news");
-    if (newsHost) newsHost.innerHTML = "";
+    if (newsHost) {
+      newsHost.innerHTML = "";
+      const regional = (state.nowPack.news || []).filter((story) => story.week === current().week).slice(0, 3);
+      if (regional.length) {
+        const heading = document.createElement("h3");
+        heading.className = "section-label";
+        heading.textContent = "Regional media (Yle, BBC)";
+        const list = document.createElement("ul");
+        regional.forEach((story) => appendStory(list, story));
+        newsHost.append(heading, list);
+      }
+    }
     return;
   }
   const line = document.getElementById("region-overview-line");
@@ -616,25 +666,38 @@ function renderCountryNews() {
     const empty = document.createElement("p");
     empty.textContent = "No news about " + name + " this week.";
     host.append(empty);
-    return;
-  }
-  const shown = state.moreNews ? items : items.slice(0, 3);
-  const list = document.createElement("ul");
-  shown.forEach((story) => {
-    if (!story.countries || !story.countries.length) story.countries = [code];
-    appendStory(list, story);
-  });
-  host.append(list);
-  if (items.length > 3) {
-    const more = document.createElement("button");
-    more.type = "button";
-    more.className = "show-more";
-    more.textContent = state.moreNews ? "Show less" : "Show more";
-    more.addEventListener("click", () => {
-      state.moreNews = !state.moreNews;
-      renderCountryNews();
+    if (!inNow()) return;
+  } else {
+    const shown = state.moreNews ? items : items.slice(0, 3);
+    const list = document.createElement("ul");
+    shown.forEach((story) => {
+      if (!story.countries || !story.countries.length) story.countries = [code];
+      appendStory(list, story);
     });
-    host.append(more);
+    host.append(list);
+    if (items.length > 3) {
+      const more = document.createElement("button");
+      more.type = "button";
+      more.className = "show-more";
+      more.textContent = state.moreNews ? "Show less" : "Show more";
+      more.addEventListener("click", () => {
+        state.moreNews = !state.moreNews;
+        renderCountryNews();
+      });
+      host.append(more);
+    }
+  }
+  if (!inNow()) return;
+  appendIncidentBlock(host, "Incidents this week", nowIncidents(code));
+  appendIncidentBlock(host, "Recent incidents", recentIncidents(code));
+  const regional = (state.nowPack.news || []).filter((story) => story.week === current().week && (story.countries || []).includes(code)).slice(0, 3);
+  if (regional.length) {
+    const heading = document.createElement("h3");
+    heading.className = "section-label";
+    heading.textContent = "Regional media (Yle, BBC)";
+    const media = document.createElement("ul");
+    regional.forEach((story) => appendStory(media, story));
+    host.append(heading, media);
   }
 }
 
@@ -801,39 +864,40 @@ function renderMap() {
 }
 
 function drawIncidents(svg, week) {
-  const marks = { drone: "drone", jamming: "jam", cable: "cable", border: "border", sabotage: "sabotage" };
-  nowIncidents().forEach((incident) => {
+  const icons = {
+    drone: "M0,-7 L6,5 L0,2 L-6,5 Z",
+    sabotage: "M0,-7 L1.5,-1.5 L7,-2 L2.5,1.5 L4,7 L0,3.5 L-4,7 L-2.5,1.5 L-7,-2 L-1.5,-1.5 Z",
+    border: "M-5,-5 H5 V5 H-5 Z",
+    jamming: "M-6,2 Q-3,-4 0,2 T6,2",
+    cable: "M-6,0 H6",
+  };
+  activeIncidents().forEach((incident) => {
     const [x, y] = project(incident.lon, incident.lat);
     const dot = document.createElementNS("http://www.w3.org/2000/svg", "g");
     dot.setAttribute("class", "incident-dot");
     dot.setAttribute("data-type", incident.type);
     dot.setAttribute("data-date", incident.date);
+    dot.setAttribute("data-country", incident.country);
     dot.setAttribute("transform", "translate(" + x.toFixed(1) + " " + y.toFixed(1) + ")");
     const shape = document.createElementNS("http://www.w3.org/2000/svg", "circle");
     shape.setAttribute("r", "11");
     shape.setAttribute("fill", "#0f766e");
     shape.setAttribute("stroke", "#ffffff");
     shape.setAttribute("stroke-width", "2");
-    const mark = document.createElementNS("http://www.w3.org/2000/svg", "text");
-    mark.setAttribute("text-anchor", "middle");
-    mark.setAttribute("y", "4");
-    mark.setAttribute("class", "incident-mark");
-    mark.textContent = (marks[incident.type] || incident.type).slice(0, 1).toUpperCase();
+    const icon = document.createElementNS("http://www.w3.org/2000/svg", "path");
+    icon.setAttribute("d", icons[incident.type] || icons.drone);
+    icon.setAttribute("fill", "none");
+    icon.setAttribute("stroke", "#ffffff");
+    icon.setAttribute("stroke-width", "1.4");
     const tip = document.createElementNS("http://www.w3.org/2000/svg", "title");
-    tip.textContent = incident.type + ". " + incident.summary;
-    dot.append(shape, mark, tip);
+    tip.textContent = incidentLabel(incident) + ". " + incident.type + ". " + incident.summary;
+    dot.append(shape, icon, tip);
     dot.addEventListener("click", (click) => {
       click.stopPropagation();
       stop();
       openIncident(incident);
     });
     svg.appendChild(dot);
-    const label = document.createElementNS("http://www.w3.org/2000/svg", "text");
-    label.setAttribute("x", (x + 14).toFixed(1));
-    label.setAttribute("y", (y - 8).toFixed(1));
-    label.setAttribute("class", "map-event-label");
-    label.textContent = marks[incident.type] || incident.type;
-    svg.appendChild(label);
   });
 }
 
@@ -990,6 +1054,7 @@ function appendEventLine(list, event) {
 }
 
 function openWhy(code, focus) {
+  if (inNow()) return;
   state.why = { code: code || null, focusDate: focus ? focus.date : "", focusTag: focus ? focus.tag : "" };
   const panel = document.getElementById("why");
   const row = rowForCode(code);
@@ -1132,6 +1197,7 @@ function weekHasEvent(week) {
 }
 
 function weekNotable(week) {
+  if (inNow()) return nowIncidents(null, week).length > 0;
   return weekHasEvent(week);
 }
 
@@ -1152,6 +1218,10 @@ function renderQuiet(week) {
   const quiet = document.getElementById("inside-quiet");
   if (!quiet) return;
   quiet.innerHTML = "";
+  if (inNow()) {
+    renderNowQuiet(quiet, week);
+    return;
+  }
   if (weekNotable(week)) {
     quiet.hidden = true;
     return;
@@ -1166,6 +1236,28 @@ function renderQuiet(week) {
   text.textContent = "Last notable: " + last.weeks + " weeks ago — " + last.line + " ";
   const link = document.createElement("a");
   link.href = last.url;
+  link.textContent = "Source";
+  quiet.append(text, link);
+}
+
+function renderNowQuiet(quiet, week) {
+  if (nowIncidents(null, week).length) {
+    quiet.hidden = true;
+    return;
+  }
+  const prior = (state.nowPack.incidents || []).filter((item) => item.date < week && item.date >= state.nowPack.window_start);
+  prior.sort((a, b) => (a.date < b.date ? 1 : -1));
+  quiet.hidden = false;
+  if (!prior.length) {
+    quiet.textContent = "Quiet week.";
+    return;
+  }
+  const last = prior[0];
+  const weeks = Math.max(1, Math.round((Date.parse(week) - Date.parse(last.date)) / 86400000 / 7));
+  const text = document.createElement("span");
+  text.textContent = "Last notable: " + weeks + (weeks === 1 ? " week ago — " : " weeks ago — ") + last.place + ". " + last.summary + " ";
+  const link = document.createElement("a");
+  link.href = last.source;
   link.textContent = "Source";
   quiet.append(text, link);
 }
@@ -1296,7 +1388,7 @@ function renderInsideMain() {
     }
     host.append(article);
   });
-  renderBackground(week);
+  if (!inNow()) renderBackground(week);
   renderTicks();
 }
 
@@ -1310,7 +1402,7 @@ function renderWeek() {
   renderStrip();
   renderMap();
   renderNews();
-  if (!document.getElementById("why").hidden && state.why) {
+  if (!document.getElementById("why").hidden && state.why && !inNow()) {
     const focus = state.events.find((event) => event.date === state.why.focusDate && event.tag === state.why.focusTag);
     openWhy(state.why.code, focus);
   }
@@ -1328,7 +1420,12 @@ function officialCode() {
 
 function renderInside() {
   const host = document.getElementById("inside-lines");
-  if (!host || !state.inside) return;
+  if (!host) return;
+  if (inNow()) {
+    host.innerHTML = "";
+    return;
+  }
+  if (!state.inside) return;
   const block = (state.inside.weeks || {})[current().week] || {};
   host.innerHTML = "";
   (block.lines || []).forEach((line) => {
@@ -1384,19 +1481,32 @@ function officialRows(side) {
 }
 
 function renderOfficials() {
+  const section = document.getElementById("officials");
+  const note = document.getElementById("officials-note");
   if (inNow()) {
+    const code = state.focus;
+    const week = current().week;
+    const pool = (((state.nowHeadlines || {}).officials || {})[week] || {});
+    const rows = code ? (pool[code] || []) : Object.values(pool).flat();
+    const russian = dedupeStories(rows.filter((item) => russianSpeaker((item.title || "") + " " + (item.english || "")) && item.english)).slice(0, 3);
+    const regional = (code ? activeIncidents(code) : activeIncidents()).slice(0, 3);
     ["russian", "western"].forEach((side) => {
       const host = document.getElementById(side === "russian" ? "officials-ru" : "officials-west");
       if (!host) return;
       host.innerHTML = "";
-      const note = document.createElement("p");
-      note.textContent = side === "western"
-        ? "Incident sources for this week are listed under the map and the region overview."
-        : "Russian official statements for this window are not in a separate file.";
-      host.append(note);
+      const items = side === "russian" ? russian : regional;
+      if (!items.length) return;
+      const list = document.createElement("ul");
+      if (side === "russian") items.forEach((story) => appendStory(list, story));
+      else items.forEach((incident) => appendIncidentLine(list, incident));
+      host.append(list);
     });
+    if (section) section.hidden = !russian.length && !regional.length;
+    if (note) note.hidden = true;
     return;
   }
+  if (section) section.hidden = false;
+  if (note) note.hidden = false;
   ["russian", "western"].forEach((side) => {
     const host = document.getElementById(side === "russian" ? "officials-ru" : "officials-west");
     if (!host) return;
@@ -1463,7 +1573,7 @@ function togglePlayback() {
 
 async function main() {
   setupDoors();
-  const [text, csv, events, map, news, official, countryHeadlines, officials, inside, insideMain, nowPack] = await Promise.all([
+  const [text, csv, events, map, news, official, countryHeadlines, officials, inside, insideMain, nowPack, nowHeadlines] = await Promise.all([
     fetch("i18n/en.json").then((response) => response.json()),
     fetch("../docs/reports/2026-10-12-backtest-weeks.csv").then((response) => response.text()),
     fetch("events.json").then((response) => response.json()),
@@ -1475,6 +1585,7 @@ async function main() {
     fetch("inside-russia.json").then((response) => response.json()),
     fetch("inside-main.json").then((response) => response.json()),
     fetch("now-view.json").then((response) => response.json()),
+    fetch("now-headlines.json").then((response) => response.json()),
   ]);
   state.text = text;
   state.rows = parseCsv(csv).filter((row) => row.week >= START);
@@ -1486,6 +1597,7 @@ async function main() {
   state.inside = inside;
   state.insideMain = insideMain;
   state.nowPack = nowPack;
+  state.nowHeadlines = nowHeadlines;
   state.countryHeadlines = countryHeadlines;
   document.title = text.title;
   document.getElementById("title").textContent = text.title;
@@ -1545,7 +1657,7 @@ function setMode(mode) {
   const note = document.getElementById("now-label");
   if (note) note.hidden = mode !== "now";
   document.getElementById("banner").textContent = mode === "now"
-    ? "Now — frozen window, 3 August to 25 October 2026. Not a tension score."
+    ? "Snapshot: 3 Aug – 25 Oct 2026 · attention and incidents only."
     : "Prototype — replaying 2021–22. Not live.";
   renderWeek();
 }
