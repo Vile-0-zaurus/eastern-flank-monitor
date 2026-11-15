@@ -1,4 +1,10 @@
 const START = "2021-01-04";
+const ASSET_V = "29b1054";
+
+function asset(path) {
+  return path + (path.includes("?") ? "&" : "?") + "v=" + ASSET_V;
+}
+
 const COUNTRIES = ["FI", "EE", "LV", "LT", "PL"];
 
 const state = {
@@ -1588,18 +1594,18 @@ function togglePlayback() {
 async function main() {
   setupDoors();
   const [text, csv, events, map, news, official, countryHeadlines, officials, inside, insideMain, nowPack, nowHeadlines] = await Promise.all([
-    fetch("i18n/en.json").then((response) => response.json()),
+    fetch(asset("i18n/en.json")).then((response) => response.json()),
     fetch("../docs/reports/2026-10-12-backtest-weeks.csv").then((response) => response.text()),
-    fetch("events.json").then((response) => response.json()),
-    fetch("vendor/flank-map.json").then((response) => response.json()),
-    fetch("news.json").then((response) => response.json()),
-    fetch("official.json").then((response) => response.json()),
-    fetch("country-headlines.json").then((response) => response.json()),
-    fetch("officials.json").then((response) => response.json()),
-    fetch("inside-russia.json").then((response) => response.json()),
-    fetch("inside-main.json").then((response) => response.json()),
-    fetch("now-view.json").then((response) => response.json()),
-    fetch("now-headlines.json").then((response) => response.json()),
+    fetch(asset("events.json")).then((response) => response.json()),
+    fetch(asset("vendor/flank-map.json")).then((response) => response.json()),
+    fetch(asset("news.json")).then((response) => response.json()),
+    fetch(asset("official.json")).then((response) => response.json()),
+    fetch(asset("country-headlines.json")).then((response) => response.json()),
+    fetch(asset("officials.json")).then((response) => response.json()),
+    fetch(asset("inside-russia.json")).then((response) => response.json()),
+    fetch(asset("inside-main.json")).then((response) => response.json()),
+    fetch(asset("now-view.json")).then((response) => response.json()),
+    fetch(asset("now-headlines.json")).then((response) => response.json()),
   ]);
   state.text = text;
   state.rows = parseCsv(csv).filter((row) => row.week >= START);

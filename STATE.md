@@ -1,6 +1,6 @@
 # State
 
-Updated: 15 November 2026. Product stop: a4f246f. Now-tab wiring sections 2 and 3 are committed locally. Push of those commits may still be pending.
+Updated: 15 November 2026. The page server on 127.0.0.1:8080 serves this repo. The Now banner is the snapshot line. Cache-busting is ?v= plus a commit hash.
 
 ## Where we stopped
 
@@ -16,7 +16,7 @@ Test B, corrected rules, post-hoc, not pre-registered: not one result. The Belar
 
 ## Next step
 
-None. The Now-tab wiring assignment is done through the self-test and the 30-second video. Do not open the next task until a new written assignment says so.
+None. The page stabilize assignment is done. Do not open the next task until a new written assignment says so.
 
 ## Open decisions
 
