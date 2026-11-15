@@ -8,6 +8,6 @@ One process was listening on 8080: python3 pid 14323, started 15 November 17:09,
 
 ## What changed
 
-The old server was stopped and a new one was started on 127.0.0.1:8080 from the same repo. JS, JSON, and CSS URLs used by the main page now end with ?v= followed by a commit hash.
+The old server was stopped and a new one was started on 127.0.0.1:8080 from the same repo. JS, JSON, and CSS URLs used by the main page now end with ?v=633c44d.
 
 The click test is tests/click_selftest.py. It uses Playwright with the installed Chrome, because the Playwright headless-shell browser is not on this machine. It passed all nine steps. Screenshots (b), (c), (d), and (f) are in /home/supra/Desktop/efm-check/.

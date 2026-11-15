@@ -1,5 +1,5 @@
 const START = "2021-01-04";
-const ASSET_V = "29b1054";
+const ASSET_V = "633c44d";
 
 function asset(path) {
   return path + (path.includes("?") ? "&" : "?") + "v=" + ASSET_V;
