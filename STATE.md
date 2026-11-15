@@ -4,7 +4,7 @@ Updated: 15 November 2026. The page uses country tabs and a fixed briefing. Defa
 
 ## Where we stopped
 
-The last assignment closed on 27 October 2026. The Now window is frozen at 3 August 2026 through 25 October 2026. The Now download finished and is disabled. It will not start on boot.
+15 November 2026, evening. The page uses six tabs: Finland, Estonia, Latvia, Lithuania, Poland, Russia. One tab is always selected. The default is Lithuania. The right column is a fixed briefing. Pushed through 19d8e16. Refresh Brave so it loads ?v=6a27978. Screenshots are in ~/Desktop/efm-check2/. Continue tomorrow from a new written assignment. Do not start the next task on your own.
 
 The Now log has 11 incidents: Finland 3 drones, Estonia 1 sabotage, Latvia 3 drones, Lithuania 2 drones and 1 border, Poland 1 drone. GPS jamming and new cable or pipeline damage are empty. No dated 2026 Vilnius balloon closure was found.
 
