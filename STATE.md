@@ -1,6 +1,6 @@
 # State
 
-Updated: 14 November 2026. Product stop: a4f246f. These two files are the session notes added after that commit. Not pushed.
+Updated: 15 November 2026. Product stop: a4f246f. Session notes are 43ae739. Section 1 of the Now-tab wiring task is diagnosed, not yet filling the tab.
 
 ## Where we stopped
 
@@ -16,7 +16,7 @@ Test B, corrected rules, post-hoc, not pre-registered: not one result. The Belar
 
 ## Next step
 
-Fix README milestone table to match reports (L1).
+Section 2 of docs/tasks/2026-11-15-now-tab-wiring.md: store English lines for the top 5 relevant Russian Now headlines per country per week, then the regional-media and incident wiring. No API calls. Diagnosis is docs/reports/2026-11-15-now-tab-diagnose.md.
 
 ## Open decisions
 
