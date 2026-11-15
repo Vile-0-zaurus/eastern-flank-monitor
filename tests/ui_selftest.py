@@ -764,7 +764,9 @@ async def run() -> int:
                 });
                 document.querySelectorAll('#officials-west .story').forEach((story) => {
                   const text = storyText(story);
-                  if (!hasNato(text) && !westSpeaker.test(text)) bad.push('week ' + i + ' Western column speaker: ' + text.replace(/\s+/g, ' ').trim().slice(0, 90));
+                  if (text.includes("CDU leader") || text.includes("NATO's biggest fiasco")) bad.push("off-topic CDU Afghanistan item");
+                  if (/afghanistan/i.test(text) && !/finland|estonia|latvia|lithuania|poland|baltic|belarus|kaliningrad/i.test(text)) bad.push("week " + i + " Afghanistan item in western column");
+                  if (!hasNato(text) && !westSpeaker.test(text)) bad.push("week " + i + " Western column speaker: " + text.replace(/\s+/g, " ").trim().slice(0, 90));
                   if (russianOffice.test(text) || (/(^|[^A-Za-z])senator([^A-Za-z]|$)/i.test(text) && !/(us|u\.s\.|american|french|dutch|german|british)\s+senators?/i.test(text))) bad.push('week ' + i + ' Russian speaker in western column');
                 });
                 if (i === 0 && document.getElementById('drawer').textContent.includes('Assange')) bad.push('Assange item was not dropped');

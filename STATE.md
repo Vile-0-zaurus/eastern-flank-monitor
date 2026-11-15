@@ -1,6 +1,6 @@
 # State
 
-Updated: 15 November 2026. Product stop: a4f246f. Session notes are 43ae739. Section 1 of the Now-tab wiring task is diagnosed, not yet filling the tab.
+Updated: 15 November 2026. Product stop: a4f246f. Now-tab wiring sections 2 and 3 are committed locally. Push of those commits may still be pending.
 
 ## Where we stopped
 
@@ -16,7 +16,7 @@ Test B, corrected rules, post-hoc, not pre-registered: not one result. The Belar
 
 ## Next step
 
-Section 2 of docs/tasks/2026-11-15-now-tab-wiring.md: store English lines for the top 5 relevant Russian Now headlines per country per week, then the regional-media and incident wiring. No API calls. Diagnosis is docs/reports/2026-11-15-now-tab-diagnose.md.
+None. The Now-tab wiring assignment is done through the self-test and the 30-second video. Do not open the next task until a new written assignment says so.
 
 ## Open decisions
 

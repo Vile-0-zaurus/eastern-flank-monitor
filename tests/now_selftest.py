@@ -151,6 +151,34 @@ async def run(record: bool) -> int:
             tension = await cdp.js("document.getElementById('region-state').textContent")
             if tension and any(word in tension for word in ("Calm", "Tense", "Elevated", "Serious", "Critical")):
                 problems.append(f"tension word on the Now strip: {tension}")
+            banner = await cdp.js("document.getElementById('banner').textContent")
+            if banner != "Snapshot: 3 Aug – 25 Oct 2026 · attention and incidents only.":
+                problems.append(f"banner: {banner!r}")
+            body = await cdp.js("document.body.innerText")
+            if "241 weeks" in (body or "") or "not in a separate file" in (body or "") or "listed under the map" in (body or ""):
+                problems.append("replay or placeholder text in Now mode")
+            coverage = await cdp.js("""(() => {
+              const bad = [];
+              const countries = ["FI", "EE", "LV", "LT", "PL"];
+              countries.forEach((code) => {
+                const chip = (((state.nowPack.attention || {})[state.nowPack.weeks[state.index]] || {})[code]) || 0;
+                document.getElementById("country-" + code).click();
+                const text = document.getElementById("country-news-list").innerText;
+                const shown = document.querySelectorAll("#country-news-list .story").length;
+                if (chip > 0 && shown < 1) bad.push(code + " chip " + chip + " shows " + shown);
+                if (text.includes("2021") || text.includes("2022-02")) bad.push(code + " replay date");
+              });
+              document.getElementById("show-all").click();
+              state.index = state.nowPack.weeks.length - 1;
+              renderWeek();
+              const dots = document.querySelectorAll("#flank-map .incident-dot").length;
+              const lines = document.querySelectorAll("#region-events .incident-line").length;
+              if (dots !== (state.nowPack.incidents || []).length) bad.push("map dots " + dots);
+              if (lines < 1) bad.push("dossier incidents " + lines);
+              return bad;
+            })()""")
+            if coverage:
+                problems.append("now coverage: " + ", ".join(coverage))
             scroll = await cdp.js("""(() => {
               const page = document.documentElement.scrollHeight - document.documentElement.clientHeight;
               const wide = document.documentElement.scrollWidth - document.documentElement.clientWidth;
@@ -183,7 +211,7 @@ async def run(record: bool) -> int:
                     shot = await cdp.call("Page.captureScreenshot", format="png")
                     import base64
                     (frames / f"f{index:02d}.png").write_bytes(base64.b64decode(shot["data"]))
-                dest = Path.home() / "Desktop" / "efm-now.mp4"
+                dest = Path.home() / "Desktop" / "efm-now2.mp4"
                 subprocess.run(
                     ["ffmpeg", "-y", "-framerate", "2", "-i", str(frames / "f%02d.png"),
                      "-vf", "scale=1280:712", "-c:v", "libx264", "-pix_fmt", "yuv420p",

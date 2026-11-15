@@ -177,9 +177,18 @@ function russianSpeaker(text) {
   return false;
 }
 
+function flankTopic(text) {
+  return /finland|finnish|estonia|estonian|latvia|latvian|lithuania|lithuanian|poland|polish|baltic|belarus|kaliningrad|финлянд|эстон|латви|литв|польш|прибалт|беларус|белорус|калининград/i.test(text || "");
+}
+
+function disallowedWesternSpeaker(text) {
+  return /\b(cdu|csu)\b/i.test(text || "") || /german (leader|chancellor)|former italian prime minister/i.test(text || "");
+}
+
 function westernSpeaker(text) {
   const value = text || "";
-  if (/\bnato\b/i.test(value) || /(?<![а-яё])нато(?![а-яё])/i.test(value) || /столтенберг|stoltenberg|north atlantic council/i.test(value)) return true;
+  if (disallowedWesternSpeaker(value)) return false;
+  if (/столтенберг|stoltenberg|north atlantic council|nato secretary/i.test(value)) return true;
   if (/\b(us|u\.s\.|american)\s+senators?\b/i.test(value)) return true;
   if (/biden|байден|blinken|блинкен|psaki|псаки|white house|белый дом|state department|department of state|pentagon|госдеп/i.test(value)) return true;
   if (/european commission|еврокомисс|евросоюз|european council|borrell|боррел/i.test(value)) return true;
@@ -1078,7 +1087,7 @@ function openWhy(code, focus) {
   const official = (state.official[current().week] || []).filter((item) => {
     if (code && item.countries && item.countries.length && !item.countries.includes(code)) return false;
     const story = { title: item.who || "", english: item.summary || "", summary: item.summary || "", who: item.who || "", kind: "official", url: item.url || "" };
-    return showNews(story) && speakerSide(story) === "western";
+    return showNews(story) && speakerSide(story) === "western" && flankTopic(story.title + " " + (story.english || "") + " " + (story.summary || "")) && !disallowedWesternSpeaker(story.title + " " + (story.english || ""));
   });
   let media = code ? countryMedia(code) : [];
   const quiet = !events.length && !official.length && !media.length;
@@ -1477,7 +1486,12 @@ function officialRows(side) {
   const own = ((week[side] || {})[code] || []);
   const other = side === "russian" ? "western" : "russian";
   const moved = ((week[other] || {})[code] || []).filter((item) => speakerSide(item) === side);
-  return dedupeStories(own.concat(moved)).filter((item) => showNews(item) && speakerSide(item) === side).slice(0, 3);
+  return dedupeStories(own.concat(moved)).filter((item) => {
+    if (!showNews(item) || speakerSide(item) !== side) return false;
+    if (side !== "western") return true;
+    const blob = (item.title || "") + " " + (item.english || "") + " " + (item.summary || "");
+    return flankTopic(blob) && !disallowedWesternSpeaker(blob);
+  }).slice(0, 3);
 }
 
 function renderOfficials() {
