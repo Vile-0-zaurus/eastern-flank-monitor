@@ -1,5 +1,11 @@
 const START = "2021-01-04";
-const ASSET_V = "20261122a";
+const ASSET_V = "20261122b";
+
+function t(key) {
+  const pack = state.text || {};
+  const value = pack[key];
+  return value == null || value === "" ? key : value;
+}
 
 function asset(path) {
   return path + (path.includes("?") ? "&" : "?") + "v=" + ASSET_V;
@@ -380,7 +386,7 @@ function appendIncidentLine(list, incident) {
   title.textContent = incidentLabel(incident) + ". " + incident.place + ". " + incident.summary;
   const link = document.createElement("a");
   link.href = incident.source;
-  link.textContent = "Source";
+  link.textContent = t("source");
   item.append(title, link);
   list.appendChild(item);
 }
@@ -411,7 +417,7 @@ function renderNowStrip() {
     region.replaceChildren();
     const label = document.createElement("span");
     label.className = "region-label";
-    label.textContent = "Now";
+    label.textContent = t("mode_now");
     region.append(label);
   }
   const note = document.getElementById("now-label");
@@ -446,7 +452,7 @@ function renderNowStrip() {
   russia.setAttribute("aria-pressed", state.russiaOpen ? "true" : "false");
   const russiaName = document.createElement("span");
   russiaName.className = "country-name";
-  russiaName.textContent = "Russia";
+  russiaName.textContent = t("tab_russia");
   russia.append(russiaName);
   russia.addEventListener("click", () => {
     stop();
@@ -476,16 +482,16 @@ function storedStoryCount(code) {
 }
 
 function tabLabel(code) {
-  const name = code === "RU" ? "Russia" : state.text["country_" + code];
-  if (code === "RU") return "Russia";
+  const name = code === "RU" ? t("tab_russia") : state.text["country_" + code];
+  if (code === "RU") return t("tab_russia");
   const stories = inNow() ? nowAttention(code).count : storedStoryCount(code);
   const usual = inNow() ? nowAttention(code).usual : null;
   const incidents = inNow()
     ? nowIncidents(code).length
     : activeEvents(current().week).filter((event) => concerns(event, code)).length;
-  const usualText = usual == null ? "" : " (usual " + usual + ")";
-  const incidentText = incidents + " " + (incidents === 1 ? "incident" : "incidents");
-  return name + " · " + stories + " Russian stories" + usualText + " · " + incidentText;
+  const usualText = usual == null ? "" : " (" + fill(t("tab_usual"), { count: usual }) + ")";
+  const incidentText = incidents === 1 ? fill(t("tab_incident"), { count: incidents }) : fill(t("tab_incidents"), { count: incidents });
+  return name + " · " + fill(t("tab_stories"), { count: stories }) + usualText + " · " + incidentText;
 }
 
 function renderStrip() {
@@ -537,13 +543,13 @@ function renderRegionOverview() {
   if (!open) return;
   if (inNow()) {
     const line = document.getElementById("region-overview-line");
-    if (line) line.textContent = "Incidents first. " + (state.nowPack.label || "");
+    if (line) line.textContent = t("incidents_first") + " " + (state.nowPack.label || "");
     const eventsHost = document.getElementById("region-events");
     eventsHost.innerHTML = "";
     appendIncidentBlock(eventsHost, "Incidents this week", nowIncidents());
     appendIncidentBlock(eventsHost, "Recent incidents", recentIncidents());
     if (!eventsHost.childElementCount) {
-      eventsHost.textContent = "Quiet week.";
+      eventsHost.textContent = t("quiet_week");
     }
     const newsHost = document.getElementById("region-news");
     if (newsHost) {
@@ -552,7 +558,7 @@ function renderRegionOverview() {
       if (regional.length) {
         const heading = document.createElement("h3");
         heading.className = "section-label";
-        heading.textContent = "Regional media (Yle, BBC)";
+        heading.textContent = t("regional_yle");
         const list = document.createElement("ul");
         regional.forEach((story) => appendStory(list, story));
         newsHost.append(heading, list);
@@ -566,7 +572,7 @@ function renderRegionOverview() {
   eventsHost.innerHTML = "";
   const events = activeEvents(current().week);
   if (!events.length) {
-    eventsHost.textContent = "No events reported in our sources.";
+    eventsHost.textContent = t("no_events");
   } else {
     const list = document.createElement("ul");
     events.forEach((event) => appendEventLine(list, event));
@@ -577,7 +583,7 @@ function renderRegionOverview() {
   const items = dedupeStories(weekNews());
   if (!items.length) {
     const empty = document.createElement("p");
-    empty.textContent = "No news this week.";
+    empty.textContent = t("no_news_week");
     newsHost.appendChild(empty);
     return;
   }
@@ -656,7 +662,7 @@ function renderCountryNews() {
   const name = state.text["country_" + code];
   section.hidden = false;
   section.classList.add("picked");
-  document.getElementById("country-news-title").textContent = "Russian media about " + name;
+  document.getElementById("country-news-title").textContent = fill(t("russian_media_about"), { name: name });
   const host = document.getElementById("country-news-list");
   host.innerHTML = "";
   let items = countryMedia(code);
@@ -664,7 +670,7 @@ function renderCountryNews() {
   if (!items.length) {
     const empty = document.createElement("p");
     empty.className = "empty-line";
-    empty.textContent = "Nothing this week.";
+    empty.textContent = t("nothing_week");
     host.append(empty);
     if (!inNow()) return;
   } else {
@@ -695,7 +701,7 @@ function emptyLine(host) {
   host.innerHTML = "";
   const line = document.createElement("p");
   line.className = "empty-line";
-  line.textContent = "Nothing this week.";
+  line.textContent = t("nothing_week");
   host.append(line);
 }
 
@@ -732,7 +738,7 @@ function bottomSentence(code) {
 function renderBriefing() {
   const code = state.focus || "LT";
   const title = document.getElementById("briefing-title");
-  if (title) title.textContent = code === "RU" ? "Russia" : (state.text["country_" + code] || code);
+  if (title) title.textContent = code === "RU" ? t("tab_russia") : (state.text["country_" + code] || code);
   const bottom = document.getElementById("bottom-line-text");
   if (bottom) bottom.textContent = bottomSentence(code);
   if (code === "RU") return;
@@ -762,7 +768,7 @@ function renderBriefing() {
     if (stories.length) {
       const label = document.createElement("h3");
       label.className = "section-label";
-      label.textContent = "Regional media";
+      label.textContent = t("regional_media");
       const list = document.createElement("ul");
       stories.forEach((story) => appendStory(list, story));
       happened.append(label, list);
@@ -823,7 +829,7 @@ function showEvent(event, place) {
   if (place.area) {
     const area = document.createElement("p");
     area.className = "note";
-    area.textContent = "The report does not name a town. The dot marks that area.";
+    area.textContent = t("area_note");
     box.append(title, when, note, area);
   } else {
     box.append(title, when, note);
@@ -863,13 +869,13 @@ function renderLegend() {
     const item = document.createElement("span");
     item.className = "legend-item";
     item.dataset.type = type;
-    item.append(iconSvg(icons[type]), document.createTextNode(type[0].toUpperCase() + type.slice(1)));
+    item.append(iconSvg(icons[type]), document.createTextNode(t("legend_" + type)));
     host.append(item);
   });
-  ["Confirmed", "Reported"].forEach((label) => {
+  ["confirmed", "reported"].forEach((label) => {
     const item = document.createElement("span");
-    item.className = "legend-item legend-" + label.toLowerCase();
-    item.textContent = label;
+    item.className = "legend-item legend-" + label;
+    item.textContent = t("legend_" + label);
     host.append(item);
   });
 }
@@ -961,7 +967,7 @@ function renderMap() {
   crimeaLabel.setAttribute("x", crimea[0].toFixed(1));
   crimeaLabel.setAttribute("y", crimea[1].toFixed(1));
   crimeaLabel.setAttribute("class", "map-label");
-  crimeaLabel.textContent = "Crimea";
+  crimeaLabel.textContent = t("crimea");
   svg.appendChild(crimeaLabel);
   activeEvents(week).forEach((event) => {
     event.places.forEach((place) => {
@@ -1270,7 +1276,7 @@ function renderMoodCard(article, item) {
   meta.textContent = "Poll date: " + item.poll_date + ", published " + dateWords(item.published) + ". " + item.pollster + ". " + item.caution;
   const link = document.createElement("a");
   link.href = item.url;
-  link.textContent = "Source";
+  link.textContent = t("source");
   const details = document.createElement("details");
   details.className = "full-poll";
   const summary = document.createElement("summary");
@@ -1279,6 +1285,17 @@ function renderMoodCard(article, item) {
   full.textContent = item.full || "";
   details.append(summary, full);
   article.append(sentence, axis, chart, meta, link, details);
+}
+
+function cardTitle(title) {
+  const map = {
+    "Defence Ministry": "card_mod",
+    "Defence contractors": "card_plant",
+    "Conscription": "card_conscription",
+    "Ruble": "card_ruble",
+    "Key rate": "card_key",
+  };
+  return map[title] ? t(map[title]) : title;
 }
 
 function cardStory(item) {
@@ -1357,7 +1374,7 @@ function renderQuiet(week) {
   text.textContent = "Last notable: " + last.weeks + " weeks ago — " + last.line + " ";
   const link = document.createElement("a");
   link.href = last.url;
-  link.textContent = "Source";
+  link.textContent = t("source");
   quiet.append(text, link);
 }
 
@@ -1379,7 +1396,7 @@ function renderNowQuiet(quiet, week) {
   text.textContent = "Last notable: " + weeks + (weeks === 1 ? " week ago — " : " weeks ago — ") + last.place + ". " + last.summary + " ";
   const link = document.createElement("a");
   link.href = last.source;
-  link.textContent = "Source";
+  link.textContent = t("source");
   quiet.append(text, link);
 }
 
@@ -1444,7 +1461,7 @@ function renderNowNews() {
   const items = (state.nowPack.news || []).filter((story) => story.week === week);
   if (!items.length) {
     const empty = document.createElement("p");
-    empty.textContent = "No English Yle or BBC stories naming a flank country this week.";
+    empty.textContent = t("no_yle");
     host.appendChild(empty);
     return;
   }
@@ -1475,7 +1492,7 @@ function renderInsideMain() {
     const article = document.createElement("article");
     article.className = "russia-card";
     const title = document.createElement("h3");
-    title.textContent = item.title;
+    title.textContent = cardTitle(item.title);
     const story = cardStory(item);
     const line = document.createElement("p");
     line.className = "russia-line";
@@ -1512,7 +1529,7 @@ function renderInsideMain() {
     if (item.url) {
       const link = document.createElement("a");
       link.href = item.url;
-      link.textContent = "Source";
+      link.textContent = t("source");
       article.append(link);
     }
     host.append(article);
@@ -1652,7 +1669,7 @@ function renderOfficials() {
     if (!rows.length) {
       const empty = document.createElement("p");
       empty.className = "empty-line";
-      empty.textContent = "Nothing this week.";
+      empty.textContent = t("nothing_week");
       host.append(empty);
       return;
     }
@@ -1666,7 +1683,7 @@ function setToggle() {
   const button = document.getElementById("play");
   if (!button) return;
   const playing = Boolean(state.timer);
-  button.textContent = playing ? "Pause" : "Play";
+  button.textContent = playing ? t("pause") : t("play");
   button.setAttribute("aria-pressed", playing ? "true" : "false");
 }
 
@@ -1711,7 +1728,7 @@ function togglePlayback() {
 
 async function main() {
   setupDoors();
-  const [text, csv, events, map, news, official, countryHeadlines, officials, inside, insideMain, nowPack, nowHeadlines, replayCounts, appYaml] = await Promise.all([
+  const [text, csv, events, map, news, official, countryHeadlines, officials, inside, insideMain, nowPack, nowHeadlines, replayCounts, appYaml, fi, et, lv, lt, pl] = await Promise.all([
     fetch(asset("i18n/en.json")).then((response) => response.json()),
     fetch("../docs/reports/2026-10-12-backtest-weeks.csv").then((response) => response.text()),
     fetch(asset("events.json")).then((response) => response.json()),
@@ -1726,8 +1743,22 @@ async function main() {
     fetch(asset("now-headlines.json")).then((response) => response.json()),
     fetch(asset("replay-counts.json")).then((response) => response.ok ? response.json() : { weeks: {} }),
     fetch("../config/app.yaml").then((response) => response.ok ? response.text() : ""),
+    fetch(asset("i18n/fi.json")).then((response) => response.json()),
+    fetch(asset("i18n/et.json")).then((response) => response.json()),
+    fetch(asset("i18n/lv.json")).then((response) => response.json()),
+    fetch(asset("i18n/lt.json")).then((response) => response.json()),
+    fetch(asset("i18n/pl.json")).then((response) => response.json()),
   ]);
   state.text = text;
+  state.locales = { en: text, fi: fi, et: et, lv: lv, lt: lt, pl: pl };
+  let saved = "en";
+  try {
+    saved = localStorage.getItem("efm-lang") || "en";
+  } catch (err) {
+    saved = "en";
+  }
+  state.lang = state.locales[saved] ? saved : "en";
+  state.text = state.locales[state.lang];
   state.rows = parseCsv(csv).filter((row) => row.week >= START);
   state.events = events;
   state.map = map;
@@ -1743,9 +1774,9 @@ async function main() {
   state.countryHeadlines = countryHeadlines;
   document.title = text.title;
   document.getElementById("title").textContent = text.title;
-  document.getElementById("banner").textContent = "Prototype — replaying 2021–22. Not live.";
-  document.getElementById("play").textContent = text.play;
-  document.getElementById("disclaimer-short").textContent = "Not an official warning service.";
+  document.getElementById("banner").textContent = t("banner_replay");
+  document.getElementById("play").textContent = t("play");
+  document.getElementById("disclaimer-short").textContent = t("footer_warning");
   const aboutOpen = document.getElementById("about-open");
   const aboutClose = document.getElementById("about-close");
   const aboutPanel = document.getElementById("about-panel");
@@ -1787,7 +1818,12 @@ async function main() {
   if (showAll) showAll.addEventListener("click", () => { stop(); selectTab("LT"); });
   document.getElementById("mode-replay").addEventListener("click", () => setMode("replay"));
   document.getElementById("mode-now").addEventListener("click", () => setMode("now"));
+  document.querySelectorAll("#lang-switch [data-lang]").forEach((button) => {
+    button.addEventListener("click", () => setLanguage(button.dataset.lang));
+  });
+  applyChrome();
   if (params.get("mode") === "now") setMode("now");
+  else renderWeek();
 }
 
 function setMode(mode) {
@@ -1802,9 +1838,42 @@ function setMode(mode) {
   const note = document.getElementById("now-label");
   if (note) note.hidden = mode !== "now";
   document.getElementById("banner").textContent = mode === "now"
-    ? "Snapshot: 3 Aug – 25 Oct 2026 · attention and incidents only."
-    : "Prototype — replaying 2021–22. Not live.";
+    ? t("banner_now")
+    : t("banner_replay");
   renderWeek();
+}
+
+function applyChrome() {
+  document.documentElement.lang = state.lang || "en";
+  document.querySelectorAll("[data-i18n]").forEach((node) => {
+    const key = node.getAttribute("data-i18n");
+    if (key) node.textContent = t(key);
+  });
+  const note = document.getElementById("lang-note");
+  if (note) {
+    const foreign = state.lang && state.lang !== "en";
+    note.hidden = !foreign;
+    note.textContent = foreign ? t("translation_note") : "";
+  }
+  document.querySelectorAll("#lang-switch [data-lang]").forEach((button) => {
+    button.setAttribute("aria-pressed", button.dataset.lang === (state.lang || "en") ? "true" : "false");
+  });
+  document.title = t("title");
+  const heading = document.getElementById("title");
+  if (heading) heading.textContent = t("title");
+}
+
+function setLanguage(code) {
+  const next = state.locales && state.locales[code] ? code : "en";
+  state.lang = next;
+  state.text = state.locales[next];
+  try {
+    localStorage.setItem("efm-lang", next);
+  } catch (err) {
+    /* storage can be blocked; the choice still applies to this view */
+  }
+  applyChrome();
+  if (state.rows) renderWeek();
 }
 
 function parseAppYaml(text) {
