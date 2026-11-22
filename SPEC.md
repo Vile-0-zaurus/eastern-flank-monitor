@@ -5,6 +5,14 @@
 
 ---
 
+## Standing rules
+
+These rules stay in force on every task and every session. Do not drop one because a later task does not repeat it.
+
+APPROVALS: If a command waits for approval and times out, do not stop the task and do not retry in a loop. Skip that step, continue with everything that doesn't depend on it, and end the report with a 'Needs your approval' list: exact command + one-line plain-language explanation of what it does + why it's needed.
+
+---
+
 ## 1. Purpose
 
 An independent early-warning app that tracks Russian military, political and grey-zone activity directed toward **Finland, Estonia, Latvia, Lithuania and Poland**, and turns it into a calm, honest, easy-to-understand risk picture.
