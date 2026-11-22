@@ -4,7 +4,7 @@ Updated: 22 November 2026. Part A is in this change. The page uses country tabs 
 
 ## Where we stopped
 
-22 November 2026. Polish round, section 1 item 1 is in. Article dates use a locale date, not the week-of label. English briefing sentences keep English country names. Waiting for OK on run ui-translate-1 before any model call. Sections 2 to 4 are not started.
+22 November 2026. ui-translate-1 finished for Lithuanian only. Real cost $0.087150 from API usage tokens. The other four languages were not called. Waiting for a new cap before those. Sections 2 to 4 are not started.
 
 15 November 2026, evening. The page uses six tabs: Finland, Estonia, Latvia, Lithuania, Poland, Russia. One tab is always selected. The default is Lithuania. The right column is a fixed briefing. Pushed through 19d8e16. Refresh Brave so it loads ?v=6a27978. Screenshots are in ~/Desktop/efm-check2/.
 

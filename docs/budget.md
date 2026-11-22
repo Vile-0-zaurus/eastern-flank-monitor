@@ -91,3 +91,19 @@ Recorded `cost_in_usd_ticks` for run id ukraine-100-finish: 35,448,122,000 ticks
 
 The recorded ticks are $0.0048122 above the console difference. That gap was not closed by inventing tokens. llm.yaml hard_stop_usd was not raised.
 
+## ui-translate-1
+
+Date: 2026-11-22. Lithuanian only. Model claude-sonnet-5-5. No extended thinking: thinking type between_tools, effort low. thinking_tokens was 0 on every batch. Cache tokens were 0.
+
+Hard cap: $0.15 real. The runner did not start a batch whose own token ceiling would cross that cap.
+
+API usage fields, six batches:
+
+1. Input tokens: 5,600.
+2. Output tokens: 7,595.
+3. Cache read and cache write: 0.
+4. Thinking tokens: 0.
+
+Price from config/llm.yaml: $2 per million input, $10 per million output. Real cost: $0.087150. The visible estimate for one language was about $0.05. The real cost is about 1.7 times that estimate. It does not match $0.05. It is under the $0.15 cap. The other four languages were not called.
+
+Anthropic does not return cost ticks on this endpoint. The dollar figure is the usage tokens times the published rates, not a console reading. The console balance was not visible.
