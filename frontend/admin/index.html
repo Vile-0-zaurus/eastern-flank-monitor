@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Incident drafts</title>
+  <style>
+    body { font-family: system-ui, sans-serif; margin: 16px; max-width: 40rem; }
+    article { border: 1px solid #d6d3d1; padding: 12px; margin: 0 0 12px; }
+    button { margin-right: 8px; min-height: 32px; }
+    p { margin: 0 0 8px; }
+  </style>
+</head>
+<body>
+  <h1>Draft incidents</h1>
+  <p>Local only. A draft stays off the site until you approve it. Aim for 20 minutes a week.</p>
+  <div id="list"></div>
+  <script>
+    function row(item) {
+      const card = document.createElement("article");
+      const text = document.createElement("p");
+      text.textContent = item.source_date + " — " + item.summary;
+      const link = document.createElement("p");
+      const a = document.createElement("a");
+      a.href = item.source;
+      a.textContent = item.source;
+      link.append(a);
+      const note = document.createElement("input");
+      note.placeholder = "Note";
+      card.append(text, link, note);
+      ["approve", "reject", "reported"].forEach((action) => {
+        const button = document.createElement("button");
+        button.type = "button";
+        button.textContent = action === "reported" ? "Reported-only" : action[0].toUpperCase() + action.slice(1);
+        button.addEventListener("click", () => {
+          fetch("/decide", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ id: item.id, action: action, note: note.value })
+          }).then(() => load());
+        });
+        card.append(button);
+      });
+      return card;
+    }
+    function load() {
+      fetch("/drafts").then((response) => response.json()).then((items) => {
+        const host = document.getElementById("list");
+        host.replaceChildren();
+        items.filter((item) => item.status === "draft").forEach((item) => host.append(row(item)));
+      });
+    }
+    load();
+  </script>
+</body>
+</html>

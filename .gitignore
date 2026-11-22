@@ -1,4 +1,5 @@
 data/
+site/
 validation/backups/
 .venv/
 .env

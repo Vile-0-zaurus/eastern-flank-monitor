@@ -1,5 +1,7 @@
 # Off means no API calls. After the backtest this stays off.
 # The test phase runs only within the remaining credits, then demo mode.
 live_monitoring: off
+# Required when live_monitoring is on. On this date the job stops and the page freezes.
+live_end_date: ""
 # Unused while live_monitoring is off. The page does not show the countdown.
 next_update_time: "06:00"

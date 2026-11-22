@@ -1,0 +1,10 @@
+[Unit]
+Description=Eastern flank live daily job at 06:20
+
+[Timer]
+OnCalendar=*-*-* 06:20:00
+Persistent=true
+Unit=efm-live.service
+
+[Install]
+WantedBy=timers.target

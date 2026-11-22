@@ -1,0 +1,28 @@
+name: Pages deploy
+
+on:
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Build the static site
+        run: python -c "from pathlib import Path; import sys; sys.path.insert(0, 'scripts/live'); from build_site import build_site; build_site(Path('frontend'), Path('site'))"
+      - name: Refuse to publish the admin page
+        run: test ! -d site/admin
+      - name: Upload the site artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+      - name: Deploy
+        uses: actions/deploy-pages@v4

@@ -1,0 +1,8 @@
+[Unit]
+Description=Eastern flank live daily job
+After=network-online.target
+
+[Service]
+Type=oneshot
+Environment=EFM_ROOT=%h/Projects/eastern-flank-monitor
+ExecStart=/bin/sh -c 'cd "$EFM_ROOT" && exec "$EFM_ROOT/.venv/bin/python" -u "$EFM_ROOT/scripts/live/daily_run.py"'

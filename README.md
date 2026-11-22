@@ -109,9 +109,13 @@ Details and dates are in `docs/sources.md`.
 4. Open `http://127.0.0.1:8080/frontend/`
 5. Demo mode does not need an API key. Do not start a paid run, or the finished 2021–22 download, from this page.
 
-The daily collector unit does not use a hard-coded home path. See `DEPLOY.md` for `EFM_ROOT`.
+The daily collector unit does not use a hard-coded home path. See [Deploy](DEPLOY.md) for `EFM_ROOT`, the go-live checklist, and how to stop early.
 
 Self-tests live in `tests/`. They use a local browser. They make no API calls.
+
+## Deploy
+
+The go-live checklist, the server timer, the monthly cap, and how to stop early are in [DEPLOY.md](DEPLOY.md). Live monitoring is off. The Pages workflow is manual and has not been run.
 
 ## Repo map
 

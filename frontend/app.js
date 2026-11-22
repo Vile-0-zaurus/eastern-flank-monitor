@@ -2736,8 +2736,8 @@ function applyCountdown() {
   const node = document.getElementById("next-update");
   if (!node || typeof countdownState !== "function") return;
   const result = countdownState(state.appConfig || {}, new Date());
-  node.hidden = !result.visible;
-  node.textContent = result.visible ? result.text : "";
+  node.hidden = !result.visible && !result.ended;
+  node.textContent = result.ended ? result.text : (result.visible ? result.text : "");
 }
 
 main();

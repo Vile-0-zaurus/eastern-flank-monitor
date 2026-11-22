@@ -11,3 +11,5 @@ calibration_factor: 3.2
 # Does not raise llm.yaml hard_stop. Anthropic does not return cost ticks.
 approved_run: ui-translate-2
 approved_cap_usd: 0.45
+# Live classification cap. 0 means no classification call can start.
+monthly_cap_usd: 0
