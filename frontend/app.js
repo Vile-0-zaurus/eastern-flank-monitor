@@ -2076,14 +2076,17 @@ function renderMoodCard(article, item) {
   const link = document.createElement("a");
   link.href = item.url;
   link.textContent = t("source");
-  const details = document.createElement("details");
-  details.className = "full-poll";
-  const summary = document.createElement("summary");
-  summary.textContent = "Full poll";
+  const toggle = document.createElement("button");
+  toggle.type = "button";
+  toggle.className = "full-poll";
+  toggle.textContent = "Full poll";
   const full = document.createElement("p");
+  full.hidden = true;
   full.textContent = item.full || "";
-  details.append(summary, full);
-  article.append(sentence, axis, chart, meta, link, details);
+  toggle.addEventListener("click", () => {
+    full.hidden = !full.hidden;
+  });
+  article.append(sentence, axis, chart, meta, link, toggle, full);
 }
 
 function cardTitle(title) {
@@ -2233,13 +2236,8 @@ function renderBackground(week) {
   const when = document.createElement("p");
   when.className = "note";
   when.textContent = "Poll date: " + (mood.poll_date || "") + ", published " + dateWords(mood.published) + ".";
-  const details = document.createElement("details");
-  details.className = "full-poll";
-  const summary = document.createElement("summary");
-  summary.textContent = "Full poll";
   const chartHost = document.createElement("div");
-  details.append(summary, chartHost);
-  box.append(label, line, when, details);
+  box.append(label, line, when, chartHost);
   renderMoodCard(chartHost, mood);
 }
 
@@ -2346,7 +2344,7 @@ function renderInsideMain() {
     }
     host.append(article);
   });
-  if (!inNow()) renderBackground(week);
+  renderBackground(week);
   renderTicks();
 }
 

@@ -1,8 +1,10 @@
 # State
 
-Updated: 22 November 2026. Polish round 2, part B is committed and pushed.
+Updated: 22 November 2026. Polish round 3 is committed and pushed.
 
 ## Where we stopped
+
+22 November 2026. Polish round 3 is done. Map icons have no native tooltip. The hover card sits beside the icon. Confirmed icons are solid white on a dark circle. Reported icons are an amber dashed outline. Country facts with a dated source are on the card. Capital-to-border distance is left out. Finland has no allied-troops line. Poland has no conscription line. The Now background poll is the 16 June 2026 Levada release. Replay keeps the 2021 poll. Finland has no overall share on that page. Checks are in tests/round3_selftest.py. Screenshots are in ~/Desktop/efm-check6/. No API calls.
 
 22 November 2026. Polish round 2, part B is done. A briefing item is not repeated. Official items keep a side label. The Russia tab keeps one display-only line. The technical notes are under About, Method. The Russia fact card lists only facts with a dated source. Armed forces size, Uralvagonzavod, and Kalashnikov Concern are left out because no dated page was opened. Checks are in tests/russia_selftest.py and tests/briefing_selftest.py. Screenshots are in ~/Desktop/efm-check5/. No API calls.
 
@@ -26,7 +28,7 @@ Test B, corrected rules, post-hoc, not pre-registered: not one result. The Belar
 
 ## Next step
 
-None until a new written assignment. Polish round 2, part B is finished.
+None until a new written assignment. Polish round 3 is finished.
 
 ## Open decisions
 
