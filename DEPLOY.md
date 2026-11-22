@@ -42,6 +42,10 @@ Do these in order. Stop if a step is unclear.
 6. Each week, open `http://127.0.0.1:8765` after `python3 scripts/live/admin_server.py`. Approve, reject, or mark reported-only. Add a note. A draft never appears on the site. Aim for 20 minutes.
 7. To stop early: set `live_monitoring` back to `off`, or set `live_end_date` to today, then `systemctl --user disable --now efm-live.timer`.
 
+## TASS supplement
+
+GDELT in the Now file almost stops carrying TASS after 16 September 2026. The count is in `docs/sources.md`. When live monitoring is on, `scripts/live/daily_run.py` reads the collector's already saved `tass-ru.xml.gz` and `tass-en.xml.gz` for that day. It does not fetch TASS itself. While live monitoring is off, those files are not added. The collector timers are still disabled, so a live day has a supplement only if a collector run has already saved that day.
+
 ## Costs already recorded
 
 From `docs/budget.md`, not a live balance. xAI console readings: $0.72 then $3.54, total $4.26. Anthropic token-rate figures: $0.087150 then $0.342260, total $0.43. Recorded total: $4.69.

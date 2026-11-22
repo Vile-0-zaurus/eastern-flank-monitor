@@ -182,3 +182,14 @@ The latest reachable "friends and enemies" release on or before 25 October 2026 
 Printed unfriendly shares: Germany 51%, United States 50%, Ukraine 48%, Britain 44%, Poland 33%, Latvia 29%, Lithuania 28%, Estonia 15%. Finland had no overall share on that page. A 55-and-over split mentioned Finland at 12%. That split is not stored as the country result.
 
 Now uses this poll. Replay keeps the 15 June 2021 release. No newer friends-and-enemies page between 16 June 2026 and 25 October 2026 was found.
+
+## TASS in the Now GDELT file
+
+Read-only count on 22 November 2026 from `data/now/gkg-now.sqlite`, table `daily_totals`. Window 3 August through 25 October 2026. Both streams were present in October (2,400 done files each). This is not a missing-file gap.
+
+1. tass.com: 0 rows in the whole stored file, both streams.
+2. tass.ru, English stream: 0 rows.
+3. tass.ru, translation stream: 21 rows on 28 July 2026, then 1 on 12 August, 1 on 11 September, and 1 on 16 September. After 16 September, 0 through 25 October.
+4. The same October days still have other Russian outlets. ria.ru has 11,242 rows from 1 October through 25 October. TASS did not fade with the rest of the file. It dropped out.
+
+The live job therefore treats saved TASS RSS snapshots as a supplement, and only when live monitoring is on. It does not fetch them itself. The collector writes `data/collect/YYYY-MM-DD/tass-ru.xml.gz` and `tass-en.xml.gz`.

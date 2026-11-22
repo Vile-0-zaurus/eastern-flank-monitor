@@ -16,6 +16,7 @@ from drafts import collect_drafts, decide, published_incidents  # noqa: E402
 from gate import classify_allowed, monitoring_state, rolling_weeks, window_for  # noqa: E402
 sys.path.insert(0, str(ROOT / "scripts"))
 from live.daily_run import stream_name  # noqa: E402
+from storage import row_fate, tally, tass_supplement  # noqa: E402
 
 
 class GateTest(unittest.TestCase):
@@ -76,7 +77,42 @@ class DraftTest(unittest.TestCase):
         self.assertEqual(published_incidents([rejected]), [])
 
 
-class SiteTest(unittest.TestCase):
+class StorageTest(unittest.TestCase):
+    def test_russian_rows_are_not_region_filtered(self):
+        russian = {"tass.ru", "ria.ru"}
+        western = {"bbc.com", "yle.fi"}
+        self.assertEqual(row_fate("tass.ru", russian, western, False), "keep_all")
+        self.assertEqual(row_fate("bbc.com", russian, western, False), "drop")
+        self.assertEqual(row_fate("bbc.com", russian, western, True), "keep_region")
+        counted = tally(
+            [
+                {"domain": "tass.ru", "region": False},
+                {"domain": "ria.ru", "region": True},
+                {"domain": "bbc.com", "region": False},
+                {"domain": "yle.fi", "region": True},
+            ],
+            russian,
+            western,
+        )
+        self.assertEqual(counted["russian_rows"], 2)
+        self.assertEqual(counted["daily_totals"]["tass.ru"], 1)
+        self.assertEqual(counted["western_region_rows"], 1)
+        self.assertEqual(counted["dropped"], 1)
+
+    def test_tass_rss_is_included_only_when_live_is_on(self):
+        import gzip
+        with tempfile.TemporaryDirectory() as tmp:
+            day = Path(tmp)
+            with gzip.open(day / "tass-ru.xml.gz", "wt", encoding="utf-8") as handle:
+                handle.write("<rss><item></item><item></item></rss>")
+            off = tass_supplement(day, False)
+            self.assertFalse(off["included"])
+            self.assertEqual(off["files"], {})
+            on = tass_supplement(day, True)
+            self.assertTrue(on["included"])
+            self.assertEqual(on["files"]["tass.ru"]["items"], 2)
+            self.assertFalse(on["files"]["tass.com"]["present"])
+
     def test_a_translation_file_is_not_the_english_stream(self):
         self.assertEqual(stream_name("https://data.gdeltproject.org/gdeltv2/20261121000000.gkg.csv.zip"), "english")
         self.assertEqual(stream_name("https://data.gdeltproject.org/gdeltv2/20261121000000.translation.gkg.csv.zip"), "translation")

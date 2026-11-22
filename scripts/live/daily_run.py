@@ -20,6 +20,7 @@ sys.path.insert(0, str(ROOT / "scripts" / "live"))
 
 from build_site import build_site  # noqa: E402
 from gate import classify_allowed, monitoring_state, window_for  # noqa: E402
+from storage import load_outlets, row_fate, tass_supplement  # noqa: E402
 
 
 def load_yaml(path: Path) -> dict:
@@ -45,7 +46,14 @@ def stream_name(url: str) -> str:
 
 
 def empty_stream() -> dict:
-    return {"files": 0, "bytes": 0, "kept_rows": 0, "russian_rows": {}, "russian_kept": {}}
+    return {
+        "files": 0,
+        "bytes": 0,
+        "region_rows": 0,
+        "russian_rows_total": 0,
+        "daily_totals": {},
+        "russian_kept_region": {},
+    }
 
 
 def add_counts(target: dict, scanned: dict) -> None:
@@ -104,6 +112,8 @@ def dry_run_day(day: str, max_files: int) -> dict:
         print("listed " + stream + " " + str(sum(1 for item in wanted if item[2] == stream)), flush=True)
     picked = wanted if max_files <= 0 else wanted[:max_files]
     streams = {"english": empty_stream(), "translation": empty_stream()}
+    russian = load_outlets(ROOT / "config" / "outlets.yaml")
+    western = load_outlets(ROOT / "config" / "western-outlets.yaml")
     disk_start = shutil.disk_usage("/").used
     peak_used = disk_start
     largest_zip = 0
@@ -117,8 +127,16 @@ def dry_run_day(day: str, max_files: int) -> dict:
             bucket = streams[stream]
             bucket["files"] += 1
             bucket["bytes"] += nbytes
-            bucket["kept_rows"] += scanned["kept"]
-            add_counts(bucket, scanned)
+            bucket["region_rows"] += scanned["kept"]
+            for domain, count in scanned["outlet_rows"].items():
+                if not count:
+                    continue
+                if row_fate(domain, russian, western, False) == "keep_all":
+                    bucket["russian_rows_total"] += count
+                    bucket["daily_totals"][domain] = bucket["daily_totals"].get(domain, 0) + count
+            for domain, count in scanned["kept_by"].items():
+                if count:
+                    bucket["russian_kept_region"][domain] = bucket["russian_kept_region"].get(domain, 0) + count
             dest.unlink(missing_ok=True)
             if index % 20 == 0 or index == len(picked):
                 print("filtered " + str(index) + "/" + str(len(picked)), flush=True)
@@ -139,6 +157,7 @@ def dry_run_day(day: str, max_files: int) -> dict:
         "largest_zip_bytes": largest_zip,
         "api_calls": 0,
         "zips_kept": 0,
+        "kept_meaning": "russian_rows_total is every Russian-outlet row. region_rows is the old region filter and is not the store rule.",
     }
 
 
@@ -169,6 +188,10 @@ def main() -> int:
     if not state["run"]:
         print(state["message"])
         return 0
+    supplement = tass_supplement(ROOT / "data" / "collect" / today.isoformat(), True)
+    out_dir = ROOT / "data" / "live"
+    out_dir.mkdir(parents=True, exist_ok=True)
+    (out_dir / "tass-supplement.json").write_text(json.dumps(supplement), encoding="utf-8")
     if calls:
         raise SystemExit("classification is wired, but this run does not call an API")
     from drafts import mark_pending
