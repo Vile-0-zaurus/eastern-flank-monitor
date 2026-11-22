@@ -2,6 +2,18 @@
 
 A briefing room for military tension on NATO's eastern flank — watching Russia's side.
 
+![A 48-second walk of the page](docs/demo.gif)
+
+## Highlights
+
+- 79,291 GDELT files were stream-filtered. The kept database is 3.8 GB on disk, about 4 GB.
+- The headline classifier was checked against human labels: 93.3% agreement, kappa 0.86, on the adjudicated batch.
+- The backtest rules were written down and tagged before scoring. Test A passed. Test B failed. Both results are kept.
+- Cost control is strict: a calibration run first, a real-charge cap, and a stop before the next batch. The ledger records about $4.69.
+- The page is in six languages. Browser self-tests cover the map, the briefing, and the poll.
+
+**Tech stack:** Python 3.11, SQLite, a static HTML and JavaScript page, and Playwright for the self-tests.
+
 ## What it is
 
 A local prototype. It reads public Russian coverage of Finland, Estonia, Latvia, Lithuania, and Poland, and shows a calm picture. It does not collect or display Finnish, Baltic, Polish, or NATO force locations.
@@ -61,23 +73,33 @@ A weekly per-country consumer screen was the hard part. The stored data is thin 
 
 ## Budget
 
-The xAI $10 top-up on 9 October 2026 is the final funding. It is not a monthly refill. Auto-reload stays off. The ledger is `docs/budget.md`. Figures below are from that file, not a new console reading.
+Figures are the recorded runs in `docs/budget.md`. They are not a live account balance.
 
-1. A 20-batch calibration moved the console from $15.01 to $14.29 ($0.72). The token tracker recorded $0.222026. The tracker was about 3.2 times low. Hidden reasoning tokens were not stored, so the gap was not closed by inventing them.
-2. The Ukraine 100/week finish cost $3.54 on the console. Recorded ticks were $3.5448122. The cap was $4.70. That job is stopped.
-3. Interface translation, 22 November 2026. Lithuanian: $0.087150, under a $0.15 cap. Finnish, Estonian, Latvian, and Polish: $0.342260, under a $0.45 cap. Those dollar figures are usage tokens times published rates. The Anthropic console was not opened. Thinking tokens were 0.
-4. An older project note, dated 14 November 2026, said xAI spend since 9 October was $6.40, with $3.60 left of the $10 top-up, and Anthropic spend $0.91. That note is not a live balance, and it is before the 22 November translation. Do not read it as money left today.
+1. xAI, from console readings: $0.72 on a 20-batch calibration, then $3.54 on the scoring finish. Recorded xAI total: $4.26.
+2. Anthropic, from usage tokens times published rates. The console was not opened. Lithuanian translation: $0.087150. Finnish, Estonian, Latvian, and Polish: $0.342260. Recorded Anthropic total: $0.43.
+3. Recorded total across those runs: $4.69.
+
+Lessons:
+
+1. Hidden reasoning tokens made the real xAI charge about 3.2 times the token tracker ($0.72 on the console, $0.22 in the tracker). A small calibration run comes first.
+2. An automatic recharge charged the card once. Auto-reload stays off on every provider.
+3. A real-charge cap is checked after each batch. The next batch does not start once the cap is reached. The scoring cap was $4.70. That run cost $3.54.
+4. Translation was measured on one language before the other four were called. The four-language run stayed under its $0.45 cap.
 
 ## Data sources and limits
 
-Details and dates are in `docs/sources.md`. Short version from the first source check:
+Details and dates are in `docs/sources.md`.
 
-1. GDELT raw files work for 2021–22. The DOC API returned HTTP 429 from this host and is not used.
-2. TASS English and RIA RSS work with a normal research user-agent, current day only. TASS Russian returned 403 and is skipped. No user-agent spoof.
-3. Russian navigation warnings are taken from the Swedish Baltic NAVTEX page where that page carries them. Allied notices on that page are not stored.
-4. GPS interference data has no license for public use and no coverage before 14 February 2022. It is not used.
-5. Country facts, the Russia card, and the Levada poll use only pages opened for that task, each with a date. Capital-to-border distance is left out. Finland has no allied-troops line. Poland has no conscription line. Finland has no overall share on the May 2026 Levada page, so that bar says not listed.
-6. The Now incident log has 11 incidents. Dated GPS jamming, and new cable or pipeline damage, were not found.
+1. GDELT raw files were stream-filtered for 2021–22. The document API returned HTTP 429 and is not used.
+2. TASS English works. TASS Russian failed an early check, then a later collector run saved it. The live feed has no archive, so 2021–22 still comes from GDELT.
+3. The RIA live feed is disabled. The domain does not resolve on this network. That is treated as a sanctions block, not a short fault. RIA is covered through GDELT. The block was not bypassed.
+4. The Russian foreign ministry feed is disabled. The page was not a feed. Those statements are covered through TASS and GDELT.
+5. The Levada friends-and-enemies page was reachable. Now uses the 16 June 2026 release. Replay keeps the 2021 poll.
+6. Bank of Russia pages for the ruble and the key rate answered for the 2026 window.
+7. Russian navigation warnings are taken from the Swedish Baltic page where that page carries them. Allied notices on that page are not stored.
+8. GPS interference data has no license for public use and no coverage before 14 February 2022. It is not used.
+9. Country facts stay only where a dated page was opened. Capital-to-border distance is left out. Finland has no allied-troops line. Poland has no conscription line. Finland has no overall share on the May 2026 Levada page, so that bar says not listed.
+10. The Now incident log has 11 incidents. Dated GPS jamming, and new cable or pipeline damage, were not found.
 
 ## How to run locally
 

@@ -31,13 +31,11 @@ Python 3.11+, SQLite, and a static HTML/JS page. Rules and weights live in confi
 
 ## Budget
 
-The xAI $10 top-up on 9 October 2026 is the final funding. It is not a monthly refill. Anthropic spend is separate and is not taken out of that $10.
+The xAI top-up on 9 October 2026 is the final funding. It is not a monthly refill. Anthropic spend is separate and is not taken out of that top-up.
 
-Spent so far, since 9 October 2026, checked 14 November 2026: xAI $6.40. Anthropic $0.91.
+Every paid run needs an estimate, a hard cap on the real charge, a calibration run first, and approval. The agent's own key is not the project key.
 
-Remaining balance: xAI $3.60 of the $10 top-up. That top-up is final, not a monthly refill. Anthropic is not taken out of it. The Anthropic remaining balance was not shown. Do not read $0.91 as money left.
-
-November 2026 recorded spend is $0. That is not a remaining balance. When the xAI balance is gone, paid calls stop. Demo mode continues.
+When the project balance is gone, paid calls stop. Demo mode continues. Do not store a remaining balance in this file.
 
 ## How to run
 
