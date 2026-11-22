@@ -884,6 +884,11 @@ function renderFactCard(code) {
     const label = border.with === "belarus" ? t("fact_border_belarus") : t("fact_border_russia");
     addFact(list, label, border.text, border.source);
   });
+  (facts.lines || []).forEach((row) => {
+    if (!row.text || !row.source || !row.label) return;
+    const dated = row.source_date ? row.text + ". " + dateWords(row.source_date) : row.text;
+    addFact(list, t(row.label), dated, row.source);
+  });
   const rows = snapshotIncidents(code);
   const latest = rows[rows.length - 1];
   if (latest && latest.source) {

@@ -12,6 +12,20 @@
         "source": "https://rajamedia.raja.fi/-/miten-valtakunnan-rajat-syntyvat-",
         "source_date": "2022-08-29"
       }
+    ],
+    "lines": [
+      {
+        "label": "fact_spending",
+        "text": "2.87% of GDP in 2025, a NATO estimate",
+        "source": "https://www.nato.int/content/dam/nato/webready/documents/publications-and-reports/annual-reports/sgar25-en.pdf",
+        "source_date": "2026-03-30"
+      },
+      {
+        "label": "fact_conscription",
+        "text": "Yes. Men are liable from the year they turn 18 until the end of the year they turn 60. Women may volunteer",
+        "source": "https://turpopankki.fi/en/etusivu-eng/finland/the-finnish-defence-forces/conscription/",
+        "source_date": "2025-12-01"
+      }
     ]
   },
   "EE": {
@@ -26,6 +40,26 @@
         "text": "136 km land border",
         "source": "https://politsei.ee/et/kuidas-kaeituda-piirilaehedasel-alal",
         "source_date": "2026-11-16"
+      }
+    ],
+    "lines": [
+      {
+        "label": "fact_spending",
+        "text": "3.42% of GDP in 2025, a NATO estimate",
+        "source": "https://www.nato.int/content/dam/nato/webready/documents/publications-and-reports/annual-reports/sgar25-en.pdf",
+        "source_date": "2026-03-30"
+      },
+      {
+        "label": "fact_allied",
+        "text": "NATO multinational battlegroup. Framework nation: United Kingdom. France also contributes. As of February 2025",
+        "source": "https://lc.nato.int/operations/enhanced-forward-presence-efp",
+        "source_date": "2025-02-01"
+      },
+      {
+        "label": "fact_conscription",
+        "text": "Yes. Male citizens. The service lasts 11 months in 2026",
+        "source": "https://mil.ee/en/compulsory-military-service/",
+        "source_date": "2026-03-26"
       }
     ]
   },
@@ -48,6 +82,26 @@
         "source": "https://www.rs.gov.lv/lv/projekts/piesaistiti-214-miljoni-eiro-latvijas-krievijas-robezas-posma-modernizacijai",
         "source_date": "2025-09-02"
       }
+    ],
+    "lines": [
+      {
+        "label": "fact_spending",
+        "text": "3.74% of GDP in 2025, a NATO estimate",
+        "source": "https://www.nato.int/content/dam/nato/webready/documents/publications-and-reports/annual-reports/sgar25-en.pdf",
+        "source_date": "2026-03-30"
+      },
+      {
+        "label": "fact_allied",
+        "text": "NATO multinational brigade, led by Canada, with troops from 14 Allied nations",
+        "source": "https://shape.nato.int/news-archive/2025/video-natos-presence-in-latvia",
+        "source_date": "2025-12-15"
+      },
+      {
+        "label": "fact_conscription",
+        "text": "Yes, since 1 January 2024. Men are drafted. Women aged 18 to 27 may volunteer",
+        "source": "https://www.mod.gov.lv/en/news/saeima-adopts-state-defence-service-law",
+        "source_date": "2023-04-05"
+      }
     ]
   },
   "LT": {
@@ -69,6 +123,26 @@
         "source": "https://vsat.lrv.lt/lt/naujienos/valstybes-sienos-apsaugos-tarnybos-pasienieciai-pradejo-patruliuoti-prie-europos-sajungos-isorines-sienos-su-baltarusija-ir-rusija/",
         "source_date": "2023-11-08"
       }
+    ],
+    "lines": [
+      {
+        "label": "fact_spending",
+        "text": "4.00% of GDP in 2025, a NATO estimate",
+        "source": "https://www.nato.int/content/dam/nato/webready/documents/publications-and-reports/annual-reports/sgar25-en.pdf",
+        "source_date": "2026-03-30"
+      },
+      {
+        "label": "fact_allied",
+        "text": "NATO multinational battlegroup. Framework nation: Germany. As of February 2025",
+        "source": "https://lc.nato.int/operations/enhanced-forward-presence-efp",
+        "source_date": "2025-02-01"
+      },
+      {
+        "label": "fact_conscription",
+        "text": "Yes, since 2015. The service lasts nine months",
+        "source": "https://kam.lt/seimas-pritare-saukimui-i-devyniu-menesiu-nuolatine-privalomaja-pradine-karo-tarnyba/",
+        "source_date": "2015-03-19"
+      }
     ]
   },
   "PL": {
@@ -89,6 +163,20 @@
         "text": "430 km on land",
         "source": "https://www.strazgraniczna.pl/pl/granica/granice-rp/1910,Granice-RP.html",
         "source_date": "2026-07-07"
+      }
+    ],
+    "lines": [
+      {
+        "label": "fact_spending",
+        "text": "4.30% of GDP in 2025, a NATO estimate",
+        "source": "https://www.nato.int/content/dam/nato/webready/documents/publications-and-reports/annual-reports/sgar25-en.pdf",
+        "source_date": "2026-03-30"
+      },
+      {
+        "label": "fact_allied",
+        "text": "NATO multinational battlegroup. Framework nation: United States. As of February 2025",
+        "source": "https://lc.nato.int/operations/enhanced-forward-presence-efp",
+        "source_date": "2025-02-01"
       }
     ]
   },
