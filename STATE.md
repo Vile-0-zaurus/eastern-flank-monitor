@@ -1,10 +1,12 @@
 # State
 
-Updated: 22 November 2026. Polish round part 1 is committed and pushed.
+Updated: 22 November 2026. Polish round part 2 is committed and pushed.
 
 ## Where we stopped
 
-22 November 2026. Polish round part 1 is done. Section 3 (quiet-week headline and fact card) is `add4066`. Incident icons stay 18 px on screen (`c217e9f`). Close icons cluster into a count badge (`4206358`). A country tab zooms to that country and Reset returns to the region (`b1f4e83`). Page version pin is `5eb5a13`. Map checks are in `tests/map_selftest.py`. No further API calls in this part.
+22 November 2026. Polish round part 2 is done. A headline in "In the news" is not repeated in another briefing section. Near-duplicate stories are one item with every outlet listed. Official items show a translated side label. Checks are in tests/briefing_selftest.py. Screenshots are in ~/Desktop/efm-check4/. No API calls.
+
+22 November 2026. Polish round part 1 is done. Section 3 (quiet-week headline and fact card) is `add4066`. Incident icons stay 18 px on screen (`c217e9f`). Close icons cluster into a count badge (`4206358`). A country tab zooms to that country and Reset returns to the region (`b1f4e83`). Page version pin is `5eb5a13`. Map checks are in `tests/map_selftest.py`.
 
 22 November 2026. ui-translate-1 finished for Lithuanian only. Real cost $0.087150 from API usage tokens. ui-translate-2 then stored Finnish, Estonian, Latvian, and Polish for $0.342260.
 
@@ -20,7 +22,7 @@ Test B, corrected rules, post-hoc, not pre-registered: not one result. The Belar
 
 ## Next step
 
-None until a new written assignment. Polish round part 1 is finished. Do not start the screenshot pack or another page change unless that assignment says so.
+None until a new written assignment. Polish round part 2 is finished.
 
 ## Open decisions
 

@@ -278,18 +278,77 @@ function storyKey(story) {
   return (story.title || story.english || "").toLowerCase().replace(/[^a-zа-яё0-9]+/gi, " ").replace(/\s+/g, " ").trim();
 }
 
+const STORY_STOP = new Set(["that", "this", "with", "from", "about", "because", "against", "their", "there", "would", "could", "should", "after", "before", "which", "while", "where", "what", "when", "have", "been", "being", "were", "will", "said", "says", "over", "into", "onto", "than", "then", "them", "they", "commented", "reacted", "called"]);
+
+function storyTokens(story) {
+  const text = ((story.english || story.title || "") + "").toLowerCase();
+  return text.replace(/[^a-zа-яё0-9]+/gi, " ").split(/\s+/).filter((word) => word.length >= 4 && !STORY_STOP.has(word)).map((word) => word.replace(/s$/, ""));
+}
+
+function sameEvent(a, b) {
+  const left = storyKey(a);
+  const right = storyKey(b);
+  if (!left || !right) return false;
+  if (left === right) return true;
+  if (left.length > 28 && right.length > 28 && (left.includes(right) || right.includes(left))) return true;
+  const aTokens = storyTokens(a);
+  const bTokens = storyTokens(b);
+  if (aTokens.length < 4 || bTokens.length < 4) return false;
+  const setB = new Set(bTokens);
+  const shared = aTokens.filter((word) => setB.has(word));
+  const union = new Set(aTokens.concat(bTokens)).size;
+  const places = ["finland", "estonia", "latvia", "lithuania", "poland", "russia", "estonian", "latvian", "lithuanian", "polish", "finnish", "russian"];
+  const sharePlace = places.some((name) => aTokens.includes(name.replace(/s$/, "")) && bTokens.includes(name.replace(/s$/, "")));
+  return sharePlace && shared.length >= 4 && shared.length / union >= 0.4;
+}
+
+function outletName(story) {
+  const raw = (story.outlet || "").replace(/^www\./, "").trim();
+  if (raw) return raw;
+  if (!story.url) return "";
+  try {
+    return new URL(story.url).hostname.replace(/^www\./, "");
+  } catch (err) {
+    return "";
+  }
+}
+
+function rememberOutlets(story) {
+  const copy = Object.assign({}, story);
+  copy.outlets = outletName(story) ? [outletName(story)] : [];
+  copy.urls = story.url ? [story.url] : [];
+  copy.outlet = copy.outlets.join(", ");
+  return copy;
+}
+
+function addOutlet(story, extra) {
+  const name = outletName(extra);
+  if (name && story.outlets.indexOf(name) === -1) story.outlets.push(name);
+  if (extra.url && story.urls.indexOf(extra.url) === -1) story.urls.push(extra.url);
+  story.outlet = story.outlets.join(", ");
+  return story;
+}
+
 function dedupeStories(items) {
   const kept = [];
   items.forEach((story) => {
-    const key = storyKey(story);
-    if (!key) return;
-    const dup = kept.some((prior) => {
-      const other = storyKey(prior);
-      return other === key || (key.length > 28 && other.length > 28 && (other.includes(key) || key.includes(other)));
-    });
-    if (!dup) kept.push(story);
+    if (!storyKey(story)) return;
+    const prior = kept.find((item) => sameEvent(item, story));
+    if (!prior) kept.push(rememberOutlets(story));
+    else addOutlet(prior, story);
   });
   return kept;
+}
+
+function alreadyShown(story) {
+  return (state.shownStories || []).some((prior) => sameEvent(prior, story));
+}
+
+function rememberStory(story) {
+  if (!alreadyShown(story)) {
+    state.shownStories = state.shownStories || [];
+    state.shownStories.push(story);
+  }
 }
 
 function countryMedia(code) {
@@ -472,6 +531,9 @@ function selectTab(code) {
   if (!COUNTRIES.includes(code)) state.mapCountry = "";
   renderStrip();
   renderMap();
+  state.shownStories = [];
+  state.briefingPass = true;
+  markQuietLead();
   renderCountryNews();
   renderOfficials();
   renderBriefing();
@@ -658,6 +720,9 @@ function clearFocus() {
 }
 
 function renderCountryNews() {
+  const wasBriefing = state.briefingPass;
+  state.briefingPass = true;
+  try {
   const section = document.getElementById("country-news");
   if (!section) return;
   const code = state.focus;
@@ -700,6 +765,9 @@ function renderCountryNews() {
     }
   }
   if (!inNow()) return;
+  } finally {
+    state.briefingPass = wasBriefing;
+  }
 }
 
 function emptyLine(host) {
@@ -752,12 +820,13 @@ function bestHeadline(code) {
 
 function appendInTheNews(host, story) {
   const list = document.createElement("ul");
-  appendStory(list, story);
+  appendStory(list, story, true);
   if (!list.childElementCount) return false;
   const label = document.createElement("h3");
   label.className = "section-label";
   label.textContent = t("in_the_news");
   host.append(label, list);
+  rememberStory(story);
   return true;
 }
 
@@ -1275,6 +1344,7 @@ function renderMap() {
   const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
   svg.id = "flank-map";
   applyMapView(svg);
+  if (state.mapCountry) svg.setAttribute("data-country-zoom", state.mapCountry);
   svg.setAttribute("preserveAspectRatio", "xMidYMid meet");
   svg.setAttribute("width", "100%");
   svg.setAttribute("height", "100%");
@@ -1737,9 +1807,10 @@ function englishText(story) {
   return "";
 }
 
-function appendStory(list, story) {
+function appendStory(list, story, force) {
   const english = englishText(story);
   if (!english) return;
+  if (state.briefingPass && !force && alreadyShown(story)) return;
   const item = document.createElement("li");
   item.className = "story";
   item.dataset.countries = (story.countries || []).join(",");
@@ -1753,14 +1824,21 @@ function appendStory(list, story) {
     original.textContent = story.title;
     item.append(original);
   }
+  const names = story.outlets && story.outlets.length ? story.outlets : [story.outlet].filter(Boolean);
+  const urls = story.urls && story.urls.length ? story.urls : (story.url ? [story.url] : []);
   const meta = document.createElement("p");
-  meta.className = "note";
-  meta.textContent = story.outlet + ", " + dateWords(story.date);
-  const link = document.createElement("a");
-  link.href = story.url;
-  link.textContent = state.text.source;
-  item.append(meta, link);
+  meta.className = "note story-sources";
+  meta.textContent = names.join(", ") + (story.date ? ", " + dateWords(story.date) : "");
+  item.append(meta);
+  urls.forEach((url, index) => {
+    const link = document.createElement("a");
+    link.href = url;
+    link.className = "story-source";
+    link.textContent = names[index] || t("source");
+    item.append(link);
+  });
   list.appendChild(item);
+  if (state.briefingPass) rememberStory(story);
 }
 
 function appendEventLine(list, event) {
@@ -2147,18 +2225,48 @@ function renderWeek() {
   document.getElementById("week-label").textContent = weekWords(row.week);
   renderStrip();
   renderMap();
+  state.briefingPass = false;
   renderNews();
   const whyPanel = document.getElementById("why");
   if (whyPanel && !whyPanel.hidden && state.why && !inNow()) {
     const focus = state.events.find((event) => event.date === state.why.focusDate && event.tag === state.why.focusTag);
     openWhy(state.why.code, focus);
   }
+  state.shownStories = [];
+  state.briefingPass = true;
+  markQuietLead();
   renderOfficials();
   renderBriefing();
   renderInside();
   renderInsideMain();
   renderCountryNews();
+  state.briefingPass = false;
   syncDrawer();
+}
+
+function markQuietLead() {
+  const code = state.focus || "LT";
+  if (!code || code === "RU" || !current()) return;
+  const hasIncident = inNow()
+    ? nowIncidents(code).length
+    : activeEvents(current().week).filter((event) => concerns(event, code)).length;
+  if (hasIncident) return;
+  const story = bestHeadline(code);
+  if (story) rememberStory(story);
+}
+
+function sideLabel(side) {
+  return t(side === "russian" ? "side_russian" : "side_western");
+}
+
+function appendOfficial(list, story, side) {
+  const before = list.childElementCount;
+  appendStory(list, story);
+  if (list.childElementCount === before) return;
+  const tag = document.createElement("p");
+  tag.className = "side-label";
+  tag.textContent = sideLabel(side);
+  list.lastElementChild.prepend(tag);
 }
 
 function officialCode() {
@@ -2252,7 +2360,7 @@ function renderOfficials() {
       host.innerHTML = "";
       if (!items.length) return;
       const list = document.createElement("ul");
-      items.forEach((story) => appendStory(list, story));
+      items.forEach((story) => appendOfficial(list, story, side));
       host.append(list);
     });
     if (section) section.hidden = false;
@@ -2274,7 +2382,7 @@ function renderOfficials() {
       return;
     }
     const list = document.createElement("ul");
-    rows.forEach((story) => appendStory(list, story));
+    rows.forEach((story) => appendOfficial(list, story, side));
     host.append(list);
   });
 }

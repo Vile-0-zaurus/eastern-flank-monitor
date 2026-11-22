@@ -150,6 +150,8 @@
   "fact_incidents": "Incidents in this snapshot",
   "fact_latest": "Latest",
   "fact_none": "None in this snapshot",
+  "side_russian": "Russian official",
+  "side_western": "Regional or Western official",
   "news_title": "News",
   "country_FI": "Finland",
   "country_EE": "Estonia",
