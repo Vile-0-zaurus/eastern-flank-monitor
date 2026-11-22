@@ -91,5 +91,83 @@
         "source_date": "2026-07-07"
       }
     ]
+  },
+  "RU": {
+    "borders": [
+      {
+        "with": "finland",
+        "label": "fact_ru_fi",
+        "text": "1,344 km, including 54 km in the Gulf of Finland, as published by the Finnish Border Guard",
+        "source": "https://rajamedia.raja.fi/-/miten-valtakunnan-rajat-syntyvat-",
+        "source_date": "2022-08-29"
+      },
+      {
+        "with": "estonia",
+        "label": "fact_ru_ee",
+        "text": "136 km land border, as published by the Estonian Police and Border Guard Board",
+        "source": "https://politsei.ee/et/kuidas-kaeituda-piirilaehedasel-alal",
+        "source_date": "2026-11-16"
+      },
+      {
+        "with": "latvia",
+        "label": "fact_ru_lv",
+        "text": "283.6 km, of which 143.9 km on land, 133.6 km on rivers, and 6.1 km on lakes, from the Latvia-Russia demarcation protocol",
+        "source": "https://likumi.lv/wwwraksti/2018/067/BILDES/AM_LIGUMS/09_LATVIJAS-KRIEVIJAS%20KOP%C4%AAG%C4%80S%20DEMARK%C4%80CIJAS%20DARBA%20NOSL%C4%92GUMA%20PROTOKOLS.PDF",
+        "source_date": "2017-10-25"
+      },
+      {
+        "with": "lithuania",
+        "label": "fact_ru_lt",
+        "text": "253.7 km on land, as published by the Lithuanian State Border Guard Service",
+        "source": "https://vsat.lrv.lt/lt/naujienos/valstybes-sienos-apsaugos-tarnybos-pasienieciai-pradejo-patruliuoti-prie-europos-sajungos-isorines-sienos-su-baltarusija-ir-rusija/",
+        "source_date": "2023-11-08"
+      },
+      {
+        "with": "poland",
+        "label": "fact_ru_pl",
+        "text": "210 km on land, as published by the Polish Border Guard",
+        "source": "https://www.strazgraniczna.pl/pl/granica/granice-rp/1910,Granice-RP.html",
+        "source_date": "2026-07-07"
+      },
+      {
+        "with": "belarus",
+        "label": "fact_border_belarus",
+        "text": "1,283 km, from the State Border Committee of Belarus page archived on 11 September 2018",
+        "source": "https://web.archive.org/web/20180911225316/http://gpk.gov.by/en/maps/",
+        "source_date": "2018-09-11"
+      }
+    ],
+    "lines": [
+      {
+        "label": "fact_ru_spending",
+        "text": "7.5% of GDP in 2025, an estimated $190 billion, from SIPRI",
+        "source": "https://www.sipri.org/media/press-release/2026/global-military-spending-rise-continues-european-and-asian-expenditures-surge",
+        "source_date": "2026-04-27"
+      },
+      {
+        "label": "fact_ru_callup",
+        "text": "261,000 citizens called up for military service from 1 January through 31 December 2026, by presidential decree",
+        "source": "http://www.kremlin.ru/acts/news/78905",
+        "source_date": "2025-12-29"
+      },
+      {
+        "label": "fact_ru_rostec",
+        "text": "State corporation for high-tech industrial products, set up by federal law of 23 November 2007",
+        "source": "https://rostec.ru/en/about",
+        "source_date": "2007-11-23"
+      },
+      {
+        "label": "fact_ru_almaz",
+        "text": "Air and space defense holding, established in 2002 and renamed by presidential decree on 5 February 2015",
+        "source": "http://www.almaz-antey.ru/en/istoriya/",
+        "source_date": "2015-02-05"
+      },
+      {
+        "label": "fact_ru_uac",
+        "text": "Aircraft corporation set up by presidential decree of 20 February 2006. It develops and builds civil and military aircraft",
+        "source": "https://www.uacrussia.ru/en/corporation/",
+        "source_date": "2006-02-20"
+      }
+    ]
   }
 }

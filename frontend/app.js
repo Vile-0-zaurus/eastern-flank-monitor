@@ -863,9 +863,13 @@ function renderFactCard(code) {
   const body = document.getElementById("country-facts-body");
   if (!card || !body) return;
   const facts = state.facts && state.facts[code];
-  if (!facts || code === "RU") {
+  if (!facts) {
     card.hidden = true;
     body.replaceChildren();
+    return;
+  }
+  if (code === "RU") {
+    renderRussiaFacts(facts);
     return;
   }
   card.hidden = false;
@@ -888,6 +892,26 @@ function renderFactCard(code) {
   } else {
     addFact(list, t("fact_incidents"), "0. " + t("fact_latest") + ": " + t("fact_none"), "");
   }
+  body.append(list);
+}
+
+function renderRussiaFacts(facts) {
+  const card = document.getElementById("country-facts");
+  const body = document.getElementById("country-facts-body");
+  card.hidden = false;
+  body.replaceChildren();
+  const list = document.createElement("ul");
+  list.className = "fact-list";
+  (facts.borders || []).forEach((border) => {
+    if (!border.text || !border.source || !border.label) return;
+    const dated = border.source_date ? border.text + ". " + dateWords(border.source_date) : border.text;
+    addFact(list, t(border.label), dated, border.source);
+  });
+  (facts.lines || []).forEach((row) => {
+    if (!row.text || !row.source || !row.label) return;
+    const dated = row.source_date ? row.text + ". " + dateWords(row.source_date) : row.text;
+    addFact(list, t(row.label), dated, row.source);
+  });
   body.append(list);
 }
 
@@ -2217,9 +2241,15 @@ function renderInsideMain() {
   const note = document.getElementById("inside-main-note");
   const coverage = document.getElementById("inside-coverage");
   const volume = document.getElementById("inside-volume");
-  if (note) note.textContent = source.note || "";
-  if (coverage) coverage.textContent = source.coverage || "";
-  if (volume) volume.textContent = source.volume_note || "";
+  if (note) note.textContent = t("display_only");
+  if (coverage) {
+    coverage.textContent = "";
+    coverage.hidden = true;
+  }
+  if (volume) {
+    volume.textContent = "";
+    volume.hidden = true;
+  }
   host.innerHTML = "";
   const week = current().week;
   const block = (source.weeks || {})[week];

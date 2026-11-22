@@ -1,10 +1,12 @@
 # State
 
-Updated: 22 November 2026. Polish round 2, part A is committed and pushed.
+Updated: 22 November 2026. Polish round 2, part B is committed and pushed.
 
 ## Where we stopped
 
-22 November 2026. Polish round 2, part A is done. The map shows only the selected week and the four weeks before it. Icons are not merged into a count. Hover shows a card. A click opens that item in the briefing. Confirmed icons are solid. Reported icons are outlines. Checks are in tests/map_clarity_selftest.py. Screenshots are in ~/Desktop/efm-check5/. No API calls.
+22 November 2026. Polish round 2, part B is done. A briefing item is not repeated. Official items keep a side label. The Russia tab keeps one display-only line. The technical notes are under About, Method. The Russia fact card lists only facts with a dated source. Armed forces size, Uralvagonzavod, and Kalashnikov Concern are left out because no dated page was opened. Checks are in tests/russia_selftest.py and tests/briefing_selftest.py. Screenshots are in ~/Desktop/efm-check5/. No API calls.
+
+22 November 2026. Polish round 2, part A is done. The map shows only the selected week and the four weeks before it. Icons are not merged into a count. Hover shows a card. A click opens that item in the briefing. Confirmed icons are solid. Reported icons are outlines. Checks are in tests/map_clarity_selftest.py. Screenshots are in ~/Desktop/efm-check5/.
 
 22 November 2026. Polish round part 2 is done. A headline in "In the news" is not repeated in another briefing section. Near-duplicate stories are one item with every outlet listed. Official items show a translated side label. Checks are in tests/briefing_selftest.py. Screenshots are in ~/Desktop/efm-check4/.
 
@@ -24,7 +26,7 @@ Test B, corrected rules, post-hoc, not pre-registered: not one result. The Belar
 
 ## Next step
 
-None until a new written assignment. Polish round 2, part A is finished.
+None until a new written assignment. Polish round 2, part B is finished.
 
 ## Open decisions
 

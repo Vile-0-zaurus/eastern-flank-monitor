@@ -15,6 +15,9 @@ ALLOW_SAME = {
     "country_EE",
     "country_KG",
     "region",
+    "fact_ru_rostec",
+    "fact_ru_almaz",
+    "fact_ru_uac",
 }
 DENY = (
     '"Nothing this week."',
