@@ -107,3 +107,27 @@ API usage fields, six batches:
 Price from config/llm.yaml: $2 per million input, $10 per million output. Real cost: $0.087150. The visible estimate for one language was about $0.05. The real cost is about 1.7 times that estimate. It does not match $0.05. It is under the $0.15 cap. The other four languages were not called.
 
 Anthropic does not return cost ticks on this endpoint. The dollar figure is the usage tokens times the published rates, not a console reading. The console balance was not visible.
+
+## ui-translate-2
+
+Date: 2026-11-22. Finnish, Estonian, Latvian, and Polish. Lithuanian was not called. Model claude-sonnet-5-5. No extended thinking: thinking type between_tools, effort low. thinking_tokens was 0 on every batch. Cache tokens were 0.
+
+Hard cap: $0.45 real. The runner did not start a batch whose own token ceiling would cross that cap. No retry was needed.
+
+API usage fields, 24 batches:
+
+1. Input tokens: 22,970.
+2. Output tokens: 29,632.
+3. Cache read and cache write: 0.
+4. Thinking tokens: 0.
+
+Price from config/llm.yaml: $2 per million input, $10 per million output. Real cost: $0.342260. The measured Lithuanian rate times four was $0.348600. This run is under that figure and under the $0.45 cap.
+
+Per language, from the same usage fields:
+
+1. Finnish: 5,744 in, 7,687 out, $0.088358.
+2. Estonian: 5,744 in, 7,124 out, $0.082728.
+3. Latvian: 5,744 in, 7,484 out, $0.086328.
+4. Polish: 5,738 in, 7,337 out, $0.084846.
+
+Anthropic does not return cost ticks on this endpoint. The dollar figure is the usage tokens times the published rates, not a console reading. The console balance was not visible. llm.yaml hard_stop_usd was not raised.

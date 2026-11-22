@@ -6,7 +6,8 @@ budget_start: 2026-10-09
 estimate_ok_usd: 2
 # Multiply the higher visible estimate by this before the gate. Not a token count.
 calibration_factor: 3.2
-# Approved for ukraine-100-finish only. Cap is real ticks. Does not raise llm.yaml hard_stop.
-# Gate for this run is the measured estimate times calibration_factor, not the output-cap figure.
-approved_run: ukraine-100-finish
-approved_cap_usd: 4.70
+# ukraine-100-finish is finished. It is no longer the live approval.
+# Approved for ui-translate-2 only. Cap is usage tokens times published rates.
+# Does not raise llm.yaml hard_stop. Anthropic does not return cost ticks.
+approved_run: ui-translate-2
+approved_cap_usd: 0.45
