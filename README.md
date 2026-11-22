@@ -57,20 +57,20 @@ Headline validation is in `docs/validation-report.md`. On the adjudicated batch,
 
 ## What did not work
 
-A weekly per-country consumer screen was the hard part. The stored data is thin at country level. The main screen went through many design rounds. In October 2026 it was judged not informative for an average user. The lesson is in the protocols: show a mockup and get a verdict before building the next screen. This release is a portfolio prototype, not a finished public product.
+A weekly per-country consumer screen was the hard part. The stored data is thin at country level. The main screen went through many design rounds. In October 2026 it was judged not informative for an average user. The lesson is in `docs/protocols.md`: show a mockup and get a verdict before building the next screen. This release is a portfolio prototype, not a finished public product.
 
 ## Budget
 
 The xAI $10 top-up on 9 October 2026 is the final funding. It is not a monthly refill. Auto-reload stays off. The ledger is `docs/budget.md`. Figures below are from that file, not a new console reading.
 
 1. A 20-batch calibration moved the console from $15.01 to $14.29 ($0.72). The token tracker recorded $0.222026. The tracker was about 3.2 times low. Hidden reasoning tokens were not stored, so the gap was not closed by inventing them.
-2. The Ukraine 100/week finish cost $3.54 on the console. Recorded ticks were $3.5448122. The cap was $4.70. The unit is inactive.
+2. The Ukraine 100/week finish cost $3.54 on the console. Recorded ticks were $3.5448122. The cap was $4.70. That job is stopped.
 3. Interface translation, 22 November 2026. Lithuanian: $0.087150, under a $0.15 cap. Finnish, Estonian, Latvian, and Polish: $0.342260, under a $0.45 cap. Those dollar figures are usage tokens times published rates. The Anthropic console was not opened. Thinking tokens were 0.
-4. A note dated 14 November 2026, in AGENTS.md, said xAI spend since 9 October was $6.40, with $3.60 left of the $10 top-up, and Anthropic spend $0.91. That note is not a live balance, and it is before the 22 November translation. Do not read it as money left today.
+4. An older project note, dated 14 November 2026, said xAI spend since 9 October was $6.40, with $3.60 left of the $10 top-up, and Anthropic spend $0.91. That note is not a live balance, and it is before the 22 November translation. Do not read it as money left today.
 
 ## Data sources and limits
 
-Details and dates are in `docs/sources.md`. Short version from the M0 check:
+Details and dates are in `docs/sources.md`. Short version from the first source check:
 
 1. GDELT raw files work for 2021–22. The DOC API returned HTTP 429 from this host and is not used.
 2. TASS English and RIA RSS work with a normal research user-agent, current day only. TASS Russian returned 403 and is skipped. No user-agent spoof.
@@ -81,11 +81,11 @@ Details and dates are in `docs/sources.md`. Short version from the M0 check:
 
 ## How to run locally
 
-1. `cd ~/Projects/eastern-flank-monitor`
+1. Clone this repository and open that folder.
 2. Leave `live_monitoring: off` in `config/app.yaml`.
 3. `python3 -m http.server 8080 --bind 127.0.0.1`
 4. Open `http://127.0.0.1:8080/frontend/`
-5. Demo mode does not need an API key. Do not start a paid run, the WebUI, or the finished 2021–22 backfill from this file.
+5. Demo mode does not need an API key. Do not start a paid run, or the finished 2021–22 download, from this page.
 
 Self-tests live in `tests/`. They use a local browser. They make no API calls.
 
@@ -113,7 +113,13 @@ Lithuanian. Latvia, week of 14 September 2026.
 
 ![Lithuanian briefing, Latvia](docs/screenshots/readme-lt-latvia.png)
 
-More checks are on the Desktop, not in the repo: `~/Desktop/efm-check4/`, `~/Desktop/efm-check5/`, `~/Desktop/efm-check6/`.
+## Data and licenses
+
+1. The code in this repository is under the MIT license. See `LICENSE`.
+2. GDELT's about page says its datasets may be used without a fee for academic, commercial, or governmental use. The raw files are not in this repository. See `https://www.gdeltproject.org/about.html`.
+3. News stories and official pages are linked. This repository does not redistribute the full articles. A short stored line is a quotation for the briefing, with a link to the source page.
+4. The map outlines are Natural Earth, public domain, stored in the project.
+5. `data/` is listed in `.gitignore`. It is never committed. Do not add raw downloads, databases, or keys.
 
 ## Disclaimer
 
