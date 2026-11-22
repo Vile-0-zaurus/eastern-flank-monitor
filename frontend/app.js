@@ -1356,6 +1356,11 @@ function wireMapControls() {
   if (zoomReset) zoomReset.addEventListener("click", resetMap);
   const card = document.getElementById("incident-card");
   if (card) card.addEventListener("pointerleave", hideIncidentCard);
+  document.addEventListener("pointerdown", (event) => {
+    if (!card || card.hidden) return;
+    if (event.target.closest && event.target.closest(".incident-dot, #incident-card")) return;
+    hideIncidentCard();
+  });
   window.addEventListener("resize", () => {
     const svg = document.getElementById("flank-map");
     if (svg) layoutIncidents(svg);
@@ -1452,9 +1457,6 @@ function renderMap() {
       dot.setAttribute("stroke", "#ffffff");
       dot.setAttribute("stroke-width", "2");
       dot.setAttribute("opacity", dotOpacity(week, event.date).toFixed(2));
-      const tip = document.createElementNS("http://www.w3.org/2000/svg", "title");
-      tip.textContent = shortLabel(event) + ". " + (state.text[event.textKey] || place.name);
-      dot.appendChild(tip);
       dot.addEventListener("click", (click) => {
         click.stopPropagation();
         stop();
@@ -1678,9 +1680,6 @@ function drawIncidentIcon(layer, point, r, boxes, icons) {
     icon.setAttribute("stroke-width", "1.4");
     dot.append(icon);
   }
-  const tip = document.createElementNS("http://www.w3.org/2000/svg", "title");
-  tip.textContent = incidentLabel(incident) + ". " + (incident.type || "unspecified") + ". " + incident.summary;
-  dot.append(tip);
   dot.addEventListener("pointerenter", (event) => {
     if (event.pointerType === "touch") return;
     showIncidentCard(incident, dot);
@@ -1741,14 +1740,30 @@ function showIncidentCard(incident, dot) {
   document.getElementById("incident-card-summary").textContent = oneSentence(incident.summary);
   document.getElementById("incident-card-status").textContent = isConfirmed(incident) ? t("status_confirmed") : t("status_reported");
   card.hidden = false;
+  placeIncidentCard(card, host, dot);
+  state.cardKey = incidentKey(incident);
+}
+
+function placeIncidentCard(card, host, dot) {
+  const gap = 12;
   const icon = dot.getBoundingClientRect();
   const panel = host.getBoundingClientRect();
-  card.style.left = (icon.right - panel.left + 8) + "px";
-  card.style.top = Math.max(8, icon.top - panel.top) + "px";
+  card.style.left = "0px";
+  card.style.top = "0px";
   const box = card.getBoundingClientRect();
-  if (box.right > panel.right - 8) card.style.left = Math.max(8, icon.left - panel.left - box.width - 8) + "px";
-  if (box.bottom > panel.bottom - 8) card.style.top = Math.max(8, panel.bottom - panel.top - box.height - 8) + "px";
-  state.cardKey = incidentKey(incident);
+  let left = icon.right - panel.left + gap;
+  let top = icon.top - panel.top;
+  if (left + box.width > panel.width - 8) left = icon.left - panel.left - box.width - gap;
+  if (left < 8) left = 8;
+  if (top + box.height > panel.height - 8) top = Math.max(8, panel.height - box.height - 8);
+  card.style.left = left + "px";
+  card.style.top = top + "px";
+  const placed = card.getBoundingClientRect();
+  const covers = placed.left < icon.right - 1 && placed.right > icon.left + 1 && placed.top < icon.bottom - 1 && placed.bottom > icon.top + 1;
+  if (!covers) return;
+  const below = icon.bottom - panel.top + gap;
+  if (below + box.height <= panel.height - 8) card.style.top = below + "px";
+  else card.style.top = Math.max(8, icon.top - panel.top - box.height - gap) + "px";
 }
 
 function hideIncidentCard() {
