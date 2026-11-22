@@ -152,6 +152,8 @@
   "fact_none": "Selles ülevaates ei ole",
   "side_russian": "Vene ametnik",
   "side_western": "Piirkondlik või lääne ametnik",
+  "status_confirmed": "Ametlikult kinnitatud",
+  "status_reported": "Ainult teade",
   "news_title": "Uudised",
   "country_FI": "Soome",
   "country_EE": "Eesti",

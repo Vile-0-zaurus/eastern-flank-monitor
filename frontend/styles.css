@@ -1172,6 +1172,19 @@ body.briefing #inside-russia { display: none; }
 .incident-count { fill: #fff; font-family: "IBM Plex Mono", ui-monospace, monospace; pointer-events: none; }
 .map-icon-label { fill: #e7e5e4; font-family: "IBM Plex Mono", ui-monospace, monospace; pointer-events: none; }
 .side-label { margin: 0 0 4px; font-size: 12px; color: var(--muted); }
+.incident-card {
+  position: absolute;
+  z-index: 4;
+  max-width: 16rem;
+  padding: 8px 10px;
+  background: #f7f6f3;
+  color: #18181b;
+  border: 1px solid #d6d3d1;
+  pointer-events: auto;
+}
+.incident-card p { margin: 0 0 4px; }
+.incident-card p:last-child { margin: 0; }
+#incident-card-summary { font-size: 13px; }
 #country-facts { margin: 0 0 12px; }
 #country-facts h3 { margin: 0 0 6px; }
 .fact-list { margin: 0; padding-left: 1.1rem; }

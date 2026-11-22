@@ -444,6 +444,7 @@ function appendIncidentLine(list, incident) {
   item.className = "incident-line";
   item.dataset.date = incident.date;
   item.dataset.country = incident.country;
+  item.dataset.place = incident.place || "";
   const title = document.createElement("button");
   title.type = "button";
   title.className = "incident-jump";
@@ -904,7 +905,7 @@ function renderBriefing() {
     happened.innerHTML = "";
     let hadItem = false;
     if (inNow()) {
-      const items = nowIncidents(code);
+      const items = activeIncidents(code);
       if (items.length) {
         hadItem = true;
         const list = document.createElement("ul");
@@ -951,6 +952,7 @@ function renderBriefing() {
   const west = document.getElementById("officials-west");
   if (ru && west && !ru.childElementCount && !west.childElementCount) emptyLine(ru);
   collapseEmptyBriefing();
+  markOpenIncident();
 }
 
 function project(lon, lat) {
@@ -1265,7 +1267,7 @@ function onMapWheel(event) {
 
 function onMapPointerDown(event) {
   if (event.button !== 0) return;
-  if (event.target.closest && event.target.closest("a, button")) return;
+  if (event.target.closest && event.target.closest("a, button, .incident-dot, .incident-card")) return;
   const svg = document.getElementById("flank-map");
   if (!svg || !svg.contains(event.target)) return;
   const scale = mapScale(svg);
@@ -1326,6 +1328,8 @@ function wireMapControls() {
   if (zoomIn) zoomIn.addEventListener("click", () => zoomMap(1 / 1.25));
   if (zoomOut) zoomOut.addEventListener("click", () => zoomMap(1.25));
   if (zoomReset) zoomReset.addEventListener("click", resetMap);
+  const card = document.getElementById("incident-card");
+  if (card) card.addEventListener("pointerleave", hideIncidentCard);
   window.addEventListener("resize", () => {
     const svg = document.getElementById("flank-map");
     if (svg) layoutIncidents(svg);
@@ -1650,12 +1654,86 @@ function drawIncidentIcon(layer, point, r, boxes, icons) {
   const tip = document.createElementNS("http://www.w3.org/2000/svg", "title");
   tip.textContent = incidentLabel(incident) + ". " + (incident.type || "unspecified") + ". " + incident.summary;
   dot.append(tip);
+  dot.addEventListener("pointerenter", (event) => {
+    if (event.pointerType === "touch") return;
+    showIncidentCard(incident, dot);
+  });
+  dot.addEventListener("pointerleave", (event) => {
+    if (event.pointerType === "touch") return;
+    const card = document.getElementById("incident-card");
+    if (card && event.relatedTarget && card.contains(event.relatedTarget)) return;
+    hideIncidentCard();
+  });
+  dot.addEventListener("pointerup", (event) => {
+    if (event.pointerType !== "touch") return;
+    if (state.cardKey !== incidentKey(incident)) {
+      showIncidentCard(incident, dot);
+      state.holdIconClick = true;
+    }
+  });
   dot.addEventListener("click", (click) => {
     click.stopPropagation();
+    if (state.holdIconClick) {
+      state.holdIconClick = false;
+      return;
+    }
     stop();
-    openIncident(incident);
+    state.openIncident = incidentKey(incident);
+    focusIncident(incident);
+    markOpenIncident();
   });
   layer.appendChild(dot);
+}
+
+function incidentKey(incident) {
+  return (incident.place || "") + "|" + (incident.date || "");
+}
+
+function isConfirmed(incident) {
+  return /confirmed/i.test(incident.status || "") || /^Officially confirmed/i.test(incident.summary || "");
+}
+
+function incidentTypeName(incident) {
+  const key = "legend_" + (incident.type || "");
+  return incident.type && t(key) !== key ? t(key) : (incident.type || "");
+}
+
+function oneSentence(text) {
+  const clean = String(text || "").replace(/^(Officially confirmed|Reported only|Reported)\.\s*/i, "").trim();
+  const match = clean.match(/^.*?[.!?](?:\s|$)/);
+  return match ? match[0].trim() : clean;
+}
+
+function showIncidentCard(incident, dot) {
+  const card = document.getElementById("incident-card");
+  const host = document.getElementById("map-panel");
+  if (!card || !host || !dot) return;
+  document.getElementById("incident-card-type").textContent = incidentTypeName(incident);
+  document.getElementById("incident-card-place").textContent = incident.place || "";
+  document.getElementById("incident-card-date").textContent = dateWords(incident.date);
+  document.getElementById("incident-card-summary").textContent = oneSentence(incident.summary);
+  document.getElementById("incident-card-status").textContent = isConfirmed(incident) ? t("status_confirmed") : t("status_reported");
+  card.hidden = false;
+  const icon = dot.getBoundingClientRect();
+  const panel = host.getBoundingClientRect();
+  card.style.left = (icon.right - panel.left + 8) + "px";
+  card.style.top = Math.max(8, icon.top - panel.top) + "px";
+  const box = card.getBoundingClientRect();
+  if (box.right > panel.right - 8) card.style.left = Math.max(8, icon.left - panel.left - box.width - 8) + "px";
+  if (box.bottom > panel.bottom - 8) card.style.top = Math.max(8, panel.bottom - panel.top - box.height - 8) + "px";
+  state.cardKey = incidentKey(incident);
+}
+
+function hideIncidentCard() {
+  const card = document.getElementById("incident-card");
+  if (card) card.hidden = true;
+  state.cardKey = "";
+}
+
+function markOpenIncident() {
+  document.querySelectorAll(".incident-line").forEach((item) => {
+    item.classList.toggle("open", (item.dataset.place || "") + "|" + item.dataset.date === (state.openIncident || ""));
+  });
 }
 
 function drawIncidentBadge(layer, group, r, boxes) {

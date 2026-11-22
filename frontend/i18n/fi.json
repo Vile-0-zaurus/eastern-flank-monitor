@@ -152,6 +152,8 @@
   "fact_none": "Ei tässä otoksessa",
   "side_russian": "Venäläinen virkamies",
   "side_western": "Alueellinen tai länsimainen virkamies",
+  "status_confirmed": "Virallisesti vahvistettu",
+  "status_reported": "Vain raportoitu",
   "news_title": "Uutiset",
   "country_FI": "Suomi",
   "country_EE": "Viro",

@@ -152,6 +152,8 @@
   "fact_none": "Brak w tym zestawieniu",
   "side_russian": "Rosyjski urzędnik",
   "side_western": "Urzędnik regionalny lub zachodni",
+  "status_confirmed": "Oficjalnie potwierdzone",
+  "status_reported": "Tylko zgłoszone",
   "news_title": "Wiadomości",
   "country_FI": "Finlandia",
   "country_EE": "Estonia",

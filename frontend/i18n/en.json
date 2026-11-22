@@ -152,6 +152,8 @@
   "fact_none": "None in this snapshot",
   "side_russian": "Russian official",
   "side_western": "Regional or Western official",
+  "status_confirmed": "Officially confirmed",
+  "status_reported": "Reported only",
   "news_title": "News",
   "country_FI": "Finland",
   "country_EE": "Estonia",

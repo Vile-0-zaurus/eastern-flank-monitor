@@ -152,6 +152,8 @@
   "fact_none": "Šiame pjūvyje nėra",
   "side_russian": "Rusijos pareigūnas",
   "side_western": "Regiono ar Vakarų pareigūnas",
+  "status_confirmed": "Oficialiai patvirtinta",
+  "status_reported": "Tik pranešta",
   "news_title": "Naujienos",
   "country_FI": "Suomija",
   "country_EE": "Estija",
