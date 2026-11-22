@@ -130,7 +130,7 @@
     },
     {
       "date": "2026-08-20",
-      "type": "drone",
+      "type": "aircraft",
       "country": "FI",
       "place": "South of Utö",
       "lat": 59.7806,
@@ -178,7 +178,7 @@
     },
     {
       "date": "2026-09-23",
-      "type": "drone",
+      "type": "aircraft",
       "country": "PL",
       "place": "North of Braniewo",
       "lat": 54.3791,
@@ -215,7 +215,7 @@
     },
     {
       "date": "2026-09-01",
-      "type": "drone",
+      "type": "unspecified",
       "country": "LV",
       "place": "Alūksne Municipality",
       "lat": 57.383077,
@@ -224,7 +224,7 @@
       "summary": "Officially confirmed. Latvia declared an airspace threat in Alūksne Municipality at 03:37 and activated NATO fighters. The ministry page does not say an object entered Estonia.",
       "source": "https://www.mod.gov.lv/lv/zinas/izsludinats-apdraudejums-latvijas-gaisa-telpa-aluksnes-novada",
       "source_date": "2026-09-01",
-      "source_note": "Latvian defence ministry page prints 01.09.2026. English line written from that page. Map pin is the discovery page's approximate marker."
+      "source_note": "Latvian defence ministry page did not connect on 22 November 2026. The stored note says the page declares an airspace threat and does not name a drone or an aircraft. Type is not drone."
     },
     {
       "date": "2026-10-18",
@@ -1400,15 +1400,26 @@
     }
   ],
   "inside": {
-    "note": "Inside Russia informs; it does not change the tension levels. Counts measure news volume, not military preparation.",
-    "coverage": "Now window only, 3 August through 25 October 2026. Older stored rows are excluded.",
-    "volume_note": "Usual is the median weekly count inside this frozen window. It is not the registered scoring baseline.",
+    "note": "Inside Russia informs. It does not change the reading. English lines were written from the stored Russian titles. No model call.",
+    "coverage": "Now window only, 3 August through 25 October 2026. Bank of Russia ruble and key-rate files stop on 21 February 2022, so those cards are absent.",
+    "volume_note": "Usual is the median weekly count of matching stored headlines in this frozen window. It is not the registered scoring baseline.",
     "weeks": {
       "2026-08-03": {
         "cards": [
           {
-            "title": "Russian media",
-            "line": "293 flank stories, usual 245",
+            "title": "Defence Ministry",
+            "line": "The Russian Defence Ministry said air defence shot down 131 drones over 11 regions and the Black Sea overnight.",
+            "russian": "Работа ПВО Минобороны РФ: над 11 регионами и Черным морем сбили 131 БПЛА",
+            "url": "https://iz.ru/2142769/2026-08-03/sredstva-pvo-sbili-131-ukrainskii-bespilotnik-nad-territoriei-rossii-za-noch",
+            "count": "40 stories, usual 20",
+            "arrow": "↑"
+          },
+          {
+            "title": "Defence contractors",
+            "line": "A Moscow court extended house arrest for a deputy head of Uralvagonzavod.",
+            "russian": "Суд в Москве продлил домашний арест замглавы \"Уралвагонзавода\" Семизорова",
+            "url": "https://ria.ru/20260803/sud-2108738214.html",
+            "count": "11 stories, usual 6",
             "arrow": "↑"
           }
         ]
@@ -1416,17 +1427,31 @@
       "2026-08-10": {
         "cards": [
           {
-            "title": "Russian media",
-            "line": "219 flank stories, usual 245",
-            "arrow": "↓"
+            "title": "Defence Ministry",
+            "line": "The Russian Defence Ministry confirmed strikes on military rear areas of the Kyiv authorities.",
+            "russian": "В Минобороны РФ подтвердили удары по военным тылам киевского режима.",
+            "url": "https://www.1tv.ru/news/2026-08-10/549943",
+            "count": "26 stories, usual 20",
+            "arrow": "↑"
+          },
+          {
+            "title": "Defence contractors",
+            "line": "The head of Kalashnikov spoke about upgrading Vikhr missiles to fight drones.",
+            "russian": "Глава «Калашникова» рассказал о модернизации ракет «Вихрь» для борьбы с дронами",
+            "url": "https://iz.ru/2146513/glava-kalashnikova-rasskazal-o-modernizatcii-raket-vikhr-dlia-borby-s-dronami-izi",
+            "count": "14 stories, usual 6",
+            "arrow": "↑"
           }
         ]
       },
       "2026-08-17": {
         "cards": [
           {
-            "title": "Russian media",
-            "line": "206 flank stories, usual 245",
+            "title": "Defence Ministry",
+            "line": "The Russian Defence Ministry gave figures on the capture of Novosoloshino in the Zaporizhzhia region.",
+            "russian": "Освобождение Новосолошино в Запорожской области: данные Минобороны РФ",
+            "url": "https://iz.ru/2151318/2026-08-19/boitcy-vs-rf-rasskazali-ob-osvobozhdenii-novosoloshino",
+            "count": "8 stories, usual 20",
             "arrow": "↓"
           }
         ]
@@ -1434,8 +1459,19 @@
       "2026-08-24": {
         "cards": [
           {
-            "title": "Russian media",
-            "line": "201 flank stories, usual 245",
+            "title": "Defence Ministry",
+            "line": "The Russian Defence Ministry gave new details on the capture of Vodyanske in the Donetsk region.",
+            "russian": "В Минобороны России рассказали новые детали освобождения Водянского в ДНР",
+            "url": "https://russian.rt.com/ussr/news/1673303-rsosiya-osvobozhdenie-vodyanskoe",
+            "count": "30 stories, usual 20",
+            "arrow": "↑"
+          },
+          {
+            "title": "Defence contractors",
+            "line": "Kalashnikov presented the TS 2.0 with a beaver-tail mount.",
+            "russian": "«Калашников» представил ТС 2.0 с «Бобровым хвостом»",
+            "url": "https://lenta.ru/news/2026/08/26/kalashnikov-predstavil-ts-2-0-s-bobrovym-hvostom/",
+            "count": "5 stories, usual 6",
             "arrow": "↓"
           }
         ]
@@ -1443,8 +1479,19 @@
       "2026-08-31": {
         "cards": [
           {
-            "title": "Russian media",
-            "line": "212 flank stories, usual 245",
+            "title": "Defence Ministry",
+            "line": "A roundup cited a Russian Defence Ministry statement during an advance toward Sloviansk.",
+            "russian": "Новости СВО 31 августа: наступление на Славянск, заявление Минобороны России",
+            "url": "https://lenta.ru/news/2026/08/31/opisana-situatsiya-bliz-pos/",
+            "count": "7 stories, usual 20",
+            "arrow": "↓"
+          },
+          {
+            "title": "Defence contractors",
+            "line": "Kalashnikov will show an AK-12+ model at the Eastern Economic Forum.",
+            "russian": "Павильон «Калашникова» на ВЭФ-2026: концерн представит АК-12+",
+            "url": "https://iz.ru/2158165/kalashnikov-predstavit-na-vef-maket-novogo-avtomata-ak-12-izi",
+            "count": "5 stories, usual 6",
             "arrow": "↓"
           }
         ]
@@ -1452,8 +1499,19 @@
       "2026-09-07": {
         "cards": [
           {
-            "title": "Russian media",
-            "line": "260 flank stories, usual 245",
+            "title": "Defence Ministry",
+            "line": "The Russian Defence Ministry named the targets it said were hit in Ukraine overnight.",
+            "russian": "Минобороны России назвало пораженные за ночь цели на Украине",
+            "url": "https://russian.rt.com/ussr/news/1679676-rossiya-porazila-celi-ukraina",
+            "count": "9 stories, usual 20",
+            "arrow": "↓"
+          },
+          {
+            "title": "Defence contractors",
+            "line": "Kalashnikov delivered mounts for anti-aircraft machine guns.",
+            "russian": "«Калашников» передал опоры для зенитных пулеметов",
+            "url": "https://lenta.ru/news/2026/09/07/kalashnikov-peredal-opory-dlya-zenitnyh-pulemetov/",
+            "count": "7 stories, usual 6",
             "arrow": "↑"
           }
         ]
@@ -1461,8 +1519,19 @@
       "2026-09-14": {
         "cards": [
           {
-            "title": "Russian media",
-            "line": "297 flank stories, usual 245",
+            "title": "Defence Ministry",
+            "line": "The Russian Defence Ministry said Tu-95MS aircraft flew over neutral waters of two seas.",
+            "russian": "Ту-95МС пролетели над нейтральными водами двух морей: заявление Минобороны РФ",
+            "url": "https://iz.ru/2167346/tu-95ms-vypolnili-polet-nad-neitralnymi-vodami-barentceva-i-norvezhskogo-morei-izi",
+            "count": "18 stories, usual 20",
+            "arrow": "↓"
+          },
+          {
+            "title": "Defence contractors",
+            "line": "Kalashnikov will show an anti-drone gate for the first time.",
+            "russian": "«Калашников» впервые представит антидроновую «Калитку»",
+            "url": "https://lenta.ru/news/2026/09/15/kalashnikov-vpervye-predstavit-antidronovuyu-kalitku/",
+            "count": "12 stories, usual 6",
             "arrow": "↑"
           }
         ]
@@ -1470,26 +1539,67 @@
       "2026-09-21": {
         "cards": [
           {
-            "title": "Russian media",
-            "line": "273 flank stories, usual 245",
-            "arrow": "↑"
+            "title": "Defence Ministry",
+            "line": "The Russian Defence Ministry published an overnight strike summary.",
+            "russian": "Минобороны РФ представило сводку по ударам за ночь",
+            "url": "https://iz.ru/2171878/2026-09-23/vs-rossii-udarili-po-predpriiatiiam-vpk-i-obektam-tek-ukrainy",
+            "count": "15 stories, usual 20",
+            "arrow": "↓"
+          },
+          {
+            "title": "Defence contractors",
+            "line": "Kalashnikov will show its newest rifles in Azerbaijan for the first time.",
+            "russian": "«Калашников» впервые представит в Азербайджане новейшие автоматы",
+            "url": "https://lenta.ru/news/2026/09/25/kalashnikov-vpervye-predstavit-v-azerbaydzhane-noveyshie-avtomaty/",
+            "count": "2 stories, usual 6",
+            "arrow": "↓"
           }
         ]
       },
       "2026-09-28": {
         "cards": [
           {
-            "title": "Russian media",
-            "line": "232 flank stories, usual 245",
+            "title": "Defence Ministry",
+            "line": "The Russian Defence Ministry said a corporal delivered ammunition under fire and a sailor saved a group from FPV drones.",
+            "russian": "Минобороны РФ: ефрейтор Деревянченко доставил боеприпасы под обстрелом, матрос Андрешко спас группу от FPV-дронов",
+            "url": "https://iz.ru/2175119/efreitor-derevianchenko-dostavil-boepripasy-pod-artilleriiskim-ognem-vsu-izi",
+            "count": "27 stories, usual 20",
+            "arrow": "↑"
+          },
+          {
+            "title": "Defence contractors",
+            "line": "Kalashnikov shipped a batch of upgraded SVD rifles to a foreign customer.",
+            "russian": "Калашников поставил партию модернизированных СВД зарубежному партнеру",
+            "url": "https://rg.ru/2026/10/01/koncern-kalashnikov-otgruzil-partiiu-snajperskih-vintovok-zarubezhnomu-zakazchiku.html",
+            "count": "4 stories, usual 6",
             "arrow": "↓"
+          },
+          {
+            "title": "Conscription",
+            "line": "An Izvestia review of the autumn 2026 call-up: what changed and who it covers.",
+            "russian": "Осенний призыв 2026: что изменилось и кого коснется — разбор",
+            "url": "https://iz.ru/2175317/s-1-oktiabria-startuet-osennii-prizyv-chto-izmenilos-v-2026-godu-i-kogo-kosnetsia-izi",
+            "count": "2 stories, usual 0",
+            "arrow": "↑"
           }
         ]
       },
       "2026-10-05": {
         "cards": [
           {
-            "title": "Russian media",
-            "line": "303 flank stories, usual 245",
+            "title": "Defence Ministry",
+            "line": "The Russian Defence Ministry showed assault troops clearing a Ukrainian position.",
+            "russian": "Минобороны России показало работу штурмовиков по зачистке опорника ВСУ",
+            "url": "https://russian.rt.com/ussr/news/1690711-rossiya-shturmoviki-opornik-vsu",
+            "count": "17 stories, usual 20",
+            "arrow": "↓"
+          },
+          {
+            "title": "Defence contractors",
+            "line": "Uralvagonzavod tested an updated BREM-80 recovery vehicle.",
+            "russian": "«Уралвагонзавод» испытал обновленную БРЭМ-80",
+            "url": "https://lenta.ru/news/2026/10/06/uralvagonzavod-ispytal-obnovlennuyu-brem-80/",
+            "count": "15 stories, usual 6",
             "arrow": "↑"
           }
         ]
@@ -1497,17 +1607,47 @@
       "2026-10-12": {
         "cards": [
           {
-            "title": "Russian media",
-            "line": "264 flank stories, usual 245",
+            "title": "Defence Ministry",
+            "line": "The Russian Defence Ministry said it created a service for training military neural networks.",
+            "russian": "ИИ в военных целях: сервис Минобороны РФ",
+            "url": "https://iz.ru/2182652/2026-10-12/v-minoborony-rossii-sozdan-servis-dlia-obucheniia-neirosetei-voennogo-naznacheniia",
+            "count": "22 stories, usual 20",
             "arrow": "↑"
+          },
+          {
+            "title": "Defence contractors",
+            "line": "Kalashnikov tactical mounts were adapted for drone hunters.",
+            "russian": "Тактические опоры «Калашникова» адаптировали для «охотников за дронами»",
+            "url": "https://lenta.ru/news/2026/10/12/takticheskie-opory-kalashnikova-adaptirovali-dlya-ohotnikov-za-dronami/",
+            "count": "1 stories, usual 6",
+            "arrow": "↓"
           }
         ]
       },
       "2026-10-19": {
         "cards": [
           {
-            "title": "Russian media",
-            "line": "283 flank stories, usual 245",
+            "title": "Defence Ministry",
+            "line": "The Russian Defence Ministry named the targets of a large strike in Kyiv.",
+            "russian": "Минобороны РФ раскрыло цели массированного удара в Киеве",
+            "url": "https://aif.ru/politics/world/minoborony-rf-raskrylo-celi-massirovannogo-udara-v-kieve",
+            "count": "22 stories, usual 20",
+            "arrow": "↑"
+          },
+          {
+            "title": "Defence contractors",
+            "line": "Kalashnikov shipped a batch of 9M333 missiles.",
+            "russian": "«Калашников» отгрузил партию ракет 9М333",
+            "url": "https://lenta.ru/news/2026/10/19/kalashnikov-otgruzil-partiyu-raket-9m333/",
+            "count": "7 stories, usual 6",
+            "arrow": "↑"
+          },
+          {
+            "title": "Conscription",
+            "line": "The Southern Military District discharged soldiers from the autumn 2025 call-up.",
+            "russian": "В Южном военном округе проводили в запас солдат осеннего призыва 2025 года",
+            "url": "https://tvzvezda.ru/news/20261019185-ZHMjG.html",
+            "count": "1 stories, usual 0",
             "arrow": "↑"
           }
         ]

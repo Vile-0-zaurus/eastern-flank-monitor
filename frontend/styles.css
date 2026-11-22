@@ -1087,6 +1087,45 @@ body.briefing #inside-russia { display: none; }
     overflow-y: auto;
   }
 }
+.header-actions { display: flex; align-items: center; gap: 8px; }
+#about-open, #about-close { border: 1px solid #5eead4; background: transparent; color: inherit; padding: 4px 10px; }
+.data-stamp { margin: 0 16px 8px; color: #57534e; font-size: 14px; }
+.next-update { margin: 0 16px 8px; }
+.legend { display: flex; flex-wrap: wrap; gap: 12px; margin: 8px 0 12px; align-items: center; }
+.legend-item { display: inline-flex; align-items: center; gap: 4px; font-size: 13px; }
+.legend-icon { width: 16px; height: 16px; }
+.legend-confirmed::before, .legend-reported::before {
+  content: "";
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 2px solid #0f766e;
+}
+.legend-reported::before { border-style: dashed; }
+.incident-dot.status-confirmed circle { stroke: #14532d; }
+.incident-dot.status-reported circle { stroke-dasharray: 3 2; }
+.about-panel {
+  position: fixed;
+  inset: 0;
+  background: rgba(24, 24, 27, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 20;
+}
+.about-panel[hidden] { display: none; }
+.about-card {
+  width: min(40rem, calc(100% - 32px));
+  max-height: calc(100% - 32px);
+  overflow: auto;
+  background: #f7f6f3;
+  color: #18181b;
+  padding: 16px 20px 24px;
+  border: 1px solid #d6d3d1;
+}
+.about-head { display: flex; justify-content: space-between; align-items: center; }
+.about-card h3 { margin: 16px 0 4px; font-size: 16px; }
+.about-card p { margin: 0 0 8px; }
 
 
 

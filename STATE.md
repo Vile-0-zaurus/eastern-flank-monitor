@@ -1,10 +1,10 @@
 # State
 
-Updated: 22 November 2026. The page uses country tabs and a fixed briefing. Default tab is Lithuania.
+Updated: 22 November 2026. Part A is in this change. The page uses country tabs and a fixed briefing. Default tab is Lithuania.
 
 ## Where we stopped
 
-22 November 2026. Housekeeping only. The two title printers were one-off helpers, not part of the Now build, so they were deleted. tests/ui_selftest.py was moved to tests/retired/ because it still opened the old #why panel. The note says it was replaced by click_selftest.py. The three remaining self-tests passed. The page is unchanged. Cache tag is still ?v=6a27978. Do not start the next task until a new written assignment says so.
+22 November 2026. Part A is done: incident icons, three type corrections, Now Russia cards, replay counts from all stored headlines, About, and the data stamp. The countdown is hidden because live monitoring is off. Cache tag is ?v=20261122a. Do not start the next task until a new written assignment says so.
 
 15 November 2026, evening. The page uses six tabs: Finland, Estonia, Latvia, Lithuania, Poland, Russia. One tab is always selected. The default is Lithuania. The right column is a fixed briefing. Pushed through 19d8e16. Refresh Brave so it loads ?v=6a27978. Screenshots are in ~/Desktop/efm-check2/.
 
@@ -18,7 +18,7 @@ Test B, corrected rules, post-hoc, not pre-registered: not one result. The Belar
 
 ## Next step
 
-None. Housekeeping is done. Do not open the next task until a new written assignment says so.
+None. Part A is done. Do not open the next task until a new written assignment says so.
 
 ## Open decisions
 

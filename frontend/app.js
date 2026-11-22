@@ -1,5 +1,5 @@
 const START = "2021-01-04";
-const ASSET_V = "6a27978";
+const ASSET_V = "20261122a";
 
 function asset(path) {
   return path + (path.includes("?") ? "&" : "?") + "v=" + ASSET_V;
@@ -467,10 +467,18 @@ function selectTab(code) {
   syncDrawer();
 }
 
+function storedStoryCount(code) {
+  const weeks = (state.replayCounts && state.replayCounts.weeks) || {};
+  const row = weeks[current().week];
+  if (row && Object.prototype.hasOwnProperty.call(row, code)) return row[code];
+  if (row) return 0;
+  return countryMedia(code).length;
+}
+
 function tabLabel(code) {
   const name = code === "RU" ? "Russia" : state.text["country_" + code];
   if (code === "RU") return "Russia";
-  const stories = inNow() ? nowAttention(code).count : countryMedia(code).length;
+  const stories = inNow() ? nowAttention(code).count : storedStoryCount(code);
   const usual = inNow() ? nowAttention(code).usual : null;
   const incidents = inNow()
     ? nowIncidents(code).length
@@ -728,33 +736,46 @@ function renderBriefing() {
   const bottom = document.getElementById("bottom-line-text");
   if (bottom) bottom.textContent = bottomSentence(code);
   if (code === "RU") return;
+  ["brief-happened", "officials", "country-news"].forEach((id) => {
+    const node = document.getElementById(id);
+    if (node) node.hidden = false;
+  });
   const happened = document.getElementById("region-events");
   if (happened) {
     happened.innerHTML = "";
     if (inNow()) {
       const items = nowIncidents(code);
-      if (!items.length) emptyLine(happened);
-      else {
+      if (items.length) {
         const list = document.createElement("ul");
         items.forEach((incident) => appendIncidentLine(list, incident));
         happened.append(list);
       }
     } else {
       const items = activeEvents(current().week).filter((event) => concerns(event, code));
-      if (!items.length) emptyLine(happened);
-      else {
+      if (items.length) {
         const list = document.createElement("ul");
         items.forEach((event) => appendEventLine(list, event));
         happened.append(list);
       }
     }
+    const stories = regionalStories(code);
+    if (stories.length) {
+      const label = document.createElement("h3");
+      label.className = "section-label";
+      label.textContent = "Regional media";
+      const list = document.createElement("ul");
+      stories.forEach((story) => appendStory(list, story));
+      happened.append(label, list);
+    }
+    if (!happened.childElementCount) emptyLine(happened);
   }
+  const regionalSection = document.getElementById("brief-regional");
   const regionalHost = document.getElementById("brief-regional-body");
+  const stories = regionalStories(code);
+  if (regionalSection) regionalSection.hidden = !stories.length;
   if (regionalHost) {
     regionalHost.innerHTML = "";
-    const stories = regionalStories(code);
-    if (!stories.length) emptyLine(regionalHost);
-    else {
+    if (stories.length) {
       const list = document.createElement("ul");
       stories.forEach((story) => appendStory(list, story));
       regionalHost.append(list);
@@ -763,6 +784,7 @@ function renderBriefing() {
   const ru = document.getElementById("officials-ru");
   const west = document.getElementById("officials-west");
   if (ru && west && !ru.childElementCount && !west.childElementCount) emptyLine(ru);
+  collapseEmptyBriefing();
 }
 
 function project(lon, lat) {
@@ -812,10 +834,65 @@ function showEvent(event, place) {
   box.append(link);
 }
 
+function collapseEmptyBriefing() {
+  const brief = document.getElementById("country-brief");
+  if (!brief || brief.hidden) return;
+  const lines = [...brief.querySelectorAll(".empty-line")].filter((node) => !node.closest("[hidden]"));
+  lines.slice(1).forEach((node) => {
+    const section = node.closest("section");
+    node.remove();
+    if (section && !section.querySelector("li, a, .empty-line")) section.hidden = true;
+  });
+}
+
+function incidentIcons() {
+  return {
+    drone: "M0,-7 L6,5 L0,2 L-6,5 Z",
+    aircraft: "M0,-6 L2,-1 L7,-1 L7,1 L2,1 L0,6 L-2,1 L-7,1 L-7,-1 L-2,-1 Z",
+    border: "M-5,-5 H5 V5 H-5 Z",
+    sabotage: "M0,-7 L1.5,-1.5 L7,-2 L2.5,1.5 L4,7 L0,3.5 L-4,7 L-2.5,1.5 L-7,-2 L-1.5,-1.5 Z",
+  };
+}
+
+function renderLegend() {
+  const host = document.getElementById("map-legend");
+  if (!host) return;
+  host.innerHTML = "";
+  const icons = incidentIcons();
+  ["drone", "aircraft", "border", "sabotage"].forEach((type) => {
+    const item = document.createElement("span");
+    item.className = "legend-item";
+    item.dataset.type = type;
+    item.append(iconSvg(icons[type]), document.createTextNode(type[0].toUpperCase() + type.slice(1)));
+    host.append(item);
+  });
+  ["Confirmed", "Reported"].forEach((label) => {
+    const item = document.createElement("span");
+    item.className = "legend-item legend-" + label.toLowerCase();
+    item.textContent = label;
+    host.append(item);
+  });
+}
+
+function iconSvg(path) {
+  const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+  svg.setAttribute("viewBox", "-8 -8 16 16");
+  svg.setAttribute("class", "legend-icon");
+  svg.setAttribute("aria-hidden", "true");
+  const shape = document.createElementNS("http://www.w3.org/2000/svg", "path");
+  shape.setAttribute("d", path);
+  shape.setAttribute("fill", "none");
+  shape.setAttribute("stroke", "currentColor");
+  shape.setAttribute("stroke-width", "1.4");
+  svg.append(shape);
+  return svg;
+}
+
 function renderMap() {
   const title = document.getElementById("map-title");
   if (title) title.textContent = state.text.map_title;
   const host = document.getElementById("map");
+  renderLegend();
   const detail = document.getElementById("map-detail");
   if (detail) detail.hidden = true;
   if (!state.map) {
@@ -928,18 +1005,14 @@ function renderMap() {
 }
 
 function drawIncidents(svg, week) {
-  const icons = {
-    drone: "M0,-7 L6,5 L0,2 L-6,5 Z",
-    sabotage: "M0,-7 L1.5,-1.5 L7,-2 L2.5,1.5 L4,7 L0,3.5 L-4,7 L-2.5,1.5 L-7,-2 L-1.5,-1.5 Z",
-    border: "M-5,-5 H5 V5 H-5 Z",
-    jamming: "M-6,2 Q-3,-4 0,2 T6,2",
-    cable: "M-6,0 H6",
-  };
+  const icons = incidentIcons();
   activeIncidents().forEach((incident) => {
     const [x, y] = project(incident.lon, incident.lat);
     const dot = document.createElementNS("http://www.w3.org/2000/svg", "g");
-    dot.setAttribute("class", "incident-dot");
-    dot.setAttribute("data-type", incident.type);
+    const confirmed = /confirmed/i.test(incident.status || "");
+    const reported = /reported/i.test(incident.status || incident.summary || "");
+    dot.setAttribute("class", "incident-dot" + (confirmed ? " status-confirmed" : reported ? " status-reported" : ""));
+    dot.setAttribute("data-type", incident.type || "unspecified");
     dot.setAttribute("data-date", incident.date);
     dot.setAttribute("data-country", incident.country);
     dot.setAttribute("transform", "translate(" + x.toFixed(1) + " " + y.toFixed(1) + ")");
@@ -948,14 +1021,18 @@ function drawIncidents(svg, week) {
     shape.setAttribute("fill", "#0f766e");
     shape.setAttribute("stroke", "#ffffff");
     shape.setAttribute("stroke-width", "2");
-    const icon = document.createElementNS("http://www.w3.org/2000/svg", "path");
-    icon.setAttribute("d", icons[incident.type] || icons.drone);
-    icon.setAttribute("fill", "none");
-    icon.setAttribute("stroke", "#ffffff");
-    icon.setAttribute("stroke-width", "1.4");
+    dot.append(shape);
+    if (icons[incident.type]) {
+      const icon = document.createElementNS("http://www.w3.org/2000/svg", "path");
+      icon.setAttribute("d", icons[incident.type]);
+      icon.setAttribute("fill", "none");
+      icon.setAttribute("stroke", "#ffffff");
+      icon.setAttribute("stroke-width", "1.4");
+      dot.append(icon);
+    }
     const tip = document.createElementNS("http://www.w3.org/2000/svg", "title");
-    tip.textContent = incidentLabel(incident) + ". " + incident.type + ". " + incident.summary;
-    dot.append(shape, icon, tip);
+    tip.textContent = incidentLabel(incident) + ". " + (incident.type || "unspecified") + ". " + incident.summary;
+    dot.append(tip);
     dot.addEventListener("click", (click) => {
       click.stopPropagation();
       stop();
@@ -1402,17 +1479,25 @@ function renderInsideMain() {
     const story = cardStory(item);
     const line = document.createElement("p");
     line.className = "russia-line";
-    if (story) {
+    if (item.count) {
+      line.textContent = item.line || item.english || "";
+      const count = document.createElement("p");
+      count.className = "card-count";
+      count.textContent = item.count + (item.arrow ? " " + item.arrow : "");
+      article.append(title, line, count);
+    } else if (story) {
       line.textContent = story;
+      article.append(title, line);
     } else if (isCountLine(item.line)) {
       article.classList.add("compact");
       line.className = "card-count";
       line.textContent = item.line + (item.arrow ? " " + item.arrow : "");
+      article.append(title, line);
     } else {
       line.textContent = item.line + (item.arrow ? " " + item.arrow : "");
+      article.append(title, line);
     }
-    article.append(title, line);
-    if (story && isCountLine(item.line)) {
+    if (!item.count && story && isCountLine(item.line)) {
       const count = document.createElement("p");
       count.className = "card-count";
       count.textContent = item.line + (item.arrow ? " " + item.arrow : "");
@@ -1626,7 +1711,7 @@ function togglePlayback() {
 
 async function main() {
   setupDoors();
-  const [text, csv, events, map, news, official, countryHeadlines, officials, inside, insideMain, nowPack, nowHeadlines] = await Promise.all([
+  const [text, csv, events, map, news, official, countryHeadlines, officials, inside, insideMain, nowPack, nowHeadlines, replayCounts, appYaml] = await Promise.all([
     fetch(asset("i18n/en.json")).then((response) => response.json()),
     fetch("../docs/reports/2026-10-12-backtest-weeks.csv").then((response) => response.text()),
     fetch(asset("events.json")).then((response) => response.json()),
@@ -1639,6 +1724,8 @@ async function main() {
     fetch(asset("inside-main.json")).then((response) => response.json()),
     fetch(asset("now-view.json")).then((response) => response.json()),
     fetch(asset("now-headlines.json")).then((response) => response.json()),
+    fetch(asset("replay-counts.json")).then((response) => response.ok ? response.json() : { weeks: {} }),
+    fetch("../config/app.yaml").then((response) => response.ok ? response.text() : ""),
   ]);
   state.text = text;
   state.rows = parseCsv(csv).filter((row) => row.week >= START);
@@ -1651,14 +1738,24 @@ async function main() {
   state.insideMain = insideMain;
   state.nowPack = nowPack;
   state.nowHeadlines = nowHeadlines;
+  state.replayCounts = replayCounts || { weeks: {} };
+  state.appConfig = parseAppYaml(appYaml);
   state.countryHeadlines = countryHeadlines;
   document.title = text.title;
   document.getElementById("title").textContent = text.title;
   document.getElementById("banner").textContent = "Prototype — replaying 2021–22. Not live.";
   document.getElementById("play").textContent = text.play;
-  document.getElementById("disclaimer-short").textContent = "Not an official warning.";
-  document.getElementById("disclaimer-more").textContent = text.more;
-  document.getElementById("disclaimer-full").textContent = text.disclaimer_full;
+  document.getElementById("disclaimer-short").textContent = "Not an official warning service.";
+  const aboutOpen = document.getElementById("about-open");
+  const aboutClose = document.getElementById("about-close");
+  const aboutPanel = document.getElementById("about-panel");
+  if (aboutOpen && aboutPanel) {
+    aboutOpen.addEventListener("click", () => { aboutPanel.hidden = false; });
+  }
+  if (aboutClose && aboutPanel) {
+    aboutClose.addEventListener("click", () => { aboutPanel.hidden = true; });
+  }
+  applyCountdown();
   const params = new URLSearchParams(location.search);
   if (params.get("week")) {
     const found = flankWeeks().findIndex((row) => row.week === params.get("week"));
@@ -1708,6 +1805,23 @@ function setMode(mode) {
     ? "Snapshot: 3 Aug – 25 Oct 2026 · attention and incidents only."
     : "Prototype — replaying 2021–22. Not live.";
   renderWeek();
+}
+
+function parseAppYaml(text) {
+  const config = {};
+  String(text || "").split("\n").forEach((line) => {
+    const match = line.match(/^([A-Za-z0-9_]+):\s*"?([^"#]*)"?\s*$/);
+    if (match) config[match[1]] = match[2].trim();
+  });
+  return config;
+}
+
+function applyCountdown() {
+  const node = document.getElementById("next-update");
+  if (!node || typeof countdownState !== "function") return;
+  const result = countdownState(state.appConfig || {}, new Date());
+  node.hidden = !result.visible;
+  node.textContent = result.visible ? result.text : "";
 }
 
 main();

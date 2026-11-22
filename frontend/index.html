@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Eastern Flank Monitor</title>
-  <link rel="stylesheet" href="styles.css?v=6a27978">
+  <link rel="stylesheet" href="styles.css?v=20261122a">
 </head>
 <body class="main-screen briefing">
   <div id="doors" class="doors" hidden>
@@ -16,11 +16,16 @@
     <p id="banner" class="banner"></p>
     <div class="title-row">
       <h1 id="title"></h1>
-      <div class="mode-tabs" role="tablist" aria-label="Period">
-        <button id="mode-replay" type="button" aria-pressed="true">2021–22 replay</button>
-        <button id="mode-now" type="button" aria-pressed="false">Now</button>
+      <div class="header-actions">
+        <button id="about-open" type="button">About</button>
+        <div class="mode-tabs" role="tablist" aria-label="Period">
+          <button id="mode-replay" type="button" aria-pressed="true">2021–22 replay</button>
+          <button id="mode-now" type="button" aria-pressed="false">Now</button>
+        </div>
       </div>
     </div>
+    <p id="data-stamp" class="data-stamp">Data as of 25 Oct 2026 · page built 22 Nov 2026</p>
+    <p id="next-update" class="next-update" hidden></p>
     <p id="now-label" class="now-label" hidden></p>
     <div class="top-strip">
       <p id="region-state" class="region-state"></p>
@@ -37,22 +42,14 @@
       <div id="week-ticks" class="week-ticks" aria-hidden="true"></div>
       <label class="skip-quiet"><input id="skip-quiet" type="checkbox"> Skip quiet weeks</label>
       <div class="disclaimer-bar rail-foot">
-        <p id="disclaimer-short"></p>
-        <details>
-          <summary id="disclaimer-more"></summary>
-          <p id="disclaimer-full"></p>
-        </details>
+        <p id="disclaimer-short">Not an official warning service.</p>
       </div>
     </section>
     <div class="stage">
       <section id="map-panel" aria-label="Map">
         <div class="map-head">
           <h2 id="map-title">Map</h2>
-          <p id="map-legend" class="legend">
-            <span class="swatch normal">Normal</span>
-            <span class="swatch tense">Tense</span>
-            <span class="swatch danger">Danger signs</span>
-          </p>
+          <div id="map-legend" class="legend"></div>
         </div>
         <div id="map"></div>
         <p id="map-detail" class="note" hidden></p>
@@ -104,6 +101,22 @@
       </section>
     </aside>
   </main>
-  <script src="app.js?v=6a27978"></script>
+  <div id="about-panel" class="about-panel" hidden>
+    <div class="about-card" role="dialog" aria-labelledby="about-title">
+      <div class="about-head">
+        <h2 id="about-title">About</h2>
+        <button id="about-close" type="button">Close</button>
+      </div>
+      <h3>What this is, and what it is not</h3>
+      <p>The app is a weather station. It reads public instruments and shows the picture. It is not the weather service, and it is not a siren. It does not issue an official warning, and it does not tell you what to do.</p>
+      <h3>How it works</h3>
+      <p>It reads stored public coverage and shows attention against the usual level for that country. A missing day or a missing source is no data. It is not zero, and it is not calm.</p>
+      <h3>Data sources</h3>
+      <p>The 2021–22 replay uses stored GDELT headlines. The Now snapshot uses stored GDELT rows, Yle, BBC, and official pages already fetched. Bank of Russia ruble and key-rate files stop in February 2022, so they are not on the Now tab.</p>
+      <p id="about-exact">Built only from publicly available sources: open datasets (GDELT), public news feeds and official pages. Collected politely and automatically, without bypassing access blocks, logins or paywalls, and respecting site terms. Third-party trackers were used only to discover incidents; every item links to its source. Not an official warning service. In a crisis, follow your national authorities.</p>
+    </div>
+  </div>
+  <script src="countdown.js?v=20261122a"></script>
+  <script src="app.js?v=20261122a"></script>
 </body>
 </html>
