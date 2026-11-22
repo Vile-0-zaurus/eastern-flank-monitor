@@ -70,11 +70,15 @@ def main() -> int:
             problems.append("no visible icons in the Latvia week of 10 August")
         for place in places:
             status = page.locator(".incident-dot[data-place='" + place + "']").get_attribute("data-status")
-            fill = page.locator(".incident-dot[data-place='" + place + "'] circle").get_attribute("fill")
-            if status == "confirmed" and (not fill or fill == "none"):
-                problems.append("confirmed icon is not filled")
-            if status == "reported" and fill and fill != "none":
-                problems.append("reported icon is filled")
+            halo = page.locator(".incident-dot[data-place='" + place + "'] circle.halo").get_attribute("fill")
+            path_fill = page.locator(".incident-dot[data-place='" + place + "'] path").get_attribute("fill")
+            ring = page.locator(".incident-dot[data-place='" + place + "'] circle.ring")
+            if halo != "#1c1917":
+                problems.append("icon missing a dark halo")
+            if status == "confirmed" and path_fill != "#ffffff":
+                problems.append("confirmed icon is not solid white")
+            if status == "reported" and ring.count() == 0:
+                problems.append("reported icon has no dashed ring")
             page.evaluate(
                 """(place) => {
                   const node = [...document.querySelectorAll('.incident-dot')].find((item) => item.getAttribute('data-place') === place);

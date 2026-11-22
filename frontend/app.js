@@ -1113,9 +1113,15 @@ function fitIncidentIcons(svg) {
   const px = pixelsPerUser(svg);
   if (!px) return;
   const r = ICON_SCREEN_R / px;
-  svg.querySelectorAll(".incident-dot circle").forEach((circle) => {
+  svg.querySelectorAll(".incident-dot circle.halo").forEach((circle) => {
     circle.setAttribute("r", r.toFixed(3));
-    circle.setAttribute("stroke-width", (1.5 / px).toFixed(3));
+    circle.setAttribute("stroke", "none");
+  });
+  svg.querySelectorAll(".incident-dot circle.ring").forEach((circle) => {
+    circle.setAttribute("r", (r * 0.82).toFixed(3));
+    circle.setAttribute("stroke", "#f59e0b");
+    circle.setAttribute("stroke-width", (2 / px).toFixed(3));
+    circle.setAttribute("stroke-dasharray", (5 / px).toFixed(2) + " " + (3.5 / px).toFixed(2));
   });
   svg.querySelectorAll(".incident-dot path").forEach((icon) => {
     const s = r / 9;
@@ -1666,18 +1672,27 @@ function drawIncidentIcon(layer, point, r, boxes, icons) {
   dot.setAttribute("data-country", incident.country);
   dot.setAttribute("data-place", incident.place || "");
   dot.setAttribute("transform", "translate(" + x.toFixed(1) + " " + y.toFixed(1) + ")");
-  const shape = document.createElementNS("http://www.w3.org/2000/svg", "circle");
-  shape.setAttribute("r", r.toFixed(2));
-  shape.setAttribute("fill", confirmed ? "#0f766e" : "none");
-  shape.setAttribute("stroke", confirmed ? "#ffffff" : "#0f766e");
-  shape.setAttribute("stroke-width", "2");
-  dot.append(shape);
+  const halo = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+  halo.setAttribute("class", "halo");
+  halo.setAttribute("r", r.toFixed(2));
+  halo.setAttribute("fill", "#1c1917");
+  halo.setAttribute("stroke", "none");
+  dot.append(halo);
+  if (!confirmed) {
+    const ring = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+    ring.setAttribute("class", "ring");
+    ring.setAttribute("r", (r * 0.82).toFixed(2));
+    ring.setAttribute("fill", "none");
+    ring.setAttribute("stroke", "#f59e0b");
+    ring.setAttribute("stroke-width", "2");
+    dot.append(ring);
+  }
   if (icons[incident.type]) {
     const icon = document.createElementNS("http://www.w3.org/2000/svg", "path");
     icon.setAttribute("d", icons[incident.type]);
-    icon.setAttribute("fill", "none");
-    icon.setAttribute("stroke", confirmed ? "#ffffff" : "#0f766e");
-    icon.setAttribute("stroke-width", "1.4");
+    icon.setAttribute("fill", confirmed ? "#ffffff" : "none");
+    icon.setAttribute("stroke", confirmed ? "none" : "#f59e0b");
+    icon.setAttribute("stroke-width", confirmed ? "0" : "1.4");
     dot.append(icon);
   }
   dot.addEventListener("pointerenter", (event) => {

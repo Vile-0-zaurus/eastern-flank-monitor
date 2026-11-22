@@ -103,7 +103,7 @@ def main() -> int:
         page.wait_for_function("document.getElementById('mode-now').getAttribute('aria-pressed') === 'true'")
         set_now_week(page)
         legend = page.locator("#map-legend").inner_text()
-        for word in ("Officially confirmed", "Reported only", "Solid icon", "Outline only"):
+        for word in ("Officially confirmed", "Reported only", "Solid white icon", "Amber dashed outline"):
             if word not in legend:
                 raise AssertionError("legend missing " + word)
         if "Drone" in legend or "Aircraft" in legend:
