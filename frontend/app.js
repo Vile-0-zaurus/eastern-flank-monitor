@@ -414,10 +414,13 @@ function nowIncidents(code, week) {
 }
 
 function activeIncidents(code) {
-  const end = weekEnd(current().week);
-  const floor = state.nowPack.window_start || "2026-08-03";
+  const week = current().week;
+  const end = weekEnd(week);
+  const start = new Date(week + "T00:00:00Z");
+  start.setUTCDate(start.getUTCDate() - 28);
+  const floor = start.toISOString().slice(0, 10);
   return (state.nowPack.incidents || []).filter((item) => {
-    if (item.date > end || item.date < floor) return false;
+    if (!item.date || item.date > end || item.date < floor) return false;
     return !code || item.country === code;
   });
 }
