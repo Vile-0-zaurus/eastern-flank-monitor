@@ -1,10 +1,12 @@
 # State
 
-Updated: 22 November 2026. Part A is in this change. The page uses country tabs and a fixed briefing. Default tab is Lithuania.
+Updated: 22 November 2026. Polish round part 1 is committed and pushed.
 
 ## Where we stopped
 
-22 November 2026. ui-translate-1 finished for Lithuanian only. Real cost $0.087150 from API usage tokens. The other four languages were not called. Waiting for a new cap before those. Sections 2 to 4 are not started.
+22 November 2026. Polish round part 1 is done. Section 3 (quiet-week headline and fact card) is `add4066`. Incident icons stay 18 px on screen (`c217e9f`). Close icons cluster into a count badge (`4206358`). A country tab zooms to that country and Reset returns to the region (`b1f4e83`). Page version pin is `5eb5a13`. Map checks are in `tests/map_selftest.py`. No further API calls in this part.
+
+22 November 2026. ui-translate-1 finished for Lithuanian only. Real cost $0.087150 from API usage tokens. ui-translate-2 then stored Finnish, Estonian, Latvian, and Polish for $0.342260.
 
 15 November 2026, evening. The page uses six tabs: Finland, Estonia, Latvia, Lithuania, Poland, Russia. One tab is always selected. The default is Lithuania. The right column is a fixed briefing. Pushed through 19d8e16. Refresh Brave so it loads ?v=6a27978. Screenshots are in ~/Desktop/efm-check2/.
 
@@ -18,7 +20,7 @@ Test B, corrected rules, post-hoc, not pre-registered: not one result. The Belar
 
 ## Next step
 
-None. Part B is done. Do not open the next task until a new written assignment says so.
+None until a new written assignment. Polish round part 1 is finished. Do not start the screenshot pack or another page change unless that assignment says so.
 
 ## Open decisions
 
