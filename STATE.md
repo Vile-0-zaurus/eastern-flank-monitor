@@ -1,10 +1,12 @@
 # State
 
-Updated: 15 November 2026. The page uses country tabs and a fixed briefing. Default tab is Lithuania.
+Updated: 22 November 2026. The page uses country tabs and a fixed briefing. Default tab is Lithuania.
 
 ## Where we stopped
 
-15 November 2026, evening. The page uses six tabs: Finland, Estonia, Latvia, Lithuania, Poland, Russia. One tab is always selected. The default is Lithuania. The right column is a fixed briefing. Pushed through 19d8e16. Refresh Brave so it loads ?v=6a27978. Screenshots are in ~/Desktop/efm-check2/. Continue tomorrow from a new written assignment. Do not start the next task on your own.
+22 November 2026. Housekeeping only. The two title printers were one-off helpers, not part of the Now build, so they were deleted. tests/ui_selftest.py was moved to tests/retired/ because it still opened the old #why panel. The note says it was replaced by click_selftest.py. The three remaining self-tests passed. The page is unchanged. Cache tag is still ?v=6a27978. Do not start the next task until a new written assignment says so.
+
+15 November 2026, evening. The page uses six tabs: Finland, Estonia, Latvia, Lithuania, Poland, Russia. One tab is always selected. The default is Lithuania. The right column is a fixed briefing. Pushed through 19d8e16. Refresh Brave so it loads ?v=6a27978. Screenshots are in ~/Desktop/efm-check2/.
 
 The Now log has 11 incidents: Finland 3 drones, Estonia 1 sabotage, Latvia 3 drones, Lithuania 2 drones and 1 border, Poland 1 drone. GPS jamming and new cable or pipeline damage are empty. No dated 2026 Vilnius balloon closure was found.
 
@@ -16,7 +18,7 @@ Test B, corrected rules, post-hoc, not pre-registered: not one result. The Belar
 
 ## Next step
 
-None. The UX restructure is done. Do not open the next task until a new written assignment says so.
+None. Housekeeping is done. Do not open the next task until a new written assignment says so.
 
 ## Open decisions
 
