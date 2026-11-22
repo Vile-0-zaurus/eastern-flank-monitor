@@ -1205,5 +1205,81 @@ body.briefing #inside-russia { display: none; }
 .fact-list li { margin: 0 0 8px; }
 .fact-list p { margin: 0; }
 
+@media (max-width: 1100px) {
+  html, body.briefing {
+    overflow-x: hidden;
+    max-width: 100%;
+  }
+  body.briefing .title-row,
+  body.briefing .header-actions,
+  body.briefing .top-strip,
+  body.briefing .mode-tabs,
+  body.briefing .lang-switch {
+    max-width: 100%;
+    flex-wrap: wrap;
+  }
+  body.briefing #country-strip {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 8px;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+  }
+  body.briefing .country-card {
+    flex: 0 0 auto;
+    font-size: 16px;
+  }
+  body.briefing,
+  body.briefing p,
+  body.briefing button,
+  body.briefing .note,
+  body.briefing #incident-card-summary {
+    font-size: 16px;
+  }
+  body.briefing .room {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+  }
+  body.briefing .rail,
+  body.briefing .stage,
+  body.briefing .drawer {
+    position: static;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    min-height: 0;
+    transform: none;
+    overflow: visible;
+  }
+  body.briefing .stage,
+  body.briefing #map-panel {
+    height: auto;
+    flex: none;
+    overflow: visible;
+  }
+  body.briefing #map {
+    height: 18rem;
+    min-height: 18rem;
+    flex: none;
+    max-width: 100%;
+    overflow: hidden;
+  }
+  body.briefing .drawer { display: block; }
+  .about-panel { padding: 8px; align-items: flex-start; }
+  .about-panel .about-card {
+    width: 100%;
+    max-width: calc(100vw - 16px);
+    box-sizing: border-box;
+    max-height: 85vh;
+    overflow: auto;
+  }
+}
+
 
 
