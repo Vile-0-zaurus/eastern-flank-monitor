@@ -154,6 +154,8 @@
   "side_western": "Regional or Western official",
   "status_confirmed": "Officially confirmed",
   "status_reported": "Reported only",
+  "legend_confirmed_line": "Solid icon. An official page confirmed it.",
+  "legend_reported_line": "Outline only. Not confirmed on an official page.",
   "news_title": "News",
   "country_FI": "Finland",
   "country_EE": "Estonia",

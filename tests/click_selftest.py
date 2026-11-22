@@ -103,9 +103,11 @@ def main() -> int:
         page.wait_for_function("document.getElementById('mode-now').getAttribute('aria-pressed') === 'true'")
         set_now_week(page)
         legend = page.locator("#map-legend").inner_text()
-        for word in ("Drone", "Aircraft", "Border", "Sabotage", "Confirmed", "Reported"):
+        for word in ("Officially confirmed", "Reported only", "Solid icon", "Outline only"):
             if word not in legend:
                 raise AssertionError("legend missing " + word)
+        if "Drone" in legend or "Aircraft" in legend:
+            raise AssertionError("legend still lists incident types")
         if page.locator("#disclaimer-more").count():
             raise AssertionError("More expander is still present")
         if page.locator("summary").count():

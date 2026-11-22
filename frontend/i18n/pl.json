@@ -154,6 +154,8 @@
   "side_western": "Urzędnik regionalny lub zachodni",
   "status_confirmed": "Oficjalnie potwierdzone",
   "status_reported": "Tylko zgłoszone",
+  "legend_confirmed_line": "Pełna ikona. Oficjalna strona to potwierdziła.",
+  "legend_reported_line": "Sam kontur. Oficjalna strona tego nie potwierdziła.",
   "news_title": "Wiadomości",
   "country_FI": "Finlandia",
   "country_EE": "Estonia",

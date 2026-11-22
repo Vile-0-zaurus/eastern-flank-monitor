@@ -154,6 +154,8 @@
   "side_western": "Piirkondlik või lääne ametnik",
   "status_confirmed": "Ametlikult kinnitatud",
   "status_reported": "Ainult teade",
+  "legend_confirmed_line": "Täidetud märk. Ametlik leht kinnitas selle.",
+  "legend_reported_line": "Ainult ääris. Ametlik leht ei kinnitanud.",
   "news_title": "Uudised",
   "country_FI": "Soome",
   "country_EE": "Eesti",

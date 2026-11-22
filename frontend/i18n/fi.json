@@ -154,6 +154,8 @@
   "side_western": "Alueellinen tai länsimainen virkamies",
   "status_confirmed": "Virallisesti vahvistettu",
   "status_reported": "Vain raportoitu",
+  "legend_confirmed_line": "Täysi kuvake. Virallinen sivu vahvisti sen.",
+  "legend_reported_line": "Vain ääriviiva. Virallinen sivu ei vahvistanut.",
   "news_title": "Uutiset",
   "country_FI": "Suomi",
   "country_EE": "Viro",

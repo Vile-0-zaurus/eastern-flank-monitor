@@ -448,7 +448,10 @@ function appendIncidentLine(list, incident) {
   const title = document.createElement("button");
   title.type = "button";
   title.className = "incident-jump";
-  title.textContent = incidentLabel(incident) + ". " + incident.place + ". " + incident.summary;
+  const mark = document.createElement("span");
+  mark.className = "status-mark" + (isConfirmed(incident) ? " is-confirmed" : " is-reported");
+  mark.setAttribute("aria-hidden", "true");
+  title.append(mark, document.createTextNode(incidentLabel(incident) + ". " + incident.place + ". " + incident.summary));
   title.addEventListener("click", () => focusIncident(incident));
   const link = document.createElement("a");
   link.href = incident.source;
@@ -1026,18 +1029,17 @@ function renderLegend() {
   const host = document.getElementById("map-legend");
   if (!host) return;
   host.innerHTML = "";
-  const icons = incidentIcons();
-  ["drone", "aircraft", "border", "sabotage"].forEach((type) => {
-    const item = document.createElement("span");
-    item.className = "legend-item";
-    item.dataset.type = type;
-    item.append(iconSvg(icons[type]), document.createTextNode(t("legend_" + type)));
-    host.append(item);
-  });
-  ["confirmed", "reported"].forEach((label) => {
-    const item = document.createElement("span");
-    item.className = "legend-item legend-" + label;
-    item.textContent = t("legend_" + label);
+  [["confirmed", "status_confirmed", "legend_confirmed_line"], ["reported", "status_reported", "legend_reported_line"]].forEach(([kind, label, line]) => {
+    const item = document.createElement("p");
+    item.className = "legend-item legend-" + kind;
+    const mark = document.createElement("span");
+    mark.className = "status-mark" + (kind === "confirmed" ? " is-confirmed" : " is-reported");
+    mark.setAttribute("aria-hidden", "true");
+    const name = document.createElement("strong");
+    name.textContent = t(label);
+    const note = document.createElement("span");
+    note.textContent = " " + t(line);
+    item.append(mark, name, note);
     host.append(item);
   });
 }
@@ -1629,9 +1631,9 @@ function drawIncidentIcon(layer, point, r, boxes, icons) {
   const incident = point.item;
   const [x, y] = clearOfLabels(point.x, point.y, r, boxes);
   const dot = document.createElementNS("http://www.w3.org/2000/svg", "g");
-  const confirmed = /confirmed/i.test(incident.status || "");
-  const reported = /reported/i.test(incident.status || incident.summary || "");
-  dot.setAttribute("class", "incident-dot" + (confirmed ? " status-confirmed" : reported ? " status-reported" : ""));
+  const confirmed = isConfirmed(incident);
+  dot.setAttribute("class", "incident-dot" + (confirmed ? " status-confirmed" : " status-reported"));
+  dot.setAttribute("data-status", confirmed ? "confirmed" : "reported");
   dot.setAttribute("data-type", incident.type || "unspecified");
   dot.setAttribute("data-date", incident.date);
   dot.setAttribute("data-country", incident.country);
@@ -1639,15 +1641,15 @@ function drawIncidentIcon(layer, point, r, boxes, icons) {
   dot.setAttribute("transform", "translate(" + x.toFixed(1) + " " + y.toFixed(1) + ")");
   const shape = document.createElementNS("http://www.w3.org/2000/svg", "circle");
   shape.setAttribute("r", r.toFixed(2));
-  shape.setAttribute("fill", "#0f766e");
-  shape.setAttribute("stroke", "#ffffff");
+  shape.setAttribute("fill", confirmed ? "#0f766e" : "none");
+  shape.setAttribute("stroke", confirmed ? "#ffffff" : "#0f766e");
   shape.setAttribute("stroke-width", "2");
   dot.append(shape);
   if (icons[incident.type]) {
     const icon = document.createElementNS("http://www.w3.org/2000/svg", "path");
     icon.setAttribute("d", icons[incident.type]);
     icon.setAttribute("fill", "none");
-    icon.setAttribute("stroke", "#ffffff");
+    icon.setAttribute("stroke", confirmed ? "#ffffff" : "#0f766e");
     icon.setAttribute("stroke-width", "1.4");
     dot.append(icon);
   }

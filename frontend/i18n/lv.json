@@ -154,6 +154,8 @@
   "side_western": "Reģiona vai Rietumu amatpersona",
   "status_confirmed": "Oficiāli apstiprināts",
   "status_reported": "Tikai ziņots",
+  "legend_confirmed_line": "Pilna ikona. Oficiāla lapa to apstiprināja.",
+  "legend_reported_line": "Tikai kontūra. Oficiāla lapa to neapstiprināja.",
   "news_title": "Ziņas",
   "country_FI": "Somija",
   "country_EE": "Igaunija",

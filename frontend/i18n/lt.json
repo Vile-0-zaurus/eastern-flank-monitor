@@ -154,6 +154,8 @@
   "side_western": "Regiono ar Vakarų pareigūnas",
   "status_confirmed": "Oficialiai patvirtinta",
   "status_reported": "Tik pranešta",
+  "legend_confirmed_line": "Pilna piktograma. Oficiali svetainė tai patvirtino.",
+  "legend_reported_line": "Tik kontūras. Oficiali svetainė to nepatvirtino.",
   "news_title": "Naujienos",
   "country_FI": "Suomija",
   "country_EE": "Estija",
