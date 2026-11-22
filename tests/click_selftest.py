@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Click every country tab in both modes. No API calls.
 
-    /home/supra/Projects/merdian/.venv/bin/python tests/click_selftest.py
+    python3 tests/click_selftest.py
 """
 from __future__ import annotations
 

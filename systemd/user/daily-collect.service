@@ -7,5 +7,7 @@ Wants=network-online.target
 Type=oneshot
 # 60-minute connectivity wait plus per-source network retries. Do not kill mid-wait.
 TimeoutStartSec=7200
-WorkingDirectory=/home/supra/Projects/eastern-flank-monitor
-ExecStart=/home/supra/Projects/eastern-flank-monitor/.venv/bin/python -u /home/supra/Projects/eastern-flank-monitor/scripts/m0/daily_collect.py
+# systemd does not expand a tilde. %h is the home directory.
+# Override EFM_ROOT if the repo is not in ~/Projects/eastern-flank-monitor.
+Environment=EFM_ROOT=%h/Projects/eastern-flank-monitor
+ExecStart=/bin/sh -c 'cd "$EFM_ROOT" && exec "$EFM_ROOT/.venv/bin/python" -u "$EFM_ROOT/scripts/m0/daily_collect.py"'

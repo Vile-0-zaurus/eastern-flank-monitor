@@ -7,7 +7,7 @@ import sqlite3
 from datetime import datetime, timedelta
 from pathlib import Path
 
-ROOT = Path("/home/supra/Projects/eastern-flank-monitor")
+ROOT = Path(__file__).resolve().parents[1]
 DB = ROOT / "data/backtest/gkg.sqlite"
 OUT = ROOT / "frontend/country-headlines.json"
 STEMS = {

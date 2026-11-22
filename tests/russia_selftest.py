@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Russia tab notes, fact card, and briefing checks. No API calls.
 
-    /home/supra/Projects/merdian/.venv/bin/python tests/russia_selftest.py
+    python3 tests/russia_selftest.py
 """
 from pathlib import Path
 

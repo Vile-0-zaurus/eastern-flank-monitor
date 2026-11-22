@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Round 3 checks. No API calls.
 
-    /home/supra/Projects/merdian/.venv/bin/python tests/round3_selftest.py
+    python3 tests/round3_selftest.py
 """
 from __future__ import annotations
 

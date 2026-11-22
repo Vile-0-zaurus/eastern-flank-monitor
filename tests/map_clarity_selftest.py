@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Map clarity: five-week window, no badges, hover card, status marks.
 
-    /home/supra/Projects/merdian/.venv/bin/python tests/map_clarity_selftest.py
+    python3 tests/map_clarity_selftest.py
 """
 from pathlib import Path
 

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Map icon size, label clearance, and country-tab zoom. No API calls.
 
-    /home/supra/Projects/merdian/.venv/bin/python tests/map_selftest.py
+    python3 tests/map_selftest.py
 """
 from playwright.sync_api import sync_playwright
 

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Briefing dedup, dates, week label, zoom, and side labels. No API calls.
 
-    /home/supra/Projects/merdian/.venv/bin/python tests/briefing_selftest.py
+    python3 tests/briefing_selftest.py
 """
 from pathlib import Path
 
