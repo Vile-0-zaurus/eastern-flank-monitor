@@ -991,6 +991,34 @@ function applyMapView(svg) {
   svg.setAttribute("viewBox", view.x + " " + view.y + " " + view.w + " " + view.h);
   svg.setAttribute("data-zoom", String(Math.round(view.w)));
   if (state.mapFocusPlace) svg.setAttribute("data-focus-place", state.mapFocusPlace);
+  if (svg.isConnected) fitIncidentIcons(svg);
+}
+
+const ICON_SCREEN_R = 18;
+
+function pixelsPerUser(svg) {
+  if (!svg || !svg.isConnected) return 0;
+  const ctm = svg.getScreenCTM();
+  if (ctm && ctm.a) return Math.abs(ctm.a);
+  const rect = svg.getBoundingClientRect();
+  const view = mapView();
+  if (!rect.width || !view.w) return 0;
+  return rect.width / view.w;
+}
+
+function fitIncidentIcons(svg) {
+  const px = pixelsPerUser(svg);
+  if (!px) return;
+  const r = ICON_SCREEN_R / px;
+  svg.querySelectorAll(".incident-dot circle").forEach((circle) => {
+    circle.setAttribute("r", r.toFixed(3));
+    circle.setAttribute("stroke-width", (1.5 / px).toFixed(3));
+  });
+  svg.querySelectorAll(".incident-dot path").forEach((icon) => {
+    const s = r / 9;
+    icon.setAttribute("transform", "scale(" + s.toFixed(4) + ")");
+    icon.setAttribute("stroke-width", (1.2 / s).toFixed(3));
+  });
 }
 
 function clampMapView() {
@@ -1144,6 +1172,10 @@ function wireMapControls() {
   if (zoomIn) zoomIn.addEventListener("click", () => zoomMap(1 / 1.25));
   if (zoomOut) zoomOut.addEventListener("click", () => zoomMap(1.25));
   if (zoomReset) zoomReset.addEventListener("click", resetMap);
+  window.addEventListener("resize", () => {
+    const svg = document.getElementById("flank-map");
+    if (svg) fitIncidentIcons(svg);
+  });
 }
 
 function renderMap() {
@@ -1260,6 +1292,8 @@ function renderMap() {
   if (inNow()) drawIncidents(svg, week);
   host.innerHTML = "";
   host.appendChild(svg);
+  fitIncidentIcons(svg);
+  requestAnimationFrame(() => fitIncidentIcons(svg));
 }
 
 function drawIncidents(svg, week) {
