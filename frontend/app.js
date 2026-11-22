@@ -1,5 +1,5 @@
 const START = "2021-01-04";
-const ASSET_V = "20261122c";
+const ASSET_V = "20261122d";
 
 function t(key) {
   const pack = state.text || {};
@@ -382,8 +382,11 @@ function appendIncidentLine(list, incident) {
   item.className = "incident-line";
   item.dataset.date = incident.date;
   item.dataset.country = incident.country;
-  const title = document.createElement("p");
+  const title = document.createElement("button");
+  title.type = "button";
+  title.className = "incident-jump";
   title.textContent = incidentLabel(incident) + ". " + incident.place + ". " + incident.summary;
+  title.addEventListener("click", () => focusIncident(incident));
   const link = document.createElement("a");
   link.href = incident.source;
   link.textContent = t("source");
@@ -894,6 +897,173 @@ function iconSvg(path) {
   return svg;
 }
 
+const MAP_HOME = { x: -40, y: -36, w: 860, h: 1060 };
+
+function mapView() {
+  if (!state.mapView) state.mapView = { x: MAP_HOME.x, y: MAP_HOME.y, w: MAP_HOME.w, h: MAP_HOME.h };
+  return state.mapView;
+}
+
+function applyMapView(svg) {
+  const view = mapView();
+  svg.setAttribute("viewBox", view.x + " " + view.y + " " + view.w + " " + view.h);
+  svg.setAttribute("data-zoom", String(Math.round(view.w)));
+  if (state.mapFocusPlace) svg.setAttribute("data-focus-place", state.mapFocusPlace);
+}
+
+function clampMapView() {
+  const view = mapView();
+  const minW = MAP_HOME.w / 8;
+  const maxW = MAP_HOME.w;
+  view.w = Math.min(maxW, Math.max(minW, view.w));
+  view.h = view.w * (MAP_HOME.h / MAP_HOME.w);
+  const pad = 80;
+  view.x = Math.min(MAP_HOME.x + MAP_HOME.w - view.w + pad, Math.max(MAP_HOME.x - pad, view.x));
+  view.y = Math.min(MAP_HOME.y + MAP_HOME.h - view.h + pad, Math.max(MAP_HOME.y - pad, view.y));
+}
+
+function zoomMap(factor, anchor) {
+  const view = mapView();
+  const cx = anchor ? anchor.x : view.x + view.w / 2;
+  const cy = anchor ? anchor.y : view.y + view.h / 2;
+  const rx = (cx - view.x) / view.w;
+  const ry = (cy - view.y) / view.h;
+  view.w = view.w * factor;
+  view.h = view.w * (MAP_HOME.h / MAP_HOME.w);
+  clampMapView();
+  view.x = cx - rx * view.w;
+  view.y = cy - ry * view.h;
+  clampMapView();
+  const svg = document.getElementById("flank-map");
+  if (svg) applyMapView(svg);
+}
+
+function resetMap() {
+  state.mapView = { x: MAP_HOME.x, y: MAP_HOME.y, w: MAP_HOME.w, h: MAP_HOME.h };
+  state.mapFocusPlace = "";
+  const svg = document.getElementById("flank-map");
+  if (svg) {
+    svg.removeAttribute("data-focus-place");
+    applyMapView(svg);
+  }
+}
+
+function focusMap(lon, lat, place) {
+  const point = project(Number(lon), Number(lat));
+  const view = mapView();
+  view.w = MAP_HOME.w / 5;
+  view.h = view.w * (MAP_HOME.h / MAP_HOME.w);
+  view.x = point[0] - view.w / 2;
+  view.y = point[1] - view.h / 2;
+  clampMapView();
+  state.mapFocusPlace = place || "";
+  const svg = document.getElementById("flank-map");
+  if (svg) applyMapView(svg);
+}
+
+function focusIncident(incident) {
+  if (!incident || incident.lon == null || incident.lat == null) return;
+  focusMap(incident.lon, incident.lat, incident.place || "");
+  if (incident.country && state.focus !== incident.country) selectTab(incident.country);
+  else {
+    const svg = document.getElementById("flank-map");
+    if (svg) applyMapView(svg);
+  }
+}
+
+function svgPoint(svg, event) {
+  const point = svg.createSVGPoint();
+  point.x = event.clientX;
+  point.y = event.clientY;
+  const ctm = svg.getScreenCTM();
+  if (!ctm) return null;
+  return point.matrixTransform(ctm.inverse());
+}
+
+function mapScale(svg) {
+  const ctm = svg.getScreenCTM();
+  if (ctm && ctm.a) return { x: ctm.a, y: ctm.d };
+  const rect = svg.getBoundingClientRect();
+  const view = mapView();
+  return {
+    x: rect.width ? rect.width / view.w : 1,
+    y: rect.height ? rect.height / view.h : 1,
+  };
+}
+
+function onMapWheel(event) {
+  const svg = document.getElementById("flank-map");
+  if (!svg) return;
+  event.preventDefault();
+  const at = svgPoint(svg, event);
+  zoomMap(event.deltaY > 0 ? 1.15 : 1 / 1.15, at);
+}
+
+function onMapPointerDown(event) {
+  if (event.button !== 0) return;
+  if (event.target.closest && event.target.closest("a, button")) return;
+  const svg = document.getElementById("flank-map");
+  if (!svg || !svg.contains(event.target)) return;
+  const scale = mapScale(svg);
+  state.mapDrag = {
+    x: event.clientX,
+    y: event.clientY,
+    vx: mapView().x,
+    vy: mapView().y,
+    sx: scale.x || 1,
+    sy: scale.y || 1,
+    moved: false,
+  };
+  try { svg.setPointerCapture(event.pointerId); } catch (err) { /* capture can fail on a replaced node */ }
+}
+
+function onMapPointerMove(event) {
+  const drag = state.mapDrag;
+  if (!drag) return;
+  const dx = event.clientX - drag.x;
+  const dy = event.clientY - drag.y;
+  if (Math.hypot(dx, dy) > 4) drag.moved = true;
+  if (!drag.moved) return;
+  const view = mapView();
+  view.x = drag.vx - dx / drag.sx;
+  view.y = drag.vy - dy / drag.sy;
+  clampMapView();
+  const svg = document.getElementById("flank-map");
+  if (svg) applyMapView(svg);
+  event.preventDefault();
+}
+
+function onMapPointerUp() {
+  const drag = state.mapDrag;
+  state.mapDrag = null;
+  if (drag && drag.moved) state.mapSuppressClick = true;
+}
+
+function onMapClickCapture(event) {
+  if (!state.mapSuppressClick) return;
+  state.mapSuppressClick = false;
+  event.stopPropagation();
+  event.preventDefault();
+}
+
+function wireMapControls() {
+  const host = document.getElementById("map");
+  if (!host || host.dataset.wired) return;
+  host.dataset.wired = "1";
+  host.addEventListener("wheel", onMapWheel, { passive: false });
+  host.addEventListener("pointerdown", onMapPointerDown);
+  host.addEventListener("pointermove", onMapPointerMove);
+  host.addEventListener("pointerup", onMapPointerUp);
+  host.addEventListener("pointercancel", onMapPointerUp);
+  host.addEventListener("click", onMapClickCapture, true);
+  const zoomIn = document.getElementById("zoom-in");
+  const zoomOut = document.getElementById("zoom-out");
+  const zoomReset = document.getElementById("zoom-reset");
+  if (zoomIn) zoomIn.addEventListener("click", () => zoomMap(1 / 1.25));
+  if (zoomOut) zoomOut.addEventListener("click", () => zoomMap(1.25));
+  if (zoomReset) zoomReset.addEventListener("click", resetMap);
+}
+
 function renderMap() {
   const title = document.getElementById("map-title");
   if (title) title.textContent = state.text.map_title;
@@ -907,13 +1077,13 @@ function renderMap() {
   }
   const week = current().week;
   const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-  svg.setAttribute("viewBox", "-40 -36 860 1060");
+  svg.id = "flank-map";
+  applyMapView(svg);
   svg.setAttribute("preserveAspectRatio", "xMidYMid meet");
   svg.setAttribute("width", "100%");
   svg.setAttribute("height", "100%");
   svg.setAttribute("role", "img");
   svg.setAttribute("aria-label", "Map of the eastern flank and nearby countries");
-  svg.id = "flank-map";
   const labels = {
     FI: [64.8, 26.2],
     EE: [58.7, 25.8],
@@ -1021,9 +1191,12 @@ function drawIncidents(svg, week) {
     dot.setAttribute("data-type", incident.type || "unspecified");
     dot.setAttribute("data-date", incident.date);
     dot.setAttribute("data-country", incident.country);
+    dot.setAttribute("data-place", incident.place || "");
+    dot.setAttribute("data-lon", incident.lon);
+    dot.setAttribute("data-lat", incident.lat);
     dot.setAttribute("transform", "translate(" + x.toFixed(1) + " " + y.toFixed(1) + ")");
     const shape = document.createElementNS("http://www.w3.org/2000/svg", "circle");
-    shape.setAttribute("r", "11");
+    shape.setAttribute("r", "18");
     shape.setAttribute("fill", "#0f766e");
     shape.setAttribute("stroke", "#ffffff");
     shape.setAttribute("stroke-width", "2");
@@ -1031,6 +1204,7 @@ function drawIncidents(svg, week) {
     if (icons[incident.type]) {
       const icon = document.createElementNS("http://www.w3.org/2000/svg", "path");
       icon.setAttribute("d", icons[incident.type]);
+      icon.setAttribute("transform", "scale(1.45)");
       icon.setAttribute("fill", "none");
       icon.setAttribute("stroke", "#ffffff");
       icon.setAttribute("stroke-width", "1.4");
@@ -1835,6 +2009,7 @@ async function main() {
   document.querySelectorAll("#lang-switch [data-lang]").forEach((button) => {
     button.addEventListener("click", () => setLanguage(button.dataset.lang));
   });
+  wireMapControls();
   applyChrome();
   if (params.get("mode") === "now") setMode("now");
   else renderWeek();
@@ -1873,6 +2048,10 @@ function applyChrome() {
     button.setAttribute("aria-pressed", button.dataset.lang === (state.lang || "en") ? "true" : "false");
   });
   document.title = t("title");
+  ["zoom-in", "zoom-out"].forEach((id) => {
+    const button = document.getElementById(id);
+    if (button) button.setAttribute("aria-label", t(id === "zoom-in" ? "zoom_in" : "zoom_out"));
+  });
   const heading = document.getElementById("title");
   if (heading) heading.textContent = t("title");
 }
