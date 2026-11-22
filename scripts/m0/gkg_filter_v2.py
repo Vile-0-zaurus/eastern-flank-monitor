@@ -123,14 +123,18 @@ def index_day_and_window(list_url: str) -> tuple[list[tuple[int, str]], int, int
     return day_files, window_bytes, window_files
 
 
-def scan_zip(content: bytes) -> dict:
+def scan_zip(content) -> dict:
     outlet_rows = {d: 0 for d in STATE_DOMAINS}
     watch_seen = {d: 0 for d in WATCH}
     kept = 0
     kept_by = {d: 0 for d in STATE_DOMAINS}
     examples: list[dict] = []
     rows = 0
-    with zipfile.ZipFile(__import__("io").BytesIO(content)) as zf:
+    if isinstance(content, (str, Path)):
+        source = content
+    else:
+        source = __import__("io").BytesIO(content)
+    with zipfile.ZipFile(source) as zf:
         with zf.open(zf.namelist()[0]) as raw:
             for line in raw:
                 rows += 1

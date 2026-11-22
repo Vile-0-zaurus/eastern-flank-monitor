@@ -14,6 +14,8 @@ sys.path.insert(0, str(ROOT / "scripts" / "live"))
 from build_site import build_site  # noqa: E402
 from drafts import collect_drafts, decide, published_incidents  # noqa: E402
 from gate import classify_allowed, monitoring_state, rolling_weeks, window_for  # noqa: E402
+sys.path.insert(0, str(ROOT / "scripts"))
+from live.daily_run import stream_name  # noqa: E402
 
 
 class GateTest(unittest.TestCase):
@@ -75,7 +77,9 @@ class DraftTest(unittest.TestCase):
 
 
 class SiteTest(unittest.TestCase):
-    def test_the_admin_page_is_not_copied(self):
+    def test_a_translation_file_is_not_the_english_stream(self):
+        self.assertEqual(stream_name("https://data.gdeltproject.org/gdeltv2/20261121000000.gkg.csv.zip"), "english")
+        self.assertEqual(stream_name("https://data.gdeltproject.org/gdeltv2/20261121000000.translation.gkg.csv.zip"), "translation")
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)
             frontend = root / "frontend"

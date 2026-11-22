@@ -6,7 +6,7 @@ on:
 jobs:
   one-day:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 90
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -14,5 +14,9 @@ jobs:
           python-version: "3.11"
       - name: Install the filter dependency
         run: python -m pip install requests
-      - name: Download and filter one file from one day
-        run: python scripts/live/daily_run.py --dry-run --day 2026-11-21 --max-files 1
+      - name: Disk before
+        run: df -B1 /
+      - name: Download and filter one full day, both streams
+        run: python scripts/live/daily_run.py --dry-run --day 2026-11-21 --max-files 0
+      - name: Disk after
+        run: df -B1 /
