@@ -1433,15 +1433,6 @@ function renderMap() {
         openWhy(code, event);
       });
       svg.appendChild(dot);
-      if (place === event.places[0]) {
-        const label = document.createElementNS("http://www.w3.org/2000/svg", "text");
-        label.setAttribute("x", (x + 12).toFixed(1));
-        label.setAttribute("y", (y - 8).toFixed(1));
-        label.setAttribute("class", "map-event-label");
-        label.setAttribute("opacity", dotOpacity(week, event.date).toFixed(2));
-        label.textContent = shortLabel(event);
-        svg.appendChild(label);
-      }
     });
   });
   if (inNow()) drawIncidents(svg, week);
@@ -1609,29 +1600,24 @@ function layoutIncidents(svg) {
   const r = ICON_SCREEN_R / px;
   const boxes = labelBoxes(svg);
   const icons = incidentIcons();
-  if (state.mapCountry) {
-    const placed = [];
-    items.forEach((item) => {
-      const at = project(Number(item.lon), Number(item.lat));
-      let x = at[0];
-      let y = at[1];
-      for (let n = 0; n < placed.length + 1; n++) {
-        const hit = placed.some((point) => Math.hypot(point[0] - x, point[1] - y) < r * 2.6);
-        if (!hit) break;
-        x = at[0] + r * 2.8 * (n + 1);
-      }
-      placed.push([x, y]);
-      drawIncidentIcon(layer, { item: item, x: x, y: y }, r, boxes, icons);
-    });
-  } else {
-    clusterIncidents(svg, items).forEach((group) => {
-      if (group.length > 1) drawIncidentBadge(layer, group, r, boxes);
-      else drawIncidentIcon(layer, group[0], r, boxes, icons);
-    });
-  }
+  const placed = [];
+  const step = 12 / px;
+  const shifts = [[step, 0], [-step, 0], [0, step], [0, -step], [step, step], [-step, -step]];
+  items.forEach((item) => {
+    const at = project(Number(item.lon), Number(item.lat));
+    let x = at[0];
+    let y = at[1];
+    for (let n = 0; n < shifts.length; n++) {
+      const hit = placed.some((point) => Math.hypot(point[0] - x, point[1] - y) < step);
+      if (!hit) break;
+      x = at[0] + shifts[n][0];
+      y = at[1] + shifts[n][1];
+    }
+    placed.push([x, y]);
+    drawIncidentIcon(layer, { item: item, x: x, y: y }, r, boxes, icons);
+  });
   fitIncidentIcons(svg);
   nudgeIconsOffLabels(svg);
-  nudgeIconCaptions(svg);
   raiseCountryLabels(svg);
 }
 
@@ -1664,14 +1650,6 @@ function drawIncidentIcon(layer, point, r, boxes, icons) {
   const tip = document.createElementNS("http://www.w3.org/2000/svg", "title");
   tip.textContent = incidentLabel(incident) + ". " + (incident.type || "unspecified") + ". " + incident.summary;
   dot.append(tip);
-  if (showIconCaptions()) {
-    const caption = document.createElementNS("http://www.w3.org/2000/svg", "text");
-    caption.setAttribute("class", "map-icon-label");
-    caption.setAttribute("y", "0");
-    caption.setAttribute("dominant-baseline", "central");
-    caption.textContent = iconCaption(incident);
-    dot.append(caption);
-  }
   dot.addEventListener("click", (click) => {
     click.stopPropagation();
     stop();
