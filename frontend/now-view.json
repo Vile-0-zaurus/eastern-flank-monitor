@@ -1401,7 +1401,7 @@
   ],
   "inside": {
     "note": "Inside Russia informs. It does not change the reading. English lines were written from the stored Russian titles. No model call.",
-    "coverage": "Now window only, 3 August through 25 October 2026. Bank of Russia ruble and key-rate files stop on 21 February 2022, so those cards are absent.",
+    "coverage": "Now window only, 3 August through 25 October 2026. Ruble and key rate are the Bank of Russia pages already used, fetched 22 November 2026.",
     "volume_note": "Usual is the median weekly count of matching stored headlines in this frozen window. It is not the registered scoring baseline.",
     "weeks": {
       "2026-08-03": {
@@ -1421,6 +1421,16 @@
             "url": "https://ria.ru/20260803/sud-2108738214.html",
             "count": "11 stories, usual 6",
             "arrow": "↑"
+          },
+          {
+            "title": "Ruble",
+            "line": "82.1665 rubles per dollar on 8 August 2026. No earlier week in this window.",
+            "url": "https://www.cbr.ru/scripts/XML_dynamic.asp?date_req1=03/08/2026&date_req2=25/10/2026&VAL_NM_RQ=R01235"
+          },
+          {
+            "title": "Key rate",
+            "line": "14 percent. No earlier week in this window. It was 14 percent on every fetched day.",
+            "url": "https://www.cbr.ru/hd_base/KeyRate/?UniDbQuery.Posted=True&UniDbQuery.From=03.08.2026&UniDbQuery.To=25.10.2026"
           }
         ]
       },
@@ -1441,6 +1451,16 @@
             "url": "https://iz.ru/2146513/glava-kalashnikova-rasskazal-o-modernizatcii-raket-vikhr-dlia-borby-s-dronami-izi",
             "count": "14 stories, usual 6",
             "arrow": "↑"
+          },
+          {
+            "title": "Ruble",
+            "line": "84.5449 rubles per dollar on 15 August 2026, up 2.3784 from last week.",
+            "url": "https://www.cbr.ru/scripts/XML_dynamic.asp?date_req1=03/08/2026&date_req2=25/10/2026&VAL_NM_RQ=R01235"
+          },
+          {
+            "title": "Key rate",
+            "line": "14 percent, unchanged from last week.",
+            "url": "https://www.cbr.ru/hd_base/KeyRate/?UniDbQuery.Posted=True&UniDbQuery.From=03.08.2026&UniDbQuery.To=25.10.2026"
           }
         ]
       },
@@ -1453,6 +1473,16 @@
             "url": "https://iz.ru/2151318/2026-08-19/boitcy-vs-rf-rasskazali-ob-osvobozhdenii-novosoloshino",
             "count": "8 stories, usual 20",
             "arrow": "↓"
+          },
+          {
+            "title": "Ruble",
+            "line": "82.9211 rubles per dollar on 22 August 2026, down 1.6238 from last week.",
+            "url": "https://www.cbr.ru/scripts/XML_dynamic.asp?date_req1=03/08/2026&date_req2=25/10/2026&VAL_NM_RQ=R01235"
+          },
+          {
+            "title": "Key rate",
+            "line": "14 percent, unchanged from last week.",
+            "url": "https://www.cbr.ru/hd_base/KeyRate/?UniDbQuery.Posted=True&UniDbQuery.From=03.08.2026&UniDbQuery.To=25.10.2026"
           }
         ]
       },
@@ -1473,6 +1503,16 @@
             "url": "https://lenta.ru/news/2026/08/26/kalashnikov-predstavil-ts-2-0-s-bobrovym-hvostom/",
             "count": "5 stories, usual 6",
             "arrow": "↓"
+          },
+          {
+            "title": "Ruble",
+            "line": "85.6007 rubles per dollar on 29 August 2026, up 2.6796 from last week.",
+            "url": "https://www.cbr.ru/scripts/XML_dynamic.asp?date_req1=03/08/2026&date_req2=25/10/2026&VAL_NM_RQ=R01235"
+          },
+          {
+            "title": "Key rate",
+            "line": "14 percent, unchanged from last week.",
+            "url": "https://www.cbr.ru/hd_base/KeyRate/?UniDbQuery.Posted=True&UniDbQuery.From=03.08.2026&UniDbQuery.To=25.10.2026"
           }
         ]
       },
@@ -1493,6 +1533,16 @@
             "url": "https://iz.ru/2158165/kalashnikov-predstavit-na-vef-maket-novogo-avtomata-ak-12-izi",
             "count": "5 stories, usual 6",
             "arrow": "↓"
+          },
+          {
+            "title": "Ruble",
+            "line": "86.5857 rubles per dollar on 5 September 2026, up 0.9850 from last week.",
+            "url": "https://www.cbr.ru/scripts/XML_dynamic.asp?date_req1=03/08/2026&date_req2=25/10/2026&VAL_NM_RQ=R01235"
+          },
+          {
+            "title": "Key rate",
+            "line": "14 percent, unchanged from last week.",
+            "url": "https://www.cbr.ru/hd_base/KeyRate/?UniDbQuery.Posted=True&UniDbQuery.From=03.08.2026&UniDbQuery.To=25.10.2026"
           }
         ]
       },
@@ -1513,6 +1563,16 @@
             "url": "https://lenta.ru/news/2026/09/07/kalashnikov-peredal-opory-dlya-zenitnyh-pulemetov/",
             "count": "7 stories, usual 6",
             "arrow": "↑"
+          },
+          {
+            "title": "Ruble",
+            "line": "84.2569 rubles per dollar on 12 September 2026, down 2.3288 from last week.",
+            "url": "https://www.cbr.ru/scripts/XML_dynamic.asp?date_req1=03/08/2026&date_req2=25/10/2026&VAL_NM_RQ=R01235"
+          },
+          {
+            "title": "Key rate",
+            "line": "14 percent, unchanged from last week.",
+            "url": "https://www.cbr.ru/hd_base/KeyRate/?UniDbQuery.Posted=True&UniDbQuery.From=03.08.2026&UniDbQuery.To=25.10.2026"
           }
         ]
       },
@@ -1533,6 +1593,16 @@
             "url": "https://lenta.ru/news/2026/09/15/kalashnikov-vpervye-predstavit-antidronovuyu-kalitku/",
             "count": "12 stories, usual 6",
             "arrow": "↑"
+          },
+          {
+            "title": "Ruble",
+            "line": "84.1975 rubles per dollar on 19 September 2026, down 0.0594 from last week.",
+            "url": "https://www.cbr.ru/scripts/XML_dynamic.asp?date_req1=03/08/2026&date_req2=25/10/2026&VAL_NM_RQ=R01235"
+          },
+          {
+            "title": "Key rate",
+            "line": "14 percent, unchanged from last week.",
+            "url": "https://www.cbr.ru/hd_base/KeyRate/?UniDbQuery.Posted=True&UniDbQuery.From=03.08.2026&UniDbQuery.To=25.10.2026"
           }
         ]
       },
@@ -1553,6 +1623,16 @@
             "url": "https://lenta.ru/news/2026/09/25/kalashnikov-vpervye-predstavit-v-azerbaydzhane-noveyshie-avtomaty/",
             "count": "2 stories, usual 6",
             "arrow": "↓"
+          },
+          {
+            "title": "Ruble",
+            "line": "84.3414 rubles per dollar on 26 September 2026, up 0.1439 from last week.",
+            "url": "https://www.cbr.ru/scripts/XML_dynamic.asp?date_req1=03/08/2026&date_req2=25/10/2026&VAL_NM_RQ=R01235"
+          },
+          {
+            "title": "Key rate",
+            "line": "14 percent, unchanged from last week.",
+            "url": "https://www.cbr.ru/hd_base/KeyRate/?UniDbQuery.Posted=True&UniDbQuery.From=03.08.2026&UniDbQuery.To=25.10.2026"
           }
         ]
       },
@@ -1581,6 +1661,16 @@
             "url": "https://iz.ru/2175317/s-1-oktiabria-startuet-osennii-prizyv-chto-izmenilos-v-2026-godu-i-kogo-kosnetsia-izi",
             "count": "2 stories, usual 0",
             "arrow": "↑"
+          },
+          {
+            "title": "Ruble",
+            "line": "83.4839 rubles per dollar on 3 October 2026, down 0.8575 from last week.",
+            "url": "https://www.cbr.ru/scripts/XML_dynamic.asp?date_req1=03/08/2026&date_req2=25/10/2026&VAL_NM_RQ=R01235"
+          },
+          {
+            "title": "Key rate",
+            "line": "14 percent, unchanged from last week.",
+            "url": "https://www.cbr.ru/hd_base/KeyRate/?UniDbQuery.Posted=True&UniDbQuery.From=03.08.2026&UniDbQuery.To=25.10.2026"
           }
         ]
       },
@@ -1601,6 +1691,16 @@
             "url": "https://lenta.ru/news/2026/10/06/uralvagonzavod-ispytal-obnovlennuyu-brem-80/",
             "count": "15 stories, usual 6",
             "arrow": "↑"
+          },
+          {
+            "title": "Ruble",
+            "line": "84.9048 rubles per dollar on 10 October 2026, up 1.4209 from last week.",
+            "url": "https://www.cbr.ru/scripts/XML_dynamic.asp?date_req1=03/08/2026&date_req2=25/10/2026&VAL_NM_RQ=R01235"
+          },
+          {
+            "title": "Key rate",
+            "line": "14 percent, unchanged from last week.",
+            "url": "https://www.cbr.ru/hd_base/KeyRate/?UniDbQuery.Posted=True&UniDbQuery.From=03.08.2026&UniDbQuery.To=25.10.2026"
           }
         ]
       },
@@ -1621,6 +1721,16 @@
             "url": "https://lenta.ru/news/2026/10/12/takticheskie-opory-kalashnikova-adaptirovali-dlya-ohotnikov-za-dronami/",
             "count": "1 stories, usual 6",
             "arrow": "↓"
+          },
+          {
+            "title": "Ruble",
+            "line": "83.6177 rubles per dollar on 17 October 2026, down 1.2871 from last week.",
+            "url": "https://www.cbr.ru/scripts/XML_dynamic.asp?date_req1=03/08/2026&date_req2=25/10/2026&VAL_NM_RQ=R01235"
+          },
+          {
+            "title": "Key rate",
+            "line": "14 percent, unchanged from last week.",
+            "url": "https://www.cbr.ru/hd_base/KeyRate/?UniDbQuery.Posted=True&UniDbQuery.From=03.08.2026&UniDbQuery.To=25.10.2026"
           }
         ]
       },
@@ -1649,6 +1759,16 @@
             "url": "https://tvzvezda.ru/news/20261019185-ZHMjG.html",
             "count": "1 stories, usual 0",
             "arrow": "↑"
+          },
+          {
+            "title": "Ruble",
+            "line": "80.5381 rubles per dollar on 24 October 2026, down 3.0796 from last week.",
+            "url": "https://www.cbr.ru/scripts/XML_dynamic.asp?date_req1=03/08/2026&date_req2=25/10/2026&VAL_NM_RQ=R01235"
+          },
+          {
+            "title": "Key rate",
+            "line": "14 percent, unchanged from last week.",
+            "url": "https://www.cbr.ru/hd_base/KeyRate/?UniDbQuery.Posted=True&UniDbQuery.From=03.08.2026&UniDbQuery.To=25.10.2026"
           }
         ]
       }

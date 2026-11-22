@@ -161,3 +161,14 @@ Script: `scripts/m0/gpsjam_check.py`.
 - gpsjam manifest: https://gpsjam.org/data/manifest.csv
 - gpsjam about: https://gpsjam.org/about
 - Country check: https://ipinfo.io/country
+
+## Bank of Russia, Now window
+
+Checked 22 November 2026 with the research user-agent only: `eastern-flank-monitor/0.1 (local research; source probe; 1 req/s)`. No browser user-agent. No VPN.
+
+Both pages already used for 2021–22 answered HTTP 200.
+
+1. Ruble per dollar: `https://www.cbr.ru/scripts/XML_dynamic.asp?date_req1=03/08/2026&date_req2=25/10/2026&VAL_NM_RQ=R01235`. 60 daily rows, 4 August through 24 October 2026. The week value is the last published rate in that week, same rule as 2021–22.
+2. Key rate: `https://www.cbr.ru/hd_base/KeyRate/?UniDbQuery.Posted=True&UniDbQuery.From=03.08.2026&UniDbQuery.To=25.10.2026`. 60 rows. Every fetched day is 14 percent.
+
+Stored in `manual/russia/economy-now.json`. The 2021–22 file was not rewritten.

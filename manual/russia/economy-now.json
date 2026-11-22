@@ -1,0 +1,70 @@
+{
+  "source": "Bank of Russia, same pages as the 2021-22 file",
+  "fetched": "2026-11-22",
+  "user_agent": "eastern-flank-monitor/0.1 (local research; source probe; 1 req/s)",
+  "ruble_url": "https://www.cbr.ru/scripts/XML_dynamic.asp?date_req1=03/08/2026&date_req2=25/10/2026&VAL_NM_RQ=R01235",
+  "key_rate_url": "https://www.cbr.ru/hd_base/KeyRate/?UniDbQuery.Posted=True&UniDbQuery.From=03.08.2026&UniDbQuery.To=25.10.2026",
+  "key_rate_percent": 14.0,
+  "weeks": {
+    "2026-08-03": {
+      "date": "2026-08-08",
+      "rub_per_usd": 82.1665,
+      "key_rate_percent": 14.0
+    },
+    "2026-08-10": {
+      "date": "2026-08-15",
+      "rub_per_usd": 84.5449,
+      "key_rate_percent": 14.0
+    },
+    "2026-08-17": {
+      "date": "2026-08-22",
+      "rub_per_usd": 82.9211,
+      "key_rate_percent": 14.0
+    },
+    "2026-08-24": {
+      "date": "2026-08-29",
+      "rub_per_usd": 85.6007,
+      "key_rate_percent": 14.0
+    },
+    "2026-08-31": {
+      "date": "2026-09-05",
+      "rub_per_usd": 86.5857,
+      "key_rate_percent": 14.0
+    },
+    "2026-09-07": {
+      "date": "2026-09-12",
+      "rub_per_usd": 84.2569,
+      "key_rate_percent": 14.0
+    },
+    "2026-09-14": {
+      "date": "2026-09-19",
+      "rub_per_usd": 84.1975,
+      "key_rate_percent": 14.0
+    },
+    "2026-09-21": {
+      "date": "2026-09-26",
+      "rub_per_usd": 84.3414,
+      "key_rate_percent": 14.0
+    },
+    "2026-09-28": {
+      "date": "2026-10-03",
+      "rub_per_usd": 83.4839,
+      "key_rate_percent": 14.0
+    },
+    "2026-10-05": {
+      "date": "2026-10-10",
+      "rub_per_usd": 84.9048,
+      "key_rate_percent": 14.0
+    },
+    "2026-10-12": {
+      "date": "2026-10-17",
+      "rub_per_usd": 83.6177,
+      "key_rate_percent": 14.0
+    },
+    "2026-10-19": {
+      "date": "2026-10-24",
+      "rub_per_usd": 80.5381,
+      "key_rate_percent": 14.0
+    }
+  }
+}
