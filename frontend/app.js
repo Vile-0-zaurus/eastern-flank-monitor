@@ -465,15 +465,18 @@ function renderNowStrip() {
 }
 
 function selectTab(code) {
+  mapAnim += 1;
   state.focus = code;
   state.russiaOpen = code === "RU";
   state.why = null;
+  if (!COUNTRIES.includes(code)) state.mapCountry = "";
   renderStrip();
   renderMap();
   renderCountryNews();
   renderOfficials();
   renderBriefing();
   syncDrawer();
+  if (!state.skipCountryZoom && COUNTRIES.includes(code)) zoomToCountry(code);
 }
 
 function storedStoryCount(code) {
@@ -1022,6 +1025,13 @@ function fitIncidentIcons(svg) {
   svg.querySelectorAll(".incident-count").forEach((text) => {
     text.setAttribute("font-size", (14 / px).toFixed(2));
   });
+  svg.querySelectorAll(".map-icon-label").forEach((text) => {
+    text.setAttribute("font-size", (12 / px).toFixed(2));
+    const dot = text.parentNode;
+    const circle = dot && dot.querySelector("circle");
+    const radius = circle ? Number(circle.getAttribute("r")) : r;
+    text.setAttribute("x", (radius + 6 / px).toFixed(2));
+  });
 }
 
 function clampMapView(minW) {
@@ -1052,13 +1062,83 @@ function zoomMap(factor, anchor) {
 }
 
 function resetMap() {
-  state.mapView = { x: MAP_HOME.x, y: MAP_HOME.y, w: MAP_HOME.w, h: MAP_HOME.h };
+  state.mapCountry = "";
   state.mapFocusPlace = "";
-  const svg = document.getElementById("flank-map");
-  if (svg) {
+  const home = { x: MAP_HOME.x, y: MAP_HOME.y, w: MAP_HOME.w, h: MAP_HOME.h };
+  animateMapTo(home, () => {
+    const svg = document.getElementById("flank-map");
+    if (!svg) return;
     svg.removeAttribute("data-focus-place");
-    applyMapView(svg);
+    svg.removeAttribute("data-country-zoom");
+    layoutIncidents(svg);
+  });
+}
+
+let mapAnim = 0;
+
+function countryView(code) {
+  const path = document.querySelector("#flank-map [data-country='" + code + "']");
+  if (!path) return null;
+  const box = path.getBBox();
+  const pad = 0.22;
+  let w = Math.max(box.width * (1 + pad * 2), 40);
+  let h = Math.max(box.height * (1 + pad * 2), 40);
+  const ratio = MAP_HOME.h / MAP_HOME.w;
+  if (h / w < ratio) h = w * ratio;
+  else w = h / ratio;
+  return {
+    x: box.x + box.width / 2 - w / 2,
+    y: box.y + box.height / 2 - h / 2,
+    w: w,
+    h: h,
+  };
+}
+
+function animateMapTo(target, done) {
+  const token = ++mapAnim;
+  const start = { x: mapView().x, y: mapView().y, w: mapView().w };
+  const t0 = performance.now();
+  function frame(now) {
+    if (token !== mapAnim) return;
+    const p = Math.min(1, (now - t0) / 320);
+    const e = 1 - Math.pow(1 - p, 3);
+    const view = mapView();
+    view.x = start.x + (target.x - start.x) * e;
+    view.y = start.y + (target.y - start.y) * e;
+    view.w = start.w + (target.w - start.w) * e;
+    view.h = view.w * (MAP_HOME.h / MAP_HOME.w);
+    const svg = document.getElementById("flank-map");
+    if (svg) applyMapView(svg);
+    if (p < 1) requestAnimationFrame(frame);
+    else if (done) done();
   }
+  requestAnimationFrame(frame);
+}
+
+function zoomToCountry(code) {
+  const target = countryView(code);
+  if (!target) return;
+  state.mapCountry = code;
+  const view = mapView();
+  const saved = { x: view.x, y: view.y, w: view.w, h: view.h };
+  view.x = target.x;
+  view.y = target.y;
+  view.w = target.w;
+  view.h = target.h;
+  clampMapView(Math.min(MAP_HOME.w / 8, target.w));
+  const clamped = { x: view.x, y: view.y, w: view.w, h: view.h };
+  view.x = saved.x;
+  view.y = saved.y;
+  view.w = saved.w;
+  view.h = saved.h;
+  const svg = document.getElementById("flank-map");
+  if (svg) svg.setAttribute("data-country-zoom", "moving");
+  animateMapTo(clamped, () => {
+    const node = document.getElementById("flank-map");
+    if (!node) return;
+    layoutIncidents(node);
+    node.setAttribute("data-country-zoom", code);
+  });
 }
 
 function focusMap(lon, lat, place) {
@@ -1076,12 +1156,11 @@ function focusMap(lon, lat, place) {
 
 function focusIncident(incident) {
   if (!incident || incident.lon == null || incident.lat == null) return;
+  state.skipCountryZoom = true;
   focusMap(incident.lon, incident.lat, incident.place || "");
   if (incident.country && state.focus !== incident.country) selectTab(incident.country);
-  else {
-    const svg = document.getElementById("flank-map");
-    if (svg) applyMapView(svg);
-  }
+  state.skipCountryZoom = false;
+  focusMap(incident.lon, incident.lat, incident.place || "");
 }
 
 function svgPoint(svg, event) {
@@ -1370,6 +1449,49 @@ function clearOfLabels(x, y, r, boxes) {
   return [x, y + step * 3];
 }
 
+function nudgeIconsOffLabels(svg) {
+  const labels = [...svg.querySelectorAll(".map-label")].map((node) => node.getBoundingClientRect());
+  const px = pixelsPerUser(svg) || 1;
+  svg.querySelectorAll(".incident-dot").forEach((dot) => {
+    const circle = dot.querySelector("circle");
+    if (!circle) return;
+    let box = circle.getBoundingClientRect();
+    for (let n = 0; n < 8; n++) {
+      const hit = labels.some((label) => box.left < label.right + 2 && box.right > label.left - 2 && box.top < label.bottom + 2 && box.bottom > label.top - 2);
+      if (!hit) return;
+      const match = /translate\(([-\d.]+) ([-\d.]+)\)/.exec(dot.getAttribute("transform") || "");
+      if (!match) return;
+      const x = Number(match[1]) + 30 / px;
+      const y = Number(match[2]) + (n % 2 ? 24 / px : 0);
+      dot.setAttribute("transform", "translate(" + x.toFixed(1) + " " + y.toFixed(1) + ")");
+      box = circle.getBoundingClientRect();
+    }
+  });
+}
+
+function showIconCaptions() {
+  return Boolean(state.mapCountry) || mapView().w < MAP_HOME.w * 0.75;
+}
+
+function iconCaption(incident) {
+  const key = "legend_" + (incident.type || "");
+  const typeName = incident.type && t(key) !== key ? t(key) : "";
+  const when = dateWords(incident.date);
+  return typeName ? typeName + " " + when : when;
+}
+
+function nudgeIconCaptions(svg) {
+  const labels = [...svg.querySelectorAll(".map-label")].map((node) => node.getBoundingClientRect());
+  const px = pixelsPerUser(svg) || 1;
+  svg.querySelectorAll(".map-icon-label").forEach((caption) => {
+    const box = caption.getBoundingClientRect();
+    const hit = labels.some((label) => box.left < label.right && box.right > label.left && box.top < label.bottom && box.bottom > label.top);
+    if (!hit) return;
+    const y = Number(caption.getAttribute("y")) || 0;
+    caption.setAttribute("y", (y + 20 / px).toFixed(1));
+  });
+}
+
 function raiseCountryLabels(svg) {
   svg.querySelectorAll(".map-label").forEach((node) => svg.appendChild(node));
 }
@@ -1414,11 +1536,29 @@ function layoutIncidents(svg) {
   const r = ICON_SCREEN_R / px;
   const boxes = labelBoxes(svg);
   const icons = incidentIcons();
-  clusterIncidents(svg, items).forEach((group) => {
-    if (group.length > 1) drawIncidentBadge(layer, group, r, boxes);
-    else drawIncidentIcon(layer, group[0], r, boxes, icons);
-  });
+  if (state.mapCountry) {
+    const placed = [];
+    items.forEach((item) => {
+      const at = project(Number(item.lon), Number(item.lat));
+      let x = at[0];
+      let y = at[1];
+      for (let n = 0; n < placed.length + 1; n++) {
+        const hit = placed.some((point) => Math.hypot(point[0] - x, point[1] - y) < r * 2.6);
+        if (!hit) break;
+        x = at[0] + r * 2.8 * (n + 1);
+      }
+      placed.push([x, y]);
+      drawIncidentIcon(layer, { item: item, x: x, y: y }, r, boxes, icons);
+    });
+  } else {
+    clusterIncidents(svg, items).forEach((group) => {
+      if (group.length > 1) drawIncidentBadge(layer, group, r, boxes);
+      else drawIncidentIcon(layer, group[0], r, boxes, icons);
+    });
+  }
   fitIncidentIcons(svg);
+  nudgeIconsOffLabels(svg);
+  nudgeIconCaptions(svg);
   raiseCountryLabels(svg);
 }
 
@@ -1451,6 +1591,14 @@ function drawIncidentIcon(layer, point, r, boxes, icons) {
   const tip = document.createElementNS("http://www.w3.org/2000/svg", "title");
   tip.textContent = incidentLabel(incident) + ". " + (incident.type || "unspecified") + ". " + incident.summary;
   dot.append(tip);
+  if (showIconCaptions()) {
+    const caption = document.createElementNS("http://www.w3.org/2000/svg", "text");
+    caption.setAttribute("class", "map-icon-label");
+    caption.setAttribute("y", "0");
+    caption.setAttribute("dominant-baseline", "central");
+    caption.textContent = iconCaption(incident);
+    dot.append(caption);
+  }
   dot.addEventListener("click", (click) => {
     click.stopPropagation();
     stop();
