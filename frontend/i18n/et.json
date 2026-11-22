@@ -230,5 +230,7 @@
   "week_label": "Nädal",
   "map_label": "Kaart",
   "news_label": "Uudised",
-  "briefing_label": "Ülevaade"
+  "briefing_label": "Ülevaade",
+  "now_scope": "Ainult tähelepanu ja juhtumid. Täielikku pingetaset ei arvutata.",
+  "not_one_country": "Ei ole seotud ühe riigiga"
 }

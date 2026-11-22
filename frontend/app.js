@@ -1,5 +1,5 @@
 const START = "2021-01-04";
-const ASSET_V = "20261122b";
+const ASSET_V = "20261122c";
 
 function t(key) {
   const pack = state.text || {};
@@ -314,7 +314,7 @@ function regionLine() {
   const concerned = [];
   let label = "";
   activeEvents(week).forEach((event) => {
-    const names = COUNTRIES.filter((code) => concerns(event, code)).map((code) => state.text["country_" + code]);
+    const names = COUNTRIES.filter((code) => concerns(event, code)).map((code) => englishCountry(code));
     if (!names.length) return;
     if (!label) label = shortLabel(event);
     names.forEach((name) => {
@@ -324,7 +324,7 @@ function regionLine() {
   if (label && concerned.length) {
     return "Region: " + sign.word + " — " + label + " (" + concerned.join(", ") + ")";
   }
-  const named = COUNTRIES.filter((code) => countryMedia(code).length).map((code) => state.text["country_" + code]);
+  const named = COUNTRIES.filter((code) => countryMedia(code).length).map((code) => englishCountry(code));
   if (sign.kind !== "normal" && named.length) {
     return "Region: " + sign.word + " — headlines name " + named.join(", ");
   }
@@ -423,7 +423,7 @@ function renderNowStrip() {
   const note = document.getElementById("now-label");
   if (note) {
     note.hidden = false;
-    note.textContent = state.nowPack.label;
+    note.textContent = t("now_scope");
   }
   COUNTRIES.forEach((code) => {
     const button = document.createElement("button");
@@ -503,7 +503,7 @@ function renderStrip() {
   const note = document.getElementById("now-label");
   if (note) {
     note.hidden = !inNow();
-    if (inNow()) note.textContent = state.nowPack.label || "";
+    if (inNow()) note.textContent = t("now_scope");
   }
   COUNTRIES.concat(["RU"]).forEach((code) => {
     const button = document.createElement("button");
@@ -543,7 +543,7 @@ function renderRegionOverview() {
   if (!open) return;
   if (inNow()) {
     const line = document.getElementById("region-overview-line");
-    if (line) line.textContent = t("incidents_first") + " " + (state.nowPack.label || "");
+    if (line) line.textContent = t("incidents_first");
     const eventsHost = document.getElementById("region-events");
     eventsHost.innerHTML = "";
     appendIncidentBlock(eventsHost, "Incidents this week", nowIncidents());
@@ -719,7 +719,7 @@ function bottomSentence(code) {
     const card = cards.find((item) => item.line);
     return card && card.line ? card.line : "Inside Russia is context only. It does not change the reading.";
   }
-  const name = state.text["country_" + code];
+  const name = englishCountry(code);
   let attention = "There are stored Russian stories about " + name + " this week";
   if (inNow()) {
     const reading = nowAttention(code);
@@ -823,7 +823,7 @@ function showEvent(event, place) {
   const title = document.createElement("p");
   title.textContent = place.name + " — " + (state.text[event.textKey] || "");
   const when = document.createElement("p");
-  when.textContent = weekWords(event.date);
+  when.textContent = dateWords(event.date);
   const note = document.createElement("p");
   note.textContent = plainNote(event.note);
   if (place.area) {
@@ -1087,7 +1087,7 @@ function renderNews() {
     const section = document.createElement("section");
     section.className = "news-group";
     const heading = document.createElement("h3");
-    heading.textContent = code === "other" ? "Not tied to one country" : state.text["country_" + code];
+    heading.textContent = code === "other" ? t("not_one_country") : state.text["country_" + code];
     section.appendChild(heading);
     const list = document.createElement("ul");
     const expanded = Boolean(state.moreFeed[code]);
@@ -1122,8 +1122,22 @@ function plainNote(note) {
     .join(" ");
 }
 
+function englishCountry(code) {
+  return {
+    FI: "Finland",
+    EE: "Estonia",
+    LV: "Latvia",
+    LT: "Lithuania",
+    PL: "Poland",
+    UA: "Ukraine",
+    BY: "Belarus",
+    RU: "Russia",
+    KG: "Kaliningrad",
+  }[code] || code;
+}
+
 function dateWords(iso) {
-  return weekWords(iso).replace("Week of ", "");
+  return formatDate(iso, state.lang || "en");
 }
 
 function rowForCode(code) {

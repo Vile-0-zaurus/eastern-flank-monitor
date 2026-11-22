@@ -230,5 +230,7 @@
   "week_label": "Week",
   "map_label": "Map",
   "news_label": "News",
-  "briefing_label": "Briefing"
+  "briefing_label": "Briefing",
+  "now_scope": "Attention and incidents only. The full tension level is not computed.",
+  "not_one_country": "Not tied to one country"
 }

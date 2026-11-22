@@ -230,5 +230,7 @@
   "week_label": "Tydzień",
   "map_label": "Mapa",
   "news_label": "Wiadomości",
-  "briefing_label": "Skrót"
+  "briefing_label": "Skrót",
+  "now_scope": "Tylko uwaga i incydenty. Pełny poziom napięcia nie jest liczony.",
+  "not_one_country": "Nie wiąże się z jednym krajem"
 }

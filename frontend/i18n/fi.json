@@ -230,5 +230,7 @@
   "week_label": "Viikko",
   "map_label": "Kartta",
   "news_label": "Uutiset",
-  "briefing_label": "Katsaus"
+  "briefing_label": "Katsaus",
+  "now_scope": "Vain huomio ja tapahtumat. Täyttä jännitetasoa ei lasketa.",
+  "not_one_country": "Ei liity yhteen maahan"
 }

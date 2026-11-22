@@ -230,5 +230,7 @@
   "week_label": "Savaitė",
   "map_label": "Žemėlapis",
   "news_label": "Naujienos",
-  "briefing_label": "Apžvalga"
+  "briefing_label": "Apžvalga",
+  "now_scope": "Tik dėmesys ir incidentai. Visas įtampos lygis neskaičiuojamas.",
+  "not_one_country": "Nesusieta su viena šalimi"
 }

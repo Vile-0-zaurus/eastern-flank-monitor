@@ -230,5 +230,7 @@
   "week_label": "Nedēļa",
   "map_label": "Karte",
   "news_label": "Ziņas",
-  "briefing_label": "Kopsavilkums"
+  "briefing_label": "Kopsavilkums",
+  "now_scope": "Tikai uzmanība un incidenti. Pilns spriedzes līmenis nav aprēķināts.",
+  "not_one_country": "Nav saistīts ar vienu valsti"
 }
