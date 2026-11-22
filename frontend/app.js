@@ -738,12 +738,87 @@ function bottomSentence(code) {
   return attention + ".";
 }
 
+function bestHeadline(code) {
+  const russian = countryMedia(code).filter((story) => englishText(story));
+  const hostile = russian.find((story) => story.hostile);
+  if (hostile) return hostile;
+  if (russian.length) return russian[0];
+  const regional = regionalStories(code).filter((story) => englishText(story));
+  return regional[0] || null;
+}
+
+function appendInTheNews(host, story) {
+  const list = document.createElement("ul");
+  appendStory(list, story);
+  if (!list.childElementCount) return false;
+  const label = document.createElement("h3");
+  label.className = "section-label";
+  label.textContent = t("in_the_news");
+  host.append(label, list);
+  return true;
+}
+
+function snapshotIncidents(code) {
+  return (state.nowPack && state.nowPack.incidents || [])
+    .filter((item) => item.country === code)
+    .slice()
+    .sort((a, b) => a.date < b.date ? -1 : a.date > b.date ? 1 : 0);
+}
+
+function addFact(list, label, value, source) {
+  const item = document.createElement("li");
+  const text = document.createElement("p");
+  text.textContent = label + ": " + value;
+  item.append(text);
+  if (source) {
+    const link = document.createElement("a");
+    link.href = source;
+    link.textContent = t("source");
+    item.append(link);
+  }
+  list.append(item);
+}
+
+function renderFactCard(code) {
+  const card = document.getElementById("country-facts");
+  const body = document.getElementById("country-facts-body");
+  if (!card || !body) return;
+  const facts = state.facts && state.facts[code];
+  if (!facts || code === "RU") {
+    card.hidden = true;
+    body.replaceChildren();
+    return;
+  }
+  card.hidden = false;
+  body.replaceChildren();
+  const list = document.createElement("ul");
+  list.className = "fact-list";
+  if (facts.nato && facts.nato.date && facts.nato.source) {
+    addFact(list, t("fact_nato"), dateWords(facts.nato.date), facts.nato.source);
+  }
+  (facts.borders || []).forEach((border) => {
+    if (!border.text || !border.source) return;
+    const label = border.with === "belarus" ? t("fact_border_belarus") : t("fact_border_russia");
+    addFact(list, label, border.text, border.source);
+  });
+  const rows = snapshotIncidents(code);
+  const latest = rows[rows.length - 1];
+  if (latest && latest.source) {
+    const value = rows.length + ". " + t("fact_latest") + ": " + dateWords(latest.date) + ", " + latest.place;
+    addFact(list, t("fact_incidents"), value, latest.source);
+  } else {
+    addFact(list, t("fact_incidents"), "0. " + t("fact_latest") + ": " + t("fact_none"), "");
+  }
+  body.append(list);
+}
+
 function renderBriefing() {
   const code = state.focus || "LT";
   const title = document.getElementById("briefing-title");
   if (title) title.textContent = code === "RU" ? t("tab_russia") : (state.text["country_" + code] || code);
   const bottom = document.getElementById("bottom-line-text");
   if (bottom) bottom.textContent = bottomSentence(code);
+  renderFactCard(code);
   if (code === "RU") return;
   ["brief-happened", "officials", "country-news"].forEach((id) => {
     const node = document.getElementById(id);
@@ -752,9 +827,11 @@ function renderBriefing() {
   const happened = document.getElementById("region-events");
   if (happened) {
     happened.innerHTML = "";
+    let hadItem = false;
     if (inNow()) {
       const items = nowIncidents(code);
       if (items.length) {
+        hadItem = true;
         const list = document.createElement("ul");
         items.forEach((incident) => appendIncidentLine(list, incident));
         happened.append(list);
@@ -762,13 +839,18 @@ function renderBriefing() {
     } else {
       const items = activeEvents(current().week).filter((event) => concerns(event, code));
       if (items.length) {
+        hadItem = true;
         const list = document.createElement("ul");
         items.forEach((event) => appendEventLine(list, event));
         happened.append(list);
       }
     }
+    if (!hadItem) {
+      const story = bestHeadline(code);
+      if (story) appendInTheNews(happened, story);
+    }
     const stories = regionalStories(code);
-    if (stories.length) {
+    if (hadItem && stories.length) {
       const label = document.createElement("h3");
       label.className = "section-label";
       label.textContent = t("regional_media");
@@ -1916,7 +1998,7 @@ function togglePlayback() {
 
 async function main() {
   setupDoors();
-  const [text, csv, events, map, news, official, countryHeadlines, officials, inside, insideMain, nowPack, nowHeadlines, replayCounts, appYaml, fi, et, lv, lt, pl] = await Promise.all([
+  const [text, csv, events, map, news, official, countryHeadlines, officials, inside, insideMain, nowPack, nowHeadlines, replayCounts, appYaml, facts, fi, et, lv, lt, pl] = await Promise.all([
     fetch(asset("i18n/en.json")).then((response) => response.json()),
     fetch("../docs/reports/2026-10-12-backtest-weeks.csv").then((response) => response.text()),
     fetch(asset("events.json")).then((response) => response.json()),
@@ -1931,6 +2013,7 @@ async function main() {
     fetch(asset("now-headlines.json")).then((response) => response.json()),
     fetch(asset("replay-counts.json")).then((response) => response.ok ? response.json() : { weeks: {} }),
     fetch("../config/app.yaml").then((response) => response.ok ? response.text() : ""),
+    fetch(asset("country-facts.json")).then((response) => response.json()),
     fetch(asset("i18n/fi.json")).then((response) => response.json()),
     fetch(asset("i18n/et.json")).then((response) => response.json()),
     fetch(asset("i18n/lv.json")).then((response) => response.json()),
@@ -1956,6 +2039,7 @@ async function main() {
   state.inside = inside;
   state.insideMain = insideMain;
   state.nowPack = nowPack;
+  state.facts = facts;
   state.nowHeadlines = nowHeadlines;
   state.replayCounts = replayCounts || { weeks: {} };
   state.appConfig = parseAppYaml(appYaml);

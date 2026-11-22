@@ -1,0 +1,95 @@
+{
+  "FI": {
+    "nato": {
+      "date": "2023-04-04",
+      "source": "https://www.nato.int/cps/en/natohq/news_213448.htm",
+      "source_date": "2023-04-04"
+    },
+    "borders": [
+      {
+        "with": "russia",
+        "text": "1,344 km, including 54 km in the Gulf of Finland",
+        "source": "https://rajamedia.raja.fi/-/miten-valtakunnan-rajat-syntyvat-",
+        "source_date": "2022-08-29"
+      }
+    ]
+  },
+  "EE": {
+    "nato": {
+      "date": "2004-03-29",
+      "source": "https://www.nato.int/cps/en/natohq/topics_52044.htm",
+      "source_date": "2024-03-28"
+    },
+    "borders": [
+      {
+        "with": "russia",
+        "text": "136 km land border",
+        "source": "https://politsei.ee/et/kuidas-kaeituda-piirilaehedasel-alal",
+        "source_date": "2026-11-16"
+      }
+    ]
+  },
+  "LV": {
+    "nato": {
+      "date": "2004-03-29",
+      "source": "https://www.nato.int/cps/en/natohq/topics_52044.htm",
+      "source_date": "2024-03-28"
+    },
+    "borders": [
+      {
+        "with": "russia",
+        "text": "283.6 km, of which 143.9 km on land, 133.6 km on rivers, and 6.1 km on lakes",
+        "source": "https://likumi.lv/wwwraksti/2018/067/BILDES/AM_LIGUMS/09_LATVIJAS-KRIEVIJAS%20KOP%C4%AAG%C4%80S%20DEMARK%C4%80CIJAS%20DARBA%20NOSL%C4%92GUMA%20PROTOKOLS.PDF",
+        "source_date": "2017-10-25"
+      },
+      {
+        "with": "belarus",
+        "text": "172.9 km on land",
+        "source": "https://www.rs.gov.lv/lv/projekts/piesaistiti-214-miljoni-eiro-latvijas-krievijas-robezas-posma-modernizacijai",
+        "source_date": "2025-09-02"
+      }
+    ]
+  },
+  "LT": {
+    "nato": {
+      "date": "2004-03-29",
+      "source": "https://www.nato.int/cps/en/natohq/topics_52044.htm",
+      "source_date": "2024-03-28"
+    },
+    "borders": [
+      {
+        "with": "russia",
+        "text": "253.7 km on land. The same page also gives 18.5 km across the Curonian Lagoon and 22.2 km at sea",
+        "source": "https://vsat.lrv.lt/lt/naujienos/valstybes-sienos-apsaugos-tarnybos-pasienieciai-pradejo-patruliuoti-prie-europos-sajungos-isorines-sienos-su-baltarusija-ir-rusija/",
+        "source_date": "2023-11-08"
+      },
+      {
+        "with": "belarus",
+        "text": "678.8 km",
+        "source": "https://vsat.lrv.lt/lt/naujienos/valstybes-sienos-apsaugos-tarnybos-pasienieciai-pradejo-patruliuoti-prie-europos-sajungos-isorines-sienos-su-baltarusija-ir-rusija/",
+        "source_date": "2023-11-08"
+      }
+    ]
+  },
+  "PL": {
+    "nato": {
+      "date": "1999-03-12",
+      "source": "https://www.nato.int/en/about-us/nato-history/history-by-theme/my-country-and-nato/poland-and-nato",
+      "source_date": "2026-03-02"
+    },
+    "borders": [
+      {
+        "with": "russia",
+        "text": "210 km on land. The same page gives 232 km including the sea",
+        "source": "https://www.strazgraniczna.pl/pl/granica/granice-rp/1910,Granice-RP.html",
+        "source_date": "2026-07-07"
+      },
+      {
+        "with": "belarus",
+        "text": "430 km on land",
+        "source": "https://www.strazgraniczna.pl/pl/granica/granice-rp/1910,Granice-RP.html",
+        "source_date": "2026-07-07"
+      }
+    ]
+  }
+}
