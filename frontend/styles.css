@@ -1169,6 +1169,7 @@ body.briefing #inside-russia { display: none; }
 }
 .incident-jump:hover,
 .incident-jump:focus-visible { text-decoration: underline; }
+.incident-count { fill: #fff; font-family: "IBM Plex Mono", ui-monospace, monospace; pointer-events: none; }
 #country-facts { margin: 0 0 12px; }
 #country-facts h3 { margin: 0 0 6px; }
 .fact-list { margin: 0; padding-left: 1.1rem; }

@@ -991,7 +991,7 @@ function applyMapView(svg) {
   svg.setAttribute("viewBox", view.x + " " + view.y + " " + view.w + " " + view.h);
   svg.setAttribute("data-zoom", String(Math.round(view.w)));
   if (state.mapFocusPlace) svg.setAttribute("data-focus-place", state.mapFocusPlace);
-  if (svg.isConnected) fitIncidentIcons(svg);
+  if (svg.isConnected) layoutIncidents(svg);
 }
 
 const ICON_SCREEN_R = 18;
@@ -1019,13 +1019,16 @@ function fitIncidentIcons(svg) {
     icon.setAttribute("transform", "scale(" + s.toFixed(4) + ")");
     icon.setAttribute("stroke-width", (1.2 / s).toFixed(3));
   });
+  svg.querySelectorAll(".incident-count").forEach((text) => {
+    text.setAttribute("font-size", (14 / px).toFixed(2));
+  });
 }
 
-function clampMapView() {
+function clampMapView(minW) {
   const view = mapView();
-  const minW = MAP_HOME.w / 8;
+  const floor = minW || MAP_HOME.w / 8;
   const maxW = MAP_HOME.w;
-  view.w = Math.min(maxW, Math.max(minW, view.w));
+  view.w = Math.min(maxW, Math.max(floor, view.w));
   view.h = view.w * (MAP_HOME.h / MAP_HOME.w);
   const pad = 80;
   view.x = Math.min(MAP_HOME.x + MAP_HOME.w - view.w + pad, Math.max(MAP_HOME.x - pad, view.x));
@@ -1174,7 +1177,7 @@ function wireMapControls() {
   if (zoomReset) zoomReset.addEventListener("click", resetMap);
   window.addEventListener("resize", () => {
     const svg = document.getElementById("flank-map");
-    if (svg) fitIncidentIcons(svg);
+    if (svg) layoutIncidents(svg);
   });
 }
 
@@ -1292,50 +1295,195 @@ function renderMap() {
   if (inNow()) drawIncidents(svg, week);
   host.innerHTML = "";
   host.appendChild(svg);
-  fitIncidentIcons(svg);
-  requestAnimationFrame(() => fitIncidentIcons(svg));
+  layoutIncidents(svg);
+  requestAnimationFrame(() => layoutIncidents(svg));
 }
 
-function drawIncidents(svg, week) {
-  const icons = incidentIcons();
-  activeIncidents().forEach((incident) => {
-    const [x, y] = project(incident.lon, incident.lat);
-    const dot = document.createElementNS("http://www.w3.org/2000/svg", "g");
-    const confirmed = /confirmed/i.test(incident.status || "");
-    const reported = /reported/i.test(incident.status || incident.summary || "");
-    dot.setAttribute("class", "incident-dot" + (confirmed ? " status-confirmed" : reported ? " status-reported" : ""));
-    dot.setAttribute("data-type", incident.type || "unspecified");
-    dot.setAttribute("data-date", incident.date);
-    dot.setAttribute("data-country", incident.country);
-    dot.setAttribute("data-place", incident.place || "");
-    dot.setAttribute("data-lon", incident.lon);
-    dot.setAttribute("data-lat", incident.lat);
-    dot.setAttribute("transform", "translate(" + x.toFixed(1) + " " + y.toFixed(1) + ")");
-    const shape = document.createElementNS("http://www.w3.org/2000/svg", "circle");
-    shape.setAttribute("r", "18");
-    shape.setAttribute("fill", "#0f766e");
-    shape.setAttribute("stroke", "#ffffff");
-    shape.setAttribute("stroke-width", "2");
-    dot.append(shape);
-    if (icons[incident.type]) {
-      const icon = document.createElementNS("http://www.w3.org/2000/svg", "path");
-      icon.setAttribute("d", icons[incident.type]);
-      icon.setAttribute("transform", "scale(1.45)");
-      icon.setAttribute("fill", "none");
-      icon.setAttribute("stroke", "#ffffff");
-      icon.setAttribute("stroke-width", "1.4");
-      dot.append(icon);
-    }
-    const tip = document.createElementNS("http://www.w3.org/2000/svg", "title");
-    tip.textContent = incidentLabel(incident) + ". " + (incident.type || "unspecified") + ". " + incident.summary;
-    dot.append(tip);
-    dot.addEventListener("click", (click) => {
-      click.stopPropagation();
-      stop();
-      openIncident(incident);
-    });
-    svg.appendChild(dot);
+function drawIncidents(svg) {
+  state.incidentMarks = activeIncidents();
+  const layer = document.createElementNS("http://www.w3.org/2000/svg", "g");
+  layer.id = "incident-layer";
+  svg.appendChild(layer);
+}
+
+function clusterLimitPx() {
+  return ICON_SCREEN_R * 4;
+}
+
+function clusterIncidents(svg, items) {
+  const ctm = svg.getScreenCTM();
+  const points = items.map((item, index) => {
+    const at = project(Number(item.lon), Number(item.lat));
+    const point = svg.createSVGPoint();
+    point.x = at[0];
+    point.y = at[1];
+    const screen = ctm ? point.matrixTransform(ctm) : { x: 0, y: 0 };
+    return { item, index, x: at[0], y: at[1], sx: screen.x, sy: screen.y };
   });
+  const parent = points.map((point) => point.index);
+  const find = (index) => {
+    let at = index;
+    while (parent[at] !== at) {
+      parent[at] = parent[parent[at]];
+      at = parent[at];
+    }
+    return at;
+  };
+  const limit = clusterLimitPx();
+  for (let i = 0; i < points.length; i++) {
+    for (let j = i + 1; j < points.length; j++) {
+      const apart = Math.hypot(points[i].sx - points[j].sx, points[i].sy - points[j].sy);
+      if (apart < limit) parent[find(points[i].index)] = find(points[j].index);
+    }
+  }
+  const groups = new Map();
+  points.forEach((point) => {
+    const key = find(point.index);
+    if (!groups.has(key)) groups.set(key, []);
+    groups.get(key).push(point);
+  });
+  return [...groups.values()];
+}
+
+function labelBoxes(svg) {
+  return [...svg.querySelectorAll(".map-label")].map((node) => node.getBBox());
+}
+
+function hitsLabel(x, y, r, boxes) {
+  return boxes.some((box) => {
+    const nearX = Math.max(box.x, Math.min(x, box.x + box.width));
+    const nearY = Math.max(box.y, Math.min(y, box.y + box.height));
+    return Math.hypot(x - nearX, y - nearY) < r + 4;
+  });
+}
+
+function clearOfLabels(x, y, r, boxes) {
+  if (!hitsLabel(x, y, r, boxes)) return [x, y];
+  const step = r * 2.4;
+  const shifts = [[step, 0], [-step, 0], [0, step], [0, -step], [step, step], [-step, step], [step, -step], [-step, -step]];
+  for (let n = 1; n <= 3; n++) {
+    for (const [dx, dy] of shifts) {
+      const next = [x + dx * n, y + dy * n];
+      if (!hitsLabel(next[0], next[1], r, boxes)) return next;
+    }
+  }
+  return [x, y + step * 3];
+}
+
+function raiseCountryLabels(svg) {
+  svg.querySelectorAll(".map-label").forEach((node) => svg.appendChild(node));
+}
+
+function zoomUntilSeparate(items) {
+  const svg = document.getElementById("flank-map");
+  if (!svg || items.length < 2) return;
+  const projected = items.map((item) => project(Number(item.lon), Number(item.lat)));
+  let minUser = Infinity;
+  let cx = 0;
+  let cy = 0;
+  projected.forEach((point) => {
+    cx += point[0];
+    cy += point[1];
+  });
+  cx /= projected.length;
+  cy /= projected.length;
+  for (let i = 0; i < projected.length; i++) {
+    for (let j = i + 1; j < projected.length; j++) {
+      minUser = Math.min(minUser, Math.hypot(projected[i][0] - projected[j][0], projected[i][1] - projected[j][1]));
+    }
+  }
+  const px = pixelsPerUser(svg);
+  if (!px) return;
+  const view = mapView();
+  const needed = minUser > 0 ? minUser * px * view.w / clusterLimitPx() * 0.7 : view.w / 4;
+  view.w = Math.min(view.w, needed);
+  view.h = view.w * (MAP_HOME.h / MAP_HOME.w);
+  view.x = cx - view.w / 2;
+  view.y = cy - view.h / 2;
+  clampMapView(Math.min(MAP_HOME.w / 8, needed));
+  applyMapView(svg);
+}
+
+function layoutIncidents(svg) {
+  const layer = svg.querySelector("#incident-layer");
+  if (!layer) return;
+  layer.replaceChildren();
+  const items = state.incidentMarks || [];
+  if (!items.length || !svg.getScreenCTM()) return;
+  const px = pixelsPerUser(svg) || 1;
+  const r = ICON_SCREEN_R / px;
+  const boxes = labelBoxes(svg);
+  const icons = incidentIcons();
+  clusterIncidents(svg, items).forEach((group) => {
+    if (group.length > 1) drawIncidentBadge(layer, group, r, boxes);
+    else drawIncidentIcon(layer, group[0], r, boxes, icons);
+  });
+  fitIncidentIcons(svg);
+  raiseCountryLabels(svg);
+}
+
+function drawIncidentIcon(layer, point, r, boxes, icons) {
+  const incident = point.item;
+  const [x, y] = clearOfLabels(point.x, point.y, r, boxes);
+  const dot = document.createElementNS("http://www.w3.org/2000/svg", "g");
+  const confirmed = /confirmed/i.test(incident.status || "");
+  const reported = /reported/i.test(incident.status || incident.summary || "");
+  dot.setAttribute("class", "incident-dot" + (confirmed ? " status-confirmed" : reported ? " status-reported" : ""));
+  dot.setAttribute("data-type", incident.type || "unspecified");
+  dot.setAttribute("data-date", incident.date);
+  dot.setAttribute("data-country", incident.country);
+  dot.setAttribute("data-place", incident.place || "");
+  dot.setAttribute("transform", "translate(" + x.toFixed(1) + " " + y.toFixed(1) + ")");
+  const shape = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+  shape.setAttribute("r", r.toFixed(2));
+  shape.setAttribute("fill", "#0f766e");
+  shape.setAttribute("stroke", "#ffffff");
+  shape.setAttribute("stroke-width", "2");
+  dot.append(shape);
+  if (icons[incident.type]) {
+    const icon = document.createElementNS("http://www.w3.org/2000/svg", "path");
+    icon.setAttribute("d", icons[incident.type]);
+    icon.setAttribute("fill", "none");
+    icon.setAttribute("stroke", "#ffffff");
+    icon.setAttribute("stroke-width", "1.4");
+    dot.append(icon);
+  }
+  const tip = document.createElementNS("http://www.w3.org/2000/svg", "title");
+  tip.textContent = incidentLabel(incident) + ". " + (incident.type || "unspecified") + ". " + incident.summary;
+  dot.append(tip);
+  dot.addEventListener("click", (click) => {
+    click.stopPropagation();
+    stop();
+    openIncident(incident);
+  });
+  layer.appendChild(dot);
+}
+
+function drawIncidentBadge(layer, group, r, boxes) {
+  const x0 = group.reduce((sum, point) => sum + point.x, 0) / group.length;
+  const y0 = group.reduce((sum, point) => sum + point.y, 0) / group.length;
+  const [x, y] = clearOfLabels(x0, y0, r, boxes);
+  const dot = document.createElementNS("http://www.w3.org/2000/svg", "g");
+  dot.setAttribute("class", "incident-dot incident-badge");
+  dot.setAttribute("data-count", String(group.length));
+  dot.setAttribute("transform", "translate(" + x.toFixed(1) + " " + y.toFixed(1) + ")");
+  const shape = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+  shape.setAttribute("r", r.toFixed(2));
+  shape.setAttribute("fill", "#0f766e");
+  shape.setAttribute("stroke", "#ffffff");
+  shape.setAttribute("stroke-width", "2");
+  const count = document.createElementNS("http://www.w3.org/2000/svg", "text");
+  count.setAttribute("class", "incident-count");
+  count.setAttribute("text-anchor", "middle");
+  count.setAttribute("dominant-baseline", "central");
+  count.textContent = String(group.length);
+  dot.append(shape, count);
+  dot.addEventListener("click", (click) => {
+    click.stopPropagation();
+    stop();
+    zoomUntilSeparate(group.map((point) => point.item));
+  });
+  layer.appendChild(dot);
 }
 
 function openIncident(incident) {
