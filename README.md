@@ -12,7 +12,7 @@ A briefing room for military tension on NATO's eastern flank — watching Russia
 - Cost control is strict: a calibration run first, a real-charge cap, and a stop before the next batch. The ledger records about $4.69.
 - The page is in six languages. Browser self-tests cover the map, the briefing, and the poll.
 
-**Tech stack:** Python 3.11, SQLite, a static HTML and JavaScript page, and Playwright for the self-tests.
+**Tech stack:** Python 3.11, SQLite, a static HTML and JavaScript page, and Playwright for the self-tests. LLM APIs: grok-build-0.1 (classifier), Claude Sonnet (judge), with real-charge caps.
 
 ## What it is
 
