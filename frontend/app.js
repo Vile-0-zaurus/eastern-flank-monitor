@@ -1625,6 +1625,7 @@ function layoutIncidents(svg) {
   fitIncidentIcons(svg);
   nudgeIconsOffLabels(svg);
   raiseCountryLabels(svg);
+  svg.appendChild(layer);
 }
 
 function drawIncidentIcon(layer, point, r, boxes, icons) {
