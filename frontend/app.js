@@ -1,5 +1,5 @@
 const START = "2021-01-04";
-const ASSET_V = "20261122d";
+const ASSET_V = "6d70436";
 
 function t(key) {
   const pack = state.text || {};
