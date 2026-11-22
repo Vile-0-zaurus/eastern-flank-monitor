@@ -172,3 +172,13 @@ Both pages already used for 2021–22 answered HTTP 200.
 2. Key rate: `https://www.cbr.ru/hd_base/KeyRate/?UniDbQuery.Posted=True&UniDbQuery.From=03.08.2026&UniDbQuery.To=25.10.2026`. 60 rows. Every fetched day is 14 percent.
 
 Stored in `manual/russia/economy-now.json`. The 2021–22 file was not rewritten.
+
+## Levada friends and enemies, Round 3
+
+Checked 22 November 2026. Research user-agent only. No block bypass.
+
+The latest reachable "friends and enemies" release on or before 25 October 2026 is the 16 June 2026 page for the 20–28 May 2026 survey: https://www.levada.ru/2026/06/16/predstavleniya-rossiyan-o-druzhestvennyh-i-nedruzhestvennyh-stranah-v-mae-2026-goda/
+
+Printed unfriendly shares: Germany 51%, United States 50%, Ukraine 48%, Britain 44%, Poland 33%, Latvia 29%, Lithuania 28%, Estonia 15%. Finland had no overall share on that page. A 55-and-over split mentioned Finland at 12%. That split is not stored as the country result.
+
+Now uses this poll. Replay keeps the 15 June 2021 release. No newer friends-and-enemies page between 16 June 2026 and 25 October 2026 was found.

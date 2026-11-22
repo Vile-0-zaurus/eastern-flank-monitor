@@ -1,6 +1,26 @@
 {
   "window_start": "2026-08-03",
   "window_end": "2026-10-25",
+  "poll": {
+    "title": "Public mood",
+    "line": "In May 2026, Russians most often named Germany, the United States, Ukraine, Britain, and Poland as unfriendly (Levada).",
+    "poll_date": "20-28 May 2026",
+    "published": "2026-06-16",
+    "pollster": "Levada Center",
+    "caution": "Polls in Russia may not reflect honest opinion",
+    "url": "https://www.levada.ru/2026/06/16/predstavleniya-rossiyan-o-druzhestvennyh-i-nedruzhestvennyh-stranah-v-mae-2026-goda/",
+    "axis": "% of Russians naming this country unfriendly",
+    "full": "Levada Center survey, 20 to 28 May 2026, published 16 June 2026. 1,607 people aged 18 and over. Unfriendly countries named in the printed text: Germany 51%, United States 50%, Ukraine 48%, Britain 44%, Poland 33%, France 28%, Latvia 29%, Lithuania 28%, Estonia 15%. The printed text did not give an overall share for Finland. Allies named: Belarus 80%, China 63%, Kazakhstan 33%, India 33%, North Korea 26%.",
+    "bars": [
+      {"name": "Lithuania", "pct": 28},
+      {"name": "Latvia", "pct": 29},
+      {"name": "Estonia", "pct": 15},
+      {"name": "Poland", "pct": 33},
+      {"name": "Finland", "pct": null},
+      {"name": "USA", "pct": 50, "reference": true},
+      {"name": "Ukraine", "pct": 48, "reference": true}
+    ]
+  },
   "label": "Now: attention and incidents only; full tension level not computed",
   "weeks": [
     "2026-08-03",

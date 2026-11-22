@@ -2199,6 +2199,13 @@ function renderNowQuiet(quiet, week) {
   quiet.append(text, link);
 }
 
+function nowMood() {
+  const poll = state.nowPack && state.nowPack.poll;
+  const end = (state.nowPack && state.nowPack.window_end) || "";
+  if (!poll || !poll.published || !poll.bars || !end || poll.published > end) return null;
+  return poll;
+}
+
 function latestMood(week) {
   const weeks = Object.keys((state.insideMain && state.insideMain.weeks) || {}).filter((key) => key <= week).sort();
   let found = null;
@@ -2213,7 +2220,7 @@ function renderBackground(week) {
   const box = document.getElementById("inside-background");
   if (!box) return;
   box.innerHTML = "";
-  const mood = latestMood(week);
+  const mood = inNow() ? nowMood() : latestMood(week);
   if (!mood) {
     box.hidden = true;
     return;
