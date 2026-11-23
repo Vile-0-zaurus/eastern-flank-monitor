@@ -1,6 +1,6 @@
 # State
 
-Updated: 23 November 2026. Project finished; deploy-ready; live off. The repo is still private.
+Updated: 23 November 2026. Project finished; deploy-ready; live off. The GitHub repo is public. Live monitoring is off.
 
 ## Where we stopped
 
@@ -30,7 +30,7 @@ Test B, corrected rules, post-hoc, not pre-registered: not one result. The Belar
 
 ## Next step
 
-None. Project finished; deploy-ready; live off. Do not turn monitoring on from this file. The repo stays private until you run the public command yourself. The collector timers stay off until the go-live checklist.
+None. Project finished; deploy-ready; live off. Do not turn monitoring on from this file. The collector timers stay off until the go-live checklist.
 
 ## Open decisions
 
