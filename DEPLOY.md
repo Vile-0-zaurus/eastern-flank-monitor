@@ -38,9 +38,10 @@ Do these in order. Stop if a step is unclear.
 2. Set `monthly_cap_usd` in `config/budget.yaml` to a real-charge cap you can afford. `0` blocks every classification call.
 3. Set `live_end_date` in `config/app.yaml`. The job refuses to run live without it. On that date the job stops, the countdown hides, and the page freezes with "Live monitoring ended <date>".
 4. Switch `live_monitoring` to `on`.
-5. Week one is a calibration. Compare the provider console charge with the estimate after the first small batch. If the real charge is higher, lower the cap before the next batch.
-6. Each week, open `http://127.0.0.1:8765` after `python3 scripts/live/admin_server.py`. Approve, reject, or mark reported-only. Add a note. A draft never appears on the site. Aim for 20 minutes.
-7. To stop early: set `live_monitoring` back to `off`, or set `live_end_date` to today, then `systemctl --user disable --now efm-live.timer`.
+5. Re-enable the collector timers (`systemctl --user enable --now daily-collect.timer daily-collect-safety.timer`) so the TASS RSS supplement is saved daily.
+6. Week one is a calibration. Compare the provider console charge with the estimate after the first small batch. If the real charge is higher, lower the cap before the next batch.
+7. Each week, open `http://127.0.0.1:8765` after `python3 scripts/live/admin_server.py`. Approve, reject, or mark reported-only. Add a note. A draft never appears on the site. Aim for 20 minutes.
+8. To stop early: set `live_monitoring` back to `off`, or set `live_end_date` to today, then `systemctl --user disable --now efm-live.timer`. Also disable the collector timers again: `systemctl --user disable --now daily-collect.timer daily-collect-safety.timer`.
 
 ## TASS supplement
 

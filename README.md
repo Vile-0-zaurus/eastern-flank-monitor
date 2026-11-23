@@ -86,6 +86,8 @@ Lessons:
 3. A real-charge cap is checked after each batch. The next batch does not start once the cap is reached. The scoring cap was $4.70. That run cost $3.54.
 4. Translation was measured on one language before the other four were called. The four-language run stayed under its $0.45 cap.
 
+The full write-up is [Lessons learned](docs/lessons.md).
+
 ## Data sources and limits
 
 Details and dates are in `docs/sources.md`.
@@ -128,7 +130,7 @@ The go-live checklist, the server timer, the monthly cap, and how to stop early 
 7. `scripts/` — status, Now build, collectors.
 8. `manual/` — dated analyst inputs.
 9. `tests/` — self-tests.
-10. `docs/` — decisions, tasks, reports, and the sources for this page.
+10. `docs/` — decisions, tasks, reports, and the sources for this page. [Lessons learned](docs/lessons.md).
 11. `data/` — local files, gitignored. Do not load the backtest database all at once.
 
 ## Screenshots

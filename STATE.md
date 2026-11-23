@@ -1,8 +1,10 @@
 # State
 
-Updated: 22 November 2026. Public-repo prep is committed. The repo is still private.
+Updated: 23 November 2026. Project finished; deploy-ready; live off. The repo is still private.
 
 ## Where we stopped
+
+23 November 2026. Project finished; deploy-ready; live off. The go-live checklist now re-enables the collector timers so the TASS RSS supplement is saved daily, and disables them again on an early stop. Lessons learned is `docs/lessons.md`, copied as-is. Live monitoring is off. The collector timers stay off until that checklist.
 
 22 November 2026. TASS is almost gone from the Now GDELT file after 16 September. The live job reads saved TASS RSS only when monitoring is on. Russian outlet rows are no longer region-filtered. History was not rewritten. The daily collector timers stay disabled. To turn them back on: `systemctl --user enable --now daily-collect.timer daily-collect-safety.timer`. LICENSE is MIT for the code. A personal-info scan was reported. History was not rewritten. A timed-out approval is skipped, not retried, and does not stop the task. The report ends with a Needs your approval list. Map icons have no native tooltip. The hover card sits beside the icon. Confirmed icons are solid white on a dark circle. Reported icons are an amber dashed outline. Country facts with a dated source are on the card. Capital-to-border distance is left out. Finland has no allied-troops line. Poland has no conscription line. The Now background poll is the 16 June 2026 Levada release. Replay keeps the 2021 poll. Finland has no overall share on that page. Checks are in tests/round3_selftest.py. Screenshots are in ~/Desktop/efm-check6/. No API calls.
 
@@ -28,7 +30,7 @@ Test B, corrected rules, post-hoc, not pre-registered: not one result. The Belar
 
 ## Next step
 
-None. The repo stays private until you run the public command yourself. The collector timers are off.
+None. Project finished; deploy-ready; live off. Do not turn monitoring on from this file. The repo stays private until you run the public command yourself. The collector timers stay off until the go-live checklist.
 
 ## Open decisions
 
