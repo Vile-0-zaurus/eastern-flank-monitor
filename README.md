@@ -1,6 +1,6 @@
 # Eastern Flank Monitor
 
-A briefing room for military tension on NATO's eastern flank — watching Russia's side.
+A narrative-watch briefing for NATO's eastern flank: what Russian state media says about Finland, Estonia, Latvia, Lithuania and Poland — plus confirmed incidents — readable in a few minutes a week.
 
 ![A 48-second walk of the page](docs/demo.gif)
 
@@ -14,9 +14,19 @@ A briefing room for military tension on NATO's eastern flank — watching Russia
 
 **Tech stack:** Python 3.11, SQLite, a static HTML and JavaScript page, and Playwright for the self-tests. LLM APIs: grok-build-0.1 (classifier), Claude Sonnet (judge), with real-charge caps.
 
+## Who it's for
+
+Regular people in the region. No military or technical background is needed.
+
+A few minutes a week is enough. A quick daily look also works.
+
+It explains what Russian media is saying, and what actually happened, in a calm voice.
+
+It is a media and narrative monitoring tool. It is not a prediction service. It is not a warning service.
+
 ## What it is
 
-A local prototype. It reads public Russian coverage of Finland, Estonia, Latvia, Lithuania, and Poland, and shows a calm picture. It does not collect or display Finnish, Baltic, Polish, or NATO force locations.
+A local prototype for media and narrative watching. It reads what Russian state media says about Finland, Estonia, Latvia, Lithuania, and Poland, and sets that next to confirmed incidents. Tension levels are context for that picture, not a forecast. It does not collect or display Finnish, Baltic, Polish, or NATO force locations.
 
 Two modes:
 

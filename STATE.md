@@ -1,8 +1,10 @@
 # State
 
-Updated: 23 November 2026. Project finished; deploy-ready; live off. The GitHub repo is public. Live monitoring is off.
+Updated: 25 November 2026. Project finished; deploy-ready; live off. The GitHub repo is public. Live monitoring is off.
 
 ## Where we stopped
+
+25 November 2026. README opening is the narrative-watch pitch. A short "Who it's for" section sits after Highlights. "What it is" leads with media and narrative watching. Tension levels are context, not a forecast. The GitHub description and topics match that wording. Live monitoring stays off.
 
 23 November 2026. Project finished; deploy-ready; live off. The go-live checklist now re-enables the collector timers so the TASS RSS supplement is saved daily, and disables them again on an early stop. Lessons learned is `docs/lessons.md`, copied as-is. Live monitoring is off. The collector timers stay off until that checklist.
 
